@@ -1,0 +1,67 @@
+dtb 0x604e2d8c+0x3493 ramdisk 0x605a7000+0xa6af2
+Sending 'artifacts/phase-04/boot-lidar-console-wdt-k1-acm.img' (16384 KB) OKAY [  2.283s]
+Finished. Total time: 2.283s
+>>> unzip 0x60100a00 0x40080000
+OKAY [  0.190s]
+Finished. Total time: 0.190s
+>>> cp.b 0x604e2d8c 0x4e000000 0x3493
+OKAY [  0.000s]
+Finished. Total time: 0.000s
+>>> cp.b 0x605a7000 0x44000000 0xa6af2
+OKAY [  0.001s]
+Finished. Total time: 0.001s
+>>> setenv b1 console=ttyS0,921600n1
+OKAY [  0.000s]
+Finished. Total time: 0.000s
+>>> setenv b2 earlycon=uart8250,mmio32,0x11005000
+OKAY [  0.000s]
+Finished. Total time: 0.000s
+>>> setenv b3 clk_ignore_unused lidar.autoreboot=240
+OKAY [  0.000s]
+Finished. Total time: 0.000s
+>>> setenv bootargs ${b1} ${b2} ${b3}
+OKAY [  0.000s]
+Finished. Total time: 0.000s
+>>> fdt addr 0x4e000000
+OKAY [  0.001s]
+Finished. Total time: 0.001s
+>>> fdt get value m / model
+OKAY [  0.000s]
+Finished. Total time: 0.000s
+>>> printenv m bootargs
+OKAY [  0.002s]
+Finished. Total time: 0.002s
+>>> console
+(bootloader) Core:  16 devices, 11 uclasses, devicetree: separate
+(bootloader) WDT:   Not starting watchdog@10007000
+(bootloader) MMC:   
+(bootloader) Loading Environment from <NULL>...Loading Environment from
+(bootloader)  <NULL>... OK
+(bootloader) In:    serial@11005000
+(bootloader) Out:   serial@11005000
+(bootloader) Err:   serial@11005000
+(bootloader) MTK MUSB OTG (Peripheral)
+(bootloader) Net:   No ethernet found.
+(bootloader) [2KHit any key to stop autoboot: 0
+(bootloader) musb-hdrc: peripheral reset irq lost!
+(bootloader) U-Boot 2026.10-dirty (Nov 17 2026 - 10:26:42 +1100)
+(bootloader) 
+(bootloader) aarch64-linux-gnu-gcc (GCC) 16.2.0
+(bootloader) GNU ld (GNU Binutils) 2.47
+(bootloader) Starting download of 16777216 bytes
+(bootloader) ...........................................................
+(bootloader) ...............
+(bootloader) ......................................................
+(bootloader) downloading of 16777216 bytes finished
+(bootloader) Uncompressed size: 9241088 = 0x8D0200
+(bootloader) Working FDT set to 4e000000
+(bootloader) m=LibreEcho Lidar
+(bootloader) bootargs=console=ttyS0,921600n1 earlycon=uart8250,mmio32,0x
+(bootloader) 11005000 clk_ignore_unused lidar.autoreboot=240
+OKAY [  0.002s]
+Finished. Total time: 0.002s
+FAILED (remote: 'Empty console')
+fastboot: error: Command failed
+>>> booti 2026-11-17T14:32:59+11:00
+FAILED (Status read failed (Protocol error))
+fastboot: error: Command failed

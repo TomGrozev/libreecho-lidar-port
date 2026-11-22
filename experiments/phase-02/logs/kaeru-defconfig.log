@@ -1,0 +1,15 @@
+  HOSTCC  scripts/basic/fixdep
+  HOSTCC  scripts/kconfig/conf.o
+  SHIPPED scripts/kconfig/zconf.tab.c
+  SHIPPED scripts/kconfig/lex.zconf.c
+  SHIPPED scripts/kconfig/zconf.hash.c
+  HOSTCC  scripts/kconfig/zconf.tab.o
+In file included from scripts/kconfig/zconf.tab.c:2501:
+scripts/kconfig/confdata.c: In function ‘conf_write’:
+scripts/kconfig/confdata.c:574:35: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  574 |                 } else if ((slash = strrchr(name, '/'))) {
+      |                                   ^
+  HOSTLD  scripts/kconfig/conf
+#
+# configuration written to .config
+#

@@ -1,0 +1,16 @@
+EFR32 host UART probe (read-only), 2026-11-21
+Port: uart2 / serial@11007000 = /dev devtmpfs ttyS1 (4:65); stty 115200 raw
+      -echo -crtscts -ixon -ixoff; sent "\r"; read 2 s.
+Command: TTY=/run/devtmpfs/ttyS1 sh /run/probe-uart.sh 2
+rx hex:
+ 0d 0a 47 65 63 6b 6f 20 42 6f 6f 74 6c 6f 61 64
+ 65 72 20 76 31 2e 30 2e 30 0d 0a 31 2e 20 75 70
+ 6c 6f 61 64 20 67 62 6c 0d 0a 32 2e 20 72 75 6e
+ 0d 0a 33 2e 20 65 62 6c 20 69 6e 66 6f 0d 0a 42
+ 4c 20 3e 20 00
+rx text:
+Gecko Bootloader v1.0.0
+1. upload gbl
+2. run
+3. ebl info
+BL > \0

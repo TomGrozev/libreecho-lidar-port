@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "description": "stock boot-chain restore drill, pre-Kaeru same-byte rewrite",
+  "device": {
+    "hwcode": "0x8167",
+    "flash_bytes": 7650410496,
+    "boot_area_bytes": 2097152,
+    "sector_bytes": 512
+  },
+  "chain_installed": false,
+  "partitions": [
+    {
+      "name": "gpt",
+      "kind": "user",
+      "partition_bytes": 7650410496,
+      "source": "/workspace/libreecho/dumps/20261110-lidar-readback/stock-boot-chain-backup/gpt.bin",
+      "source_bytes": 90112,
+      "sha256": "7668e74b33f37cc06e73c99c9226d8b7f8f6259f2a7e4678378bf7e40196b682",
+      "policies": [
+        "readback_verify"
+      ]
+    },
+    {
+      "name": "gpt_backup",
+      "kind": "user",
+      "partition_bytes": 7650410496,
+      "source": "/workspace/libreecho/dumps/20261110-lidar-readback/stock-boot-chain-backup/gpt_backup.bin",
+      "source_bytes": 16896,
+      "sha256": "07fda82bd175d93cacfd32e0c2f15ce141688856deffa9e67131cba721f0945c",
+      "policies": [
+        "readback_verify"
+      ],
+      "offset": 7650393600
+    },
+    {
+      "name": "expdb",
+      "kind": "user",
+      "partition_bytes": 10485760,
+      "source": "/workspace/libreecho/dumps/20261110-lidar-readback/stock-boot-chain-backup/expdb.bin",
+      "source_bytes": 10485760,
+      "sha256": "e5b844cc57f57094ea4585e235f36c78c1cd222262bb89d53c94dcb4d6b3e55d",
+      "policies": [
+        "readback_verify"
+      ]
+    },
+    {
+      "name": "tee1",
+      "kind": "user",
+      "partition_bytes": 5242880,
+      "source": "/workspace/libreecho/dumps/20261110-lidar-readback/stock-boot-chain-backup/tee1.bin",
+      "source_bytes": 5242880,
+      "sha256": "aa2b92914cf3dc8dcfebc958b99d752cb98bb20a79bf48570639587c838ad75e",
+      "policies": [
+        "readback_verify"
+      ]
+    },
+    {
+      "name": "boot1",
+      "kind": "boot2",
+      "partition_bytes": 2097152,
+      "source": "/workspace/libreecho/dumps/20261110-lidar-readback/boot1.bin",
+      "source_bytes": 2097152,
+      "sha256": "4c8e02060ab820652000e4ffae90c5554d88230625edc704d269bee3efeb80f3",
+      "policies": [
+        "never_write"
+      ]
+    },
+    {
+      "name": "boot0",
+      "kind": "boot1",
+      "partition_bytes": 2097152,
+      "source": "/workspace/libreecho/dumps/20261110-lidar-readback/stock-boot-chain-backup/boot0.bin",
+      "source_bytes": 2097152,
+      "sha256": "d5fc0bbbc89b7dfaa7ca39fc1d0bc8da0df4a66e2324f3a9742ba70c04f5e327",
+      "policies": [
+        "sector0_last",
+        "readback_verify"
+      ]
+    }
+  ]
+}

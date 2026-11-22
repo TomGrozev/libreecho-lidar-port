@@ -1,0 +1,18 @@
+==socks
+srw-rw----    1 0        0                0 Jan  1 00:01 [1;35m/run/libreecho/airplay.sock[m
+srw-rw----    1 0        0                0 Jan  1 00:00 [1;35m/run/libreecho/audio.sock[m
+srw-rw----    1 0        0                0 Jan  1 00:01 [1;35m/run/libreecho/bluetooth.sock[m
+srw-rw----    1 0        0                0 Jan  1 00:00 [1;35m/run/libreecho/led.sock[m
+srw-rw-rw-    1 0        0                0 Jan  1 00:00 [1;35m/run/libreecho/log.sock[m
+srwx------    1 0        0                0 Jan  1 00:00 [1;35m/run/libreecho/mdns.sock[m
+srw-rw----    1 0        0                0 Jan  1 00:00 [1;35m/run/libreecho/mic.sock[m
+srw-rw----    1 0        0                0 Jan  1 00:00 [1;35m/run/libreecho/network.sock[m
+srw-rw----    1 0        0                0 Jan  1 00:01 [1;35m/run/libreecho/radio.sock[m
+srw-rw----    1 0        0                0 Jan  1 00:01 [1;35m/run/libreecho/stt.sock[m
+srw-rw----    1 0        0                0 Jan  1 00:01 [1;35m/run/libreecho/timer.sock[m
+srw-rw----    1 0        0                0 Jan  1 00:01 [1;35m/run/libreecho/tts.sock[m
+ 4376 0         0:00 /usr/local/sbin/libreecho-audiod --foreground --socket /run/libreecho/audio.sock
+ 4693 0         0:00 /usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap
+ 8310 0         0:32 /run/libreecho/features/tts/root/usr/local/sbin/libreecho-ttsd --foreground --socket /run/libreecho/tts.sock --model-dir /run/libreecho/features/tts/root/usr/local/share/libreecho/tts/models/southern-female --voice southern-female
+ 9807 0         0:12 /run/libreecho/features/stt/root/usr/local/sbin/libreecho-sttd --socket /run/libreecho/stt.sock --model-dir /run/libreecho/features/stt/root/usr/local/share/libreecho/stt --threads 2
+10369 0         0:00 {libreecho-agent} /bin/sh /etc/init.d/libreecho-agentd.init start

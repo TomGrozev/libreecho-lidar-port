@@ -1,0 +1,95 @@
+ls: /dev/ttyGS*: No such file or directory
+---
+[1;34mffs.adb[m
+---
+configured
+---
+PID   USER     TIME  COMMAND
+    1 0         0:00 {init} /bin/busybox sh /init skip_initramfs
+    2 0         0:00 [kthreadd]
+    3 0         0:00 [pool_workqueue_]
+    4 0         0:00 [kworker/R-rcu_g]
+    5 0         0:00 [kworker/R-sync_]
+    6 0         0:00 [kworker/R-kvfre]
+    7 0         0:00 [kworker/R-slub_]
+    8 0         0:00 [kworker/R-netns]
+    9 0         0:00 [kworker/0:0-eve]
+   10 0         0:00 [kworker/0:0H-ev]
+   11 0         0:00 [kworker/0:1-eve]
+   12 0         0:00 [kworker/u16:0-a]
+   13 0         0:00 [kworker/R-mm_pe]
+   14 0         0:00 [ksoftirqd/0]
+   15 0         0:00 [rcu_sched]
+   16 0         0:00 [rcu_exp_par_gp_]
+   17 0         0:00 [rcu_exp_gp_kthr]
+   18 0         0:00 [migration/0]
+   19 0         0:00 [cpuhp/0]
+   20 0         0:00 [cpuhp/1]
+   21 0         0:00 [migration/1]
+   22 0         0:00 [ksoftirqd/1]
+   23 0         0:00 [kworker/1:0-eve]
+   24 0         0:00 [kworker/1:0H-ev]
+   25 0         0:00 [cpuhp/2]
+   26 0         0:00 [migration/2]
+   27 0         0:00 [ksoftirqd/2]
+   28 0         0:00 [kworker/2:0-rcu]
+   29 0         0:00 [kworker/2:0H-ev]
+   30 0         0:00 [cpuhp/3]
+   31 0         0:00 [migration/3]
+   32 0         0:00 [ksoftirqd/3]
+   33 0         0:00 [kworker/3:0-dev]
+   34 0         0:00 [kworker/3:0H-ev]
+   35 0         0:00 [kdevtmpfs]
+   36 0         0:00 [kworker/R-inet_]
+   37 0         0:00 [kworker/u17:0-h]
+   38 0         0:00 [oom_reaper]
+   39 0         0:00 [kworker/R-write]
+   40 0         0:00 [kcompactd0]
+   41 0         0:00 [kworker/R-kbloc]
+   42 0         0:00 [kworker/u16:1-e]
+   43 0         0:00 [kworker/u16:2-k]
+   44 0         0:01 [kworker/u16:3-e]
+   45 0         0:00 [watchdogd]
+   46 0         0:00 [kworker/1:1-mm_]
+   47 0         0:00 [kworker/R-cfg80]
+   48 0         0:00 [kworker/0:1H-mm]
+   49 0         0:00 [kswapd0]
+   50 0         0:00 [kworker/3:1-eve]
+   51 0         0:00 [kworker/2:1-eve]
+   52 0         0:00 [hwrng]
+   53 0         0:00 [irq/33-amz_priv]
+   54 0         0:00 [kworker/3:2-rcu]
+   55 0         0:00 [kworker/3:3]
+   56 0         0:00 [kworker/R-mmc_c]
+   57 0         0:00 [kworker/2:2-dev]
+   58 0         0:00 [kworker/R-mld]
+   59 0         0:00 [kworker/R-ipv6_]
+   60 0         0:00 [kworker/2:3-rcu]
+   80 0         0:00 [kworker/u17:1-h]
+   81 0         0:00 [kworker/0:2-eve]
+   84 0         0:00 [kworker/u17:2]
+   99 0         0:00 [kworker/1:1H-kb]
+  112 0         0:00 [kworker/3:1H-kb]
+  113 0         0:00 [kworker/2:1H-kb]
+  116 0         0:00 [kworker/0:3-eve]
+  141 0         0:01 /sbin/adbd --device_banner=device
+  150 0         0:00 {init} /bin/busybox sh /init skip_initramfs
+  210 0         0:00 [jbd2/mmcblk0p16]
+  211 0         0:00 [kworker/R-ext4-]
+  448 0         0:00 {init} /bin/busybox sh /init skip_initramfs
+  459 0         0:00 {init} /bin/busybox sh /init skip_initramfs
+  461 0         0:00 {init} /bin/busybox sh /init skip_initramfs
+  468 0         0:00 /bin/busybox sleep 3600
+ 1178 0         0:00 /usr/local/sbin/libreecho-logd --foreground
+ 1454 0         0:00 /usr/local/sbin/libreecho-timed --foreground --status /run
+ 1716 0         0:00 /usr/local/sbin/libreecho-web --backend linux --config /da
+ 1720 0         0:00 {libreecho-web.i} /bin/sh /etc/init.d/libreecho-web.init s
+ 1952 0         0:00 sleep 30
+ 2168 0         0:00 /bin/busybox sleep 1
+ 2169 0         0:00 /bin/busybox sleep 1
+ 2170 0         0:00 /bin/busybox sleep 1
+ 2171 0         0:00 /bin/busybox sleep 1
+ 2172 0         0:00 /system/bin/sh -c ls /dev/ttyGS* 2>&1; echo ---; ls /sys/k
+ 2178 0         0:00 ps
+---
+ls: /dev/serial/by-id: No such file or directory

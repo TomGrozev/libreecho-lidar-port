@@ -1,0 +1,22 @@
+{
+ "body": {
+  "data": {
+   "connected": true,
+   "discoverable": true,
+   "enabled": true,
+   "installed": true,
+   "listening": true,
+   "muted": false,
+   "paired": false,
+   "running": true,
+   "server": "Music Assistant (<MA_POD_A>)",
+   "state": "connected",
+   "streaming": false,
+   "time_synced": true,
+   "volume": 50
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

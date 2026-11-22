@@ -1,0 +1,7 @@
+{"backend":"mtkclient","manifest_sha256":"098bd73e17a73af2c5ffb3ff3bb19ce559f3aba6ec886c1b1b0906554f6edea8","plan_sha256":"e00d6090385bab62bbede781c1f97605ea7d835aaab3ffbcd1b49e12e2dc46d8","type":"header","version":1}
+{"index":0,"kind":"user","length":90112,"offset":0,"partition":"gpt","sha256":"7668e74b33f37cc06e73c99c9226d8b7f8f6259f2a7e4678378bf7e40196b682","type":"op"}
+{"index":1,"kind":"user","length":16896,"offset":7650393600,"partition":"gpt_backup","sha256":"07fda82bd175d93cacfd32e0c2f15ce141688856deffa9e67131cba721f0945c","type":"op"}
+{"index":2,"kind":"user","length":10485760,"offset":0,"partition":"expdb","sha256":"e5b844cc57f57094ea4585e235f36c78c1cd222262bb89d53c94dcb4d6b3e55d","type":"op"}
+{"index":3,"kind":"user","length":5242880,"offset":0,"partition":"tee1","sha256":"aa2b92914cf3dc8dcfebc958b99d752cb98bb20a79bf48570639587c838ad75e","type":"op"}
+{"index":4,"kind":"boot1","length":2096640,"offset":512,"partition":"boot0","sha256":"0ed06ed20809ab3cd7cd0e19250c8a796e5ff081118452328c37d20d437a6fbb","type":"op"}
+{"index":5,"kind":"boot1","length":512,"offset":0,"partition":"boot0","sha256":"ee1d14c21d10e7a0ce8a4c9455fa9635278ff9f2afa95fb52b7dc5b0ba82286e","type":"op"}

@@ -1,0 +1,29 @@
+{
+ "body": {
+  "data": {
+   "action": "sound",
+   "action_brightness": 70,
+   "action_capable": true,
+   "action_sounds": "action-1,action-2,action-3",
+   "available": true,
+   "available_sounds": [
+    "action-3",
+    "action-2",
+    "action-1"
+   ],
+   "hardware_mute": true,
+   "lamp_control": false,
+   "long_press": "Open pairing mode",
+   "mute_brightness": 60,
+   "privacy_latch": false,
+   "short_press": "Start listening",
+   "stale": false,
+   "state": "connected",
+   "tones": true,
+   "volume_capable": true
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

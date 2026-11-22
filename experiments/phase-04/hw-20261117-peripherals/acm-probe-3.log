@@ -1,0 +1,73 @@
+
+$ cat /proc/uptime
+~ # [6ncat /proc/uptime; echo __ACM_END_1__
+2.80 9.40
+__ACM_END_1__
+$ uname -a
+
+~ # [6nuname -a; echo __ACM_END_2__
+Linux (none) 6.1.178+ #2 SMP Tue Nov 17 20:27:41 AEDT 2026 aarch64 Linux
+__ACM_END_2__
+$ ls /sys/bus/i2c/drivers/*
+
+~ # [6nls /sys/bus/i2c/drivers/*; echo __ACM_END_3__
+/sys/bus/i2c/drivers/dummy:
+[0;0mbind[m    [0;0muevent[m  [0;0munbind[m
+
+/sys/bus/i2c/drivers/is31fl32xx:
+[1;36m0-003f[m  [0;0mbind[m    [0;0muevent[m  [0;0munbind[m
+
+/sys/bus/i2c/drivers/tlv320adc3xxx-codec:
+[1;36m0-0018[m  [1;36m0-0019[m  [1;36m0-001a[m  [1;36m0-001b[m  [0;0mbind[m    [0;0muevent[m  [0;0munbind[m
+
+/sys/bus/i2c/drivers/tlv320aic32x4:
+[1;36m2-0018[m  [0;0mbind[m    [0;0muevent[m  [0;0munbind[m
+__ACM_END_3__
+$ dmesg | grep -E 'probe of (0-00|2-00|mmc1)'
+
+~ # [6ndmesg | grep -E 'probe of (0-00|2-00|mmc1)'; echo __ACM_END_4__
+probe of 0-003f returned 0 after 16332 usecs
+probe of 0-0018 returned 0 after 101152 usecs
+probe of 0-0019 returned 0 after 987 usecs
+probe of 0-001a returned 0 after 951 usecs
+probe of 0-001b returned 0 after 949 usecs
+probe of 2-0018 returned 0 after 9183 usecs
+probe of mmc1:0001 returned 19 after 52 usecs
+probe of mmc1:0001:2 returned 0 after 669 usecs
+__ACM_END_4__
+$ dmesg | grep -iE 'aic32|tlv|codec'
+
+~ # [6ndmesg | grep -iE 'aic32|tlv|codec'; echo __ACM_END_5__
+calling  aic32x4_i2c_driver_init+0x0/0x28 @ 1
+initcall aic32x4_i2c_driver_init+0x0/0x28 returned 0 after 9780 usecs
+__ACM_END_5__
+$ ls /sys/class/leds | wc -l
+
+~ # [6nls /sys/class/leds | wc -l; echo __ACM_END_6__
+36
+__ACM_END_6__
+$ ls /sys/bus/sdio/devices
+
+~ # [6nls /sys/bus/sdio/devices; echo __ACM_END_7__
+[1;36mmmc1:0001:1[m  [1;36mmmc1:0001:2[m
+__ACM_END_7__
+$ cat /proc/asound/cards
+
+~ # [6ncat /proc/asound/cards; echo __ACM_END_8__
+--- no soundcards ---
+__ACM_END_8__
+$ cd /sys/class/leds
+
+~ # [6ncd /sys/class/leds; echo __ACM_END_9__
+__ACM_END_9__
+$ for l in *:red; do echo 255 > $l/brightness; done
+
+/sys/class/leds # [6nfor l in *:red; do echo 255 > $l/brightness; done; echo __ACM_
+END_10__
+__ACM_END_10__
+/sys/class/leds # [6n
+$ dd if=/dev/input/event0 bs=24 of=/tmp/ev &
+dd if=/dev/input/event0 bs=24 of=/tmp/ev &; echo __ACM_END_11_
+_
+sh: syntax error: unexpected ";"
+/sys/class/leds # [6n

@@ -1,0 +1,49 @@
+24 1 7:0 / /run/libreecho/features/airplay2/root ro,nosuid,nodev,relatime - squashfs /dev/loop0 ro,errors=continue
+25 1 7:1 / /run/libreecho/features/tts/root ro,nosuid,nodev,relatime - squashfs /dev/loop1 ro,errors=continue
+26 1 7:2 / /run/libreecho/features/wakeword/root ro,nosuid,nodev,relatime - squashfs /dev/loop2 ro,errors=continue
+27 1 7:3 / /run/libreecho/features/stt/root ro,nosuid,nodev,relatime - squashfs /dev/loop3 ro,errors=continue
+28 1 7:4 / /run/libreecho/features/assistant/root ro,nosuid,nodev,relatime - squashfs /dev/loop4 ro,errors=continue
+29 24 0:2 /dev /run/libreecho/features/airplay2/root/dev rw - rootfs rootfs rw
+30 24 0:21 / /run/libreecho/features/airplay2/root/proc rw,relatime - proc proc rw
+31 24 0:17 / /run/libreecho/features/airplay2/root/sys rw,relatime - sysfs sysfs rw
+32 24 0:22 / /run/libreecho/features/airplay2/root/run rw,relatime - tmpfs libreecho-airplay-run rw,size=1024k,mode=755
+33 24 0:23 / /run/libreecho/features/airplay2/root/var rw,relatime - tmpfs libreecho-airplay-var rw,size=1024k,mode=755
+---
+total 24
+dr-x------    3 0        0             4096 Jan  1  1970 [1;34m.[m
+drwxrwxrwx    4 0        0             4096 Jan  1  1970 [1;34m..[m
+-r--------    1 0        0               65 Nov 20 23:03 [0;0mCOMPLETE[m
+dr-x------    7 0        0             4096 Jan  1  1970 [1;34mfeatures[m
+-r--------    1 0        0             3847 Nov 20 23:03 [0;0mtarget.manifest[m
+-r--------    1 0        0              129 Nov 20 23:03 [0;0mtarget.manifest.sig[m
+total 28
+dr-x------    7 0        0             4096 Jan  1  1970 [1;34m.[m
+dr-x------    3 0        0             4096 Jan  1  1970 [1;34m..[m
+dr-x------    2 0        0             4096 Jan  1  1970 [1;34mairplay2[m
+dr-x------    2 0        0             4096 Jan  1  1970 [1;34massistant[m
+dr-x------    2 0        0             4096 Jan  1  1970 [1;34mstt[m
+dr-x------    2 0        0             4096 Jan  1  1970 [1;34mtts[m
+dr-x------    2 0        0             4096 Jan  1  1970 [1;34mwakeword[m
+---
+[0;0mmanifest.json[m     [0;0mpayload.squashfs[m
+---
+feature-reconcile-service-ready:waked
+feature-reconcile-service-ready:sttd
+feature-reconcile-shared-discovery-owner:airplayd
+feature-reconcile-service-ready:airplayd
+feature-reconcile-service-ready:ttsd
+feature-reconcile-service-start-failed:agentd:1
+feature-services-reconcile-failed
+persisted-feature-reconcile:1
+first-boot-startup-ready-timeout-degraded
+startup-ready-marker-missing
+first-boot-probe-passed-degraded:1
+ota-health-probe-passed:1
+local-services-degraded-start-no-startup-ready
+startup-ready-marker-missing
+first-boot-probe-passed-degraded:2
+ota-health-probe-passed:2
+startup-ready-marker-missing
+first-boot-probe-passed-degraded:3
+ota-health-probe-passed:3
+ota-health-confirm-failed-rebooting

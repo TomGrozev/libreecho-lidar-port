@@ -1,0 +1,9 @@
+   0.259 reboot: Rebooting                                          OKAY [  0.002s] | Finished. Total time: 0.152s
+   0.293 usb=[] tty=[]
+   2.018 usb=['Bus 001 Device 019: ID 0e8d:2000 MediaTek Inc. MT65xx Preloader'] tty=[]
+   4.840 usb=[] tty=[]
+  67.204 usb=['Bus 001 Device 020: ID 0e8d:2000 MediaTek Inc. MT65xx Preloader'] tty=[]
+  70.071 usb=[] tty=[]
+ 132.661 usb=['Bus 001 Device 021: ID 0e8d:2000 MediaTek Inc. MT65xx Preloader'] tty=[]
+ 135.273 usb=[] tty=[]
+ 180.110 end

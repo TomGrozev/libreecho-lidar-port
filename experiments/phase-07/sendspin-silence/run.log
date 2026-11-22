@@ -1,0 +1,34 @@
+$ python3 lidar_ring.py
+
+=== target biscuit: /tmp/lr_p4nk39m/test_audio_engine_loop /tmp/lr_p4nk39m/loop/biscuit rtstart
+engine-loop: scenario rtstart PASS
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/tmp/lr_p4nk39m/loop/biscuit/rtstart, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /tmp/lr_p4nk39m/loop/biscuit/rtstart/avl.disabled)
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: output S32_LE (24-bit)
+rtstart: credited 47616 frames in 1.04 s over 93 DATA offers
+rtstart: hts ALL 792, >=PERIOD 32 (immediate return), <PERIOD 760 (bridge polls), min avail 8, pcm writes 28
+=== target biscuit: exit 0
+
+=== target radar_puffin: /tmp/lr_p4nk39m/test_audio_engine_loop /tmp/lr_p4nk39m/loop/radar_puffin rtstart
+engine-loop: scenario rtstart PASS
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/tmp/lr_p4nk39m/loop/radar_puffin/rtstart, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /tmp/lr_p4nk39m/loop/radar_puffin/rtstart/avl.disabled)
+audio-engine: output S32_LE (24-bit)
+rtstart: credited 45568 frames in 1.00 s over 89 DATA offers
+rtstart: hts ALL 681, >=PERIOD 31 (immediate return), <PERIOD 650 (bridge polls), min avail 10, pcm writes 27
+=== target radar_puffin: exit 0
+
+=== target lidar_s16_4096: /tmp/lr_p4nk39m/test_audio_engine_loop /tmp/lr_p4nk39m/loop/lidar_s16_4096 rtstart
+audio-engine: speaker chain lidar codec Flat hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/tmp/lr_p4nk39m/loop/lidar_s16_4096/rtstart, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,0)
+audio-engine: music AVL available (disable: /tmp/lr_p4nk39m/loop/lidar_s16_4096/rtstart/avl.disabled)
+rtstart: credited 49664 frames in 1.03 s over 97 DATA offers
+engine-loop FAIL: rtstart: completed generation never closed the PCM
+rtstart: hts ALL 968, >=PERIOD 39 (immediate return), <PERIOD 929 (bridge polls), min avail 10, pcm writes 30
+engine-loop: 1 outer-loop checks failed
+=== target lidar_s16_4096: exit 1
+
+variants failed: 1/3

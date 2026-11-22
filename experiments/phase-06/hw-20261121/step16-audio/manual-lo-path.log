@@ -1,0 +1,14 @@
+87, 87 (range 0->175)
+On, On
+On
+On
+On
+On
+> Speaker, Line Out, 
+playing '/tmp/lidar-both.wav': 2 ch, 48000 hz, 16-bit signed PCM
+Played 768000 bytes. Remains 0 bytes.
+Speaker: Off  in 0 out 1
+ widget-type spk
+ in  "static" "LOR" "tlv320aic32x4.2-0018"
+ in  "static" "LOL" "tlv320aic32x4.2-0018"
+ gpio-105 (                    |amp-enable          ) out lo 

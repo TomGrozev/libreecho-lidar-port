@@ -1,0 +1,19 @@
+13:51:17 fastboot reboot rc=0
+13:51:30 adb found=1
+13:51:30 id rc=0
+13:51:30 cmdline rc=0
+13:51:30 boot_id rc=0
+13:51:50 dmesg rc=0 lines=296
+13:51:50 partitions rc=0
+13:51:50 mmc rc=0
+13:51:50 sdio rc=0
+13:51:50 deferred rc=0
+13:51:50 bootctl rc=0
+13:51:50 audio rc=0
+13:51:50 net_input rc=0
+13:51:50 leds_pstore rc=0
+13:51:50 runtime rc=0
+13:51:50 done
+13:53:11 rebind issued rc=0
+13:53:16 adb after rebind found=1
+13:54:16 acm_shell rc=1

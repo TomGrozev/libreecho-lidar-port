@@ -1,0 +1,17 @@
+
+$ cat /proc/uptime
+
+~ # [6ncat /proc/uptime; echo __ACM_END_1__
+4.93 17.77
+__ACM_END_1__
+$ hexdump -v -e '16/1 "%02x " "\n"' /dev/input/event0 & sleep 50; kill $!; echo window_done
+
+~ # hexdump -v -e '16/1 "%02x " "\n"' /dev/input/event0 & sleep 50; kill $!; ech
+o window_done; echo __ACM_END_2__
+hexdump: /dev/input/event0: Invalid argument
+
+$ for l in /sys/class/leds/*; do echo 0 > $l/brightness; done; echo leds_off
+for l in /sys/class/leds/*; do echo 0 > $l/brightness; done; echo leds_off; echo __ACM_END_3__
+
+$ dmesg > /tmp/d; cat /tmp/d | tail -n 400
+dmesg > /tmp/d; cat /tmp/d | tail -n 400; echo __ACM_END_4__

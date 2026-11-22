@@ -1,0 +1,10 @@
+ 10:02:35 up 5 min,  0 users,  load average: 1.09, 0.98, 0.48
+androidboot.slot_suffix=_a
+state=installed
+features_state=ready
+ota_transaction_state=rollback
+generation=txn-219f754fee5dc47b9e27a977
+selected_slot=a
+slot_a_success=1
+slot_b_success=1
+3827 9464 8545 7807 6461

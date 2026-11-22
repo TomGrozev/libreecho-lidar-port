@@ -1,0 +1,4 @@
+{"pid":32154,"start_time":"148036","boot_id":"f3ff39fa-1cbc-4037-b175-51dcc86eeb14","listener_inode":"254054","port":6053,"ready":true,"connected":true,"in_progress":false,"last_result":"success","last_result_time":1795257024}
+
+tcp        0      0 x.x.x.46:6053       x.x.x.2:45814       ESTABLISHED 
+{"ts":1795255972,"boot_seconds":581,"level":"INFO","service":"libreecho-web","msg":"Home Assistant address updated"}

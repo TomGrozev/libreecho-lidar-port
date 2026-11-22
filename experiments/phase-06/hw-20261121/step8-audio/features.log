@@ -1,0 +1,20 @@
+== airplay2
+avahi-daemon
+dbus-daemon
+libreecho-airplay-audio
+libreecho-audio-engine
+libreecho-sendspind
+nqptp
+== assistant
+libreecho-agentd
+== stt
+libreecho-sttd
+== tts
+libreecho-ttsd
+== wakeword
+libreecho-waked
+===
+ 7342 0         0:32 /run/libreecho/features/tts/root/usr/local/sbin/libreecho-ttsd --foreground --socket /run/libreecho/tts.sock --model-dir /run/libreecho/features/tts/root/usr/local/share/libreecho/tts/models/southern-female --voice southern-female
+ 8120 0         0:12 /run/libreecho/features/stt/root/usr/local/sbin/libreecho-sttd --socket /run/libreecho/stt.sock --model-dir /run/libreecho/features/stt/root/usr/local/share/libreecho/stt --threads 2
+ 9046 0         0:00 /run/libreecho/features/assistant/root/usr/local/sbin/libreecho-agentd --socket /run/libreecho/agent.sock --curl /run/libreecho/features/assistant/root/usr/local/libexec/libreecho-curl
+===

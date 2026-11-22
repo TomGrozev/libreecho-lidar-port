@@ -1,0 +1,7 @@
+schema=1
+target_id=radar_puffin
+speaker_chain=radar_puffin
+codec_profile=Radar
+hp_driver_gain=6
+pre_gain_db=0.00
+bass_makeup_db=0.00

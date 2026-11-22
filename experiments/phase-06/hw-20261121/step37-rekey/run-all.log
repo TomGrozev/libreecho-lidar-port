@@ -1,0 +1,35 @@
+10:34:28 == waiting for toolchain lock
+10:34:28 == waiting for toolchain lock
+10:39:11 == waiting for toolchain lock
+10:39:11 == waiting for toolchain lock
+10:44:41 == waiting for toolchain lock
+10:44:41 == toolchain lock acquired
+10:44:41 == component musl-loader
+10:45:08 == component busybox
+10:45:32 == component libsodium
+10:45:32 == FAIL component libsodium rc=1
+10:53:08 == waiting for toolchain lock
+10:53:08 == toolchain lock acquired
+10:53:08 == component musl-loader
+10:53:34 == component busybox
+10:53:59 == component libsodium
+10:54:15 == component bootctl
+10:54:15 == component update-verify
+10:54:15 == component adbd
+10:54:16 == FAIL component adbd rc=1
+10:55:49 == waiting for toolchain lock
+10:55:49 == toolchain lock acquired
+10:55:49 == component musl-loader
+10:56:16 == component busybox
+10:56:41 == component libsodium
+10:56:57 == component bootctl
+10:56:58 == component update-verify
+10:56:58 == component adbd
+10:57:00 == component mdns
+10:57:01 == ui bundle f43dade
+10:57:51 == ui rc=0
+10:57:51 == images (kernel-step36-thermal, ui f43dade)
+10:58:14 == images rc=0
+10:58:14 == ota v0.2.28
+10:58:15 == ota rc=0
+10:58:15 == DONE_ALL

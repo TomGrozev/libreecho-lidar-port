@@ -1,0 +1,4 @@
+verify_rc=0
+ota_manifest_signature=PASS
+UPDATE_READY slot=b version=0.2.4
+install_rc=0

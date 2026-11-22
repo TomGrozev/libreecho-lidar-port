@@ -1,0 +1,13 @@
+PASS boot.img size 16777216
+PASS boot.img ANDROID! magic
+INFO boot-lidar-v2.img sha256 cd979c08e79014b89459e101ad8f4939af32d8bd65246d39df896555e5d0468a
+PASS ramdisk ota-public-key.hex == new key
+INFO ui-manifest sha256 49d1dde0b5cd5d731ed95f4a269e1917e8344a85377c44a4fcfc837ad2e13095
+PASS ui-manifest source_commit=d63a58a
+PASS payload squashfs sha256 cd5e9d60
+PASS payload libreecho-sendspind 4198d62a6da67f05d6dac02f97c9f512d272e6803e7c2021d55ad450f5770fe0
+PASS payload audio-engine unchanged 84e5ae9bbf6135acd076aeec013c1370f75f6cb9b07e96c9a14b07c5cdeb2c35
+PASS OTA manifest signature verifies with new key
+PASS OTA manifest rejected with old key
+INFO txn id txn-cc95a15ac3b7e1c89d9dc5cb
+INFO bundle sha256 adaffa4038bf02dfd4e4b09298579b830b3ed5554e46bbaa7403d38cc172c8e3

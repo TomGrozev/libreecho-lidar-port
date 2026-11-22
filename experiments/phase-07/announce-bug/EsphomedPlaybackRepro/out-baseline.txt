@@ -1,0 +1,1 @@
+framing=chunked:0 wire=96207 sent=96207 rc=1 fail_line=0 state=0 result=1 frames=48000 bus_bytes=192000 writes=36 first_write_at=20 fail_at=1050 eof=1 fetching=0 chunk_left=18446744073709551615 position=96078 body_len=96078 received=96193 wrote_before_first_frame=0

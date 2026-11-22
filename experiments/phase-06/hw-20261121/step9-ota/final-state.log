@@ -1,0 +1,138 @@
+6.18.64+
+libreecho.lab=p6-v2
+androidboot.slot_suffix=_b
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=1
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=installed
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=237
+failure_log=failure-236-1.log
+features_state=ready
+features_error=
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+generation=txn-7303218adf4646e5decf1908
+feature_airplay2_payload_sha256=a6583300828ff3b95c898e85d513267613452115ff911f9d79c5e4f16bfe6adb
+feature_airplay2_payload_size=9560064
+feature_airplay2_manifest_sha256=9532aba033a4eddc1b0d23d0125d94a401c6898fc211a7f2e2c8fdde2b433e4f
+feature_airplay2_running_daemon=libreecho-audio-engine
+feature_airplay2_running_daemon_sha256=39b6f34e1af27a132fe76e0128a89bee8907f13ed5b87635e853618f51cb9af0
+feature_airplay2_effective=present
+feature_tts_payload_sha256=197e583a378aa49a1d4a823e048920dac7d3a7be8c0b206deed0411ebac0aa78
+feature_tts_payload_size=160206848
+feature_tts_manifest_sha256=126dbad94d512bc8b3b6e1707ed6f52d8bdfba9da0a322b43437bc9dc446b440
+feature_tts_running_daemon=libreecho-ttsd
+feature_tts_running_daemon_sha256=1ef3bfa968a65e4f6d1e66a2784382fd552c688f1e18f7af4770796a17bcd283
+feature_tts_effective=present
+feature_wakeword_payload_sha256=4964fc7b02ec81456fce149b1b82f6cca85f2ce447c48826ee6e34e57423585d
+feature_wakeword_payload_size=8224768
+feature_wakeword_manifest_sha256=13ec6549b8ab7995f6d448cd4a13f23543d3a3ca90f490687cb73a7e989ab0a8
+feature_wakeword_running_daemon=libreecho-waked
+feature_wakeword_running_daemon_sha256=8bcd0bb026d8c255571ebead6faac7840dc932dadede6cf05d93ad55e0872637
+feature_wakeword_effective=present
+feature_stt_payload_sha256=dee3594dd45514d02ce62a60286e702cc2d2f205b344259bdc95e353e4322ede
+feature_stt_payload_size=54263808
+feature_stt_manifest_sha256=95f9a2c8f245ea9234cc0368e149ea9c0ff4bfc99765a98f3eb3cd9163ff03f5
+feature_stt_running_daemon=libreecho-sttd
+feature_stt_running_daemon_sha256=bab519b426665dfc683c5fec548f73b5112fc1c9c13afd2cc107c3fd8a51db7e
+feature_stt_effective=present
+feature_assistant_payload_sha256=a4103ec92daf60e9fc53f2899d9f48efec120d03778ebc0279853ac2fc37a0d1
+feature_assistant_payload_size=3063808
+feature_assistant_manifest_sha256=aba5b27bf2fb6cae966cb8a61a3da13c81af1894fb29014dbff6fac2098016d3
+feature_assistant_running_daemon=libreecho-agentd
+feature_assistant_running_daemon_sha256=de77abb6cb23a17db0f3b0a261b23a70a230d845eae1ef006abb8f1dfbbded63
+feature_assistant_effective=present
+---current
+txn-7303218adf4646e5decf1908
+---wifi
+3: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP qlen 1000
+    inet <DEVICE_IP_A>/26 scope global wlan0
+       valid_lft forever preferred_lft forever
+nameserver <LAN_GATEWAY_A>
+---ps
+ 3636 0         0:00 /usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap
+ 4009 0         2:50 /run/libreecho/features/wakeword/root/usr/local/sbin/libreecho-waked --foreground --socket /run/libreecho/wakeword.sock --mic-socket /run/libreecho/mic.sock --reference-socket /run/libreecho-audio/aec-reference.sock --model-dir /run/libreecho/features/wakeword/root/usr/local/share/libreecho/openwakeword --wake-threads 1 --vad-floor-rms 16
+ 5738 0         0:11 /usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap
+ 9507 0         0:00 /run/libreecho/features/assistant/root/usr/local/sbin/libreecho-agentd --socket /run/libreecho/agent.sock --curl /run/libreecho/features/assistant/root/usr/local/libexec/libreecho-curl
+---agentdlog
+---data
+03f7e6b4b05c72015101a2b093dbe1f3996c375a0086499a22b1504bd0f5ef4d  ./waked-manual.log
+126dbad94d512bc8b3b6e1707ed6f52d8bdfba9da0a322b43437bc9dc446b440  ./generations/txn-508529626fbd711fdbf6bf1c/features/tts/manifest.json
+126dbad94d512bc8b3b6e1707ed6f52d8bdfba9da0a322b43437bc9dc446b440  ./generations/txn-7303218adf4646e5decf1908/features/tts/manifest.json
+13ec6549b8ab7995f6d448cd4a13f23543d3a3ca90f490687cb73a7e989ab0a8  ./generations/txn-508529626fbd711fdbf6bf1c/features/wakeword/manifest.json
+13ec6549b8ab7995f6d448cd4a13f23543d3a3ca90f490687cb73a7e989ab0a8  ./generations/txn-7303218adf4646e5decf1908/features/wakeword/manifest.json
+197e583a378aa49a1d4a823e048920dac7d3a7be8c0b206deed0411ebac0aa78  ./generations/txn-508529626fbd711fdbf6bf1c/features/tts/payload.squashfs
+197e583a378aa49a1d4a823e048920dac7d3a7be8c0b206deed0411ebac0aa78  ./generations/txn-7303218adf4646e5decf1908/features/tts/payload.squashfs
+19d3e35d4206d60e365fc70a76431c1834facb67feff046a1a608c212c30c848  ./update/state
+1bff96b1bf38b4403ee70eea1dc161d6a5fd72538eb9f5e0038942f98d60979f  ./update/staging/bootctl.activate
+3255bc8d934ed6754c03c218185873f4b4aa0e0349c5744e8ce0843f532d9619  ./generations/txn-7303218adf4646e5decf1908/COMPLETE
+3c69410a5f284ffa790abebcc25fbc66277c35a7a3383a2892f0e45c37199fbe  ./generations/txn-508529626fbd711fdbf6bf1c/COMPLETE
+40f31dee9c5a31d77369844b56dbbfb0daf3692e2d7dc590dd2c2166ad3c1ec5  ./update/current
+47747490e0cf1478dcd3539b970a6375caf422243a378b8780c1968788f38219  ./update/config-status
+4964fc7b02ec81456fce149b1b82f6cca85f2ce447c48826ee6e34e57423585d  ./generations/txn-508529626fbd711fdbf6bf1c/features/wakeword/payload.squashfs
+4964fc7b02ec81456fce149b1b82f6cca85f2ce447c48826ee6e34e57423585d  ./generations/txn-7303218adf4646e5decf1908/features/wakeword/payload.squashfs
+572edffb9450b5915d1753c48958bd3937d94b346fa7928f45adba810b5bb5cd  ./update/failure-235-1.log
+58b664f3dc8c41035f958eb5061fea338fc809f72471985e5f5ab9866982aafc  ./config/led-state.json
+6262dd6dae8154be1d8bdfdd439d9aaaae5f18333de7688cfe0a7d8af435774e  ./config/web-config.json
+644486aa010507e4ee87d8a07cc89b20b34c4373e2245f2fc258470e010e7b3e  ./update/installed
+68af2d9a6bcbd8ca28017116e856f1afa23f956434a8a7460f900e521f6c36a1  ./generations/txn-508529626fbd711fdbf6bf1c/target.manifest.sig
+692b575709b111ed6688840168f525633ef09ab2fa40acaec4ced7e4f72a5b99  ./update/staging/boot.img
+6f4d34a6a3aa82faf9bb2762a4358e87141172db6fb0ba90ef3fc93422e5b563  ./update/first-install.pending
+7b8db9a557f5338af544b25ed6acb50f5860a6d8669e144efb5e0b17cb20cca4  ./update/features-status
+8520c0eaaf53ad31cbc63bedbac620178838cecfbfb53a9574ab9e788a04999a  ./config/wpa_supplicant.conf
+86db99d78bdf9739891790f495f75425730c1b551a9236a2da7d7472eeb26ad6  ./generations/txn-508529626fbd711fdbf6bf1c/target.manifest
+8f673c1cd54f3516f23a04d695f0dfda8ae8d655f5dd7bc9fe345d5437bc21cf  ./update/staging/bootctl.status
+946fc2eb3f5ffc5b6a660bb4112977c77c322e7b68d73a62bcdf737f86730a1b  ./update/automatic-updates
+9532aba033a4eddc1b0d23d0125d94a401c6898fc211a7f2e2c8fdde2b433e4f  ./generations/txn-508529626fbd711fdbf6bf1c/features/airplay2/manifest.json
+9532aba033a4eddc1b0d23d0125d94a401c6898fc211a7f2e2c8fdde2b433e4f  ./generations/txn-7303218adf4646e5decf1908/features/airplay2/manifest.json
+95f9a2c8f245ea9234cc0368e149ea9c0ff4bfc99765a98f3eb3cd9163ff03f5  ./generations/txn-508529626fbd711fdbf6bf1c/features/stt/manifest.json
+95f9a2c8f245ea9234cc0368e149ea9c0ff4bfc99765a98f3eb3cd9163ff03f5  ./generations/txn-7303218adf4646e5decf1908/features/stt/manifest.json
+a4103ec92daf60e9fc53f2899d9f48efec120d03778ebc0279853ac2fc37a0d1  ./generations/txn-508529626fbd711fdbf6bf1c/features/assistant/payload.squashfs
+a4103ec92daf60e9fc53f2899d9f48efec120d03778ebc0279853ac2fc37a0d1  ./generations/txn-7303218adf4646e5decf1908/features/assistant/payload.squashfs
+a6583300828ff3b95c898e85d513267613452115ff911f9d79c5e4f16bfe6adb  ./generations/txn-508529626fbd711fdbf6bf1c/features/airplay2/payload.squashfs
+a6583300828ff3b95c898e85d513267613452115ff911f9d79c5e4f16bfe6adb  ./generations/txn-7303218adf4646e5decf1908/features/airplay2/payload.squashfs
+aa58a07ca6351858e75a16017cedb1551c64ab9610336038d88916a8302e61b1  ./update/restart-record
+ab9e727d079f700cd525268cb09beaeb9a424ba399b2844e678878e1f21d527b  ./update/staging/boot-write.log
+aba5b27bf2fb6cae966cb8a61a3da13c81af1894fb29014dbff6fac2098016d3  ./generations/txn-508529626fbd711fdbf6bf1c/features/assistant/manifest.json
+aba5b27bf2fb6cae966cb8a61a3da13c81af1894fb29014dbff6fac2098016d3  ./generations/txn-7303218adf4646e5decf1908/features/assistant/manifest.json
+b038bf53d5b04f41a76a900b980d2d95f9b30e3200ef737109f66a5e6e0fc0c4  ./update/bootctl.confirm
+b15afae48a95ec31a12576e2c3548e37f47b9d391c9b788f71079100272c33d1  ./generations/txn-7303218adf4646e5decf1908/target.manifest.sig
+b15afae48a95ec31a12576e2c3548e37f47b9d391c9b788f71079100272c33d1  ./update/staging/manifest.sig
+b36e982967a1cdf70158df72459dbee715c745a236be311fa9190f49e1cd45d8  ./update/authority-provenance-cache
+b6cc7d17d9b44681a810871d3c5e0331d62549aef9cd98b873a2fb5fd618a7c2  ./update/previous
+c08a9e15dcc9199515c035882f05d323073e9dd23bde5716adebf0a6b2890f79  ./update/rolled-back
+c4e50d79813d694218b2dddcf772918ecfd80f519dc6dd3cdf20c827aa7f0cd7  ./update/failure-236-1.log
+d65f77634ffdf86d74a3d4a00f431c663f39d5937cd937c766de852d788bf5e1  ./update/feature-hash-cache
+d93c1be3d0ea110925e52fe2e4fc026170b2a856822ce8bdbb6e385d05887624  ./update/ota.log
+dee3594dd45514d02ce62a60286e702cc2d2f205b344259bdc95e353e4322ede  ./generations/txn-508529626fbd711fdbf6bf1c/features/stt/payload.squashfs
+dee3594dd45514d02ce62a60286e702cc2d2f205b344259bdc95e353e4322ede  ./generations/txn-7303218adf4646e5decf1908/features/stt/payload.squashfs
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  ./agentd-manual.log
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  ./init-persist.started
+fe8b6e52a4dadd173b7a2f61cfe5ba66c99da3d038b8a380ca0d0fbfeb277f8e  ./generations/txn-7303218adf4646e5decf1908/target.manifest
+fe8b6e52a4dadd173b7a2f61cfe5ba66c99da3d038b8a380ca0d0fbfeb277f8e  ./update/staging/manifest

@@ -1,0 +1,56 @@
+== waked log
+[0;93m2026-11-21 22:56:09.362139385 [W:onnxruntime:libreecho-wake, cpuid_info.cc:105 LogEarlyWarning] Unknown CPU vendor. cpuinfo_vendor value: 0[m
+waked: running (16 kHz, frame=10 ms, AEC tail=200 ms, preroll=3 s, vad-floor=16 RMS, wake=openwakeword-onnx)
+== waked init
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          libreecho-waked
+# Required-Start:    $remote_fs libreecho-micd
+# Required-Stop:     $remote_fs libreecho-micd
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+### END INIT INFO
+
+[ -r /etc/default/libreecho-waked ] && . /etc/default/libreecho-waked
+
+RUNTIME_ROOT=${RUNTIME_ROOT:-/run/libreecho/features/wakeword/root}
+DAEMON=${DAEMON:-$RUNTIME_ROOT/usr/local/sbin/libreecho-waked}
+MODEL_ROOT=${MODEL_ROOT:-$RUNTIME_ROOT/usr/local/share/libreecho/openwakeword}
+PIDFILE=${PIDFILE:-/var/run/libreecho-waked.pid}
+LOGFILE=${LOGFILE:-/var/log/libreecho-waked.log}
+SOCKET=${SOCKET:-/run/libreecho/wakeword.sock}
+MIC_SOCKET=${MIC_SOCKET:-/run/libreecho/mic.sock}
+REFERENCE_SOCKET=${REFERENCE_SOCKET:-/run/libreecho-audio/aec-reference.sock}
+VAD_FLOOR_FILE=${VAD_FLOOR_FILE:-/data/libreecho/config/vad-floor-rms}
+# Echo cancellation is on unless this file says 0. It exists because a single
+# playback has been observed to stop the wake word detecting until reboot,
+# and the AEC reference is the prime suspect: before anything is spoken the
+# canceller is inert, afterwards it adapts. Being able to turn it off without
+# reflashing is what makes that testable on hardware.
+AEC_FILE=${AEC_FILE:-/data/libreecho/config/aec-reference}
+# Write a number of seconds here to have waked dump exactly the audio it
+# processes to /data/libreecho/config/wake-dump.raw. It is the only way to see
+# what the detector receives, the microphone and capture-mux having been proven
+# good independently.
+#
+# Two hard-won constraints. waked EXITS when the dump finishes, taking the wake
+# word with it until the next boot, so this is consumed one-shot below: the
+# request is cleared as it is read and a plain reboot always restores a working
+# device. And waked rejects anything from 60 seconds up, so the ceiling here is
+# deliberately far below that -- a dump is a diagnostic, and a long one is only
+# a longer outage.
+DUMP_FILE=${DUMP_FILE:-/data/libreecho/config/wake-dump-seconds}
+DUMP_MAX_SECONDS=${DUMP_MAX_SECONDS:-20}
+# Owner-staged openWakeWord models. Write a model name to $WAKE_MODEL_FILE to
+== current status via socket users
+total 0
+lr-x------    1 0        0               64 Nov 21 23:02 0 -> /dev/null
+l-wx------    1 0        0               64 Nov 21 23:02 1 -> /var/log/libreecho-waked.log
+l-wx------    1 0        0               64 Nov 21 23:02 2 -> /var/log/libreecho-waked.log
+lrwx------    1 0        0               64 Nov 21 23:02 3 -> socket:[8949]
+lr-x------    1 0        0               64 Nov 21 23:02 4 -> pipe:[8951]
+l-wx------    1 0        0               64 Nov 21 23:02 5 -> pipe:[8951]
+lrwx------    1 0        0               64 Nov 21 23:02 6 -> socket:[8952]
+lrwx------    1 0        0               64 Nov 21 23:02 7 -> socket:[10191]
+lrwx------    1 0        0               64 Nov 21 23:02 8 -> socket:[12849]
+lrwx------    1 0        0               64 Nov 21 23:02 9 -> socket:[11604]

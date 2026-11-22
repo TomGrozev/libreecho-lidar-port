@@ -1,0 +1,2 @@
+856a9f81f0270a561e313dcfa43596b6370b41abb453278f0c036d9ce9d954cb  artifacts/phase-06/images/boot-lidar-v1.img
+856a9f81f0270a561e313dcfa43596b6370b41abb453278f0c036d9ce9d954cb  experiments/phase-06/hw-20261121/step8-audio/boot_a-v1.bin

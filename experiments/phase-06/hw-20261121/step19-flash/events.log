@@ -1,0 +1,11 @@
+17:10:02 image 67e9efc7482a73dcfff5b41541bb551d1cd73a6a6ca3395d17b4545bf53d6a81  /workspace/libreecho/artifacts/phase-06/images-mute/boot-lidar-v2.img
+17:10:02 before rc=0 androidboot.slot_suffix=_b schema=1 selected_slot=b inactive_slot=a slot_suffix=b slot_a_priority=14 slot_a_tries=0 slot_a_success=1 slot_b_priority=15 slot_b_tries=0 slot_b_success=1 boot_layout=lidar boot_store_mode=slotted slot_a_image=/dev/mmcblk0p10 slot_b_image=/dev/mmcblk0p11 wrapper_a=- wrapper_b=- 
+17:10:02 reboot-bootloader request rc=0
+17:10:11 fastboot getvar rc=0 after 1 tries
+17:10:12 flash boot_b rc=0
+17:10:18 fetch boot_b rc=0
+17:10:18 expected 67e9efc7482a73dcfff5b41541bb551d1cd73a6a6ca3395d17b4545bf53d6a81 readback 67e9efc7482a73dcfff5b41541bb551d1cd73a6a6ca3395d17b4545bf53d6a81
+17:10:18 fastboot reboot rc=0
+17:10:33 adb back after 6 tries
+17:10:53 after rc=0
+17:10:53 done

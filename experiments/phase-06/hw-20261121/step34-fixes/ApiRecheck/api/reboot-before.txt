@@ -1,0 +1,2 @@
+edd0812d-4377-4d99-8040-81a9fa8c3f84
+androidboot.slot_suffix=_a

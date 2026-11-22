@@ -1,0 +1,39 @@
+argv=--log-dir experiments/phase-06/hw-20261121/step3d-boot3/bcb-log bcb set-active A
+$ fastboot getvar product
+[exit 0 in 0.11s]
+[stderr]
+product: LIDAR
+Finished. Total time: 0.002s
+product=LIDAR
+$ fastboot getvar kaeru-version
+[exit 0 in 0.01s]
+[stderr]
+kaeru-version: 2.0.0-g66704e6-dirty
+Finished. Total time: 0.002s
+kaeru_version=2.0.0-g66704e6-dirty
+$ fastboot oem fetch-enable
+[exit 0 in 0.01s]
+[stderr]
+OKAY [  0.002s]
+Finished. Total time: 0.002s
+$ fastboot getvar max-fetch-size
+[exit 0 in 0.01s]
+[stderr]
+max-fetch-size: 0x100000
+Finished. Total time: 0.003s
+max_fetch_size=1048576
+$ fastboot getvar partition-size:misc
+[exit 0 in 0.01s]
+[stderr]
+partition-size:misc: 80000
+Finished. Total time: 0.003s
+partition misc: 524288 ok
+$ fastboot fetch misc /tmp/lidar-bcb-7rcl5sb6/misc.bin
+[exit 0 in 0.18s]
+[stderr]
+Fetching misc (offset=0, size=80000)               OKAY [  0.161s]
+Finished. Total time: 0.168s
+[sha256] 20b1af09203460a7184e626163a11725d88d85a59f572b9386f925e5cbbccb97  misc readback (524288 bytes)
+[sha256] 20b1af09203460a7184e626163a11725d88d85a59f572b9386f925e5cbbccb97  misc backup (524288 bytes)
+result=failed error=current slot is not confirmed successful
+log: experiments/phase-06/hw-20261121/step3d-boot3/bcb-log/bcb-set-active.log

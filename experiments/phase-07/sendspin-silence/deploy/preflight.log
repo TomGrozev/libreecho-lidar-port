@@ -1,0 +1,8 @@
+b
+6.18.64+
+024ed935-14b0-4a12-8de4-670264b2736f
+/system/bin/sh: libreecho-bootctl: not found
+current=txn-bac8cf84d19b53cb0c24cdc4
+0
+4198d62a6da67f05d6dac02f97c9f512d272e6803e7c2021d55ad450f5770fe0  /run/libreecho/features/airplay2/root/usr/local/sbin/libreecho-sendspind
+a427bd68a8d30789885e9dbd166e85626ebf38c7a3683ccebe9eb93d5e2d1eec  /data/libreecho/trace-cycle/libreecho-sendspind.orig

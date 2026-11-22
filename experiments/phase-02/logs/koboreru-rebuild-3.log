@@ -1,0 +1,49 @@
+make: Entering directory '/workspace/libreecho/repos/amonet-koboreru'
+mkdir -p build/lidar
+arm-none-eabi-gcc -MMD -c -o build/lidar/main.o main.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar
+arm-none-eabi-gcc -MMD -c -o build/lidar/debug.o debug.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar
+arm-none-eabi-gcc -MMD -c -o build/lidar/patch.o patch.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar
+arm-none-eabi-gcc -MMD -c -o build/lidar/usbdl.o usbdl.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar
+arm-none-eabi-gcc -MMD -c -o build/lidar/tee.o tee.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar
+arm-none-eabi-gcc -MMD -c -o build/lidar/atf.o atf.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar
+arm-none-eabi-gcc -MMD -c -o build/lidar/arb.o arb.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar/devices
+arm-none-eabi-gcc -MMD -c -o build/lidar/devices/lidar.o devices/lidar.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar/drivers
+arm-none-eabi-gcc -MMD -c -o build/lidar/drivers/uart.o drivers/uart.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar/drivers
+arm-none-eabi-gcc -MMD -c -o build/lidar/drivers/timer.o drivers/timer.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar/drivers
+arm-none-eabi-gcc -MMD -c -o build/lidar/drivers/wdt.o drivers/wdt.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar/drivers
+arm-none-eabi-gcc -MMD -c -o build/lidar/drivers/devinfo.o drivers/devinfo.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar/drivers
+arm-none-eabi-gcc -MMD -c -o build/lidar/drivers/gpio.o drivers/gpio.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar/drivers
+arm-none-eabi-gcc -MMD -c -o build/lidar/drivers/kpd.o drivers/kpd.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar/drivers
+arm-none-eabi-gcc -MMD -c -o build/lidar/drivers/pwrap.o drivers/pwrap.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar/drivers
+arm-none-eabi-gcc -MMD -c -o build/lidar/drivers/pmic_keys.o drivers/pmic_keys.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar/platform/mt8167
+arm-none-eabi-gcc -MMD -c -o build/lidar/platform/mt8167/devinfo.o platform/mt8167/devinfo.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar/platform/mt8167
+arm-none-eabi-gcc -MMD -c -o build/lidar/platform/mt8167/gpio.o platform/mt8167/gpio.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar/platform/mt8167
+arm-none-eabi-gcc -MMD -c -o build/lidar/platform/mt8167/pmic_keys.o platform/mt8167/pmic_keys.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar/lib/libc
+arm-none-eabi-gcc -MMD -c -o build/lidar/lib/libc/memory.o lib/libc/memory.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar/lib/libc
+arm-none-eabi-gcc -MMD -c -o build/lidar/lib/libc/string.o lib/libc/string.c -I./include -Iplatform/include -Iplatform/mt8167/include -DDEVICE_HEADER=\"devices/lidar.h\" -std=gnu99 -Os -mthumb -mcpu=cortex-a9 -fno-builtin-printf -fno-builtin-puts -fno-strict-aliasing -fno-builtin-memcpy -mno-unaligned-access -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -Wno-main
+mkdir -p build/lidar
+arm-none-eabi-as -mthumb -mcpu=cortex-a9 -o build/lidar/start.o start.S
+arm-none-eabi-gcc -o build/lidar/payload.elf build/lidar/main.o build/lidar/debug.o build/lidar/patch.o build/lidar/usbdl.o build/lidar/tee.o build/lidar/atf.o build/lidar/arb.o build/lidar/devices/lidar.o build/lidar/drivers/uart.o build/lidar/drivers/timer.o build/lidar/drivers/wdt.o build/lidar/drivers/devinfo.o build/lidar/drivers/gpio.o build/lidar/drivers/kpd.o build/lidar/drivers/pwrap.o build/lidar/drivers/pmic_keys.o build/lidar/platform/mt8167/devinfo.o build/lidar/platform/mt8167/gpio.o build/lidar/platform/mt8167/pmic_keys.o build/lidar/lib/libc/memory.o build/lidar/lib/libc/string.o build/lidar/start.o -T linker.x -nodefaultlibs -nostdlib -lgcc -Wl,--build-id=none,--no-warn-rwx-segments,--gc-sections -Wl,--defsym=PAYLOAD_ADDR=0x00101000,--defsym=BSS_START=0x00102180
+arm-none-eabi-objcopy -O binary build/lidar/payload.elf build/lidar/payload.bin
+  lidar         build/lidar/payload.bin (2448 bytes) @ 0x00101000
+make: Leaving directory '/workspace/libreecho/repos/amonet-koboreru'

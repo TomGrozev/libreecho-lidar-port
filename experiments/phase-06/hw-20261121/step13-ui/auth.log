@@ -1,0 +1,19 @@
+==auth
+wget: server returned error: HTTP/1.1 401 Error
+
+==setup
+wget: server returned error: HTTP/1.1 401 Error
+
+==root
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+==webhelp
+Usage: /usr/local/sbin/libreecho-web [--backend mock|linux] [--listen IP:PORT] [--web-root PATH] [--config PATH] [--mock-config PATH] [--seed N] [--dev-controls] [--auth-token-file PATH] [--users-file PATH] [--allowed-origin URL] [--user NAME] [--allow-insecure-lan] [--verbose] [--debug] [--quiet]
+==ledhelp
+usage: /usr/local/sbin/libreecho-ledd [--socket PATH] [--foreground] [--stub] [--startup-animation] [--startup-ready PATH]
+==btdhelp
+Usage: /usr/local/sbin/libreecho-btd [--foreground] [--socket PATH]

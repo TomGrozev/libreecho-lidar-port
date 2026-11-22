@@ -1,0 +1,16 @@
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=1
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-

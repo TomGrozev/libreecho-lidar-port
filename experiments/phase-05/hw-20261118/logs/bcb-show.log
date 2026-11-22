@@ -1,0 +1,149 @@
+argv=--log-dir logs bcb show
+$ fastboot getvar product
+[exec failed: [Errno 2] No such file or directory: 'fastboot']
+result=failed error=cannot run fastboot: [Errno 2] No such file or directory: 'fastboot'
+log: logs/bcb-show.log
+argv=--log-dir logs bcb show
+$ fastboot getvar product
+[exit 0 in 0.01s]
+[stderr]
+product: LIDAR
+Finished. Total time: 0.002s
+product=LIDAR
+$ fastboot getvar kaeru-version
+[exit 0 in 0.01s]
+[stderr]
+kaeru-version: 2.0.0-g66704e6-dirty
+Finished. Total time: 0.002s
+kaeru_version=2.0.0-g66704e6-dirty
+$ fastboot getvar max-fetch-size
+[exit 0 in 0.01s]
+[stderr]
+max-fetch-size: 
+Finished. Total time: 0.002s
+max_fetch_size=None
+result=failed error=unexpected max-fetch-size None; Kaeru caps it at 0x100000
+log: logs/bcb-show.log
+argv=--log-dir logs bcb show
+$ fastboot getvar product
+[exit 0 in 0.11s]
+[stderr]
+product: LIDAR
+Finished. Total time: 0.002s
+product=LIDAR
+$ fastboot getvar kaeru-version
+[exit 0 in 0.01s]
+[stderr]
+kaeru-version: 2.0.0-g66704e6-dirty
+Finished. Total time: 0.002s
+kaeru_version=2.0.0-g66704e6-dirty
+$ fastboot oem fetch-enable
+[exit 0 in 0.01s]
+[stderr]
+OKAY [  0.002s]
+Finished. Total time: 0.002s
+$ fastboot getvar max-fetch-size
+[exit 0 in 0.01s]
+[stderr]
+max-fetch-size: 0x100000
+Finished. Total time: 0.002s
+max_fetch_size=1048576
+$ fastboot getvar partition-size:misc
+[exit 0 in 0.01s]
+[stderr]
+partition-size:misc: 80000
+Finished. Total time: 0.003s
+partition misc: 524288 ok
+$ fastboot fetch misc /tmp/lidar-bcb-z57yao02/misc.bin
+[exit 0 in 0.17s]
+[stderr]
+Fetching misc (offset=0, size=80000)               OKAY [  0.160s]
+Finished. Total time: 0.167s
+[sha256] 9248bd41602b598703147a39a1c235daff374354f5978714315c2f0ce5b3549f  misc readback (524288 bytes)
+result=ok log=logs/bcb-show.log
+log: logs/bcb-show.log
+argv=--log-dir logs bcb show
+$ fastboot getvar product
+[exit 0 in 0.20s]
+[stderr]
+getvar:product                                     FAILED (Status read failed (Value too large for defined data type))
+Finished. Total time: 0.201s
+product=None
+result=failed error=wrong fastboot product: None, expected 'LIDAR'; this is not a Lidar Kaeru
+log: logs/bcb-show.log
+argv=--log-dir logs bcb show
+$ fastboot getvar product
+[exit 0 in 0.11s]
+[stderr]
+product: LIDAR
+Finished. Total time: 0.002s
+product=LIDAR
+$ fastboot getvar kaeru-version
+[exit 0 in 0.01s]
+[stderr]
+kaeru-version: 2.0.0-g66704e6-dirty
+Finished. Total time: 0.002s
+kaeru_version=2.0.0-g66704e6-dirty
+$ fastboot oem fetch-enable
+[exit 0 in 0.01s]
+[stderr]
+OKAY [  0.002s]
+Finished. Total time: 0.002s
+$ fastboot getvar max-fetch-size
+[exit 0 in 0.01s]
+[stderr]
+max-fetch-size: 0x100000
+Finished. Total time: 0.002s
+max_fetch_size=1048576
+$ fastboot getvar partition-size:misc
+[exit 0 in 0.01s]
+[stderr]
+partition-size:misc: 80000
+Finished. Total time: 0.003s
+partition misc: 524288 ok
+$ fastboot fetch misc /tmp/lidar-bcb-ij3l1sk4/misc.bin
+[exit 0 in 0.17s]
+[stderr]
+Fetching misc (offset=0, size=80000)               OKAY [  0.159s]
+Finished. Total time: 0.166s
+[sha256] c187b074c93ad31c9694c19093cdcde87f1908b5088f2bbb3d5ec1f1e0802902  misc readback (524288 bytes)
+result=ok log=logs/bcb-show.log
+log: logs/bcb-show.log
+argv=--log-dir logs bcb show
+$ fastboot getvar product
+[exit 0 in 0.11s]
+[stderr]
+product: LIDAR
+Finished. Total time: 0.002s
+product=LIDAR
+$ fastboot getvar kaeru-version
+[exit 0 in 0.01s]
+[stderr]
+kaeru-version: 2.0.0-g66704e6-dirty
+Finished. Total time: 0.002s
+kaeru_version=2.0.0-g66704e6-dirty
+$ fastboot oem fetch-enable
+[exit 0 in 0.01s]
+[stderr]
+OKAY [  0.002s]
+Finished. Total time: 0.002s
+$ fastboot getvar max-fetch-size
+[exit 0 in 0.01s]
+[stderr]
+max-fetch-size: 0x100000
+Finished. Total time: 0.002s
+max_fetch_size=1048576
+$ fastboot getvar partition-size:misc
+[exit 0 in 0.01s]
+[stderr]
+partition-size:misc: 80000
+Finished. Total time: 0.003s
+partition misc: 524288 ok
+$ fastboot fetch misc /tmp/lidar-bcb-q1dwbowy/misc.bin
+[exit 0 in 0.17s]
+[stderr]
+Fetching misc (offset=0, size=80000)               OKAY [  0.160s]
+Finished. Total time: 0.168s
+[sha256] c187b074c93ad31c9694c19093cdcde87f1908b5088f2bbb3d5ec1f1e0802902  misc readback (524288 bytes)
+result=ok log=logs/bcb-show.log
+log: logs/bcb-show.log

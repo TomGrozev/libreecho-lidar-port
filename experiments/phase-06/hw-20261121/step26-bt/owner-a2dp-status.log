@@ -1,0 +1,51 @@
+{
+ "v": 1,
+ "id": 1,
+ "ok": true,
+ "data": {
+  "state": "up",
+  "available": true,
+  "enabled": true,
+  "activation_attempted": true,
+  "transport": "mainline-btmtksdio-hci",
+  "hci": "hci0",
+  "last_error": "MGMT opcode 0x0006 status 0x0b (rejected)",
+  "last_disconnect_reason": "remote-terminated (0x03)",
+  "last_connect_failed_status": "",
+  "scanning": false,
+  "pairing": false,
+  "pairing_mode": true,
+  "local_name": "LibreEcho",
+  "capabilities": {
+   "classic": true,
+   "le": true,
+   "ssp": true,
+   "secure_connection": true,
+   "connectable": false,
+   "discoverable": false,
+   "bondable": true,
+   "profile_state": "ready",
+   "profile_error": "SDP, A2DP sink, and AVRCP profile services registered",
+   "profile_services": {
+    "sdp": true,
+    "a2dp_sink": true,
+    "avrcp": true,
+    "rfcomm": false,
+    "bnep": false,
+    "hidp": false
+   }
+  },
+  "pending_pairing": null,
+  "known_devices": [
+   {
+    "address": "<MAC_BT_PEER_A>",
+    "name": "<BT_PEER_NAME_A>",
+    "type": 0,
+    "rssi": 0,
+    "rssi_valid": true,
+    "connected": false
+   }
+  ],
+  "discovered": []
+ }
+}

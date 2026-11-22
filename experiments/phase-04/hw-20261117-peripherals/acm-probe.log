@@ -1,0 +1,129 @@
+
+$ cat /proc/uptime
+~ # [6ncat /proc/uptime; echo __ACM_END_1__
+2.42 7.86
+__ACM_END_1__
+$ uname -a
+
+~ # [6nuname -a; echo __ACM_END_2__
+Linux (none) 6.1.178+ #1 SMP Tue Nov 17 19:05:58 AEDT 2026 aarch64 Linux
+__ACM_END_2__
+$ cat /proc/bus/input/devices
+
+~ # [6ncat /proc/bus/input/devices; echo __ACM_END_3__
+I: Bus=0019 Vendor=0001 Product=0001 Version=0100
+N: Name="gpio-keys"
+P: Phys=gpio-keys/input0
+S: Sysfs=/devices/platform/gpio-keys/input/input0
+U: Uniq=
+H: Handlers=kbd event0 
+B: PROP=0
+B: EV=23
+B: KEY=1000000 0 0 400 c0000 0 0 0
+B: SW=4000
+
+__ACM_END_3__
+
+$ ls /dev/input
+~ # [6nls /dev/input; echo __ACM_END_4__
+[1;35mevent0[m
+__ACM_END_4__
+$ ls /sys/class/leds
+
+~ # [6nls /sys/class/leds; echo __ACM_END_5__
+__ACM_END_5__
+$ ls /sys/bus/i2c/devices
+
+~ # [6nls /sys/bus/i2c/devices; echo __ACM_END_6__
+[1;36m0-003f[m  [1;36m1-0018[m  [1;36mi2c-0[m   [1;36mi2c-1[m
+__ACM_END_6__
+$ ls /sys/bus/i2c/drivers/*
+
+~ # [6nls /sys/bus/i2c/drivers/*; echo __ACM_END_7__
+/sys/bus/i2c/drivers/dummy:
+[0;0mbind[m    [0;0muevent[m  [0;0munbind[m
+
+/sys/bus/i2c/drivers/is31fl32xx:
+[0;0mbind[m    [0;0muevent[m  [0;0munbind[m
+
+/sys/bus/i2c/drivers/tlv320adc3xxx-codec:
+[0;0mbind[m    [0;0muevent[m  [0;0munbind[m
+
+/sys/bus/i2c/drivers/tlv320aic32x4:
+[0;0mbind[m    [0;0muevent[m  [0;0munbind[m
+__ACM_END_7__
+$ ls -l /sys/bus/sdio/devices
+
+~ # ls -l /sys/bus/sdio/devices; echo __ACM_END_8__
+total 0
+__ACM_END_8__
+$ cat /sys/bus/sdio/devices/*/vendor /sys/bus/sdio/devices/*/device
+
+~ # [6ncat /sys/bus/sdio/devices/*/vendor /sys/bus/sdio/devices/*/device; echo __AC
+
+M_END_9__
+cat: can't open '/sys/bus/sdio/devices/*/vendor': No such file or directory
+cat: can't open '/sys/bus/sdio/devices/*/device': No such file or directory
+__ACM_END_9__
+~ # [6n
+$ cat /proc/asound/cards
+cat /proc/asound/cards; echo __ACM_END_10__
+--- no soundcards ---
+__ACM_END_10__
+$ ls /sys/class/net
+
+ls /sys/class/net; echo __ACM_END_11__
+~ # ls /sys/class/net; echo __ACM_END_11__
+
+$ dmesg | grep -iE 'mmc1|mmc2|sdio|btmtk|aic32x4|adc3|is31|gpio-keys|i2c|11170000|deferred|failed|error'
+[1;36mlo[m    [1;36msit0[m  [1;36musb0[m
+__ACM_END_11__
+~ # [6ndmesg | grep -iE 'mmc1|mmc2|sdio|btmtk|aic32x4|adc3|is31|gpio-keys|i2c|11170
+
+000|deferred|failed|error'; echo __ACM_END_12__
+Kernel command line: console=tty0 console=ttyMT0,921600n1 earlycon=uart8250,mmio32,0x11005000 vmalloc=496M androidboot.hardware=mt8167 androidboot.secure_cpu=1 androidboot.unlocked_kernel=true androidboot.tu_code=<TU_CODE> androidboot.rpmb_state=1 androidboot.pl_version=0x6536 androidboot.tee_version=0x6c55 androidboot.lk_version=0x6536 androidboot.prod=1 androidboot.pl_build_desc=2b6f82c-20190926_195940 androidboot.lk_build_desc=6f7225e-20230407_030004 androidboot.verifiedbootstate=yellow androidboot.prod=1 bootopt=64S3,32N2,64N2 buildvariant=user veritykeyid=id:f3530e18f64d11fc25eb2dd762979f078de990bf clk_ignore_unused lidar.autoreboot=240 panic=5 ignore_loglevel initcall_debug androidboot.selinux=enforce androidboot.veritymode=enforcing androidboot.slot_suffix=_a rootwait ro init=/init skip_initramfs root=/dev/dm-0 dm="system none ro,0 1 android-verity PARTUUID=<PARTUUID_13>" printk.disable_uart=1 leds-is31fl3236. 
+calling  i2c_init+0x0/0xf4 @ 1
+initcall i2c_init+0x0/0xf4 returned 0 after 0 usecs
+probe of regulator-sdio-3v3 returned 0 after 0 usecs
+mtk-power-controller 10006000.syscon:power-controller: /soc/syscon@10006000/power-controller/power-domain@4: failed to power on domain: -110
+mtk-power-controller: probe of 10006000.syscon:power-controller failed with error -110
+calling  i2c_dev_init+0x0/0xd8 @ 1
+i2c_dev: i2c /dev entries driver
+initcall i2c_dev_init+0x0/0xd8 returned 0 after 418 usecs
+calling  mtk_i2c_driver_init+0x0/0x28 @ 1
+probe of 11009000.i2c returned 0 after 1050 usecs
+probe of 1100b000.i2c returned 0 after 1055 usecs
+initcall mtk_i2c_driver_init+0x0/0x28 returned 0 after 3586 usecs
+calling  btmtksdio_driver_init+0x0/0x24 @ 1
+initcall btmtksdio_driver_init+0x0/0x24 returned 0 after 28 usecs
+mtk-msdc 11170000.mmc: Cannot find pinctrl uhs!
+calling  is31fl32xx_driver_init+0x0/0x28 @ 1
+probe of 11170000.mmc returned 19 after 1634 usecs
+is31fl32xx 0-003f: Node /soc/i2c@11009000/led-controller@3f/audio-codec@18 'reg' conflicts with another LED
+is31fl32xx: probe of 0-003f failed with error -22
+initcall is31fl32xx_driver_init+0x0/0x28 returned 0 after 35843 usecs
+calling  adc3xxx_i2c_driver_init+0x0/0x28 @ 1
+initcall adc3xxx_i2c_driver_init+0x0/0x28 returned 0 after 38 usecs
+calling  aic32x4_i2c_driver_init+0x0/0x28 @ 1
+initcall aic32x4_i2c_driver_init+0x0/0x28 returned 0 after 1463 usecs
+calling  deferred_probe_initcall+0x0/0xb0 @ 1
+initcall deferred_probe_initcall+0x0/0xb0 returned 0 after 113 usecs
+input: gpio-keys as /devices/platform/gpio-keys/input/input0
+probe of gpio-keys returned 0 after 1896 usecs
+platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+cfg80211: failed to load regulatory.db
+mmc2: new HS200 MMC card at address 0001
+mmcblk2: mmc2:0001 Q2J95E 7.13 GiB 
+mmcblk2boot0: mmc2:0001 Q2J95E 2.00 MiB 
+mmcblk2boot1: mmc2:0001 Q2J95E 2.00 MiB 
+mmcblk2rpmb: mmc2:0001 Q2J95E 4.00 MiB, chardev (250:0)
+probe of mmc2:0001 returned 0 after 15838 usecs
+__ACM_END_12__
+$ for l in /sys/class/leds/*; do echo 255 > $l/brightness; done; echo leds_on
+
+~ # [6nfor l in /sys/class/leds/*; do echo 255 > $l/brightness; done; echo leds_on;
+
+ echo __ACM_END_13__
+sh: can't create /sys/class/leds/*/brightness: nonexistent directory
+leds_on
+__ACM_END_13__

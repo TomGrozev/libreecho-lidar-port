@@ -1,0 +1,8 @@
+11:31:10 start: bundle=v0.2.28 tx=txn-bac8cf84d19b53cb0c24cdc4 slot=a target=b
+11:34:33 pushed: artifacts/phase-06/ota-step37-v0228/lidar-lab-v0.2.28.ota.tar: 1 file pushed, 0 skipped. 1.4 MB/s (16793600 bytes in 11.200s)
+11:35:01 install: verify_rc=0 ready=b install_rc=0 
+signature=PASS
+11:35:01 reboot requested; pre-reboot boot_id 1a3ea80f-04f7-4ea2-a8d3-e98d616cf298
+11:35:01 adb back on slot a
+11:37:07 CONFIRMED: slot=b state=installed generation=txn-bac8cf84d19b53cb0c24cdc4 current=txn-bac8cf84d19b53cb0c24cdc4
+11:37:07 fix-checks: experiments/phase-06/hw-20261121/step37-rekey/hw-ota/fix-checks.log

@@ -1,0 +1,10 @@
+{
+ "body": {
+  "data": {
+   "playing": true
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

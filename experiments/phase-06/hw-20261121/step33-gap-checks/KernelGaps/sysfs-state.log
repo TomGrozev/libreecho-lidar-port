@@ -1,0 +1,16 @@
+== rtc
+ls: /sys/class/rtc: No such file or directory
+== thermal
+== devtree
+#address-cells #size-cells aliases amz_privacy chosen clk26m clk32k compatible cpus gpio-keys idme interrupt-parent memory@40000000 model name opp-table-0 pmu psci regulator-1v8 regulator-3v3 regulator-core regulator-wifi-3v3 reserved-memory soc sound timer 
+== SPM
+2c4: 0000001e
+60c: 7600be44
+610: 0000be44
+== power-controller
+0
+
+== kconfig
+# CONFIG_MFD_MT6397 is not set
+# CONFIG_RTC_CLASS is not set
+# CONFIG_MTK_IOMMU is not set

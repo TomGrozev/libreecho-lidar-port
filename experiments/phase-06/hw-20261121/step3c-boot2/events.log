@@ -1,0 +1,12 @@
+13:31:49 fastboot reboot rc=0
+13:32:03 adb found=1
+13:32:23 id rc=124
+13:32:28 cmdline rc=1
+13:32:53 dmesg rc=1 lines=1
+13:32:53 partitions rc=1
+13:32:53 mmc rc=1
+13:32:53 deferred rc=1
+13:32:53 mounts rc=1
+13:32:53 bootctl rc=1
+13:32:53 runtime rc=1
+13:32:53 done

@@ -1,0 +1,53 @@
+argv=--log-dir experiments/phase-06/hw-20261121/step3c-boot2/bcb-log bcb set-active A
+$ fastboot getvar product
+[exit 0 in 0.11s]
+[stderr]
+product: LIDAR
+Finished. Total time: 0.002s
+product=LIDAR
+$ fastboot getvar kaeru-version
+[exit 0 in 0.03s]
+[stderr]
+kaeru-version: 2.0.0-g66704e6-dirty
+Finished. Total time: 0.003s
+kaeru_version=2.0.0-g66704e6-dirty
+$ fastboot oem fetch-enable
+[exit 0 in 0.03s]
+[stderr]
+OKAY [  0.002s]
+Finished. Total time: 0.002s
+$ fastboot getvar max-fetch-size
+[exit 0 in 0.02s]
+[stderr]
+max-fetch-size: 0x100000
+Finished. Total time: 0.002s
+max_fetch_size=1048576
+$ fastboot getvar partition-size:misc
+[exit 0 in 0.02s]
+[stderr]
+partition-size:misc: 80000
+Finished. Total time: 0.003s
+partition misc: 524288 ok
+$ fastboot fetch misc /tmp/lidar-bcb-a4brg_3m/misc.bin
+[exit 0 in 0.17s]
+[stderr]
+Fetching misc (offset=0, size=80000)               OKAY [  0.160s]
+Finished. Total time: 0.167s
+[sha256] 7fab1a396187408c82866432ea61cf7b9479a923195af7d067e9c67fd07d433e  misc readback (524288 bytes)
+[sha256] 7fab1a396187408c82866432ea61cf7b9479a923195af7d067e9c67fd07d433e  misc backup (524288 bytes)
+[sha256] efa4d56513f97ca095181591af3e003d13f4588d5554e261a64be14652d2d992  misc patched image (524288 bytes)
+bcb set-active A: flashing misc
+$ fastboot flash misc /tmp/lidar-bcb-a4brg_3m/misc.patched
+[exit 0 in 0.22s]
+[stderr]
+Sending 'misc' (512 KB)                            OKAY [  0.017s]
+Writing 'misc'                                     OKAY [  0.074s]
+Finished. Total time: 0.106s
+$ fastboot fetch misc /tmp/lidar-bcb-a4brg_3m/misc.readback
+[exit 0 in 0.19s]
+[stderr]
+Fetching misc (offset=0, size=80000)               OKAY [  0.160s]
+Finished. Total time: 0.167s
+bcb set-active A: readback identical, 1 bytes changed at 0x360..0x366
+result=ok log=experiments/phase-06/hw-20261121/step3c-boot2/bcb-log/bcb-set-active.log
+log: experiments/phase-06/hw-20261121/step3c-boot2/bcb-log/bcb-set-active.log

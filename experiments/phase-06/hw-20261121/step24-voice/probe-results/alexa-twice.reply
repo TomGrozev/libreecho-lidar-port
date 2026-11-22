@@ -1,0 +1,2 @@
+pcm write: Connection reset by peer
+reply: {"v":1,"id":10,"ok":true,"data":{"streaming":true,"sample_rate":16000,"channels":1,"format":"pcm_s16_le","max_seconds":20}}

@@ -1,0 +1,79 @@
+# gen_init_cpio input for the LibreEcho Lidar test initramfs.
+# Locations are relative to the staging root the build script cd's into.
+# Format: <type> <name> <...> <mode> <uid> <gid>
+dir /bin 0755 0 0
+dir /dev 0755 0 0
+dir /dev/pts 0755 0 0
+dir /proc 0755 0 0
+dir /sys 0755 0 0
+dir /tmp 01777 0 0
+dir /pstore-prev 0755 0 0
+file /init init 0755 0 0
+file /bin/busybox bin/busybox 0755 0 0
+# Required device nodes. devtmpfs is mounted over /dev at boot, but these must
+# exist before that so the kernel and init's first writes have a console.
+nod /dev/console 0600 0 0 c 5 1
+nod /dev/null 0666 0 0 c 1 3
+# Applet symlinks. /init runs `busybox --install -s /bin` as well; the static
+# entries keep the image usable even if that call is ever disabled.
+slink /bin/sh busybox 0777 0 0
+slink /bin/ash busybox 0777 0 0
+slink /bin/mount busybox 0777 0 0
+slink /bin/umount busybox 0777 0 0
+slink /bin/mkdir busybox 0777 0 0
+slink /bin/ln busybox 0777 0 0
+slink /bin/cat busybox 0777 0 0
+slink /bin/echo busybox 0777 0 0
+slink /bin/ls busybox 0777 0 0
+slink /bin/cp busybox 0777 0 0
+slink /bin/mv busybox 0777 0 0
+slink /bin/rm busybox 0777 0 0
+slink /bin/sleep busybox 0777 0 0
+slink /bin/dmesg busybox 0777 0 0
+slink /bin/uname busybox 0777 0 0
+slink /bin/ip busybox 0777 0 0
+slink /bin/ifconfig busybox 0777 0 0
+slink /bin/ping busybox 0777 0 0
+slink /bin/ping6 busybox 0777 0 0
+slink /bin/setsid busybox 0777 0 0
+slink /bin/cttyhack busybox 0777 0 0
+slink /bin/getty busybox 0777 0 0
+slink /bin/hexdump busybox 0777 0 0
+slink /bin/devmem busybox 0777 0 0
+slink /bin/sync busybox 0777 0 0
+slink /bin/reboot busybox 0777 0 0
+slink /bin/poweroff busybox 0777 0 0
+slink /bin/ps busybox 0777 0 0
+slink /bin/kill busybox 0777 0 0
+slink /bin/grep busybox 0777 0 0
+slink /bin/sed busybox 0777 0 0
+slink /bin/tail busybox 0777 0 0
+slink /bin/head busybox 0777 0 0
+slink /bin/find busybox 0777 0 0
+slink /bin/xargs busybox 0777 0 0
+slink /bin/md5sum busybox 0777 0 0
+slink /bin/sha256sum busybox 0777 0 0
+slink /bin/chmod busybox 0777 0 0
+slink /bin/mknod busybox 0777 0 0
+slink /bin/stty busybox 0777 0 0
+slink /bin/env busybox 0777 0 0
+slink /bin/printf busybox 0777 0 0
+slink /bin/test busybox 0777 0 0
+slink /bin/true busybox 0777 0 0
+slink /bin/false busybox 0777 0 0
+slink /bin/dd busybox 0777 0 0
+slink /bin/tr busybox 0777 0 0
+slink /bin/cut busybox 0777 0 0
+slink /bin/wc busybox 0777 0 0
+slink /bin/stat busybox 0777 0 0
+slink /bin/df busybox 0777 0 0
+slink /bin/free busybox 0777 0 0
+slink /bin/uptime busybox 0777 0 0
+slink /bin/nproc busybox 0777 0 0
+# Conveniences for the bring-up shell.
+slink /bin/basename busybox 0777 0 0
+slink /bin/mountpoint busybox 0777 0 0
+slink /bin/date busybox 0777 0 0
+slink /bin/id busybox 0777 0 0
+slink /bin/hostname busybox 0777 0 0
+slink /bin/lsmod busybox 0777 0 0

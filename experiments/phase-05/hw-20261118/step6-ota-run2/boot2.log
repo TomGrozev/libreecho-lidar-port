@@ -1,0 +1,161 @@
+67.35 239.20
+libreecho.lab=v2
+androidboot.slot_suffix=_b
+total 52
+-rw-r--r--    1 0        0              153 Jan  1 00:00 [0;0madb-transport[m
+-rw-r--r--    1 0        0             1296 Jan  1 00:00 [0;0mairplay2.conf[m
+drwxr-xr-x    2 0        0                0 Jan  1 00:00 [1;34mavahi-services[m
+-rw-r--r--    1 0        0                9 Jan  1 00:00 [0;0mfeature-policy[m
+-rw-r--r--    1 0        0               40 Jan  1 00:00 [0;0mfirst-install-confirm[m
+-rw-r--r--    1 0        0                4 Jan  1 00:00 [0;0mimage-profile[m
+-rw-r--r--    1 0        0              950 Jan  1 00:00 [0;0mmdns-runtime.json[m
+-rw-r--r--    1 0        0              243 Jan  1 00:00 [0;0mntp.conf[m
+-rw-r--r--    1 0        0               65 Jan  1 00:00 [0;0mota-public-key.hex[m
+-rw-r--r--    1 0        0              123 Jan  1 00:00 [0;0mota-source.conf[m
+-rw-r--r--    1 0        0               11 Jan  1 00:00 [0;0mservice-profile[m
+-rw-r--r--    1 0        0               54 Jan  1 00:00 [0;0mtarget[m
+-rw-r--r--    1 0        0                4 Jan  1 00:00 [0;0mupdate-channel[m
+drwxr-xr-x    2 0        0                0 Jan  1 00:00 [1;34mvendor-assets[m
+-rw-------    1 0        0              593 Jan  1 00:00 [0;0mweb-config.json[m
+total 72
+drwx------    4 0        0             4096 Jan  1 00:00 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              252 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              889 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3141 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               65 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             1521 Jan  1 00:02 [0;0mota.log[m
+-rw-------    1 0        0              141 Jan  1 00:11 [0;0mpending[m
+-rw-r--r--    1 0        0              156 Jan  1 00:02 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:02 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:11 [1;34mstaging[m
+-rw-r--r--    1 0        0               64 Jan  1 00:00 [0;0mstate[m
+## /data/libreecho/update/failure-15*.log
+cat: can't open '/data/libreecho/update/failure-15*.log': No such file or directory
+## /data/libreecho/update/ota.log
+1970-01-01T00:01:52Z update[7077] install-state state=verifying progress=5 detail=package
+1970-01-01T00:02:10Z update[7077] install-state state=verified progress=20 detail=0.2.2
+1970-01-01T00:02:11Z update[7077] install-state state=writing progress=30 detail=b
+1970-01-01T00:02:12Z update[7077] install-state state=verifying-write progress=75 detail=b
+1970-01-01T00:02:13Z update[7077] install-state state=activating progress=90 detail=b
+1970-01-01T00:02:13Z update[7077] install-state state=reboot-pending progress=100 detail=b
+1970-01-01T00:03:55Z update[10259] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:03:55Z update[10167] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:03:49Z update[7613] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:11:27Z update[10869] install-state state=verifying progress=5 detail=package
+1970-01-01T00:11:45Z update[10869] install-state state=verified progress=20 detail=0.2.4
+1970-01-01T00:11:46Z update[10869] install-state state=writing progress=30 detail=b
+1970-01-01T00:11:47Z update[10869] install-state state=verifying-write progress=75 detail=b
+1970-01-01T00:11:48Z update[10869] install-state state=activating progress=90 detail=b
+1970-01-01T00:11:48Z update[10869] install-state state=reboot-pending progress=100 detail=b
+1970-01-01T00:02:37Z update[9333] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:02:26Z update[9169] install-error reason=feature_target_not_ready state=none
+## init.log
+pstore-mounted
+pmsg-ready
+service-profile:production
+init-started
+audio-node-worker-started
+input-node-worker-started
+adb-transport-policy-read
+audio-devnodes-created:1
+input-devnodes-created:1
+configfs-mounted
+configfs-adb-composition-created
+functionfs-mounted
+adbd-started:150
+functionfs-ready
+configfs-udc-bound:musb-hdrc.3.auto
+userdata-mounted
+userdata-cleanup-ok
+boot-count:19
+boot-slot:b:a
+vendor-assets-not-applicable
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:b
+ota-rollback-resume-history-slot-still-selected
+ota-health-confirm-pending
+ota-health-waiting-startup-ready
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2663]
+adbd-task:150:adbd:S (sleeping):do_select
+adbd-task:152:adbd:S (sleeping):futex_wait_queue
+adbd-task:153:adbd:S (sleeping):inet_csk_accept
+adbd-task:154:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:155:adbd:S (sleeping):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+## tmp
+/run/libreecho:
+[1;35maudio.sock[m            [1;35mmdns.sock[m             [1;35mtimer.sock[m
+[1;35mbluetooth.sock[m        [1;35mmic.sock[m              [0;0mvendor-import.status[m
+[0;0mbuttond-status[m        [1;35mnetwork.sock[m          [0;0mwifi-worker-failed[m
+[1;35mled.sock[m              [1;35mradio.sock[m
+[1;35mlog.sock[m              [0;0mtime.status[m
+
+/tmp:
+[0;0madbd.log[m                      [0;0mlibreecho-mdnsd.log[m
+[0;0mconfigfs-udc-bind.err[m         [0;0mlibreecho-micd.init.log[m
+[0;0mconfigfs.log[m                  [0;0mlibreecho-networkd.init.log[m
+[0;0mdata-cleanup.log[m              [0;0mlibreecho-radiod.init.log[m
+[0;0mfunctionfs.log[m                [0;0mlibreecho-timed.init.log[m
+[0;0minit.log[m                      [0;0mlibreecho-timerd.init.log[m
+[0;0mlibreecho-audiod.init.log[m     [0;0mlibreecho-watchdogd.init.log[m
+[0;0mlibreecho-btd.init.log[m        [0;0mlibreecho-web.init.log[m
+[0;0mlibreecho-buttond.init.log[m    [0;0mloopback-config.log[m
+[0;0mlibreecho-esphomed.stop.log[m   [0;0mpstore-mount.log[m
+[0;0mlibreecho-ledd.init.log[m       [0;0muserdata-mount.log[m
+[0;0mlibreecho-logd.init.log[m       [0;0mvendor-import.log[m
+[0;0mlibreecho-mdnsd.init.log[m

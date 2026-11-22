@@ -1,0 +1,16 @@
+generation=txn-7303218adf4646e5decf1908
+---
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=1
+boot_layout=lidar
+boot_store_mode=slotted
+---agent
+libreecho-agentd.log

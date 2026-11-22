@@ -1,0 +1,14 @@
+invalid option -- 'f'
+rc=1
+ls: /tmp/cap-test.wav: No such file or directory
+usage: tinymix [options] <command>
+options:
+	-h, --help               : prints this help message and exits
+	-v, --version            : prints this version of tinymix and exits
+	-D, --card NUMBER        : specifies the card number of the mixer
+
+commands:
+	get NAME|ID              : prints the values of a control
+---
+sh: Threads: not found
+9

@@ -1,0 +1,23 @@
+6.18.64+
+schema=1
+target_id=lidar
+speaker_chain=lidar
+srw-rw----    1 0        0                0 Nov 21 04:21 [1;35m/run/libreecho/agent.sock[m
+srw-rw----    1 0        0                0 Nov 21 04:21 [1;35m/run/libreecho/audio.sock[m
+srw-rw----    1 0        0                0 Nov 21 04:21 [1;35m/run/libreecho/led.sock[m
+srw-rw----    1 0        0                0 Nov 21 04:21 [1;35m/run/libreecho/mic.sock[m
+srw-rw----    1 0        0                0 Nov 21 04:21 [1;35m/run/libreecho/wakeword.sock[m
+-rw-r--r--    1 0        0                0 Jan  1  1970 [0;0m/run/libreecho/wlan0-ready[m
+schema=1
+state=connected
+volume=1
+microphone_mute=1
+action=1
+privacy_state=0
+lamp_control=0
+ 3093 0         0:00 /usr/local/sbin/libreecho-audiod --foreground --socket /run/libreecho/audio.sock
+ 3391 0         0:00 /usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap
+ 3700 0         6:34 /run/libreecho/features/wakeword/root/usr/local/sbin/libreecho-waked --foreground --socket /run/libreecho/wakeword.sock --mic-socket /run/libreecho/mic.sock --reference-socket /run/libreecho-audio/aec-reference.sock --model-dir /run/libreecho/features/wakeword/root/usr/local/share/libreecho/openwakeword --wake-threads 1 --vad-floor-rms 16
+ 5481 0         0:27 /usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap
+ 5931 0         0:03 /usr/local/sbin/libreecho-audio-engine
+ 8485 0         0:01 /run/libreecho/features/assistant/root/usr/local/sbin/libreecho-agentd --socket /run/libreecho/agent.sock --curl /run/libreecho/features/assistant/root/usr/local/libexec/libreecho-curl

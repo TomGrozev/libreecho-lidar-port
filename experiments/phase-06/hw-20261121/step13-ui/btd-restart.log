@@ -1,0 +1,5 @@
+running
+srw-rw----    1 0        0                0 Nov 21 04:04 [1;35m/run/libreecho/bluetooth.sock[m
+{"ts":1795233856,"boot_seconds":809,"level":"INFO","service":"btd","msg":"btd-profiles: sdp=unavailable avdtp=unavailable avrcp=unavailable"}
+{"ts":1795233856,"boot_seconds":809,"level":"WARN","service":"btd","msg":"btd: Bluetooth profile services unavailable: Address already in use"}
+{"ts":1795233856,"boot_seconds":809,"level":"INFO","service":"btd","msg":"btd: listening on /run/libreecho/bluetooth.sock (manual activation, HCI management enabled)"}

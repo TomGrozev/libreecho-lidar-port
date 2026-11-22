@@ -1,0 +1,23 @@
+OKAY [  0.002s]
+Finished. Total time: 0.002s
+Fetching ramoops (offset=0, size=60000)            OKAY [  0.087s]
+Finished. Total time: 0.095s
+Fetching boot_a (offset=0, size=100000)            OKAY [  0.313s]
+Fetching boot_a (offset=100000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=200000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=300000, size=100000)       OKAY [  0.314s]
+Fetching boot_a (offset=400000, size=100000)       OKAY [  0.315s]
+Fetching boot_a (offset=500000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=600000, size=100000)       OKAY [  0.313s]
+Fetching boot_a (offset=700000, size=100000)       OKAY [  0.313s]
+Fetching boot_a (offset=800000, size=100000)       OKAY [  0.313s]
+Fetching boot_a (offset=900000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=a00000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=b00000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=c00000, size=100000)       OKAY [  0.313s]
+Fetching boot_a (offset=d00000, size=100000)       OKAY [  0.313s]
+Fetching boot_a (offset=e00000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=f00000, size=100000)       OKAY [  0.313s]
+Finished. Total time: 5.011s
+0d3295ad6d87b2d80f047863f27cfb09d6562643b9eb404b6a592229cfb2ca51  dumps/20261117-lidar-k1-fetch-diag/ramoops-before-nouart-nowdt.bin
+a8cfff3ecd7608111d3184667435825cd7fbf8efd894005a1336bacd6136eeba  dumps/20261117-lidar-k1-fetch-diag/boot_a-readback-nouart-nowdt.bin

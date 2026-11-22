@@ -1,0 +1,233 @@
+total 104
+drwx------    4 0        0             4096 Jan  1  1970 [1;34m.[m
+drwx------   10 0        0             4096 Nov 22 06:48 [1;34m..[m
+-rw-------    1 0        0             5292 Nov 22 00:41 [0;0mauthority-provenance-cache[m
+-rw-------    1 0        0               12 Jan  1  1970 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1  1970 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1  1970 [0;0mboot-health[m
+-rw-r--r--    1 0        0              912 Jan  1  1970 [0;0mboot-history[m
+-rw-r--r--    1 0        0              281 Nov 22 00:36 [0;0mbootctl.confirm[m
+-rw-------    1 0        0               30 Jan  1  1970 [0;0mconfig-status[m
+-rw-------    1 0        0               29 Nov 22 00:36 [0;0mcurrent[m
+-rw-------    1 0        0             3764 Nov 21 08:40 [0;0mfailure-1795250407-1.log[m
+-rw-------    1 0        0             3416 Nov 22 09:09 [0;0mfailure-1795338568-1.log[m
+-rw-------    1 0        0             1704 Nov 22 00:37 [0;0mfeature-hash-cache[m
+-rw-------    1 0        0               56 Jan  1  1970 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1  1970 [1;34mincoming[m
+-rw-------    1 0        0              175 Nov 22 00:36 [0;0minstalled[m
+-rw-------    1 0        0            15419 Nov 22 09:09 [0;0mota.log[m
+-rw-------    1 0        0               29 Nov 22 00:36 [0;0mprevious[m
+-rw-r--r--    1 0        0              170 Nov 22 09:09 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Nov 22 09:13 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Nov 22 09:13 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1  1970 [0;0mstate[m
+== failure
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:11:/dev/usb-ffs/adb/ep1
+adbd-fd:12:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3130]
+adbd-fd:14:socket:[3131]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3125]
+adbd-fd:4:socket:[3126]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3127]
+adbd-fd:7:socket:[3128]
+adbd-fd:8:socket:[3129]
+adbd-fd:9:socket:[330]
+adbd-task:145:adbd:S (sleeping):do_select
+adbd-task:147:adbd:S (sleeping):futex_do_wait
+adbd-task:148:adbd:S (sleeping):inet_csk_accept
+adbd-task:149:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:150:adbd:S (sleeping):ffs_epfile_wait_ep
+adbd-log-empty
+adbd-diagnostic-end
+timezone-applied:UTC
+ui-home-assistant-mode-enabled
+ui-services-wakeword-skipped-no-audio
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:airplayd:0
+ui-service-start:radiod:0
+ui-service-start:ttsd:0
+ui-service-start:esphomed:1
+ui-web-production-lan
+ui-service-start:web:0
+feature-reconcile-service-stopped:agentd
+feature-reconcile-service-stopped:sttd
+feature-reconcile-service-start-failed:esphomed
+feature-service-topology-reconcile-failed
+persisted-feature-reconcile:1
+first-boot-startup-ready-timeout-degraded
+startup-ready-marker-missing
+first-boot-probe-passed-degraded:1
+ota-health-probe-passed:1
+local-services-degraded-start-no-startup-ready
+startup-ready-marker-missing
+first-boot-probe-passed-degraded:2
+ota-health-probe-passed:2
+startup-ready-marker-missing
+first-boot-probe-passed-degraded:3
+ota-health-probe-passed:3
+ota-health-confirm-failed-rebooting
+== system.log ota
+== pstore
+total 0
+drwxr-x---    2 0        0                0 Jan  1  1970 [1;34m.[m
+drwxr-xr-x    5 0        0                0 Jan  1  1970 [1;34m..[m
+-r--r--r--    1 0        0            19556 Jan  1  1970 [0;0mconsole-ramoops-0[m
+-r--r--r--    1 0        0              680 Jan  1  1970 [0;0mpmsg-ramoops-0[m
+== ota.log tail
+2026-11-21T07:18:18Z update[18036] install-state state=activating progress=90 detail=a
+2026-11-21T07:18:19Z update[18036] install-state state=reboot-pending progress=100 detail=a
+2026-11-21T07:21:39Z update[9265] install-state state=installed progress=100 detail=a
+2026-11-21T07:55:46Z update[11845] install-state state=verifying progress=5 detail=package
+2026-11-21T07:56:03Z update[11845] install-state state=verified progress=20 detail=0.2.18
+2026-11-21T07:56:04Z update[11845] install-state state=writing progress=30 detail=b
+2026-11-21T07:56:05Z update[11845] install-state state=verifying-write progress=75 detail=b
+2026-11-21T07:56:06Z update[11845] install-state state=activating progress=90 detail=b
+2026-11-21T07:56:06Z update[11845] install-state state=reboot-pending progress=100 detail=b
+2026-11-21T07:58:42Z update[10259] install-state state=installed progress=100 detail=b
+2026-11-21T08:03:15Z update[15022] install-state state=verifying progress=5 detail=package
+2026-11-21T08:03:32Z update[15022] install-state state=verified progress=20 detail=0.2.19
+2026-11-21T08:03:33Z update[15022] install-state state=writing progress=30 detail=a
+2026-11-21T08:03:34Z update[15022] install-state state=verifying-write progress=75 detail=a
+2026-11-21T08:03:35Z update[15022] install-state state=activating progress=90 detail=a
+2026-11-21T08:03:35Z update[15022] install-state state=reboot-pending progress=100 detail=a
+2026-11-21T08:24:51Z update[8708] install-state state=verifying progress=5 detail=package
+2026-11-21T08:25:08Z update[8708] install-state state=verified progress=20 detail=0.2.20
+2026-11-21T08:25:09Z update[8708] install-state state=writing progress=30 detail=a
+2026-11-21T08:25:10Z update[8708] install-state state=verifying-write progress=75 detail=a
+2026-11-21T08:25:11Z update[8708] install-state state=activating progress=90 detail=a
+2026-11-21T08:25:11Z update[8708] install-state state=reboot-pending progress=100 detail=a
+2026-11-21T09:55:35Z update[9861] install-state state=verifying progress=5 detail=package
+2026-11-21T09:55:51Z update[9861] install-state state=verified progress=20 detail=0.2.21
+2026-11-21T09:55:52Z update[9861] install-state state=writing progress=30 detail=a
+2026-11-21T09:55:53Z update[9861] install-state state=verifying-write progress=75 detail=a
+2026-11-21T09:55:54Z update[9861] install-state state=activating progress=90 detail=a
+2026-11-21T09:55:54Z update[9861] install-state state=reboot-pending progress=100 detail=a
+2026-11-21T09:59:27Z update[10085] install-state state=installed progress=100 detail=a
+2026-11-21T10:37:01Z update[3951] install-state state=verifying progress=5 detail=package
+2026-11-21T10:37:18Z update[3951] install-state state=verified progress=20 detail=0.2.23
+2026-11-21T10:37:19Z update[3951] install-state state=writing progress=30 detail=b
+2026-11-21T10:37:20Z update[3951] install-state state=verifying-write progress=75 detail=b
+2026-11-21T10:37:21Z update[3951] install-state state=activating progress=90 detail=b
+2026-11-21T10:37:21Z update[3951] install-state state=reboot-pending progress=100 detail=b
+2026-11-21T10:39:20Z update[11809] install-state state=installed progress=100 detail=b
+2026-11-21T20:08:32Z update[19044] install-state state=verifying progress=5 detail=package
+2026-11-21T20:08:49Z update[19044] install-state state=verified progress=20 detail=0.2.24
+2026-11-21T20:08:50Z update[19044] install-state state=writing progress=30 detail=a
+2026-11-21T20:08:51Z update[19044] install-state state=verifying-write progress=75 detail=a
+2026-11-21T20:08:52Z update[19044] install-state state=activating progress=90 detail=a
+2026-11-21T20:08:52Z update[19044] install-state state=reboot-pending progress=100 detail=a
+2026-11-21T20:10:56Z update[11925] install-state state=installed progress=100 detail=a
+2026-11-21T21:18:59Z update[15927] install-state state=verifying progress=5 detail=package
+2026-11-21T21:19:16Z update[15927] install-state state=verified progress=20 detail=0.2.25
+2026-11-21T21:19:17Z update[15927] install-state state=writing progress=30 detail=b
+2026-11-21T21:19:18Z update[15927] install-state state=verifying-write progress=75 detail=b
+2026-11-21T21:19:19Z update[15927] install-state state=activating progress=90 detail=b
+2026-11-21T21:19:19Z update[15927] install-state state=reboot-pending progress=100 detail=b
+2026-11-21T21:21:10Z update[12146] install-state state=installed progress=100 detail=b
+2026-11-21T21:50:27Z update[20921] install-state state=verifying progress=5 detail=package
+2026-11-21T21:50:40Z update[20921] install-state state=verified progress=20 detail=0.2.26
+2026-11-21T21:50:41Z update[20921] install-state state=writing progress=30 detail=a
+2026-11-21T21:50:42Z update[20921] install-state state=verifying-write progress=75 detail=a
+2026-11-21T21:50:43Z update[20921] install-state state=activating progress=90 detail=a
+2026-11-21T21:50:43Z update[20921] install-state state=reboot-pending progress=100 detail=a
+2026-11-21T21:52:33Z update[12550] install-state state=installed progress=100 detail=a
+2026-11-21T22:55:09Z update[27047] install-state state=verifying progress=5 detail=package
+2026-11-21T22:55:22Z update[27047] install-state state=verified progress=20 detail=0.2.27
+2026-11-21T22:55:23Z update[27047] install-state state=writing progress=30 detail=b
+2026-11-21T22:55:24Z update[27047] install-state state=verifying-write progress=75 detail=b
+2026-11-21T22:55:25Z update[27047] install-state state=activating progress=90 detail=b
+2026-11-21T22:55:25Z update[27047] install-state state=reboot-pending progress=100 detail=b
+2026-11-21T22:57:17Z update[12299] install-state state=installed progress=100 detail=b
+2026-11-22T00:34:45Z update[20801] install-state state=verifying progress=5 detail=package
+2026-11-22T00:34:58Z update[20801] install-state state=verified progress=20 detail=0.2.28
+2026-11-22T00:34:59Z update[20801] install-state state=writing progress=30 detail=b
+2026-11-22T00:35:00Z update[20801] install-state state=verifying-write progress=75 detail=b
+2026-11-22T00:35:01Z update[20801] install-state state=activating progress=90 detail=b
+2026-11-22T00:35:01Z update[20801] install-state state=reboot-pending progress=100 detail=b
+2026-11-22T00:36:51Z update[12086] install-state state=installed progress=100 detail=b
+2026-11-22T09:13:00Z update[26141] install-state state=verifying progress=5 detail=package
+2026-11-22T09:13:14Z update[26141] install-state state=verified progress=20 detail=0.2.29
+2026-11-22T09:13:15Z update[26141] install-state state=writing progress=30 detail=a
+2026-11-22T09:13:16Z update[26141] install-state state=verifying-write progress=75 detail=a
+2026-11-22T09:13:17Z update[26141] install-state state=activating progress=90 detail=a
+2026-11-22T09:13:17Z update[26141] install-state state=reboot-pending progress=100 detail=a
+2026-11-22T09:09:28Z update[11089] install-error reason=feature_target_not_ready state=none
+2026-11-22T09:09:28Z update[11471] install-error reason=feature_target_not_ready state=none
+2026-11-22T09:09:28Z update[11247] install-error reason=feature_target_not_ready state=none
+== pstore
+libreecho-init: adbd-fd:7:socket:[3128]
+libreecho-init: adbd-fd:8:socket:[3129]
+libreecho-init: adbd-fd:9:socket:[330]
+libreecho-init: adbd-task:145:adbd:S (sleeping):do_select
+libreecho-init: adbd-task:147:adbd:S (sleeping):futex_do_wait
+libreecho-init: adbd-task:148:adbd:S (sleeping):inet_csk_accept
+libreecho-init: adbd-task:149:adbd:S (sleeping):unix_stream_read_generic
+libreecho-init: adbd-task:150:adbd:S (sleeping):ffs_epfile_wait_ep
+libreecho-init: adbd-log-empty
+libreecho-init: adbd-diagnostic-end
+loop0: detected capacity change from 0 to 18616
+loop1: detected capacity change from 0 to 312904
+loop2: detected capacity change from 0 to 16064
+loop3: detected capacity change from 0 to 105984
+loop4: detected capacity change from 0 to 5984
+libreecho-init: timezone-applied:UTC
+libreecho-init: ui-home-assistant-mode-enabled
+libreecho-init: ui-services-wakeword-skipped-no-audio
+libreecho-mdnsd: interface-wait-expired
+libreecho-mdnsd: mdns-supervisor-ready:2762
+libreecho-init: shared-discovery-runtime-started
+libreecho-init: feature-services-deferred-until-staged
+libreecho-init: ui-service-start:logd:0
+libreecho-init: ui-service-start:networkd:0
+libreecho-init: ui-service-start:timed:0
+libreecho-init: ui-service-start:audiod:0
+libreecho-init: ui-service-start:micd:0
+libreecho-init: ui-service-start:ledd:0
+libreecho-init: ui-service-start:buttond:0
+Bluetooth: MGMT ver 1.23
+libreecho-init: ui-service-start:btd:0
+Bluetooth: hci0: Firmware already downloaded
+Bluetooth: hci0: Device setup in 31073 usecs
+libreecho-init: ui-service-start:timerd:0
+libreecho-init: ui-service-start:watchdogd:0
+libreecho-init: ui-service-start:airplayd:0
+libreecho-init: ui-service-start:radiod:0
+process 'usr/local/sbin/libreecho-ttsd' started with executable stack
+libreecho-init: ui-service-start:ttsd:0
+libreecho-init: ui-service-start:esphomed:1
+libreecho-init: ui-web-production-lan
+libreecho-init: ui-service-start:web:0
+libreecho-feature-reconcile: feature-reconcile-service-stopped:agentd
+libreecho-feature-reconcile: feature-reconcile-service-stopped:sttd
+libreecho-feature-reconcile: feature-reconcile-service-start-failed:esphomed
+libreecho-feature-reconcile: feature-service-topology-reconcile-failed
+libreecho-init: persisted-feature-reconcile:1
+libreecho-init: first-boot-startup-ready-timeout-degraded
+libreecho-init: startup-ready-marker-missing
+libreecho-init: first-boot-probe-passed-degraded:1
+libreecho-init: ota-health-probe-passed:1
+libreecho-init: local-services-degraded-start-no-startup-ready
+libreecho-init: startup-ready-marker-missing
+libreecho-init: first-boot-probe-passed-degraded:2
+libreecho-init: ota-health-probe-passed:2
+libreecho-init: startup-ready-marker-missing
+libreecho-init: first-boot-probe-passed-degraded:3
+libreecho-init: ota-health-probe-passed:3
+libreecho-init: ota-health-confirm-failed-rebooting
+reboot: Restarting system

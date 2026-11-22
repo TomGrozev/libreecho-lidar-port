@@ -1,0 +1,45 @@
+==tools
+ls: /usr/local/bin: No such file or directory
+/usr/local/sbin:
+[1;32mlibreecho-airplayd[m                [1;32mlibreecho-ping[m
+[1;32mlibreecho-audiod[m                  [1;32mlibreecho-radiod[m
+[1;32mlibreecho-bootctl[m                 [1;32mlibreecho-reconcile-features[m
+[1;32mlibreecho-btd[m                     [1;32mlibreecho-recovery-ap-probe[m
+[1;32mlibreecho-buttond[m                 [1;32mlibreecho-recovery-ap-ready[m
+[1;32mlibreecho-config-migrate[m          [1;32mlibreecho-recovery-net-down[m
+[1;32mlibreecho-data-cleanup[m            [1;32mlibreecho-recovery-net-up[m
+[1;32mlibreecho-esphomed[m                [1;32mlibreecho-sttd-wyoming[m
+[1;32mlibreecho-feature-transaction[m     [1;32mlibreecho-target-manifest[m
+[1;32mlibreecho-generation[m              [1;32mlibreecho-timed[m
+[1;32mlibreecho-generation-transaction[m  [1;32mlibreecho-timerd[m
+[1;32mlibreecho-ledd[m                    [1;32mlibreecho-ttsd-wyoming[m
+[1;32mlibreecho-local[m                   [1;32mlibreecho-update[m
+[1;32mlibreecho-logd[m                    [1;32mlibreecho-update-fetch[m
+[1;32mlibreecho-mdnsd[m                   [1;32mlibreecho-vendor-import[m
+[1;32mlibreecho-micd[m                    [1;32mlibreecho-watchdogd[m
+[1;32mlibreecho-networkd[m                [1;32mlibreecho-web[m
+==initd
+[1;32mlibreecho-agentd.init[m     [1;32mlibreecho-logd.init[m       [1;32mlibreecho-timerd.init[m
+[1;32mlibreecho-airplayd.init[m   [1;32mlibreecho-mdnsd.init[m      [1;32mlibreecho-ttsd.init[m
+[1;32mlibreecho-audiod.init[m     [1;32mlibreecho-micd.init[m       [1;32mlibreecho-waked.init[m
+[1;32mlibreecho-btd.init[m        [1;32mlibreecho-networkd.init[m   [1;32mlibreecho-watchdogd.init[m
+[1;32mlibreecho-buttond.init[m    [1;32mlibreecho-radiod.init[m     [1;32mlibreecho-web.init[m
+[1;32mlibreecho-esphomed.init[m   [1;32mlibreecho-sttd.init[m
+[1;32mlibreecho-ledd.init[m       [1;32mlibreecho-timed.init[m
+==led-state
+{"current":{"r":72,"g":216,"b":118,"brightness":70},"boot_profile":{"r":0,"g":96,"b":255,"brightness":100},"night":{"enabled":0,"start_minute":1320,"end_minute":420},"idle":{"mode":1,"policy":2,"auto_off_minutes":0},"sleep":{"mode":0,"brightness":8,"period_ms":8000,"timer_minutes":0,"restore_on_boot":0},"profiles":{"listening":{"r":72,"g":185,"b":255,"brightness":100},"thinking":{"r":168,"g":115,"b":239,"brightness":100},"error":{"r":239,"g":80,"b":80,"brightness":100},"dnd":{"r":190,"g":35,"b":35,"brightness":100},"night":{"r":255,"g":40,"b":0,"brightness":12}}}==listen
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:7000            0.0.0.0:*               LISTEN      6605/shairport-sync
+tcp        0      0 0.0.0.0:5555            0.0.0.0:*               LISTEN      140/adbd
+tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN      7949/libreecho-web
+tcp        0      0 :::7000                 :::*                    LISTEN      6605/shairport-sync
+==run
+[1;35magent.sock[m            [1;35mlog.sock[m              [0;0mtime.status[m
+[1;35mairplay.sock[m          [1;35mmdns.sock[m             [1;35mtimer.sock[m
+[1;35maudio.sock[m            [1;35mmic.sock[m              [1;35mtts.sock[m
+[1;35mbluetooth.sock[m        [1;35mnetwork.sock[m          [0;0mvendor-import.status[m
+[0;0mbuttond-status[m        [0;0mota-health-settled[m    [1;35mwakeword.sock[m
+[1;34mfeatures[m              [1;35mradio.sock[m            [0;0mwifi-client.conf[m
+[1;35mled.sock[m              [0;0mstartup-ready[m         [0;0mwlan0-ready[m
+[0;0mlocal.status[m          [1;35mstt.sock[m

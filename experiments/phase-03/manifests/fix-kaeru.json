@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "description": "replace only the wrong-target Kaeru expdb with the clean Lidar build",
+  "device": {
+    "hwcode": "0x8167",
+    "flash_bytes": 7650410496,
+    "boot_area_bytes": 2097152,
+    "sector_bytes": 512
+  },
+  "chain_installed": false,
+  "partitions": [
+    {
+      "name": "expdb",
+      "kind": "user",
+      "partition_bytes": 10485760,
+      "source": "/workspace/libreecho/experiments/phase-03/sources/expdb_kaeru_0x40000.bin",
+      "source_bytes": 262144,
+      "sha256": "a1eda7b56d05b184892f681c27f1374ef962a04a1aa4d0d0a463e388c98db152",
+      "policies": [
+        "readback_verify"
+      ]
+    }
+  ]
+}

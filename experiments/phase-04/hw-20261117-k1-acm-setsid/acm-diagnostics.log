@@ -1,0 +1,357 @@
+
+$ uname -a
+~ # [6nuname -a; echo __ACM_END_1__
+Linux (none) 6.1.178+ #1 SMP Tue Nov 17 10:26:04 AEDT 2026 aarch64 Linux
+__ACM_END_1__
+$ cat /proc/cmdline
+
+~ # [6ncat /proc/cmdline; echo __ACM_END_2__
+console=ttyS0,921600n1 earlycon=uart8250,mmio32,0x11005000 clk_ignore_unused lidar.autoreboot=240
+__ACM_END_2__
+$ cat /proc/cpuinfo
+
+~ # [6ncat /proc/cpuinfo; echo __ACM_END_3__
+processor	: 0
+BogoMIPS	: 26.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 cpuid
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0xd04
+CPU revision	: 1
+
+processor	: 1
+BogoMIPS	: 26.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 cpuid
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0xd04
+CPU revision	: 1
+
+processor	: 2
+BogoMIPS	: 26.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 cpuid
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0xd04
+CPU revision	: 1
+
+processor	: 3
+BogoMIPS	: 26.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 cpuid
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0xd04
+CPU revision	: 1
+
+__ACM_END_3__
+$ dmesg
+
+~ # [6ndmesg; echo __ACM_END_4__
+Booting Linux on physical CPU 0x0000000000 [0x410fd041]
+Linux version 6.1.178+ (user@<WORKSTATION_A>) (clang version 23.1.5, LLD 23.1.5) #1 SMP Tue Nov 17 10:26:04 AEDT 2026
+Machine model: LibreEcho Lidar
+earlycon: uart8250 at MMIO32 0x0000000011005000 (options '')
+printk: bootconsole [uart8250] enabled
+efi: UEFI not found.
+OF: reserved mem: OVERLAP DETECTED!
+atf@43000000 (0x0000000043000000--0x0000000043030000) overlaps with secmon@43000000 (0x0000000043000000--0x0000000043030000)
+Zone ranges:
+  DMA      [mem 0x0000000040000000-0x000000007f9bffff]
+  DMA32    empty
+  Normal   empty
+Movable zone start for each node
+Early memory node ranges
+  node   0: [mem 0x0000000040000000-0x0000000042ffffff]
+  node   0: [mem 0x0000000043000000-0x000000004302ffff]
+  node   0: [mem 0x0000000043030000-0x000000007f9bffff]
+Initmem setup node 0 [mem 0x0000000040000000-0x000000007f9bffff]
+On node 0, zone DMA: 1600 pages in unavailable ranges
+psci: probing for conduit method from DT.
+psci: PSCIv1.0 detected in firmware.
+psci: Using standard PSCI v0.2 function IDs
+psci: Trusted OS migration not required
+psci: SMC Calling Convention v1.0
+percpu: Embedded 15 pages/cpu s30120 r0 d31320 u61440
+pcpu-alloc: s30120 r0 d31320 u61440 alloc=15*4096
+pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+Detected VIPT I-cache on CPU0
+alternatives: applying boot alternatives
+Built 1 zonelists, mobility grouping on.  Total pages: 256473
+Kernel command line: console=ttyS0,921600n1 earlycon=uart8250,mmio32,0x11005000 clk_ignore_unused lidar.autoreboot=240
+Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+Inode-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+Memory: 1010504K/1042176K available (5440K kernel code, 1024K rwdata, 1732K rodata, 704K init, 392K bss, 31672K reserved, 0K cma-reserved)
+SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+rcu: Hierarchical RCU implementation.
+rcu: 	RCU event tracing is enabled.
+rcu: 	RCU restricting CPUs from NR_CPUS=256 to nr_cpu_ids=4.
+rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+Root IRQ handler: gic_handle_irq
+GIC: Using split EOI/Deactivate mode
+rcu: srcu_init: Setting srcu_struct sizes based on contention.
+arch_timer: cp15 timer(s) running at 13.00MHz (phys).
+clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x2ff89eacb, max_idle_ns: 440795202429 ns
+sched_clock: 56 bits at 13MHz, resolution 76ns, wraps every 4398046511101ns
+clocksource: timer: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 147020034397 ns
+sched_clock: 32 bits at 13MHz, resolution 76ns, wraps every 165191050201ns
+Console: colour dummy device 80x25
+Calibrating delay loop (skipped), value calculated using timer frequency.. 26.00 BogoMIPS (lpj=52000)
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+rcu: Hierarchical SRCU implementation.
+rcu: 	Max phase no-delay instances is 1000.
+EFI services will not be available.
+smp: Bringing up secondary CPUs ...
+Detected VIPT I-cache on CPU1
+CPU1: Booted secondary processor 0x0000000001 [0x410fd041]
+Detected VIPT I-cache on CPU2
+CPU2: Booted secondary processor 0x0000000002 [0x410fd041]
+Detected VIPT I-cache on CPU3
+CPU3: Booted secondary processor 0x0000000003 [0x410fd041]
+smp: Brought up 1 node, 4 CPUs
+SMP: Total of 4 processors activated.
+CPU features: detected: 32-bit EL0 Support
+CPU features: detected: CRC32 instructions
+CPU: All CPU(s) started at EL2
+alternatives: applying system-wide alternatives
+devtmpfs: initialized
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+pinctrl core: initialized pinctrl subsystem
+DMI not present or invalid.
+NET: Registered PF_NETLINK/PF_ROUTE protocol family
+DMA: preallocated 128 KiB GFP_KERNEL pool for atomic allocations
+DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+ASID allocator initialised with 65536 entries
+printk: console [ramoops-1] enabled
+pstore: Registered ramoops as persistent store backend
+ramoops: using 0x100000@0x60000000, ecc: 0
+/soc/interrupt-controller@10310000: Fixed dependency cycle(s) with /soc/interrupt-controller@10310000
+iommu: Default domain type: Translated 
+iommu: DMA domain TLB invalidation policy: strict mode 
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+clocksource: Switched to clocksource arch_sys_counter
+NET: Registered PF_INET protocol family
+IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+tcp_listen_portaddr_hash hash table entries: 512 (order: 1, 8192 bytes, linear)
+Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+TCP established hash table entries: 8192 (order: 4, 65536 bytes, linear)
+TCP bind hash table entries: 8192 (order: 6, 262144 bytes, linear)
+TCP: Hash tables configured (established 8192 bind 8192)
+UDP hash table entries: 512 (order: 2, 16384 bytes, linear)
+UDP-Lite hash table entries: 512 (order: 2, 16384 bytes, linear)
+NET: Registered PF_UNIX/PF_LOCAL protocol family
+Unpacking initramfs...
+workingset: timestamp_bits=62 max_order=18 bucket_order=0
+io scheduler mq-deadline registered
+io scheduler kyber registered
+Freeing initrd memory: 664K
+mtk-power-controller 10006000.syscon:power-controller: /soc/syscon@10006000/power-controller/power-domain@4: failed to power on domain: -110
+------------[ cut here ]------------
+Device 'isp' does not have a release() function, it is broken and must be fixed. See Documentation/core-api/kobject.rst.
+WARNING: CPU: 1 PID: 1 at drivers/base/core.c:2510 device_release+0x84/0x8c
+CPU: 1 PID: 1 Comm: swapper/0 Not tainted 6.1.178+ #1
+Hardware name: LibreEcho Lidar (DT)
+pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+pc : device_release+0x84/0x8c
+lr : device_release+0x84/0x8c
+sp : ffffffc00896bae0
+x29: ffffffc00896bae0 x28: 0000000000000000 x27: 0000000000000000
+x26: 0000000000000000 x25: 0000000000000000 x24: ffffff803f7b8b50
+x23: 0000000000000002 x22: ffffffc0088acd78 x21: 0000000000000000
+x20: ffffff8000ea9880 x19: 0000000000000000 x18: 0000000079862af8
+x17: 6e61206e656b6f72 x16: 6220736920746920 x15: 2c6e6f6974636e75
+x14: 6620292865736165 x13: 0000000000000003 x12: 00000000ffffefff
+x11: 0000000000000001 x10: 0000000000000003 x9 : b8e16a4b28f88c00
+x8 : b8e16a4b28f88c00 x7 : 0000000000000000 x6 : 2720656369766544
+x5 : ffffffc0088fb580 x4 : 0000000000000000 x3 : ffffffc00896b828
+x2 : ffffffc00896b830 x1 : 00000000ffffefff x0 : 0000000000000078
+Call trace:
+ device_release+0x84/0x8c
+ kobject_put+0xa8/0xec
+ put_device+0x14/0x20
+ genpd_remove+0xe8/0x170
+ pm_genpd_remove+0x2c/0x4c
+ scpsys_probe+0x148/0x204
+ platform_probe+0xa8/0xc8
+ really_probe+0xec/0x274
+ __driver_probe_device+0xa0/0xf8
+ driver_probe_device+0x3c/0x100
+ __driver_attach+0xa4/0xf4
+ bus_for_each_dev+0x80/0xcc
+ driver_attach+0x24/0x30
+ bus_add_driver+0x100/0x1d4
+ driver_register+0x64/0x100
+ __platform_driver_register+0x20/0x2c
+ scpsys_pm_domain_driver_init+0x1c/0x28
+ do_one_initcall+0x70/0x150
+ do_initcall_level+0x8c/0xac
+ do_initcalls+0x54/0x94
+ do_basic_setup+0x18/0x24
+ kernel_init_freeable+0xb0/0x114
+ kernel_init+0x20/0x11c
+ ret_from_fork+0x10/0x20
+---[ end trace 0000000000000000 ]---
+------------[ cut here ]------------
+Device 'vdec' does not have a release() function, it is broken and must be fixed. See Documentation/core-api/kobject.rst.
+WARNING: CPU: 1 PID: 1 at drivers/base/core.c:2510 device_release+0x84/0x8c
+CPU: 1 PID: 1 Comm: swapper/0 Tainted: G        W          6.1.178+ #1
+Hardware name: LibreEcho Lidar (DT)
+pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+pc : device_release+0x84/0x8c
+lr : device_release+0x84/0x8c
+sp : ffffffc00896bae0
+x29: ffffffc00896bae0 x28: 0000000000000000 x27: 0000000000000000
+x26: 0000000000000000 x25: 0000000000000000 x24: ffffff803f7b8b50
+x23: 0000000000000001 x22: ffffffc0088acd78 x21: 0000000000000000
+x20: ffffff8000ea9080 x19: 0000000000000000 x18: 0000000079862af8
+x17: 61206e656b6f7262 x16: 207369207469202c x15: 6e6f6974636e7566
+x14: 202928657361656c x13: 0000000000000003 x12: 00000000ffffefff
+x11: 0000000000000001 x10: 0000000000000003 x9 : b8e16a4b28f88c00
+x8 : b8e16a4b28f88c00 x7 : 0000000000000000 x6 : 2720656369766544
+x5 : ffffffc0088fb580 x4 : 0000000000000000 x3 : ffffffc00896b828
+x2 : ffffffc00896b830 x1 : 00000000ffffefff x0 : 0000000000000079
+Call trace:
+ device_release+0x84/0x8c
+ kobject_put+0xa8/0xec
+ put_device+0x14/0x20
+ genpd_remove+0xe8/0x170
+ pm_genpd_remove+0x2c/0x4c
+ scpsys_probe+0x148/0x204
+ platform_probe+0xa8/0xc8
+ really_probe+0xec/0x274
+ __driver_probe_device+0xa0/0xf8
+ driver_probe_device+0x3c/0x100
+ __driver_attach+0xa4/0xf4
+ bus_for_each_dev+0x80/0xcc
+ driver_attach+0x24/0x30
+ bus_add_driver+0x100/0x1d4
+ driver_register+0x64/0x100
+ __platform_driver_register+0x20/0x2c
+ scpsys_pm_domain_driver_init+0x1c/0x28
+ do_one_initcall+0x70/0x150
+ do_initcall_level+0x8c/0xac
+ do_initcalls+0x54/0x94
+ do_basic_setup+0x18/0x24
+ kernel_init_freeable+0xb0/0x114
+ kernel_init+0x20/0x11c
+ ret_from_fork+0x10/0x20
+---[ end trace 0000000000000000 ]---
+------------[ cut here ]------------
+Device 'mm' does not have a release() function, it is broken and must be fixed. See Documentation/core-api/kobject.rst.
+WARNING: CPU: 1 PID: 1 at drivers/base/core.c:2510 device_release+0x84/0x8c
+CPU: 1 PID: 1 Comm: swapper/0 Tainted: G        W          6.1.178+ #1
+Hardware name: LibreEcho Lidar (DT)
+pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+pc : device_release+0x84/0x8c
+lr : device_release+0x84/0x8c
+sp : ffffffc00896bae0
+x29: ffffffc00896bae0 x28: 0000000000000000 x27: 0000000000000000
+x26: 0000000000000000 x25: 0000000000000000 x24: ffffff803f7b8b50
+x23: 0000000000000000 x22: ffffffc0088acd78 x21: 0000000000000000
+x20: ffffff8000ea8880 x19: 0000000000000000 x18: 0000000079862af8
+x17: 646e61206e656b6f x16: 7262207369207469 x15: 202c6e6f6974636e
+x14: 7566202928657361 x13: 0000000000000003 x12: 00000000ffffefff
+x11: 0000000000000001 x10: 0000000000000003 x9 : b8e16a4b28f88c00
+x8 : b8e16a4b28f88c00 x7 : 0000000000000000 x6 : 2720656369766544
+x5 : ffffffc0088fb580 x4 : 0000000000000000 x3 : ffffffc00896b828
+x2 : ffffffc00896b830 x1 : 00000000ffffefff x0 : 0000000000000077
+Call trace:
+ device_release+0x84/0x8c
+ kobject_put+0xa8/0xec
+ put_device+0x14/0x20
+ genpd_remove+0xe8/0x170
+ pm_genpd_remove+0x2c/0x4c
+ scpsys_probe+0x148/0x204
+ platform_probe+0xa8/0xc8
+ really_probe+0xec/0x274
+ __driver_probe_device+0xa0/0xf8
+ driver_probe_device+0x3c/0x100
+ __driver_attach+0xa4/0xf4
+ bus_for_each_dev+0x80/0xcc
+ driver_attach+0x24/0x30
+ bus_add_driver+0x100/0x1d4
+ driver_register+0x64/0x100
+ __platform_driver_register+0x20/0x2c
+ scpsys_pm_domain_driver_init+0x1c/0x28
+ do_one_initcall+0x70/0x150
+ do_initcall_level+0x8c/0xac
+ do_initcalls+0x54/0x94
+ do_basic_setup+0x18/0x24
+ kernel_init_freeable+0xb0/0x114
+ kernel_init+0x20/0x11c
+ ret_from_fork+0x10/0x20
+---[ end trace 0000000000000000 ]---
+mtk-power-controller: probe of 10006000.syscon:power-controller failed with error -110
+Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+printk: console [ttyS0] disabled
+11005000.serial: ttyS0 at MMIO 0x11005000 (irq = 185, base_baud = 1625000) is a ST16650V2
+printk: console [ttyS0] enabled
+printk: bootconsole [uart8250] disabled
+mtk_rng 1020c000.rng: registered RNG driver
+random: crng init done
+usb_phy_generic usb_phy_generic.2.auto: supply vcc not found, using dummy regulator
+usb_phy_generic usb_phy_generic.2.auto: dummy supplies not allowed for exclusive requests
+mtk-wdt 10007000.toprgu: Watchdog enabled (timeout=31 sec, nowayout=0)
+usbcore: registered new interface driver usbhid
+usbhid: USB HID core driver
+NET: Registered PF_INET6 protocol family
+Segment Routing with IPv6
+In-situ OAM (IOAM) with IPv6
+sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+pstore: Using crash dump compression: deflate
+clk: Not disabling unused clocks
+Freeing unused kernel memory: 704K
+Run /init as init process
+  with arguments:
+    /init
+  with environment:
+    HOME=/
+    TERM=linux
+lidar-init: pstore-prev: 
+lidar-init: STAGE OK: mount pseudo filesystems
+lidar-init: STAGE BEGIN: configfs USB gadget g1 (acm+ncm)
+using random self ethernet address
+using random host ethernet address
+usb0: HOST MAC <MAC_GADGET_HOST_1>
+usb0: MAC <MAC_GADGET_DEV_1>
+lidar-init: UDC musb-hdrc.3.auto state not attached
+lidar-init: STAGE OK: configfs USB gadget g1 (acm+ncm)
+lidar-init: STAGE BEGIN: usb0 network (IPv6 link-local, IPv4 169.254.42.1/16)
+lidar-init: STAGE OK: usb0 network
+lidar-init: STAGE BEGIN: root shells
+lidar-init: spawning shell on /dev/ttyGS0
+lidar-init: STAGE OK: root shells
+lidar-init: spawning shell on /dev/console
+lidar-init: autoreboot armed: 240 s
+lidar-init: PID 1 entering reap loop
+mmc0: new HS200 MMC card at address 0001
+mmcblk0: mmc0:0001 Q2J95E 7.13 GiB 
+ mmcblk0: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16
+mmcblk0boot0: mmc0:0001 Q2J95E 2.00 MiB 
+mmcblk0boot1: mmc0:0001 Q2J95E 2.00 MiB 
+mmcblk0rpmb: mmc0:0001 Q2J95E 4.00 MiB, chardev (250:0)
+__ACM_END_4__
+$ ls /pstore-prev /sys/fs/pstore
+
+~ # [6nls /pstore-prev /sys/fs/pstore; echo __ACM_END_5__
+/pstore-prev:
+
+/sys/fs/pstore:
+__ACM_END_5__
+$ cat /pstore-prev/*
+
+~ # [6ncat /pstore-prev/*; echo __ACM_END_6__
+cat: can't open '/pstore-prev/*': No such file or directory
+__ACM_END_6__

@@ -1,0 +1,5 @@
+==local
+Usage: /usr/local/sbin/libreecho-local {run|status|stop}
+==ping
+usage: libreecho-ping payload|run|loop
+==btstatus

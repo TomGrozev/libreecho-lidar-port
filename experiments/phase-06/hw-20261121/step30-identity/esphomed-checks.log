@@ -1,0 +1,2 @@
+esphomed_health_rc=0
+{"pid":8666,"start_time":"4461","boot_id":"42a7aac6-a592-4416-b0aa-0a54d5ec07a2","listener_inode":"12962","port":6053,"ready":true,"connected":true,"in_progress":false,"last_result":"","last_result_time":0}

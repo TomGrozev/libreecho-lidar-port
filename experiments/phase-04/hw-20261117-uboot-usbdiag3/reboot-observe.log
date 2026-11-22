@@ -1,0 +1,5 @@
+   0.271 reboot: Rebooting                                          OKAY [  0.002s] Finished. Total time: 0.152s 
+   0.316 usb=[] tty=[]
+   2.092 usb=[0e8d:2000 MediaTek Inc. MT65xx Preloader;] tty=[]
+   4.750 usb=[] tty=[]
+  25.282 end

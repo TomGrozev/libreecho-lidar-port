@@ -1,0 +1,24 @@
+reason=ota-health-confirm-failed
+pending_slot=a
+transaction_id=txn-a952d12f57426d8bf6e7527c
+== its detail
+--- detail
+web-status
+
+--- airplayd-reconcile-log
+== boot-history
+epoch=4 boot=90 mode=first-boot running=a selected=a pending=- a=15/2/0 b=14/0/1 prev=confirmed:none prev_slot=b
+epoch=3 boot=91 mode=ota running=b selected=b pending=b a=14/0/1 b=15/2/0 prev=skipped:first-install-transaction-invalid prev_slot=a
+epoch=3 boot=92 mode=first-boot running=b selected=b pending=- a=14/0/1 b=15/0/1 prev=confirmed:none prev_slot=b
+epoch=3 boot=93 mode=ota running=a selected=a pending=a a=15/2/0 b=14/0/1 prev=confirmed:none prev_slot=b
+epoch=3 boot=94 mode=ota running=a selected=a pending=a a=15/1/0 b=14/0/1 prev=restarting:ota-confirm prev_slot=a
+epoch=4 boot=95 mode=ota running=a selected=b pending=a a=15/0/0 b=14/0/1 prev=restarting:ota-confirm prev_slot=a
+epoch=4 boot=96 mode=ota running=b selected=b pending=a a=0/0/0 b=14/0/1 prev=restarting:ota-confirm prev_slot=a
+epoch=3 boot=97 mode=first-boot running=b selected=b pending=- a=0/0/0 b=14/0/1 prev=pending:none prev_slot=b
+== installed
+schema=3
+slot=b
+transaction_id=txn-bac8cf84d19b53cb0c24cdc4
+version=0.2.28
+update_channel=dev
+manifest_sha256=2d05ec507980f5cbf22a52b3aad0dd67d47c56740dad3226a68a890d9a54ff68

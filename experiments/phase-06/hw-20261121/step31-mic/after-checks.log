@@ -1,0 +1,57 @@
+crw-rw----    1 0        0         254,   0 Jan  1  1970 [1;35m/dev/gpiochip0[m
+crw-rw----    1 0        0         254,   1 Jan  1  1970 [1;35m/dev/gpiochip1[m
+crw-rw----    1 0        0         254,   2 Jan  1  1970 [1;35m/dev/gpiochip2[m
+crw-rw----    1 0        0         254,   3 Jan  1  1970 [1;35m/dev/gpiochip3[m
+crw-rw----    1 0        0         254,   4 Jan  1  1970 [1;35m/dev/gpiochip4[m
+crw-rw----    1 0        0           4,  66 Jan  1  1970 [1;35m/dev/ttyS2[m
+MAJOR=254
+MINOR=0
+DEVNAME=gpiochip0
+DEVTYPE=gpio_chip
+OF_NAME=pinctrl
+OF_FULLNAME=/soc/pinctrl@1000b000
+OF_COMPATIBLE_0=mediatek,mt8167-pinctrl
+OF_COMPATIBLE_N=1
+MAJOR=254
+MINOR=1
+DEVNAME=gpiochip1
+DEVTYPE=gpio_chip
+OF_NAME=audio-codec
+OF_FULLNAME=/soc/i2c@11009000/audio-codec@18
+OF_COMPATIBLE_0=ti,tlv320adc3101
+OF_COMPATIBLE_N=1
+MAJOR=254
+MINOR=2
+DEVNAME=gpiochip2
+DEVTYPE=gpio_chip
+OF_NAME=audio-codec
+OF_FULLNAME=/soc/i2c@11009000/audio-codec@19
+OF_COMPATIBLE_0=ti,tlv320adc3101
+OF_COMPATIBLE_N=1
+MAJOR=254
+MINOR=3
+DEVNAME=gpiochip3
+DEVTYPE=gpio_chip
+OF_NAME=audio-codec
+OF_FULLNAME=/soc/i2c@11009000/audio-codec@1a
+OF_COMPATIBLE_0=ti,tlv320adc3101
+OF_COMPATIBLE_N=1
+MAJOR=254
+MINOR=4
+DEVNAME=gpiochip4
+DEVTYPE=gpio_chip
+OF_NAME=audio-codec
+OF_FULLNAME=/soc/i2c@11009000/audio-codec@1b
+OF_COMPATIBLE_0=ti,tlv320adc3101
+OF_COMPATIBLE_N=1
+7
+../../../11007000.serial:0.0
+11006000.serial: ttyS1 at MMIO 0x11006000 (irq = 184, base_baud = 1625000) is a ST16650V2
+11007000.serial: ttyS2 at MMIO 0x11007000 (irq = 185, base_baud = 1625000) is a ST16650V2
+ 4311 0         0:00 /usr/local/sbin/libreecho-networkd --foreground --socket /run/libreecho/network.sock --interface wlan0 --wpa-ctrl /tmp/wpa_ctrl/wlan0 --recovery-marker /run/libreecho/recovery-mode --recovery-psk /data/libreecho/config/recovery-psk --recovery-config /data/libreecho/config/recovery.json --recovery-run-dir /run/libreecho --hostapd /usr/local/sbin/hostapd --recovery-dhcp /usr/local/sbin/dnsmasq --recovery-dns /usr/local/sbin/dnsmasq --recovery-ap-probe /usr/local/sbin/libreecho-recovery-ap-probe --recovery-ready-probe /usr/local/sbin/libreecho-recovery-ap-ready --recovery-net-up /usr/local/sbin/libreecho-recovery-net-up --recovery-net-down /usr/local/sbin/libreecho-recovery-net-down --recovery-address <SETUP_AP_IP_A> --recovery-timeout 120000 --led-socket /run/libreecho/led.sock
+ 5039 0         0:00 /usr/local/sbin/libreecho-audiod --foreground --socket /run/libreecho/audio.sock
+ 5368 0         0:00 /usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap
+ 5723 0         1:57 /run/libreecho/features/wakeword/root/usr/local/sbin/libreecho-waked --foreground --socket /run/libreecho/wakeword.sock --mic-socket /run/libreecho/mic.sock --reference-socket /run/libreecho-audio/aec-reference.sock --model-dir /run/libreecho/features/wakeword/root/usr/local/share/libreecho/openwakeword --wake-threads 1 --vad-floor-rms 16
+ 7530 0         0:08 /usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap
+ 8712 0         0:01 /usr/local/sbin/libreecho-esphomed --config /data/libreecho/config/web-config.json --status-file /run/libreecho/esphome-status.json --port 6053 --bind 0.0.0.0 --wake-socket /run/libreecho/wakeword.sock --audio-socket /run/libreecho/audio.sock --audio-bus /run/libreecho-audio/system.pcm --mdns-socket /run/libreecho/mdns.sock --tls-ca /etc/ssl/certs/ca-certificates.crt --radio-socket /run/libreecho/radio.sock --timer-socket /run/libreecho/timer.sock --led-socket /run/libreecho/led.sock --privacy-state /sys/devices/platform/amz_privacy/privacy_state --idme-root /sys/firmware/devicetree/base/idme
+schema=1

@@ -1,0 +1,12 @@
+{
+ "body": {
+  "data": {
+   "default_url": "http://homeassistant.local:8123",
+   "encryption_key": "<ESPHOME_NOISE_KEY_A>",
+   "url": "https://<HA_HOST_A>"
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

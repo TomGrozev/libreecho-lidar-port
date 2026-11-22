@@ -1,0 +1,6 @@
+{"v":1,"event":"transcript_partial","data":{"text":"ALEX","final":false,"endpoint":false,"audio_ms":1792,"processing_ms":1986,"total_ms":1986}}
+{"v":1,"event":"transcript_partial","data":{"text":"ALEXA","final":false,"endpoint":false,"audio_ms":2048,"processing_ms":2383,"total_ms":2383}}
+{"v":1,"event":"transcript_partial","data":{"text":"ALEXA WHAT TIME","final":false,"endpoint":false,"audio_ms":2688,"processing_ms":3486,"total_ms":3486}}
+{"v":1,"event":"transcript_partial","data":{"text":"ALEXA WHAT TIME IS","final":false,"endpoint":false,"audio_ms":3072,"processing_ms":3825,"total_ms":3825}}
+{"v":1,"event":"transcript_partial","data":{"text":"ALEXA WHAT TIME IS IT","final":false,"endpoint":false,"audio_ms":3328,"processing_ms":4305,"total_ms":4305}}
+{"v":1,"event":"transcript","data":{"text":"ALEXA WHAT TIME IS IT","final":true,"endpoint":true,"audio_ms":3968,"processing_ms":334,"total_ms":5606}}

@@ -1,0 +1,22 @@
+== A: initial raw
+p0[0x41]=0x00
+p0[0x42]=0x00
+== A: set 47 47
+47, 47 (range 0->175)
+== A: raw after (page0)
+p0[0x41]=0xb0
+p0[0x42]=0xb0
+== B: move page to 1 via LO Playback Common Mode Switch
+Full Chip, > 1.65V, 
+== B: set 7 7
+7, 7 (range 0->175)
+== B: raw p0 then p1
+p0[0x41]=0x88
+p1[0x41]=0x00
+p0[0x42]=0x88
+p1[0x42]=0x00
+== B: restore CM
+> Full Chip, 1.65V, 
+== B: raw p0 again
+p0[0x41]=0x88
+p0[0x42]=0x88

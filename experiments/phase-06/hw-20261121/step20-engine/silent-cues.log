@@ -1,0 +1,10 @@
+audio-engine: speaker chain lidar codec Flat hp-gain 0 lo-gain 0 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/run/libreecho-audio, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,0)
+audio-engine: music AVL available (disable: /run/libreecho-audio/avl.disabled)
+audio-engine: music AVL off
+{"ts":1795243110,"boot_seconds":41,"level":"INFO","service":"airplayd","msg":"airplayd: shared audio engine ready"}
+{"ts":1795243110,"boot_seconds":41,"level":"INFO","service":"airplayd","msg":"airplayd: starting (socket=/run/libreecho/airplay.sock, enable_on_start=no, mdns=ready)"}
+{"ts":1795243143,"boot_seconds":74,"level":"INFO","service":"ttsd","msg":"ttsd: TTS engine ready (native rate=16000 Hz)"}
+12	INT	2	LO Driver Gain Volume                   	00, 0 (range 0->35)
+14	BOOL	2	LO DAC Playback Switch                  	0Off, Off
+189	ENUM	1	Output Route                            	0Speaker, > Line Out, 

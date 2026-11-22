@@ -1,0 +1,9 @@
+mmcblk0p10 cd979c08e79014b89459e101ad8f4939af32d8bd65246d39df896555e5d0468a  -
+mmcblk0p11 a7b266b74af89ae203d35b8460866ebb6d654d64742089ad5a4bbb0b838f82dc  -
+== bind mounts
+0
+== trial sendspind
+4198d62a6da67f05d6dac02f97c9f512d272e6803e7c2021d55ad450f5770fe0  /data/libreecho/trace-cycle/libreecho-sendspind
+a427bd68a8d30789885e9dbd166e85626ebf38c7a3683ccebe9eb93d5e2d1eec  /data/libreecho/trace-cycle/libreecho-sendspind.orig
+== payload sendspind
+a427bd68a8d30789885e9dbd166e85626ebf38c7a3683ccebe9eb93d5e2d1eec  /run/libreecho/features/airplay2/root/usr/local/sbin/libreecho-sendspind

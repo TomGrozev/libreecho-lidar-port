@@ -1,0 +1,148 @@
+
+$ cat /proc/uptime
+~ # [6ncat /proc/uptime; echo __ACM_END_1__
+3.00 10.18
+__ACM_END_1__
+$ uname -a
+
+~ # [6nuname -a; echo __ACM_END_2__
+Linux (none) 6.1.178+ #1 SMP Tue Nov 17 19:05:58 AEDT 2026 aarch64 Linux
+__ACM_END_2__
+$ cat /proc/bus/input/devices
+
+~ # [6ncat /proc/bus/input/devices; echo __ACM_END_3__
+I: Bus=0019 Vendor=0001 Product=0001 Version=0100
+N: Name="gpio-keys"
+P: Phys=gpio-keys/input0
+S: Sysfs=/devices/platform/gpio-keys/input/input0
+U: Uniq=
+H: Handlers=kbd event0 
+B: PROP=0
+B: EV=23
+B: KEY=1000000 0 0 400 c0000 0 0 0
+B: SW=4000
+
+__ACM_END_3__
+$ ls /sys/class/leds
+
+~ # [6nls /sys/class/leds; echo __ACM_END_4__
+[1;36mring10:blue[m   [1;36mring12:red[m    [1;36mring3:green[m   [1;36mring6:blue[m    [1;36mring8:red[m
+[1;36mring10:green[m  [1;36mring1:blue[m    [1;36mring3:red[m     [1;36mring6:green[m   [1;36mring9:blue[m
+[1;36mring10:red[m    [1;36mring1:green[m   [1;36mring4:blue[m    [1;36mring6:red[m     [1;36mring9:green[m
+[1;36mring11:blue[m   [1;36mring1:red[m     [1;36mring4:green[m   [1;36mring7:blue[m    [1;36mring9:red[m
+[1;36mring11:green[m  [1;36mring2:blue[m    [1;36mring4:red[m     [1;36mring7:green[m
+[1;36mring11:red[m    [1;36mring2:green[m   [1;36mring5:blue[m    [1;36mring7:red[m
+[1;36mring12:blue[m   [1;36mring2:red[m     [1;36mring5:green[m   [1;36mring8:blue[m
+[1;36mring12:green[m  [1;36mring3:blue[m    [1;36mring5:red[m     [1;36mring8:green[m
+__ACM_END_4__
+$ ls /sys/bus/i2c/devices
+
+~ # [6nls /sys/bus/i2c/devices; echo __ACM_END_5__
+[1;36m0-0018[m  [1;36m0-0019[m  [1;36m0-001a[m  [1;36m0-001b[m  [1;36m0-003f[m  [1;36m2-0018[m  [1;36mi2c-0[m   [1;36mi2c-2[m
+__ACM_END_5__
+$ ls /sys/bus/i2c/drivers/*
+
+~ # [6nls /sys/bus/i2c/drivers/*; echo __ACM_END_6__
+/sys/bus/i2c/drivers/dummy:
+[0;0mbind[m    [0;0muevent[m  [0;0munbind[m
+
+/sys/bus/i2c/drivers/is31fl32xx:
+[1;36m0-003f[m  [0;0mbind[m    [0;0muevent[m  [0;0munbind[m
+
+/sys/bus/i2c/drivers/tlv320adc3xxx-codec:
+[1;36m0-0018[m  [1;36m0-0019[m  [1;36m0-001a[m  [1;36m0-001b[m  [0;0mbind[m    [0;0muevent[m  [0;0munbind[m
+
+/sys/bus/i2c/drivers/tlv320aic32x4:
+[0;0mbind[m    [0;0muevent[m  [0;0munbind[m
+__ACM_END_6__
+$ ls -l /sys/bus/sdio/devices
+
+~ # [6nls -l /sys/bus/sdio/devices; echo __ACM_END_7__
+total 0
+lrwxrwxrwx    1 0        0                0 Jan  1 00:00 [1;36mmmc1:0001:1[m -> [1;34m../../../devices/platform/soc/11170000.mmc/mmc_host/mmc1/mmc1:0001/mmc1:0001:1[m
+lrwxrwxrwx    1 0        0                0 Jan  1 00:00 [1;36mmmc1:0001:2[m -> [1;34m../../../devices/platform/soc/11170000.mmc/mmc_host/mmc1/mmc1:0001/mmc1:0001:2[m
+__ACM_END_7__
+$ cat /sys/bus/sdio/devices/*/vendor /sys/bus/sdio/devices/*/device
+
+~ # [6ncat /sys/bus/sdio/devices/*/vendor /sys/bus/sdio/devices/*/device; echo __AC
+
+M_END_8__
+0x037a
+0x037a
+0x7608
+0x7668
+__ACM_END_8__
+~ # [6n
+$ cat /proc/asound/cards
+cat /proc/asound/cards; echo __ACM_END_9__
+--- no soundcards ---
+__ACM_END_9__
+$ mount -t debugfs none /sys/kernel/debug; cat /sys/kernel/debug/devices_deferred
+
+~ # [6nmount -t debugfs none /sys/kernel/debug; cat /sys/kernel/debug/devices_defer
+
+red; echo __ACM_END_10__
+__ACM_END_10__
+$ dmesg | grep -iE 'mmc|sdio|btmtk|aic32|adc3|is31|gpio-keys|i2c|deferred|failed|error'
+
+~ # [6ndmesg | grep -iE 'mmc|sdio|btmtk|aic32|adc3|is31|gpio-keys|i2c|deferred|fail
+
+ed|error'; echo __ACM_END_11__
+Kernel command line: console=tty0 console=ttyMT0,921600n1 earlycon=uart8250,mmio32,0x11005000 vmalloc=496M androidboot.hardware=mt8167 androidboot.secure_cpu=1 androidboot.unlocked_kernel=true androidboot.tu_code=<TU_CODE> androidboot.rpmb_state=1 androidboot.pl_version=0x6536 androidboot.tee_version=0x6c55 androidboot.lk_version=0x6536 androidboot.prod=1 androidboot.pl_build_desc=2b6f82c-20190926_195940 androidboot.lk_build_desc=6f7225e-20230407_030004 androidboot.verifiedbootstate=yellow androidboot.prod=1 bootopt=64S3,32N2,64N2 buildvariant=user veritykeyid=id:f3530e18f64d11fc25eb2dd762979f078de990bf clk_ignore_unused lidar.autoreboot=240 panic=5 ignore_loglevel initcall_debug androidboot.selinux=enforce androidboot.veritymode=enforcing androidboot.slot_suffix=_a rootwait ro init=/init skip_initramfs root=/dev/dm-0 dm="system none ro,0 1 android-verity PARTUUID=<PARTUUID_13>" printk.disable_uart=1 leds-is31fl3236. 
+calling  i2c_init+0x0/0xf4 @ 1
+initcall i2c_init+0x0/0xf4 returned 0 after 0 usecs
+probe of regulator-sdio-3v3 returned 0 after 0 usecs
+calling  mmc_init+0x0/0x50 @ 1
+initcall mmc_init+0x0/0x50 returned 0 after 0 usecs
+mtk-power-controller 10006000.syscon:power-controller: /soc/syscon@10006000/power-controller/power-domain@4: failed to power on domain: -110
+mtk-power-controller: probe of 10006000.syscon:power-controller failed with error -110
+calling  i2c_dev_init+0x0/0xd8 @ 1
+i2c_dev: i2c /dev entries driver
+initcall i2c_dev_init+0x0/0xd8 returned 0 after 418 usecs
+calling  mtk_i2c_driver_init+0x0/0x28 @ 1
+probe of 11009000.i2c returned 0 after 1550 usecs
+probe of 1100b000.i2c returned 0 after 1069 usecs
+initcall mtk_i2c_driver_init+0x0/0x28 returned 0 after 4115 usecs
+calling  btmtksdio_driver_init+0x0/0x24 @ 1
+initcall btmtksdio_driver_init+0x0/0x24 returned 0 after 26 usecs
+calling  mmc_pwrseq_simple_driver_init+0x0/0x28 @ 1
+initcall mmc_pwrseq_simple_driver_init+0x0/0x28 returned 0 after 78 usecs
+calling  mmc_pwrseq_emmc_driver_init+0x0/0x28 @ 1
+initcall mmc_pwrseq_emmc_driver_init+0x0/0x28 returned 0 after 62 usecs
+calling  mmc_blk_init+0x0/0x11c @ 1
+initcall mmc_blk_init+0x0/0x11c returned 0 after 56 usecs
+calling  is31fl32xx_driver_init+0x0/0x28 @ 1
+is31fl32xx 0-003f: LibreEcho 36-channel atomic frame interface ready
+initcall is31fl32xx_driver_init+0x0/0x28 returned 0 after 17921 usecs
+probe of 11120000.mmc returned 0 after 24816 usecs
+calling  adc3xxx_i2c_driver_init+0x0/0x28 @ 1
+initcall adc3xxx_i2c_driver_init+0x0/0x28 returned 0 after 106308 usecs
+calling  aic32x4_i2c_driver_init+0x0/0x28 @ 1
+initcall aic32x4_i2c_driver_init+0x0/0x28 returned 0 after 1470 usecs
+calling  deferred_probe_initcall+0x0/0xb0 @ 1
+initcall deferred_probe_initcall+0x0/0xb0 returned 0 after 118 usecs
+input: gpio-keys as /devices/platform/gpio-keys/input/input0
+probe of gpio-keys returned 0 after 1924 usecs
+platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+cfg80211: failed to load regulatory.db
+mmc0: new HS200 MMC card at address 0001
+mmcblk0: mmc0:0001 Q2J95E 7.13 GiB 
+ mmcblk0: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16
+mmcblk0boot0: mmc0:0001 Q2J95E 2.00 MiB 
+mmcblk0boot1: mmc0:0001 Q2J95E 2.00 MiB 
+mmcblk0rpmb: mmc0:0001 Q2J95E 4.00 MiB, chardev (250:0)
+probe of mmc0:0001 returned 0 after 15952 usecs
+probe of 11170000.mmc returned 0 after 543468 usecs
+mmc1: new ultra high speed SDR104 SDIO card at address 0001
+probe of mmc1:0001 returned 19 after 57 usecs
+probe of mmc1:0001:2 returned 0 after 779 usecs
+bluetooth hci0: Direct firmware load for mediatek/mt7668pr2h.bin failed with error -2
+Bluetooth: hci0: Failed to load firmware file (-2)
+__ACM_END_11__
+$ for l in /sys/class/leds/*; do echo 255 > $l/brightness; done; echo leds_on
+
+~ # [6nfor l in /sys/class/leds/*; do echo 255 > $l/brightness; done; echo leds_on;
+
+ echo __ACM_END_12__
+leds_on
+__ACM_END_12__

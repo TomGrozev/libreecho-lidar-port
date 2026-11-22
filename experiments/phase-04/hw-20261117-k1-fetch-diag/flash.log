@@ -1,0 +1,4 @@
+4d2599ca0fbae147dbdb7945ac2c33568c2e38920e8b03f6475e5afbf8f22ae7  artifacts/phase-04/boot-lidar-k1-acm-fetch.img
+Sending 'boot_a' (16384 KB)                        OKAY [  0.458s]
+Writing 'boot_a'                                   OKAY [  1.248s]
+Finished. Total time: 1.720s

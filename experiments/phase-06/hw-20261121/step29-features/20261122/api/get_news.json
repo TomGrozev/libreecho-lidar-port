@@ -1,0 +1,16 @@
+{
+ "body": {
+  "data": {
+   "enabled": false,
+   "items": [],
+   "last_attempt_epoch": 0,
+   "last_error": "",
+   "last_success_epoch": 0,
+   "state": "disabled",
+   "supported": false
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

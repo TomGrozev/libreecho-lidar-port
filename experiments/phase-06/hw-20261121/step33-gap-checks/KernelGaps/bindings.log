@@ -1,0 +1,32 @@
+0-0018 tlv320adc3101 tlv320adc3xxx-codec
+0-0019 tlv320adc3101 tlv320adc3xxx-codec
+0-001a tlv320adc3101 tlv320adc3xxx-codec
+0-001b tlv320adc3101 tlv320adc3xxx-codec
+0-0039 tsl2540 NO_DRIVER
+0-003f is31fl3236a is31fl32xx
+0-0048 tmp108 tmp108
+1-0057 rt5738 rt5739
+2-0018 tlv320aic32x4 tlv320aic32x4
+2-002e mcp4631-503 mcp4531
+2-0048 tmp112 NO_DRIVER
+2-004a tmp108 tmp108
+i2c-0 i2c-mt65xx NO_DRIVER
+i2c-1 i2c-mt65xx NO_DRIVER
+i2c-2 i2c-mt65xx NO_DRIVER
+===PLATFORM-NO-DRIVER===
+10003050.pericfg
+10005000.syscfg-pctl
+10006000.syscon
+10006000.syscon:power-controller
+10008000.timer
+10009000.efuse
+10203000.m4u
+11000480.dma-controller
+11008000.pwm
+14016000.larb
+14017000.smi
+15001000.larb
+16010000.larb
+mediatek-drm.1.auto
+psci
+timer

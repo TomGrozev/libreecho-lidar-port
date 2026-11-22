@@ -1,0 +1,39 @@
+{
+  "ok": false,
+  "partitions": [
+    {
+      "actual_sha256": "a1eda7b56d05b184892f681c27f1374ef962a04a1aa4d0d0a463e388c98db152",
+      "bytes_read": 262144,
+      "expected_sha256": "a1eda7b56d05b184892f681c27f1374ef962a04a1aa4d0d0a463e388c98db152",
+      "kind": "user",
+      "name": "expdb",
+      "ok": true
+    },
+    {
+      "actual_sha256": "b41f1d64f078ddbdf60ddf9c39589b37494d78e7cce26a052dc3a6717cb091e0",
+      "bytes_read": 5242880,
+      "expected_sha256": "b41f1d64f078ddbdf60ddf9c39589b37494d78e7cce26a052dc3a6717cb091e0",
+      "kind": "user",
+      "name": "tee1",
+      "ok": true
+    },
+    {
+      "actual_sha256": "16254a0c7b6d25845a09a681aceabfd492e62cf36741216c0b4f6e10cf9c5be6",
+      "bytes_read": 2097152,
+      "error": "readback does not match the manifest source hash",
+      "expected_sha256": "4c8e02060ab820652000e4ffae90c5554d88230625edc704d269bee3efeb80f3",
+      "kind": "boot2",
+      "name": "boot1",
+      "ok": false
+    },
+    {
+      "actual_sha256": "fb987ad9cd2af5e4d86e6476f1f154e555795d915d247a23110b80ed0363de45",
+      "bytes_read": 2097152,
+      "expected_sha256": "fb987ad9cd2af5e4d86e6476f1f154e555795d915d247a23110b80ed0363de45",
+      "kind": "boot1",
+      "name": "boot0",
+      "ok": true
+    }
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,47 @@
+adbd-fd:8:socket:[3129]
+adbd-fd:9:socket:[330]
+adbd-task:145:adbd:S (sleeping):do_select
+adbd-task:147:adbd:S (sleeping):futex_do_wait
+adbd-task:148:adbd:S (sleeping):inet_csk_accept
+adbd-task:149:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:150:adbd:S (sleeping):ffs_epfile_wait_ep
+adbd-log-empty
+adbd-diagnostic-end
+timezone-applied:UTC
+ui-home-assistant-mode-enabled
+ui-services-wakeword-skipped-no-audio
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:airplayd:0
+ui-service-start:radiod:0
+ui-service-start:ttsd:0
+ui-service-start:esphomed:1
+ui-web-production-lan
+ui-service-start:web:0
+feature-reconcile-service-stopped:agentd
+feature-reconcile-service-stopped:sttd
+feature-reconcile-service-start-failed:esphomed
+feature-service-topology-reconcile-failed
+persisted-feature-reconcile:1
+first-boot-startup-ready-timeout-degraded
+startup-ready-marker-missing
+first-boot-probe-passed-degraded:1
+ota-health-probe-passed:1
+local-services-degraded-start-no-startup-ready
+startup-ready-marker-missing
+first-boot-probe-passed-degraded:2
+ota-health-probe-passed:2
+startup-ready-marker-missing
+first-boot-probe-passed-degraded:3
+ota-health-probe-passed:3
+ota-health-confirm-failed-rebooting

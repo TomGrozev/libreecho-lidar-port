@@ -1,0 +1,175 @@
+#!/bin/sh
+# PID 1 for the LibreEcho Lidar (Echo Plus 2nd Gen) test initramfs.
+#
+# The image is deliberately self-describing: every stage writes a marker to
+# /dev/pmsg0 (pstore pmsg) and /dev/kmsg before and after the step, so a warm
+# reboot leaves a progress trail in ramoops even when USB never enumerates.
+# This script never returns: PID 1 exiting panics the kernel.
+
+PATH=/bin:/sbin:/usr/bin:/usr/sbin
+export PATH
+
+MARK_PREFIX='lidar-init'
+
+# At this point only /bin/busybox exists by name; the applet symlinks are
+# installed here so the rest of the script can use plain command names.
+/bin/busybox --install -s /bin 2>/dev/null
+
+log() {
+    msg="$MARK_PREFIX: $*"
+    # /dev/kmsg is the console log; pmsg0 is the pstore persistent marker.
+    [ -e /dev/kmsg ] && echo "$msg" > /dev/kmsg 2>/dev/null
+    [ -e /dev/pmsg0 ] && echo "$msg" > /dev/pmsg0 2>/dev/null
+    return 0
+}
+
+stage() {
+    log "STAGE BEGIN: $*"
+}
+
+stage_done() {
+    log "STAGE OK: $*"
+}
+
+# ---------------------------------------------------------------- filesystems
+stage "mount pseudo filesystems"
+mkdir -p /proc /sys /dev /dev/pts /tmp /pstore-prev /sys/kernel/config /sys/fs/pstore
+mount -t proc none /proc
+mount -t sysfs none /sys
+mount -t devtmpfs none /dev
+mkdir -p /dev/pts
+mount -t devpts none /dev/pts
+mount -t configfs none /sys/kernel/config
+mount -t pstore none /sys/fs/pstore
+# Copy the records left by the previous boot before anything can overwrite
+# them, so they can be read from the fresh shell without racing pstore.
+if [ -d /sys/fs/pstore ]; then
+    for f in /sys/fs/pstore/*; do
+        [ -e "$f" ] || continue
+        cp "$f" /pstore-prev/ 2>/dev/null
+    done
+fi
+log "pstore-prev: $(ls /pstore-prev 2>/dev/null | tr '\n' ' ')"
+stage_done "mount pseudo filesystems"
+
+# -------------------------------------------------------------------- gadget
+serial="LIDAR0001"
+if [ -e /proc/device-tree/serial-number ]; then
+    serial=$(cat /proc/device-tree/serial-number 2>/dev/null | tr -d '\000')
+    [ -n "$serial" ] || serial="LIDAR0001"
+fi
+
+setup_gadget() {
+    g=/sys/kernel/config/usb_gadget/g1
+    [ -d /sys/kernel/config/usb_gadget ] || { log "configfs gadget unavailable"; return 1; }
+    mkdir -p "$g" || { log "cannot create $g"; return 1; }
+    echo 0x1d6b > "$g/idVendor"
+    echo 0x0104 > "$g/idProduct"
+    echo 0x0200 > "$g/bcdUSB"
+    mkdir -p "$g/strings/0x409"
+    echo LibreEcho > "$g/strings/0x409/manufacturer"
+    echo "Lidar bring-up" > "$g/strings/0x409/product"
+    echo "$serial" > "$g/strings/0x409/serialnumber"
+    mkdir -p "$g/functions/acm.usb0"
+    mkdir -p "$g/functions/ncm.usb0"
+    mkdir -p "$g/configs/c.1"
+    mkdir -p "$g/configs/c.1/strings/0x409"
+    echo "acm+ncm" > "$g/configs/c.1/strings/0x409/configuration"
+    echo 250 > "$g/configs/c.1/MaxPower"
+    # The links fail harmlessly if a previous bind already created them.
+    ln -s "$g/functions/acm.usb0" "$g/configs/c.1/acm.usb0" 2>/dev/null
+    ln -s "$g/functions/ncm.usb0" "$g/configs/c.1/ncm.usb0" 2>/dev/null
+
+    # The UDC appears only once the MUSB/gadget driver has probed; retry for
+    # 30 s instead of failing the whole bring-up on a probe-order race.
+    udc=""
+    i=0
+    while [ "$i" -lt 30 ]; do
+        for d in /sys/class/udc/*; do
+            [ -e "$d" ] || continue
+            udc=$(basename "$d")
+            break
+        done
+        [ -n "$udc" ] && break
+        sleep 1
+        i=$((i + 1))
+    done
+    if [ -z "$udc" ]; then
+        log "no UDC after 30 s"
+        return 1
+    fi
+    echo "$udc" > "$g/UDC" || { log "UDC bind failed"; return 1; }
+    log "UDC $udc state $(cat "/sys/class/udc/$udc/state" 2>/dev/null)"
+    return 0
+}
+
+stage "configfs USB gadget g1 (acm+ncm)"
+setup_gadget
+stage_done "configfs USB gadget g1 (acm+ncm)"
+
+# ------------------------------------------------------------------- network
+stage "usb0 network (IPv6 link-local, IPv4 169.254.42.1/16)"
+i=0
+while [ "$i" -lt 30 ]; do
+    [ -e /sys/class/net/usb0 ] && break
+    sleep 1
+    i=$((i + 1))
+done
+if [ -e /sys/class/net/usb0 ]; then
+    ip link set usb0 up
+    # IPv6 link-local autoconfiguration is the kernel default; no address is
+    # assigned manually so the host keeps the standard fe80::/64 neighbour.
+    ip -6 addr show dev usb0
+    ip addr add 169.254.42.1/16 dev usb0 2>/dev/null
+    ip addr show dev usb0
+else
+    log "usb0 did not appear"
+fi
+stage_done "usb0 network"
+
+# -------------------------------------------------------------------- shells
+# A root shell on the ACM tty, respawned forever, with that tty as its
+# controlling tty so job control and ^C work over CDC ACM.  cttyhack is only
+# right for /dev/console: it ignores stdin and reopens the tty named in
+# /sys/class/tty/console/active, which would move the ACM shell to ttyS0.
+stage "root shells"
+spawn_tty_shell() {
+    tty=$1
+    while :; do
+        if [ -c "$tty" ]; then
+            log "spawning shell on $tty"
+            if [ "$tty" = /dev/console ]; then
+                setsid cttyhack sh <"$tty" >"$tty" 2>&1
+            else
+                setsid -c sh <"$tty" >"$tty" 2>&1
+            fi
+            log "shell on $tty exited"
+        fi
+        sleep 2
+    done
+}
+
+spawn_tty_shell /dev/ttyGS0 &
+# Optional UART shell at the stock 921600 baud console setting. It is harmless
+# when no UART is wired: the kernel console still receives the log.
+if [ -c /dev/console ]; then
+    spawn_tty_shell /dev/console &
+fi
+stage_done "root shells"
+
+# Diagnostic images pass lidar.autoreboot=<seconds> on the kernel command line.
+# A warm reboot after that delay lets the owner catch LK fastboot (Action held)
+# and `fastboot fetch ramoops` without a working Linux USB link; the reboot
+# time also separates a live kernel from the boot chain's own watchdog reset.
+autoreboot=$(sed -n 's/.*lidar\.autoreboot=\([0-9][0-9]*\).*/\1/p' /proc/cmdline)
+if [ -n "$autoreboot" ]; then
+    log "autoreboot armed: ${autoreboot} s"
+    (sleep "$autoreboot"; log "autoreboot firing"; sync; reboot -f) &
+fi
+
+log "PID 1 entering reap loop"
+# Reap orphans forever; PID 1 must never exit.
+while :; do
+    wait
+    sleep 60
+done

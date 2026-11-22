@@ -1,0 +1,10 @@
+==users
+[0;0mled-state.json[m       [0;0mweb-config.json.bak[m
+[0;0mweb-config.json[m      [0;0mwpa_supplicant.conf[m
+==cfg
+{"ok":true,"data":{"api_version":1,"os_version":"LibreEcho OS 0.14.5","csrf_token":"<TOKEN>","authentication":"users","bootstrap_required":false,"user_count":1,"bind_policy":"loopback-default","max_request_body":16384,"setup_completed":false,"setup_url":"/setup.html","ui_theme":"classic","color_mode":""},"error":null}{"ok":true,"data":{"api_version":1,"os_version":"LibreEcho OS 0.14.5","csrf_token":"<TOKEN>","authentication":"bootstrap-required","bootstrap_required":true,"user_count":0,"bind_policy":"lan-development","max_request_body":16384,"setup_completed":false,"setup_url":"/setup.html","ui_theme":"classic","color_mode":""},"error":null}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf
+ls: /data/libreecho/config/users: No such file or directory

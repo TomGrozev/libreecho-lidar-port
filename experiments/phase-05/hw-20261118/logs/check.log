@@ -1,0 +1,148 @@
+argv=--log-dir logs check
+$ fastboot getvar product
+[exec failed: [Errno 2] No such file or directory: 'fastboot']
+result=failed error=cannot run fastboot: [Errno 2] No such file or directory: 'fastboot'
+log: logs/check.log
+argv=--log-dir logs check
+$ fastboot getvar product
+[exit 0 in 0.11s]
+[stderr]
+product: LIDAR
+Finished. Total time: 0.002s
+product=LIDAR
+$ fastboot getvar kaeru-version
+[exit 0 in 0.01s]
+[stderr]
+kaeru-version: 2.0.0-g66704e6-dirty
+Finished. Total time: 0.002s
+kaeru_version=2.0.0-g66704e6-dirty
+$ fastboot getvar max-fetch-size
+[exit 0 in 0.01s]
+[stderr]
+max-fetch-size: 
+Finished. Total time: 0.002s
+max_fetch_size=None
+result=failed error=unexpected max-fetch-size None; Kaeru caps it at 0x100000
+log: logs/check.log
+argv=--log-dir logs check
+$ fastboot getvar product
+[exit 0 in 0.11s]
+[stderr]
+product: LIDAR
+Finished. Total time: 0.002s
+product=LIDAR
+$ fastboot getvar kaeru-version
+[exit 0 in 0.01s]
+[stderr]
+kaeru-version: 2.0.0-g66704e6-dirty
+Finished. Total time: 0.002s
+kaeru_version=2.0.0-g66704e6-dirty
+$ fastboot oem fetch-enable
+[exit 0 in 0.01s]
+[stderr]
+OKAY [  0.002s]
+Finished. Total time: 0.002s
+$ fastboot getvar max-fetch-size
+[exit 0 in 0.01s]
+[stderr]
+max-fetch-size: 0x100000
+Finished. Total time: 0.002s
+max_fetch_size=1048576
+$ fastboot getvar partition-size:kb
+[exit 0 in 0.01s]
+[stderr]
+partition-size:kb: 100000
+Finished. Total time: 0.003s
+partition kb: 1048576 ok
+$ fastboot getvar partition-size:dkb
+[exit 0 in 0.01s]
+[stderr]
+partition-size:dkb: 100000
+Finished. Total time: 0.002s
+partition dkb: 1048576 ok
+$ fastboot getvar partition-size:lk_a
+[exit 0 in 0.01s]
+[stderr]
+partition-size:lk_a: 100000
+Finished. Total time: 0.003s
+partition lk_a: 1048576 ok
+$ fastboot getvar partition-size:tee1
+[exit 0 in 0.01s]
+[stderr]
+partition-size:tee1: 500000
+Finished. Total time: 0.003s
+partition tee1: 5242880 ok
+$ fastboot getvar partition-size:lk_b
+[exit 0 in 0.01s]
+[stderr]
+partition-size:lk_b: 100000
+Finished. Total time: 0.003s
+partition lk_b: 1048576 ok
+$ fastboot getvar partition-size:tee2
+[exit 0 in 0.01s]
+[stderr]
+partition-size:tee2: 500000
+Finished. Total time: 0.002s
+partition tee2: 5242880 ok
+$ fastboot getvar partition-size:expdb
+[exit 0 in 0.01s]
+[stderr]
+partition-size:expdb: a00000
+Finished. Total time: 0.003s
+partition expdb: 10485760 ok
+$ fastboot getvar partition-size:misc
+[exit 0 in 0.01s]
+[stderr]
+partition-size:misc: 80000
+Finished. Total time: 0.003s
+partition misc: 524288 ok
+$ fastboot getvar partition-size:persist
+[exit 0 in 0.01s]
+[stderr]
+partition-size:persist: 1000000
+Finished. Total time: 0.003s
+partition persist: 16777216 ok
+$ fastboot getvar partition-size:boot_a
+[exit 0 in 0.01s]
+[stderr]
+partition-size:boot_a: 1000000
+Finished. Total time: 0.003s
+partition boot_a: 16777216 ok
+$ fastboot getvar partition-size:boot_b
+[exit 0 in 0.01s]
+[stderr]
+partition-size:boot_b: 1000000
+Finished. Total time: 0.003s
+partition boot_b: 16777216 ok
+$ fastboot getvar partition-size:swdl
+[exit 0 in 0.01s]
+[stderr]
+partition-size:swdl: 2000000
+Finished. Total time: 0.003s
+partition swdl: 33554432 ok
+$ fastboot getvar partition-size:system_a
+[exit 0 in 0.01s]
+[stderr]
+partition-size:system_a: 4c800000
+Finished. Total time: 0.003s
+partition system_a: 1283457024 ok
+$ fastboot getvar partition-size:system_b
+[exit 0 in 0.01s]
+[stderr]
+partition-size:system_b: 4c800000
+Finished. Total time: 0.003s
+partition system_b: 1283457024 ok
+$ fastboot getvar partition-size:cache
+[exit 0 in 0.01s]
+[stderr]
+partition-size:cache: 2000000
+Finished. Total time: 0.003s
+partition cache: 33554432 ok
+$ fastboot getvar partition-size:userdata
+[exit 0 in 0.01s]
+[stderr]
+partition-size:userdata: 12667be00
+Finished. Total time: 0.003s
+partition userdata: 4939300352 ok
+result=ok log=logs/check.log
+log: logs/check.log

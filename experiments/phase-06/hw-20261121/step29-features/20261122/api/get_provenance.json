@@ -1,0 +1,127 @@
+{
+ "body": {
+  "data": {
+   "authority_provenance": {
+    "available": true,
+    "features": [
+     {
+      "feature_id": "airplay2",
+      "manifest_sha256": "1b523a33c15d2a43bd6448e59344e029aabcafb97be7fa8d41c70a0096bb03ce",
+      "payload_sha256": "a2dc394196b85b8c949859db93b8456fedb70435d919bc3786a3da4b20f7f6f9"
+     },
+     {
+      "feature_id": "tts",
+      "manifest_sha256": "126dbad94d512bc8b3b6e1707ed6f52d8bdfba9da0a322b43437bc9dc446b440",
+      "payload_sha256": "197e583a378aa49a1d4a823e048920dac7d3a7be8c0b206deed0411ebac0aa78"
+     },
+     {
+      "feature_id": "wakeword",
+      "manifest_sha256": "13ec6549b8ab7995f6d448cd4a13f23543d3a3ca90f490687cb73a7e989ab0a8",
+      "payload_sha256": "4964fc7b02ec81456fce149b1b82f6cca85f2ce447c48826ee6e34e57423585d"
+     },
+     {
+      "feature_id": "stt",
+      "manifest_sha256": "95f9a2c8f245ea9234cc0368e149ea9c0ff4bfc99765a98f3eb3cd9163ff03f5",
+      "payload_sha256": "dee3594dd45514d02ce62a60286e702cc2d2f205b344259bdc95e353e4322ede"
+     },
+     {
+      "feature_id": "assistant",
+      "manifest_sha256": "aba5b27bf2fb6cae966cb8a61a3da13c81af1894fb29014dbff6fac2098016d3",
+      "payload_sha256": "a4103ec92daf60e9fc53f2899d9f48efec120d03778ebc0279853ac2fc37a0d1"
+     }
+    ],
+    "generation": "txn-4f85bab71d5fe826cd0b0a1c",
+    "release": "lidar-lab-v0.2.23",
+    "schema": "libreecho-feature-provenance-v3",
+    "target_manifest_sha256": "8c51fe21f94de754623bd25c0cec3f9545ad6c0d5ab1e0d4452ce2e8573e3ea1",
+    "version": "0.2.23"
+   },
+   "components": [
+    {
+     "activation": "unavailable",
+     "candidate_kind": "unavailable",
+     "candidate_payload_sha256": "unavailable",
+     "candidate_status": "unavailable",
+     "effective": "unavailable",
+     "effective_payload_sha256": "unavailable",
+     "feature_id": "airplay2",
+     "last_transaction_result": "installed",
+     "release": "unavailable",
+     "running_daemon_sha256": "c67f7c450b21af016e3dd788f066b817f165e952bd2c461b07e94fb4831e2135",
+     "running_daemon_status": "running",
+     "runtime_capsule_sha256": null,
+     "source_commit": "unavailable"
+    },
+    {
+     "activation": "unavailable",
+     "candidate_kind": "unavailable",
+     "candidate_payload_sha256": "unavailable",
+     "candidate_status": "unavailable",
+     "effective": "present",
+     "effective_payload_sha256": "197e583a378aa49a1d4a823e048920dac7d3a7be8c0b206deed0411ebac0aa78",
+     "feature_id": "tts",
+     "last_transaction_result": "installed",
+     "release": "unavailable",
+     "running_daemon_sha256": "not-running",
+     "running_daemon_status": "not-running",
+     "runtime_capsule_sha256": null,
+     "source_commit": "unavailable"
+    },
+    {
+     "activation": "unavailable",
+     "candidate_kind": "unavailable",
+     "candidate_payload_sha256": "unavailable",
+     "candidate_status": "unavailable",
+     "effective": "present",
+     "effective_payload_sha256": "4964fc7b02ec81456fce149b1b82f6cca85f2ce447c48826ee6e34e57423585d",
+     "feature_id": "wakeword",
+     "last_transaction_result": "installed",
+     "release": "unavailable",
+     "running_daemon_sha256": "8bcd0bb026d8c255571ebead6faac7840dc932dadede6cf05d93ad55e0872637",
+     "running_daemon_status": "running",
+     "runtime_capsule_sha256": null,
+     "source_commit": "unavailable"
+    },
+    {
+     "activation": "unavailable",
+     "candidate_kind": "unavailable",
+     "candidate_payload_sha256": "unavailable",
+     "candidate_status": "unavailable",
+     "effective": "present",
+     "effective_payload_sha256": "dee3594dd45514d02ce62a60286e702cc2d2f205b344259bdc95e353e4322ede",
+     "feature_id": "stt",
+     "last_transaction_result": "installed",
+     "release": "unavailable",
+     "running_daemon_sha256": "not-running",
+     "running_daemon_status": "not-running",
+     "runtime_capsule_sha256": null,
+     "source_commit": "unavailable"
+    },
+    {
+     "activation": "unavailable",
+     "candidate_kind": "unavailable",
+     "candidate_payload_sha256": "unavailable",
+     "candidate_status": "unavailable",
+     "effective": "present",
+     "effective_payload_sha256": "a4103ec92daf60e9fc53f2899d9f48efec120d03778ebc0279853ac2fc37a0d1",
+     "feature_id": "assistant",
+     "last_transaction_result": "installed",
+     "release": "unavailable",
+     "running_daemon_sha256": "not-running",
+     "running_daemon_status": "not-running",
+     "runtime_capsule_sha256": null,
+     "source_commit": "unavailable"
+    }
+   ],
+   "last_transaction_result": "installed",
+   "os_version": "LibreEcho OS 0.14.5",
+   "source_commit": "a7edb1d3dff00c52af608b9e9f57fe6c20c53e01",
+   "source_digest": "f436408aa96429b30903d639da9f8be6ec35c50f24a4beda7e60b1b98cceef3a",
+   "source_dirty": false,
+   "transaction_state": "none"
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

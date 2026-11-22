@@ -1,0 +1,33 @@
+boot_image=/workspace/libreecho/artifacts/phase-07/images-reconcile-fix/boot-lidar-dev.img
+boot_sha256=2d5cafb63f87fbd81ed0ce4f6cd0c920c785cd3801c2bd15c9c61d6a4f7262f2
+ramdisk=/workspace/libreecho/artifacts/phase-07/images-reconcile-fix/boot-lidar-dev.ramdisk.cpio.xz
+ramdisk_sha256=bb0c84362a4025fe23e7421ceecf421d0e0d771548e1f6c849bf8384464984cb
+manifest=/workspace/libreecho/artifacts/phase-07/images-reconcile-fix/boot-lidar-dev.manifest.json
+gzip_kernel_bytes=5827321
+dtb_collection_bytes=1027848
+ramdisk_bytes=3285248
+margin_to_16mib_bytes=6631424
+status=PREPARED_NOT_FLASHED
+boot_image=/workspace/libreecho/artifacts/phase-07/images-reconcile-fix/boot-lidar-v1.img
+boot_sha256=2cf4fabe1323745125ccd04f7c14c4568b4b850c7be125ff3875dc17fbf96eaf
+ramdisk=/workspace/libreecho/artifacts/phase-07/images-reconcile-fix/boot-lidar-v1.ramdisk.cpio.xz
+ramdisk_sha256=c18c5ce3604ea02381d7a9fad8fa2676a6566cc85970fe75c42593db803362df
+manifest=/workspace/libreecho/artifacts/phase-07/images-reconcile-fix/boot-lidar-v1.manifest.json
+gzip_kernel_bytes=5827321
+dtb_collection_bytes=1027848
+ramdisk_bytes=5771908
+margin_to_16mib_bytes=4145152
+status=PREPARED_NOT_FLASHED
+boot_image=/workspace/libreecho/artifacts/phase-07/images-reconcile-fix/boot-lidar-v2.img
+boot_sha256=5e122c413e29247850aadd56fdb899bd7061ed99d24e858d30f99ccedff62783
+ramdisk=/workspace/libreecho/artifacts/phase-07/images-reconcile-fix/boot-lidar-v2.ramdisk.cpio.xz
+ramdisk_sha256=c18c5ce3604ea02381d7a9fad8fa2676a6566cc85970fe75c42593db803362df
+manifest=/workspace/libreecho/artifacts/phase-07/images-reconcile-fix/boot-lidar-v2.manifest.json
+gzip_kernel_bytes=5827321
+dtb_collection_bytes=1027848
+ramdisk_bytes=5771908
+margin_to_16mib_bytes=4145152
+status=PREPARED_NOT_FLASHED
+lidar_recovery_image_contract=PASS android_v0=yes mtk_wrapper=yes arm64_kernel=yes lidar_dtb=yes initramfs_arm32=yes image_profile=development service_profile=diagnostic feature_policy=preserve ota=yes gzip_kernel_bytes=5827321 dtb_collection_bytes=1027848 ramdisk_bytes=3285248 margin_to_16mib_bytes=6631424 status=PREPARED_NOT_FLASHED
+lidar_recovery_image_contract=PASS android_v0=yes mtk_wrapper=yes arm64_kernel=yes lidar_dtb=yes initramfs_arm32=yes image_profile=ota service_profile=production feature_policy=preserve ota=yes gzip_kernel_bytes=5827321 dtb_collection_bytes=1027848 ramdisk_bytes=5771908 margin_to_16mib_bytes=4145152 status=PREPARED_NOT_FLASHED
+lidar_recovery_image_contract=PASS android_v0=yes mtk_wrapper=yes arm64_kernel=yes lidar_dtb=yes initramfs_arm32=yes image_profile=ota service_profile=production feature_policy=preserve ota=yes gzip_kernel_bytes=5827321 dtb_collection_bytes=1027848 ramdisk_bytes=5771908 margin_to_16mib_bytes=4145152 status=PREPARED_NOT_FLASHED

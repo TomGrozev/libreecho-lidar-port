@@ -1,0 +1,55 @@
+==dmesg
+libreecho-init: adbd-log-empty
+libreecho-init: adbd-diagnostic-end
+loop0: detected capacity change from 0 to 18672
+loop1: detected capacity change from 0 to 312904
+loop2: detected capacity change from 0 to 16064
+loop3: detected capacity change from 0 to 105984
+loop4: detected capacity change from 0 to 5984
+libreecho-init: features-user-modified:boot-image-modified,
+libreecho-init: timezone-applied:UTC
+[wlan][736]wlanArpTxDone:(SW4 STATE) ARP PKT[0x02677300] WIDX:PID[5:7] Status[0]
+libreecho-mdnsd: mdns-supervisor-ready:1554
+libreecho-init: shared-discovery-runtime-started
+libreecho-init: feature-services-deferred-until-staged
+libreecho-init: ui-service-start:logd:0
+libreecho-init: ui-service-start:networkd:0
+warning: `libreecho-netwo' uses wireless extensions which will stop working for Wi-Fi 7 hardware; use nl80211
+libreecho-init: ui-service-start:timed:0
+libreecho-init: ui-service-start:audiod:0
+libreecho-init: ui-service-start:micd:0
+libreecho-init: ui-service-start:waked:0
+libreecho-init: ui-service-start:ledd:0
+libreecho-init: ui-service-start:buttond:0
+Bluetooth: MGMT ver 1.23
+libreecho-init: ui-service-start:btd:0
+libreecho-init: ui-service-start:timerd:0
+libreecho-init: ui-service-start:watchdogd:0
+libreecho-init: ui-service-start:airplayd:0
+libreecho-init: ui-service-start:radiod:0
+[wlan][736]wlanArpTxDone:(SW4 STATE) ARP PKT[0x16941900] WIDX:PID[5:8] Status[0]
+process 'usr/local/sbin/libreecho-ttsd' started with executable stack
+libreecho-init: ui-service-start:ttsd:0
+libreecho-init: ui-web-production-lan
+libreecho-init: ui-service-start:web:0
+libreecho-feature-reconcile: feature-reconcile-service-stopped:esphomed
+libreecho-feature-reconcile: feature-reconcile-service-ready:waked
+[wlan][736]wlanArpTxDone:(SW4 STATE) ARP PKT[0x16703200] WIDX:PID[5:9] Status[0]
+libreecho-feature-reconcile: feature-reconcile-service-ready:sttd
+libreecho-feature-reconcile: feature-reconcile-shared-discovery-owner:airplayd
+libreecho-feature-reconcile: feature-reconcile-service-ready:airplayd
+libreecho-feature-reconcile: feature-reconcile-service-ready:ttsd
+==log
+-rw-r--r--    1 0        0              864 Nov 21 03:29 [0;0m/var/log/libreecho-waked.log[m
+[0;93m2026-11-21 03:29:39.392707077 [W:onnxruntime:libreecho-wake, cpuid_info.cc:105 LogEarlyWarning] Unknown CPU vendor. cpuinfo_vendor value: 0[m
+waked: microphone stream: Protocol error
+waked: frames=0 aec_frames=0 vad_active_frames=0 wake_scores=0 wake_events=0 max_wake_score=0.000000 max_inference_us=0 wake_dropped_blocks=0 wake_failed=false ref_packets=0 ref_underflows=0 ref_overruns=0 ref_discontinuities=0 aec_resets=0
+[0;93m2026-11-21 03:29:45.381538077 [W:onnxruntime:libreecho-wake, cpuid_info.cc:105 LogEarlyWarning] Unknown CPU vendor. cpuinfo_vendor value: 0[m
+waked: microphone stream: Protocol error
+waked: frames=0 aec_frames=0 vad_active_frames=0 wake_scores=0 wake_events=0 max_wake_score=0.000000 max_inference_us=0 wake_dropped_blocks=0 wake_failed=false ref_packets=0 ref_underflows=0 ref_overruns=0 ref_discontinuities=0 aec_resets=0
+==manual
+waked_rc=255
+==out
+[0;93m2026-11-21 03:30:43.900279389 [W:onnxruntime:libreecho-wake, cpuid_info.cc:105 LogEarlyWarning] Unknown CPU vendor. cpuinfo_vendor value: 0[m
+waked: microphone stream: Protocol error
+waked: frames=0 aec_frames=0 vad_active_frames=0 wake_scores=0 wake_events=0 max_wake_score=0.000000 max_inference_us=0 wake_dropped_blocks=0 wake_failed=false ref_packets=0 ref_underflows=0 ref_overruns=0 ref_discontinuities=0 aec_resets=0

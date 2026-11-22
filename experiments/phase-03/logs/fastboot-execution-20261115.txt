@@ -1,0 +1,57 @@
+Normal boot checkpoint:
+User reconnected power only after confirmed full power removal. After 20 seconds, the user reported that startup looked normal.
+
+BROM fastboot-entry command:
+uv run --with pyusb python experiments/phase-03/session-state/20261114/tmp/lidar_reference_fastboot.py
+
+Payload hashes matched reference/echo-plus-2-bootchain-v0.2.1/SHA256SUMS.txt:
+stage1.bin 5e1ffc99355dee201b49dd8c3db090ad51247746005a40729a02e03ff5e4d0ba
+stage2.bin 8636dcdc0ab2b206284702d8959aff7e9600ee0bab40939d0c4008b013b5df96
+
+BROM output:
+[2026-11-15 11:04:38.515325] Waiting for device
+[2026-11-15 11:05:09.630310] Found device = 0e8d:0003
+[2026-11-15 11:05:09.630966] Handshake
+[2026-11-15 11:05:09.631985] Disable watchdog
+[2026-11-15 11:05:09.632764] Load payload from ../brom-payload/stage1/stage1.bin = 0x270 bytes
+[2026-11-15 11:05:09.635675] Let's rock
+[2026-11-15 11:05:09.643399] Waiting for stage 1 to come online...
+[2026-11-15 11:05:09.652069] Load 2nd stage payload
+[2026-11-15 11:05:09.652156] Load payload from ../brom-payload/stage2/stage2.bin = 0x3CDC bytes
+[2026-11-15 11:05:09.652191] Send 2nd stage payload
+[2026-11-15 11:05:09.682042] Party time
+[2026-11-15 11:05:09.683264] Waiting for stage 2 to come online...
+[2026-11-15 11:05:09.690488] All good
+Fastboot WDT flag set; reboot command sent.
+
+Fastboot getvar all:
+(bootloader) 	antirback_tee_version: 0x6c16
+(bootloader) 	antirback_lk_version: 0x6536
+(bootloader) 	antirback_pl_version: 0xed16
+(bootloader) 	rpmb_state: 1
+(bootloader) 	lk_build_desc: 674eac9-20190926_195940
+(bootloader) 	pl_build_desc: 2b6f82c-20190926_195940
+(bootloader) 	secure: yes
+(bootloader) 	prod: 1
+(bootloader) 	unlock_status: true
+(bootloader) 	tu_code: <TU_CODE>
+(bootloader) 	unlock_code: <UNLOCK_CODE>
+(bootloader) 	serialno: <SERIAL_A>
+(bootloader) 	max-download-size: 0x8000000
+(bootloader) 	kernel: lk
+(bootloader) 	product: LIDAR
+(bootloader) 	version-preloader: 0.1.00
+(bootloader) 	version: 0.5
+all: Done!!
+Finished. Total time: 0.003s
+
+Fastboot getvar unlock_status:
+unlock_status: true
+Finished. Total time: 0.002s
+
+Fastboot oem kaeru-version:
+(bootloader) kaeru v2.0.0-g8d24a1a-dirty
+OKAY [  0.002s]
+Finished. Total time: 0.002s
+
+No flash, unlock, eMMC, MISC, BCB, or partition-write command was sent. The device remained in fastboot.

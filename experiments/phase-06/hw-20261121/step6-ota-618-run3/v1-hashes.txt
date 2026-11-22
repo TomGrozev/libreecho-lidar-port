@@ -1,0 +1,2 @@
+f56aa977c2abd82bee5eeb4b19ab1ab4a993e2eee99ff5bcae4eca6216047a16  artifacts/phase-06/images/boot-lidar-v1.img
+f56aa977c2abd82bee5eeb4b19ab1ab4a993e2eee99ff5bcae4eca6216047a16  experiments/phase-06/hw-20261121/step6-ota-618-run3/boot_a-v1.bin

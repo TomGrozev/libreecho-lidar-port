@@ -1,0 +1,55 @@
+uname: Linux echo 6.18.64+ #1 SMP 2026-11-21 00:00:00 UTC aarch64 Linux
+slot: a
+boot_id: edd0812d-4377-4d99-8040-81a9fa8c3f84
+=== libreecho-update status
+/system/bin/sh: libreecho-update: not found
+=== current/generation
+txn-47f1e4ac45f4d1d18417b8c8
+schema=1
+state=confirmed
+mode=ota
+running_slot=a
+selected_slot=a
+pending_slot=a
+slot_a_priority=15
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=14
+slot_b_tries=0
+slot_b_success=1
+boot_count=87
+attempt=3
+passed=2
+last_check=none
+strict_graph=1
+epoch=1795297953
+=== tsl2540 dmesg
+TSL2540: probe()
+tsl2540 0-0039: tsl2540_probe: client->irq = 0
+tsl2540 0-0039: tsl2540_probe: device id:e4 device aux id:01 device rev:61
+tsl2540 0-0039: tsl2540_probe: 'tsl2540 rev. 0x61' detected
+tsl2540 0-0039: tsl2540_set_defaults: Loading pltform data
+ tsl2540_probe+0x50c/0x64c
+tsl2540 0-0039: Probe failed.
+tsl2540 0-0039: probe with driver tsl2540 failed with error -17
+pc : tsl2540_als_enable_show+0x20/0x38
+ tsl2540_als_enable_show+0x20/0x38 (P)
+pc : tsl2540_als_enable_show+0x20/0x38
+ tsl2540_als_enable_show+0x20/0x38 (P)
+TSL2540: probe()
+tsl2540 0-0039: tsl2540_probe: client->irq = 0
+tsl2540 0-0039: tsl2540_probe: device id:e4 device aux id:01 device rev:61
+tsl2540 0-0039: tsl2540_probe: 'tsl2540 rev. 0x61' detected
+tsl2540 0-0039: tsl2540_set_defaults: Loading pltform data
+ tsl2540_probe+0x524/0x64c
+tsl2540 0-0039: tsl2540_get_lux: darkness (0 <= 10)
+tsl2540 0-0039: tsl2540_get_lux: darkness (0 <= 10)
+=== als attrs
+als_power_state=
+als_lux=
+als_ch0=0
+als_ch1=0
+als_gain=
+als_itime=
+=== oops count
+end_trace=2

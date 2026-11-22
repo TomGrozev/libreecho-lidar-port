@@ -1,0 +1,119 @@
+{
+	"model-default": {
+		"type": "NN",
+		"name": "IDLE",
+		"config": {
+			"bias-config": "/etc/ambienttempd/default/nn_bias.txt",
+			"coefficient-config": "/etc/ambienttempd/default/nn_coefficient.txt",
+			"temp-device-config": "/etc/ambienttempd/default/nn_tempdevices.txt",
+			"filter": {}
+		}
+	},
+	"model-led-on": {
+		"type": "NN",
+		"name": "LED",
+		"config": {
+			"bias-config": "/etc/ambienttempd/led/nn_bias.txt",
+			"coefficient-config": "/etc/ambienttempd/led/nn_coefficient.txt",
+			"temp-device-config": "/etc/ambienttempd/led/nn_tempdevices.txt",
+			"filter": {}
+		}
+	},
+	"model-speaker-on": {
+		"type": "NN",
+		"name": "SPEAKER",
+		"config": {
+			"bias-config": "/etc/ambienttempd/speaker/nn_bias.txt",
+			"coefficient-config": "/etc/ambienttempd/speaker/nn_coefficient.txt",
+			"temp-device-config": "/etc/ambienttempd/speaker/nn_tempdevices.txt",
+			"filter": {}
+		}
+	},
+	"model-high-cpu": {
+		"type": "NN",
+		"name": "HIGH_CPU",
+		"config": {
+			"bias-config": "/etc/ambienttempd/high-cpu/nn_bias.txt",
+			"coefficient-config": "/etc/ambienttempd/high-cpu/nn_coefficient.txt",
+			"temp-device-config": "/etc/ambienttempd/high-cpu/nn_tempdevices.txt",
+			"filter": {}
+		}
+	},
+	"coeff-default": 0.557363,
+	"coeff-led": 0.016887,
+	"coeff-speaker": 0.395978,
+	"wait_time_sec": 120,
+	"t_merge_btw_models": 3600,
+	"filter": {
+		"type": "MA",
+		"config": {
+			"alpha": 0.01
+		}
+	},
+	"filter-active": {
+		"type": "MA",
+		"config": {
+			"alpha": 0.000005
+		}
+	},
+	"interval": 1,
+	"calibrationTimeSec": 3600,
+	"active_count_max": 4800,
+	"active_count_inc_step": 8,
+	"active_count_dec_step": 5,
+	"rampup": {
+		"alpha": 2.96,
+		"beta": 0.012,
+		"t_steady_sec": 18000,
+		"t_window_sec": 60,
+		"t_merge_sec_oobe": 600,
+		"t_merge_sec_restart": 600,
+		"t_cool_down_sec": 0
+	},
+	"led-active-calculator": {
+		"b": 3.988,
+		"c": 0.0042,
+		"use-case-detector": {
+			"type": "led",
+			"config": {
+				"filter": {
+					"type": "MA",
+					"config": {
+						"alpha": 0.1
+					}
+				},
+				"threshold": 0.3
+			}
+		}
+	},
+	"speaker-active-calculator": {
+		"b":5.775,
+		"c":0.001,
+		"use-case-detector": {
+			"type": "speaker",
+			"config": {
+				"type": "",
+				"config": {}
+			}
+		}
+	},
+	"high-cpu-active-calculator": {
+		"b": 0,
+		"c": 0,
+		"use-case-detector": {
+			"type": "cpu",
+			"config": {
+				"soc_active_mean": 55.0,
+				"soc_active_hysteresis": 0.0,
+				"filter": {
+					"type": "MA",
+					"config": {
+						"alpha": 0.05,
+						"drop_if_below": 15.0
+					}
+				}
+			}
+		}
+	},
+	"max_accuracy_interval_sec": 3000
+}

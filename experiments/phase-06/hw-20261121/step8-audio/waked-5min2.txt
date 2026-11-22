@@ -1,0 +1,14 @@
+580.67
+ls: /run/libreecho/wakeword.sock: No such file or directory
+
+
+
+
+
+674698
+
+
+
+
+
+

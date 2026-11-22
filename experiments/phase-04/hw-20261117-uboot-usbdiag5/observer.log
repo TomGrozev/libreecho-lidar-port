@@ -1,0 +1,6 @@
+   0.322 reboot: Rebooting                                          OKAY [  0.002s] Finished. Total time: 0.203s 
+   0.371 usb=[] tty=[]
+   2.162 usb=[0e8d:2000 MediaTek Inc. MT65xx Preloader;] tty=[]
+   4.809 usb=[] tty=[]
+  10.123 usb=[0bb4:0c01 HTC (High Tech Computer Corp.) Dream / ADP1 / G1 / Magic / Tattoo / FP1;] tty=[]
+  75.141 end

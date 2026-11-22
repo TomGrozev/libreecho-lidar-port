@@ -1,0 +1,29 @@
+Collecting liblk @ git+file:/workspace/libreecho/experiments/phase-02/src/liblk@75c8f14f16457b6c53d950d18d1ed7d2a665bed6
+  Cloning file:///workspace/libreecho/experiments/phase-02/src/liblk (to revision 75c8f14f16457b6c53d950d18d1ed7d2a665bed6) to /tmp/pip-install-ynqgjf7e/liblk_ff5c8f8c72fc4884b1ae0b0e0bbc85bc
+  Running command git clone --filter=blob:none --quiet file:///workspace/libreecho/experiments/phase-02/src/liblk /tmp/pip-install-ynqgjf7e/liblk_ff5c8f8c72fc4884b1ae0b0e0bbc85bc
+  warning: filtering not recognized by server, ignoring
+  Running command git rev-parse -q --verify '75c8f14f16457b6c53d950d18d1ed7d2a665bed6^{commit}'
+  75c8f14f16457b6c53d950d18d1ed7d2a665bed6
+  Resolved file:///workspace/libreecho/experiments/phase-02/src/liblk to commit 75c8f14f16457b6c53d950d18d1ed7d2a665bed6
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting capstone==5.0.6
+  Downloading capstone-5.0.6-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.3 kB)
+Collecting pyasn1>=0.6
+  Downloading pyasn1-0.6.5-py3-none-any.whl.metadata (8.4 kB)
+Downloading capstone-5.0.6-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 4.5 MB/s  0:00:00
+Downloading pyasn1-0.6.5-py3-none-any.whl (84 kB)
+Building wheels for collected packages: liblk
+  Building wheel for liblk (pyproject.toml): started
+  Building wheel for liblk (pyproject.toml): finished with status 'done'
+  Created wheel for liblk: filename=liblk-3.2.0-py3-none-any.whl size=47548 sha256=22e7bf8359125d9fbc40e2ee90ed56af1105d52ec0338ebc4d4e840d425ff64b
+  Stored in directory: /home/build/.cache/pip/wheels/0f/12/05/995bef442e04431c2538355eeea0fdbe629041097c568dd861
+Successfully built liblk
+Installing collected packages: pyasn1, capstone, liblk
+
+Successfully installed capstone-5.0.6 liblk-3.2.0 pyasn1-0.6.5

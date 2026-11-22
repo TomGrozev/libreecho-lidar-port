@@ -1,0 +1,133 @@
+diff --git a/docs/API.md b/docs/API.md
+index 9a38031..34e6dcb 100644
+--- a/docs/API.md
++++ b/docs/API.md
+@@ -2202,6 +2202,10 @@ Update one controller setting:
+ 
+ `discoverable` and `connectable` can also be supplied as booleans. Enabling
+ the controller is explicit and is limited to one activation attempt per boot.
++Because the kernel refuses inquiry scan while page scan is off, enabling
++`discoverable` also enables `connectable`. Disabling `discoverable` while the
++controller is not connectable succeeds without a controller command, since it
++is already not visible.
+ 
+ #### POST /api/v1/bluetooth/pairing-mode
+ 
+diff --git a/src/adapter/btd.c b/src/adapter/btd.c
+index b4470e0..8b3e77f 100644
+--- a/src/adapter/btd.c
++++ b/src/adapter/btd.c
+@@ -2354,9 +2354,9 @@ static int handle_request(struct bt_context *context, char *message,
+     }
+     if (!strcmp(command, "set_connectable") || !strcmp(command, "set_discoverable")) {
+         int enabled;
+-        uint8_t payload[3];
+-        uint16_t opcode = !strcmp(command, "set_connectable") ?
+-                          MGMT_OP_SET_CONNECTABLE : MGMT_OP_SET_DISCOVERABLE;
++        int discoverable = !strcmp(command, "set_discoverable");
++        uint16_t opcode = discoverable ? MGMT_OP_SET_DISCOVERABLE :
++                                         MGMT_OP_SET_CONNECTABLE;
+         if (json_integer(args, "enabled", &enabled) != 0) {
+             const char *p = json_value(args, "enabled");
+             if (!p || (strncmp(p, "true", 4) && strncmp(p, "false", 5)))
+@@ -2367,11 +2367,25 @@ static int handle_request(struct bt_context *context, char *message,
+         if (enabled != 0 && enabled != 1)
+             return le_adapter_respond_err(response, response_size, id,
+                                            "enabled must be 0 or 1");
+-        memset(payload, 0, sizeof(payload));
+-        payload[0] = enabled ? 1 : 0;
+-        if (controller_command(context, opcode, payload,
+-                               opcode == MGMT_OP_SET_DISCOVERABLE ?
+-                               sizeof(payload) : 1) != 0)
++        /*
++         * The kernel rejects SET_DISCOVERABLE with MGMT_STATUS_REJECTED while
++         * HCI_CONNECTABLE is clear, for either value of the request
++         * (net/bluetooth/mgmt.c).  Page scan is off after btd's own power-on,
++         * so making the adapter visible first has to accept connections; that
++         * matches BlueZ, whose discoverable mode also enables page scan.  When
++         * the adapter is already not connectable it is also not discoverable,
++         * so disabling visibility needs no command at all.
++         */
++        if (discoverable &&
++            !(context->current_settings & MGMT_SETTING_CONNECTABLE)) {
++            if (!enabled)
++                return le_adapter_respond_ok(response, response_size, id,
++                                             "{\"changed\":false}");
++            if (set_controller_setting(context, MGMT_OP_SET_CONNECTABLE, 1) != 0)
++                return le_adapter_respond_err(response, response_size, id,
++                                               "Bluetooth connectable setting failed");
++        }
++        if (set_controller_setting(context, opcode, enabled) != 0)
+             return le_adapter_respond_err(response, response_size, id,
+                                            "Bluetooth controller setting failed");
+         return le_adapter_respond_ok(response, response_size, id,
+diff --git a/src/backend_mock.c b/src/backend_mock.c
+index ef45e89..cb68a19 100644
+--- a/src/backend_mock.c
++++ b/src/backend_mock.c
+@@ -118,8 +118,8 @@ static int bluetooth_pair_mock(struct le_backend*b,const char*a,int type,int io)
+ static int bluetooth_unpair_mock(struct le_backend*b,const char*a,int type){struct mock_state*m=M(b);size_t i;for(i=0;i<m->bluetooth.known_count;i++)if(!strcmp(m->bluetooth.known[i].address,a)&&m->bluetooth.known[i].type==type){memmove(&m->bluetooth.known[i],&m->bluetooth.known[i+1],(m->bluetooth.known_count-i-1)*sizeof(m->bluetooth.known[0]));m->bluetooth.known_count--;return LE_OK;}return LE_INVALID;}
+ static int bluetooth_disconnect_mock(struct le_backend*b,const char*a,int type){struct le_bluetooth_device*d=mock_bt_find(M(b),a,type);if(!d)return LE_INVALID;d->connected=0;return LE_OK;}
+ static int bluetooth_pairing_response_mock(struct le_backend*b,const char*a,int type,const char*m,unsigned int v,const char*p){(void)a;(void)type;(void)m;(void)v;(void)p;M(b)->bluetooth.pairing=0;return LE_OK;}
+-static int bluetooth_discoverable_mock(struct le_backend*b,int enabled){if(enabled!=0&&enabled!=1)return LE_INVALID;M(b)->bluetooth.discoverable=enabled;return LE_OK;}
+-static int bluetooth_connectable_mock(struct le_backend*b,int enabled){if(enabled!=0&&enabled!=1)return LE_INVALID;M(b)->bluetooth.connectable=enabled;return LE_OK;}
++static int bluetooth_discoverable_mock(struct le_backend*b,int enabled){if(enabled!=0&&enabled!=1)return LE_INVALID;if(enabled)M(b)->bluetooth.connectable=1;M(b)->bluetooth.discoverable=enabled;return LE_OK;}
++static int bluetooth_connectable_mock(struct le_backend*b,int enabled){if(enabled!=0&&enabled!=1)return LE_INVALID;if(!enabled)M(b)->bluetooth.discoverable=0;M(b)->bluetooth.connectable=enabled;return LE_OK;}
+ static int bluetooth_pairing_mode_mock(struct le_backend*b,int enabled){if(enabled!=0&&enabled!=1)return LE_INVALID;M(b)->bluetooth.pairing_mode=enabled;M(b)->bluetooth.connectable=enabled;M(b)->bluetooth.discoverable=enabled;M(b)->bluetooth.bondable=enabled;return LE_OK;}
+ /* Sendspin: installed, follows its own toggle, and reports a connected,
+    synchronized player while enabled. The token is a fixed fake. */
+diff --git a/tests/run_tests.sh b/tests/run_tests.sh
+index 8bc2fe6..9c6e123 100755
+--- a/tests/run_tests.sh
++++ b/tests/run_tests.sh
+@@ -79,6 +79,7 @@ sh tests/test_watchdog_stop_recovery_contract.sh
+ sh tests/test_bluetooth_pairing_contract.sh
+ sh tests/test_bluetooth_pairing_code_ui.sh
+ sh tests/test_bluetooth_io_capability_contract.sh
++sh tests/test_bluetooth_discoverable_contract.sh
+ sh tests/test_bluetooth_profile_contract.sh
+ sh tests/test_bluetooth_profile_service_contract.sh
+ sh tests/test_bluetooth_device_metadata_contract.sh
+diff --git a/tests/test_bluetooth_discoverable_contract.sh b/tests/test_bluetooth_discoverable_contract.sh
+new file mode 100755
+index 0000000..2a9fa5b
+--- /dev/null
++++ b/tests/test_bluetooth_discoverable_contract.sh
+@@ -0,0 +1,37 @@
++#!/bin/sh
++set -eu
++
++# Regression contract: the kernel rejects MGMT_OP_SET_DISCOVERABLE with
++# MGMT_STATUS_REJECTED while HCI_CONNECTABLE is clear, for either value of the
++# request (net/bluetooth/mgmt.c). btd's standalone visibility toggle therefore
++# has to accept connections first, and a disable while not connectable is
++# already satisfied. This source-level check is host-verifiable; the physical
++# pairing remains separate.
++python3 - <<'PY'
++from pathlib import Path
++
++source = Path('src/adapter/btd.c').read_text()
++start = source.index('if (!strcmp(command, "set_connectable") || !strcmp(command, "set_discoverable")) {')
++end = source.index('return le_adapter_respond_err(response, response_size, id, "unknown command");', start)
++block = source[start:end]
++
++assert 'int discoverable = !strcmp(command, "set_discoverable");' in block
++assert '!(context->current_settings & MGMT_SETTING_CONNECTABLE)' in block
++connect = block.index('set_controller_setting(context, MGMT_OP_SET_CONNECTABLE, 1)')
++visible = block.index('set_controller_setting(context, opcode, enabled)')
++assert connect < visible, (
++    'the adapter must accept connections before it is made discoverable, '
++    'otherwise the kernel rejects the request'
++)
++assert 'controller_command(context, opcode' not in block
++assert '"{\\"changed\\":false}"' in block
++
++mock = Path('src/backend_mock.c').read_text()
++mock_discoverable = mock[mock.index('static int bluetooth_discoverable_mock'):]
++mock_discoverable = mock_discoverable[:mock_discoverable.index('\n')]
++assert 'if(enabled)M(b)->bluetooth.connectable=1;' in mock_discoverable
++mock_connectable = mock[mock.index('static int bluetooth_connectable_mock'):]
++mock_connectable = mock_connectable[:mock_connectable.index('\n')]
++assert 'if(!enabled)M(b)->bluetooth.discoverable=0;' in mock_connectable
++PY
++printf '%s\n' 'bluetooth discoverable contract: ok'

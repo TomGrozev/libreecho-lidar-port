@@ -1,0 +1,17 @@
+00:00:00:00:00:00
+00:00:00:00
+---
+[1;36mlo[m    [1;36msit0[m
+---
+[1;36mhci0[m
+---
+I: Bus=0019 Vendor=0001 Product=0001 Version=0100
+N: Name="gpio-keys"
+P: Phys=gpio-keys/input0
+S: Sysfs=/devices/platform/gpio-keys/input/input0
+U: Uniq=
+H: Handlers=kbd event0 
+B: PROP=0
+B: EV=3
+B: KEY=1000000 0 0 400 c0000 0 0 0
+

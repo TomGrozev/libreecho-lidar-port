@@ -1,0 +1,15 @@
+{
+ "body": {
+  "data": {
+   "available": true,
+   "enabled": false,
+   "path": "/data/libreecho/local",
+   "path_safe": true,
+   "services": [],
+   "state": "disabled"
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

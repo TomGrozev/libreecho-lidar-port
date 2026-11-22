@@ -1,0 +1,6 @@
+product=LIDAR
+kaeru_version=2.0.0-g66704e6-dirty
+max_fetch_size=1048576
+partition misc: 524288 ok
+ERROR: current slot is not confirmed successful
+log: experiments/phase-06/hw-20261121/step3d-boot3/bcb-log/bcb-set-active.log

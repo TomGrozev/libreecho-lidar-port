@@ -1,0 +1,9 @@
+ 10:01:29 up 4 min,  0 users,  load average: 1.28, 0.97, 0.43
+total 20
+-rw-r--r--    1 0        0              566 Nov 21 09:57 [0;0mled-state.json[m
+-rw-------    1 0        0              143 Nov 21 09:48 [0;0musers[m
+-rw-------    1 0        0             1615 Nov 21 04:07 [0;0mweb-config.json[m
+-rw-------    1 0        0              593 Jan  1  1970 [0;0mweb-config.json.bak[m
+-rw-------    1 0        0               70 Nov 20 23:48 [0;0mwpa_supplicant.conf[m
+{"ts":28,"boot_seconds":28,"level":"INFO","service":"networkd","msg":"networkd: starting (socket=/run/libreecho/network.sock, interface=wlan0, wpa=/tmp/wpa_ctrl/wlan0)"}
+    inet <DEVICE_IP_A>/26 scope global wlan0

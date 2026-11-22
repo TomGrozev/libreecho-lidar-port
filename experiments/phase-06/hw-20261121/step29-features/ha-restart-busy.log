@@ -1,0 +1,25 @@
+ 10:21:36 up 18 min,  0 users,  load average: 1.39, 1.51, 1.12
+ 3499 0         0:00 /usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap
+21567 0         0:10 /usr/local/sbin/libreecho-web --backend linux --config /data/libreecho/config/web-config.json --web-root /usr/local/share/libreecho/web --l
+23822 0         0:00 [libreecho-web]
+25216 0         0:12 /run/libreecho/features/stt/root/usr/local/sbin/libreecho-sttd --socket /run/libreecho/stt.sock --model-dir /run/libreecho/features/stt/roo
+25580 0         0:32 /run/libreecho/features/tts/root/usr/local/sbin/libreecho-ttsd --foreground --socket /run/libreecho/tts.sock --model-dir /run/libreecho/fea
+27135 0         0:38 /run/libreecho/features/wakeword/root/usr/local/sbin/libreecho-waked --foreground --socket /run/libreecho/wakeword.sock --mic-socket /run/l
+27179 0         0:02 /usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap
+27180 0         0:00 tinycap -- -D 0 -d 1 -c 8 -r 16000 -b 32 -p 640 -n 4
+27347 0         0:00 /run/libreecho/features/assistant/root/usr/local/sbin/libreecho-agentd --socket /run/libreecho/agent.sock --curl /run/libreecho/features/as
+{"ts":1795256433,"boot_seconds":1042,"level":"INFO","service":"libreecho-web","msg":"Authenticated user session created"}
+{"ts":1795256436,"boot_seconds":1045,"level":"INFO","service":"ttsd","msg":"ttsd: shutting down"}
+{"ts":1795256437,"boot_seconds":1046,"level":"INFO","service":"micd","msg":"micd: Lidar OCM capture path configured (PGA 82)"}
+{"ts":1795256437,"boot_seconds":1046,"level":"INFO","service":"micd","msg":"calibrated mono microphone stream started"}
+{"ts":1795256443,"boot_seconds":1052,"level":"INFO","service":"ttsd","msg":"ttsd: starting (socket=/run/libreecho/tts.sock, model=/run/libreecho/features/tts/root/usr/local/share/libreecho/tts/models/southern-female, voi
+{"ts":1795256447,"boot_seconds":1057,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795256447,"boot_seconds":1057,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795256452,"boot_seconds":1061,"level":"INFO","service":"micd","msg":"raw microphone stream stopped"}
+{"ts":1795256459,"boot_seconds":1068,"level":"INFO","service":"micd","msg":"micd: Lidar OCM capture path configured (PGA 82)"}
+{"ts":1795256459,"boot_seconds":1068,"level":"INFO","service":"micd","msg":"calibrated mono microphone stream started"}
+{"ts":1795256475,"boot_seconds":1084,"level":"INFO","service":"ttsd","msg":"ttsd: TTS engine ready (native rate=16000 Hz)"}
+{"ts":1795256475,"boot_seconds":1084,"level":"INFO","service":"ttsd","msg":"ttsd: listening on /run/libreecho/tts.sock"}
+{"ts":1795256475,"boot_seconds":1084,"level":"INFO","service":"agentd","msg":"agentd: ready socket=/run/libreecho/agent.sock provider=openai-codex"}
+{"ts":1795256481,"boot_seconds":1090,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795256481,"boot_seconds":1090,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}

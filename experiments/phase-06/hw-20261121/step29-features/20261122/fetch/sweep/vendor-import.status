@@ -1,0 +1,6 @@
+state=imported
+verification=lidar-hash-pinned-ram-per-unit-calibration
+source_partition=system_a
+source_layout=system/vendor/firmware
+force_requested=0
+error=none

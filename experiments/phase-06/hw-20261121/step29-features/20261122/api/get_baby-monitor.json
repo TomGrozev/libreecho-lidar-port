@@ -1,0 +1,132 @@
+{
+ "body": {
+  "data": {
+   "active_microphone_channels": 7,
+   "available": true,
+   "calibration": {
+    "applied_to_calibrated_stream": true,
+    "applied_to_raw_stream": false,
+    "complete": true,
+    "fallback": 16384,
+    "geometry": {
+     "centre_lane": 6,
+     "lane_skew": "none measured",
+     "reference": "0 deg front (volume down), clockwise viewed from above",
+     "ring_azimuth_deg": [
+      150,
+      210,
+      270,
+      330,
+      30,
+      90
+     ],
+     "ring_lanes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "ring_radius_mm": 36
+    },
+    "mapping": "measured; lane n is physical microphone n",
+    "mapping_available": true,
+    "polarity": "all-positive-measured",
+    "q14": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "relative_delay_samples": {},
+    "selected_logical_mics": [
+     0,
+     1,
+     3,
+     4
+    ],
+    "source": "/sys/firmware/devicetree/base/idme/miccal.N/value",
+    "values_found": 7
+   },
+   "capture": {
+    "active": true,
+    "owner": "raw-stream"
+   },
+   "hardware_profile": {
+    "adc_codecs": 4,
+    "analog_pga_db": 20,
+    "configured": true,
+    "name": "radar-audio-device-v4.02"
+   },
+   "inactive_transport_channels": [
+    7,
+    8
+   ],
+   "logical_channels": 7,
+   "pipeline": {
+    "aec": false,
+    "beam_design": "superdirective, white-noise gain >= -3 dB",
+    "beamforming": true,
+    "beams": 12,
+    "fft": 256,
+    "highpass_hz": 80,
+    "hop": 128,
+    "stage": "fixed-beam-select",
+    "vad": "native-energy-baseline",
+    "wake_word": false
+   },
+   "raw_channels": 9,
+   "simulated": false,
+   "sources": [
+    {
+     "bits": 24,
+     "card": 0,
+     "channels": 9,
+     "device": 24,
+     "encoding": "pcm_s24_3le",
+     "id": "0:24",
+     "microphones": [
+      {
+       "channel": 0,
+       "name": "Array microphone 1"
+      },
+      {
+       "channel": 1,
+       "name": "Array microphone 2"
+      },
+      {
+       "channel": 2,
+       "name": "Array microphone 3"
+      },
+      {
+       "channel": 3,
+       "name": "Array microphone 4"
+      },
+      {
+       "channel": 4,
+       "name": "Array microphone 5"
+      },
+      {
+       "channel": 5,
+       "name": "Array microphone 6"
+      },
+      {
+       "channel": 6,
+       "name": "Array microphone 7"
+      }
+     ],
+     "name": "Amazon MT8163 microphone array",
+     "rate": 16000,
+     "valid_bits": 16
+    }
+   ]
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

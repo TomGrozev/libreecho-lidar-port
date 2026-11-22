@@ -1,0 +1,6 @@
+20:09:20 start: bundle=v0.2.29 tx=txn-cc95a15ac3b7e1c89d9dc5cb slot=b target=a
+20:12:49 pushed: artifacts/phase-07/ota-sendspin-fix/lidar-lab-v0.2.29.ota.tar: 1 file pushed, 0 skipped. 1.5 MB/s (16793600 bytes in 10.794s)
+20:13:17 install: verify_rc=0 install_rc=0 
+20:13:17 reboot requested; pre-reboot boot_id 024ed935-14b0-4a12-8de4-670264b2736f
+20:13:17 adb back on slot b
+20:33:18 FAIL: not confirmed on slot a within 20 min

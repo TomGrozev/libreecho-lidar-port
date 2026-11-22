@@ -1,0 +1,12 @@
+241M	phase-06/ota-step33-fixes
+241M	phase-06/ota-step35-als
+241M	phase-06/features-airplay2-lidar/ota
+241M	phase-06/features-airplay2-lidar/ota-0.2.16
+241M	phase-06/features-airplay2-drain/ota
+63M	phase-06/images-step35-als
+17M	phase-06/acm
+9.5M	phase-06/components/ui-bundle-c09551f
+9.8M	phase-06/components-step35-als
+16K	phase-06/components-step36-v0228
+4.0K	tmp-probe
+4.0K	tmp-verify

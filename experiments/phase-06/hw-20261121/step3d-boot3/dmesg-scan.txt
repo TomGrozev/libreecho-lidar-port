@@ -1,0 +1,122 @@
+## mmc0 5
+   mmc0: new HS200 MMC card at address 0001
+   mmcblk0: mmc0:0001 Q2J95E 7.13 GiB
+   mmcblk0boot0: mmc0:0001 Q2J95E 2.00 MiB
+   mmcblk0boot1: mmc0:0001 Q2J95E 2.00 MiB
+   mmcblk0rpmb: mmc0:0001 Q2J95E 4.00 MiB, chardev (249:0)
+## mmc1 3
+   mmc1: new UHS-I speed SDR104 SDIO card at address 0001
+   mt7668_sdio mmc1:0001:1: firmware not installed yet, deferring probe; bind after importing it
+   mt7668_sdio mmc1:0001:1: probe with driver mt7668_sdio failed with error -2
+## mtk-msdc 13
+   mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=52 arg=00000C00; host->error=0x00000002
+   mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=52 arg=80000C08; host->error=0x00000002
+   mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=8 arg=000001AA; host->error=0x00000002
+   mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+   mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+   mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+   mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+   mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+   mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+   mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+   mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+   mtk-msdc 11170000.mmc: msdc_track_cmd_data: cmd=52 arg=00000C00; host->error=0x00000002
+## mtk-sd 0
+## sdhci 0
+## emmc 0
+## mmcblk 9
+   mmcblk0: mmc0:0001 Q2J95E 7.13 GiB
+    mmcblk0: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16
+   mmcblk0boot0: mmc0:0001 Q2J95E 2.00 MiB
+   mmcblk0boot1: mmc0:0001 Q2J95E 2.00 MiB
+   mmcblk0rpmb: mmc0:0001 Q2J95E 4.00 MiB, chardev (249:0)
+   EXT4-fs (mmcblk0p16): recovery complete
+   EXT4-fs (mmcblk0p16): mounted filesystem <FS_UUID_2> r/w with ordered data mode. Quota mode: disabled.
+   EXT4-fs (mmcblk0p13): mounted filesystem <FS_UUID_1> ro without journal. Quota mode: disabled.
+   EXT4-fs (mmcblk0p13): unmounting filesystem <FS_UUID_1>.
+## sdio 3
+   mmc1: new UHS-I speed SDR104 SDIO card at address 0001
+   mt7668_sdio mmc1:0001:1: firmware not installed yet, deferring probe; bind after importing it
+   mt7668_sdio mmc1:0001:1: probe with driver mt7668_sdio failed with error -2
+## mt7668 2
+   mt7668_sdio mmc1:0001:1: firmware not installed yet, deferring probe; bind after importing it
+   mt7668_sdio mmc1:0001:1: probe with driver mt7668_sdio failed with error -2
+## btmtk 0
+## hci0 1
+   Bluetooth: hci0: Device setup in 1062936 usecs
+## bluetooth 7
+   Bluetooth: Core ver 2.22
+   NET: Registered PF_BLUETOOTH protocol family
+   Bluetooth: HCI device and connection manager initialized
+   Bluetooth: HCI socket layer initialized
+   Bluetooth: L2CAP socket layer initialized
+   Bluetooth: SCO socket layer initialized
+   Bluetooth: hci0: Device setup in 1062936 usecs
+## sound 1
+   Advanced Linux Sound Architecture Driver Initialized.
+## mt8167 2
+   Machine model: MT8167B
+   Kernel command line: console=tty0 console=ttyMT0,921600n1 earlycon=uart8250,mmio32,0x11005000 vmalloc=496M androidboot.hardware=mt8167 androidboot.secure_cpu=1 androidboot.unlocked_kernel=true android
+## gpio-keys 1
+   input: gpio-keys as /devices/platform/gpio-keys/input/input0
+## amz 1
+   amz_privacy amz-privacy: registered (read-only privacy-state input, initial state public)
+## privacy 1
+   amz_privacy amz-privacy: registered (read-only privacy-state input, initial state public)
+## led 20
+   printk: legacy bootconsole [uart8250] enabled
+   Kernel command line: console=tty0 console=ttyMT0,921600n1 earlycon=uart8250,mmio32,0x11005000 vmalloc=496M androidboot.hardware=mt8167 androidboot.secure_cpu=1 androidboot.unlocked_kernel=true android
+   printk: legacy console [tty0] enabled
+   printk: legacy console [ramoops-1] enabled
+   mtk-power-controller 10006000.syscon:power-controller: /soc/syscon@10006000/power-controller/power-domain@4: failed to power on domain: -110
+   mtk-power-controller 10006000.syscon:power-controller: probe with driver mtk-power-controller failed with error -110
+   Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+   mtk-wdt 10007000.watchdog: Watchdog enabled (timeout=31 sec, nowayout=0)
+   tsl2540 0-0039: Probe failed.
+   tsl2540 0-0039: probe with driver tsl2540 failed with error -22
+   Loading compiled-in X.509 certificates
+   cfg80211: Loading compiled-in X.509 certificates for regulatory database
+## WARN 0
+## BUG 1
+   [Firmware Bug]: Kernel image misaligned at boot, please fix your bootloader!
+## Oops 4
+   OF: reserved mem: 0x0000000043810000..0x000000004386ffff (384 KiB) map non-reusable ramoops@43810000
+   printk: legacy console [ramoops-1] enabled
+   pstore: Registered ramoops as persistent store backend
+   ramoops: using 0x60000@0x43810000, ecc: 0
+## Call trace 0
+## error 18
+   mtk-power-controller 10006000.syscon:power-controller: probe with driver mtk-power-controller failed with error -110
+   [wlan][1]wlanCreateWirelessDevice:(INIT ERROR) The num_different_channels is 2
+   [wlan][1]mtk_reg_notify:(RLM ERROR) prGlueInfo is NULL!
+   tsl2540 0-0039: probe with driver tsl2540 failed with error -22
+   mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=52 arg=00000C00; host->error=0x00000002
+   mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=52 arg=80000C08; host->error=0x00000002
+   mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=8 arg=000001AA; host->error=0x00000002
+   mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+   mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+   mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+   mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+   mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+## failed 5
+   mtk-power-controller 10006000.syscon:power-controller: /soc/syscon@10006000/power-controller/power-domain@4: failed to power on domain: -110
+   mtk-power-controller 10006000.syscon:power-controller: probe with driver mtk-power-controller failed with error -110
+   tsl2540 0-0039: Probe failed.
+   tsl2540 0-0039: probe with driver tsl2540 failed with error -22
+   mt7668_sdio mmc1:0001:1: probe with driver mt7668_sdio failed with error -2
+## timeout 1
+   mtk-wdt 10007000.watchdog: Watchdog enabled (timeout=31 sec, nowayout=0)
+## musb 1
+   libreecho-init: configfs-udc-bound:musb-hdrc.3.auto
+## dwc2 0
+## usb 10
+   usbcore: registered new interface driver usbfs
+   usbcore: registered new interface driver hub
+   usbcore: registered new device driver usb
+   usbcore: registered new interface driver usbhid
+   usbhid: USB HID core driver
+   usb_phy_generic usb_phy_generic.2.auto: dummy supplies not allowed for exclusive requests (id=vbus)
+   libreecho-init: configfs-udc-bound:musb-hdrc.3.auto
+   libreecho-init: adbd-fd:10:/dev/usb-ffs/adb/ep2
+   libreecho-init: adbd-fd:5:/dev/usb-ffs/adb/ep0
+   libreecho-init: adbd-fd:9:/dev/usb-ffs/adb/ep1

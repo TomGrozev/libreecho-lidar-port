@@ -1,0 +1,53 @@
+13.73
+libreecho.lab=p6-v2
+androidboot.slot_suffix=_b
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=0
+slot_a_tries=0
+slot_a_success=0
+slot_b_priority=14
+slot_b_tries=0
+slot_b_success=1
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+state=rolled-back
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+generation=txn-8c5e49157168a61621c8c587
+current=txn-8c5e49157168a61621c8c587
+schema=1
+state=pending
+mode=ota
+running_slot=b
+selected_slot=b
+pending_slot=a
+slot_a_priority=0
+slot_a_tries=0
+slot_a_success=0
+slot_b_priority=14
+slot_b_tries=0
+slot_b_success=1
+boot_count=76
+attempt=0
+passed=0
+last_check=none
+strict_graph=0
+epoch=4
+[0;0mauthority-provenance-cache[m  [0;0mfeatures-status[m
+[0;0mautomatic-updates[m           [0;0mfirst-install.pending[m
+[0;0mboot-count[m                  [1;34mincoming[m
+[0;0mboot-health[m                 [0;0minstalled[m
+[0;0mboot-history[m                [0;0mota.log[m
+[0;0mbootctl.confirm[m             [0;0mprevious[m
+[0;0mconfig-status[m               [0;0mrestart-record[m
+[0;0mcurrent[m                     [0;0mrolled-back[m
+[0;0mfailure-235-1.log[m           [1;34mstaging[m
+[0;0mfailure-236-1.log[m           [0;0mstate[m
+[0;0mfeature-hash-cache[m

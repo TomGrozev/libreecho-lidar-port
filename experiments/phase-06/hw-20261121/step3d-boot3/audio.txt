@@ -1,0 +1,6 @@
+ 0 [amazonlidar    ]: amazon-lidar - amazon-lidar
+                      amazon-lidar
+---
+00-00: Playback (*) :  : playback 1
+00-01: Microphone Capture (*) :  : capture 1
+00-02: Playback Reference Capture (*) :  : capture 1

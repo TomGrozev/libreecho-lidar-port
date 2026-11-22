@@ -1,0 +1,3216 @@
+== uptime 4.23 boot_id b4c9c73a-f87b-457b-903b-93c826d4558e libreecho.lab=p6-v2
+androidboot.slot_suffix=_b
+ERROR:userdata_identity_or_mount_failed
+cat: can't open '/data/libreecho/update/features-status': No such file or directory
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+cat: can't open '/data/libreecho/update/state': No such file or directory
+ls: /run/libreecho: No such file or directory
+pstore-mounted
+pmsg-ready
+service-profile:production
+init-started
+audio-node-worker-started
+input-node-worker-started
+adb-transport-policy-read
+input-devnodes-created:1
+configfs-mounted
+configfs-adb-composition-created
+functionfs-mounted
+adbd-started:140
+audio-devnodes-created:5
+functionfs-ready
+configfs-udc-bound:musb-hdrc.3.auto
+== init-persist
+input-node-worker-started
+adb-transport-policy-read
+input-devnodes-created:1
+configfs-mounted
+configfs-adb-composition-created
+functionfs-mounted
+adbd-started:140
+audio-devnodes-created:5
+functionfs-ready
+configfs-udc-bound:musb-hdrc.3.auto
+== pstore
+total 0
+drwxr-x---    2 0        0                0 Jan  1 00:00 [1;34m.[m
+drwxr-xr-x    5 0        0                0 Jan  1 00:00 [1;34m..[m
+-r--r--r--    1 0        0            30538 Jan  1 00:00 [0;0mconsole-ramoops-0[m
+-r--r--r--    1 0        0              250 Jan  1 00:00 [0;0mpmsg-ramoops-0[m
+Booting Linux on physical CPU 0x0000000000 [0x410fd041]
+Linux version 6.18.64+ (libreecho@phase6) (clang version 23.1.5, LLD 23.1.5) #5 SMP 2026-11-21 00:00:00 UTC
+Machine model: MT8167B
+earlycon: uart8250 at MMIO32 0x0000000011005000 (options '')
+printk: legacy bootconsole [uart8250] enabled
+efi: UEFI not found.
+[Firmware Bug]: Kernel image misaligned at boot, please fix your bootloader!
+OF: reserved mem: 0x0000000043000000..0x000000004302ffff (192 KiB) nomap non-reusable atf@43000000
+OF: reserved mem: 0x0000000043810000..0x000000004386ffff (384 KiB) map non-reusable ramoops@43810000
+Zone ranges:
+  DMA      [mem 0x0000000040000000-0x000000007f9bffff]
+  DMA32    empty
+  Normal   empty
+Movable zone start for each node
+Early memory node ranges
+  node   0: [mem 0x0000000040000000-0x0000000042ffffff]
+  node   0: [mem 0x0000000043000000-0x000000004302ffff]
+  node   0: [mem 0x0000000043030000-0x000000007f9bffff]
+Initmem setup node 0 [mem 0x0000000040000000-0x000000007f9bffff]
+On node 0, zone DMA: 1600 pages in unavailable ranges
+psci: probing for conduit method from DT.
+psci: PSCIv1.0 detected in firmware.
+psci: Using standard PSCI v0.2 function IDs
+psci: Trusted OS migration not required
+psci: SMC Calling Convention v1.0
+percpu: Embedded 17 pages/cpu s38872 r0 d30760 u69632
+Detected VIPT I-cache on CPU0
+alternatives: applying boot alternatives
+Kernel command line: console=tty0 console=ttyMT0,921600n1 earlycon=uart8250,mmio32,0x11005000 vmalloc=496M androidboot.hardware=mt8167 androidboot.secure_cpu=1 androidboot.unlocked_kernel=true androidboot.tu_code=<TU_CODE> androidboot.rpmb_state=1 androidboot.pl_version=0xb85c androidboot.tee_version=0xa3f0 androidboot.lk_version=0x52e5 androidboot.prod=1 androidboot.pl_build_desc=2b6f82c-20190926_195940 androidboot.lk_build_desc=6f7225e-20230407_030004 androidboot.verifiedbootstate=yellow androidboot.prod=1 bootopt=64S3,32N2,64N2 buildvariant=user veritykeyid=id:f3530e18f64d11fc25eb2dd762979f078de990bf libreecho.lab=p6-v1 androidboot.selinux=enforce androidboot.veritymode=enforcing androidboot.slot_suffix=_a rootwait ro init=/init skip_initramfs root=/dev/dm-0 dm="system none ro,0 1 android-verity PARTUUID=<PARTUUID_13>" printk.disable_uart=1 leds-is31fl3236. bootprof.pl_t=4206 bootprof.lk_t=3420 boot_reason=4 androidboot.serialno=<SERIAL_A> 
+Unknown kernel command line parameters "skip_initramfs vmalloc=496M bootopt=64S3,32N2,64N2 buildvariant=user veritykeyid=id:f3530e18f64d11fc25eb2dd762979f078de990bf dm=system none ro,0 1 android-verity PARTUUID=<PARTUUID_13> boot_reason=4", will be passed to user space.
+printk: log buffer data + meta data: 131072 + 458752 = 589824 bytes
+Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+Inode-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+software IO TLB: SWIOTLB bounce buffer size adjusted to 0MB
+software IO TLB: area num 4.
+software IO TLB: mapped [mem 0x000000007e480000-0x000000007e580000] (1MB)
+Built 1 zonelists, mobility grouping on.  Total pages: 260544
+mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+rcu: Hierarchical RCU implementation.
+rcu: 	RCU restricting CPUs from NR_CPUS=512 to nr_cpu_ids=4.
+rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+Root IRQ handler: gic_handle_irq
+GIC: Using split EOI/Deactivate mode
+rcu: srcu_init: Setting srcu_struct sizes based on contention.
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+arch_timer: cp15 timer running at 13.00MHz (phys).
+clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x2ff89eacb, max_idle_ns: 440795202429 ns
+sched_clock: 56 bits at 13MHz, resolution 76ns, wraps every 4398046511101ns
+Console: colour dummy device 80x25
+printk: legacy console [tty0] enabled
+Calibrating delay loop (skipped), value calculated using timer frequency.. 26.00 BogoMIPS (lpj=52000)
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+rcu: Hierarchical SRCU implementation.
+rcu: 	Max phase no-delay instances is 1000.
+Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+EFI services will not be available.
+smp: Bringing up secondary CPUs ...
+Detected VIPT I-cache on CPU1
+CPU1: Booted secondary processor 0x0000000001 [0x410fd041]
+Detected VIPT I-cache on CPU2
+CPU2: Booted secondary processor 0x0000000002 [0x410fd041]
+Detected VIPT I-cache on CPU3
+CPU3: Booted secondary processor 0x0000000003 [0x410fd041]
+smp: Brought up 1 node, 4 CPUs
+SMP: Total of 4 processors activated.
+CPU: All CPU(s) started at EL2
+CPU features: detected: 32-bit EL0 Support
+CPU features: detected: CRC32 instructions
+alternatives: applying system-wide alternatives
+Memory: 996160K/1042176K available (8128K kernel code, 1206K rwdata, 3268K rodata, 768K init, 468K bss, 41820K reserved, 0K cma-reserved)
+devtmpfs: initialized
+posixtimers hash table entries: 2048 (order: 3, 32768 bytes, linear)
+futex hash table entries: 1024 (65536 bytes on 1 NUMA nodes, total 64 KiB, linear).
+pinctrl core: initialized pinctrl subsystem
+DMI not present or invalid.
+NET: Registered PF_NETLINK/PF_ROUTE protocol family
+DMA: preallocated 128 KiB GFP_KERNEL pool for atomic allocations
+DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+thermal_sys: Registered thermal governor 'step_wise'
+ASID allocator initialised with 65536 entries
+pstore: Using crash dump compression: deflate
+printk: legacy console [ramoops-1] enabled
+pstore: Registered ramoops as persistent store backend
+ramoops: using 0x60000@0x43810000, ecc: 0
+/soc/interrupt-controller@10310000: Fixed dependency cycle(s) with /soc/interrupt-controller@10310000
+iommu: Default domain type: Translated
+iommu: DMA domain TLB invalidation policy: strict mode
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+Advanced Linux Sound Architecture Driver Initialized.
+Bluetooth: Core ver 2.22
+NET: Registered PF_BLUETOOTH protocol family
+Bluetooth: HCI device and connection manager initialized
+Bluetooth: HCI socket layer initialized
+Bluetooth: L2CAP socket layer initialized
+Bluetooth: SCO socket layer initialized
+clocksource: Switched to clocksource arch_sys_counter
+NET: Registered PF_INET protocol family
+IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+tcp_listen_portaddr_hash hash table entries: 512 (order: 1, 8192 bytes, linear)
+Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+TCP established hash table entries: 8192 (order: 4, 65536 bytes, linear)
+TCP bind hash table entries: 8192 (order: 6, 262144 bytes, linear)
+TCP: Hash tables configured (established 8192 bind 8192)
+UDP hash table entries: 512 (order: 3, 32768 bytes, linear)
+UDP-Lite hash table entries: 512 (order: 3, 32768 bytes, linear)
+NET: Registered PF_UNIX/PF_LOCAL protocol family
+Unpacking initramfs...
+Initialise system trusted keyrings
+workingset: timestamp_bits=62 max_order=18 bucket_order=0
+squashfs: version 4.0 (2009/01/31) Phillip Lougher
+Key type asymmetric registered
+Asymmetric key parser 'x509' registered
+io scheduler mq-deadline registered
+io scheduler kyber registered
+io scheduler bfq registered
+mtk-power-controller 10006000.syscon:power-controller: /soc/syscon@10006000/power-controller/power-domain@4: failed to power on domain: -110
+mtk-power-controller 10006000.syscon:power-controller: probe with driver mtk-power-controller failed with error -110
+Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+11006000.serial: ttyS0 at MMIO 0x11006000 (irq = 184, base_baud = 1625000) is a ST16650V2
+11007000.serial: ttyS1 at MMIO 0x11007000 (irq = 185, base_baud = 1625000) is a ST16650V2
+mtk_rng 1020c000.rng: registered RNG driver
+random: crng init done
+loop: module loaded
+amz_privacy amz-privacy: registered (read-only privacy-state input, initial state public)
+[wlan][1]initWlan:(INIT STATE) initWlan..
+[wlan][1]mt76x8_wireless_init:(INIT STATE) Initialize wireless Device
+[wlan][1]wlanCreateWirelessDevice:(INIT ERROR) The num_different_channels is 2
+[wlan][1]mtk_reg_notify:(RLM ERROR) prGlueInfo is NULL!
+[wlan][1]initWlan:(INIT STATE) initWlan end
+i2c_dev: i2c /dev entries driver
+is31fl32xx 0-003f: LibreEcho 36-channel atomic frame interface ready
+tmp108 0-0048: supply vcc not found, using dummy regulator
+hwmon hwmon0: temp1_input not attached to any thermal zone
+tmp108 2-004a: supply vcc not found, using dummy regulator
+hwmon hwmon1: temp1_input not attached to any thermal zone
+mtk-wdt 10007000.watchdog: Watchdog enabled (timeout=31 sec, nowayout=0)
+usbcore: registered new interface driver usbhid
+usbhid: USB HID core driver
+
+TSL2540: INIT()
+
+TSL2540: probe()
+tsl2540 0-0039: tsl2540_probe: client->irq = 0
+tsl2540 0-0039: tsl2540_probe: no reason to run.
+tsl2540 0-0039: Probe failed.
+tsl2540 0-0039: probe with driver tsl2540 failed with error -22
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=52 arg=00000C00; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=52 arg=80000C08; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=8 arg=000001AA; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+mt8516-afe-pcm 11140000.audio-controller: mtk_afe_combine_sub_dai(), num of dai 6
+mmc0: new HS200 MMC card at address 0001
+mmcblk0: mmc0:0001 Q2J95E 7.13 GiB
+ mmcblk0: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16
+mmcblk0boot0: mmc0:0001 Q2J95E 2.00 MiB
+mmcblk0boot1: mmc0:0001 Q2J95E 2.00 MiB
+mmcblk0rpmb: mmc0:0001 Q2J95E 4.00 MiB, chardev (249:0)
+ALSA: Control name 'ADC1 Left ADC Unselected CM Bias Capture Switch' truncated to 'ADC1 Left ADC Unselected CM Bias Capture Sw'
+ALSA: Control name 'ADC1 Right ADC Unselected CM Bias Capture Switch' truncated to 'ADC1 Right ADC Unselected CM Bias Capture S'
+ALSA: Control name 'ADC2 Left ADC Unselected CM Bias Capture Switch' truncated to 'ADC2 Left ADC Unselected CM Bias Capture Sw'
+ALSA: Control name 'ADC2 Right ADC Unselected CM Bias Capture Switch' truncated to 'ADC2 Right ADC Unselected CM Bias Capture S'
+ALSA: Control name 'ADC3 Left ADC Unselected CM Bias Capture Switch' truncated to 'ADC3 Left ADC Unselected CM Bias Capture Sw'
+ALSA: Control name 'ADC3 Right ADC Unselected CM Bias Capture Switch' truncated to 'ADC3 Right ADC Unselected CM Bias Capture S'
+ALSA: Control name 'ADC4 Left ADC Unselected CM Bias Capture Switch' truncated to 'ADC4 Left ADC Unselected CM Bias Capture Sw'
+ALSA: Control name 'ADC4 Right ADC Unselected CM Bias Capture Switch' truncated to 'ADC4 Right ADC Unselected CM Bias Capture S'
+ALSA: Control name 'ADC1 Left DMic Input Left ADC Capture Switch' truncated to 'ADC1 Left DMic Input Left ADC Capture Switc'
+ALSA: Control name 'ADC1 Right DMic Input Right ADC Capture Switch' truncated to 'ADC1 Right DMic Input Right ADC Capture Swi'
+ALSA: Control name 'ADC2 Left DMic Input Left ADC Capture Switch' truncated to 'ADC2 Left DMic Input Left ADC Capture Switc'
+ALSA: Control name 'ADC2 Right DMic Input Right ADC Capture Switch' truncated to 'ADC2 Right DMic Input Right ADC Capture Swi'
+ALSA: Control name 'ADC3 Left DMic Input Left ADC Capture Switch' truncated to 'ADC3 Left DMic Input Left ADC Capture Switc'
+ALSA: Control name 'ADC3 Right DMic Input Right ADC Capture Switch' truncated to 'ADC3 Right DMic Input Right ADC Capture Swi'
+ALSA: Control name 'ADC4 Left DMic Input Left ADC Capture Switch' truncated to 'ADC4 Left DMic Input Left ADC Capture Switc'
+ALSA: Control name 'ADC4 Right DMic Input Right ADC Capture Switch' truncated to 'ADC4 Right DMic Input Right ADC Capture Swi'
+NET: Registered PF_INET6 protocol family
+Segment Routing with IPv6
+In-situ OAM (IOAM) with IPv6
+sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+NET: Registered PF_PACKET protocol family
+Loading compiled-in X.509 certificates
+usb_phy_generic usb_phy_generic.2.auto: dummy supplies not allowed for exclusive requests (id=vbus)
+input: gpio-keys as /devices/platform/gpio-keys/input/input0
+cfg80211: Loading compiled-in X.509 certificates for regulatory database
+Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+Loaded X.509 cert 'wens: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+clk: Disabling unused clocks
+PM: genpd: Disabling unused power domains
+ALSA device list:
+  #0: amazon-lidar
+mtk-msdc 11170000.mmc: msdc_track_cmd_data: cmd=52 arg=00000C00; host->error=0x00000002
+mtk-msdc 11170000.mmc: msdc_track_cmd_data: cmd=52 arg=80000C08; host->error=0x00000002
+mmc1: new UHS-I speed SDR104 SDIO card at address 0001
+Freeing initrd memory: 5624K
+mt7668_sdio mmc1:0001:1: firmware not installed yet, deferring probe; bind after importing it
+mt7668_sdio mmc1:0001:1: probe with driver mt7668_sdio failed with error -2
+Freeing unused kernel memory: 768K
+Run /init as init process
+libreecho-init: pstore-mounted
+libreecho-init: pmsg-ready
+libreecho-init: service-profile:production
+libreecho-init: init-started
+libreecho-init: audio-node-worker-started
+libreecho-init: input-node-worker-started
+libreecho-init: adb-transport-policy-read
+libreecho-init: input-devnodes-created:1
+libreecho-init: configfs-mounted
+file system registered
+libreecho-init: configfs-adb-composition-created
+libreecho-init: functionfs-mounted
+libreecho-init: adbd-started:142
+read descriptors
+read strings
+libreecho-init: audio-devnodes-created:5
+Bluetooth: hci0: Device setup in 1062662 usecs
+libreecho-init: functionfs-ready
+libreecho-init: configfs-udc-bound:musb-hdrc.3.auto
+adbd (211): /proc/211/oom_adj is deprecated, please use /proc/211/oom_score_adj instead.
+EXT4-fs (mmcblk0p16): recovery complete
+EXT4-fs (mmcblk0p16): mounted filesystem <FS_UUID_2> r/w with ordered data mode. Quota mode: disabled.
+libreecho-init: userdata-mounted
+libreecho-init: userdata-cleanup-ok
+libreecho-init: boot-count:58
+libreecho-init: boot-slot:a:a
+EXT4-fs (mmcblk0p13): mounted filesystem <FS_UUID_1> ro without journal. Quota mode: disabled.
+EXT4-fs (mmcblk0p13): unmounting filesystem <FS_UUID_1>.
+libreecho-init: vendor-assets-ready
+libreecho-init: hostname-idme-serial-unavailable
+libreecho-init: automatic-fastboot-marker-disabled
+libreecho-init: reboot-supervisor-started
+libreecho-init: reboot-signal-traps-installed
+libreecho-init: wmt-nodes-created
+libreecho-init: loopback-configured
+libreecho-init: physical-recovery-helper-absent
+libreecho-init: wifi-network-worker-started-after-adb
+libreecho-init: runme-loop-started
+libreecho-init: init-ready-pid1-managed
+libreecho-init: wifi-request-supervisor-started
+libreecho-init: wifi-persistent-profile-selected
+libreecho-init: ui-services-autostart-started
+libreecho-init: wifi-profile-present
+libreecho-init: wifi-profile-recorded
+libreecho-init: ota-background-worker-started
+libreecho-init: lidar-bt-ready-before-wlan
+libreecho-init: active-device-ping-started
+libreecho-init: audio-startup-disabled
+[wlan][489]wlanProbe:(INIT STATE) enter wlanProbe
+libreecho-init: running-slot:a
+[wlan][489]halPollDbgCr:(INIT WARN) SWPCDBGR 0x00016EC2
+libreecho-init: first-boot-slot-already-confirmed:a
+[wlan][489]wlanAdapterStart:(INIT WARN) Send a Dummy CMD as workaround
+[wlan][489]wlanQueryNicCapability:(INIT WARN) wlanQueryNicCapability: skip unexpected event ID[0x27]
+[wlan][489]wlanAdapterStart:(INIT WARN) wlanAdapterStart: load manufacture data fail
+[wlan][489]wlanProbe:(INIT STATE) main_thread 00000000dfd5bb4b
+[wlan][744]main_thread:(INIT STATE) main_thread:744 starts running...
+[wlan][489]wlanProbe:(INIT STATE) hif_thread 00000000ac3ea7dc
+[wlan][745]hif_thread:(INIT STATE) hif_thread:745 starts running...
+[wlan][489]wlanProbe:(INIT STATE) rx_thread 00000000d34d0f0c
+[wlan][746]rx_thread:(INIT STATE) rx_thread:746 starts running...
+[wlan][489]wlanDownloadBufferBin:(INIT STATE) [EFUSE AUTO] EFUSE Mode
+[wlan][744]p2pDevFsmStateTransition:(P2P STATE) [P2P_DEV]TRANSITION: [P2P_DEV_STATE_IDLE] -> [P2P_DEV_STATE_IDLE]
+[wlan][744]wlanBindBssIdxToNetInterface:(INIT ERROR) Array index out of bound, ucBssIndex=4
+[wlan][744]p2pRoleFsmStateTransition:(P2P STATE) [P2P_ROLE][0]TRANSITION(Bss1): [P2P_ROLE_STATE_IDLE] -> [P2P_ROLE_STATE_IDLE]
+[wlan][744]p2pDevFsmStateTransition:(P2P STATE) [P2P_DEV]TRANSITION: [P2P_DEV_STATE_IDLE] -> [P2P_DEV_STATE_IDLE]
+[wlan][744]wlanBindBssIdxToNetInterface:(INIT ERROR) Array index out of bound, ucBssIndex=4
+[wlan][744]p2pRoleFsmStateTransition:(P2P STATE) [P2P_ROLE][1]TRANSITION(Bss2): [P2P_ROLE_STATE_IDLE] -> [P2P_ROLE_STATE_IDLE]
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x11] SEQ[28]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00112B8
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x70] SEQ[33]
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x70] SEQ[33]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00112B8
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00112C6
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x70] SEQ[34]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0011286
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00112C6
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00246A2
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE004198A
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x70] SEQ[35]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE002485A
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0x00034BDC
+[wlan][489]wlanUpdateRssiComp:(INIT ERROR) c2GRssiCompensation=2,c5GRssiCompensation=2
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x3D] SEQ[44]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0024764
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0041AB0
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0041916
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00419AC
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0041990
+[wlan][489]wlanProbe:(INIT STATE) wlanProbe: probe success
+libreecho-init: lidar-wlan-bound:mmc1:0001:1
+libreecho-init: wlan0-ready-recorded
+[wlan][838]mtk_cfg80211_set_power_mgmt:(INIT STATE) Set CAM and store user's PS mode:0
+[wlan][844]mtk_cfg80211_scan:(REQ WARN) scan channel num = 39
+[wlan][844]mtk_cfg80211_scan:(REQ WARN) scan channel num (39) exceeds 32, do a full scan instead
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [IDLE] -> [SCAN]
+[wlan][744]scnFsmSteps:(SCN STATE) [SCAN]TRANSITION: [IDLE] -> [SCANNING]
+[wlan][744]scnFsmSteps:(SCN STATE) [SCAN]TRANSITION: [SCANNING] -> [IDLE]
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [SCAN] -> [IDLE]
+[wlan][844]mtk_cfg80211_connect:(REQ WARN) BSSID[<MAC_AP_A>] channel[2462]
+[wlan][744]aisFsmRunEventAbort:(AIS STATE) EVENT-ABORT: Current State IDLE, ucReasonOfDisconnect:4
+[wlan][744]aisFsmRunEventAbort:(AIS STATE) ucReasonOfDisconnect:4
+[wlan][744]aisFsmStateAbort:(AIS STATE) aisFsmStateAbort DiscReason[4], CurState[0]
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [IDLE] -> [IDLE]
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [IDLE] -> [SEARCH]
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [SEARCH] -> [REQ_CHANNEL_JOIN]
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use target bcn eBand 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) target channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=0,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=0,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=0,0,0
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [REQ_CHANNEL_JOIN] -> [JOIN]
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use target bcn eBand 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) target channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]saaFsmSteps:(SAA STATE) [SAA]TRANSITION: [AA_IDLE] -> [SAA_SEND_AUTH1]
+[wlan][744]saaFsmSteps:(SAA STATE) [SAA]TRANSITION: [SAA_SEND_AUTH1] -> [SAA_WAIT_AUTH2]
+[wlan][744]saaFsmSteps:(SAA STATE) [SAA]TRANSITION: [SAA_WAIT_AUTH2] -> [SAA_SEND_ASSOC1]
+[wlan][744]saaFsmSteps:(SAA STATE) [SAA]TRANSITION: [SAA_SEND_ASSOC1] -> [SAA_WAIT_ASSOC2]
+[wlan][744]saaFsmSteps:(SAA STATE) [SAA]TRANSITION: [SAA_WAIT_ASSOC2] -> [AA_IDLE]
+[wlan][744]aisUpdateBssInfoForJOIN:(AIS EVENT) Update target Sta Rec to :0
+[wlan][744]nicQmUpdateWmmParms:(QM EVENT) sizeof(AC_QUE_PARMS_T): 10
+[wlan][744]nicQmUpdateWmmParms:(QM EVENT) sizeof(CMD_UPDATE_WMM_PARMS): 44
+[wlan][744]nicQmUpdateWmmParms:(QM EVENT) sizeof(WIFI_CMD_T): 64
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [JOIN] -> [NORMAL_TR]
+[wlan][746]kalRxIndicateOnePkt:(RSN WARN) Rx EAPOL Frame [Len: 99]
+[wlan][844]kalQoSFrameClassifierAndPacketInfo:(RSN WARN) Tx EAPOL Frame [Len: 135] [KeyInfo: 266]
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]qmSetStaRecTxAllowed:(QM EVENT) Set Sta[0] TxAllowed[0] pending TxQ
+[wlan][744]qmActivateStaRec:(QM STATE) QM: +STA[0]
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]nicTxFillDescByPktOption:(NIC ERROR) Remaining Tx Time 1500 ms in pkt option (1474)
+[wlan][744]wlan1xTxDone:(SW4 STATE) 1x PKT[0x01dd6d00] WIDX:PID[5:3] Status[0]
+[wlan][746]kalRxIndicateOnePkt:(RSN WARN) Rx EAPOL Frame [Len: 155]
+[wlan][844]kalQoSFrameClassifierAndPacketInfo:(RSN WARN) Tx EAPOL Frame [Len: 113] [KeyInfo: 778]
+[wlan][744]nicTxFillDescByPktOption:(NIC ERROR) Remaining Tx Time 1500 ms in pkt option (1474)
+[wlan][744]nicEventAddPkeyDone:(RSN EVENT) EVENT_ID_ADD_PKEY_DONE BSSIDX=0 <MAC_AP_A>
+[wlan][744]nicEventAddPkeyDone:(RSN EVENT) STA <MAC_AP_A> Add Key Done!!
+[wlan][744]qmSetStaRecTxAllowed:(QM EVENT) Set Sta[0] TxAllowed[1] normal TxQ
+[wlan][744]nicEventAddPkeyDone:(RSN EVENT) EVENT_ID_ADD_PKEY_DONE BSSIDX=0 ff:ff:ff:ff:ff:ff
+[wlan][744]wlan1xTxDone:(SW4 STATE) 1x PKT[0x01dd6e00] WIDX:PID[5:4] Status[0]
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]wlanDhcpTxDone:(SW4 STATE) DHCP PKT[0x02be3b00] WIDX:PID[5:5] Status[0]
+[wlan][744]wlanDhcpTxDone:(SW4 STATE) DHCP PKT[0x02be3600] WIDX:PID[5:6] Status[0]
+libreecho-init: wifi-client-rc:0
+libreecho-init: wifi-activation-complete:0
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x14] SEQ[78]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001128A
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE002CBDA
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+libreecho-init: adbd-diagnostic-begin
+libreecho-init: adbd-fd:0:/dev/null
+libreecho-init: adbd-fd:1:/tmp/adbd.log
+libreecho-init: adbd-fd:10:/dev/usb-ffs/adb/ep2
+libreecho-init: adbd-fd:11:socket:[2315]
+libreecho-init: adbd-fd:13:socket:[2317]
+libreecho-init: adbd-fd:14:socket:[2318]
+libreecho-init: adbd-fd:15:/dev/ptmx
+libreecho-init: adbd-fd:2:/tmp/adbd.log
+libreecho-init: adbd-fd:3:socket:[2310]
+libreecho-init: adbd-fd:4:socket:[2311]
+libreecho-init: adbd-fd:5:/dev/usb-ffs/adb/ep0
+libreecho-init: adbd-fd:6:socket:[2312]
+libreecho-init: adbd-fd:7:socket:[2313]
+libreecho-init: adbd-fd:8:socket:[2314]
+libreecho-init: adbd-fd:9:/dev/usb-ffs/adb/ep1
+libreecho-init: adbd-task:142:adbd:S (sleeping):do_select
+libreecho-init: adbd-task:145:adbd:S (sleeping):futex_do_wait
+libreecho-init: adbd-task:146:adbd:S (sleeping):inet_csk_accept
+libreecho-init: adbd-task:147:adbd:S (sleeping):unix_stream_read_generic
+libreecho-init: adbd-task:148:adbd:S (sleeping):ffs_epfile_io
+libreecho-init: adbd-task:247:adbd:S (sleeping):do_wait
+libreecho-init: adbd-log-empty
+libreecho-init: adbd-diagnostic-end
+loop0: detected capacity change from 0 to 18672
+loop1: detected capacity change from 0 to 312904
+loop2: detected capacity change from 0 to 16064
+loop3: detected capacity change from 0 to 105984
+loop4: detected capacity change from 0 to 5984
+libreecho-init: features-user-modified:boot-image-modified,
+libreecho-init: timezone-applied:UTC
+libreecho-mdnsd: mdns-supervisor-ready:1636
+libreecho-init: shared-discovery-runtime-started
+libreecho-init: feature-services-deferred-until-staged
+libreecho-init: ui-service-start:logd:0
+libreecho-init: ui-service-start:networkd:0
+warning: `libreecho-netwo' uses wireless extensions which will stop working for Wi-Fi 7 hardware; use nl80211
+libreecho-init: ui-service-start:timed:0
+[wlan][744]wlanArpTxDone:(SW4 STATE) ARP PKT[0x018f5800] WIDX:PID[5:7] Status[0]
+libreecho-init: ui-service-start:audiod:0
+libreecho-init: ui-service-start:micd:0
+libreecho-init: ui-service-start:waked:0
+libreecho-init: ui-service-start:ledd:0
+libreecho-init: ui-service-start:buttond:0
+Bluetooth: MGMT ver 1.23
+libreecho-init: ui-service-start:btd:0
+libreecho-init: ui-service-start:timerd:0
+libreecho-init: ui-service-start:watchdogd:0
+libreecho-init: ui-service-start:airplayd:0
+libreecho-init: ui-service-start:radiod:0
+process 'usr/local/sbin/libreecho-ttsd' started with executable stack
+libreecho-init: ui-service-start:ttsd:0
+libreecho-init: ui-web-production-lan
+libreecho-init: ui-service-start:web:0
+libreecho-feature-reconcile: feature-reconcile-service-stopped:esphomed
+libreecho-feature-reconcile: feature-reconcile-service-ready:waked
+libreecho-feature-reconcile: feature-reconcile-service-ready:sttd
+libreecho-feature-reconcile: feature-reconcile-shared-discovery-owner:airplayd
+libreecho-feature-reconcile: feature-reconcile-service-ready:airplayd
+[wlan][744]wlanArpTxDone:(SW4 STATE) ARP PKT[0x07a03900] WIDX:PID[5:8] Status[0]
+libreecho-feature-reconcile: feature-reconcile-service-ready:ttsd
+libreecho-feature-reconcile: feature-reconcile-service-ready:agentd
+libreecho-feature-reconcile: feature-services-reconciled
+libreecho-init: persisted-feature-reconcile:0
+[wlan][744]wlanArpTxDone:(SW4 STATE) ARP PKT[0x022ebd00] WIDX:PID[5:9] Status[0]
+libreecho-init: local-services-supervisor-started
+libreecho-init: reboot-signal-reboot-accepted
+reboot: Restarting system
+libreecho-init:pstore-ready
+libreecho-init:init-started
+libreecho-init:adb-ffs-ready
+libreecho-init:adb-usb-endpoints-ready
+libreecho-init:adb-tcp-5555-bound
+libreecho-init:wifi-boot-activation
+libreecho-init:mdns-started
+libreecho-init:web-start-ok
+== dmesg
+mtk-wdt 10007000.watchdog: Watchdog enabled (timeout=31 sec, nowayout=0)
+usbcore: registered new interface driver usbhid
+usbhid: USB HID core driver
+
+TSL2540: INIT()
+
+TSL2540: probe()
+tsl2540 0-0039: tsl2540_probe: client->irq = 0
+tsl2540 0-0039: tsl2540_probe: no reason to run.
+tsl2540 0-0039: Probe failed.
+tsl2540 0-0039: probe with driver tsl2540 failed with error -22
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=52 arg=00000C00; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=52 arg=80000C08; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=8 arg=000001AA; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+mt8516-afe-pcm 11140000.audio-controller: mtk_afe_combine_sub_dai(), num of dai 6
+mmc0: new HS200 MMC card at address 0001
+mmcblk0: mmc0:0001 Q2J95E 7.13 GiB
+ mmcblk0: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16
+mmcblk0boot0: mmc0:0001 Q2J95E 2.00 MiB
+mmcblk0boot1: mmc0:0001 Q2J95E 2.00 MiB
+mmcblk0rpmb: mmc0:0001 Q2J95E 4.00 MiB, chardev (249:0)
+ALSA: Control name 'ADC1 Left ADC Unselected CM Bias Capture Switch' truncated to 'ADC1 Left ADC Unselected CM Bias Capture Sw'
+ALSA: Control name 'ADC1 Right ADC Unselected CM Bias Capture Switch' truncated to 'ADC1 Right ADC Unselected CM Bias Capture S'
+ALSA: Control name 'ADC2 Left ADC Unselected CM Bias Capture Switch' truncated to 'ADC2 Left ADC Unselected CM Bias Capture Sw'
+ALSA: Control name 'ADC2 Right ADC Unselected CM Bias Capture Switch' truncated to 'ADC2 Right ADC Unselected CM Bias Capture S'
+ALSA: Control name 'ADC3 Left ADC Unselected CM Bias Capture Switch' truncated to 'ADC3 Left ADC Unselected CM Bias Capture Sw'
+ALSA: Control name 'ADC3 Right ADC Unselected CM Bias Capture Switch' truncated to 'ADC3 Right ADC Unselected CM Bias Capture S'
+ALSA: Control name 'ADC4 Left ADC Unselected CM Bias Capture Switch' truncated to 'ADC4 Left ADC Unselected CM Bias Capture Sw'
+ALSA: Control name 'ADC4 Right ADC Unselected CM Bias Capture Switch' truncated to 'ADC4 Right ADC Unselected CM Bias Capture S'
+ALSA: Control name 'ADC1 Left DMic Input Left ADC Capture Switch' truncated to 'ADC1 Left DMic Input Left ADC Capture Switc'
+ALSA: Control name 'ADC1 Right DMic Input Right ADC Capture Switch' truncated to 'ADC1 Right DMic Input Right ADC Capture Swi'
+ALSA: Control name 'ADC2 Left DMic Input Left ADC Capture Switch' truncated to 'ADC2 Left DMic Input Left ADC Capture Switc'
+ALSA: Control name 'ADC2 Right DMic Input Right ADC Capture Switch' truncated to 'ADC2 Right DMic Input Right ADC Capture Swi'
+ALSA: Control name 'ADC3 Left DMic Input Left ADC Capture Switch' truncated to 'ADC3 Left DMic Input Left ADC Capture Switc'
+ALSA: Control name 'ADC3 Right DMic Input Right ADC Capture Switch' truncated to 'ADC3 Right DMic Input Right ADC Capture Swi'
+ALSA: Control name 'ADC4 Left DMic Input Left ADC Capture Switch' truncated to 'ADC4 Left DMic Input Left ADC Capture Switc'
+ALSA: Control name 'ADC4 Right DMic Input Right ADC Capture Switch' truncated to 'ADC4 Right DMic Input Right ADC Capture Swi'
+NET: Registered PF_INET6 protocol family
+Segment Routing with IPv6
+In-situ OAM (IOAM) with IPv6
+sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+NET: Registered PF_PACKET protocol family
+Loading compiled-in X.509 certificates
+usb_phy_generic usb_phy_generic.2.auto: dummy supplies not allowed for exclusive requests (id=vbus)
+input: gpio-keys as /devices/platform/gpio-keys/input/input0
+cfg80211: Loading compiled-in X.509 certificates for regulatory database
+Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+Loaded X.509 cert 'wens: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+clk: Disabling unused clocks
+PM: genpd: Disabling unused power domains
+ALSA device list:
+  #0: amazon-lidar
+mtk-msdc 11170000.mmc: msdc_track_cmd_data: cmd=52 arg=00000C00; host->error=0x00000002
+mtk-msdc 11170000.mmc: msdc_track_cmd_data: cmd=52 arg=80000C08; host->error=0x00000002
+mmc1: new UHS-I speed SDR104 SDIO card at address 0001
+Freeing initrd memory: 5624K
+Freeing unused kernel memory: 768K
+Run /init as init process
+  with arguments:
+    /init
+    skip_initramfs
+  with environment:
+    HOME=/
+    TERM=linux
+    vmalloc=496M
+    bootopt=64S3,32N2,64N2
+    buildvariant=user
+    veritykeyid=id:f3530e18f64d11fc25eb2dd762979f078de990bf
+    dm=system none ro,0 1 android-verity PARTUUID=<PARTUUID_14>
+    boot_reason=4
+mt7668_sdio mmc1:0001:1: firmware not installed yet, deferring probe; bind after importing it
+mt7668_sdio mmc1:0001:1: probe with driver mt7668_sdio failed with error -2
+libreecho-init: pstore-mounted
+libreecho-init: pmsg-ready
+libreecho-init: service-profile:production
+libreecho-init: init-started
+libreecho-init: audio-node-worker-started
+libreecho-init: input-node-worker-started
+libreecho-init: adb-transport-policy-read
+libreecho-init: input-devnodes-created:1
+libreecho-init: configfs-mounted
+file system registered
+libreecho-init: configfs-adb-composition-created
+libreecho-init: functionfs-mounted
+libreecho-init: adbd-started:140
+read descriptors
+read strings
+libreecho-init: audio-devnodes-created:5
+Bluetooth: hci0: Device setup in 1066594 usecs
+libreecho-init: functionfs-ready
+libreecho-init: configfs-udc-bound:musb-hdrc.3.auto
+adbd (209): /proc/209/oom_adj is deprecated, please use /proc/209/oom_score_adj instead.
+== bcb
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=2
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+== uptime 38.70 boot_id b4c9c73a-f87b-457b-903b-93c826d4558e libreecho.lab=p6-v2
+androidboot.slot_suffix=_b
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=2
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+schema=3
+slot=b
+transaction_id=txn-7303218adf4646e5decf1908
+manifest_sha256=fe8b6e52a4dadd173b7a2f61cfe5ba66c99da3d038b8a380ca0d0fbfeb277f8e
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=237
+failure_log=failure-236-1.log
+features_state=ready
+features_error=
+config_schema=1
+config_error=
+ota_transaction_state=pending
+ota_transaction_pending=1
+generation=txn-508529626fbd711fdbf6bf1c
+feature_airplay2_payload_sha256=a6583300828ff3b95c898e85d513267613452115ff911f9d79c5e4f16bfe6adb
+feature_airplay2_payload_size=9560064
+feature_airplay2_manifest_sha256=9532aba033a4eddc1b0d23d0125d94a401c6898fc211a7f2e2c8fdde2b433e4f
+feature_airplay2_running_daemon=libreecho-audio-engine
+feature_airplay2_running_daemon_sha256=not-running
+feature_airplay2_effective=present
+feature_tts_payload_sha256=197e583a378aa49a1d4a823e048920dac7d3a7be8c0b206deed0411ebac0aa78
+feature_tts_payload_size=160206848
+feature_tts_manifest_sha256=126dbad94d512bc8b3b6e1707ed6f52d8bdfba9da0a322b43437bc9dc446b440
+feature_tts_running_daemon=libreecho-ttsd
+feature_tts_running_daemon_sha256=1ef3bfa968a65e4f6d1e66a2784382fd552c688f1e18f7af4770796a17bcd283
+feature_tts_effective=present
+feature_wakeword_payload_sha256=4964fc7b02ec81456fce149b1b82f6cca85f2ce447c48826ee6e34e57423585d
+feature_wakeword_payload_size=8224768
+feature_wakeword_manifest_sha256=13ec6549b8ab7995f6d448cd4a13f23543d3a3ca90f490687cb73a7e989ab0a8
+feature_wakeword_running_daemon=libreecho-waked
+feature_wakeword_running_daemon_sha256=8bcd0bb026d8c255571ebead6faac7840dc932dadede6cf05d93ad55e0872637
+feature_wakeword_effective=present
+feature_stt_payload_sha256=dee3594dd45514d02ce62a60286e702cc2d2f205b344259bdc95e353e4322ede
+feature_stt_payload_size=54263808
+feature_stt_manifest_sha256=95f9a2c8f245ea9234cc0368e149ea9c0ff4bfc99765a98f3eb3cd9163ff03f5
+feature_stt_running_daemon=libreecho-sttd
+feature_stt_running_daemon_sha256=bab519b426665dfc683c5fec548f73b5112fc1c9c13afd2cc107c3fd8a51db7e
+feature_stt_effective=present
+feature_assistant_payload_sha256=a4103ec92daf60e9fc53f2899d9f48efec120d03778ebc0279853ac2fc37a0d1
+feature_assistant_payload_size=3063808
+feature_assistant_manifest_sha256=aba5b27bf2fb6cae966cb8a61a3da13c81af1894fb29014dbff6fac2098016d3
+feature_assistant_running_daemon=libreecho-agentd
+feature_assistant_running_daemon_sha256=not-running
+feature_assistant_effective=present
+features_state=ready
+features_error=
+schema=3
+slot=b
+transaction_id=txn-7303218adf4646e5decf1908
+manifest_sha256=fe8b6e52a4dadd173b7a2f61cfe5ba66c99da3d038b8a380ca0d0fbfeb277f8e
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+total 16
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mairplay.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35maudio.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mbluetooth.sock[m
+-rw-r--r--    1 0        0               92 Nov 21 03:51 [0;0mbuttond-status[m
+drwxr-xr-x    7 0        0                0 Jan  1  1970 [1;34mfeatures[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mled.sock[m
+srw-rw-rw-    1 0        0                0 Jan  1  1970 [1;35mlog.sock[m
+srwx------    1 0        0                0 Jan  1  1970 [1;35mmdns.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mmic.sock[m
+srw-rw----    1 0        0                0 Jan  1  1970 [1;35mnetwork.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mradio.sock[m
+drwxr-xr-x    2 0        0                0 Nov 21 03:51 [1;34mreconcile-features.lock[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mstt.sock[m
+-rw-r--r--    1 0        0              250 Nov 21 03:51 [0;0mtime.status[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mtimer.sock[m
+-rw-------    1 0        0              163 Jan  1  1970 [0;0mvendor-import.status[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mwakeword.sock[m
+-rw-------    1 0        0               43 Jan  1  1970 [0;0mwifi-client.conf[m
+-rw-r--r--    1 0        0                0 Jan  1  1970 [0;0mwlan0-ready[m
+ 4009 0         0:17 /run/libreecho/features/wakeword/root/usr/local/sbin/libreecho-waked --foreground --socket /run/libreecho/wakeword.sock --mic-socket /run/libreecho/mic.sock --reference-socket /run/libreecho-audio/aec-reference.sock --model-dir /run/libreecho/features/wakeword/root/usr/local/share/libreecho/openwakeword --wake-threads 1 --vad-floor-rms 16
+ 7576 0         0:14 /run/libreecho/features/tts/root/usr/local/sbin/libreecho-ttsd --foreground --socket /run/libreecho/tts.sock --model-dir /run/libreecho/features/tts/root/usr/local/share/libreecho/tts/models/southern-female --voice southern-female
+ 8411 0         0:12 /run/libreecho/features/stt/root/usr/local/sbin/libreecho-sttd --socket /run/libreecho/stt.sock --model-dir /run/libreecho/features/stt/root/usr/local/share/libreecho/stt --threads 2
+==> /var/log/libreecho-sttd.log <==
+sttd: ready engine=sherpa-onnx-zipformer threads=2 socket=/run/libreecho/stt.sock
+
+==> /var/log/libreecho-ttsd.log <==
+
+==> /var/log/libreecho-waked.log <==
+[0;93m2026-11-21 03:51:25.960807539 [W:onnxruntime:libreecho-wake, cpuid_info.cc:105 LogEarlyWarning] Unknown CPU vendor. cpuinfo_vendor value: 0[m
+waked: running (16 kHz, frame=10 ms, AEC tail=200 ms, preroll=3 s, vad-floor=16 RMS, wake=openwakeword-onnx)
+pstore-mounted
+pmsg-ready
+service-profile:production
+init-started
+audio-node-worker-started
+input-node-worker-started
+adb-transport-policy-read
+input-devnodes-created:1
+configfs-mounted
+configfs-adb-composition-created
+functionfs-mounted
+adbd-started:140
+audio-devnodes-created:5
+functionfs-ready
+configfs-udc-bound:musb-hdrc.3.auto
+userdata-mounted
+userdata-cleanup-ok
+boot-count:59
+boot-slot:b:b
+vendor-assets-ready
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-worker-started-after-adb
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+wifi-persistent-profile-selected
+wifi-profile-present
+wifi-profile-recorded
+ota-background-worker-started
+lidar-bt-ready-before-wlan
+active-device-ping-started
+audio-startup-disabled
+running-slot:b
+ota-rollback-resume-history-slot-still-selected
+ota-health-confirm-pending
+ota-health-waiting-startup-ready
+lidar-wlan-bound:mmc1:0001:1
+wlan0-ready-recorded
+wifi-client-rc:0
+wifi-activation-complete:0
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:socket:[1209]
+adbd-fd:11:socket:[1210]
+adbd-fd:12:socket:[1211]
+adbd-fd:13:socket:[1212]
+adbd-fd:14:socket:[1213]
+adbd-fd:15:/dev/ptmx
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[1203]
+adbd-fd:4:socket:[1204]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:/dev/usb-ffs/adb/ep1
+adbd-fd:7:/dev/usb-ffs/adb/ep2
+adbd-fd:8:socket:[1207]
+adbd-task:140:adbd:S (sleeping):do_select
+adbd-task:143:adbd:S (sleeping):futex_do_wait
+adbd-task:144:adbd:S (sleeping):inet_csk_accept
+adbd-task:145:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:146:adbd:S (sleeping):ffs_epfile_io
+adbd-task:273:adbd:S (sleeping):do_wait
+adbd-log-empty
+adbd-diagnostic-end
+timezone-applied:UTC
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:waked:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:airplayd:0
+ui-service-start:radiod:0
+ui-service-start:ttsd:0
+ui-web-production-lan
+ui-service-start:web:0
+feature-reconcile-service-stopped:esphomed
+feature-reconcile-service-ready:waked
+feature-reconcile-service-ready:sttd
+feature-reconcile-shared-discovery-owner:airplayd
+feature-reconcile-service-ready:airplayd
+== init-persist
+adbd-log-empty
+adbd-diagnostic-end
+timezone-applied:UTC
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:waked:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:airplayd:0
+ui-service-start:radiod:0
+ui-service-start:ttsd:0
+ui-web-production-lan
+ui-service-start:web:0
+feature-reconcile-service-stopped:esphomed
+feature-reconcile-service-ready:waked
+== pstore
+total 0
+drwxr-x---    2 0        0                0 Jan  1  1970 [1;34m.[m
+drwxr-xr-x    5 0        0                0 Jan  1  1970 [1;34m..[m
+-r--r--r--    1 0        0            30538 Jan  1  1970 [0;0mconsole-ramoops-0[m
+-r--r--r--    1 0        0              250 Jan  1  1970 [0;0mpmsg-ramoops-0[m
+Booting Linux on physical CPU 0x0000000000 [0x410fd041]
+Linux version 6.18.64+ (libreecho@phase6) (clang version 23.1.5, LLD 23.1.5) #5 SMP 2026-11-21 00:00:00 UTC
+Machine model: MT8167B
+earlycon: uart8250 at MMIO32 0x0000000011005000 (options '')
+printk: legacy bootconsole [uart8250] enabled
+efi: UEFI not found.
+[Firmware Bug]: Kernel image misaligned at boot, please fix your bootloader!
+OF: reserved mem: 0x0000000043000000..0x000000004302ffff (192 KiB) nomap non-reusable atf@43000000
+OF: reserved mem: 0x0000000043810000..0x000000004386ffff (384 KiB) map non-reusable ramoops@43810000
+Zone ranges:
+  DMA      [mem 0x0000000040000000-0x000000007f9bffff]
+  DMA32    empty
+  Normal   empty
+Movable zone start for each node
+Early memory node ranges
+  node   0: [mem 0x0000000040000000-0x0000000042ffffff]
+  node   0: [mem 0x0000000043000000-0x000000004302ffff]
+  node   0: [mem 0x0000000043030000-0x000000007f9bffff]
+Initmem setup node 0 [mem 0x0000000040000000-0x000000007f9bffff]
+On node 0, zone DMA: 1600 pages in unavailable ranges
+psci: probing for conduit method from DT.
+psci: PSCIv1.0 detected in firmware.
+psci: Using standard PSCI v0.2 function IDs
+psci: Trusted OS migration not required
+psci: SMC Calling Convention v1.0
+percpu: Embedded 17 pages/cpu s38872 r0 d30760 u69632
+Detected VIPT I-cache on CPU0
+alternatives: applying boot alternatives
+Kernel command line: console=tty0 console=ttyMT0,921600n1 earlycon=uart8250,mmio32,0x11005000 vmalloc=496M androidboot.hardware=mt8167 androidboot.secure_cpu=1 androidboot.unlocked_kernel=true androidboot.tu_code=<TU_CODE> androidboot.rpmb_state=1 androidboot.pl_version=0xb85c androidboot.tee_version=0xa3f0 androidboot.lk_version=0x52e5 androidboot.prod=1 androidboot.pl_build_desc=2b6f82c-20190926_195940 androidboot.lk_build_desc=6f7225e-20230407_030004 androidboot.verifiedbootstate=yellow androidboot.prod=1 bootopt=64S3,32N2,64N2 buildvariant=user veritykeyid=id:f3530e18f64d11fc25eb2dd762979f078de990bf libreecho.lab=p6-v1 androidboot.selinux=enforce androidboot.veritymode=enforcing androidboot.slot_suffix=_a rootwait ro init=/init skip_initramfs root=/dev/dm-0 dm="system none ro,0 1 android-verity PARTUUID=<PARTUUID_13>" printk.disable_uart=1 leds-is31fl3236. bootprof.pl_t=4206 bootprof.lk_t=3420 boot_reason=4 androidboot.serialno=<SERIAL_A> 
+Unknown kernel command line parameters "skip_initramfs vmalloc=496M bootopt=64S3,32N2,64N2 buildvariant=user veritykeyid=id:f3530e18f64d11fc25eb2dd762979f078de990bf dm=system none ro,0 1 android-verity PARTUUID=<PARTUUID_13> boot_reason=4", will be passed to user space.
+printk: log buffer data + meta data: 131072 + 458752 = 589824 bytes
+Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+Inode-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+software IO TLB: SWIOTLB bounce buffer size adjusted to 0MB
+software IO TLB: area num 4.
+software IO TLB: mapped [mem 0x000000007e480000-0x000000007e580000] (1MB)
+Built 1 zonelists, mobility grouping on.  Total pages: 260544
+mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+rcu: Hierarchical RCU implementation.
+rcu: 	RCU restricting CPUs from NR_CPUS=512 to nr_cpu_ids=4.
+rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+Root IRQ handler: gic_handle_irq
+GIC: Using split EOI/Deactivate mode
+rcu: srcu_init: Setting srcu_struct sizes based on contention.
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+arch_timer: cp15 timer running at 13.00MHz (phys).
+clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x2ff89eacb, max_idle_ns: 440795202429 ns
+sched_clock: 56 bits at 13MHz, resolution 76ns, wraps every 4398046511101ns
+Console: colour dummy device 80x25
+printk: legacy console [tty0] enabled
+Calibrating delay loop (skipped), value calculated using timer frequency.. 26.00 BogoMIPS (lpj=52000)
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+rcu: Hierarchical SRCU implementation.
+rcu: 	Max phase no-delay instances is 1000.
+Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+EFI services will not be available.
+smp: Bringing up secondary CPUs ...
+Detected VIPT I-cache on CPU1
+CPU1: Booted secondary processor 0x0000000001 [0x410fd041]
+Detected VIPT I-cache on CPU2
+CPU2: Booted secondary processor 0x0000000002 [0x410fd041]
+Detected VIPT I-cache on CPU3
+CPU3: Booted secondary processor 0x0000000003 [0x410fd041]
+smp: Brought up 1 node, 4 CPUs
+SMP: Total of 4 processors activated.
+CPU: All CPU(s) started at EL2
+CPU features: detected: 32-bit EL0 Support
+CPU features: detected: CRC32 instructions
+alternatives: applying system-wide alternatives
+Memory: 996160K/1042176K available (8128K kernel code, 1206K rwdata, 3268K rodata, 768K init, 468K bss, 41820K reserved, 0K cma-reserved)
+devtmpfs: initialized
+posixtimers hash table entries: 2048 (order: 3, 32768 bytes, linear)
+futex hash table entries: 1024 (65536 bytes on 1 NUMA nodes, total 64 KiB, linear).
+pinctrl core: initialized pinctrl subsystem
+DMI not present or invalid.
+NET: Registered PF_NETLINK/PF_ROUTE protocol family
+DMA: preallocated 128 KiB GFP_KERNEL pool for atomic allocations
+DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+thermal_sys: Registered thermal governor 'step_wise'
+ASID allocator initialised with 65536 entries
+pstore: Using crash dump compression: deflate
+printk: legacy console [ramoops-1] enabled
+pstore: Registered ramoops as persistent store backend
+ramoops: using 0x60000@0x43810000, ecc: 0
+/soc/interrupt-controller@10310000: Fixed dependency cycle(s) with /soc/interrupt-controller@10310000
+iommu: Default domain type: Translated
+iommu: DMA domain TLB invalidation policy: strict mode
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+Advanced Linux Sound Architecture Driver Initialized.
+Bluetooth: Core ver 2.22
+NET: Registered PF_BLUETOOTH protocol family
+Bluetooth: HCI device and connection manager initialized
+Bluetooth: HCI socket layer initialized
+Bluetooth: L2CAP socket layer initialized
+Bluetooth: SCO socket layer initialized
+clocksource: Switched to clocksource arch_sys_counter
+NET: Registered PF_INET protocol family
+IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+tcp_listen_portaddr_hash hash table entries: 512 (order: 1, 8192 bytes, linear)
+Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+TCP established hash table entries: 8192 (order: 4, 65536 bytes, linear)
+TCP bind hash table entries: 8192 (order: 6, 262144 bytes, linear)
+TCP: Hash tables configured (established 8192 bind 8192)
+UDP hash table entries: 512 (order: 3, 32768 bytes, linear)
+UDP-Lite hash table entries: 512 (order: 3, 32768 bytes, linear)
+NET: Registered PF_UNIX/PF_LOCAL protocol family
+Unpacking initramfs...
+Initialise system trusted keyrings
+workingset: timestamp_bits=62 max_order=18 bucket_order=0
+squashfs: version 4.0 (2009/01/31) Phillip Lougher
+Key type asymmetric registered
+Asymmetric key parser 'x509' registered
+io scheduler mq-deadline registered
+io scheduler kyber registered
+io scheduler bfq registered
+mtk-power-controller 10006000.syscon:power-controller: /soc/syscon@10006000/power-controller/power-domain@4: failed to power on domain: -110
+mtk-power-controller 10006000.syscon:power-controller: probe with driver mtk-power-controller failed with error -110
+Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+11006000.serial: ttyS0 at MMIO 0x11006000 (irq = 184, base_baud = 1625000) is a ST16650V2
+11007000.serial: ttyS1 at MMIO 0x11007000 (irq = 185, base_baud = 1625000) is a ST16650V2
+mtk_rng 1020c000.rng: registered RNG driver
+random: crng init done
+loop: module loaded
+amz_privacy amz-privacy: registered (read-only privacy-state input, initial state public)
+[wlan][1]initWlan:(INIT STATE) initWlan..
+[wlan][1]mt76x8_wireless_init:(INIT STATE) Initialize wireless Device
+[wlan][1]wlanCreateWirelessDevice:(INIT ERROR) The num_different_channels is 2
+[wlan][1]mtk_reg_notify:(RLM ERROR) prGlueInfo is NULL!
+[wlan][1]initWlan:(INIT STATE) initWlan end
+i2c_dev: i2c /dev entries driver
+is31fl32xx 0-003f: LibreEcho 36-channel atomic frame interface ready
+tmp108 0-0048: supply vcc not found, using dummy regulator
+hwmon hwmon0: temp1_input not attached to any thermal zone
+tmp108 2-004a: supply vcc not found, using dummy regulator
+hwmon hwmon1: temp1_input not attached to any thermal zone
+mtk-wdt 10007000.watchdog: Watchdog enabled (timeout=31 sec, nowayout=0)
+usbcore: registered new interface driver usbhid
+usbhid: USB HID core driver
+
+TSL2540: INIT()
+
+TSL2540: probe()
+tsl2540 0-0039: tsl2540_probe: client->irq = 0
+tsl2540 0-0039: tsl2540_probe: no reason to run.
+tsl2540 0-0039: Probe failed.
+tsl2540 0-0039: probe with driver tsl2540 failed with error -22
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=52 arg=00000C00; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=52 arg=80000C08; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=8 arg=000001AA; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+mt8516-afe-pcm 11140000.audio-controller: mtk_afe_combine_sub_dai(), num of dai 6
+mmc0: new HS200 MMC card at address 0001
+mmcblk0: mmc0:0001 Q2J95E 7.13 GiB
+ mmcblk0: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16
+mmcblk0boot0: mmc0:0001 Q2J95E 2.00 MiB
+mmcblk0boot1: mmc0:0001 Q2J95E 2.00 MiB
+mmcblk0rpmb: mmc0:0001 Q2J95E 4.00 MiB, chardev (249:0)
+ALSA: Control name 'ADC1 Left ADC Unselected CM Bias Capture Switch' truncated to 'ADC1 Left ADC Unselected CM Bias Capture Sw'
+ALSA: Control name 'ADC1 Right ADC Unselected CM Bias Capture Switch' truncated to 'ADC1 Right ADC Unselected CM Bias Capture S'
+ALSA: Control name 'ADC2 Left ADC Unselected CM Bias Capture Switch' truncated to 'ADC2 Left ADC Unselected CM Bias Capture Sw'
+ALSA: Control name 'ADC2 Right ADC Unselected CM Bias Capture Switch' truncated to 'ADC2 Right ADC Unselected CM Bias Capture S'
+ALSA: Control name 'ADC3 Left ADC Unselected CM Bias Capture Switch' truncated to 'ADC3 Left ADC Unselected CM Bias Capture Sw'
+ALSA: Control name 'ADC3 Right ADC Unselected CM Bias Capture Switch' truncated to 'ADC3 Right ADC Unselected CM Bias Capture S'
+ALSA: Control name 'ADC4 Left ADC Unselected CM Bias Capture Switch' truncated to 'ADC4 Left ADC Unselected CM Bias Capture Sw'
+ALSA: Control name 'ADC4 Right ADC Unselected CM Bias Capture Switch' truncated to 'ADC4 Right ADC Unselected CM Bias Capture S'
+ALSA: Control name 'ADC1 Left DMic Input Left ADC Capture Switch' truncated to 'ADC1 Left DMic Input Left ADC Capture Switc'
+ALSA: Control name 'ADC1 Right DMic Input Right ADC Capture Switch' truncated to 'ADC1 Right DMic Input Right ADC Capture Swi'
+ALSA: Control name 'ADC2 Left DMic Input Left ADC Capture Switch' truncated to 'ADC2 Left DMic Input Left ADC Capture Switc'
+ALSA: Control name 'ADC2 Right DMic Input Right ADC Capture Switch' truncated to 'ADC2 Right DMic Input Right ADC Capture Swi'
+ALSA: Control name 'ADC3 Left DMic Input Left ADC Capture Switch' truncated to 'ADC3 Left DMic Input Left ADC Capture Switc'
+ALSA: Control name 'ADC3 Right DMic Input Right ADC Capture Switch' truncated to 'ADC3 Right DMic Input Right ADC Capture Swi'
+ALSA: Control name 'ADC4 Left DMic Input Left ADC Capture Switch' truncated to 'ADC4 Left DMic Input Left ADC Capture Switc'
+ALSA: Control name 'ADC4 Right DMic Input Right ADC Capture Switch' truncated to 'ADC4 Right DMic Input Right ADC Capture Swi'
+NET: Registered PF_INET6 protocol family
+Segment Routing with IPv6
+In-situ OAM (IOAM) with IPv6
+sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+NET: Registered PF_PACKET protocol family
+Loading compiled-in X.509 certificates
+usb_phy_generic usb_phy_generic.2.auto: dummy supplies not allowed for exclusive requests (id=vbus)
+input: gpio-keys as /devices/platform/gpio-keys/input/input0
+cfg80211: Loading compiled-in X.509 certificates for regulatory database
+Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+Loaded X.509 cert 'wens: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+clk: Disabling unused clocks
+PM: genpd: Disabling unused power domains
+ALSA device list:
+  #0: amazon-lidar
+mtk-msdc 11170000.mmc: msdc_track_cmd_data: cmd=52 arg=00000C00; host->error=0x00000002
+mtk-msdc 11170000.mmc: msdc_track_cmd_data: cmd=52 arg=80000C08; host->error=0x00000002
+mmc1: new UHS-I speed SDR104 SDIO card at address 0001
+Freeing initrd memory: 5624K
+mt7668_sdio mmc1:0001:1: firmware not installed yet, deferring probe; bind after importing it
+mt7668_sdio mmc1:0001:1: probe with driver mt7668_sdio failed with error -2
+Freeing unused kernel memory: 768K
+Run /init as init process
+libreecho-init: pstore-mounted
+libreecho-init: pmsg-ready
+libreecho-init: service-profile:production
+libreecho-init: init-started
+libreecho-init: audio-node-worker-started
+libreecho-init: input-node-worker-started
+libreecho-init: adb-transport-policy-read
+libreecho-init: input-devnodes-created:1
+libreecho-init: configfs-mounted
+file system registered
+libreecho-init: configfs-adb-composition-created
+libreecho-init: functionfs-mounted
+libreecho-init: adbd-started:142
+read descriptors
+read strings
+libreecho-init: audio-devnodes-created:5
+Bluetooth: hci0: Device setup in 1062662 usecs
+libreecho-init: functionfs-ready
+libreecho-init: configfs-udc-bound:musb-hdrc.3.auto
+adbd (211): /proc/211/oom_adj is deprecated, please use /proc/211/oom_score_adj instead.
+EXT4-fs (mmcblk0p16): recovery complete
+EXT4-fs (mmcblk0p16): mounted filesystem <FS_UUID_2> r/w with ordered data mode. Quota mode: disabled.
+libreecho-init: userdata-mounted
+libreecho-init: userdata-cleanup-ok
+libreecho-init: boot-count:58
+libreecho-init: boot-slot:a:a
+EXT4-fs (mmcblk0p13): mounted filesystem <FS_UUID_1> ro without journal. Quota mode: disabled.
+EXT4-fs (mmcblk0p13): unmounting filesystem <FS_UUID_1>.
+libreecho-init: vendor-assets-ready
+libreecho-init: hostname-idme-serial-unavailable
+libreecho-init: automatic-fastboot-marker-disabled
+libreecho-init: reboot-supervisor-started
+libreecho-init: reboot-signal-traps-installed
+libreecho-init: wmt-nodes-created
+libreecho-init: loopback-configured
+libreecho-init: physical-recovery-helper-absent
+libreecho-init: wifi-network-worker-started-after-adb
+libreecho-init: runme-loop-started
+libreecho-init: init-ready-pid1-managed
+libreecho-init: wifi-request-supervisor-started
+libreecho-init: wifi-persistent-profile-selected
+libreecho-init: ui-services-autostart-started
+libreecho-init: wifi-profile-present
+libreecho-init: wifi-profile-recorded
+libreecho-init: ota-background-worker-started
+libreecho-init: lidar-bt-ready-before-wlan
+libreecho-init: active-device-ping-started
+libreecho-init: audio-startup-disabled
+[wlan][489]wlanProbe:(INIT STATE) enter wlanProbe
+libreecho-init: running-slot:a
+[wlan][489]halPollDbgCr:(INIT WARN) SWPCDBGR 0x00016EC2
+libreecho-init: first-boot-slot-already-confirmed:a
+[wlan][489]wlanAdapterStart:(INIT WARN) Send a Dummy CMD as workaround
+[wlan][489]wlanQueryNicCapability:(INIT WARN) wlanQueryNicCapability: skip unexpected event ID[0x27]
+[wlan][489]wlanAdapterStart:(INIT WARN) wlanAdapterStart: load manufacture data fail
+[wlan][489]wlanProbe:(INIT STATE) main_thread 00000000dfd5bb4b
+[wlan][744]main_thread:(INIT STATE) main_thread:744 starts running...
+[wlan][489]wlanProbe:(INIT STATE) hif_thread 00000000ac3ea7dc
+[wlan][745]hif_thread:(INIT STATE) hif_thread:745 starts running...
+[wlan][489]wlanProbe:(INIT STATE) rx_thread 00000000d34d0f0c
+[wlan][746]rx_thread:(INIT STATE) rx_thread:746 starts running...
+[wlan][489]wlanDownloadBufferBin:(INIT STATE) [EFUSE AUTO] EFUSE Mode
+[wlan][744]p2pDevFsmStateTransition:(P2P STATE) [P2P_DEV]TRANSITION: [P2P_DEV_STATE_IDLE] -> [P2P_DEV_STATE_IDLE]
+[wlan][744]wlanBindBssIdxToNetInterface:(INIT ERROR) Array index out of bound, ucBssIndex=4
+[wlan][744]p2pRoleFsmStateTransition:(P2P STATE) [P2P_ROLE][0]TRANSITION(Bss1): [P2P_ROLE_STATE_IDLE] -> [P2P_ROLE_STATE_IDLE]
+[wlan][744]p2pDevFsmStateTransition:(P2P STATE) [P2P_DEV]TRANSITION: [P2P_DEV_STATE_IDLE] -> [P2P_DEV_STATE_IDLE]
+[wlan][744]wlanBindBssIdxToNetInterface:(INIT ERROR) Array index out of bound, ucBssIndex=4
+[wlan][744]p2pRoleFsmStateTransition:(P2P STATE) [P2P_ROLE][1]TRANSITION(Bss2): [P2P_ROLE_STATE_IDLE] -> [P2P_ROLE_STATE_IDLE]
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x11] SEQ[28]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00112B8
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x70] SEQ[33]
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x70] SEQ[33]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00112B8
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00112C6
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x70] SEQ[34]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0011286
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00112C6
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00246A2
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE004198A
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x70] SEQ[35]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE002485A
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0x00034BDC
+[wlan][489]wlanUpdateRssiComp:(INIT ERROR) c2GRssiCompensation=2,c5GRssiCompensation=2
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x3D] SEQ[44]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0024764
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0041AB0
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0041916
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00419AC
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0041990
+[wlan][489]wlanProbe:(INIT STATE) wlanProbe: probe success
+libreecho-init: lidar-wlan-bound:mmc1:0001:1
+libreecho-init: wlan0-ready-recorded
+[wlan][838]mtk_cfg80211_set_power_mgmt:(INIT STATE) Set CAM and store user's PS mode:0
+[wlan][844]mtk_cfg80211_scan:(REQ WARN) scan channel num = 39
+[wlan][844]mtk_cfg80211_scan:(REQ WARN) scan channel num (39) exceeds 32, do a full scan instead
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [IDLE] -> [SCAN]
+[wlan][744]scnFsmSteps:(SCN STATE) [SCAN]TRANSITION: [IDLE] -> [SCANNING]
+[wlan][744]scnFsmSteps:(SCN STATE) [SCAN]TRANSITION: [SCANNING] -> [IDLE]
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [SCAN] -> [IDLE]
+[wlan][844]mtk_cfg80211_connect:(REQ WARN) BSSID[<MAC_AP_A>] channel[2462]
+[wlan][744]aisFsmRunEventAbort:(AIS STATE) EVENT-ABORT: Current State IDLE, ucReasonOfDisconnect:4
+[wlan][744]aisFsmRunEventAbort:(AIS STATE) ucReasonOfDisconnect:4
+[wlan][744]aisFsmStateAbort:(AIS STATE) aisFsmStateAbort DiscReason[4], CurState[0]
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [IDLE] -> [IDLE]
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [IDLE] -> [SEARCH]
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [SEARCH] -> [REQ_CHANNEL_JOIN]
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use target bcn eBand 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) target channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=0,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=0,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=0,0,0
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [REQ_CHANNEL_JOIN] -> [JOIN]
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use target bcn eBand 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) target channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]saaFsmSteps:(SAA STATE) [SAA]TRANSITION: [AA_IDLE] -> [SAA_SEND_AUTH1]
+[wlan][744]saaFsmSteps:(SAA STATE) [SAA]TRANSITION: [SAA_SEND_AUTH1] -> [SAA_WAIT_AUTH2]
+[wlan][744]saaFsmSteps:(SAA STATE) [SAA]TRANSITION: [SAA_WAIT_AUTH2] -> [SAA_SEND_ASSOC1]
+[wlan][744]saaFsmSteps:(SAA STATE) [SAA]TRANSITION: [SAA_SEND_ASSOC1] -> [SAA_WAIT_ASSOC2]
+[wlan][744]saaFsmSteps:(SAA STATE) [SAA]TRANSITION: [SAA_WAIT_ASSOC2] -> [AA_IDLE]
+[wlan][744]aisUpdateBssInfoForJOIN:(AIS EVENT) Update target Sta Rec to :0
+[wlan][744]nicQmUpdateWmmParms:(QM EVENT) sizeof(AC_QUE_PARMS_T): 10
+[wlan][744]nicQmUpdateWmmParms:(QM EVENT) sizeof(CMD_UPDATE_WMM_PARMS): 44
+[wlan][744]nicQmUpdateWmmParms:(QM EVENT) sizeof(WIFI_CMD_T): 64
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [JOIN] -> [NORMAL_TR]
+[wlan][746]kalRxIndicateOnePkt:(RSN WARN) Rx EAPOL Frame [Len: 99]
+[wlan][844]kalQoSFrameClassifierAndPacketInfo:(RSN WARN) Tx EAPOL Frame [Len: 135] [KeyInfo: 266]
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]qmSetStaRecTxAllowed:(QM EVENT) Set Sta[0] TxAllowed[0] pending TxQ
+[wlan][744]qmActivateStaRec:(QM STATE) QM: +STA[0]
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]nicTxFillDescByPktOption:(NIC ERROR) Remaining Tx Time 1500 ms in pkt option (1474)
+[wlan][744]wlan1xTxDone:(SW4 STATE) 1x PKT[0x01dd6d00] WIDX:PID[5:3] Status[0]
+[wlan][746]kalRxIndicateOnePkt:(RSN WARN) Rx EAPOL Frame [Len: 155]
+[wlan][844]kalQoSFrameClassifierAndPacketInfo:(RSN WARN) Tx EAPOL Frame [Len: 113] [KeyInfo: 778]
+[wlan][744]nicTxFillDescByPktOption:(NIC ERROR) Remaining Tx Time 1500 ms in pkt option (1474)
+[wlan][744]nicEventAddPkeyDone:(RSN EVENT) EVENT_ID_ADD_PKEY_DONE BSSIDX=0 <MAC_AP_A>
+[wlan][744]nicEventAddPkeyDone:(RSN EVENT) STA <MAC_AP_A> Add Key Done!!
+[wlan][744]qmSetStaRecTxAllowed:(QM EVENT) Set Sta[0] TxAllowed[1] normal TxQ
+[wlan][744]nicEventAddPkeyDone:(RSN EVENT) EVENT_ID_ADD_PKEY_DONE BSSIDX=0 ff:ff:ff:ff:ff:ff
+[wlan][744]wlan1xTxDone:(SW4 STATE) 1x PKT[0x01dd6e00] WIDX:PID[5:4] Status[0]
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]wlanDhcpTxDone:(SW4 STATE) DHCP PKT[0x02be3b00] WIDX:PID[5:5] Status[0]
+[wlan][744]wlanDhcpTxDone:(SW4 STATE) DHCP PKT[0x02be3600] WIDX:PID[5:6] Status[0]
+libreecho-init: wifi-client-rc:0
+libreecho-init: wifi-activation-complete:0
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x14] SEQ[78]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001128A
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE002CBDA
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+libreecho-init: adbd-diagnostic-begin
+libreecho-init: adbd-fd:0:/dev/null
+libreecho-init: adbd-fd:1:/tmp/adbd.log
+libreecho-init: adbd-fd:10:/dev/usb-ffs/adb/ep2
+libreecho-init: adbd-fd:11:socket:[2315]
+libreecho-init: adbd-fd:13:socket:[2317]
+libreecho-init: adbd-fd:14:socket:[2318]
+libreecho-init: adbd-fd:15:/dev/ptmx
+libreecho-init: adbd-fd:2:/tmp/adbd.log
+libreecho-init: adbd-fd:3:socket:[2310]
+libreecho-init: adbd-fd:4:socket:[2311]
+libreecho-init: adbd-fd:5:/dev/usb-ffs/adb/ep0
+libreecho-init: adbd-fd:6:socket:[2312]
+libreecho-init: adbd-fd:7:socket:[2313]
+libreecho-init: adbd-fd:8:socket:[2314]
+libreecho-init: adbd-fd:9:/dev/usb-ffs/adb/ep1
+libreecho-init: adbd-task:142:adbd:S (sleeping):do_select
+libreecho-init: adbd-task:145:adbd:S (sleeping):futex_do_wait
+libreecho-init: adbd-task:146:adbd:S (sleeping):inet_csk_accept
+libreecho-init: adbd-task:147:adbd:S (sleeping):unix_stream_read_generic
+libreecho-init: adbd-task:148:adbd:S (sleeping):ffs_epfile_io
+libreecho-init: adbd-task:247:adbd:S (sleeping):do_wait
+libreecho-init: adbd-log-empty
+libreecho-init: adbd-diagnostic-end
+loop0: detected capacity change from 0 to 18672
+loop1: detected capacity change from 0 to 312904
+loop2: detected capacity change from 0 to 16064
+loop3: detected capacity change from 0 to 105984
+loop4: detected capacity change from 0 to 5984
+libreecho-init: features-user-modified:boot-image-modified,
+libreecho-init: timezone-applied:UTC
+libreecho-mdnsd: mdns-supervisor-ready:1636
+libreecho-init: shared-discovery-runtime-started
+libreecho-init: feature-services-deferred-until-staged
+libreecho-init: ui-service-start:logd:0
+libreecho-init: ui-service-start:networkd:0
+warning: `libreecho-netwo' uses wireless extensions which will stop working for Wi-Fi 7 hardware; use nl80211
+libreecho-init: ui-service-start:timed:0
+[wlan][744]wlanArpTxDone:(SW4 STATE) ARP PKT[0x018f5800] WIDX:PID[5:7] Status[0]
+libreecho-init: ui-service-start:audiod:0
+libreecho-init: ui-service-start:micd:0
+libreecho-init: ui-service-start:waked:0
+libreecho-init: ui-service-start:ledd:0
+libreecho-init: ui-service-start:buttond:0
+Bluetooth: MGMT ver 1.23
+libreecho-init: ui-service-start:btd:0
+libreecho-init: ui-service-start:timerd:0
+libreecho-init: ui-service-start:watchdogd:0
+libreecho-init: ui-service-start:airplayd:0
+libreecho-init: ui-service-start:radiod:0
+process 'usr/local/sbin/libreecho-ttsd' started with executable stack
+libreecho-init: ui-service-start:ttsd:0
+libreecho-init: ui-web-production-lan
+libreecho-init: ui-service-start:web:0
+libreecho-feature-reconcile: feature-reconcile-service-stopped:esphomed
+libreecho-feature-reconcile: feature-reconcile-service-ready:waked
+libreecho-feature-reconcile: feature-reconcile-service-ready:sttd
+libreecho-feature-reconcile: feature-reconcile-shared-discovery-owner:airplayd
+libreecho-feature-reconcile: feature-reconcile-service-ready:airplayd
+[wlan][744]wlanArpTxDone:(SW4 STATE) ARP PKT[0x07a03900] WIDX:PID[5:8] Status[0]
+libreecho-feature-reconcile: feature-reconcile-service-ready:ttsd
+libreecho-feature-reconcile: feature-reconcile-service-ready:agentd
+libreecho-feature-reconcile: feature-services-reconciled
+libreecho-init: persisted-feature-reconcile:0
+[wlan][744]wlanArpTxDone:(SW4 STATE) ARP PKT[0x022ebd00] WIDX:PID[5:9] Status[0]
+libreecho-init: local-services-supervisor-started
+libreecho-init: reboot-signal-reboot-accepted
+reboot: Restarting system
+libreecho-init:pstore-ready
+libreecho-init:init-started
+libreecho-init:adb-ffs-ready
+libreecho-init:adb-usb-endpoints-ready
+libreecho-init:adb-tcp-5555-bound
+libreecho-init:wifi-boot-activation
+libreecho-init:mdns-started
+libreecho-init:web-start-ok
+== dmesg
+[wlan][824]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][824]qmSetStaRecTxAllowed:(QM EVENT) Set Sta[0] TxAllowed[0] pending TxQ
+[wlan][824]qmActivateStaRec:(QM STATE) QM: +STA[0]
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000f89326a4
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000f89326a4
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][824]nicTxFillDescByPktOption:(NIC ERROR) Remaining Tx Time 1500 ms in pkt option (1474)
+[wlan][824]wlan1xTxDone:(SW4 STATE) 1x PKT[0x02047d00] WIDX:PID[5:4] Status[0]
+[wlan][827]kalRxIndicateOnePkt:(RSN WARN) Rx EAPOL Frame [Len: 155]
+[wlan][903]kalQoSFrameClassifierAndPacketInfo:(RSN WARN) Tx EAPOL Frame [Len: 113] [KeyInfo: 778]
+[wlan][824]nicTxFillDescByPktOption:(NIC ERROR) Remaining Tx Time 1500 ms in pkt option (1474)
+[wlan][824]nicEventAddPkeyDone:(RSN EVENT) EVENT_ID_ADD_PKEY_DONE BSSIDX=0 <MAC_AP_A>
+[wlan][824]nicEventAddPkeyDone:(RSN EVENT) STA <MAC_AP_A> Add Key Done!!
+[wlan][824]qmSetStaRecTxAllowed:(QM EVENT) Set Sta[0] TxAllowed[1] normal TxQ
+[wlan][824]nicEventAddPkeyDone:(RSN EVENT) EVENT_ID_ADD_PKEY_DONE BSSIDX=0 ff:ff:ff:ff:ff:ff
+[wlan][824]wlan1xTxDone:(SW4 STATE) 1x PKT[0x02047e00] WIDX:PID[5:5] Status[0]
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000f89326a4
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000f89326a4
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][824]wlanDhcpTxDone:(SW4 STATE) DHCP PKT[0x025c2d00] WIDX:PID[5:6] Status[0]
+[wlan][824]wlanDhcpTxDone:(SW4 STATE) DHCP PKT[0x025c2c00] WIDX:PID[5:7] Status[0]
+libreecho-init: wifi-client-rc:0
+libreecho-init: wifi-activation-complete:0
+[wlan][824]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x14] SEQ[79]
+[wlan][826]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][826]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][826]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][826]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][826]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE005B86A
+[wlan][826]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00561DA
+[wlan][824]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][824]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][824]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][824]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+[wlan][824]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+[wlan][824]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+libreecho-init: adbd-diagnostic-begin
+libreecho-init: adbd-fd:0:/dev/null
+libreecho-init: adbd-fd:1:/tmp/adbd.log
+libreecho-init: adbd-fd:10:socket:[1209]
+libreecho-init: adbd-fd:11:socket:[1210]
+libreecho-init: adbd-fd:12:socket:[1211]
+libreecho-init: adbd-fd:13:socket:[1212]
+libreecho-init: adbd-fd:14:socket:[1213]
+libreecho-init: adbd-fd:15:/dev/ptmx
+libreecho-init: adbd-fd:2:/tmp/adbd.log
+libreecho-init: adbd-fd:3:socket:[1203]
+libreecho-init: adbd-fd:4:socket:[1204]
+libreecho-init: adbd-fd:5:/dev/usb-ffs/adb/ep0
+libreecho-init: adbd-fd:6:/dev/usb-ffs/adb/ep1
+libreecho-init: adbd-fd:7:/dev/usb-ffs/adb/ep2
+libreecho-init: adbd-fd:8:socket:[1207]
+libreecho-init: adbd-task:140:adbd:S (sleeping):do_select
+libreecho-init: adbd-task:143:adbd:S (sleeping):futex_do_wait
+libreecho-init: adbd-task:144:adbd:S (sleeping):inet_csk_accept
+libreecho-init: adbd-task:145:adbd:S (sleeping):unix_stream_read_generic
+libreecho-init: adbd-task:146:adbd:S (sleeping):ffs_epfile_io
+libreecho-init: adbd-task:273:adbd:S (sleeping):do_wait
+libreecho-init: adbd-log-empty
+libreecho-init: adbd-diagnostic-end
+loop0: detected capacity change from 0 to 18672
+loop1: detected capacity change from 0 to 312904
+loop2: detected capacity change from 0 to 16064
+loop3: detected capacity change from 0 to 105984
+loop4: detected capacity change from 0 to 5984
+libreecho-init: timezone-applied:UTC
+libreecho-mdnsd: mdns-supervisor-ready:1717
+libreecho-init: shared-discovery-runtime-started
+libreecho-init: feature-services-deferred-until-staged
+libreecho-init: ui-service-start:logd:0
+warning: `libreecho-netwo' uses wireless extensions which will stop working for Wi-Fi 7 hardware; use nl80211
+libreecho-init: ui-service-start:networkd:0
+libreecho-init: ui-service-start:timed:0
+[wlan][824]wlanArpTxDone:(SW4 STATE) ARP PKT[0x025c2f00] WIDX:PID[5:8] Status[0]
+libreecho-init: ui-service-start:audiod:0
+libreecho-init: ui-service-start:micd:0
+libreecho-init: ui-service-start:waked:0
+libreecho-init: ui-service-start:ledd:0
+libreecho-init: ui-service-start:buttond:0
+Bluetooth: MGMT ver 1.23
+libreecho-init: ui-service-start:btd:0
+libreecho-init: ui-service-start:timerd:0
+libreecho-init: ui-service-start:watchdogd:0
+libreecho-init: ui-service-start:airplayd:0
+libreecho-init: ui-service-start:radiod:0
+process 'usr/local/sbin/libreecho-ttsd' started with executable stack
+libreecho-init: ui-service-start:ttsd:0
+libreecho-init: ui-web-production-lan
+libreecho-init: ui-service-start:web:0
+libreecho-feature-reconcile: feature-reconcile-service-stopped:esphomed
+libreecho-feature-reconcile: feature-reconcile-service-ready:waked
+libreecho-feature-reconcile: feature-reconcile-service-ready:sttd
+libreecho-feature-reconcile: feature-reconcile-shared-discovery-owner:airplayd
+libreecho-feature-reconcile: feature-reconcile-service-ready:airplayd
+== bcb
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=2
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+== uptime 97.43 boot_id b4c9c73a-f87b-457b-903b-93c826d4558e libreecho.lab=p6-v2
+androidboot.slot_suffix=_b
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=2
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+schema=3
+slot=b
+transaction_id=txn-7303218adf4646e5decf1908
+manifest_sha256=fe8b6e52a4dadd173b7a2f61cfe5ba66c99da3d038b8a380ca0d0fbfeb277f8e
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=237
+failure_log=failure-236-1.log
+features_state=ready
+features_error=
+config_schema=1
+config_error=
+ota_transaction_state=pending
+ota_transaction_pending=1
+generation=txn-508529626fbd711fdbf6bf1c
+feature_airplay2_payload_sha256=a6583300828ff3b95c898e85d513267613452115ff911f9d79c5e4f16bfe6adb
+feature_airplay2_payload_size=9560064
+feature_airplay2_manifest_sha256=9532aba033a4eddc1b0d23d0125d94a401c6898fc211a7f2e2c8fdde2b433e4f
+feature_airplay2_running_daemon=libreecho-audio-engine
+feature_airplay2_running_daemon_sha256=39b6f34e1af27a132fe76e0128a89bee8907f13ed5b87635e853618f51cb9af0
+feature_airplay2_effective=present
+feature_tts_payload_sha256=197e583a378aa49a1d4a823e048920dac7d3a7be8c0b206deed0411ebac0aa78
+feature_tts_payload_size=160206848
+feature_tts_manifest_sha256=126dbad94d512bc8b3b6e1707ed6f52d8bdfba9da0a322b43437bc9dc446b440
+feature_tts_running_daemon=libreecho-ttsd
+feature_tts_running_daemon_sha256=1ef3bfa968a65e4f6d1e66a2784382fd552c688f1e18f7af4770796a17bcd283
+feature_tts_effective=present
+feature_wakeword_payload_sha256=4964fc7b02ec81456fce149b1b82f6cca85f2ce447c48826ee6e34e57423585d
+feature_wakeword_payload_size=8224768
+feature_wakeword_manifest_sha256=13ec6549b8ab7995f6d448cd4a13f23543d3a3ca90f490687cb73a7e989ab0a8
+feature_wakeword_running_daemon=libreecho-waked
+feature_wakeword_running_daemon_sha256=8bcd0bb026d8c255571ebead6faac7840dc932dadede6cf05d93ad55e0872637
+feature_wakeword_effective=present
+feature_stt_payload_sha256=dee3594dd45514d02ce62a60286e702cc2d2f205b344259bdc95e353e4322ede
+feature_stt_payload_size=54263808
+feature_stt_manifest_sha256=95f9a2c8f245ea9234cc0368e149ea9c0ff4bfc99765a98f3eb3cd9163ff03f5
+feature_stt_running_daemon=libreecho-sttd
+feature_stt_running_daemon_sha256=bab519b426665dfc683c5fec548f73b5112fc1c9c13afd2cc107c3fd8a51db7e
+feature_stt_effective=present
+feature_assistant_payload_sha256=a4103ec92daf60e9fc53f2899d9f48efec120d03778ebc0279853ac2fc37a0d1
+feature_assistant_payload_size=3063808
+feature_assistant_manifest_sha256=aba5b27bf2fb6cae966cb8a61a3da13c81af1894fb29014dbff6fac2098016d3
+feature_assistant_running_daemon=libreecho-agentd
+feature_assistant_running_daemon_sha256=de77abb6cb23a17db0f3b0a261b23a70a230d845eae1ef006abb8f1dfbbded63
+feature_assistant_effective=present
+features_state=ready
+features_error=
+schema=3
+slot=b
+transaction_id=txn-7303218adf4646e5decf1908
+manifest_sha256=fe8b6e52a4dadd173b7a2f61cfe5ba66c99da3d038b8a380ca0d0fbfeb277f8e
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+total 20
+srw-rw----    1 0        0                0 Nov 21 03:52 [1;35magent.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mairplay.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35maudio.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mbluetooth.sock[m
+-rw-r--r--    1 0        0               92 Nov 21 03:52 [0;0mbuttond-status[m
+drwxr-xr-x    7 0        0                0 Jan  1  1970 [1;34mfeatures[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mled.sock[m
+srw-rw-rw-    1 0        0                0 Jan  1  1970 [1;35mlog.sock[m
+srwx------    1 0        0                0 Jan  1  1970 [1;35mmdns.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mmic.sock[m
+srw-rw----    1 0        0                0 Jan  1  1970 [1;35mnetwork.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mradio.sock[m
+-rw-r--r--    1 0        0                9 Nov 21 03:52 [0;0mstartup-ready[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mstt.sock[m
+-rw-r--r--    1 0        0              250 Nov 21 03:52 [0;0mtime.status[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mtimer.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:52 [1;35mtts.sock[m
+-rw-------    1 0        0              163 Jan  1  1970 [0;0mvendor-import.status[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mwakeword.sock[m
+-rw-------    1 0        0               43 Jan  1  1970 [0;0mwifi-client.conf[m
+-rw-r--r--    1 0        0                0 Jan  1  1970 [0;0mwlan0-ready[m
+ 4009 0         1:13 /run/libreecho/features/wakeword/root/usr/local/sbin/libreecho-waked --foreground --socket /run/libreecho/wakeword.sock --mic-socket /run/libreecho/mic.sock --reference-socket /run/libreecho-audio/aec-reference.sock --model-dir /run/libreecho/features/wakeword/root/usr/local/share/libreecho/openwakeword --wake-threads 1 --vad-floor-rms 16
+ 7576 0         0:32 /run/libreecho/features/tts/root/usr/local/sbin/libreecho-ttsd --foreground --socket /run/libreecho/tts.sock --model-dir /run/libreecho/features/tts/root/usr/local/share/libreecho/tts/models/southern-female --voice southern-female
+ 8411 0         0:12 /run/libreecho/features/stt/root/usr/local/sbin/libreecho-sttd --socket /run/libreecho/stt.sock --model-dir /run/libreecho/features/stt/root/usr/local/share/libreecho/stt --threads 2
+ 9507 0         0:00 /run/libreecho/features/assistant/root/usr/local/sbin/libreecho-agentd --socket /run/libreecho/agent.sock --curl /run/libreecho/features/assistant/root/usr/local/libexec/libreecho-curl
+==> /var/log/libreecho-agentd.log <==
+
+==> /var/log/libreecho-sttd.log <==
+sttd: ready engine=sherpa-onnx-zipformer threads=2 socket=/run/libreecho/stt.sock
+
+==> /var/log/libreecho-ttsd.log <==
+
+==> /var/log/libreecho-waked.log <==
+[0;93m2026-11-21 03:51:25.960807539 [W:onnxruntime:libreecho-wake, cpuid_info.cc:105 LogEarlyWarning] Unknown CPU vendor. cpuinfo_vendor value: 0[m
+waked: running (16 kHz, frame=10 ms, AEC tail=200 ms, preroll=3 s, vad-floor=16 RMS, wake=openwakeword-onnx)
+pstore-mounted
+pmsg-ready
+service-profile:production
+init-started
+audio-node-worker-started
+input-node-worker-started
+adb-transport-policy-read
+input-devnodes-created:1
+configfs-mounted
+configfs-adb-composition-created
+functionfs-mounted
+adbd-started:140
+audio-devnodes-created:5
+functionfs-ready
+configfs-udc-bound:musb-hdrc.3.auto
+userdata-mounted
+userdata-cleanup-ok
+boot-count:59
+boot-slot:b:b
+vendor-assets-ready
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-worker-started-after-adb
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+wifi-persistent-profile-selected
+wifi-profile-present
+wifi-profile-recorded
+ota-background-worker-started
+lidar-bt-ready-before-wlan
+active-device-ping-started
+audio-startup-disabled
+running-slot:b
+ota-rollback-resume-history-slot-still-selected
+ota-health-confirm-pending
+ota-health-waiting-startup-ready
+lidar-wlan-bound:mmc1:0001:1
+wlan0-ready-recorded
+wifi-client-rc:0
+wifi-activation-complete:0
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:socket:[1209]
+adbd-fd:11:socket:[1210]
+adbd-fd:12:socket:[1211]
+adbd-fd:13:socket:[1212]
+adbd-fd:14:socket:[1213]
+adbd-fd:15:/dev/ptmx
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[1203]
+adbd-fd:4:socket:[1204]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:/dev/usb-ffs/adb/ep1
+adbd-fd:7:/dev/usb-ffs/adb/ep2
+adbd-fd:8:socket:[1207]
+adbd-task:140:adbd:S (sleeping):do_select
+adbd-task:143:adbd:S (sleeping):futex_do_wait
+adbd-task:144:adbd:S (sleeping):inet_csk_accept
+adbd-task:145:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:146:adbd:S (sleeping):ffs_epfile_io
+adbd-task:273:adbd:S (sleeping):do_wait
+adbd-log-empty
+adbd-diagnostic-end
+timezone-applied:UTC
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:waked:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:airplayd:0
+ui-service-start:radiod:0
+ui-service-start:ttsd:0
+ui-web-production-lan
+ui-service-start:web:0
+feature-reconcile-service-stopped:esphomed
+feature-reconcile-service-ready:waked
+feature-reconcile-service-ready:sttd
+feature-reconcile-shared-discovery-owner:airplayd
+feature-reconcile-service-ready:airplayd
+feature-reconcile-service-ready:ttsd
+feature-reconcile-service-ready:agentd
+feature-services-reconciled
+persisted-feature-reconcile:0
+ota-health-startup-ready:105
+ota-health-probe-passed:1
+== init-persist
+adbd-log-empty
+adbd-diagnostic-end
+timezone-applied:UTC
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:waked:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:airplayd:0
+ui-service-start:radiod:0
+ui-service-start:ttsd:0
+ui-web-production-lan
+ui-service-start:web:0
+feature-reconcile-service-stopped:esphomed
+feature-reconcile-service-ready:waked
+feature-reconcile-service-ready:sttd
+feature-reconcile-shared-discovery-owner:airplayd
+feature-reconcile-service-ready:airplayd
+feature-reconcile-service-ready:ttsd
+feature-reconcile-service-ready:agentd
+feature-services-reconciled
+persisted-feature-reconcile:0
+ota-health-startup-ready:105
+ota-health-probe-passed:1
+== pstore
+total 0
+drwxr-x---    2 0        0                0 Jan  1  1970 [1;34m.[m
+drwxr-xr-x    5 0        0                0 Jan  1  1970 [1;34m..[m
+-r--r--r--    1 0        0            30538 Jan  1  1970 [0;0mconsole-ramoops-0[m
+-r--r--r--    1 0        0              250 Jan  1  1970 [0;0mpmsg-ramoops-0[m
+Booting Linux on physical CPU 0x0000000000 [0x410fd041]
+Linux version 6.18.64+ (libreecho@phase6) (clang version 23.1.5, LLD 23.1.5) #5 SMP 2026-11-21 00:00:00 UTC
+Machine model: MT8167B
+earlycon: uart8250 at MMIO32 0x0000000011005000 (options '')
+printk: legacy bootconsole [uart8250] enabled
+efi: UEFI not found.
+[Firmware Bug]: Kernel image misaligned at boot, please fix your bootloader!
+OF: reserved mem: 0x0000000043000000..0x000000004302ffff (192 KiB) nomap non-reusable atf@43000000
+OF: reserved mem: 0x0000000043810000..0x000000004386ffff (384 KiB) map non-reusable ramoops@43810000
+Zone ranges:
+  DMA      [mem 0x0000000040000000-0x000000007f9bffff]
+  DMA32    empty
+  Normal   empty
+Movable zone start for each node
+Early memory node ranges
+  node   0: [mem 0x0000000040000000-0x0000000042ffffff]
+  node   0: [mem 0x0000000043000000-0x000000004302ffff]
+  node   0: [mem 0x0000000043030000-0x000000007f9bffff]
+Initmem setup node 0 [mem 0x0000000040000000-0x000000007f9bffff]
+On node 0, zone DMA: 1600 pages in unavailable ranges
+psci: probing for conduit method from DT.
+psci: PSCIv1.0 detected in firmware.
+psci: Using standard PSCI v0.2 function IDs
+psci: Trusted OS migration not required
+psci: SMC Calling Convention v1.0
+percpu: Embedded 17 pages/cpu s38872 r0 d30760 u69632
+Detected VIPT I-cache on CPU0
+alternatives: applying boot alternatives
+Kernel command line: console=tty0 console=ttyMT0,921600n1 earlycon=uart8250,mmio32,0x11005000 vmalloc=496M androidboot.hardware=mt8167 androidboot.secure_cpu=1 androidboot.unlocked_kernel=true androidboot.tu_code=<TU_CODE> androidboot.rpmb_state=1 androidboot.pl_version=0xb85c androidboot.tee_version=0xa3f0 androidboot.lk_version=0x52e5 androidboot.prod=1 androidboot.pl_build_desc=2b6f82c-20190926_195940 androidboot.lk_build_desc=6f7225e-20230407_030004 androidboot.verifiedbootstate=yellow androidboot.prod=1 bootopt=64S3,32N2,64N2 buildvariant=user veritykeyid=id:f3530e18f64d11fc25eb2dd762979f078de990bf libreecho.lab=p6-v1 androidboot.selinux=enforce androidboot.veritymode=enforcing androidboot.slot_suffix=_a rootwait ro init=/init skip_initramfs root=/dev/dm-0 dm="system none ro,0 1 android-verity PARTUUID=<PARTUUID_13>" printk.disable_uart=1 leds-is31fl3236. bootprof.pl_t=4206 bootprof.lk_t=3420 boot_reason=4 androidboot.serialno=<SERIAL_A> 
+Unknown kernel command line parameters "skip_initramfs vmalloc=496M bootopt=64S3,32N2,64N2 buildvariant=user veritykeyid=id:f3530e18f64d11fc25eb2dd762979f078de990bf dm=system none ro,0 1 android-verity PARTUUID=<PARTUUID_13> boot_reason=4", will be passed to user space.
+printk: log buffer data + meta data: 131072 + 458752 = 589824 bytes
+Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+Inode-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+software IO TLB: SWIOTLB bounce buffer size adjusted to 0MB
+software IO TLB: area num 4.
+software IO TLB: mapped [mem 0x000000007e480000-0x000000007e580000] (1MB)
+Built 1 zonelists, mobility grouping on.  Total pages: 260544
+mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+rcu: Hierarchical RCU implementation.
+rcu: 	RCU restricting CPUs from NR_CPUS=512 to nr_cpu_ids=4.
+rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+Root IRQ handler: gic_handle_irq
+GIC: Using split EOI/Deactivate mode
+rcu: srcu_init: Setting srcu_struct sizes based on contention.
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+arch_timer: cp15 timer running at 13.00MHz (phys).
+clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x2ff89eacb, max_idle_ns: 440795202429 ns
+sched_clock: 56 bits at 13MHz, resolution 76ns, wraps every 4398046511101ns
+Console: colour dummy device 80x25
+printk: legacy console [tty0] enabled
+Calibrating delay loop (skipped), value calculated using timer frequency.. 26.00 BogoMIPS (lpj=52000)
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+rcu: Hierarchical SRCU implementation.
+rcu: 	Max phase no-delay instances is 1000.
+Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+EFI services will not be available.
+smp: Bringing up secondary CPUs ...
+Detected VIPT I-cache on CPU1
+CPU1: Booted secondary processor 0x0000000001 [0x410fd041]
+Detected VIPT I-cache on CPU2
+CPU2: Booted secondary processor 0x0000000002 [0x410fd041]
+Detected VIPT I-cache on CPU3
+CPU3: Booted secondary processor 0x0000000003 [0x410fd041]
+smp: Brought up 1 node, 4 CPUs
+SMP: Total of 4 processors activated.
+CPU: All CPU(s) started at EL2
+CPU features: detected: 32-bit EL0 Support
+CPU features: detected: CRC32 instructions
+alternatives: applying system-wide alternatives
+Memory: 996160K/1042176K available (8128K kernel code, 1206K rwdata, 3268K rodata, 768K init, 468K bss, 41820K reserved, 0K cma-reserved)
+devtmpfs: initialized
+posixtimers hash table entries: 2048 (order: 3, 32768 bytes, linear)
+futex hash table entries: 1024 (65536 bytes on 1 NUMA nodes, total 64 KiB, linear).
+pinctrl core: initialized pinctrl subsystem
+DMI not present or invalid.
+NET: Registered PF_NETLINK/PF_ROUTE protocol family
+DMA: preallocated 128 KiB GFP_KERNEL pool for atomic allocations
+DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+thermal_sys: Registered thermal governor 'step_wise'
+ASID allocator initialised with 65536 entries
+pstore: Using crash dump compression: deflate
+printk: legacy console [ramoops-1] enabled
+pstore: Registered ramoops as persistent store backend
+ramoops: using 0x60000@0x43810000, ecc: 0
+/soc/interrupt-controller@10310000: Fixed dependency cycle(s) with /soc/interrupt-controller@10310000
+iommu: Default domain type: Translated
+iommu: DMA domain TLB invalidation policy: strict mode
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+Advanced Linux Sound Architecture Driver Initialized.
+Bluetooth: Core ver 2.22
+NET: Registered PF_BLUETOOTH protocol family
+Bluetooth: HCI device and connection manager initialized
+Bluetooth: HCI socket layer initialized
+Bluetooth: L2CAP socket layer initialized
+Bluetooth: SCO socket layer initialized
+clocksource: Switched to clocksource arch_sys_counter
+NET: Registered PF_INET protocol family
+IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+tcp_listen_portaddr_hash hash table entries: 512 (order: 1, 8192 bytes, linear)
+Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+TCP established hash table entries: 8192 (order: 4, 65536 bytes, linear)
+TCP bind hash table entries: 8192 (order: 6, 262144 bytes, linear)
+TCP: Hash tables configured (established 8192 bind 8192)
+UDP hash table entries: 512 (order: 3, 32768 bytes, linear)
+UDP-Lite hash table entries: 512 (order: 3, 32768 bytes, linear)
+NET: Registered PF_UNIX/PF_LOCAL protocol family
+Unpacking initramfs...
+Initialise system trusted keyrings
+workingset: timestamp_bits=62 max_order=18 bucket_order=0
+squashfs: version 4.0 (2009/01/31) Phillip Lougher
+Key type asymmetric registered
+Asymmetric key parser 'x509' registered
+io scheduler mq-deadline registered
+io scheduler kyber registered
+io scheduler bfq registered
+mtk-power-controller 10006000.syscon:power-controller: /soc/syscon@10006000/power-controller/power-domain@4: failed to power on domain: -110
+mtk-power-controller 10006000.syscon:power-controller: probe with driver mtk-power-controller failed with error -110
+Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+11006000.serial: ttyS0 at MMIO 0x11006000 (irq = 184, base_baud = 1625000) is a ST16650V2
+11007000.serial: ttyS1 at MMIO 0x11007000 (irq = 185, base_baud = 1625000) is a ST16650V2
+mtk_rng 1020c000.rng: registered RNG driver
+random: crng init done
+loop: module loaded
+amz_privacy amz-privacy: registered (read-only privacy-state input, initial state public)
+[wlan][1]initWlan:(INIT STATE) initWlan..
+[wlan][1]mt76x8_wireless_init:(INIT STATE) Initialize wireless Device
+[wlan][1]wlanCreateWirelessDevice:(INIT ERROR) The num_different_channels is 2
+[wlan][1]mtk_reg_notify:(RLM ERROR) prGlueInfo is NULL!
+[wlan][1]initWlan:(INIT STATE) initWlan end
+i2c_dev: i2c /dev entries driver
+is31fl32xx 0-003f: LibreEcho 36-channel atomic frame interface ready
+tmp108 0-0048: supply vcc not found, using dummy regulator
+hwmon hwmon0: temp1_input not attached to any thermal zone
+tmp108 2-004a: supply vcc not found, using dummy regulator
+hwmon hwmon1: temp1_input not attached to any thermal zone
+mtk-wdt 10007000.watchdog: Watchdog enabled (timeout=31 sec, nowayout=0)
+usbcore: registered new interface driver usbhid
+usbhid: USB HID core driver
+
+TSL2540: INIT()
+
+TSL2540: probe()
+tsl2540 0-0039: tsl2540_probe: client->irq = 0
+tsl2540 0-0039: tsl2540_probe: no reason to run.
+tsl2540 0-0039: Probe failed.
+tsl2540 0-0039: probe with driver tsl2540 failed with error -22
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=52 arg=00000C00; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=52 arg=80000C08; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=8 arg=000001AA; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+mt8516-afe-pcm 11140000.audio-controller: mtk_afe_combine_sub_dai(), num of dai 6
+mmc0: new HS200 MMC card at address 0001
+mmcblk0: mmc0:0001 Q2J95E 7.13 GiB
+ mmcblk0: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16
+mmcblk0boot0: mmc0:0001 Q2J95E 2.00 MiB
+mmcblk0boot1: mmc0:0001 Q2J95E 2.00 MiB
+mmcblk0rpmb: mmc0:0001 Q2J95E 4.00 MiB, chardev (249:0)
+ALSA: Control name 'ADC1 Left ADC Unselected CM Bias Capture Switch' truncated to 'ADC1 Left ADC Unselected CM Bias Capture Sw'
+ALSA: Control name 'ADC1 Right ADC Unselected CM Bias Capture Switch' truncated to 'ADC1 Right ADC Unselected CM Bias Capture S'
+ALSA: Control name 'ADC2 Left ADC Unselected CM Bias Capture Switch' truncated to 'ADC2 Left ADC Unselected CM Bias Capture Sw'
+ALSA: Control name 'ADC2 Right ADC Unselected CM Bias Capture Switch' truncated to 'ADC2 Right ADC Unselected CM Bias Capture S'
+ALSA: Control name 'ADC3 Left ADC Unselected CM Bias Capture Switch' truncated to 'ADC3 Left ADC Unselected CM Bias Capture Sw'
+ALSA: Control name 'ADC3 Right ADC Unselected CM Bias Capture Switch' truncated to 'ADC3 Right ADC Unselected CM Bias Capture S'
+ALSA: Control name 'ADC4 Left ADC Unselected CM Bias Capture Switch' truncated to 'ADC4 Left ADC Unselected CM Bias Capture Sw'
+ALSA: Control name 'ADC4 Right ADC Unselected CM Bias Capture Switch' truncated to 'ADC4 Right ADC Unselected CM Bias Capture S'
+ALSA: Control name 'ADC1 Left DMic Input Left ADC Capture Switch' truncated to 'ADC1 Left DMic Input Left ADC Capture Switc'
+ALSA: Control name 'ADC1 Right DMic Input Right ADC Capture Switch' truncated to 'ADC1 Right DMic Input Right ADC Capture Swi'
+ALSA: Control name 'ADC2 Left DMic Input Left ADC Capture Switch' truncated to 'ADC2 Left DMic Input Left ADC Capture Switc'
+ALSA: Control name 'ADC2 Right DMic Input Right ADC Capture Switch' truncated to 'ADC2 Right DMic Input Right ADC Capture Swi'
+ALSA: Control name 'ADC3 Left DMic Input Left ADC Capture Switch' truncated to 'ADC3 Left DMic Input Left ADC Capture Switc'
+ALSA: Control name 'ADC3 Right DMic Input Right ADC Capture Switch' truncated to 'ADC3 Right DMic Input Right ADC Capture Swi'
+ALSA: Control name 'ADC4 Left DMic Input Left ADC Capture Switch' truncated to 'ADC4 Left DMic Input Left ADC Capture Switc'
+ALSA: Control name 'ADC4 Right DMic Input Right ADC Capture Switch' truncated to 'ADC4 Right DMic Input Right ADC Capture Swi'
+NET: Registered PF_INET6 protocol family
+Segment Routing with IPv6
+In-situ OAM (IOAM) with IPv6
+sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+NET: Registered PF_PACKET protocol family
+Loading compiled-in X.509 certificates
+usb_phy_generic usb_phy_generic.2.auto: dummy supplies not allowed for exclusive requests (id=vbus)
+input: gpio-keys as /devices/platform/gpio-keys/input/input0
+cfg80211: Loading compiled-in X.509 certificates for regulatory database
+Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+Loaded X.509 cert 'wens: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+clk: Disabling unused clocks
+PM: genpd: Disabling unused power domains
+ALSA device list:
+  #0: amazon-lidar
+mtk-msdc 11170000.mmc: msdc_track_cmd_data: cmd=52 arg=00000C00; host->error=0x00000002
+mtk-msdc 11170000.mmc: msdc_track_cmd_data: cmd=52 arg=80000C08; host->error=0x00000002
+mmc1: new UHS-I speed SDR104 SDIO card at address 0001
+Freeing initrd memory: 5624K
+mt7668_sdio mmc1:0001:1: firmware not installed yet, deferring probe; bind after importing it
+mt7668_sdio mmc1:0001:1: probe with driver mt7668_sdio failed with error -2
+Freeing unused kernel memory: 768K
+Run /init as init process
+libreecho-init: pstore-mounted
+libreecho-init: pmsg-ready
+libreecho-init: service-profile:production
+libreecho-init: init-started
+libreecho-init: audio-node-worker-started
+libreecho-init: input-node-worker-started
+libreecho-init: adb-transport-policy-read
+libreecho-init: input-devnodes-created:1
+libreecho-init: configfs-mounted
+file system registered
+libreecho-init: configfs-adb-composition-created
+libreecho-init: functionfs-mounted
+libreecho-init: adbd-started:142
+read descriptors
+read strings
+libreecho-init: audio-devnodes-created:5
+Bluetooth: hci0: Device setup in 1062662 usecs
+libreecho-init: functionfs-ready
+libreecho-init: configfs-udc-bound:musb-hdrc.3.auto
+adbd (211): /proc/211/oom_adj is deprecated, please use /proc/211/oom_score_adj instead.
+EXT4-fs (mmcblk0p16): recovery complete
+EXT4-fs (mmcblk0p16): mounted filesystem <FS_UUID_2> r/w with ordered data mode. Quota mode: disabled.
+libreecho-init: userdata-mounted
+libreecho-init: userdata-cleanup-ok
+libreecho-init: boot-count:58
+libreecho-init: boot-slot:a:a
+EXT4-fs (mmcblk0p13): mounted filesystem <FS_UUID_1> ro without journal. Quota mode: disabled.
+EXT4-fs (mmcblk0p13): unmounting filesystem <FS_UUID_1>.
+libreecho-init: vendor-assets-ready
+libreecho-init: hostname-idme-serial-unavailable
+libreecho-init: automatic-fastboot-marker-disabled
+libreecho-init: reboot-supervisor-started
+libreecho-init: reboot-signal-traps-installed
+libreecho-init: wmt-nodes-created
+libreecho-init: loopback-configured
+libreecho-init: physical-recovery-helper-absent
+libreecho-init: wifi-network-worker-started-after-adb
+libreecho-init: runme-loop-started
+libreecho-init: init-ready-pid1-managed
+libreecho-init: wifi-request-supervisor-started
+libreecho-init: wifi-persistent-profile-selected
+libreecho-init: ui-services-autostart-started
+libreecho-init: wifi-profile-present
+libreecho-init: wifi-profile-recorded
+libreecho-init: ota-background-worker-started
+libreecho-init: lidar-bt-ready-before-wlan
+libreecho-init: active-device-ping-started
+libreecho-init: audio-startup-disabled
+[wlan][489]wlanProbe:(INIT STATE) enter wlanProbe
+libreecho-init: running-slot:a
+[wlan][489]halPollDbgCr:(INIT WARN) SWPCDBGR 0x00016EC2
+libreecho-init: first-boot-slot-already-confirmed:a
+[wlan][489]wlanAdapterStart:(INIT WARN) Send a Dummy CMD as workaround
+[wlan][489]wlanQueryNicCapability:(INIT WARN) wlanQueryNicCapability: skip unexpected event ID[0x27]
+[wlan][489]wlanAdapterStart:(INIT WARN) wlanAdapterStart: load manufacture data fail
+[wlan][489]wlanProbe:(INIT STATE) main_thread 00000000dfd5bb4b
+[wlan][744]main_thread:(INIT STATE) main_thread:744 starts running...
+[wlan][489]wlanProbe:(INIT STATE) hif_thread 00000000ac3ea7dc
+[wlan][745]hif_thread:(INIT STATE) hif_thread:745 starts running...
+[wlan][489]wlanProbe:(INIT STATE) rx_thread 00000000d34d0f0c
+[wlan][746]rx_thread:(INIT STATE) rx_thread:746 starts running...
+[wlan][489]wlanDownloadBufferBin:(INIT STATE) [EFUSE AUTO] EFUSE Mode
+[wlan][744]p2pDevFsmStateTransition:(P2P STATE) [P2P_DEV]TRANSITION: [P2P_DEV_STATE_IDLE] -> [P2P_DEV_STATE_IDLE]
+[wlan][744]wlanBindBssIdxToNetInterface:(INIT ERROR) Array index out of bound, ucBssIndex=4
+[wlan][744]p2pRoleFsmStateTransition:(P2P STATE) [P2P_ROLE][0]TRANSITION(Bss1): [P2P_ROLE_STATE_IDLE] -> [P2P_ROLE_STATE_IDLE]
+[wlan][744]p2pDevFsmStateTransition:(P2P STATE) [P2P_DEV]TRANSITION: [P2P_DEV_STATE_IDLE] -> [P2P_DEV_STATE_IDLE]
+[wlan][744]wlanBindBssIdxToNetInterface:(INIT ERROR) Array index out of bound, ucBssIndex=4
+[wlan][744]p2pRoleFsmStateTransition:(P2P STATE) [P2P_ROLE][1]TRANSITION(Bss2): [P2P_ROLE_STATE_IDLE] -> [P2P_ROLE_STATE_IDLE]
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x11] SEQ[28]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00112B8
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x70] SEQ[33]
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x70] SEQ[33]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00112B8
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00112C6
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x70] SEQ[34]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0011286
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00112C6
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00246A2
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE004198A
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x70] SEQ[35]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE002485A
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0x00034BDC
+[wlan][489]wlanUpdateRssiComp:(INIT ERROR) c2GRssiCompensation=2,c5GRssiCompensation=2
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x3D] SEQ[44]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0024764
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0041AB0
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0041916
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00419AC
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0041990
+[wlan][489]wlanProbe:(INIT STATE) wlanProbe: probe success
+libreecho-init: lidar-wlan-bound:mmc1:0001:1
+libreecho-init: wlan0-ready-recorded
+[wlan][838]mtk_cfg80211_set_power_mgmt:(INIT STATE) Set CAM and store user's PS mode:0
+[wlan][844]mtk_cfg80211_scan:(REQ WARN) scan channel num = 39
+[wlan][844]mtk_cfg80211_scan:(REQ WARN) scan channel num (39) exceeds 32, do a full scan instead
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [IDLE] -> [SCAN]
+[wlan][744]scnFsmSteps:(SCN STATE) [SCAN]TRANSITION: [IDLE] -> [SCANNING]
+[wlan][744]scnFsmSteps:(SCN STATE) [SCAN]TRANSITION: [SCANNING] -> [IDLE]
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [SCAN] -> [IDLE]
+[wlan][844]mtk_cfg80211_connect:(REQ WARN) BSSID[<MAC_AP_A>] channel[2462]
+[wlan][744]aisFsmRunEventAbort:(AIS STATE) EVENT-ABORT: Current State IDLE, ucReasonOfDisconnect:4
+[wlan][744]aisFsmRunEventAbort:(AIS STATE) ucReasonOfDisconnect:4
+[wlan][744]aisFsmStateAbort:(AIS STATE) aisFsmStateAbort DiscReason[4], CurState[0]
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [IDLE] -> [IDLE]
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [IDLE] -> [SEARCH]
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [SEARCH] -> [REQ_CHANNEL_JOIN]
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use target bcn eBand 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) target channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=0,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=0,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=0,0,0
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [REQ_CHANNEL_JOIN] -> [JOIN]
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use target bcn eBand 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) target channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]saaFsmSteps:(SAA STATE) [SAA]TRANSITION: [AA_IDLE] -> [SAA_SEND_AUTH1]
+[wlan][744]saaFsmSteps:(SAA STATE) [SAA]TRANSITION: [SAA_SEND_AUTH1] -> [SAA_WAIT_AUTH2]
+[wlan][744]saaFsmSteps:(SAA STATE) [SAA]TRANSITION: [SAA_WAIT_AUTH2] -> [SAA_SEND_ASSOC1]
+[wlan][744]saaFsmSteps:(SAA STATE) [SAA]TRANSITION: [SAA_SEND_ASSOC1] -> [SAA_WAIT_ASSOC2]
+[wlan][744]saaFsmSteps:(SAA STATE) [SAA]TRANSITION: [SAA_WAIT_ASSOC2] -> [AA_IDLE]
+[wlan][744]aisUpdateBssInfoForJOIN:(AIS EVENT) Update target Sta Rec to :0
+[wlan][744]nicQmUpdateWmmParms:(QM EVENT) sizeof(AC_QUE_PARMS_T): 10
+[wlan][744]nicQmUpdateWmmParms:(QM EVENT) sizeof(CMD_UPDATE_WMM_PARMS): 44
+[wlan][744]nicQmUpdateWmmParms:(QM EVENT) sizeof(WIFI_CMD_T): 64
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [JOIN] -> [NORMAL_TR]
+[wlan][746]kalRxIndicateOnePkt:(RSN WARN) Rx EAPOL Frame [Len: 99]
+[wlan][844]kalQoSFrameClassifierAndPacketInfo:(RSN WARN) Tx EAPOL Frame [Len: 135] [KeyInfo: 266]
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]qmSetStaRecTxAllowed:(QM EVENT) Set Sta[0] TxAllowed[0] pending TxQ
+[wlan][744]qmActivateStaRec:(QM STATE) QM: +STA[0]
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]nicTxFillDescByPktOption:(NIC ERROR) Remaining Tx Time 1500 ms in pkt option (1474)
+[wlan][744]wlan1xTxDone:(SW4 STATE) 1x PKT[0x01dd6d00] WIDX:PID[5:3] Status[0]
+[wlan][746]kalRxIndicateOnePkt:(RSN WARN) Rx EAPOL Frame [Len: 155]
+[wlan][844]kalQoSFrameClassifierAndPacketInfo:(RSN WARN) Tx EAPOL Frame [Len: 113] [KeyInfo: 778]
+[wlan][744]nicTxFillDescByPktOption:(NIC ERROR) Remaining Tx Time 1500 ms in pkt option (1474)
+[wlan][744]nicEventAddPkeyDone:(RSN EVENT) EVENT_ID_ADD_PKEY_DONE BSSIDX=0 <MAC_AP_A>
+[wlan][744]nicEventAddPkeyDone:(RSN EVENT) STA <MAC_AP_A> Add Key Done!!
+[wlan][744]qmSetStaRecTxAllowed:(QM EVENT) Set Sta[0] TxAllowed[1] normal TxQ
+[wlan][744]nicEventAddPkeyDone:(RSN EVENT) EVENT_ID_ADD_PKEY_DONE BSSIDX=0 ff:ff:ff:ff:ff:ff
+[wlan][744]wlan1xTxDone:(SW4 STATE) 1x PKT[0x01dd6e00] WIDX:PID[5:4] Status[0]
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]wlanDhcpTxDone:(SW4 STATE) DHCP PKT[0x02be3b00] WIDX:PID[5:5] Status[0]
+[wlan][744]wlanDhcpTxDone:(SW4 STATE) DHCP PKT[0x02be3600] WIDX:PID[5:6] Status[0]
+libreecho-init: wifi-client-rc:0
+libreecho-init: wifi-activation-complete:0
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x14] SEQ[78]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001128A
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE002CBDA
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+libreecho-init: adbd-diagnostic-begin
+libreecho-init: adbd-fd:0:/dev/null
+libreecho-init: adbd-fd:1:/tmp/adbd.log
+libreecho-init: adbd-fd:10:/dev/usb-ffs/adb/ep2
+libreecho-init: adbd-fd:11:socket:[2315]
+libreecho-init: adbd-fd:13:socket:[2317]
+libreecho-init: adbd-fd:14:socket:[2318]
+libreecho-init: adbd-fd:15:/dev/ptmx
+libreecho-init: adbd-fd:2:/tmp/adbd.log
+libreecho-init: adbd-fd:3:socket:[2310]
+libreecho-init: adbd-fd:4:socket:[2311]
+libreecho-init: adbd-fd:5:/dev/usb-ffs/adb/ep0
+libreecho-init: adbd-fd:6:socket:[2312]
+libreecho-init: adbd-fd:7:socket:[2313]
+libreecho-init: adbd-fd:8:socket:[2314]
+libreecho-init: adbd-fd:9:/dev/usb-ffs/adb/ep1
+libreecho-init: adbd-task:142:adbd:S (sleeping):do_select
+libreecho-init: adbd-task:145:adbd:S (sleeping):futex_do_wait
+libreecho-init: adbd-task:146:adbd:S (sleeping):inet_csk_accept
+libreecho-init: adbd-task:147:adbd:S (sleeping):unix_stream_read_generic
+libreecho-init: adbd-task:148:adbd:S (sleeping):ffs_epfile_io
+libreecho-init: adbd-task:247:adbd:S (sleeping):do_wait
+libreecho-init: adbd-log-empty
+libreecho-init: adbd-diagnostic-end
+loop0: detected capacity change from 0 to 18672
+loop1: detected capacity change from 0 to 312904
+loop2: detected capacity change from 0 to 16064
+loop3: detected capacity change from 0 to 105984
+loop4: detected capacity change from 0 to 5984
+libreecho-init: features-user-modified:boot-image-modified,
+libreecho-init: timezone-applied:UTC
+libreecho-mdnsd: mdns-supervisor-ready:1636
+libreecho-init: shared-discovery-runtime-started
+libreecho-init: feature-services-deferred-until-staged
+libreecho-init: ui-service-start:logd:0
+libreecho-init: ui-service-start:networkd:0
+warning: `libreecho-netwo' uses wireless extensions which will stop working for Wi-Fi 7 hardware; use nl80211
+libreecho-init: ui-service-start:timed:0
+[wlan][744]wlanArpTxDone:(SW4 STATE) ARP PKT[0x018f5800] WIDX:PID[5:7] Status[0]
+libreecho-init: ui-service-start:audiod:0
+libreecho-init: ui-service-start:micd:0
+libreecho-init: ui-service-start:waked:0
+libreecho-init: ui-service-start:ledd:0
+libreecho-init: ui-service-start:buttond:0
+Bluetooth: MGMT ver 1.23
+libreecho-init: ui-service-start:btd:0
+libreecho-init: ui-service-start:timerd:0
+libreecho-init: ui-service-start:watchdogd:0
+libreecho-init: ui-service-start:airplayd:0
+libreecho-init: ui-service-start:radiod:0
+process 'usr/local/sbin/libreecho-ttsd' started with executable stack
+libreecho-init: ui-service-start:ttsd:0
+libreecho-init: ui-web-production-lan
+libreecho-init: ui-service-start:web:0
+libreecho-feature-reconcile: feature-reconcile-service-stopped:esphomed
+libreecho-feature-reconcile: feature-reconcile-service-ready:waked
+libreecho-feature-reconcile: feature-reconcile-service-ready:sttd
+libreecho-feature-reconcile: feature-reconcile-shared-discovery-owner:airplayd
+libreecho-feature-reconcile: feature-reconcile-service-ready:airplayd
+[wlan][744]wlanArpTxDone:(SW4 STATE) ARP PKT[0x07a03900] WIDX:PID[5:8] Status[0]
+libreecho-feature-reconcile: feature-reconcile-service-ready:ttsd
+libreecho-feature-reconcile: feature-reconcile-service-ready:agentd
+libreecho-feature-reconcile: feature-services-reconciled
+libreecho-init: persisted-feature-reconcile:0
+[wlan][744]wlanArpTxDone:(SW4 STATE) ARP PKT[0x022ebd00] WIDX:PID[5:9] Status[0]
+libreecho-init: local-services-supervisor-started
+libreecho-init: reboot-signal-reboot-accepted
+reboot: Restarting system
+libreecho-init:pstore-ready
+libreecho-init:init-started
+libreecho-init:adb-ffs-ready
+libreecho-init:adb-usb-endpoints-ready
+libreecho-init:adb-tcp-5555-bound
+libreecho-init:wifi-boot-activation
+libreecho-init:mdns-started
+libreecho-init:web-start-ok
+== dmesg
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][824]nicTxFillDescByPktOption:(NIC ERROR) Remaining Tx Time 1500 ms in pkt option (1474)
+[wlan][824]wlan1xTxDone:(SW4 STATE) 1x PKT[0x02047d00] WIDX:PID[5:4] Status[0]
+[wlan][827]kalRxIndicateOnePkt:(RSN WARN) Rx EAPOL Frame [Len: 155]
+[wlan][903]kalQoSFrameClassifierAndPacketInfo:(RSN WARN) Tx EAPOL Frame [Len: 113] [KeyInfo: 778]
+[wlan][824]nicTxFillDescByPktOption:(NIC ERROR) Remaining Tx Time 1500 ms in pkt option (1474)
+[wlan][824]nicEventAddPkeyDone:(RSN EVENT) EVENT_ID_ADD_PKEY_DONE BSSIDX=0 <MAC_AP_A>
+[wlan][824]nicEventAddPkeyDone:(RSN EVENT) STA <MAC_AP_A> Add Key Done!!
+[wlan][824]qmSetStaRecTxAllowed:(QM EVENT) Set Sta[0] TxAllowed[1] normal TxQ
+[wlan][824]nicEventAddPkeyDone:(RSN EVENT) EVENT_ID_ADD_PKEY_DONE BSSIDX=0 ff:ff:ff:ff:ff:ff
+[wlan][824]wlan1xTxDone:(SW4 STATE) 1x PKT[0x02047e00] WIDX:PID[5:5] Status[0]
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000f89326a4
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000f89326a4
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][824]wlanDhcpTxDone:(SW4 STATE) DHCP PKT[0x025c2d00] WIDX:PID[5:6] Status[0]
+[wlan][824]wlanDhcpTxDone:(SW4 STATE) DHCP PKT[0x025c2c00] WIDX:PID[5:7] Status[0]
+libreecho-init: wifi-client-rc:0
+libreecho-init: wifi-activation-complete:0
+[wlan][824]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x14] SEQ[79]
+[wlan][826]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][826]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][826]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][826]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][826]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE005B86A
+[wlan][826]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00561DA
+[wlan][824]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][824]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][824]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][824]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+[wlan][824]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+[wlan][824]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+libreecho-init: adbd-diagnostic-begin
+libreecho-init: adbd-fd:0:/dev/null
+libreecho-init: adbd-fd:1:/tmp/adbd.log
+libreecho-init: adbd-fd:10:socket:[1209]
+libreecho-init: adbd-fd:11:socket:[1210]
+libreecho-init: adbd-fd:12:socket:[1211]
+libreecho-init: adbd-fd:13:socket:[1212]
+libreecho-init: adbd-fd:14:socket:[1213]
+libreecho-init: adbd-fd:15:/dev/ptmx
+libreecho-init: adbd-fd:2:/tmp/adbd.log
+libreecho-init: adbd-fd:3:socket:[1203]
+libreecho-init: adbd-fd:4:socket:[1204]
+libreecho-init: adbd-fd:5:/dev/usb-ffs/adb/ep0
+libreecho-init: adbd-fd:6:/dev/usb-ffs/adb/ep1
+libreecho-init: adbd-fd:7:/dev/usb-ffs/adb/ep2
+libreecho-init: adbd-fd:8:socket:[1207]
+libreecho-init: adbd-task:140:adbd:S (sleeping):do_select
+libreecho-init: adbd-task:143:adbd:S (sleeping):futex_do_wait
+libreecho-init: adbd-task:144:adbd:S (sleeping):inet_csk_accept
+libreecho-init: adbd-task:145:adbd:S (sleeping):unix_stream_read_generic
+libreecho-init: adbd-task:146:adbd:S (sleeping):ffs_epfile_io
+libreecho-init: adbd-task:273:adbd:S (sleeping):do_wait
+libreecho-init: adbd-log-empty
+libreecho-init: adbd-diagnostic-end
+loop0: detected capacity change from 0 to 18672
+loop1: detected capacity change from 0 to 312904
+loop2: detected capacity change from 0 to 16064
+loop3: detected capacity change from 0 to 105984
+loop4: detected capacity change from 0 to 5984
+libreecho-init: timezone-applied:UTC
+libreecho-mdnsd: mdns-supervisor-ready:1717
+libreecho-init: shared-discovery-runtime-started
+libreecho-init: feature-services-deferred-until-staged
+libreecho-init: ui-service-start:logd:0
+warning: `libreecho-netwo' uses wireless extensions which will stop working for Wi-Fi 7 hardware; use nl80211
+libreecho-init: ui-service-start:networkd:0
+libreecho-init: ui-service-start:timed:0
+[wlan][824]wlanArpTxDone:(SW4 STATE) ARP PKT[0x025c2f00] WIDX:PID[5:8] Status[0]
+libreecho-init: ui-service-start:audiod:0
+libreecho-init: ui-service-start:micd:0
+libreecho-init: ui-service-start:waked:0
+libreecho-init: ui-service-start:ledd:0
+libreecho-init: ui-service-start:buttond:0
+Bluetooth: MGMT ver 1.23
+libreecho-init: ui-service-start:btd:0
+libreecho-init: ui-service-start:timerd:0
+libreecho-init: ui-service-start:watchdogd:0
+libreecho-init: ui-service-start:airplayd:0
+libreecho-init: ui-service-start:radiod:0
+process 'usr/local/sbin/libreecho-ttsd' started with executable stack
+libreecho-init: ui-service-start:ttsd:0
+libreecho-init: ui-web-production-lan
+libreecho-init: ui-service-start:web:0
+libreecho-feature-reconcile: feature-reconcile-service-stopped:esphomed
+libreecho-feature-reconcile: feature-reconcile-service-ready:waked
+libreecho-feature-reconcile: feature-reconcile-service-ready:sttd
+libreecho-feature-reconcile: feature-reconcile-shared-discovery-owner:airplayd
+libreecho-feature-reconcile: feature-reconcile-service-ready:airplayd
+[wlan][824]wlanArpTxDone:(SW4 STATE) ARP PKT[0x284bc300] WIDX:PID[5:9] Status[0]
+libreecho-feature-reconcile: feature-reconcile-service-ready:ttsd
+libreecho-feature-reconcile: feature-reconcile-service-ready:agentd
+libreecho-feature-reconcile: feature-services-reconciled
+libreecho-init: persisted-feature-reconcile:0
+libreecho-init: ota-health-startup-ready:105
+libreecho-init: ota-health-probe-passed:1
+== bcb
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=2
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+== uptime 152.92 boot_id b4c9c73a-f87b-457b-903b-93c826d4558e libreecho.lab=p6-v2
+androidboot.slot_suffix=_b
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=2
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+schema=3
+slot=b
+transaction_id=txn-7303218adf4646e5decf1908
+manifest_sha256=fe8b6e52a4dadd173b7a2f61cfe5ba66c99da3d038b8a380ca0d0fbfeb277f8e
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=237
+failure_log=failure-236-1.log
+features_state=ready
+features_error=
+config_schema=1
+config_error=
+ota_transaction_state=pending
+ota_transaction_pending=1
+generation=txn-508529626fbd711fdbf6bf1c
+feature_airplay2_payload_sha256=a6583300828ff3b95c898e85d513267613452115ff911f9d79c5e4f16bfe6adb
+feature_airplay2_payload_size=9560064
+feature_airplay2_manifest_sha256=9532aba033a4eddc1b0d23d0125d94a401c6898fc211a7f2e2c8fdde2b433e4f
+feature_airplay2_running_daemon=libreecho-audio-engine
+feature_airplay2_running_daemon_sha256=39b6f34e1af27a132fe76e0128a89bee8907f13ed5b87635e853618f51cb9af0
+feature_airplay2_effective=present
+feature_tts_payload_sha256=197e583a378aa49a1d4a823e048920dac7d3a7be8c0b206deed0411ebac0aa78
+feature_tts_payload_size=160206848
+feature_tts_manifest_sha256=126dbad94d512bc8b3b6e1707ed6f52d8bdfba9da0a322b43437bc9dc446b440
+feature_tts_running_daemon=libreecho-ttsd
+feature_tts_running_daemon_sha256=1ef3bfa968a65e4f6d1e66a2784382fd552c688f1e18f7af4770796a17bcd283
+feature_tts_effective=present
+feature_wakeword_payload_sha256=4964fc7b02ec81456fce149b1b82f6cca85f2ce447c48826ee6e34e57423585d
+feature_wakeword_payload_size=8224768
+feature_wakeword_manifest_sha256=13ec6549b8ab7995f6d448cd4a13f23543d3a3ca90f490687cb73a7e989ab0a8
+feature_wakeword_running_daemon=libreecho-waked
+feature_wakeword_running_daemon_sha256=8bcd0bb026d8c255571ebead6faac7840dc932dadede6cf05d93ad55e0872637
+feature_wakeword_effective=present
+feature_stt_payload_sha256=dee3594dd45514d02ce62a60286e702cc2d2f205b344259bdc95e353e4322ede
+feature_stt_payload_size=54263808
+feature_stt_manifest_sha256=95f9a2c8f245ea9234cc0368e149ea9c0ff4bfc99765a98f3eb3cd9163ff03f5
+feature_stt_running_daemon=libreecho-sttd
+feature_stt_running_daemon_sha256=bab519b426665dfc683c5fec548f73b5112fc1c9c13afd2cc107c3fd8a51db7e
+feature_stt_effective=present
+feature_assistant_payload_sha256=a4103ec92daf60e9fc53f2899d9f48efec120d03778ebc0279853ac2fc37a0d1
+feature_assistant_payload_size=3063808
+feature_assistant_manifest_sha256=aba5b27bf2fb6cae966cb8a61a3da13c81af1894fb29014dbff6fac2098016d3
+feature_assistant_running_daemon=libreecho-agentd
+feature_assistant_running_daemon_sha256=de77abb6cb23a17db0f3b0a261b23a70a230d845eae1ef006abb8f1dfbbded63
+feature_assistant_effective=present
+features_state=ready
+features_error=
+schema=3
+slot=b
+transaction_id=txn-7303218adf4646e5decf1908
+manifest_sha256=fe8b6e52a4dadd173b7a2f61cfe5ba66c99da3d038b8a380ca0d0fbfeb277f8e
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+total 20
+srw-rw----    1 0        0                0 Nov 21 03:52 [1;35magent.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mairplay.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35maudio.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mbluetooth.sock[m
+-rw-r--r--    1 0        0               92 Nov 21 03:53 [0;0mbuttond-status[m
+drwxr-xr-x    7 0        0                0 Jan  1  1970 [1;34mfeatures[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mled.sock[m
+srw-rw-rw-    1 0        0                0 Jan  1  1970 [1;35mlog.sock[m
+srwx------    1 0        0                0 Jan  1  1970 [1;35mmdns.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mmic.sock[m
+srw-rw----    1 0        0                0 Jan  1  1970 [1;35mnetwork.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mradio.sock[m
+-rw-r--r--    1 0        0                9 Nov 21 03:52 [0;0mstartup-ready[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mstt.sock[m
+-rw-r--r--    1 0        0              250 Nov 21 03:53 [0;0mtime.status[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mtimer.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:52 [1;35mtts.sock[m
+-rw-------    1 0        0              163 Jan  1  1970 [0;0mvendor-import.status[m
+srw-rw----    1 0        0                0 Nov 21 03:51 [1;35mwakeword.sock[m
+-rw-------    1 0        0               43 Jan  1  1970 [0;0mwifi-client.conf[m
+-rw-r--r--    1 0        0                0 Jan  1  1970 [0;0mwlan0-ready[m
+ 4009 0         2:09 /run/libreecho/features/wakeword/root/usr/local/sbin/libreecho-waked --foreground --socket /run/libreecho/wakeword.sock --mic-socket /run/libreecho/mic.sock --reference-socket /run/libreecho-audio/aec-reference.sock --model-dir /run/libreecho/features/wakeword/root/usr/local/share/libreecho/openwakeword --wake-threads 1 --vad-floor-rms 16
+ 7576 0         0:32 /run/libreecho/features/tts/root/usr/local/sbin/libreecho-ttsd --foreground --socket /run/libreecho/tts.sock --model-dir /run/libreecho/features/tts/root/usr/local/share/libreecho/tts/models/southern-female --voice southern-female
+ 8411 0         0:12 /run/libreecho/features/stt/root/usr/local/sbin/libreecho-sttd --socket /run/libreecho/stt.sock --model-dir /run/libreecho/features/stt/root/usr/local/share/libreecho/stt --threads 2
+ 9507 0         0:00 /run/libreecho/features/assistant/root/usr/local/sbin/libreecho-agentd --socket /run/libreecho/agent.sock --curl /run/libreecho/features/assistant/root/usr/local/libexec/libreecho-curl
+==> /var/log/libreecho-agentd.log <==
+
+==> /var/log/libreecho-sttd.log <==
+sttd: ready engine=sherpa-onnx-zipformer threads=2 socket=/run/libreecho/stt.sock
+
+==> /var/log/libreecho-ttsd.log <==
+
+==> /var/log/libreecho-waked.log <==
+[0;93m2026-11-21 03:51:25.960807539 [W:onnxruntime:libreecho-wake, cpuid_info.cc:105 LogEarlyWarning] Unknown CPU vendor. cpuinfo_vendor value: 0[m
+waked: running (16 kHz, frame=10 ms, AEC tail=200 ms, preroll=3 s, vad-floor=16 RMS, wake=openwakeword-onnx)
+pstore-mounted
+pmsg-ready
+service-profile:production
+init-started
+audio-node-worker-started
+input-node-worker-started
+adb-transport-policy-read
+input-devnodes-created:1
+configfs-mounted
+configfs-adb-composition-created
+functionfs-mounted
+adbd-started:140
+audio-devnodes-created:5
+functionfs-ready
+configfs-udc-bound:musb-hdrc.3.auto
+userdata-mounted
+userdata-cleanup-ok
+boot-count:59
+boot-slot:b:b
+vendor-assets-ready
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-worker-started-after-adb
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+wifi-persistent-profile-selected
+wifi-profile-present
+wifi-profile-recorded
+ota-background-worker-started
+lidar-bt-ready-before-wlan
+active-device-ping-started
+audio-startup-disabled
+running-slot:b
+ota-rollback-resume-history-slot-still-selected
+ota-health-confirm-pending
+ota-health-waiting-startup-ready
+lidar-wlan-bound:mmc1:0001:1
+wlan0-ready-recorded
+wifi-client-rc:0
+wifi-activation-complete:0
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:socket:[1209]
+adbd-fd:11:socket:[1210]
+adbd-fd:12:socket:[1211]
+adbd-fd:13:socket:[1212]
+adbd-fd:14:socket:[1213]
+adbd-fd:15:/dev/ptmx
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[1203]
+adbd-fd:4:socket:[1204]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:/dev/usb-ffs/adb/ep1
+adbd-fd:7:/dev/usb-ffs/adb/ep2
+adbd-fd:8:socket:[1207]
+adbd-task:140:adbd:S (sleeping):do_select
+adbd-task:143:adbd:S (sleeping):futex_do_wait
+adbd-task:144:adbd:S (sleeping):inet_csk_accept
+adbd-task:145:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:146:adbd:S (sleeping):ffs_epfile_io
+adbd-task:273:adbd:S (sleeping):do_wait
+adbd-log-empty
+adbd-diagnostic-end
+timezone-applied:UTC
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:waked:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:airplayd:0
+ui-service-start:radiod:0
+ui-service-start:ttsd:0
+ui-web-production-lan
+ui-service-start:web:0
+feature-reconcile-service-stopped:esphomed
+feature-reconcile-service-ready:waked
+feature-reconcile-service-ready:sttd
+feature-reconcile-shared-discovery-owner:airplayd
+feature-reconcile-service-ready:airplayd
+feature-reconcile-service-ready:ttsd
+feature-reconcile-service-ready:agentd
+feature-services-reconciled
+persisted-feature-reconcile:0
+ota-health-startup-ready:105
+ota-health-probe-passed:1
+ota-health-probe-passed:2
+ota-health-probe-passed:3
+== init-persist
+adbd-log-empty
+adbd-diagnostic-end
+timezone-applied:UTC
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:waked:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:airplayd:0
+ui-service-start:radiod:0
+ui-service-start:ttsd:0
+ui-web-production-lan
+ui-service-start:web:0
+feature-reconcile-service-stopped:esphomed
+feature-reconcile-service-ready:waked
+feature-reconcile-service-ready:sttd
+feature-reconcile-shared-discovery-owner:airplayd
+feature-reconcile-service-ready:airplayd
+feature-reconcile-service-ready:ttsd
+feature-reconcile-service-ready:agentd
+feature-services-reconciled
+persisted-feature-reconcile:0
+ota-health-startup-ready:105
+ota-health-probe-passed:1
+ota-health-probe-passed:2
+ota-health-probe-passed:3
+== pstore
+total 0
+drwxr-x---    2 0        0                0 Jan  1  1970 [1;34m.[m
+drwxr-xr-x    5 0        0                0 Jan  1  1970 [1;34m..[m
+-r--r--r--    1 0        0            30538 Jan  1  1970 [0;0mconsole-ramoops-0[m
+-r--r--r--    1 0        0              250 Jan  1  1970 [0;0mpmsg-ramoops-0[m
+Booting Linux on physical CPU 0x0000000000 [0x410fd041]
+Linux version 6.18.64+ (libreecho@phase6) (clang version 23.1.5, LLD 23.1.5) #5 SMP 2026-11-21 00:00:00 UTC
+Machine model: MT8167B
+earlycon: uart8250 at MMIO32 0x0000000011005000 (options '')
+printk: legacy bootconsole [uart8250] enabled
+efi: UEFI not found.
+[Firmware Bug]: Kernel image misaligned at boot, please fix your bootloader!
+OF: reserved mem: 0x0000000043000000..0x000000004302ffff (192 KiB) nomap non-reusable atf@43000000
+OF: reserved mem: 0x0000000043810000..0x000000004386ffff (384 KiB) map non-reusable ramoops@43810000
+Zone ranges:
+  DMA      [mem 0x0000000040000000-0x000000007f9bffff]
+  DMA32    empty
+  Normal   empty
+Movable zone start for each node
+Early memory node ranges
+  node   0: [mem 0x0000000040000000-0x0000000042ffffff]
+  node   0: [mem 0x0000000043000000-0x000000004302ffff]
+  node   0: [mem 0x0000000043030000-0x000000007f9bffff]
+Initmem setup node 0 [mem 0x0000000040000000-0x000000007f9bffff]
+On node 0, zone DMA: 1600 pages in unavailable ranges
+psci: probing for conduit method from DT.
+psci: PSCIv1.0 detected in firmware.
+psci: Using standard PSCI v0.2 function IDs
+psci: Trusted OS migration not required
+psci: SMC Calling Convention v1.0
+percpu: Embedded 17 pages/cpu s38872 r0 d30760 u69632
+Detected VIPT I-cache on CPU0
+alternatives: applying boot alternatives
+Kernel command line: console=tty0 console=ttyMT0,921600n1 earlycon=uart8250,mmio32,0x11005000 vmalloc=496M androidboot.hardware=mt8167 androidboot.secure_cpu=1 androidboot.unlocked_kernel=true androidboot.tu_code=<TU_CODE> androidboot.rpmb_state=1 androidboot.pl_version=0xb85c androidboot.tee_version=0xa3f0 androidboot.lk_version=0x52e5 androidboot.prod=1 androidboot.pl_build_desc=2b6f82c-20190926_195940 androidboot.lk_build_desc=6f7225e-20230407_030004 androidboot.verifiedbootstate=yellow androidboot.prod=1 bootopt=64S3,32N2,64N2 buildvariant=user veritykeyid=id:f3530e18f64d11fc25eb2dd762979f078de990bf libreecho.lab=p6-v1 androidboot.selinux=enforce androidboot.veritymode=enforcing androidboot.slot_suffix=_a rootwait ro init=/init skip_initramfs root=/dev/dm-0 dm="system none ro,0 1 android-verity PARTUUID=<PARTUUID_13>" printk.disable_uart=1 leds-is31fl3236. bootprof.pl_t=4206 bootprof.lk_t=3420 boot_reason=4 androidboot.serialno=<SERIAL_A> 
+Unknown kernel command line parameters "skip_initramfs vmalloc=496M bootopt=64S3,32N2,64N2 buildvariant=user veritykeyid=id:f3530e18f64d11fc25eb2dd762979f078de990bf dm=system none ro,0 1 android-verity PARTUUID=<PARTUUID_13> boot_reason=4", will be passed to user space.
+printk: log buffer data + meta data: 131072 + 458752 = 589824 bytes
+Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+Inode-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+software IO TLB: SWIOTLB bounce buffer size adjusted to 0MB
+software IO TLB: area num 4.
+software IO TLB: mapped [mem 0x000000007e480000-0x000000007e580000] (1MB)
+Built 1 zonelists, mobility grouping on.  Total pages: 260544
+mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+rcu: Hierarchical RCU implementation.
+rcu: 	RCU restricting CPUs from NR_CPUS=512 to nr_cpu_ids=4.
+rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+Root IRQ handler: gic_handle_irq
+GIC: Using split EOI/Deactivate mode
+rcu: srcu_init: Setting srcu_struct sizes based on contention.
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+arch_timer: cp15 timer running at 13.00MHz (phys).
+clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x2ff89eacb, max_idle_ns: 440795202429 ns
+sched_clock: 56 bits at 13MHz, resolution 76ns, wraps every 4398046511101ns
+Console: colour dummy device 80x25
+printk: legacy console [tty0] enabled
+Calibrating delay loop (skipped), value calculated using timer frequency.. 26.00 BogoMIPS (lpj=52000)
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+rcu: Hierarchical SRCU implementation.
+rcu: 	Max phase no-delay instances is 1000.
+Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+EFI services will not be available.
+smp: Bringing up secondary CPUs ...
+Detected VIPT I-cache on CPU1
+CPU1: Booted secondary processor 0x0000000001 [0x410fd041]
+Detected VIPT I-cache on CPU2
+CPU2: Booted secondary processor 0x0000000002 [0x410fd041]
+Detected VIPT I-cache on CPU3
+CPU3: Booted secondary processor 0x0000000003 [0x410fd041]
+smp: Brought up 1 node, 4 CPUs
+SMP: Total of 4 processors activated.
+CPU: All CPU(s) started at EL2
+CPU features: detected: 32-bit EL0 Support
+CPU features: detected: CRC32 instructions
+alternatives: applying system-wide alternatives
+Memory: 996160K/1042176K available (8128K kernel code, 1206K rwdata, 3268K rodata, 768K init, 468K bss, 41820K reserved, 0K cma-reserved)
+devtmpfs: initialized
+posixtimers hash table entries: 2048 (order: 3, 32768 bytes, linear)
+futex hash table entries: 1024 (65536 bytes on 1 NUMA nodes, total 64 KiB, linear).
+pinctrl core: initialized pinctrl subsystem
+DMI not present or invalid.
+NET: Registered PF_NETLINK/PF_ROUTE protocol family
+DMA: preallocated 128 KiB GFP_KERNEL pool for atomic allocations
+DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+thermal_sys: Registered thermal governor 'step_wise'
+ASID allocator initialised with 65536 entries
+pstore: Using crash dump compression: deflate
+printk: legacy console [ramoops-1] enabled
+pstore: Registered ramoops as persistent store backend
+ramoops: using 0x60000@0x43810000, ecc: 0
+/soc/interrupt-controller@10310000: Fixed dependency cycle(s) with /soc/interrupt-controller@10310000
+iommu: Default domain type: Translated
+iommu: DMA domain TLB invalidation policy: strict mode
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+Advanced Linux Sound Architecture Driver Initialized.
+Bluetooth: Core ver 2.22
+NET: Registered PF_BLUETOOTH protocol family
+Bluetooth: HCI device and connection manager initialized
+Bluetooth: HCI socket layer initialized
+Bluetooth: L2CAP socket layer initialized
+Bluetooth: SCO socket layer initialized
+clocksource: Switched to clocksource arch_sys_counter
+NET: Registered PF_INET protocol family
+IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+tcp_listen_portaddr_hash hash table entries: 512 (order: 1, 8192 bytes, linear)
+Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+TCP established hash table entries: 8192 (order: 4, 65536 bytes, linear)
+TCP bind hash table entries: 8192 (order: 6, 262144 bytes, linear)
+TCP: Hash tables configured (established 8192 bind 8192)
+UDP hash table entries: 512 (order: 3, 32768 bytes, linear)
+UDP-Lite hash table entries: 512 (order: 3, 32768 bytes, linear)
+NET: Registered PF_UNIX/PF_LOCAL protocol family
+Unpacking initramfs...
+Initialise system trusted keyrings
+workingset: timestamp_bits=62 max_order=18 bucket_order=0
+squashfs: version 4.0 (2009/01/31) Phillip Lougher
+Key type asymmetric registered
+Asymmetric key parser 'x509' registered
+io scheduler mq-deadline registered
+io scheduler kyber registered
+io scheduler bfq registered
+mtk-power-controller 10006000.syscon:power-controller: /soc/syscon@10006000/power-controller/power-domain@4: failed to power on domain: -110
+mtk-power-controller 10006000.syscon:power-controller: probe with driver mtk-power-controller failed with error -110
+Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+11006000.serial: ttyS0 at MMIO 0x11006000 (irq = 184, base_baud = 1625000) is a ST16650V2
+11007000.serial: ttyS1 at MMIO 0x11007000 (irq = 185, base_baud = 1625000) is a ST16650V2
+mtk_rng 1020c000.rng: registered RNG driver
+random: crng init done
+loop: module loaded
+amz_privacy amz-privacy: registered (read-only privacy-state input, initial state public)
+[wlan][1]initWlan:(INIT STATE) initWlan..
+[wlan][1]mt76x8_wireless_init:(INIT STATE) Initialize wireless Device
+[wlan][1]wlanCreateWirelessDevice:(INIT ERROR) The num_different_channels is 2
+[wlan][1]mtk_reg_notify:(RLM ERROR) prGlueInfo is NULL!
+[wlan][1]initWlan:(INIT STATE) initWlan end
+i2c_dev: i2c /dev entries driver
+is31fl32xx 0-003f: LibreEcho 36-channel atomic frame interface ready
+tmp108 0-0048: supply vcc not found, using dummy regulator
+hwmon hwmon0: temp1_input not attached to any thermal zone
+tmp108 2-004a: supply vcc not found, using dummy regulator
+hwmon hwmon1: temp1_input not attached to any thermal zone
+mtk-wdt 10007000.watchdog: Watchdog enabled (timeout=31 sec, nowayout=0)
+usbcore: registered new interface driver usbhid
+usbhid: USB HID core driver
+
+TSL2540: INIT()
+
+TSL2540: probe()
+tsl2540 0-0039: tsl2540_probe: client->irq = 0
+tsl2540 0-0039: tsl2540_probe: no reason to run.
+tsl2540 0-0039: Probe failed.
+tsl2540 0-0039: probe with driver tsl2540 failed with error -22
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=52 arg=00000C00; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=52 arg=80000C08; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=8 arg=000001AA; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=5 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+mtk-msdc 11120000.mmc: msdc_track_cmd_data: cmd=55 arg=00000000; host->error=0x00000002
+mt8516-afe-pcm 11140000.audio-controller: mtk_afe_combine_sub_dai(), num of dai 6
+mmc0: new HS200 MMC card at address 0001
+mmcblk0: mmc0:0001 Q2J95E 7.13 GiB
+ mmcblk0: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16
+mmcblk0boot0: mmc0:0001 Q2J95E 2.00 MiB
+mmcblk0boot1: mmc0:0001 Q2J95E 2.00 MiB
+mmcblk0rpmb: mmc0:0001 Q2J95E 4.00 MiB, chardev (249:0)
+ALSA: Control name 'ADC1 Left ADC Unselected CM Bias Capture Switch' truncated to 'ADC1 Left ADC Unselected CM Bias Capture Sw'
+ALSA: Control name 'ADC1 Right ADC Unselected CM Bias Capture Switch' truncated to 'ADC1 Right ADC Unselected CM Bias Capture S'
+ALSA: Control name 'ADC2 Left ADC Unselected CM Bias Capture Switch' truncated to 'ADC2 Left ADC Unselected CM Bias Capture Sw'
+ALSA: Control name 'ADC2 Right ADC Unselected CM Bias Capture Switch' truncated to 'ADC2 Right ADC Unselected CM Bias Capture S'
+ALSA: Control name 'ADC3 Left ADC Unselected CM Bias Capture Switch' truncated to 'ADC3 Left ADC Unselected CM Bias Capture Sw'
+ALSA: Control name 'ADC3 Right ADC Unselected CM Bias Capture Switch' truncated to 'ADC3 Right ADC Unselected CM Bias Capture S'
+ALSA: Control name 'ADC4 Left ADC Unselected CM Bias Capture Switch' truncated to 'ADC4 Left ADC Unselected CM Bias Capture Sw'
+ALSA: Control name 'ADC4 Right ADC Unselected CM Bias Capture Switch' truncated to 'ADC4 Right ADC Unselected CM Bias Capture S'
+ALSA: Control name 'ADC1 Left DMic Input Left ADC Capture Switch' truncated to 'ADC1 Left DMic Input Left ADC Capture Switc'
+ALSA: Control name 'ADC1 Right DMic Input Right ADC Capture Switch' truncated to 'ADC1 Right DMic Input Right ADC Capture Swi'
+ALSA: Control name 'ADC2 Left DMic Input Left ADC Capture Switch' truncated to 'ADC2 Left DMic Input Left ADC Capture Switc'
+ALSA: Control name 'ADC2 Right DMic Input Right ADC Capture Switch' truncated to 'ADC2 Right DMic Input Right ADC Capture Swi'
+ALSA: Control name 'ADC3 Left DMic Input Left ADC Capture Switch' truncated to 'ADC3 Left DMic Input Left ADC Capture Switc'
+ALSA: Control name 'ADC3 Right DMic Input Right ADC Capture Switch' truncated to 'ADC3 Right DMic Input Right ADC Capture Swi'
+ALSA: Control name 'ADC4 Left DMic Input Left ADC Capture Switch' truncated to 'ADC4 Left DMic Input Left ADC Capture Switc'
+ALSA: Control name 'ADC4 Right DMic Input Right ADC Capture Switch' truncated to 'ADC4 Right DMic Input Right ADC Capture Swi'
+NET: Registered PF_INET6 protocol family
+Segment Routing with IPv6
+In-situ OAM (IOAM) with IPv6
+sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+NET: Registered PF_PACKET protocol family
+Loading compiled-in X.509 certificates
+usb_phy_generic usb_phy_generic.2.auto: dummy supplies not allowed for exclusive requests (id=vbus)
+input: gpio-keys as /devices/platform/gpio-keys/input/input0
+cfg80211: Loading compiled-in X.509 certificates for regulatory database
+Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+Loaded X.509 cert 'wens: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+clk: Disabling unused clocks
+PM: genpd: Disabling unused power domains
+ALSA device list:
+  #0: amazon-lidar
+mtk-msdc 11170000.mmc: msdc_track_cmd_data: cmd=52 arg=00000C00; host->error=0x00000002
+mtk-msdc 11170000.mmc: msdc_track_cmd_data: cmd=52 arg=80000C08; host->error=0x00000002
+mmc1: new UHS-I speed SDR104 SDIO card at address 0001
+Freeing initrd memory: 5624K
+mt7668_sdio mmc1:0001:1: firmware not installed yet, deferring probe; bind after importing it
+mt7668_sdio mmc1:0001:1: probe with driver mt7668_sdio failed with error -2
+Freeing unused kernel memory: 768K
+Run /init as init process
+libreecho-init: pstore-mounted
+libreecho-init: pmsg-ready
+libreecho-init: service-profile:production
+libreecho-init: init-started
+libreecho-init: audio-node-worker-started
+libreecho-init: input-node-worker-started
+libreecho-init: adb-transport-policy-read
+libreecho-init: input-devnodes-created:1
+libreecho-init: configfs-mounted
+file system registered
+libreecho-init: configfs-adb-composition-created
+libreecho-init: functionfs-mounted
+libreecho-init: adbd-started:142
+read descriptors
+read strings
+libreecho-init: audio-devnodes-created:5
+Bluetooth: hci0: Device setup in 1062662 usecs
+libreecho-init: functionfs-ready
+libreecho-init: configfs-udc-bound:musb-hdrc.3.auto
+adbd (211): /proc/211/oom_adj is deprecated, please use /proc/211/oom_score_adj instead.
+EXT4-fs (mmcblk0p16): recovery complete
+EXT4-fs (mmcblk0p16): mounted filesystem <FS_UUID_2> r/w with ordered data mode. Quota mode: disabled.
+libreecho-init: userdata-mounted
+libreecho-init: userdata-cleanup-ok
+libreecho-init: boot-count:58
+libreecho-init: boot-slot:a:a
+EXT4-fs (mmcblk0p13): mounted filesystem <FS_UUID_1> ro without journal. Quota mode: disabled.
+EXT4-fs (mmcblk0p13): unmounting filesystem <FS_UUID_1>.
+libreecho-init: vendor-assets-ready
+libreecho-init: hostname-idme-serial-unavailable
+libreecho-init: automatic-fastboot-marker-disabled
+libreecho-init: reboot-supervisor-started
+libreecho-init: reboot-signal-traps-installed
+libreecho-init: wmt-nodes-created
+libreecho-init: loopback-configured
+libreecho-init: physical-recovery-helper-absent
+libreecho-init: wifi-network-worker-started-after-adb
+libreecho-init: runme-loop-started
+libreecho-init: init-ready-pid1-managed
+libreecho-init: wifi-request-supervisor-started
+libreecho-init: wifi-persistent-profile-selected
+libreecho-init: ui-services-autostart-started
+libreecho-init: wifi-profile-present
+libreecho-init: wifi-profile-recorded
+libreecho-init: ota-background-worker-started
+libreecho-init: lidar-bt-ready-before-wlan
+libreecho-init: active-device-ping-started
+libreecho-init: audio-startup-disabled
+[wlan][489]wlanProbe:(INIT STATE) enter wlanProbe
+libreecho-init: running-slot:a
+[wlan][489]halPollDbgCr:(INIT WARN) SWPCDBGR 0x00016EC2
+libreecho-init: first-boot-slot-already-confirmed:a
+[wlan][489]wlanAdapterStart:(INIT WARN) Send a Dummy CMD as workaround
+[wlan][489]wlanQueryNicCapability:(INIT WARN) wlanQueryNicCapability: skip unexpected event ID[0x27]
+[wlan][489]wlanAdapterStart:(INIT WARN) wlanAdapterStart: load manufacture data fail
+[wlan][489]wlanProbe:(INIT STATE) main_thread 00000000dfd5bb4b
+[wlan][744]main_thread:(INIT STATE) main_thread:744 starts running...
+[wlan][489]wlanProbe:(INIT STATE) hif_thread 00000000ac3ea7dc
+[wlan][745]hif_thread:(INIT STATE) hif_thread:745 starts running...
+[wlan][489]wlanProbe:(INIT STATE) rx_thread 00000000d34d0f0c
+[wlan][746]rx_thread:(INIT STATE) rx_thread:746 starts running...
+[wlan][489]wlanDownloadBufferBin:(INIT STATE) [EFUSE AUTO] EFUSE Mode
+[wlan][744]p2pDevFsmStateTransition:(P2P STATE) [P2P_DEV]TRANSITION: [P2P_DEV_STATE_IDLE] -> [P2P_DEV_STATE_IDLE]
+[wlan][744]wlanBindBssIdxToNetInterface:(INIT ERROR) Array index out of bound, ucBssIndex=4
+[wlan][744]p2pRoleFsmStateTransition:(P2P STATE) [P2P_ROLE][0]TRANSITION(Bss1): [P2P_ROLE_STATE_IDLE] -> [P2P_ROLE_STATE_IDLE]
+[wlan][744]p2pDevFsmStateTransition:(P2P STATE) [P2P_DEV]TRANSITION: [P2P_DEV_STATE_IDLE] -> [P2P_DEV_STATE_IDLE]
+[wlan][744]wlanBindBssIdxToNetInterface:(INIT ERROR) Array index out of bound, ucBssIndex=4
+[wlan][744]p2pRoleFsmStateTransition:(P2P STATE) [P2P_ROLE][1]TRANSITION(Bss2): [P2P_ROLE_STATE_IDLE] -> [P2P_ROLE_STATE_IDLE]
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x11] SEQ[28]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00112B8
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x70] SEQ[33]
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x70] SEQ[33]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00112B8
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00112C6
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x70] SEQ[34]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0011286
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00112C6
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00246A2
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE004198A
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x70] SEQ[35]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE002485A
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0x00034BDC
+[wlan][489]wlanUpdateRssiComp:(INIT ERROR) c2GRssiCompensation=2,c5GRssiCompensation=2
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x3D] SEQ[44]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0024764
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0041AB0
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0041916
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00419AC
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0041990
+[wlan][489]wlanProbe:(INIT STATE) wlanProbe: probe success
+libreecho-init: lidar-wlan-bound:mmc1:0001:1
+libreecho-init: wlan0-ready-recorded
+[wlan][838]mtk_cfg80211_set_power_mgmt:(INIT STATE) Set CAM and store user's PS mode:0
+[wlan][844]mtk_cfg80211_scan:(REQ WARN) scan channel num = 39
+[wlan][844]mtk_cfg80211_scan:(REQ WARN) scan channel num (39) exceeds 32, do a full scan instead
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [IDLE] -> [SCAN]
+[wlan][744]scnFsmSteps:(SCN STATE) [SCAN]TRANSITION: [IDLE] -> [SCANNING]
+[wlan][744]scnFsmSteps:(SCN STATE) [SCAN]TRANSITION: [SCANNING] -> [IDLE]
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [SCAN] -> [IDLE]
+[wlan][844]mtk_cfg80211_connect:(REQ WARN) BSSID[<MAC_AP_A>] channel[2462]
+[wlan][744]aisFsmRunEventAbort:(AIS STATE) EVENT-ABORT: Current State IDLE, ucReasonOfDisconnect:4
+[wlan][744]aisFsmRunEventAbort:(AIS STATE) ucReasonOfDisconnect:4
+[wlan][744]aisFsmStateAbort:(AIS STATE) aisFsmStateAbort DiscReason[4], CurState[0]
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [IDLE] -> [IDLE]
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [IDLE] -> [SEARCH]
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [SEARCH] -> [REQ_CHANNEL_JOIN]
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use target bcn eBand 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) target channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=0,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=0,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=0,0,0
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [REQ_CHANNEL_JOIN] -> [JOIN]
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use target bcn eBand 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) target channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]saaFsmSteps:(SAA STATE) [SAA]TRANSITION: [AA_IDLE] -> [SAA_SEND_AUTH1]
+[wlan][744]saaFsmSteps:(SAA STATE) [SAA]TRANSITION: [SAA_SEND_AUTH1] -> [SAA_WAIT_AUTH2]
+[wlan][744]saaFsmSteps:(SAA STATE) [SAA]TRANSITION: [SAA_WAIT_AUTH2] -> [SAA_SEND_ASSOC1]
+[wlan][744]saaFsmSteps:(SAA STATE) [SAA]TRANSITION: [SAA_SEND_ASSOC1] -> [SAA_WAIT_ASSOC2]
+[wlan][744]saaFsmSteps:(SAA STATE) [SAA]TRANSITION: [SAA_WAIT_ASSOC2] -> [AA_IDLE]
+[wlan][744]aisUpdateBssInfoForJOIN:(AIS EVENT) Update target Sta Rec to :0
+[wlan][744]nicQmUpdateWmmParms:(QM EVENT) sizeof(AC_QUE_PARMS_T): 10
+[wlan][744]nicQmUpdateWmmParms:(QM EVENT) sizeof(CMD_UPDATE_WMM_PARMS): 44
+[wlan][744]nicQmUpdateWmmParms:(QM EVENT) sizeof(WIFI_CMD_T): 64
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]aisFsmSteps:(AIS STATE) [AIS]TRANSITION: [JOIN] -> [NORMAL_TR]
+[wlan][746]kalRxIndicateOnePkt:(RSN WARN) Rx EAPOL Frame [Len: 99]
+[wlan][844]kalQoSFrameClassifierAndPacketInfo:(RSN WARN) Tx EAPOL Frame [Len: 135] [KeyInfo: 266]
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]wlanEnqueueTxPacket:(INIT WARN) wlanEnqueueTxPacket: Free MSDU of 1X PKT [Len: 135] due to StaRec is still invalid
+[wlan][744]qmSetStaRecTxAllowed:(QM EVENT) Set Sta[0] TxAllowed[0] pending TxQ
+[wlan][744]qmActivateStaRec:(QM STATE) QM: +STA[0]
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]nicTxFillDescByPktOption:(NIC ERROR) Remaining Tx Time 1500 ms in pkt option (1474)
+[wlan][744]wlan1xTxDone:(SW4 STATE) 1x PKT[0x01dd6d00] WIDX:PID[5:3] Status[0]
+[wlan][746]kalRxIndicateOnePkt:(RSN WARN) Rx EAPOL Frame [Len: 155]
+[wlan][844]kalQoSFrameClassifierAndPacketInfo:(RSN WARN) Tx EAPOL Frame [Len: 113] [KeyInfo: 778]
+[wlan][744]nicTxFillDescByPktOption:(NIC ERROR) Remaining Tx Time 1500 ms in pkt option (1474)
+[wlan][744]nicEventAddPkeyDone:(RSN EVENT) EVENT_ID_ADD_PKEY_DONE BSSIDX=0 <MAC_AP_A>
+[wlan][744]nicEventAddPkeyDone:(RSN EVENT) STA <MAC_AP_A> Add Key Done!!
+[wlan][744]qmSetStaRecTxAllowed:(QM EVENT) Set Sta[0] TxAllowed[1] normal TxQ
+[wlan][744]nicEventAddPkeyDone:(RSN EVENT) EVENT_ID_ADD_PKEY_DONE BSSIDX=0 ff:ff:ff:ff:ff:ff
+[wlan][744]wlan1xTxDone:(SW4 STATE) 1x PKT[0x01dd6e00] WIDX:PID[5:4] Status[0]
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000d07a966f
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][744]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][744]wlanDhcpTxDone:(SW4 STATE) DHCP PKT[0x02be3b00] WIDX:PID[5:5] Status[0]
+[wlan][744]wlanDhcpTxDone:(SW4 STATE) DHCP PKT[0x02be3600] WIDX:PID[5:6] Status[0]
+libreecho-init: wifi-client-rc:0
+libreecho-init: wifi-activation-complete:0
+[wlan][744]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x14] SEQ[78]
+[wlan][745]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001128A
+[wlan][745]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE002CBDA
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+[wlan][744]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+libreecho-init: adbd-diagnostic-begin
+libreecho-init: adbd-fd:0:/dev/null
+libreecho-init: adbd-fd:1:/tmp/adbd.log
+libreecho-init: adbd-fd:10:/dev/usb-ffs/adb/ep2
+libreecho-init: adbd-fd:11:socket:[2315]
+libreecho-init: adbd-fd:13:socket:[2317]
+libreecho-init: adbd-fd:14:socket:[2318]
+libreecho-init: adbd-fd:15:/dev/ptmx
+libreecho-init: adbd-fd:2:/tmp/adbd.log
+libreecho-init: adbd-fd:3:socket:[2310]
+libreecho-init: adbd-fd:4:socket:[2311]
+libreecho-init: adbd-fd:5:/dev/usb-ffs/adb/ep0
+libreecho-init: adbd-fd:6:socket:[2312]
+libreecho-init: adbd-fd:7:socket:[2313]
+libreecho-init: adbd-fd:8:socket:[2314]
+libreecho-init: adbd-fd:9:/dev/usb-ffs/adb/ep1
+libreecho-init: adbd-task:142:adbd:S (sleeping):do_select
+libreecho-init: adbd-task:145:adbd:S (sleeping):futex_do_wait
+libreecho-init: adbd-task:146:adbd:S (sleeping):inet_csk_accept
+libreecho-init: adbd-task:147:adbd:S (sleeping):unix_stream_read_generic
+libreecho-init: adbd-task:148:adbd:S (sleeping):ffs_epfile_io
+libreecho-init: adbd-task:247:adbd:S (sleeping):do_wait
+libreecho-init: adbd-log-empty
+libreecho-init: adbd-diagnostic-end
+loop0: detected capacity change from 0 to 18672
+loop1: detected capacity change from 0 to 312904
+loop2: detected capacity change from 0 to 16064
+loop3: detected capacity change from 0 to 105984
+loop4: detected capacity change from 0 to 5984
+libreecho-init: features-user-modified:boot-image-modified,
+libreecho-init: timezone-applied:UTC
+libreecho-mdnsd: mdns-supervisor-ready:1636
+libreecho-init: shared-discovery-runtime-started
+libreecho-init: feature-services-deferred-until-staged
+libreecho-init: ui-service-start:logd:0
+libreecho-init: ui-service-start:networkd:0
+warning: `libreecho-netwo' uses wireless extensions which will stop working for Wi-Fi 7 hardware; use nl80211
+libreecho-init: ui-service-start:timed:0
+[wlan][744]wlanArpTxDone:(SW4 STATE) ARP PKT[0x018f5800] WIDX:PID[5:7] Status[0]
+libreecho-init: ui-service-start:audiod:0
+libreecho-init: ui-service-start:micd:0
+libreecho-init: ui-service-start:waked:0
+libreecho-init: ui-service-start:ledd:0
+libreecho-init: ui-service-start:buttond:0
+Bluetooth: MGMT ver 1.23
+libreecho-init: ui-service-start:btd:0
+libreecho-init: ui-service-start:timerd:0
+libreecho-init: ui-service-start:watchdogd:0
+libreecho-init: ui-service-start:airplayd:0
+libreecho-init: ui-service-start:radiod:0
+process 'usr/local/sbin/libreecho-ttsd' started with executable stack
+libreecho-init: ui-service-start:ttsd:0
+libreecho-init: ui-web-production-lan
+libreecho-init: ui-service-start:web:0
+libreecho-feature-reconcile: feature-reconcile-service-stopped:esphomed
+libreecho-feature-reconcile: feature-reconcile-service-ready:waked
+libreecho-feature-reconcile: feature-reconcile-service-ready:sttd
+libreecho-feature-reconcile: feature-reconcile-shared-discovery-owner:airplayd
+libreecho-feature-reconcile: feature-reconcile-service-ready:airplayd
+[wlan][744]wlanArpTxDone:(SW4 STATE) ARP PKT[0x07a03900] WIDX:PID[5:8] Status[0]
+libreecho-feature-reconcile: feature-reconcile-service-ready:ttsd
+libreecho-feature-reconcile: feature-reconcile-service-ready:agentd
+libreecho-feature-reconcile: feature-services-reconciled
+libreecho-init: persisted-feature-reconcile:0
+[wlan][744]wlanArpTxDone:(SW4 STATE) ARP PKT[0x022ebd00] WIDX:PID[5:9] Status[0]
+libreecho-init: local-services-supervisor-started
+libreecho-init: reboot-signal-reboot-accepted
+reboot: Restarting system
+libreecho-init:pstore-ready
+libreecho-init:init-started
+libreecho-init:adb-ffs-ready
+libreecho-init:adb-usb-endpoints-ready
+libreecho-init:adb-tcp-5555-bound
+libreecho-init:wifi-boot-activation
+libreecho-init:mdns-started
+libreecho-init:web-start-ok
+== dmesg
+[wlan][824]wlan1xTxDone:(SW4 STATE) 1x PKT[0x02047d00] WIDX:PID[5:4] Status[0]
+[wlan][827]kalRxIndicateOnePkt:(RSN WARN) Rx EAPOL Frame [Len: 155]
+[wlan][903]kalQoSFrameClassifierAndPacketInfo:(RSN WARN) Tx EAPOL Frame [Len: 113] [KeyInfo: 778]
+[wlan][824]nicTxFillDescByPktOption:(NIC ERROR) Remaining Tx Time 1500 ms in pkt option (1474)
+[wlan][824]nicEventAddPkeyDone:(RSN EVENT) EVENT_ID_ADD_PKEY_DONE BSSIDX=0 <MAC_AP_A>
+[wlan][824]nicEventAddPkeyDone:(RSN EVENT) STA <MAC_AP_A> Add Key Done!!
+[wlan][824]qmSetStaRecTxAllowed:(QM EVENT) Set Sta[0] TxAllowed[1] normal TxQ
+[wlan][824]nicEventAddPkeyDone:(RSN EVENT) EVENT_ID_ADD_PKEY_DONE BSSIDX=0 ff:ff:ff:ff:ff:ff
+[wlan][824]wlan1xTxDone:(SW4 STATE) 1x PKT[0x02047e00] WIDX:PID[5:5] Status[0]
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000f89326a4
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) use connected bcn eBand 1 target prBssDesc 00000000f89326a4
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) channel 11 ucChannelBw 1
+[wlan][824]cnmGetBssMaxBw:(CNM STATE) ucMaxBandwidth 0
+[wlan][824]wlanDhcpTxDone:(SW4 STATE) DHCP PKT[0x025c2d00] WIDX:PID[5:6] Status[0]
+[wlan][824]wlanDhcpTxDone:(SW4 STATE) DHCP PKT[0x025c2c00] WIDX:PID[5:7] Status[0]
+libreecho-init: wifi-client-rc:0
+libreecho-init: wifi-activation-complete:0
+[wlan][824]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x14] SEQ[79]
+[wlan][826]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][826]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][826]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][826]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][826]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE005B86A
+[wlan][826]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00561DA
+[wlan][824]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][824]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][824]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][824]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+[wlan][824]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+[wlan][824]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+libreecho-init: adbd-diagnostic-begin
+libreecho-init: adbd-fd:0:/dev/null
+libreecho-init: adbd-fd:1:/tmp/adbd.log
+libreecho-init: adbd-fd:10:socket:[1209]
+libreecho-init: adbd-fd:11:socket:[1210]
+libreecho-init: adbd-fd:12:socket:[1211]
+libreecho-init: adbd-fd:13:socket:[1212]
+libreecho-init: adbd-fd:14:socket:[1213]
+libreecho-init: adbd-fd:15:/dev/ptmx
+libreecho-init: adbd-fd:2:/tmp/adbd.log
+libreecho-init: adbd-fd:3:socket:[1203]
+libreecho-init: adbd-fd:4:socket:[1204]
+libreecho-init: adbd-fd:5:/dev/usb-ffs/adb/ep0
+libreecho-init: adbd-fd:6:/dev/usb-ffs/adb/ep1
+libreecho-init: adbd-fd:7:/dev/usb-ffs/adb/ep2
+libreecho-init: adbd-fd:8:socket:[1207]
+libreecho-init: adbd-task:140:adbd:S (sleeping):do_select
+libreecho-init: adbd-task:143:adbd:S (sleeping):futex_do_wait
+libreecho-init: adbd-task:144:adbd:S (sleeping):inet_csk_accept
+libreecho-init: adbd-task:145:adbd:S (sleeping):unix_stream_read_generic
+libreecho-init: adbd-task:146:adbd:S (sleeping):ffs_epfile_io
+libreecho-init: adbd-task:273:adbd:S (sleeping):do_wait
+libreecho-init: adbd-log-empty
+libreecho-init: adbd-diagnostic-end
+loop0: detected capacity change from 0 to 18672
+loop1: detected capacity change from 0 to 312904
+loop2: detected capacity change from 0 to 16064
+loop3: detected capacity change from 0 to 105984
+loop4: detected capacity change from 0 to 5984
+libreecho-init: timezone-applied:UTC
+libreecho-mdnsd: mdns-supervisor-ready:1717
+libreecho-init: shared-discovery-runtime-started
+libreecho-init: feature-services-deferred-until-staged
+libreecho-init: ui-service-start:logd:0
+warning: `libreecho-netwo' uses wireless extensions which will stop working for Wi-Fi 7 hardware; use nl80211
+libreecho-init: ui-service-start:networkd:0
+libreecho-init: ui-service-start:timed:0
+[wlan][824]wlanArpTxDone:(SW4 STATE) ARP PKT[0x025c2f00] WIDX:PID[5:8] Status[0]
+libreecho-init: ui-service-start:audiod:0
+libreecho-init: ui-service-start:micd:0
+libreecho-init: ui-service-start:waked:0
+libreecho-init: ui-service-start:ledd:0
+libreecho-init: ui-service-start:buttond:0
+Bluetooth: MGMT ver 1.23
+libreecho-init: ui-service-start:btd:0
+libreecho-init: ui-service-start:timerd:0
+libreecho-init: ui-service-start:watchdogd:0
+libreecho-init: ui-service-start:airplayd:0
+libreecho-init: ui-service-start:radiod:0
+process 'usr/local/sbin/libreecho-ttsd' started with executable stack
+libreecho-init: ui-service-start:ttsd:0
+libreecho-init: ui-web-production-lan
+libreecho-init: ui-service-start:web:0
+libreecho-feature-reconcile: feature-reconcile-service-stopped:esphomed
+libreecho-feature-reconcile: feature-reconcile-service-ready:waked
+libreecho-feature-reconcile: feature-reconcile-service-ready:sttd
+libreecho-feature-reconcile: feature-reconcile-shared-discovery-owner:airplayd
+libreecho-feature-reconcile: feature-reconcile-service-ready:airplayd
+[wlan][824]wlanArpTxDone:(SW4 STATE) ARP PKT[0x284bc300] WIDX:PID[5:9] Status[0]
+libreecho-feature-reconcile: feature-reconcile-service-ready:ttsd
+libreecho-feature-reconcile: feature-reconcile-service-ready:agentd
+libreecho-feature-reconcile: feature-services-reconciled
+libreecho-init: persisted-feature-reconcile:0
+libreecho-init: ota-health-startup-ready:105
+libreecho-init: ota-health-probe-passed:1
+libreecho-init: ota-health-probe-passed:2
+[wlan][824]wlanArpTxDone:(SW4 STATE) ARP PKT[0x01a22700] WIDX:PID[5:10] Status[0]
+libreecho-init: ota-health-probe-passed:3
+== bcb
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=1
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-

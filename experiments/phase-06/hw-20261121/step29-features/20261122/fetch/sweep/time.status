@@ -1,0 +1,11 @@
+state=retrying
+source=rtc
+synchronized=0
+clock_valid=1
+rtc_available=0
+rtc_persisted=0
+last_sync_epoch=0
+config_source=image
+servers=time.cloudflare.com,time.nist.gov,ntp1.npl.co.uk,ntp2.npl.co.uk
+ntpd_exit_status=0
+last_error=RTC persistence failed

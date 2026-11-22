@@ -1,0 +1,10 @@
+total 4
+drwxr-xr-x    3 0        0                0 Jan  1 00:00 [1;34m.[m
+drwxr-xr-x    4 0        0                0 Jan  1 00:00 [1;34m..[m
+drwxr-xr-x    7 0        0                0 Jan  1 00:00 [1;34mfeatures[m
+srw-rw-rw-    1 0        0                0 Jan  1 00:00 [1;35mlog.sock[m
+-rw-r--r--    1 0        0                0 Jan  1 00:00 [0;0mota-health-settled[m
+-rw-------    1 0        0              163 Jan  1 00:00 [0;0mvendor-import.status[m
+---
+features_state=ready
+features_error=boot-image-modified 

@@ -1,0 +1,26 @@
+state=imported
+verification=lidar-hash-pinned-ram-per-unit-calibration
+source_partition=system_a
+source_layout=system/vendor/firmware
+force_requested=0
+error=none
+---
+/run/libreecho/features/airplay2:  
+/run/libreecho/features/assistant:  
+/run/libreecho/features/stt:  
+/run/libreecho/features/tts:  
+/run/libreecho/features/wakeword:  
+---
+[1;36mmmc1:0001:1[m  [1;36mmmc1:0001:2[m
+OF_NAME=wifi
+OF_FULLNAME=/soc/mmc@11170000/wifi@1
+OF_COMPATIBLE_N=0
+SDIO_CLASS=00
+SDIO_ID=037A:7608
+SDIO_REVISION=0.0
+MODALIAS=sdio:c00v037Ad7608
+DRIVER=btmtksdio
+SDIO_CLASS=00
+SDIO_ID=037A:7668
+SDIO_REVISION=0.0
+MODALIAS=sdio:c00v037Ad7668

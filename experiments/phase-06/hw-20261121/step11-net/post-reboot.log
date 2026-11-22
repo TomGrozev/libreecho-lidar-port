@@ -1,0 +1,85 @@
+==up
+28.13 84.18
+==addr
+3: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP qlen 1000
+    link/ether <MAC_WLAN_A> brd ff:ff:ff:ff:ff:ff
+    inet <DEVICE_IP_A>/26 scope global wlan0
+       valid_lft forever preferred_lft forever
+    inet6 <ULA_ADDRESS_A>/64 scope global dynamic flags 100 
+       valid_lft 1783sec preferred_lft 1783sec
+    inet6 <LINK_LOCAL_IPV6_A>/64 scope link 
+       valid_lft forever preferred_lft forever
+default via <LAN_GATEWAY_A> dev wlan0 
+<LAN_CIDR_A> dev wlan0 scope link  src <DEVICE_IP_A> 
+==wpa
+Successfully initialized wpa_supplicant
+rfkill: Cannot open RFKILL control device
+wlan0: Trying to associate with <MAC_AP_A> (SSID='<SSID_A>' freq=2462 MHz)
+wlan0: Associated with <MAC_AP_A>
+wlan0: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+wlan0: WPA: Key negotiation completed with <MAC_AP_A> [PTK=CCMP GTK=CCMP]
+wlan0: CTRL-EVENT-CONNECTED - Connection to <MAC_AP_A> completed [id=0 id_str=]
+==gw
+PING <LAN_GATEWAY_A> (<LAN_GATEWAY_A>): 56 data bytes
+64 bytes from <LAN_GATEWAY_A>: seq=0 ttl=64 time=7.000 ms
+64 bytes from <LAN_GATEWAY_A>: seq=1 ttl=64 time=2.218 ms
+
+--- <LAN_GATEWAY_A> ping statistics ---
+2 packets transmitted, 2 packets received, 0% packet loss
+round-trip min/avg/max = 2.218/4.609/7.000 ms
+==dns
+Server:		<LAN_GATEWAY_A>
+Address:	<LAN_GATEWAY_A>:53
+
+Non-authoritative answer:
+Name:	example.com
+Address: 104.20.23.154
+Name:	example.com
+Address: 172.66.147.243
+
+Non-authoritative answer:
+Name:	example.com
+Address: 2606:4700:10::6814:179a
+Name:	example.com
+Address: 2606:4700:10::ac42:93f3
+
+==bootctl
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=1
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+==health
+schema=1
+state=confirmed
+mode=first-boot
+running_slot=b
+selected_slot=b
+pending_slot=-
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=1
+boot_count=60
+attempt=0
+passed=0
+last_check=none
+strict_graph=0
+epoch=5
+==ready
+ls: /run/libreecho/startup-ready: No such file or directory
+[0;0m/run/libreecho/wlan0-ready[m
+==syslog

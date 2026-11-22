@@ -1,0 +1,15 @@
+cat: can't open '/sys/kernel/debug/devices_deferred': No such file or directory
+---
+rootfs / rootfs rw 0 0
+proc /proc proc rw,relatime 0 0
+sysfs /sys sysfs rw,relatime 0 0
+devpts /dev/pts devpts rw,relatime,mode=600,ptmxmode=000 0 0
+none /sys/fs/pstore pstore rw,relatime 0 0
+configfs /sys/kernel/config configfs rw,relatime 0 0
+adb /dev/usb-ffs/adb functionfs rw,relatime 0 0
+/dev/mmcblk0p16 /data ext4 rw,nosuid,nodev,noatime 0 0
+/dev/loop0 /run/libreecho/features/airplay2/root squashfs ro,nosuid,nodev,relatime,errors=continue 0 0
+/dev/loop1 /run/libreecho/features/tts/root squashfs ro,nosuid,nodev,relatime,errors=continue 0 0
+/dev/loop2 /run/libreecho/features/wakeword/root squashfs ro,nosuid,nodev,relatime,errors=continue 0 0
+/dev/loop3 /run/libreecho/features/stt/root squashfs ro,nosuid,nodev,relatime,errors=continue 0 0
+/dev/loop4 /run/libreecho/features/assistant/root squashfs ro,nosuid,nodev,relatime,errors=continue 0 0

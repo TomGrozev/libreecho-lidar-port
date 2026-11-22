@@ -1,0 +1,90 @@
+{
+ "body": {
+  "data": {
+   "active_device_ping": {
+    "can_disable": true,
+    "enabled": true,
+    "endpoint": "https://stats.libreecho.org/v1/ping",
+    "fields": [
+     {
+      "meaning": "Schema version",
+      "name": "v"
+     },
+     {
+      "meaning": "Hardware model (radar or biscuit)",
+      "name": "hw"
+     },
+     {
+      "meaning": "LibreEcho version",
+      "name": "ver"
+     },
+     {
+      "meaning": "Update channel (dev or stable)",
+      "name": "ch"
+     },
+     {
+      "meaning": "Short build hash, development builds only",
+      "name": "build"
+     },
+     {
+      "meaning": "ISO week (UTC)",
+      "name": "wk"
+     },
+     {
+      "meaning": "Month (UTC)",
+      "name": "mo"
+     },
+     {
+      "meaning": "Year (UTC)",
+      "name": "yr"
+     },
+     {
+      "meaning": "1 if first ping this week",
+      "name": "w"
+     },
+     {
+      "meaning": "1 if first ping this month",
+      "name": "m"
+     },
+     {
+      "meaning": "1 if first ping this year",
+      "name": "y"
+     },
+     {
+      "meaning": "Sent once, on this install's first counted ping; absent afterwards",
+      "name": "i"
+     }
+    ],
+    "frequency": "once per week, month and year",
+    "ip_stored": false,
+    "last": null,
+    "next_payload": null,
+    "schema_version": 1,
+    "user_agent": "libreecho-ping/1"
+   },
+   "audio_remote_destination": {
+    "authentication": "required-out-of-band",
+    "available": false,
+    "configured": false,
+    "credential_state": "not-configured",
+    "effective_mode": "none",
+    "fallback": "disabled",
+    "last_error": "",
+    "state": "disabled",
+    "transport": "https-post",
+    "url": ""
+   },
+   "audio_retention": "none",
+   "audio_retention_hours": 24,
+   "audio_retention_max_mb": 64,
+   "audio_retention_mode": "none",
+   "crash_reports": false,
+   "diagnostic_telemetry": false,
+   "local_only": false,
+   "log_retention_hours": 24
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

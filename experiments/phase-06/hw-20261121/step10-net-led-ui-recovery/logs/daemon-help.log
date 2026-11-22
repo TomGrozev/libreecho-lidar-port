@@ -1,0 +1,11 @@
+==webcfg
+total 12
+-rw-r--r--    1 0        0              569 Nov 21 03:51 [0;0mled-state.json[m
+-rw-------    1 0        0              593 Jan  1  1970 [0;0mweb-config.json[m
+-rw-------    1 0        0               70 Nov 20 23:48 [0;0mwpa_supplicant.conf[m
+==webhelp
+/system/bin/sh: libreecho-web: not found
+==ledhelp
+/system/bin/sh: libreecho-ledd: not found
+==btdhelp
+/system/bin/sh: libreecho-btd: not found

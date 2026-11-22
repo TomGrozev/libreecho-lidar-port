@@ -1,0 +1,138 @@
+DEBUG Using selector: EpollSelector
+DEBUG Using selector: EpollSelector
+DEBUG Opening a serial connection to 'socket://127.0.0.1:16638' (baudrate=115200, xonxoff=True, rtscts=False)
+DEBUG Connection made: <bellows.ash.AshProtocol object at 0x7f26f8c9e270>
+DEBUG Resetting EZSP
+DEBUG Resetting ASH
+DEBUG Sending frame 32*CANCEL RstFrame() FLAG
+DEBUG Sending data  1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1ac038bc7e
+DEBUG Received data 1ac1020b0a52
+DEBUG Received cancel byte, clearing buffer
+DEBUG Received data 7e
+DEBUG Received frame RStackFrame(version=2, reset_code=<NcpResetCode.RESET_SOFTWARE: 11>)
+DEBUG Received reset: <NcpResetCode.RESET_SOFTWARE: 11>
+DEBUG Switching to EZSP protocol version 4
+DEBUG Sending command  version: () {'desiredProtocolVersion': 4}
+DEBUG Sending frame DataFrame(frm_num=0, re_tx=False, ack_num=0, ezsp_frame=b'\x00\x00\x00\x04') FLAG
+DEBUG Sending data  004221a850ed2c7e
+DEBUG Received data 0142a1a85328
+DEBUG Received data 25d7c42a7e
+DEBUG Received frame DataFrame(frm_num=0, re_tx=0, ack_num=1, ezsp_frame=b'\x00\x80\x00\x07\x020e')
+DEBUG Sending frame AckFrame(res=0, ncp_ready=0, ack_num=1) FLAG
+DEBUG Sending data  8160597e
+DEBUG Changing ACK timeout from 1.60 to 1.42
+DEBUG Received command version: {'protocolVersion': 7, 'stackType': 2, 'stackVersion': 25904}
+DEBUG Switching to EZSP protocol version 7
+DEBUG Sending command  version: () {'desiredProtocolVersion': 7}
+DEBUG Sending frame DataFrame(frm_num=1, re_tx=False, ack_num=1, ezsp_frame=b'\x00\x00\xff\x00\x00\x07') FLAG
+DEBUG Sending data  7d31422157542a1240277e
+DEBUG Received data 1242a157542a
+DEBUG Received data 12b069f17d5ee17e
+DEBUG Received frame DataFrame(frm_num=1, re_tx=0, ack_num=2, ezsp_frame=b'\x00\x80\xff\x00\x00\x07\x020e')
+DEBUG Sending frame AckFrame(res=0, ncp_ready=0, ack_num=2) FLAG
+DEBUG Sending data  82503a7e
+DEBUG Received command version: {'protocolVersion': 7, 'stackType': 2, 'stackVersion': 25904}
+DEBUG Changing ACK timeout from 1.42 to 1.27
+DEBUG EZSP Stack Type: 2, Stack Version: 6530, Protocol version: 7
+DEBUG Sending command  version: () {'desiredProtocolVersion': 7}
+DEBUG Sending frame DataFrame(frm_num=2, re_tx=False, ack_num=2, ezsp_frame=b'\x01\x00\xff\x00\x00\x07') FLAG
+DEBUG Sending data  22432157542a1284887e
+DEBUG Received data 2343a157542a
+DEBUG Received data 12b069f1571c7e
+DEBUG Received frame DataFrame(frm_num=2, re_tx=0, ack_num=3, ezsp_frame=b'\x01\x80\xff\x00\x00\x07\x020e')
+DEBUG Sending frame AckFrame(res=0, ncp_ready=0, ack_num=3) FLAG
+DEBUG Sending data  83401b7e
+DEBUG Received command version: {'protocolVersion': 7, 'stackType': 2, 'stackVersion': 25904}
+DEBUG Changing ACK timeout from 1.27 to 1.14
+DEBUG EZSP Stack Type: 2, Stack Version: 6530, Protocol version: 7
+ezsp_protocol=7
+DEBUG Sending command  getEui64: () {}
+DEBUG Sending frame DataFrame(frm_num=3, re_tx=False, ack_num=3, ezsp_frame=b'\x02\x00\xff\x00&') FLAG
+DEBUG Sending data  33402157540c67477e
+DEBUG Received data 3440a157540c
+DEBUG Received data 4527266ab54aa75563a97e
+DEBUG Received frame DataFrame(frm_num=3, re_tx=0, ack_num=4, ezsp_frame=b'\x02\x80\xff\x00&P\x95\x7f\xfe\xffo\r\x00')
+DEBUG Sending frame AckFrame(res=0, ncp_ready=0, ack_num=4) FLAG
+DEBUG Sending data  8430fc7e
+DEBUG Changing ACK timeout from 1.14 to 1.03
+DEBUG Received command getEui64: {'eui64': [redacted]}
+eui64=[redacted]
+DEBUG Sending command  leaveNetwork: () {}
+DEBUG Sending frame DataFrame(frm_num=4, re_tx=False, ack_num=4, ezsp_frame=b'\x03\x00\xff\x00 ') FLAG
+DEBUG Sending data  44412157540a200d7e
+DEBUG Received data 4541a157540a
+DEBUG Received data 658fd07e
+DEBUG Received frame DataFrame(frm_num=4, re_tx=0, ack_num=5, ezsp_frame=b'\x03\x80\xff\x00 p')
+DEBUG Sending frame AckFrame(res=0, ncp_ready=0, ack_num=5) FLAG
+DEBUG Sending data  8520dd7e
+DEBUG Changing ACK timeout from 1.03 to 0.92
+DEBUG Received command leaveNetwork: {'status': <EmberStatus.INVALID_CALL: 112>}
+leave(before)=EzspError: failed to leave network: INVALID_STATE
+DEBUG Sending command  getNetworkParameters: () {}
+DEBUG Sending frame DataFrame(frm_num=5, re_tx=False, ack_num=5, ezsp_frame=b'\x04\x00\xff\x00(') FLAG
+DEBUG Sending data  55462157540299f57e
+DEBUG Received data 5646a1575402
+DEBUG Received data 15b3d1e32c70ee66b058b7542fa4edce678bfd3e9c8e82d57e
+DEBUG Received frame DataFrame(frm_num=5, re_tx=0, ack_num=6, ezsp_frame=b'\x04\x80\xff\x00(\x00\x01\x88wfUD3"\x11+\x1a\x08\x0f\x00\x00\x00\x00\x00\xf8\xff\x07')
+DEBUG Sending frame AckFrame(res=0, ncp_ready=0, ack_num=6) FLAG
+DEBUG Sending data  8610be7e
+DEBUG Changing ACK timeout from 0.92 to 0.83
+DEBUG Received command getNetworkParameters: {'status': <EmberStatus.SUCCESS: 0>, 'nodeType': <EmberNodeType.COORDINATOR: 1>, 'parameters': EmberNetworkParameters(extendedPanId=11:22:33:44:55:66:77:88, panId=0x1A2B, radioTxPower=8, radioChannel=15, joinMethod=<EmberJoinMethod.USE_MAC_ASSOCIATION: 0>, nwkManagerId=0x0000, nwkUpdateId=0, channels=<Channels.ALL_CHANNELS: 134215680>)}
+before status=<EmberStatus.SUCCESS: 0> node_type=<EmberNodeType.COORDINATOR: 1> panId=0x1a2b channel=15
+DEBUG Sending command  networkInit: () {'networkInitBitmask': <EmberNetworkInitBitmask.NETWORK_INIT_NO_OPTIONS: 0>}
+DEBUG Sending frame DataFrame(frm_num=6, re_tx=False, ack_num=6, ezsp_frame=b'\x05\x00\xff\x00\x17\x00\x00') FLAG
+DEBUG Sending data  66472157543d15b2b98a7e
+DEBUG Received data 6747a557543d
+DEBUG Received data 1567b77e7747b1575433857d5d267e
+DEBUG Received frame DataFrame(frm_num=6, re_tx=0, ack_num=7, ezsp_frame=b'\x05\x84\xff\x00\x17\x00')
+DEBUG Sending frame AckFrame(res=0, ncp_ready=0, ack_num=7) FLAG
+DEBUG Sending data  87009f7e
+DEBUG Received frame DataFrame(frm_num=7, re_tx=0, ack_num=7, ezsp_frame=b'\x05\x90\xff\x00\x19\x90')
+DEBUG Sending frame AckFrame(res=0, ncp_ready=0, ack_num=0) FLAG
+DEBUG Sending data  8070787e
+DEBUG Received command networkInit: {'status': <EmberStatus.SUCCESS: 0>}
+DEBUG Changing ACK timeout from 0.83 to 0.76
+DEBUG Received command stackStatusHandler: {'status': <EmberStatus.NETWORK_UP: 144>}
+networkInit=<sl_Status.OK: 0>
+DEBUG Sending command  setInitialSecurityState: () {'state': EmberInitialSecurityState(bitmask=<EmberInitialSecurityBitmask.TRUST_CENTER_GLOBAL_LINK_KEY|HAVE_PRECONFIGURED_KEY|HAVE_NETWORK_KEY|REQUIRE_ENCRYPTED_KEY|NO_FRAME_COUNTER_RESET: 6916>, preconfiguredKey=<ZB_PRECONFIGURED_KEY>, networkKey=<ZB_NETWORK_KEY>, networkKeySequenceNumber=0, preconfiguredTrustCenterEui64=00:00:00:00:00:00:00:00)}
+DEBUG Sending frame DataFrame(frm_num=7, re_tx=False, ack_num=0, ezsp_frame=b'\x06\x00\xff\x00h\x04\x1bZigBeeAlliance09\xc5W\xc5\xe5\xa74\x98\x81\xaf\x85\xce\xf3\xa6\xc6\xc31\x00\x00\x00\x00\x00\x00\x00\x00\x00') FLAG
+DEBUG Sending data  7044215754427d31a903fd2d67cf30d325f02746c58eab57b23891a66c5b4aa7264448109c293904ead5d2698c4623a9ec7600657e
+DEBUG Received data 0044a1575442
+DEBUG Received data 65ecff7e
+DEBUG Received frame DataFrame(frm_num=0, re_tx=0, ack_num=0, ezsp_frame=b'\x06\x80\xff\x00hp')
+DEBUG Sending frame AckFrame(res=0, ncp_ready=0, ack_num=1) FLAG
+DEBUG Sending data  8160597e
+DEBUG Received command setInitialSecurityState: {'status': <EmberStatus.INVALID_CALL: 112>}
+DEBUG Changing ACK timeout from 0.76 to 0.70
+setInitialSecurityState=<EmberStatus.INVALID_CALL: 112>
+DEBUG Sending command  formNetwork: () {'parameters': EmberNetworkParameters(extendedPanId=11:22:33:44:55:66:77:88, panId=0x1A2B, radioTxPower=8, radioChannel=15, joinMethod=<EmberJoinMethod.USE_MAC_ASSOCIATION: 0>, nwkManagerId=0x0000, nwkUpdateId=0, channels=<Channels.ALL_CHANNELS: 134215680>)}
+DEBUG Sending frame DataFrame(frm_num=0, re_tx=False, ack_num=1, ezsp_frame=b'\x07\x00\xff\x00\x1e\x88wfUD3"\x11+\x1a\x08\x0f\x00\x00\x00\x00\x00\xf8\xff\x07') FLAG
+DEBUG Sending data  0145215754349dc53fc10e168844b953944127abedce677302c19e817e
+DEBUG Received data 7d3145a15754
+DEBUG Received data 346584ba7e
+DEBUG Received frame DataFrame(frm_num=1, re_tx=0, ack_num=1, ezsp_frame=b'\x07\x80\xff\x00\x1ep')
+DEBUG Sending frame AckFrame(res=0, ncp_ready=0, ack_num=2) FLAG
+DEBUG Sending data  82503a7e
+DEBUG Changing ACK timeout from 0.70 to 0.64
+DEBUG Received command formNetwork: {'status': <EmberStatus.INVALID_CALL: 112>}
+DEBUG Waiting for serial port to close
+DEBUG Connection lost: None
+DEBUG Connection lost: None
+Traceback (most recent call last):
+  File "/workspace/libreecho/experiments/phase-06/hw-20261121/step25-efr32/ezsp-probe.py", line 100, in <module>
+    asyncio.run(main(sys.argv[1], int(sys.argv[2])))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/asyncio/runners.py", line 205, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.14/asyncio/runners.py", line 128, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.14/asyncio/base_events.py", line 720, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/workspace/libreecho/experiments/phase-06/hw-20261121/step25-efr32/ezsp-probe.py", line 86, in main
+    await ezsp.formNetwork(params)
+  File "/tmp/bellows-venv/lib/python3.14/site-packages/bellows/ezsp/__init__.py", line 363, in formNetwork
+    raise zigpy.exceptions.FormationFailure(f"Failure forming network: {v}")
+zigpy.exceptions.FormationFailure: Failure forming network: [<EmberStatus.INVALID_CALL: 112>]

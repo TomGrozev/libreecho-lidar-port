@@ -1,0 +1,25 @@
+{
+ "body": {
+  "data": {
+   "capture_active": true,
+   "capture_age_ms": 93,
+   "cooldown_ms": 1750,
+   "cpu_cost_percent": 17,
+   "detected_count": 0,
+   "enabled": true,
+   "health_available": true,
+   "inference_active": true,
+   "inference_age_ms": 109,
+   "local_processing": true,
+   "memory_cost_mb": 6,
+   "model_loaded": true,
+   "model_status": "loaded",
+   "processed_frames": 9568,
+   "sensitivity": 68,
+   "wake_word": "Alexa"
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

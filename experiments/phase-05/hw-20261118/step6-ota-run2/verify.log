@@ -1,0 +1,51 @@
+83.03 301.21
+androidboot.slot_suffix=_b
+## 
+sh: can't open 'verify-running': No such file or directory
+vr_rc=0
+## init.log tail
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2663]
+adbd-task:150:adbd:S (sleeping):do_select
+adbd-task:152:adbd:S (sleeping):futex_wait_queue
+adbd-task:153:adbd:S (sleeping):inet_csk_accept
+adbd-task:154:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:155:adbd:S (sleeping):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+[1;35maudio.sock[m            [1;35mmdns.sock[m             [1;35mtimer.sock[m
+[1;35mbluetooth.sock[m        [1;35mmic.sock[m              [0;0mvendor-import.status[m
+[0;0mbuttond-status[m        [1;35mnetwork.sock[m          [0;0mwifi-worker-failed[m
+[1;35mled.sock[m              [1;35mradio.sock[m
+[1;35mlog.sock[m              [0;0mtime.status[m

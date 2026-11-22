@@ -1,0 +1,4 @@
+09285ac9e38451ffbfc84120ac5405a06cf28473f506cb33d72e3df32b67c64e  artifacts/phase-04/boot-lidar-peripherals-2.img
+Sending 'boot_a' (16384 KB)                        OKAY [  0.458s]
+Writing 'boot_a'                                   OKAY [  1.268s]
+Finished. Total time: 1.742s

@@ -1,0 +1,21 @@
+70.48 251.25
+libreecho-init: adbd-task:145:adbd:S (sleeping):inet_csk_accept
+libreecho-init: adbd-task:146:adbd:S (sleeping):unix_stream_read_generic
+libreecho-init: adbd-task:147:adbd:S (sleeping):ffs_epfile_io
+libreecho-init: adbd-log-empty
+libreecho-init: adbd-diagnostic-end
+loop0: detected capacity change from 0 to 18672
+loop1: detected capacity change from 0 to 312904
+loop2: detected capacity change from 0 to 16064
+loop3: detected capacity change from 0 to 105984
+loop4: detected capacity change from 0 to 5984
+libreecho-init: features-user-modified:boot-image-modified,
+libreecho-init: timezone-applied:UTC
+libreecho-init: ui-connectivity-services-disabled-for-diagnostic-profile
+libreecho-init: shared-discovery-runtime-skipped-diagnostic-profile
+libreecho-init: feature-services-deferred-until-staged
+libreecho-init: ui-service-start:logd:0
+libreecho-init: ui-service-start:timed:0
+libreecho-init: ui-service-start:web:0
+libreecho-feature-reconcile: feature-reconcile-skipped:diagnostic:preserve
+libreecho-init: persisted-feature-reconcile:0

@@ -1,0 +1,154 @@
+== archives
+GET https://musl.libc.org/releases/musl-1.2.5.tar.gz
+ok   musl-1.2.5.tar.gz a9a118bbe84d8764da0ea0d28b3ab3fae8477fc7e4085d90102b8596fc7c75e4
+GET https://busybox.net/downloads/busybox-1.37.0.tar.bz2
+ok   busybox-1.37.0.tar.bz2 3311dff32e746499f4df0d5df04d7eb396382d7e108bb9250e7b519b837043a4
+GET https://archive.ubuntu.com/ubuntu/pool/main/libs/libsodium/libsodium_1.0.18.orig.tar.gz
+ok   libsodium_1.0.18.orig.tar.gz d59323c6b712a1519a5daf710b68f5e7fde57040845ffec53850911f10a5d4f4
+GET https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-3.6.7/mbedtls-3.6.7.tar.bz2
+ok   mbedtls-3.6.7.tar.bz2 a7e8bcbec0e6f761b4af24f25677626b35f762f68eef79c08677a363212d11f6
+GET https://downloads.xiph.org/releases/ogg/libogg-1.3.5.tar.gz
+ok   libogg-1.3.5.tar.gz 0eb4b4b9420a0f51db142ba3f9c64b333f826532dc0f48c6410ae51f4799b664
+GET https://downloads.xiph.org/releases/opus/opus-1.4.tar.gz
+ok   opus-1.4.tar.gz c9b32b4253be5ae63d1ff16eea06b94b5f0f2951b7a02aceef58e3a3ce49c51f
+GET https://github.com/xiph/opusfile/archive/refs/tags/v0.12.tar.gz
+ok   v0.12.tar.gz a20a1dff1cdf0719d1e995112915e9966debf1470ee26bb31b2f510ccf00ef40
+== aosp
+ok   aosp-system-core 4f247d753a8865cd16292ff0b720b72c28049786
+== armhf
+GET https://archive.ubuntu.com/ubuntu/pool/main/b/binutils/binutils-arm-linux-gnueabihf_2.42-4ubuntu2.10_amd64.deb
+ok   binutils-arm-linux-gnueabihf_2.42-4ubuntu2.10_amd64.deb 698eb4afbb292d5c3e58d2193f0bf5f53682c3ac42dfb8510e3450d992faaec9
+GET https://archive.ubuntu.com/ubuntu/pool/main/b/binutils/binutils-common_2.42-4ubuntu2.10_amd64.deb
+ok   binutils-common_2.42-4ubuntu2.10_amd64.deb d136073f5e2153f3df11c1d08d66727b9466b28ff483f50085f14bbe3464b5ee
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-13-cross/cpp-13-arm-linux-gnueabihf_13.3.0-6ubuntu2~24.04.1cross1_amd64.deb
+ERROR hash mismatch cpp-13-arm-linux-gnueabihf_13.3.0-6ubuntu2~24.04.1cross1_amd64.deb: 2ffab1f5c7588191c72e4070ce041ed93624becf387520dcd630ca49b260b568 != 397ac4b1644ad1a3b4c6ec30bbcf6af81e4282745f483e4b8fee407ccae7ddab
+^^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/libreecho/artifacts/phase-05/toolchains/sources/opus/opus-1.4.tar.gz.part'
+== armhf
+have binutils-arm-linux-gnueabihf_2.42-4ubuntu2.10_amd64.deb
+have binutils-common_2.42-4ubuntu2.10_amd64.deb
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-13-cross/cpp-13-arm-linux-gnueabihf_13.3.0-6ubuntu2~24.04.1cross1_amd64.deb
+Traceback (most recent call last):
+  File "/workspace/libreecho/experiments/phase-06/hw-20261121/step37-rekey/stage_inputs.py", line 153, in <module>
+  File "/workspace/libreecho/experiments/phase-06/hw-20261121/step37-rekey/stage_inputs.py", line 149, in main
+    for step in which:
+        ^^^^^^^^^^^^^^
+  File "/workspace/libreecho/experiments/phase-06/hw-20261121/step37-rekey/stage_inputs.py", line 62, in armhf
+    fetch(rec["url"], ARCH / rec["filename"], rec["sha256"], rec["filename"])
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/libreecho/experiments/phase-06/hw-20261121/step37-rekey/stage_inputs.py", line 51, in fetch
+    actual = sha256(partial)
+  File "/workspace/libreecho/experiments/phase-06/hw-20261121/step37-rekey/stage_inputs.py", line 31, in sha256
+    with path.open("rb") as f:
+         ~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/libreecho/artifacts/phase-05/toolchains/armhf-archives/cpp-13-arm-linux-gnueabihf_13.3.0-6ubuntu2~24.04.1cross1_amd64.deb.part'
+== armhf
+have binutils-arm-linux-gnueabihf_2.42-4ubuntu2.10_amd64.deb
+have binutils-common_2.42-4ubuntu2.10_amd64.deb
+have cpp-13-arm-linux-gnueabihf_13.3.0-6ubuntu2~24.04.1cross1_amd64.deb
+have cpp-arm-linux-gnueabihf_13.2.0-7ubuntu1_amd64.deb
+have g++-13-arm-linux-gnueabihf_13.3.0-6ubuntu2~24.04.1cross1_amd64.deb
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-defaults/g++-arm-linux-gnueabihf_13.2.0-7ubuntu1_amd64.deb
+ok   g++-arm-linux-gnueabihf_13.2.0-7ubuntu1_amd64.deb 057a97635e997e9cf67538a227775dac01d791bcd9d6b56ccd8ac78124d062be
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-13-cross/gcc-13-arm-linux-gnueabihf_13.3.0-6ubuntu2~24.04.1cross1_amd64.deb
+ok   gcc-13-arm-linux-gnueabihf_13.3.0-6ubuntu2~24.04.1cross1_amd64.deb 60dbb65b4fbd249eddc2e68482ea9a9f532e66baed878845161132c3cb3a69e9
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-13-cross/gcc-13-arm-linux-gnueabihf-base_13.3.0-6ubuntu2~24.04.1cross1_amd64.deb
+ok   gcc-13-arm-linux-gnueabihf-base_13.3.0-6ubuntu2~24.04.1cross1_amd64.deb e632c2b7f2138799a73d8539f664267b7d6cc91567dae4ff71f0a69bce3f0c8f
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-13-cross/gcc-13-cross-base_13.3.0-6ubuntu2~24.04.1cross1_all.deb
+ok   gcc-13-cross-base_13.3.0-6ubuntu2~24.04.1cross1_all.deb 02676468c2f71d57be2fbd6e6f74462ab419a49db15a1b1f031b2460a2954cd3
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-14-cross/gcc-14-cross-base_14.2.0-4ubuntu2~24.04.1cross1_all.deb
+ok   gcc-14-cross-base_14.2.0-4ubuntu2~24.04.1cross1_all.deb ed29eff7b53f6c6b10c42bb9539487d1867f119e84f5f678c02411a34b5c09f3
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-defaults/gcc-arm-linux-gnueabihf_13.2.0-7ubuntu1_amd64.deb
+ok   gcc-arm-linux-gnueabihf_13.2.0-7ubuntu1_amd64.deb d8628ea40a408311dd3ecabad1965e1775f47a1889fca888b07f10107381dabb
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-14-cross/libasan8-armhf-cross_14.2.0-4ubuntu2~24.04.1cross1_all.deb
+ok   libasan8-armhf-cross_14.2.0-4ubuntu2~24.04.1cross1_all.deb e48604e1bc28072cfb3e041983b59469160e6fd0e67f79d79b300a825ab0b5a5
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-14-cross/libatomic1-armhf-cross_14.2.0-4ubuntu2~24.04.1cross1_all.deb
+ok   libatomic1-armhf-cross_14.2.0-4ubuntu2~24.04.1cross1_all.deb b801dc5ce6115c76a118b839dc148f1a9e1d47529fe20323b9dbfe973d770d11
+GET https://archive.ubuntu.com/ubuntu/pool/main/c/cross-toolchain-base/libc6-armhf-cross_2.39-0ubuntu8cross1_all.deb
+ok   libc6-armhf-cross_2.39-0ubuntu8cross1_all.deb 4c61c413e2cc45ce2c5703a1564d1886f45c98ddbbd33d9f8b05736dee045ce1
+GET https://archive.ubuntu.com/ubuntu/pool/main/c/cross-toolchain-base/libc6-dev-armhf-cross_2.39-0ubuntu8cross1_all.deb
+ok   libc6-dev-armhf-cross_2.39-0ubuntu8cross1_all.deb 31bb0a43b89d9e6e9d4f2b81d53376ad01e397653e6a834e00ac4129e0e48c44
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-13-cross/libgcc-13-dev-armhf-cross_13.3.0-6ubuntu2~24.04.1cross1_all.deb
+ok   libgcc-13-dev-armhf-cross_13.3.0-6ubuntu2~24.04.1cross1_all.deb 930c595a54ba1f1096463a9f8ab4757b5d1f12f267a99521aa4505ca302e7988
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-14-cross/libgcc-s1-armhf-cross_14.2.0-4ubuntu2~24.04.1cross1_all.deb
+ok   libgcc-s1-armhf-cross_14.2.0-4ubuntu2~24.04.1cross1_all.deb 1fdbacca10af62652762869a21f07b545d5211257b5b78f245aceefd611e3ce7
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gmp/libgmp10_6.3.0+dfsg-2ubuntu6.1_amd64.deb
+ok   libgmp10_6.3.0+dfsg-2ubuntu6.1_amd64.deb 285f8a505dfa8e1b33f357a9d8d3477ad35bf18c0b34771a6df4c25923f3ae0d
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-14-cross/libgomp1-armhf-cross_14.2.0-4ubuntu2~24.04.1cross1_all.deb
+ok   libgomp1-armhf-cross_14.2.0-4ubuntu2~24.04.1cross1_all.deb c38abffe07d06f39294c91ff24189f525c7096d7388b426cfb442f017d2169ce
+GET https://archive.ubuntu.com/ubuntu/pool/main/i/isl/libisl23_0.26-3build1.1_amd64.deb
+ok   libisl23_0.26-3build1.1_amd64.deb 4e040926e50fb961fae9bf95660189d468336a4a17bc321872c434fc8f777e7f
+GET https://archive.ubuntu.com/ubuntu/pool/main/j/jansson/libjansson4_2.14-2build2_amd64.deb
+ok   libjansson4_2.14-2build2_amd64.deb 0cf79113f5d193ce9af2be2ff4b2c3b30dd4e55a0b6c47f7d28f6c849ff3aa60
+GET https://archive.ubuntu.com/ubuntu/pool/main/m/mpclib3/libmpc3_1.3.1-1build1.1_amd64.deb
+ok   libmpc3_1.3.1-1build1.1_amd64.deb cebe6098bb3d66fdacac9dc6fe406a651216d9c00f27c3f9c159d15d96cdf864
+GET https://archive.ubuntu.com/ubuntu/pool/main/m/mpfr4/libmpfr6_4.2.1-1build1.1_amd64.deb
+ok   libmpfr6_4.2.1-1build1.1_amd64.deb aebc1c8b69a1f98bb43dfc268daecd181116dbf40b13ee4e822eb4bdd52b493a
+GET https://archive.ubuntu.com/ubuntu/pool/main/b/binutils/libsframe1_2.42-4ubuntu2.10_amd64.deb
+ok   libsframe1_2.42-4ubuntu2.10_amd64.deb 72093fb456864db55f1352bfa5e952a94f7abaff64e71dff1fbf001db1984564
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-13-cross/libstdc++-13-dev-armhf-cross_13.3.0-6ubuntu2~24.04.1cross1_all.deb
+ok   libstdc++-13-dev-armhf-cross_13.3.0-6ubuntu2~24.04.1cross1_all.deb 4d96ce9ffee19ca696e1ba7ba01629babe9055113ee4ef972256fd8eceaaa732
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-14-cross/libstdc++6-armhf-cross_14.2.0-4ubuntu2~24.04.1cross1_all.deb
+ok   libstdc++6-armhf-cross_14.2.0-4ubuntu2~24.04.1cross1_all.deb e70ac5c5b20361838346e76e255fe297a654ec96803eec4289b25474b702d915
+GET https://archive.ubuntu.com/ubuntu/pool/universe/o/onetbb/libtbb-dev_2021.11.0-2ubuntu2_amd64.deb
+ok   libtbb-dev_2021.11.0-2ubuntu2_amd64.deb c57e2ffc96ced3f918f7695fa75ff827e0e83d1a306d3de9cb930414013b55b8
+GET https://archive.ubuntu.com/ubuntu/pool/main/libz/libzstd/libzstd1_1.5.5+dfsg2-2build1.1_amd64.deb
+ok   libzstd1_1.5.5+dfsg2-2build1.1_amd64.deb dfcf25061e07aad7efd3f4f880ba5ad4d4d09ebe7fc8cc77ab6b8a161d6d4727
+GET https://archive.ubuntu.com/ubuntu/pool/main/c/cross-toolchain-base/linux-libc-dev-armhf-cross_6.8.0-25.25cross1_all.deb
+ok   linux-libc-dev-armhf-cross_6.8.0-25.25cross1_all.deb 1f83b9a486063b2daef0f21baf856b0cbb0b64eecf83b180434ab9190f6be8d8
+GET https://snapshot.ubuntu.com/ubuntu/20241115T000000Z/pool/main/z/zlib/zlib1g_1.3.dfsg-3.1ubuntu2.1_amd64.deb
+ok   zlib1g_1.3.dfsg-3.1ubuntu2.1_amd64.deb 7074b6a2f6367a10d280c00a1cb02e74277709180bab4f2491a2f355ab2d6c20
+== mdns
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/a/adduser/adduser_3.137ubuntu1_all.deb
+ok   adduser_3.137ubuntu1_all.deb 542aff2395eb912a56833e11a78076342779689d8fede7adcf08d1d6b0d0cd8b
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/a/avahi/avahi-daemon_0.8-13ubuntu6.2_armhf.deb
+ok   avahi-daemon_0.8-13ubuntu6.2_armhf.deb 6c0f2b02bd3c41291d410a88f7caf849f16bdc5b36bd18e58d8bfcf2b7456182
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/a/avahi/avahi-utils_0.8-13ubuntu6.2_armhf.deb
+ok   avahi-utils_0.8-13ubuntu6.2_armhf.deb e743897627bf6fbd95622bbb365146f6c1feb8da1190ec896ba85bf7d04a6f8f
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/d/dbus/dbus-bin_1.14.10-4ubuntu4.1_armhf.deb
+ok   dbus-bin_1.14.10-4ubuntu4.1_armhf.deb b7750d14155cd5d52c0a1acb71292f606dbe2fe63bc1f31e530f37dd62af4e95
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/d/dbus/dbus-daemon_1.14.10-4ubuntu4.1_armhf.deb
+ok   dbus-daemon_1.14.10-4ubuntu4.1_armhf.deb 8ec4399707d8787e351f42b3c7f9c433f912b0dc5f85af264fce239cb92bba69
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/d/dbus/dbus-session-bus-common_1.14.10-4ubuntu4.1_all.deb
+ok   dbus-session-bus-common_1.14.10-4ubuntu4.1_all.deb aa88bf2f2107e7d948d0e01001b447fc6cae81b285a6e7daf33dcb62737de62f
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/d/dbus/dbus-system-bus-common_1.14.10-4ubuntu4.1_all.deb
+ok   dbus-system-bus-common_1.14.10-4ubuntu4.1_all.deb 4db2e3e18c6abee1a1d1e2f91289e229dd862e6e1ef00463c5533c612c4f1809
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/d/dbus/dbus_1.14.10-4ubuntu4.1_armhf.deb
+ok   dbus_1.14.10-4ubuntu4.1_armhf.deb 2f6d3438be4e6827cdc7de973b5b88493a8be9a3f40e7828a120dadf5bfde0d1
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/d/debconf/debconf_1.5.86ubuntu1_all.deb
+ok   debconf_1.5.86ubuntu1_all.deb bb390da466a7461bfc87aa3e6b7cd145dae84af3e26bf437f2c0c218ba226294
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/g/gcc-14/gcc-14-base_14.2.0-4ubuntu2~24.04.1_armhf.deb
+ok   gcc-14-base_14.2.0-4ubuntu2~24.04.1_armhf.deb 2acd21ae31fdc0f80cd331a4baabc7adb18dbac9fde1f05c00854e190fa54a9a
+ERROR no pool path for ('libapparmor1', '4.0.1really4.0.1-0ubuntu0.24.04.7')
+== mdns
+have adduser_3.137ubuntu1_all.deb
+have avahi-daemon_0.8-13ubuntu6.2_armhf.deb
+have avahi-utils_0.8-13ubuntu6.2_armhf.deb
+have dbus-bin_1.14.10-4ubuntu4.1_armhf.deb
+have dbus-daemon_1.14.10-4ubuntu4.1_armhf.deb
+have dbus-session-bus-common_1.14.10-4ubuntu4.1_all.deb
+have dbus-system-bus-common_1.14.10-4ubuntu4.1_all.deb
+have dbus_1.14.10-4ubuntu4.1_armhf.deb
+have debconf_1.5.86ubuntu1_all.deb
+have gcc-14-base_14.2.0-4ubuntu2~24.04.1_armhf.deb
+ERROR no pool path for ('libapparmor1', '4.0.1really4.0.1-0ubuntu0.24.04.7')
+== mdns
+have adduser_3.137ubuntu1_all.deb
+have avahi-daemon_0.8-13ubuntu6.2_armhf.deb
+have avahi-utils_0.8-13ubuntu6.2_armhf.deb
+have dbus-bin_1.14.10-4ubuntu4.1_armhf.deb
+have dbus-daemon_1.14.10-4ubuntu4.1_armhf.deb
+have dbus-session-bus-common_1.14.10-4ubuntu4.1_all.deb
+have dbus-system-bus-common_1.14.10-4ubuntu4.1_all.deb
+have dbus_1.14.10-4ubuntu4.1_armhf.deb
+have debconf_1.5.86ubuntu1_all.deb
+have gcc-14-base_14.2.0-4ubuntu2~24.04.1_armhf.deb
+have libapparmor1_4.0.1really4.0.1-0ubuntu0.24.04.7_armhf.deb
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/a/audit/libaudit-common_3.1.2-2.1build1_all.deb
+ERROR hash mismatch libaudit-common_1%3a3.1.2-2.1build1.1_all.deb: f2dd99597b416cff8cefeb350c1e4eb7e15fc6f7a57cd37f4a4c11f4a8049a92 != c8ab5bed96f9781daab7c36fcbe4b12c3f3247a37256c0e341dc827db1e9a010

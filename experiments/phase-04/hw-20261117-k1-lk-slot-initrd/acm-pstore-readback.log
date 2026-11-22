@@ -1,0 +1,41 @@
+
+$ cat /proc/uptime
+~ # [6ncat /proc/uptime; echo __ACM_END_1__
+11.96 46.19
+__ACM_END_1__
+$ ls -l /sys/fs/pstore
+
+~ # ls -l /sys/fs/pstore; echo __ACM_END_2__
+total 0
+-r--r--r--    1 0        0            57328 Jan  1 00:00 [0;0mconsole-ramoops-0[m
+-r--r--r--    1 0        0              613 Jan  1 00:00 [0;0mpmsg-ramoops-0[m
+__ACM_END_2__
+$ grep MARK /sys/fs/pstore/console-ramoops-0
+
+~ # grep MARK /sys/fs/pstore/console-ramoops-0; echo __ACM_END_3__
+LIDAR_LINUX_PSTORE_MARK_1804
+__ACM_END_3__
+$ tail -n 20 /sys/fs/pstore/console-ramoops-0
+
+~ # [6ntail -n 20 /sys/fs/pstore/console-ramoops-0; echo __ACM_END_4__
+platform 14017000.smi: shutdown
+mtk-mmsys 14000000.mmsys: shutdown
+platform 10006000.syscon:power-controller: shutdown
+platform 10006000.syscon: shutdown
+mtk-tphy 11110000.t-phy: shutdown
+platform 11008000.pwm: shutdown
+mtk_rng 1020c000.rng: shutdown
+platform 11000480.dma-controller: shutdown
+platform 10009000.efuse: shutdown
+mediatek-mt8167-pinctrl 1000b000.pinctrl: shutdown
+platform 10005000.syscfg-pctl: shutdown
+platform 10008000.timer: shutdown
+mtk-wdt 10007000.toprgu: shutdown
+platform 10003050.pericfg: shutdown
+simple-pm-bus soc: shutdown
+platform timer: shutdown
+platform psci: shutdown
+ramoops 43810000.ramoops: shutdown
+reg-dummy reg-dummy: shutdown
+reboot: Restarting system
+__ACM_END_4__

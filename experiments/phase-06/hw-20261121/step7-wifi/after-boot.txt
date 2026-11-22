@@ -1,0 +1,39 @@
+==cmdline
+libreecho.lab=p6-v1
+androidboot.slot_suffix=_a
+==init-wifi
+wmt-nodes-created
+wifi-network-worker-started-after-adb
+wifi-request-supervisor-started
+wifi-persistent-profile-selected
+wifi-profile-present
+wifi-profile-recorded
+lidar-bt-ready-before-wlan
+lidar-wlan-bound:mmc1:0001:1
+wlan0-ready-recorded
+wifi-client-rc:3
+wifi-activation-complete:3
+wifi-worker-failed-recorded:3
+==failed
+3
+==sdio
+[1;36mmmc1:0001:1[m  [1;36mmmc1:0001:2[m
+/sys/bus/sdio/devices/mmc1:0001:1 dev=0x7608 drv=mt7668_sdio
+/sys/bus/sdio/devices/mmc1:0001:2 dev=0x7668 drv=btmtksdio
+==net
+[1;36map0[m    [1;36mlo[m     [1;36mp2p0[m   [1;36msit0[m   [1;36mwlan0[m
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+3: wlan0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN qlen 1000
+    link/ether <MAC_WLAN_A> brd ff:ff:ff:ff:ff:ff
+4: p2p0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN qlen 1000
+    link/ether <MAC_P2P_A> brd ff:ff:ff:ff:ff:ff
+5: ap0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN qlen 1000
+    link/ether <MAC_AP0_A> brd ff:ff:ff:ff:ff:ff
+==ps
+==fw
+-rw-------    1 0        0            51816 Jan  1 00:00 [0;0m/lib/firmware/WIFI_RAM_CODE2_SDIO_MT7668.bin[m
+-rw-------    1 0        0           459528 Jan  1 00:00 [0;0m/lib/firmware/WIFI_RAM_CODE_MT7668.bin[m
+-rw-r--r--    1 0        0           170990 Jan  1 00:00 [0;0m/lib/firmware/mediatek/mt7668pr2h.bin[m

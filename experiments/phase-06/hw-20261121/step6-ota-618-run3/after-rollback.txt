@@ -1,0 +1,173 @@
+6.18.64+
+libreecho.lab=p6-v2
+androidboot.slot_suffix=_b
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=1
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=1
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+schema=3
+slot=b
+transaction_id=txn-505d0389288fc4f9de2112c3
+manifest_sha256=334c3d66c8f457fc74da10451086211d711f51070e49227e61c9e5fd50cf008f
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=237
+failure_log=failure-236-1.log
+features_state=ready
+features_error=
+config_schema=1
+config_error=
+ota_transaction_state=pending
+ota_transaction_pending=1
+generation=txn-508529626fbd711fdbf6bf1c
+feature_airplay2_payload_sha256=a6583300828ff3b95c898e85d513267613452115ff911f9d79c5e4f16bfe6adb
+feature_airplay2_payload_size=9560064
+feature_airplay2_manifest_sha256=9532aba033a4eddc1b0d23d0125d94a401c6898fc211a7f2e2c8fdde2b433e4f
+feature_airplay2_running_daemon=libreecho-audio-engine
+feature_airplay2_running_daemon_sha256=not-running
+feature_airplay2_effective=present
+feature_tts_payload_sha256=197e583a378aa49a1d4a823e048920dac7d3a7be8c0b206deed0411ebac0aa78
+feature_tts_payload_size=160206848
+feature_tts_manifest_sha256=126dbad94d512bc8b3b6e1707ed6f52d8bdfba9da0a322b43437bc9dc446b440
+feature_tts_running_daemon=libreecho-ttsd
+feature_tts_running_daemon_sha256=not-running
+feature_tts_effective=present
+feature_wakeword_payload_sha256=4964fc7b02ec81456fce149b1b82f6cca85f2ce447c48826ee6e34e57423585d
+feature_wakeword_payload_size=8224768
+feature_wakeword_manifest_sha256=13ec6549b8ab7995f6d448cd4a13f23543d3a3ca90f490687cb73a7e989ab0a8
+feature_wakeword_running_daemon=libreecho-waked
+feature_wakeword_running_daemon_sha256=not-running
+feature_wakeword_effective=present
+feature_stt_payload_sha256=dee3594dd45514d02ce62a60286e702cc2d2f205b344259bdc95e353e4322ede
+feature_stt_payload_size=54263808
+feature_stt_manifest_sha256=95f9a2c8f245ea9234cc0368e149ea9c0ff4bfc99765a98f3eb3cd9163ff03f5
+feature_stt_running_daemon=libreecho-sttd
+feature_stt_running_daemon_sha256=not-running
+feature_stt_effective=present
+feature_assistant_payload_sha256=a4103ec92daf60e9fc53f2899d9f48efec120d03778ebc0279853ac2fc37a0d1
+feature_assistant_payload_size=3063808
+feature_assistant_manifest_sha256=aba5b27bf2fb6cae966cb8a61a3da13c81af1894fb29014dbff6fac2098016d3
+feature_assistant_running_daemon=libreecho-agentd
+feature_assistant_running_daemon_sha256=not-running
+feature_assistant_effective=present
+txn-508529626fbd711fdbf6bf1c
+/data/libreecho/reset-logs:
+total 16
+drwxrwxrwx    3 0        0             4096 Jan  1 00:00 [1;34m.[m
+drwx------    9 0        0             4096 Jan  1 00:00 [1;34m..[m
+-rw-rw-rw-    1 0        0             2874 Jan  1 00:03 [0;0minit.log.tail[m
+drwxr-x---    2 0        0             4096 Jan  1 00:00 [1;34mpstore[m
+
+/data/libreecho/update:
+total 104
+drwx------    5 0        0             4096 Jan  1 00:00 [1;34m.[m
+drwx------    9 0        0             4096 Jan  1 00:00 [1;34m..[m
+-rw-------    1 0        0             5194 Jan  1 00:01 [0;0mauthority-provenance-cache[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              252 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              882 Jan  1 00:00 [0;0mboot-history[m
+-rw-r--r--    1 0        0              281 Jan  1 00:02 [0;0mbootctl.confirm[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0               29 Jan  1 00:02 [0;0mcurrent[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3587 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0             1034 Jan  1 00:02 [0;0mfeature-hash-cache[m
+-rw-------    1 0        0               37 Jan  1 00:00 [0;0mfeatures-status[m
+-rw-r--r--    1 0        0              126 Jan  1 00:00 [0;0mfirst-install.pending[m
+drwxr-xr-x    2 0        0             4096 Jan  1 00:00 [1;34mgeneration.lock[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0              175 Jan  1 00:02 [0;0minstalled[m
+-rw-------    1 0        0             6086 Jan  1 00:03 [0;0mota.log[m
+-rw-------    1 0        0              141 Jan  1 00:01 [0;0mpending[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1  1970 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:01 [1;34mstaging[m
+-rw-r--r--    1 0        0               64 Jan  1 00:00 [0;0mstate[m
+adbd-fd:8:socket:[1071]
+adbd-task:139:adbd:S (sleeping):do_select
+adbd-task:142:adbd:S (sleeping):futex_do_wait
+adbd-task:143:adbd:S (sleeping):inet_csk_accept
+adbd-task:144:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:145:adbd:S (sleeping):ffs_epfile_io
+adbd-task:269:adbd:S (sleeping):do_wait
+adbd-log-empty
+adbd-diagnostic-end
+timezone-applied:UTC
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:waked:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:airplayd:0
+ui-service-start:radiod:0
+ui-service-start:ttsd:0
+ui-web-production-lan
+ui-service-start:web:0
+feature-reconcile-service-stopped:esphomed
+feature-reconcile-service-ready:waked
+feature-reconcile-service-ready:sttd
+feature-reconcile-shared-discovery-owner:airplayd
+feature-reconcile-service-ready:airplayd
+feature-reconcile-service-ready:ttsd
+feature-reconcile-service-start-failed:agentd:1
+feature-services-reconcile-failed
+persisted-feature-reconcile:1
+first-boot-startup-ready-timeout-degraded
+startup-ready-marker-missing
+first-boot-probe-passed-degraded:1
+ota-health-probe-passed:1
+local-services-degraded-start-no-startup-ready
+startup-ready-marker-missing
+first-boot-probe-passed-degraded:2
+ota-health-probe-passed:2
+startup-ready-marker-missing
+first-boot-probe-passed-degraded:3
+ota-health-probe-passed:3
+ota-health-confirm-failed-rebooting

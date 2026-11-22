@@ -1,0 +1,17 @@
+[1;36mlo[m    [1;36msit0[m
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+/sys/bus/sdio/drivers/btmtksdio/:
+total 0
+--w-------    1 0        0             4096 Jan  1 00:00 bind
+lrwxrwxrwx    1 0        0                0 Jan  1 00:00 mmc1:0001:2 -> ../../../../devices/platform/soc/11170000.mmc/mmc_host/mmc1/mmc1:0001/mmc1:0001:2
+--w-------    1 0        0             4096 Jan  1 00:00 uevent
+--w-------    1 0        0             4096 Jan  1 00:00 unbind
+
+/sys/bus/sdio/drivers/mt7668_sdio/:
+total 0
+--w-------    1 0        0             4096 Jan  1 00:00 bind
+--w-------    1 0        0             4096 Jan  1 00:00 uevent
+--w-------    1 0        0             4096 Jan  1 00:00 unbind

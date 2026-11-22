@@ -1,0 +1,5 @@
+transaction_id=txn-bac8cf84d19b53cb0c24cdc4
+boot_sha256=a7b266b74af89ae203d35b8460866ebb6d654d64742089ad5a4bbb0b838f82dc
+ota=artifacts/phase-06/ota-step37-v0228/lidar-lab-v0.2.28.ota.tar
+generation=artifacts/phase-06/ota-step37-v0228/generations/txn-bac8cf84d19b53cb0c24cdc4
+bundle_sha256=54d0dc6f7dd20fc55d95683cb887f494185dde1d3aacc0a90472b69bdb297882

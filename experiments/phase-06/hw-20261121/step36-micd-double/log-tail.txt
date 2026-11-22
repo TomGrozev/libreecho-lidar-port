@@ -1,0 +1,5 @@
+== micd log tail
+== grep start lines
+== zombies
+== init
+-rwxr-xr-x    1 0        0             6449 Jan  1  1970 libreecho-micd.init

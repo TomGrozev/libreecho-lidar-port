@@ -1,0 +1,17 @@
+-rw-------    1 0        0              115 Nov 21 10:02 [0;0m/data/libreecho/config/wpa_supplicant.conf[m
+-rw-------    1 0        0               70 Nov 20 23:48 [0;0m/data/libreecho/config/wpa_supplicant.conf.pre-ctrl[m
+ctrl_interface=/tmp/wpa_ctrl
+update_config=1
+1
+parse-check-skipped
+  806 0         0:00 /sbin/wpa_supplicant -B -Dnl80211,wext -i wlan0 -c /data/libreecho/config/wpa_supplicant.conf -P /t
+12904 0         0:00 wpa_supplicant -c /data/libreecho/config/wpa_supplicant.conf -i wlan0 -D nl80211 -dd -B -P /dev/nul
+[1;35mwlan0[m
+up
+  806 0         0:00 /sbin/wpa_supplicant -B -Dnl80211,wext 
+1
+default via <LAN_GATEWAY_A> dev wlan0 
+<LAN_CIDR_A> dev wlan0 scope link  src <DEVICE_IP_A> 
+wlan0: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+wlan0: WPA: Key negotiation completed with <MAC_AP_A> [PTK=CCMP GTK=CCMP]
+wlan0: CTRL-EVENT-CONNECTED - Connection to <MAC_AP_A> completed [id=0 id_str=]

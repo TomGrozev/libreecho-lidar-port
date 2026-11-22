@@ -1,0 +1,30 @@
+== mountinfo
+24 1 7:0 / /run/libreecho/features/airplay2/root ro,nosuid,nodev,relatime - squashfs /dev/loop0 ro,errors=continue
+37 24 0:23 /libreecho-airplay2.conf /run/libreecho/features/airplay2/root/etc/libreecho/airplay2.conf rw,relatime - tmpfs libreecho-airplay-var rw,size=1024k,mode=755
+29 24 259:8 /libreecho/trace-cycle/libreecho-sendspind /run/libreecho/features/airplay2/root/usr/local/sbin/libreecho-sendspind rw,nosuid,nodev,noatime - ext4 /dev/mmcblk0p16 rw
+30 24 0:2 /dev /run/libreecho/features/airplay2/root/dev rw - rootfs rootfs rw
+31 24 0:21 / /run/libreecho/features/airplay2/root/proc rw,relatime - proc proc rw
+32 24 0:17 / /run/libreecho/features/airplay2/root/sys rw,relatime - sysfs sysfs rw
+33 24 0:22 / /run/libreecho/features/airplay2/root/run rw,relatime - tmpfs libreecho-airplay-run rw,size=1024k,mode=755
+34 24 0:24 / /run/libreecho/features/airplay2/root/var rw,relatime - tmpfs libreecho-airplay-var rw,size=1024k,mode=755
+35 30 0:25 / /run/libreecho/features/airplay2/root/dev/shm rw,relatime - tmpfs libreecho-airplay-shm rw,size=64k
+36 33 0:2 /run/libreecho-audio /run/libreecho/features/airplay2/root/run/libreecho-audio rw - rootfs rootfs rw
+38 33 0:2 /usr/local/lib/libreecho-mdns/root/run/dbus/system_bus_socket /run/libreecho/features/airplay2/root/run/dbus/system_bus_socket rw - rootfs rootfs rw
+39 33 0:2 /run/libreecho/led.sock /run/libreecho/features/airplay2/root/run/libreecho/led.sock rw - rootfs rootfs rw
+== payloads
+== run root
+-rwxr-xr-x    1 0        0          1859564 Nov 22 07:28 [1;32m/run/libreecho/features/airplay2/root/usr/local/sbin/libreecho-sendspind[m
+== sendspind pid
+ 3581 0         0:00 /system/bin/sh -c echo "== mountinfo"; grep -i "trace-cycle\|airplay2/root" /proc/1/mountinfo; echo "== payloads"; sha256sum /data/libreecho/features/airplay2/payload.squashfs /data/libreecho/features/*/payload.squashfs 2>/dev/null; echo "== run root"; ls -l /run/libreecho/features/airplay2/root/usr/local/sbin/libreecho-sendspind; echo "== sendspind pid"; ps | grep "[l]ibreecho-sendspind"; for p in $(ps | grep "[l]ibreecho-sendspind" | awk "{print \$1}"); do echo pid=$p; readlink /proc/$p/exe; grep -c trace-cycle /proc/$p/mountinfo; done; echo "== boot"; cat /proc/sys/kernel/random/boot_id; uptime
+14847 0         1:15 /run/libreecho/features/airplay2/root/usr/local/sbin/libreecho-sendspind --run --quiet --name echo --state-file /data/libreecho/config/sendspin-state
+pid=3581
+/bin/busybox
+1
+pid=3588
+grep: /proc/3588/mountinfo: No such file or directory
+pid=14847
+/run/libreecho/features/airplay2/root/usr/local/sbin/libreecho-sendspind
+1
+== boot
+024ed935-14b0-4a12-8de4-670264b2736f
+ 08:19:21 up  5:52,  0 users,  load average: 1.36, 1.42, 1.44

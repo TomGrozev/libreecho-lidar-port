@@ -1,0 +1,14 @@
+{
+ "body": {
+  "data": {
+   "device_name": "LibreEcho",
+   "enabled": false,
+   "installed": false,
+   "playing": false,
+   "status": "unavailable"
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

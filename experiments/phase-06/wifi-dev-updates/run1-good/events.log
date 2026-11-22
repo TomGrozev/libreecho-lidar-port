@@ -1,0 +1,6 @@
+18:52:17 start: part=good bundle=v0.2.18 tx=txn-8c5e49157168a61621c8c587 slot=a target=b
+18:55:32 pushed: artifacts/phase-06/ota-wifi/good/lidar-lab-v0.2.18.ota.tar: 1 file pushed, 0 skipped. 1.6 MB/s (16793600 bytes in 10.265s)
+18:56:06 install: verify_rc=0 ota_manifest_signature=PASS UPDATE_READY slot=b version=0.2.18 install_rc=0 
+18:56:06 reboot requested
+18:56:37 wifi adb back after 2 tries
+18:59:40 PASS: confirmed on slot b, generation txn-8c5e49157168a61621c8c587, over wifi

@@ -1,0 +1,29 @@
+{
+ "body": {
+  "data": {
+   "boot_estimate_seconds": null,
+   "clock_source": "rtc",
+   "clock_valid": true,
+   "last_sync_epoch": 0,
+   "ntp": false,
+   "ntp_servers": "time.cloudflare.com,time.nist.gov,ntp1.npl.co.uk,ntp2.npl.co.uk",
+   "ntp_state": "retrying",
+   "ota": {
+    "current_slot": "A",
+    "design": "A/B",
+    "inactive_slot": "B",
+    "progress": 0,
+    "rollback_available": false,
+    "state": "idle",
+    "supported": false
+   },
+   "rtc_available": false,
+   "rtc_persisted": false,
+   "timezone": "UTC",
+   "update_channel": "stable"
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

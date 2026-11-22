@@ -1,0 +1,4 @@
+==reconcile
+feature-reconcile-service-stopped:esphomed
+feature-reconcile-service-ready:waked
+==agentstart

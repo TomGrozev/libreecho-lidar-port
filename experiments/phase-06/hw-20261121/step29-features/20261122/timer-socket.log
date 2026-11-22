@@ -1,0 +1,7 @@
+==status0==
+{"v":1,"id":1,"ok":true,"data":{"timers":[],"ringing":0,"missed":0,"remote_timers":[],"remote_ringing":0}}
+==add==
+{"v":1,"id":1,"ok":true,"data":{"id":1}}
+==status1==
+{"v":1,"id":1,"ok":true,"data":{"timers":[{"id":1,"kind":"countdown","state":"pending","seconds_remaining":3599,"label":"sweep20261122"}],"ringing":0,"missed":0,"remote_timers":[],"remote_ringing":0}}
+==end==

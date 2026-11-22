@@ -1,0 +1,17 @@
+/data/libreecho/waked-manual.log
+/etc/init.d/libreecho-waked.init
+---
+[0;0mauthority-provenance-cache[m  [0;0mfeatures-status[m
+[0;0mautomatic-updates[m           [0;0mfirst-install.pending[m
+[0;0mboot-count[m                  [1;34mgeneration.lock[m
+[0;0mboot-health[m                 [1;34mincoming[m
+[0;0mboot-history[m                [0;0minstalled[m
+[0;0mbootctl.confirm[m             [0;0mota.log[m
+[0;0mconfig-status[m               [0;0mrestart-record[m
+[0;0mcurrent[m                     [0;0mrolled-back[m
+[0;0mfailure-235-1.log[m           [1;34mstaging[m
+[0;0mfailure-236-1.log[m           [0;0mstate[m
+[0;0mfeature-hash-cache[m
+features_state=ready
+features_error=boot-image-modified 
+txn-508529626fbd711fdbf6bf1c

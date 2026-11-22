@@ -1,0 +1,50 @@
+
+$ cat /proc/uptime
+
+/sys/class/leds # [6ncat /proc/uptime; echo __ACM_END_1__
+84.53 336.13
+__ACM_END_1__
+$ cd /sys/class/leds
+
+/sys/class/leds # cd /sys/class/leds; echo __ACM_END_2__
+__ACM_END_2__
+$ dd if=/dev/input/event0 bs=24 of=/tmp/ev & true
+
+/sys/class/leds # dd if=/dev/input/event0 bs=24 of=/tmp/ev & true; echo __ACM_EN
+D_3__
+__ACM_END_3__
+/sys/class/leds # [6n
+$ for l in *:red; do echo 16 > $l/brightness; done
+for l in *:red; do echo 16 > $l/brightness; done; echo __ACM_E
+ND_4__
+__ACM_END_4__
+/sys/class/leds # [6n
+$ sleep 50
+sleep 50; echo __ACM_END_5__
+
+$ killall dd
+__ACM_END_5__
+/sys/class/leds # killall dd; echo __ACM_END_6__
+__ACM_END_6__
+$ for l in *; do echo 0 > $l/brightness; done
+
+/sys/class/leds # [6nfor l in *; do echo 0 > $l/brightness; done; echo __ACM_END_7_
+_
+__ACM_END_7__
+/sys/class/leds # [6n
+$ hexdump -v -e '24/1 "%02x " "\n"' /tmp/ev
+hexdump -v -e '24/1 "%02x " "\n"' /tmp/ev; echo __ACM_END_8__
+6b 00 00 00 78 94 09 00 01 00 72 00 01 00 00 00 6b 00 00 00 78 94 09 00
+00 00 00 00 00 00 00 00 6b 00 00 00 d3 ad 0c 00 01 00 72 00 00 00 00 00
+6b 00 00 00 d3 ad 0c 00 00 00 00 00 00 00 00 00 6d 00 00 00 f9 0a 00 00
+01 00 8a 00 01 00 00 00 6d 00 00 00 f9 0a 00 00 00 00 00 00 00 00 00 00
+6d 00 00 00 58 aa 02 00 01 00 8a 00 00 00 00 00 6d 00 00 00 58 aa 02 00
+00 00 00 00 00 00 00 00 6e 00 00 00 16 ac 07 00 01 00 73 00 01 00 00 00
+6e 00 00 00 16 ac 07 00 00 00 00 00 00 00 00 00 6e 00 00 00 a2 7c 0b 00
+01 00 73 00 00 00 00 00 6e 00 00 00 a2 7c 0b 00 00 00 00 00 00 00 00 00
+70 00 00 00 b1 7c 03 00 01 00 f8 00 01 00 00 00 70 00 00 00 b1 7c 03 00
+00 00 00 00 00 00 00 00 70 00 00 00 83 db 03 00 05 00 0e 00 01 00 00 00
+70 00 00 00 83 db 03 00 00 00 00 00 00 00 00 00 70 00 00 00 15 5d 07 00
+01 00 f8 00 00 00 00 00 70 00 00 00 15 5d 07 00 00 00 00 00 00 00 00 00
+__ACM_END_8__
+[1]+  Terminated                 dd if=/dev/input/event0 bs=24 of=/tmp/ev

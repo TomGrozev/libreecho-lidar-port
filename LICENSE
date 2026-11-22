@@ -1,0 +1,12 @@
+# License
+
+Documentation, notes, logs and data in this repository are licensed under the
+Creative Commons Attribution 4.0 International license (CC BY 4.0). The full
+text is in `LICENSES/CC-BY-4.0.txt`.
+
+Original scripts and source code written for this port (`.py`, `.sh`, `.c`,
+`.S`, `.dts`, `.patch` files and similar) are licensed under the MIT license.
+The full text is in `LICENSES/MIT.txt`.
+
+Third-party and derived material keeps its own license. See `NOTICE.md` for
+what that material is and how each item is covered.

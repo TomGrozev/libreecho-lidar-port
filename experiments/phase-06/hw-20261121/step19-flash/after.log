@@ -1,0 +1,19 @@
+androidboot.slot_suffix=_b
+6.18.64+
+grep: /var/log/libreecho/system.log: No such file or directory
+14	BOOL	2	LO DAC Playback Switch                  	0Off, Off
+33	INT	2	ADC1 PGA Capture Volume                 	00, 0 (range 0->80)
+34	BOOL	2	ADC1 PGA Capture Switch                 	0Off, Off
+72	INT	2	ADC2 PGA Capture Volume                 	00, 0 (range 0->80)
+73	BOOL	2	ADC2 PGA Capture Switch                 	0Off, Off
+111	INT	2	ADC3 PGA Capture Volume                 	00, 0 (range 0->80)
+112	BOOL	2	ADC3 PGA Capture Switch                 	0Off, Off
+150	INT	2	ADC4 PGA Capture Volume                 	00, 0 (range 0->80)
+151	BOOL	2	ADC4 PGA Capture Switch                 	0Off, Off
+190	BOOL	1	HPL Output Mixer L_DAC Switch           	0Off
+191	BOOL	1	HPL Output Mixer IN1_L Switch           	0Off
+192	BOOL	1	LOL Output Mixer L_DAC Switch           	0Off
+193	BOOL	1	HPR Output Mixer R_DAC Switch           	0Off
+194	BOOL	1	HPR Output Mixer IN1_R Switch           	0Off
+195	BOOL	1	LOR Output Mixer R_DAC Switch           	0Off
+1

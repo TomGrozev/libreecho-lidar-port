@@ -1,0 +1,16 @@
+ramoops fetch after the owner's cold power cycle, 2026-11-21
+Source: Kaeru fastboot, `fastboot oem fetch-enable` + `fastboot fetch ramoops`
+File: ramoops.bin, 393216 bytes (0x60000), sha256 c6ba2b2d06d691f22421a6688e9083f51ea5fef855cf01bb66c8be691bafa859
+Window: 0x43810000..0x43870000 (record 0x10000, console 0x40000, pmsg 0x10000)
+
+Scan result:
+- no "DBGC" header anywhere (0 occurrences)
+- no "Linux version", "6.18.64", "6.1.178", "libreecho", "pstore", "msdc", "mmc0"
+  or "adbd" text
+- every byte non-zero but the content is a repeating 32-bit pattern
+  (e.g. c992aa93 c99aaa93 ...): decayed DRAM, not a pstore zone
+
+Verdict: the 6.18 boot-2 kernel console did NOT survive the cold power cycle. No
+kernel/init evidence was recovered. This is expected: the owner's power cycle removes
+DRAM refresh, and only a warm reset (libreecho-bootctl reboot-bootloader from the
+running 6.18 system) would leave ramoops at 0x43810000 readable here.

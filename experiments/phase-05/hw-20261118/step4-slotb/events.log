@@ -1,0 +1,8 @@
+16:40:28 boot 0: libreecho.lab=v1 androidboot.slot_suffix=_a selected_slot=a slot_a_priority=15 slot_a_tries=0 slot_a_success=1 slot_b_priority=0 slot_b_tries=0 slot_b_success=0 
+16:40:28 activate b: schema=1 selected_slot=b inactive_slot=a slot_suffix=b slot_a_priority=14 slot_a_tries=0 slot_a_success=1 slot_b_priority=15 slot_b_tries=3 slot_b_success=0 boot_layout=lidar boot_store_mode=slotted slot_a_image=/dev/mmcblk0p10 slot_b_image=/dev/mmcblk0p11 wrapper_a=- wrapper_b=- slot_b_priority=15 slot_b_tries=3 
+16:40:43 boot 1: libreecho.lab=dev androidboot.slot_suffix=_b selected_slot=b slot_a_priority=14 slot_a_tries=0 slot_a_success=1 slot_b_priority=15 slot_b_tries=2 slot_b_success=0 
+16:40:59 boot 2: libreecho.lab=dev androidboot.slot_suffix=_b selected_slot=b slot_a_priority=14 slot_a_tries=0 slot_a_success=1 slot_b_priority=15 slot_b_tries=1 slot_b_success=0 
+16:41:14 boot 3: libreecho.lab=dev androidboot.slot_suffix=_b selected_slot=a slot_a_priority=14 slot_a_tries=0 slot_a_success=1 slot_b_priority=15 slot_b_tries=0 slot_b_success=0 
+16:41:30 boot 4: libreecho.lab=v1 androidboot.slot_suffix=_a selected_slot=a slot_a_priority=14 slot_a_tries=0 slot_a_success=1 slot_b_priority=0 slot_b_tries=0 slot_b_success=0 
+16:41:30 fell back to A
+16:41:30 done

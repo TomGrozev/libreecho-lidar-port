@@ -1,0 +1,60 @@
+{"ts":1795233087,"boot_seconds":40,"level":"INFO","service":"btd","msg":"btd-profiles: sdp=listening avdtp=listening avrcp=listening"}
+{"ts":1795233087,"boot_seconds":40,"level":"INFO","service":"btd","msg":"btd: Bluetooth profile services registered"}
+{"ts":1795233087,"boot_seconds":40,"level":"INFO","service":"btd","msg":"btd: listening on /run/libreecho/bluetooth.sock (manual activation, HCI management enabled)"}
+{"ts":1795233087,"boot_seconds":40,"level":"INFO","service":"timerd","msg":"timerd listening on /run/libreecho/timer.sock"}
+{"ts":1795233088,"boot_seconds":41,"level":"INFO","service":"micd","msg":"micd: Lidar OCM capture path configured (PGA 82)"}
+{"ts":1795233088,"boot_seconds":41,"level":"INFO","service":"micd","msg":"calibrated mono microphone stream started"}
+{"ts":1795233089,"boot_seconds":42,"level":"INFO","service":"airplayd","msg":"airplayd: shared audio engine ready"}
+{"ts":1795233089,"boot_seconds":42,"level":"INFO","service":"airplayd","msg":"airplayd: starting (socket=/run/libreecho/airplay.sock, enable_on_start=yes, mdns=ready)"}
+{"ts":1795233090,"boot_seconds":43,"level":"INFO","service":"ttsd","msg":"ttsd: starting (socket=/run/libreecho/tts.sock, model=/run/libreecho/features/tts/root/usr/local/share/libreecho/tts/models/southern-female, voice=southern-female)"}
+{"ts":1795233091,"boot_seconds":44,"level":"INFO","service":"airplayd","msg":"airplayd: AirPlay 2 enabled (NQPTP, Shairport Sync)"}
+{"ts":1795233091,"boot_seconds":44,"level":"INFO","service":"buttond","msg":"buttond: mute indicator off"}
+{"ts":1795233092,"boot_seconds":45,"level":"INFO","service":"libreecho-web","msg":"LibreEcho web daemon started"}
+{"ts":1795233092,"boot_seconds":45,"level":"INFO","service":"audiod","msg":"audiod: set_volume 50 -> 50"}
+{"ts":1795233092,"boot_seconds":45,"level":"INFO","service":"audiod","msg":"audiod: set_gain 65 -> 65"}
+{"ts":1795233108,"boot_seconds":61,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233108,"boot_seconds":61,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795233124,"boot_seconds":77,"level":"INFO","service":"ttsd","msg":"ttsd: TTS engine ready (native rate=16000 Hz)"}
+{"ts":1795233124,"boot_seconds":77,"level":"INFO","service":"ttsd","msg":"ttsd: listening on /run/libreecho/tts.sock"}
+{"ts":1795233126,"boot_seconds":79,"level":"INFO","service":"agentd","msg":"agentd: ready socket=/run/libreecho/agent.sock provider=openai-codex"}
+{"ts":1795233139,"boot_seconds":93,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233139,"boot_seconds":93,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795233153,"boot_seconds":106,"level":"INFO","service":"ledd","msg":"green startup animation complete"}
+{"ts":1795233171,"boot_seconds":124,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233171,"boot_seconds":124,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795233202,"boot_seconds":155,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233202,"boot_seconds":155,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795233233,"boot_seconds":186,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233233,"boot_seconds":186,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795233264,"boot_seconds":217,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233264,"boot_seconds":217,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795233296,"boot_seconds":249,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233296,"boot_seconds":249,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795233327,"boot_seconds":280,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233327,"boot_seconds":280,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795233360,"boot_seconds":313,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233360,"boot_seconds":313,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795233393,"boot_seconds":346,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233393,"boot_seconds":346,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795233425,"boot_seconds":378,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233425,"boot_seconds":378,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795233457,"boot_seconds":410,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233457,"boot_seconds":410,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795233490,"boot_seconds":443,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233490,"boot_seconds":443,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795233521,"boot_seconds":474,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233521,"boot_seconds":474,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795233553,"boot_seconds":506,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233553,"boot_seconds":506,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795233584,"boot_seconds":537,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233584,"boot_seconds":537,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795233617,"boot_seconds":570,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233617,"boot_seconds":570,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795233650,"boot_seconds":603,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233650,"boot_seconds":603,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795233681,"boot_seconds":634,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233681,"boot_seconds":634,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795233713,"boot_seconds":666,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233713,"boot_seconds":666,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}
+{"ts":1795233744,"boot_seconds":697,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence failed"}
+{"ts":1795233744,"boot_seconds":697,"level":"WARN","service":"timed","msg":"ntpd exited; retrying in 30 seconds"}

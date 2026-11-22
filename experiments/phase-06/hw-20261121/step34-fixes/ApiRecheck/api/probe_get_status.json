@@ -1,0 +1,56 @@
+{
+ "body": {
+  "data": {
+   "backend": "linux",
+   "config_error": "",
+   "cpu_percent": 0,
+   "cpus": {
+    "cores": [
+     {
+      "frequency_khz": 1300000,
+      "id": 0,
+      "online": true,
+      "utilization_percent": 0
+     },
+     {
+      "frequency_khz": 1300000,
+      "id": 1,
+      "online": true,
+      "utilization_percent": 0
+     },
+     {
+      "frequency_khz": 1300000,
+      "id": 2,
+      "online": true,
+      "utilization_percent": 0
+     },
+     {
+      "frequency_khz": 1300000,
+      "id": 3,
+      "online": true,
+      "utilization_percent": 0
+     }
+    ],
+    "count": 4
+   },
+   "device_state": "online",
+   "features_error": "",
+   "features_state": "ready",
+   "light_lux": 0,
+   "memory_percent": 11,
+   "memory_total_mb": 983,
+   "memory_used_mb": 113,
+   "simulated": false,
+   "storage_available": true,
+   "storage_percent": 10,
+   "storage_state": "filesystem",
+   "storage_total_mb": 4563,
+   "storage_used_mb": 481,
+   "temperature_c": 24,
+   "uptime_seconds": 155
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

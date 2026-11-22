@@ -1,0 +1,30 @@
+3: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP qlen 1000
+    inet <DEVICE_IP_A>/26 scope global wlan0
+       valid_lft forever preferred_lft forever
+default via <LAN_GATEWAY_A> dev wlan0 
+<LAN_CIDR_A> dev wlan0 scope link  src <DEVICE_IP_A> 
+PING <LAN_GATEWAY_A> (<LAN_GATEWAY_A>): 56 data bytes
+64 bytes from <LAN_GATEWAY_A>: seq=0 ttl=64 time=1.204 ms
+64 bytes from <LAN_GATEWAY_A>: seq=1 ttl=64 time=1.062 ms
+64 bytes from <LAN_GATEWAY_A>: seq=2 ttl=64 time=1.018 ms
+
+--- <LAN_GATEWAY_A> ping statistics ---
+3 packets transmitted, 3 packets received, 0% packet loss
+round-trip min/avg/max = 1.018/1.094/1.204 ms
+Server:		<LAN_GATEWAY_A>
+Address:	<LAN_GATEWAY_A>:53
+
+Non-authoritative answer:
+Name:	example.com
+Address: 104.20.23.154
+Name:	example.com
+Address: 172.66.147.243
+
+Non-authoritative answer:
+Name:	example.com
+Address: 2606:4700:10::6814:179a
+Name:	example.com
+Address: 2606:4700:10::ac42:93f3
+
+-rw-r--r--    1 0        0                9 Nov 21 04:21 [0;0m/run/libreecho/startup-ready[m
+-rw-r--r--    1 0        0                0 Jan  1  1970 [0;0m/run/libreecho/wlan0-ready[m

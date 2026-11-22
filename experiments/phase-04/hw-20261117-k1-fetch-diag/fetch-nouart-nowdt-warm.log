@@ -1,0 +1,5 @@
+OKAY [  0.002s]
+Finished. Total time: 0.002s
+Fetching ramoops (offset=0, size=60000)            OKAY [  0.089s]
+Finished. Total time: 0.096s
+c1731c702c0e86c43071f4f82803681d1b71aa94e575009460f75c3bad51046d  dumps/20261117-lidar-k1-fetch-diag/ramoops-nouart-nowdt-warm.bin

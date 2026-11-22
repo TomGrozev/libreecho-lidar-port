@@ -1,0 +1,9 @@
+a1866152c30693c42d905f27d41da768659c4164a6a7780d2c923514e3c82ddd  phase-06/ota-step33-fixes/lidar-lab-v0.2.26.ota.tar
+e611c9c9f8cb44dd8874596fe41854f33bb2a31169381a030b62b516942ddd14  phase-06/ota-step35-als/lidar-lab-v0.2.27.ota.tar
+0b0587703e69da3826964413fd8bf54892943ae69610fa2f80c695279243c3a2  phase-06/features-airplay2-lidar/ota-0.2.16/lidar-lab-v0.2.16.ota.tar
+9f85d19844c35530ebeee700f1afe831610095319a1c7978f6b9dca8793f9529  phase-06/features-airplay2-lidar/ota/lidar-lab-v0.2.15.ota.tar
+918b0c13781d9b14d5cba5675c5e9a6a53786e3829675c0bc143294d8f7109b1  phase-06/features-airplay2-drain/ota/lidar-lab-v0.2.17.ota.tar
+10855496b32f2afb55d4da6157cb1b4d115f48cc43cf58b32edb98bc28c48af3  phase-06/images-step35-als/boot-lidar-dev.img
+7619af6d3e4cdc67c8207e861d439cd02076aef31b010f236f29c09e6f3d3d2f  phase-06/images-step35-als/boot-lidar-v1.img
+3e71c0bceb55f3a8e8ae8e7d1a6771f9c00f927759812a9a5a8483603510c773  phase-06/images-step35-als/boot-lidar-v2.img
+2c39e2ea66c8c65a9145b123ff8065c4fa922b897167c2271f2a826f9186bcf3  phase-06/acm/boot-lidar-acm-618.img

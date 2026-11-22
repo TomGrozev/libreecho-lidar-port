@@ -1,0 +1,21 @@
+
+$ id
+
+~ # [6nid; echo __ACM_END_1__
+uid=0 gid=0
+__ACM_END_1__
+$ echo LIDAR_PSTORE_MARK_1432 > /dev/kmsg
+
+echo LIDAR_PSTORE_MARK_1432 > /dev/kmsg; echo __ACM_END_2__
+~ # echo LIDAR_PSTORE_MARK_1432 > /dev/kmsg; echo __ACM_END_2__
+
+$ ls /sys/fs/pstore /dev/watchdog*
+__ACM_END_2__
+~ # [6nls /sys/fs/pstore /dev/watchdog*; echo __ACM_END_3__
+[1;35m/dev/watchdog[m   [1;35m/dev/watchdog0[m
+
+/sys/fs/pstore:
+__ACM_END_3__
+$ reboot -f
+
+~ # [6nreboot -f; echo __ACM_END_1__

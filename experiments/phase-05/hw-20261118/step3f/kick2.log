@@ -1,0 +1,7 @@
+20:57:04
+* daemon not running; starting now at tcp:5037
+* daemon started successfully
+20:57:34
+List of devices attached
+<SERIAL_A>       offline usb:1-1.2 transport_id:1
+

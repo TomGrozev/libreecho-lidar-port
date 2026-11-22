@@ -1,0 +1,12 @@
+==cancel1==
+{"v":1,"id":1,"ok":true,"data":{}}
+==status2==
+{"v":1,"id":1,"ok":true,"data":{"timers":[],"ringing":0,"missed":0,"remote_timers":[],"remote_ringing":0}}
+==add_alarm==
+{"v":1,"id":1,"ok":true,"data":{"id":2}}
+==status3==
+{"v":1,"id":1,"ok":true,"data":{"timers":[{"id":2,"kind":"alarm","state":"pending","seconds_remaining":7200,"label":"sweepalarm"}],"ringing":0,"missed":0,"remote_timers":[],"remote_ringing":0}}
+==cancel2==
+{"v":1,"id":1,"ok":true,"data":{}}
+==status4==
+{"v":1,"id":1,"ok":true,"data":{"timers":[],"ringing":0,"missed":0,"remote_timers":[],"remote_ringing":0}}

@@ -1,0 +1,6 @@
+uname -a; echo __ACM_END_1__
+cat /proc/cmdline; echo __ACM_END_2__
+cat /proc/cpuinfo; echo __ACM_END_3__
+dmesg; echo __ACM_END_4__
+ls /pstore-prev /sys/fs/pstore; echo __ACM_END_5__
+cat /pstore-prev/*; echo __ACM_END_6__

@@ -1,0 +1,30 @@
+
+$ cat /proc/uptime
+
+total 0
+__ACM_END_6__
+~ # [6ncat /proc/uptime; echo __ACM_END_1__
+160.26 639.33
+__ACM_END_1__
+$ id
+
+~ # [6nid; echo __ACM_END_2__
+uid=0 gid=0
+__ACM_END_2__
+$ echo LIDAR_LK_SLOT_PSTORE_MARK_1757 > /dev/kmsg
+
+echo LIDAR_LK_SLOT_PSTORE_MARK_1757 > /dev/kmsg; echo __ACM_END_3__
+~ # echo LIDAR_LK_SLOT_PSTORE_MARK_1757 > /dev/kmsg; echo __ACM_END_3__
+$ ls /sys/fs/pstore /dev/watchdog*
+
+__ACM_END_3__
+ls /sys/fs/pstore /dev/watchdog*; echo __ACM_END_4__
+~ # ls /sys/fs/pstore /dev/watchdog*; echo __ACM_END_4__
+
+$ reboot -f
+reboot -f; echo __ACM_END_5__
+[1;35m/dev/watchdog[m   [1;35m/dev/watchdog0[m
+
+/sys/fs/pstore:
+__ACM_END_4__
+~ # reboot -f; echo __ACM_END_5__

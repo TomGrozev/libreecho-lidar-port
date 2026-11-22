@@ -1,0 +1,12 @@
+make -f /workspace/libreecho/repos/kaeru/Makefile silentoldconfig
+make -f scripts/Makefile.build obj=scripts/basic
+mkdir -p include/linux include/config
+make -f scripts/Makefile.build obj=scripts/kconfig silentoldconfig
+In file included from scripts/kconfig/zconf.tab.c:2501:
+scripts/kconfig/confdata.c: In function ‘conf_write’:
+scripts/kconfig/confdata.c:574:35: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  574 |                 } else if ((slash = strrchr(name, '/'))) {
+      |                                   ^
+mkdir -p include/generated
+scripts/kconfig/conf --silentoldconfig Kconfig
+make: Nothing to be done for 'kaeru.o'.

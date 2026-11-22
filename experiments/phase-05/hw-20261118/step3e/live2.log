@@ -1,0 +1,10 @@
+20:50:55
+896310 adb -L tcp:5037 fork-server server --reply-fd 4
+error: no devices/emulators found
+adb: no devices/emulators found
+rc=1
+adb: no devices/emulators found
+rc=1
+List of devices attached
+
+Nov 18 20:50:48 <WORKSTATION_A> kernel: usb 1-1.2: USB disconnect, device number 46

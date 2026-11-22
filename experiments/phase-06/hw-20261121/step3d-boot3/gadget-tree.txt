@@ -1,0 +1,11 @@
+[1;34mlibreecho[m
+== /sys/kernel/config/usb_gadget/libreecho
+0x18d1
+0xd001
+[0;0mMaxPower[m      [0;0mbmAttributes[m  [1;36mffs.adb[m       [1;34mstrings[m
+[1;34mffs.adb[m
+total 0
+-rw-r--r--    1 0        0             4096 Jan  1 00:00 [0;0mMaxPower[m
+-rw-r--r--    1 0        0             4096 Jan  1 00:01 [0;0mbmAttributes[m
+lrwxrwxrwx    1 0        0                0 Jan  1 00:00 [1;36mffs.adb[m -> [1;34m../../../../usb_gadget/libreecho/functions/ffs.adb[m
+drwxr-xr-x    3 0        0                0 Jan  1 00:00 [1;34mstrings[m

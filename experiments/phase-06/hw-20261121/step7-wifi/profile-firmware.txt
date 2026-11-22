@@ -1,0 +1,5 @@
+-rw-------    1 0        0               70 Nov 20  2026 [0;0m/data/libreecho/config/wpa_supplicant.conf[m
+-rw-------    1 0        0            51816 Jan  1 00:00 [0;0m/lib/firmware/WIFI_RAM_CODE2_SDIO_MT7668.bin[m
+-rw-------    1 0        0           459528 Jan  1 00:00 [0;0m/lib/firmware/WIFI_RAM_CODE_MT7668.bin[m
+-rw-r--r--    1 0        0           170990 Jan  1 00:00 [0;0m/lib/firmware/mediatek/mt7668pr2h.bin[m
+-rw-r--r--    1 0        0           170990 Jan  1 00:00 [0;0m/lib/firmware/mt7668_patch_e2_hdr.bin[m

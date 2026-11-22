@@ -1,0 +1,3 @@
+[0;93m2026-11-21 03:43:02.258557880 [W:onnxruntime:libreecho-wake, cpuid_info.cc:105 LogEarlyWarning] Unknown CPU vendor. cpuinfo_vendor value: 0[m
+waked: running (16 kHz, frame=10 ms, AEC tail=200 ms, preroll=3 s, vad-floor=16 RMS, wake=openwakeword-onnx)
+waked: frames=30288 aec_frames=0 vad_active_frames=13745 wake_scores=2628 wake_events=0 max_wake_score=0.283399 max_inference_us=117529 wake_dropped_blocks=1158 wake_failed=false ref_packets=0 ref_underflows=0 ref_overruns=0 ref_discontinuities=0 aec_resets=0

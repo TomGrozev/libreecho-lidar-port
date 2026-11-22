@@ -1,0 +1,39 @@
+total 104
+drwx------    4 0        0             4096 Jan  1  1970 [1;34m.[m
+drwx------   10 0        0             4096 Nov 22 06:48 [1;34m..[m
+-rw-------    1 0        0             5292 Nov 22 00:41 [0;0mauthority-provenance-cache[m
+-rw-------    1 0        0               12 Jan  1  1970 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1  1970 [0;0mboot-count[m
+-rw-r--r--    1 0        0              260 Jan  1  1970 [0;0mboot-health[m
+-rw-r--r--    1 0        0              916 Jan  1  1970 [0;0mboot-history[m
+-rw-r--r--    1 0        0              281 Nov 22 00:36 [0;0mbootctl.confirm[m
+-rw-------    1 0        0               30 Jan  1  1970 [0;0mconfig-status[m
+-rw-------    1 0        0               29 Nov 22 00:36 [0;0mcurrent[m
+-rw-------    1 0        0             3764 Nov 21 08:40 [0;0mfailure-1795250407-1.log[m
+-rw-------    1 0        0             3416 Nov 22 09:09 [0;0mfailure-1795338568-1.log[m
+-rw-------    1 0        0             1704 Nov 22 00:37 [0;0mfeature-hash-cache[m
+-rw-------    1 0        0               37 Jan  1  1970 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1  1970 [1;34mincoming[m
+-rw-------    1 0        0              175 Nov 22 00:36 [0;0minstalled[m
+-rw-------    1 0        0            15419 Nov 22 09:09 [0;0mota.log[m
+-rw-------    1 0        0               29 Nov 22 00:36 [0;0mprevious[m
+-rw-r--r--    1 0        0              170 Nov 22 09:09 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Nov 22 09:13 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Nov 22 09:13 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1  1970 [0;0mstate[m
+== failure logs
+-- /data/libreecho/update/failure-1795250407-1.log
+schema=1
+reason=ota-health-confirm-failed
+slot_suffix=a
+-- /data/libreecho/update/failure-1795338568-1.log
+schema=1
+reason=ota-health-confirm-failed
+slot_suffix=a
+== journal
+== features-status
+features_state=ready
+features_error=
+== pending/current
+txn-bac8cf84d19b53cb0c24cdc4
+

@@ -1,0 +1,9 @@
+Unable to open PCM device (cannot open device (0) for card (0): No such file or directory)
+Captured 0 frames
+===
+256 bits is not supported.
+rc=1
+ls: /tmp/cap-test.wav: No such file or directory
+===
+Invalid mixer control
+

@@ -1,0 +1,25 @@
+==bootctl
+/system/bin/sh: libreecho-bootctl: not found
+==update
+/system/bin/sh: libreecho-update: not found
+==health
+schema=1
+state=confirmed
+mode=ota
+running_slot=b
+selected_slot=b
+pending_slot=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=1
+boot_count=59
+attempt=3
+passed=2
+last_check=none
+strict_graph=1
+epoch=1795233227
+==pstore
+[0;0mconsole-ramoops-0[m  [0;0mpmsg-ramoops-0[m

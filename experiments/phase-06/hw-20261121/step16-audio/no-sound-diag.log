@@ -1,0 +1,56 @@
+ 0 [amazonlidar    ]: amazon-lidar - amazon-lidar
+                      amazon-lidar
+00-00: Playback (*) :  : playback 1
+00-01: Microphone Capture (*) :  : capture 1
+00-02: Playback Reference Capture (*) :  : capture 1
+== /proc/asound/card0/pcm0p/sub0/status
+closed
+== /proc/asound/card0/pcm0p/sub0/hw_params
+closed
+== tinymix
+usage: tinymix [options] <command>
+options:
+	-h, --help               : prints this help message and exits
+	-v, --version            : prints this version of tinymix and exits
+	-D, --card NUMBER        : specifies the card number of the mixer
+
+commands:
+	get NAME|ID              : prints the values of a control
+	set NAME|ID VALUE(S) ... : sets the value of a control
+		VALUE(S): integers, percents, and relative values
+			Integers: 0, 100, -100 ...
+			Percents: 0%, 100% ...
+			Relative values: 1+, 1-, 1%+, 2%+ ...
+	controls                 : lists controls of the mixer
+	contents                 : lists controls of the mixer and their contents
+== logs
+libreecho
+libreecho-agentd.log
+libreecho-airplayd.log
+libreecho-audiod.log
+libreecho-btd.log
+libreecho-buttond.log
+libreecho-ledd.log
+libreecho-micd.log
+libreecho-networkd.log
+libreecho-radiod.log
+libreecho-sttd.log
+libreecho-timed.log
+libreecho-timerd.log
+libreecho-ttsd.log
+libreecho-waked.log
+libreecho-watchdogd.log
+libreecho-web.log
+tail: can't open '/var/log/libreecho-audio-engine.log': No such file or directory
+== dmesg
+workingset: timestamp_bits=62 max_order=18 bucket_order=0
+mt8516-afe-pcm 11140000.audio-controller: mtk_afe_combine_sub_dai(), num of dai 6
+libreecho-init: audio-node-worker-started
+libreecho-init: audio-devnodes-created:5
+libreecho-init: audio-startup-disabled
+libreecho-init: adbd-task:140:adbd:S (sleeping):do_select
+libreecho-init: adbd-task:143:adbd:S (sleeping):futex_do_wait
+libreecho-init: adbd-task:144:adbd:S (sleeping):inet_csk_accept
+libreecho-init: adbd-task:145:adbd:S (sleeping):unix_stream_read_generic
+libreecho-init: adbd-task:146:adbd:S (sleeping):ffs_epfile_io
+libreecho-init: ui-service-start:audiod:0

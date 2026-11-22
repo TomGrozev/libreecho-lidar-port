@@ -1,0 +1,9 @@
+ 7341 0         0:00 /usr/local/sbin/libreecho-web --backend linux --config /data/libreecho/config/web-config.json --web-root /usr/local/share/libreecho/web --listen 0.0.0.0:8080 --users-file /data/libreecho/config/users
+ 7685 0         0:00 {libreecho-web.i} /bin/sh /etc/init.d/libreecho-web.init start
+ 8040 0         0:00 /system/bin/sh -c ps w | grep libreecho-web; echo ==log; cat /var/log/libreecho-web.log; echo ==sys; grep -i "web\|auth" /var/log/libreecho/system.log | tail -8; echo ==ready; ls /run/libreecho/startup-ready 2>&1
+ 8047 0         0:00 grep libreecho-web
+==log
+==sys
+{"ts":1795234217,"boot_seconds":43,"level":"INFO","service":"libreecho-web","msg":"LibreEcho web daemon started"}
+==ready
+ls: /run/libreecho/startup-ready: No such file or directory

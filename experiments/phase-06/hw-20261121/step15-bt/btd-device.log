@@ -1,0 +1,35 @@
+==SYSTEM
+{"ts":1795234865,"boot_seconds":39,"level":"INFO","service":"btd","msg":"btd-profiles: sdp=listening avdtp=listening avrcp=listening"}
+{"ts":1795234865,"boot_seconds":39,"level":"INFO","service":"btd","msg":"btd: Bluetooth profile services registered"}
+{"ts":1795234865,"boot_seconds":39,"level":"INFO","service":"btd","msg":"btd: listening on /run/libreecho/bluetooth.sock (manual activation, HCI management enabled)"}
+{"ts":1795234941,"boot_seconds":114,"level":"WARN","service":"btd","msg":"btd: management opcode 0x0006 rejected (status=0x0b, rejected)"}
+{"ts":1795234941,"boot_seconds":114,"level":"WARN","service":"btd","msg":"btd: management opcode 0x0023 failed (status=0x0b, rejected)"}
+{"ts":1795234941,"boot_seconds":114,"level":"WARN","service":"btd","msg":"btd: interleaved discovery unavailable; trying classic inquiry"}
+{"ts":1795234953,"boot_seconds":126,"level":"WARN","service":"btd","msg":"btd: management opcode 0x0024 failed (status=0x0b, rejected)"}
+{"ts":1795234953,"boot_seconds":126,"level":"WARN","service":"btd","msg":"btd: management opcode 0x0006 rejected (status=0x0b, rejected)"}
+{"ts":1795234994,"boot_seconds":168,"level":"INFO","service":"btd","msg":"btd: pairing identity published (name=LibreEcho, class=audio-rendering)"}
+{"ts":1795234994,"boot_seconds":168,"level":"INFO","service":"btd","msg":"btd: pairing mode enabled (connectable, discoverable, bondable)"}
+{"ts":1795234994,"boot_seconds":168,"level":"INFO","service":"libreecho-web","msg":"Bluetooth pairing mode enabled"}
+{"ts":1795234996,"boot_seconds":170,"level":"INFO","service":"btd","msg":"btd: pairing mode disabled"}
+{"ts":1795234996,"boot_seconds":170,"level":"INFO","service":"libreecho-web","msg":"Bluetooth pairing mode disabled"}
+{"ts":1795235004,"boot_seconds":178,"level":"INFO","service":"btd","msg":"btd: pairing identity published (name=LibreEcho, class=audio-rendering)"}
+{"ts":1795235004,"boot_seconds":178,"level":"INFO","service":"btd","msg":"btd: pairing mode enabled (connectable, discoverable, bondable)"}
+{"ts":1795235004,"boot_seconds":178,"level":"INFO","service":"libreecho-web","msg":"Bluetooth pairing mode enabled"}
+{"ts":1795235004,"boot_seconds":178,"level":"WARN","service":"btd","msg":"btd: management opcode 0x0023 failed (status=0x0b, rejected)"}
+{"ts":1795235004,"boot_seconds":178,"level":"WARN","service":"btd","msg":"btd: interleaved discovery unavailable; trying classic inquiry"}
+{"ts":1795235034,"boot_seconds":208,"level":"WARN","service":"btd","msg":"btd: management opcode 0x0024 failed (status=0x0b, rejected)"}
+{"ts":1795235034,"boot_seconds":208,"level":"INFO","service":"btd","msg":"btd: pairing mode disabled"}
+{"ts":1795235034,"boot_seconds":208,"level":"INFO","service":"libreecho-web","msg":"Bluetooth pairing mode disabled"}
+==DMESG
+Bluetooth: Core ver 2.22
+NET: Registered PF_BLUETOOTH protocol family
+Bluetooth: HCI device and connection manager initialized
+Bluetooth: HCI socket layer initialized
+Bluetooth: L2CAP socket layer initialized
+Bluetooth: SCO socket layer initialized
+mt7668_sdio mmc1:0001:1: firmware not installed yet, deferring probe; bind after importing it
+mt7668_sdio mmc1:0001:1: probe with driver mt7668_sdio failed with error -2
+Bluetooth: hci0: Device setup in 1072103 usecs
+Bluetooth: MGMT ver 1.23
+Bluetooth: hci0: Firmware already downloaded
+Bluetooth: hci0: Device setup in 14036 usecs

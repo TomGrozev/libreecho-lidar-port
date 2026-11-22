@@ -1,0 +1,4 @@
+a04448a84d5953f7578636731595e7f3c2e46b5b1724813120b586be0ac7c58c  artifacts/phase-04/boot-lidar-k1-acm-fetch-nouart.img
+Sending 'boot_a' (16384 KB)                        OKAY [  0.458s]
+Writing 'boot_a'                                   OKAY [  1.256s]
+Finished. Total time: 1.729s

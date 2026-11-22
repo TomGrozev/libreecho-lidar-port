@@ -1,0 +1,101 @@
+==init-ctx
+28:wifi-network-worker-started-after-adb
+31:wifi-request-supervisor-started
+33:wifi-persistent-profile-selected
+34:wifi-profile-present
+35:wifi-profile-recorded
+38:lidar-bt-ready-before-wlan
+42:lidar-wlan-bound:mmc1:0001:1
+43:wlan0-ready-recorded
+44:wifi-client-rc:3
+45:wifi-activation-complete:3
+46:wifi-worker-failed-recorded:3
+==tmpfiles
+-rw-r--r--    1 0        0                0 Jan  1 00:00 [0;0m/tmp/wifi-boot.log[m
+-rw-r--r--    1 0        0                0 Jan  1 00:00 [0;0m/tmp/wifi-client.log[m
+-rw-r--r--    1 0        0                0 Jan  1 00:00 [0;0m/tmp/wifi-lidar-bind.log[m
+-rw-r--r--    1 0        0               35 Jan  1 00:00 [0;0m/tmp/wifi.log[m
+-rw-r--r--    1 0        0               20 Jan  1 00:00 [0;0m/tmp/wifi.status[m
+
+/tmp/wifi.activation.claim:
+total 0
+==wpalog
+==clientlog
+==netdlog
+==dmesg
+[Firmware Bug]: Kernel image misaligned at boot, please fix your bootloader!
+psci: PSCIv1.0 detected in firmware.
+[wlan][1]initWlan:(INIT STATE) initWlan..
+[wlan][1]mt76x8_wireless_init:(INIT STATE) Initialize wireless Device
+[wlan][1]wlanCreateWirelessDevice:(INIT ERROR) The num_different_channels is 2
+[wlan][1]mtk_reg_notify:(RLM ERROR) prGlueInfo is NULL!
+[wlan][1]initWlan:(INIT STATE) initWlan end
+mmc1: new UHS-I speed SDR104 SDIO card at address 0001
+mt7668_sdio mmc1:0001:1: firmware not installed yet, deferring probe; bind after importing it
+mt7668_sdio mmc1:0001:1: probe with driver mt7668_sdio failed with error -2
+libreecho-init: wifi-network-worker-started-after-adb
+libreecho-init: wifi-request-supervisor-started
+libreecho-init: wifi-persistent-profile-selected
+libreecho-init: wifi-profile-present
+libreecho-init: wifi-profile-recorded
+libreecho-init: lidar-bt-ready-before-wlan
+[wlan][454]wlanProbe:(INIT STATE) enter wlanProbe
+[wlan][454]halPollDbgCr:(INIT WARN) SWPCDBGR 0x00017AF4
+[wlan][454]wlanAdapterStart:(INIT WARN) Send a Dummy CMD as workaround
+[wlan][454]wlanQueryNicCapability:(INIT WARN) wlanQueryNicCapability: skip unexpected event ID[0x27]
+[wlan][454]wlanAdapterStart:(INIT WARN) wlanAdapterStart: load manufacture data fail
+[wlan][454]wlanProbe:(INIT STATE) main_thread 00000000118d0ba1
+[wlan][724]main_thread:(INIT STATE) main_thread:724 starts running...
+[wlan][454]wlanProbe:(INIT STATE) hif_thread 0000000039ce9d35
+[wlan][725]hif_thread:(INIT STATE) hif_thread:725 starts running...
+[wlan][454]wlanProbe:(INIT STATE) rx_thread 000000007876ec75
+[wlan][726]rx_thread:(INIT STATE) rx_thread:726 starts running...
+[wlan][454]wlanDownloadBufferBin:(INIT STATE) [EFUSE AUTO] EFUSE Mode
+[wlan][724]p2pDevFsmStateTransition:(P2P STATE) [P2P_DEV]TRANSITION: [P2P_DEV_STATE_IDLE] -> [P2P_DEV_STATE_IDLE]
+[wlan][724]wlanBindBssIdxToNetInterface:(INIT ERROR) Array index out of bound, ucBssIndex=4
+[wlan][724]p2pRoleFsmStateTransition:(P2P STATE) [P2P_ROLE][0]TRANSITION(Bss1): [P2P_ROLE_STATE_IDLE] -> [P2P_ROLE_STATE_IDLE]
+[wlan][724]p2pDevFsmStateTransition:(P2P STATE) [P2P_DEV]TRANSITION: [P2P_DEV_STATE_IDLE] -> [P2P_DEV_STATE_IDLE]
+[wlan][724]wlanBindBssIdxToNetInterface:(INIT ERROR) Array index out of bound, ucBssIndex=4
+[wlan][724]p2pRoleFsmStateTransition:(P2P STATE) [P2P_ROLE][1]TRANSITION(Bss2): [P2P_ROLE_STATE_IDLE] -> [P2P_ROLE_STATE_IDLE]
+[wlan][724]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x11] SEQ[28]
+[wlan][725]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][725]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][725]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][725]halPollDbgCr:(INIT WARN) SWPCDBGR 0x000002B6
+[wlan][725]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][725]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][724]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x11] SEQ[28]
+[wlan][724]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x11] SEQ[28]
+[wlan][725]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][725]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][725]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][725]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][725]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][725]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][724]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x70] SEQ[35]
+[wlan][725]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x00FF00FF
+[wlan][725]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0041922
+[wlan][725]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00245F0
+[wlan][725]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00418E8
+[wlan][725]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE00418C6
+[wlan][725]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE004198A
+[wlan][454]wlanUpdateRssiComp:(INIT ERROR) c2GRssiCompensation=2,c5GRssiCompensation=2
+[wlan][454]wlanProbe:(INIT STATE) wlanProbe: probe success
+libreecho-init: lidar-wlan-bound:mmc1:0001:1
+libreecho-init: wlan0-ready-recorded
+libreecho-init: wifi-client-rc:3
+libreecho-init: wifi-activation-complete:3
+libreecho-init: wifi-worker-failed-recorded:3
+[wlan][724]wlanProcessCommandQueue:(INIT WARN) NO Res CMD TYPE[1] ID[0x14] SEQ[52]
+[wlan][725]halPrintMailbox:(INIT ERROR) MailBox Status = 0x0003005A, 0x77889901
+[wlan][725]halPollDbgCr:(INIT WARN) SWPCDBGR 0x000CBFDC
+[wlan][725]halPollDbgCr:(INIT WARN) SWPCDBGR 0x000CBFB0
+[wlan][725]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0000F0A
+[wlan][725]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE0000EFE
+[wlan][725]halPollDbgCr:(INIT WARN) SWPCDBGR 0xE001127E
+[wlan][724]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][724]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][724]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=1,0,0
+[wlan][724]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+[wlan][724]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0
+[wlan][724]qmHandleEventBssAbsencePresence:(QM EVENT) NAF=2,0,0

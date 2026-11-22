@@ -1,0 +1,5 @@
+transaction_id=txn-cc95a15ac3b7e1c89d9dc5cb
+boot_sha256=cd979c08e79014b89459e101ad8f4939af32d8bd65246d39df896555e5d0468a
+ota=artifacts/phase-07/ota-sendspin-fix/lidar-lab-v0.2.29.ota.tar
+generation=artifacts/phase-07/ota-sendspin-fix/generations/txn-cc95a15ac3b7e1c89d9dc5cb
+bundle_sha256=adaffa4038bf02dfd4e4b09298579b830b3ed5554e46bbaa7403d38cc172c8e3

@@ -1,0 +1,15 @@
+androidboot.slot_suffix=_a
+state=boot-validating
+ota_transaction_state=pending
+ota_transaction_pending=1
+generation=txn-7303218adf4646e5decf1908
+feature_airplay2_running_daemon=libreecho-audio-engine
+feature_airplay2_running_daemon_sha256=97867ec9fba12293d9c118aa7373610691d16bc607f3cd873483722e5d02d836
+audio-engine: speaker chain lidar codec Flat hp-gain 0 lo-gain 0 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/run/libreecho-audio, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,0)
+audio-engine: music AVL available (disable: /run/libreecho-audio/avl.disabled)
+{"ts":1795243106,"boot_seconds":37,"level":"INFO","service":"audiod","msg":"audiod: starting (socket=/run/libreecho/audio.sock, card=0)"}
+{"ts":1795243106,"boot_seconds":37,"level":"INFO","service":"audiod","msg":"audiod: restored microphone gain 65"}
+{"ts":1795243106,"boot_seconds":37,"level":"INFO","service":"audiod","msg":"audiod: selected persisted volume 50"}
+{"ts":1795243112,"boot_seconds":43,"level":"INFO","service":"audiod","msg":"audiod: set_volume 50 -> 50"}
+{"ts":1795243112,"boot_seconds":43,"level":"INFO","service":"audiod","msg":"audiod: set_gain 65 -> 65"}

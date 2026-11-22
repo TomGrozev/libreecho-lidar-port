@@ -1,0 +1,15 @@
+
+$ cat /proc/uptime
+
+~ # [6ncat /proc/uptime; echo __ACM_END_1__
+2.62 8.72
+__ACM_END_1__
+$ echo LIDAR_SOURCE_PSTORE_MARK_1827 > /dev/kmsg
+
+echo LIDAR_SOURCE_PSTORE_MARK_1827 > /dev/kmsg; echo __ACM_END_2__
+~ # echo LIDAR_SOURCE_PSTORE_MARK_1827 > /dev/kmsg; echo __ACM_END_2__
+
+$ sync
+__ACM_END_2__
+~ # sync; echo __ACM_END_3__
+__ACM_END_3__

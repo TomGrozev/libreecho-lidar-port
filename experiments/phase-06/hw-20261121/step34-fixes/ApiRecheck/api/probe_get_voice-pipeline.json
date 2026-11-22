@@ -1,0 +1,44 @@
+{
+ "body": {
+  "data": {
+   "home_assistant": {
+    "connected": true,
+    "port": 6053,
+    "protocol": "esphome",
+    "ready": true
+   },
+   "listening": {
+    "end_silence_ms": 1000,
+    "max_utterance_ms": 6000,
+    "vad_floor_rms": 16
+   },
+   "mode": "home-assistant",
+   "restart": {
+    "error": "",
+    "phase": "",
+    "state": "ready"
+   },
+   "stt": {
+    "configured": false,
+    "engine": "sherpa",
+    "model": "whisper-small",
+    "reachable": false,
+    "wyoming_uri": ""
+   },
+   "tts": {
+    "configured": false,
+    "engine": "sherpa",
+    "reachable": false,
+    "voice": "en_GB-alan-medium",
+    "wyoming_uri": ""
+   },
+   "wake_word": {
+    "engine": "openwakeword",
+    "processing": "on-device"
+   }
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

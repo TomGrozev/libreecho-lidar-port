@@ -1,0 +1,30 @@
+Unable to open PCM device (cannot open device (1) for card (0): Resource busy)
+Captured 0 frames
+rc=1
+ls: /tmp/cap3.wav: No such file or directory
+===
+Capturing sample: 1 ch, 16000 hz, 16 bit
+Terminated
+rc2=143
+ls: /tmp/cap4.wav: No such file or directory
+===
+Number of controls: 274
+ctl	type	num	name                                    	device	value
+0	BOOL	1	O03 I05 Switch                          	0On
+1	BOOL	1	O04 I06 Switch                          	0On
+2	BOOL	1	O05 I05 Switch                          	0On
+3	BOOL	1	O06 I06 Switch                          	0On
+4	BOOL	1	MFP4 GPIO                               	0On
+5	BOOL	1	MFP5 GPIO                               	0Off
+6	INT	2	PCM Playback Volume                     	0127, 127 (range 0->175)
+7	BYTE	90	DAC Biquad Coefficients                 	000, 74, 50, 00, 74, 50, 00, 74, 50, 74, c4, cc, 94, a5, 24, 80, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 7f, ff, ff, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 65, 86, 3b, 9a, 79, c5, 65, 86, 3b, 62, c1, c9, af, 6a, a2, 65, 86, 3b, 9a, 79, c5, 65, 86, 3b, 62, c1, c9, af, 6a, a2, 7f, ff, ff, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00
+8	BOOL	1	DAC Mono Mix Switch                     	0On
+9	ENUM	1	DAC Left Playback PowerTune Switch      	0> P3, P2, P1, 
+10	ENUM	1	DAC Right Playback PowerTune Switch     	0> P3, P2, P1, 
+11	INT	2	HP Driver Gain Volume                   	06, 6 (range 0->35)
+12	INT	2	LO Driver Gain Volume                   	06, 6 (range 0->35)
+13	BOOL	2	HP DAC Playback Switch                  	0Off, Off
+14	BOOL	2	LO DAC Playback Switch                  	0Off, Off
+15	ENUM	1	LO Playback Common Mode Switch          	0> Full Chip, 1.65V, 
+16	BOOL	2	Mic PGA Switch                          	0Off, Off
+17	BOOL	1	ADCFGA Left Mute Switch                 	0On

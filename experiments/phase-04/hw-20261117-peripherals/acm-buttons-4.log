@@ -1,0 +1,37 @@
+
+$ cat /proc/uptime
+~ # [6ncat /proc/uptime; echo __ACM_END_1__
+18.62 72.51
+__ACM_END_1__
+$ cd /sys/class/leds
+
+~ # cd /sys/class/leds; echo __ACM_END_2__
+__ACM_END_2__
+$ for l in *:red; do echo 16 > $l/brightness; done
+
+/sys/class/leds # for l in *:red; do echo 16 > $l/brightness; done; echo __ACM_E
+ND_3__
+__ACM_END_3__
+/sys/class/leds # [6n
+$ dd if=/dev/input/event0 bs=24 of=/tmp/ev &
+dd if=/dev/input/event0 bs=24 of=/tmp/ev &; echo __ACM_END_4__
+sh: syntax error: unexpected ";"
+/sys/class/leds # [6n
+$ sleep 50
+sleep 50; echo __ACM_END_5__
+
+$ kill %1
+__ACM_END_5__
+/sys/class/leds # kill %1; echo __ACM_END_6__
+sh: kill: %1: no such job
+__ACM_END_6__
+$ for l in *; do echo 0 > $l/brightness; done
+
+/sys/class/leds # [6nfor l in *; do echo 0 > $l/brightness; done; echo __ACM_END_7_
+_
+__ACM_END_7__
+/sys/class/leds # [6n
+$ hexdump -v -e '24/1 "%02x " "\n"' /tmp/ev
+hexdump -v -e '24/1 "%02x " "\n"' /tmp/ev; echo __ACM_END_8__
+hexdump: /tmp/ev: No such file or directory
+__ACM_END_8__

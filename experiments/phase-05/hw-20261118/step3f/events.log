@@ -1,0 +1,9 @@
+20:54:16 adb up
+20:54:16 install: installed
+20:55:06 push failed
+20:55:06 dma round 1 failed
+20:55:06 waiting for rebind
+20:55:21 shell failed: 
+20:55:21 not recovered
+Bus 001 Device 050: ID 18d1:d001 Google Inc. Nexus 4 (fastboot)
+20:55:21 stopped in dma phase

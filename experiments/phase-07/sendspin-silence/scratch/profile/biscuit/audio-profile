@@ -1,0 +1,7 @@
+schema=1
+target_id=biscuit
+speaker_chain=biscuit
+codec_profile=Flat
+hp_driver_gain=6
+pre_gain_db=6.00
+bass_makeup_db=2.50

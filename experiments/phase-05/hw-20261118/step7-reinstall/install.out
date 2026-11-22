@@ -1,0 +1,28 @@
+product=LIDAR
+kaeru_version=2.0.0-g66704e6-dirty
+max_fetch_size=1048576
+partition kb: 1048576 ok
+partition dkb: 1048576 ok
+partition lk_a: 1048576 ok
+partition tee1: 5242880 ok
+partition lk_b: 1048576 ok
+partition tee2: 5242880 ok
+partition expdb: 10485760 ok
+partition misc: 524288 ok
+partition persist: 16777216 ok
+partition boot_a: 16777216 ok
+partition boot_b: 16777216 ok
+partition swdl: 33554432 ok
+partition system_a: 1283457024 ok
+partition system_b: 1283457024 ok
+partition cache: 33554432 ok
+partition userdata: 4939300352 ok
+plan: flash boot_a <- /workspace/libreecho/artifacts/phase-05/images/boot-lidar-v1.img (16777216 bytes, sha256 9da8886ca63696c5dc13f968f356f499732c072b1dec5d991df8d025737a239a)
+plan: flash boot_b <- /workspace/libreecho/artifacts/phase-05/images/boot-lidar-v2.img (16777216 bytes, sha256 7e73d1b800cfa46aee50abe6cf580f8e5927d8777801c3a2fcb0339d48f8c4b0)
+plan: fetch boot_a and boot_b and compare sha256
+flash boot_a: /workspace/libreecho/artifacts/phase-05/images/boot-lidar-v1.img
+flash boot_b: /workspace/libreecho/artifacts/phase-05/images/boot-lidar-v2.img
+readback boot_a: 16777216 bytes, sha256 9da8886ca63696c5dc13f968f356f499732c072b1dec5d991df8d025737a239a
+readback boot_b: 16777216 bytes, sha256 7e73d1b800cfa46aee50abe6cf580f8e5927d8777801c3a2fcb0339d48f8c4b0
+install: flashed and verified
+log: logs/install.log

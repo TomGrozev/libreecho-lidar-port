@@ -1,0 +1,11 @@
+PASS no engine fd -> O_WRONLY|O_NONBLOCK open ENXIO
+PASS engine O_RDWR|O_NONBLOCK open
+PASS producer O_WRONLY|O_NONBLOCK open succeeds with engine fd held
+PASS first 4096-byte write is complete
+fifo capacity ~= 65536 bytes
+PASS full FIFO -> EAGAIN, never EPIPE while engine fd open
+short write observed: no (4096-byte chunks fit)
+PASS engine fd can still read after producer fill
+PASS space freed by engine read -> write accepted again
+PASS after engine fd closes, write EPIPE (engine exit only)
+ALL CHECKS PASSED

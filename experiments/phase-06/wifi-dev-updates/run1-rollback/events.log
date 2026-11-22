@@ -1,0 +1,4 @@
+18:59:43 start: part=rollback bundle=v0.2.19 tx=txn-60c86390c5d1d1b63bd1affb slot=b target=a
+19:03:00 pushed: artifacts/phase-06/ota-wifi/rollback/lidar-lab-v0.2.19.ota.tar: 1 file pushed, 0 skipped. 1.6 MB/s (16793600 bytes in 10.042s)
+19:03:35 install: verify_rc=0 ota_manifest_signature=PASS UPDATE_READY slot=a version=0.2.19 install_rc=0 
+19:03:35 boot 1: reboot requested

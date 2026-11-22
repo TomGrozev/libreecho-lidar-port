@@ -1,0 +1,12 @@
+== login 200
+{"ok":true,"data":{"token":"<TOKEN>","username":"phase6-verify","expires_in":43200},"error":null}
+== bt-enable 501
+{"ok":false,"data":null,"error":{"code":"io_error","message":"Bluetooth setting could not be applied"}}
+== bt-enabled 200
+{"ok":true,"data":{"state":"activation-attempted","available":true,"enabled":false,"activation_attempted":true,"transport":"mt8163-btif-hci","hci":"none","address":"","address_factory":"","address_configured":"","local_name":"MTK MT7668 #4","last_error":"wmt_configure failed","last_disconnect_reason":"","last_connect_failed_status":"","profile_state":"ready","profile_error":"SDP, A2DP sink, and AVRCP profile services registered","profile_services":{"sdp":true,"a2dp_sink":true,"avrcp":true,"rfcomm":false,"bnep":false,"hidp":false},"scanning":false,"pairing":false,"pairing_mode":false,"capabilities":{"classic":true,"le":true,"ssp":true,"secure_connection":true,"connectable":false,"discoverable":false,"bondable":false},"pending_pairing":null,"discovered":[],"known_devices":[]},"error":null}
+== bt-scan 501
+{"ok":false,"data":null,"error":{"code":"io_error","message":"Bluetooth discovery could not start"}}
+== bt-after-scan 200
+{"ok":true,"data":{"state":"activation-attempted","available":true,"enabled":false,"activation_attempted":true,"transport":"mt8163-btif-hci","hci":"none","address":"","address_factory":"","address_configured":"","local_name":"MTK MT7668 #4","last_error":"wmt_configure failed","last_disconnect_reason":"","last_connect_failed_status":"","profile_state":"ready","profile_error":"SDP, A2DP sink, and AVRCP profile services registered","profile_services":{"sdp":true,"a2dp_sink":true,"avrcp":true,"rfcomm":false,"bnep":false,"hidp":false},"scanning":false,"pairing":false,"pairing_mode":false,"capabilities":{"classic":true,"le":true,"ssp":true,"secure_connection":true,"connectable":false,"discoverable":false,"bondable":false},"pending_pairing":null,"discovered":[],"known_devices":[]},"error":null}
+== bt-scan-stop 501
+{"ok":false,"data":null,"error":{"code":"io_error","message":"Bluetooth discovery could not stop"}}

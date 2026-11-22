@@ -1,0 +1,56 @@
+[
+ {
+  "detail": "GET /baby-monitor sources[0].id = '0:1' (expected 0:1)",
+  "evidence": "api/get_baby-monitor.json",
+  "feature": "baby-monitor listed source",
+  "result": "PASS"
+ },
+ {
+  "detail": "stream source=0:1 -> 200, 98304 bytes, pcm_s16_le;rate=16000;channels=1;selected-channel=shared-wake;calibration=applied, rms=2.57 peak=20",
+  "evidence": "api/babymonitor-0_1.pcm,api/babymonitor-headers.txt",
+  "feature": "baby-monitor stream PCM",
+  "result": "FAIL"
+ },
+ {
+  "detail": "GET /config/export -> 200, schema 1, 49 top-level keys",
+  "evidence": "api/config_export.json",
+  "feature": "config export",
+  "result": "PASS"
+ },
+ {
+  "detail": "POST /config/import -> 200 null",
+  "evidence": "api/config_import_same.json",
+  "feature": "config import of same export",
+  "result": "PASS"
+ },
+ {
+  "detail": "sha256 02f92afff2d7 -> 02f92afff2d7; parsed config equal=True; re-export equal=True; 0 field(s) differ",
+  "evidence": "api/config-field-diff.json,api/web-config.before.json,api/web-config.after.json",
+  "feature": "web-config unchanged in meaning",
+  "result": "PASS"
+ },
+ {
+  "detail": "PUT {discoverable:true} -> 200; discoverable=True connectable=True",
+  "evidence": "api/bt_discoverable_on.json,api/bt_after_on.json",
+  "feature": "BT discoverable on",
+  "result": "PASS"
+ },
+ {
+  "detail": "PUT {discoverable:false} -> 200; discoverable=False",
+  "evidence": "api/bt_discoverable_off.json,api/bt_after_off.json",
+  "feature": "BT discoverable off",
+  "result": "PASS"
+ },
+ {
+  "detail": "connectable False -> True (on) -> False (off), prior False",
+  "evidence": "api/bt_before.json,api/bt_after_off.json",
+  "feature": "BT connectable restored",
+  "result": "PASS"
+ },
+ {
+  "detail": "mode=home-assistant restart.state=ready phase='' error=''",
+  "evidence": "api/voice_pipeline.json",
+  "feature": "voice-pipeline restart.phase",
+  "result": "PASS"
+ }
+]

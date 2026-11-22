@@ -1,0 +1,24 @@
+product: LIDAR
+Finished. Total time: 0.002s
+Sending 'boot_a' (16384 KB)                        OKAY [  0.458s]
+Writing 'boot_a'                                   OKAY [  1.510s]
+Finished. Total time: 1.982s
+OKAY [  0.002s]
+Finished. Total time: 0.002s
+Fetching boot_a (offset=0, size=100000)            OKAY [  0.313s]
+Fetching boot_a (offset=100000, size=100000)       OKAY [  0.313s]
+Fetching boot_a (offset=200000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=300000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=400000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=500000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=600000, size=100000)       OKAY [  0.314s]
+Fetching boot_a (offset=700000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=800000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=900000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=a00000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=b00000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=c00000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=d00000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=e00000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=f00000, size=100000)       OKAY [  0.312s]
+Finished. Total time: 5.005s

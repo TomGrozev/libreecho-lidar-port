@@ -1,0 +1,21 @@
+total 0
+lrwxrwxrwx    1 0        0                0 Jan  1 00:00 [1;36mmmc0[m -> [1;34m../../devices/platform/soc/11120000.mmc/mmc_host/mmc0[m
+lrwxrwxrwx    1 0        0                0 Jan  1 00:00 [1;36mmmc1[m -> [1;34m../../devices/platform/soc/11170000.mmc/mmc_host/mmc1[m
+[1;36mmmc0:0001[m  [1;36mmmc1:0001[m
+brw-r--r--    1 0        0         179,   0 Jan  1 00:00 /dev/mmcblk0
+brw-r--r--    1 0        0         179,   1 Jan  1 00:00 /dev/mmcblk0p1
+brw-r--r--    1 0        0         259,   2 Jan  1 00:00 /dev/mmcblk0p10
+brw-r--r--    1 0        0         259,   3 Jan  1 00:00 /dev/mmcblk0p11
+brw-r--r--    1 0        0         259,   4 Jan  1 00:00 /dev/mmcblk0p12
+brw-r--r--    1 0        0         259,   5 Jan  1 00:00 /dev/mmcblk0p13
+brw-r--r--    1 0        0         259,   6 Jan  1 00:00 /dev/mmcblk0p14
+brw-r--r--    1 0        0         259,   7 Jan  1 00:00 /dev/mmcblk0p15
+brw-r--r--    1 0        0         259,   8 Jan  1 00:00 /dev/mmcblk0p16
+brw-r--r--    1 0        0         179,   2 Jan  1 00:00 /dev/mmcblk0p2
+brw-r--r--    1 0        0         179,   3 Jan  1 00:00 /dev/mmcblk0p3
+brw-r--r--    1 0        0         179,   4 Jan  1 00:00 /dev/mmcblk0p4
+brw-r--r--    1 0        0         179,   5 Jan  1 00:00 /dev/mmcblk0p5
+brw-r--r--    1 0        0         179,   6 Jan  1 00:00 /dev/mmcblk0p6
+brw-r--r--    1 0        0         179,   7 Jan  1 00:00 /dev/mmcblk0p7
+brw-r--r--    1 0        0         259,   0 Jan  1 00:00 /dev/mmcblk0p8
+brw-r--r--    1 0        0         259,   1 Jan  1 00:00 /dev/mmcblk0p9

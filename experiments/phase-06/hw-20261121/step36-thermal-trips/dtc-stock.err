@@ -1,0 +1,180 @@
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/mt_soc_btcvsd_rx_pcm@10001000: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/mt_soc_btcvsd_tx_pcm@10001000: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/pinctrl@10005000/i2c0@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/pinctrl@10005000/i2c1@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/pinctrl@10005000/i2c2@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/pinctrl@10005000/mmc0@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/pinctrl@10005000/mmc1@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/pinctrl@10005000/mmc2@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/hwmsensor@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/gsensor@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/als_ps@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/batchsensor@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/gyroscope@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/barometer@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/msensor@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/orientation@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/temperature@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/led@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/led@1: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/led@2: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/led@3: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/led@4: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/led@5: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/led@6: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/mtkfb@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /soc/extd_drv@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /fixedregulator@4: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /fixedregulator@5: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /fixedregulator@6: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /fixedregulator@7: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /fixedregulator@8: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /fixedregulator@9: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /fixedregulator@10: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /fixedregulator@11: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /fixedregulator@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /fixedregulator@1: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /fixedregulator@2: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /gpio-regulator@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /gpio-keys/button@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /gpio-keys/button@1: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /gpio-keys/button@2: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /thermal-zones/skin_virtual/trips/trip-point@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /thermal-zones/skin_virtual/trips/trip-point@1: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /thermal-zones/skin_virtual/trips/trip-point@2: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /thermal-zones/skin_virtual/trips/trip-point@3: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /thermal-zones/skin_virtual/trips/trip-point@4: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /thermal-zones/case_virtual/trips/trip-point@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /thermal-zones/case_virtual/trips/trip-point@1: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /thermal-zones/case_virtual/trips/trip-point@2: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /thermal-zones/case_virtual/trips/trip-point@3: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /thermal-zones/case_virtual/trips/trip-point@4: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_vs_reg): /thermal-zones/tweeter_virtual/trips/trip-point@0: node has a unit name, but no reg or ranges property
+stock-pvt.dts: Warning (unit_address_format): /memory@00000000: unit name should not have leading 0s
+stock-pvt.dts: Warning (simple_bus_reg): /clocks/clk26m: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /clocks/clk32k: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/chipid@08000000: simple-bus unit address format error, expected "8000000"
+stock-pvt.dts: Warning (simple_bus_reg): /soc/mt_soc_btcvsd_rx_pcm@10001000: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/mt_soc_btcvsd_tx_pcm@10001000: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/pinctrl@10005000: simple-bus unit address format error, expected "1000b000"
+stock-pvt.dts: Warning (simple_bus_reg): /soc/mt8167-dispsys: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/isp_display: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/ispsys@15000000: simple-bus unit address format error, expected "15004000"
+stock-pvt.dts: Warning (simple_bus_reg): /soc/touch@: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/gps: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/hwmsensor@0: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/gsensor@0: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/als_ps@0: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/batchsensor@0: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/gyroscope@0: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/barometer@0: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/msensor@0: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/orientation@0: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/temperature@0: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/led@0: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/led@1: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/led@2: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/led@3: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/led@4: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/led@5: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/led@6: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/mtkfb@0: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/bat_meter: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/BAT_NOTIFY: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/bat_comm: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/dumchar: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/extd_drv@0: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/flashlight_core: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/ice_debug: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/isp_pipemgr: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/isp_sysram: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/mtee: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/mtgpufreq: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/pseudo-m4u: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/pseudo-m4u-larb0: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/pseudo-m4u-larb1: missing or empty reg/ranges property
+stock-pvt.dts: Warning (simple_bus_reg): /soc/pseudo-m4u-larb2: missing or empty reg/ranges property
+stock-pvt.dts: Warning (unique_unit_address): /fixedregulator@0: duplicate unit-address (also used in node /gpio-regulator@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/infracfg@10001000: duplicate unit-address (also used in node /soc/btcvsd@10001000)
+stock-pvt.dts: Warning (unique_unit_address): /soc/infracfg@10001000: duplicate unit-address (also used in node /soc/mt_soc_btcvsd_rx_pcm@10001000)
+stock-pvt.dts: Warning (unique_unit_address): /soc/btcvsd@10001000: duplicate unit-address (also used in node /soc/mt_soc_btcvsd_rx_pcm@10001000)
+stock-pvt.dts: Warning (unique_unit_address): /soc/infracfg@10001000: duplicate unit-address (also used in node /soc/mt_soc_btcvsd_tx_pcm@10001000)
+stock-pvt.dts: Warning (unique_unit_address): /soc/btcvsd@10001000: duplicate unit-address (also used in node /soc/mt_soc_btcvsd_tx_pcm@10001000)
+stock-pvt.dts: Warning (unique_unit_address): /soc/mt_soc_btcvsd_rx_pcm@10001000: duplicate unit-address (also used in node /soc/mt_soc_btcvsd_tx_pcm@10001000)
+stock-pvt.dts: Warning (unique_unit_address): /soc/syscfg_pctl_a@10005000: duplicate unit-address (also used in node /soc/pinctrl@10005000)
+stock-pvt.dts: Warning (unique_unit_address): /soc/nfi@11001000: duplicate unit-address (also used in node /soc/nfc@11001000)
+stock-pvt.dts: Warning (unique_unit_address): /soc/nfiecc@11002000: duplicate unit-address (also used in node /soc/ecc@11002000)
+stock-pvt.dts: Warning (unique_unit_address): /soc/thermal@1100d000: duplicate unit-address (also used in node /soc/ptp_od@1100d000)
+stock-pvt.dts: Warning (unique_unit_address): /soc/audio-controller@11140000: duplicate unit-address (also used in node /soc/audiotop@11140000)
+stock-pvt.dts: Warning (unique_unit_address): /soc/smi@14017000: duplicate unit-address (also used in node /soc/met_smi@14017000)
+stock-pvt.dts: Warning (unique_unit_address): /soc/imgsys@15000000: duplicate unit-address (also used in node /soc/ispsys@15000000)
+stock-pvt.dts: Warning (unique_unit_address): /soc/imgsys@15000000: duplicate unit-address (also used in node /soc/vencsys@15000000)
+stock-pvt.dts: Warning (unique_unit_address): /soc/ispsys@15000000: duplicate unit-address (also used in node /soc/vencsys@15000000)
+stock-pvt.dts: Warning (unique_unit_address): /soc/camera1@15008000: duplicate unit-address (also used in node /soc/camera2@15008000)
+stock-pvt.dts: Warning (unique_unit_address): /soc/vdecsys@16000000: duplicate unit-address (also used in node /soc/vdec_gcon@16000000)
+stock-pvt.dts: Warning (unique_unit_address): /soc/hwmsensor@0: duplicate unit-address (also used in node /soc/gsensor@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/hwmsensor@0: duplicate unit-address (also used in node /soc/als_ps@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/gsensor@0: duplicate unit-address (also used in node /soc/als_ps@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/hwmsensor@0: duplicate unit-address (also used in node /soc/batchsensor@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/gsensor@0: duplicate unit-address (also used in node /soc/batchsensor@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/als_ps@0: duplicate unit-address (also used in node /soc/batchsensor@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/hwmsensor@0: duplicate unit-address (also used in node /soc/gyroscope@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/gsensor@0: duplicate unit-address (also used in node /soc/gyroscope@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/als_ps@0: duplicate unit-address (also used in node /soc/gyroscope@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/batchsensor@0: duplicate unit-address (also used in node /soc/gyroscope@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/hwmsensor@0: duplicate unit-address (also used in node /soc/barometer@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/gsensor@0: duplicate unit-address (also used in node /soc/barometer@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/als_ps@0: duplicate unit-address (also used in node /soc/barometer@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/batchsensor@0: duplicate unit-address (also used in node /soc/barometer@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/gyroscope@0: duplicate unit-address (also used in node /soc/barometer@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/hwmsensor@0: duplicate unit-address (also used in node /soc/msensor@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/gsensor@0: duplicate unit-address (also used in node /soc/msensor@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/als_ps@0: duplicate unit-address (also used in node /soc/msensor@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/batchsensor@0: duplicate unit-address (also used in node /soc/msensor@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/gyroscope@0: duplicate unit-address (also used in node /soc/msensor@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/barometer@0: duplicate unit-address (also used in node /soc/msensor@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/hwmsensor@0: duplicate unit-address (also used in node /soc/orientation@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/gsensor@0: duplicate unit-address (also used in node /soc/orientation@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/als_ps@0: duplicate unit-address (also used in node /soc/orientation@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/batchsensor@0: duplicate unit-address (also used in node /soc/orientation@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/gyroscope@0: duplicate unit-address (also used in node /soc/orientation@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/barometer@0: duplicate unit-address (also used in node /soc/orientation@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/msensor@0: duplicate unit-address (also used in node /soc/orientation@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/hwmsensor@0: duplicate unit-address (also used in node /soc/temperature@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/gsensor@0: duplicate unit-address (also used in node /soc/temperature@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/als_ps@0: duplicate unit-address (also used in node /soc/temperature@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/batchsensor@0: duplicate unit-address (also used in node /soc/temperature@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/gyroscope@0: duplicate unit-address (also used in node /soc/temperature@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/barometer@0: duplicate unit-address (also used in node /soc/temperature@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/msensor@0: duplicate unit-address (also used in node /soc/temperature@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/orientation@0: duplicate unit-address (also used in node /soc/temperature@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/hwmsensor@0: duplicate unit-address (also used in node /soc/led@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/gsensor@0: duplicate unit-address (also used in node /soc/led@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/als_ps@0: duplicate unit-address (also used in node /soc/led@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/batchsensor@0: duplicate unit-address (also used in node /soc/led@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/gyroscope@0: duplicate unit-address (also used in node /soc/led@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/barometer@0: duplicate unit-address (also used in node /soc/led@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/msensor@0: duplicate unit-address (also used in node /soc/led@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/orientation@0: duplicate unit-address (also used in node /soc/led@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/temperature@0: duplicate unit-address (also used in node /soc/led@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/hwmsensor@0: duplicate unit-address (also used in node /soc/mtkfb@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/gsensor@0: duplicate unit-address (also used in node /soc/mtkfb@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/als_ps@0: duplicate unit-address (also used in node /soc/mtkfb@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/batchsensor@0: duplicate unit-address (also used in node /soc/mtkfb@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/gyroscope@0: duplicate unit-address (also used in node /soc/mtkfb@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/barometer@0: duplicate unit-address (also used in node /soc/mtkfb@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/msensor@0: duplicate unit-address (also used in node /soc/mtkfb@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/orientation@0: duplicate unit-address (also used in node /soc/mtkfb@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/temperature@0: duplicate unit-address (also used in node /soc/mtkfb@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/led@0: duplicate unit-address (also used in node /soc/mtkfb@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/hwmsensor@0: duplicate unit-address (also used in node /soc/extd_drv@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/gsensor@0: duplicate unit-address (also used in node /soc/extd_drv@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/als_ps@0: duplicate unit-address (also used in node /soc/extd_drv@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/batchsensor@0: duplicate unit-address (also used in node /soc/extd_drv@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/gyroscope@0: duplicate unit-address (also used in node /soc/extd_drv@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/barometer@0: duplicate unit-address (also used in node /soc/extd_drv@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/msensor@0: duplicate unit-address (also used in node /soc/extd_drv@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/orientation@0: duplicate unit-address (also used in node /soc/extd_drv@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/temperature@0: duplicate unit-address (also used in node /soc/extd_drv@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/led@0: duplicate unit-address (also used in node /soc/extd_drv@0)
+stock-pvt.dts: Warning (unique_unit_address): /soc/mtkfb@0: duplicate unit-address (also used in node /soc/extd_drv@0)

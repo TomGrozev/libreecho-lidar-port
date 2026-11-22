@@ -1,0 +1,4615 @@
+== uptime 4.06 androidboot.slot_suffix=_b
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=2
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=229
+failure_log=failure-229-1.log
+features_state=ready
+features_error=
+config_schema=1
+config_error=
+ota_transaction_state=pending
+ota_transaction_pending=1
+features_state=ready
+features_error=
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 76
+drwx------    5 0        0             4096 Jan  1 00:00 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              252 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              888 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               37 Jan  1 00:00 [0;0mfeatures-status[m
+drwxr-xr-x    2 0        0             4096 Jan  1 00:00 [1;34mgeneration.lock[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2141 Jan  1 00:03 [0;0mota.log[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mpending[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:11 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               64 Jan  1 00:00 [0;0mstate[m
+ERROR:generation-busy
+vr_rc=1
+pstore-mounted
+pmsg-ready
+service-profile:production
+init-started
+audio-node-worker-started
+input-node-worker-started
+adb-transport-policy-read
+input-devnodes-created:1
+audio-devnodes-created:1
+configfs-mounted
+configfs-adb-composition-created
+functionfs-mounted
+adbd-started:150
+functionfs-ready
+configfs-udc-bound:musb-hdrc.3.auto
+userdata-mounted
+userdata-cleanup-ok
+boot-count:22
+boot-slot:b:b
+vendor-assets-not-applicable
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:b
+ota-rollback-resume-history-slot-still-selected
+ota-health-confirm-pending
+ota-health-waiting-startup-ready
+== uptime 24.29 androidboot.slot_suffix=_b
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=2
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=229
+failure_log=failure-229-1.log
+features_state=ready
+features_error=
+config_schema=1
+config_error=
+ota_transaction_state=pending
+ota_transaction_pending=1
+features_state=ready
+features_error=
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 72
+drwx------    4 0        0             4096 Jan  1 00:00 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              252 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              888 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               37 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2141 Jan  1 00:03 [0;0mota.log[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mpending[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:11 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               64 Jan  1 00:00 [0;0mstate[m
+ERROR:service-pidfile-not-regular
+vr_rc=1
+init-started
+audio-node-worker-started
+input-node-worker-started
+adb-transport-policy-read
+input-devnodes-created:1
+audio-devnodes-created:1
+configfs-mounted
+configfs-adb-composition-created
+functionfs-mounted
+adbd-started:150
+functionfs-ready
+configfs-udc-bound:musb-hdrc.3.auto
+userdata-mounted
+userdata-cleanup-ok
+boot-count:22
+boot-slot:b:b
+vendor-assets-not-applicable
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:b
+ota-rollback-resume-history-slot-still-selected
+ota-health-confirm-pending
+ota-health-waiting-startup-ready
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:11:/dev/usb-ffs/adb/ep1
+adbd-fd:12:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[7448]
+adbd-fd:14:socket:[7449]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[7443]
+adbd-fd:4:socket:[7444]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[7445]
+adbd-fd:7:socket:[7446]
+adbd-fd:8:socket:[7447]
+adbd-fd:9:socket:[2662]
+adbd-task:150:adbd:S (sleeping):do_select
+adbd-task:152:adbd:S (sleeping):futex_wait_queue
+adbd-task:153:adbd:S (sleeping):inet_csk_accept
+adbd-task:154:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:155:adbd:S (sleeping):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+timezone-applied:UTC
+== uptime 63.75 androidboot.slot_suffix=_b
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=2
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=229
+failure_log=failure-229-1.log
+features_state=ready
+features_error=
+config_schema=1
+config_error=
+ota_transaction_state=pending
+ota_transaction_pending=1
+features_state=ready
+features_error=
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 72
+drwx------    4 0        0             4096 Jan  1 00:00 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              252 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              888 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               37 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2141 Jan  1 00:03 [0;0mota.log[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mpending[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:11 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               64 Jan  1 00:00 [0;0mstate[m
+ERROR:service-exe
+vr_rc=1
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:b
+ota-rollback-resume-history-slot-still-selected
+ota-health-confirm-pending
+ota-health-waiting-startup-ready
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:11:/dev/usb-ffs/adb/ep1
+adbd-fd:12:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[7448]
+adbd-fd:14:socket:[7449]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[7443]
+adbd-fd:4:socket:[7444]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[7445]
+adbd-fd:7:socket:[7446]
+adbd-fd:8:socket:[7447]
+adbd-fd:9:socket:[2662]
+adbd-task:150:adbd:S (sleeping):do_select
+adbd-task:152:adbd:S (sleeping):futex_wait_queue
+adbd-task:153:adbd:S (sleeping):inet_csk_accept
+adbd-task:154:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:155:adbd:S (sleeping):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+timezone-applied:UTC
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:waked:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:airplayd:0
+ui-service-start:radiod:0
+ui-service-start:ttsd:0
+ui-web-production-lan
+ui-service-start:web:0
+feature-reconcile-service-stopped:esphomed
+feature-reconcile-service-ready:waked
+feature-reconcile-service-ready:sttd
+feature-reconcile-shared-discovery-owner:airplayd
+feature-reconcile-service-ready:airplayd
+feature-reconcile-service-ready:ttsd
+feature-reconcile-service-skipped-no-audio:agentd
+feature-services-reconciled
+persisted-feature-reconcile:0
+== uptime 114.09 androidboot.slot_suffix=_b
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=2
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=229
+failure_log=failure-229-1.log
+features_state=ready
+features_error=
+config_schema=1
+config_error=
+ota_transaction_state=pending
+ota_transaction_pending=1
+features_state=ready
+features_error=
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 72
+drwx------    4 0        0             4096 Jan  1 00:01 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              267 Jan  1 00:01 [0;0mboot-health[m
+-rw-r--r--    1 0        0              888 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               37 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2141 Jan  1 00:03 [0;0mota.log[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mpending[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:11 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               64 Jan  1 00:00 [0;0mstate[m
+== uptime 11.29 androidboot.slot_suffix=_b
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=1
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=127
+failure_log=failure-127-1.log
+features_state=ready
+features_error=
+config_schema=1
+config_error=
+ota_transaction_state=pending
+ota_transaction_pending=1
+features_state=ready
+features_error=
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 76
+drwx------    5 0        0             4096 Jan  1 00:00 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              252 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              888 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               37 Jan  1 00:00 [0;0mfeatures-status[m
+drwxr-xr-x    2 0        0             4096 Jan  1 00:00 [1;34mgeneration.lock[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2233 Jan  1 00:02 [0;0mota.log[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mpending[m
+-rw-r--r--    1 0        0              156 Jan  1 00:02 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:11 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               64 Jan  1 00:00 [0;0mstate[m
+ERROR:generation-busy
+vr_rc=1
+pstore-mounted
+pmsg-ready
+service-profile:production
+init-started
+audio-node-worker-started
+input-node-worker-started
+adb-transport-policy-read
+audio-devnodes-created:1
+input-devnodes-created:1
+configfs-mounted
+configfs-adb-composition-created
+functionfs-mounted
+adbd-started:150
+functionfs-ready
+configfs-udc-bound:musb-hdrc.3.auto
+userdata-mounted
+userdata-cleanup-ok
+boot-count:23
+boot-slot:b:b
+vendor-assets-not-applicable
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:b
+ota-rollback-resume-history-slot-still-selected
+ota-health-confirm-pending
+ota-health-waiting-startup-ready
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:12:/dev/usb-ffs/adb/ep2
+== uptime 31.54 androidboot.slot_suffix=_b
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=1
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=127
+failure_log=failure-127-1.log
+features_state=ready
+features_error=
+config_schema=1
+config_error=
+ota_transaction_state=pending
+ota_transaction_pending=1
+features_state=ready
+features_error=
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 72
+drwx------    4 0        0             4096 Jan  1 00:00 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              252 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              888 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               37 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2233 Jan  1 00:02 [0;0mota.log[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mpending[m
+-rw-r--r--    1 0        0              156 Jan  1 00:02 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:11 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               64 Jan  1 00:00 [0;0mstate[m
+ERROR:service-pidfile-not-regular
+vr_rc=1
+input-devnodes-created:1
+configfs-mounted
+configfs-adb-composition-created
+functionfs-mounted
+adbd-started:150
+functionfs-ready
+configfs-udc-bound:musb-hdrc.3.auto
+userdata-mounted
+userdata-cleanup-ok
+boot-count:23
+boot-slot:b:b
+vendor-assets-not-applicable
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:b
+ota-rollback-resume-history-slot-still-selected
+ota-health-confirm-pending
+ota-health-waiting-startup-ready
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:12:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[7217]
+adbd-fd:14:socket:[7218]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[7212]
+adbd-fd:4:socket:[7213]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[7214]
+adbd-fd:7:socket:[7215]
+adbd-fd:8:socket:[7216]
+adbd-fd:9:socket:[711]
+adbd-task:150:adbd:S (sleeping):do_select
+adbd-task:152:adbd:S (sleeping):futex_wait_queue
+adbd-task:153:adbd:S (sleeping):inet_csk_accept
+adbd-task:154:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:155:adbd:S (sleeping):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+timezone-applied:UTC
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+== uptime 70.83 androidboot.slot_suffix=_b
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=1
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=127
+failure_log=failure-127-1.log
+features_state=ready
+features_error=
+config_schema=1
+config_error=
+ota_transaction_state=pending
+ota_transaction_pending=1
+features_state=ready
+features_error=
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 72
+drwx------    4 0        0             4096 Jan  1 00:00 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              252 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              888 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               37 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2233 Jan  1 00:02 [0;0mota.log[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mpending[m
+-rw-r--r--    1 0        0              156 Jan  1 00:02 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:11 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               64 Jan  1 00:00 [0;0mstate[m
+ERROR:service-exe
+vr_rc=1
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:b
+ota-rollback-resume-history-slot-still-selected
+ota-health-confirm-pending
+ota-health-waiting-startup-ready
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:12:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[7217]
+adbd-fd:14:socket:[7218]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[7212]
+adbd-fd:4:socket:[7213]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[7214]
+adbd-fd:7:socket:[7215]
+adbd-fd:8:socket:[7216]
+adbd-fd:9:socket:[711]
+adbd-task:150:adbd:S (sleeping):do_select
+adbd-task:152:adbd:S (sleeping):futex_wait_queue
+adbd-task:153:adbd:S (sleeping):inet_csk_accept
+adbd-task:154:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:155:adbd:S (sleeping):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+timezone-applied:UTC
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:waked:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:airplayd:0
+ui-service-start:radiod:0
+ui-service-start:ttsd:0
+ui-web-production-lan
+ui-service-start:web:0
+feature-reconcile-service-stopped:esphomed
+feature-reconcile-service-ready:waked
+feature-reconcile-service-ready:sttd
+feature-reconcile-shared-discovery-owner:airplayd
+feature-reconcile-service-ready:airplayd
+feature-reconcile-service-ready:ttsd
+feature-reconcile-service-skipped-no-audio:agentd
+feature-services-reconciled
+persisted-feature-reconcile:0
+== uptime 112.57 androidboot.slot_suffix=_b
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=1
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=127
+failure_log=failure-127-1.log
+features_state=ready
+features_error=
+config_schema=1
+config_error=
+ota_transaction_state=pending
+ota_transaction_pending=1
+features_state=ready
+features_error=
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 72
+drwx------    4 0        0             4096 Jan  1 00:01 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              267 Jan  1 00:01 [0;0mboot-health[m
+-rw-r--r--    1 0        0              888 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               37 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2233 Jan  1 00:02 [0;0mota.log[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mpending[m
+-rw-r--r--    1 0        0              156 Jan  1 00:02 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:11 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               64 Jan  1 00:00 [0;0mstate[m
+== uptime 11.27 androidboot.slot_suffix=_b
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=127
+failure_log=failure-127-1.log
+features_state=ready
+features_error=
+config_schema=1
+config_error=
+ota_transaction_state=pending
+ota_transaction_pending=1
+features_state=ready
+features_error=
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 76
+drwx------    5 0        0             4096 Jan  1 00:00 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              252 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              889 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               37 Jan  1 00:00 [0;0mfeatures-status[m
+drwxr-xr-x    2 0        0             4096 Jan  1 00:00 [1;34mgeneration.lock[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2325 Jan  1 00:02 [0;0mota.log[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mpending[m
+-rw-r--r--    1 0        0              156 Jan  1 00:02 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:11 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               64 Jan  1 00:00 [0;0mstate[m
+ERROR:generation-busy
+vr_rc=1
+pstore-mounted
+pmsg-ready
+service-profile:production
+init-started
+audio-node-worker-started
+input-node-worker-started
+adb-transport-policy-read
+audio-devnodes-created:1
+input-devnodes-created:1
+configfs-mounted
+configfs-adb-composition-created
+functionfs-mounted
+adbd-started:149
+functionfs-ready
+configfs-udc-bound:musb-hdrc.3.auto
+userdata-mounted
+userdata-cleanup-ok
+boot-count:24
+boot-slot:b:a
+vendor-assets-not-applicable
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:b
+ota-rollback-resume-history-slot-still-selected
+ota-health-confirm-pending
+ota-health-waiting-startup-ready
+== uptime 31.53 androidboot.slot_suffix=_b
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=127
+failure_log=failure-127-1.log
+features_state=degraded
+features_error=running-selected-mismatch
+config_schema=1
+config_error=
+ota_transaction_state=pending
+ota_transaction_pending=1
+features_state=degraded
+features_error=running-selected-mismatch
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 72
+drwx------    4 0        0             4096 Jan  1 00:00 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              252 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              889 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               65 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2325 Jan  1 00:02 [0;0mota.log[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mpending[m
+-rw-r--r--    1 0        0              156 Jan  1 00:02 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:11 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               64 Jan  1 00:00 [0;0mstate[m
+ERROR:running-selected-mismatch
+vr_rc=1
+configfs-adb-composition-created
+functionfs-mounted
+adbd-started:149
+functionfs-ready
+configfs-udc-bound:musb-hdrc.3.auto
+userdata-mounted
+userdata-cleanup-ok
+boot-count:24
+boot-slot:b:a
+vendor-assets-not-applicable
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:b
+ota-rollback-resume-history-slot-still-selected
+ota-health-confirm-pending
+ota-health-waiting-startup-ready
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:12:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3333]
+adbd-fd:14:socket:[3334]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3328]
+adbd-fd:4:socket:[3329]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3330]
+adbd-fd:7:socket:[3331]
+adbd-fd:8:socket:[3332]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:S (sleeping):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+== uptime 65.91 androidboot.slot_suffix=_b
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=127
+failure_log=failure-127-1.log
+features_state=degraded
+features_error=running-selected-mismatch
+config_schema=1
+config_error=
+ota_transaction_state=pending
+ota_transaction_pending=1
+features_state=degraded
+features_error=running-selected-mismatch
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 72
+drwx------    4 0        0             4096 Jan  1 00:00 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              252 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              889 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               65 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2325 Jan  1 00:02 [0;0mota.log[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mpending[m
+-rw-r--r--    1 0        0              156 Jan  1 00:02 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:11 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               64 Jan  1 00:00 [0;0mstate[m
+ERROR:running-selected-mismatch
+vr_rc=1
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:b
+ota-rollback-resume-history-slot-still-selected
+ota-health-confirm-pending
+ota-health-waiting-startup-ready
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:12:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3333]
+adbd-fd:14:socket:[3334]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3328]
+adbd-fd:4:socket:[3329]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3330]
+adbd-fd:7:socket:[3331]
+adbd-fd:8:socket:[3332]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:S (sleeping):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+== uptime 100.24 androidboot.slot_suffix=_b
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=127
+failure_log=failure-127-1.log
+features_state=degraded
+features_error=running-selected-mismatch
+config_schema=1
+config_error=
+ota_transaction_state=pending
+ota_transaction_pending=1
+features_state=degraded
+features_error=running-selected-mismatch
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 72
+drwx------    4 0        0             4096 Jan  1 00:01 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              252 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              889 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               65 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2325 Jan  1 00:02 [0;0mota.log[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mpending[m
+-rw-r--r--    1 0        0              156 Jan  1 00:02 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:11 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               64 Jan  1 00:00 [0;0mstate[m
+ERROR:running-selected-mismatch
+vr_rc=1
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:b
+ota-rollback-resume-history-slot-still-selected
+ota-health-confirm-pending
+ota-health-waiting-startup-ready
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:12:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3333]
+adbd-fd:14:socket:[3334]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3328]
+adbd-fd:4:socket:[3329]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3330]
+adbd-fd:7:socket:[3331]
+adbd-fd:8:socket:[3332]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:S (sleeping):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+== uptime 134.65 androidboot.slot_suffix=_b
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=127
+failure_log=failure-127-1.log
+features_state=degraded
+features_error=running-selected-mismatch
+config_schema=1
+config_error=
+ota_transaction_state=pending
+ota_transaction_pending=1
+features_state=degraded
+features_error=running-selected-mismatch
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 72
+drwx------    4 0        0             4096 Jan  1 00:01 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              252 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              889 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               65 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2325 Jan  1 00:02 [0;0mota.log[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mpending[m
+-rw-r--r--    1 0        0              156 Jan  1 00:02 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:11 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               64 Jan  1 00:00 [0;0mstate[m
+ERROR:running-selected-mismatch
+vr_rc=1
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:b
+ota-rollback-resume-history-slot-still-selected
+ota-health-confirm-pending
+ota-health-waiting-startup-ready
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:12:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3333]
+adbd-fd:14:socket:[3334]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3328]
+adbd-fd:4:socket:[3329]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3330]
+adbd-fd:7:socket:[3331]
+adbd-fd:8:socket:[3332]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:S (sleeping):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+== uptime 168.92 androidboot.slot_suffix=_b
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=127
+failure_log=failure-127-1.log
+features_state=degraded
+features_error=running-selected-mismatch
+config_schema=1
+config_error=
+ota_transaction_state=pending
+ota_transaction_pending=1
+features_state=degraded
+features_error=running-selected-mismatch
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 72
+drwx------    4 0        0             4096 Jan  1 00:02 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              252 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              889 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               65 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2325 Jan  1 00:02 [0;0mota.log[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mpending[m
+-rw-r--r--    1 0        0              156 Jan  1 00:02 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:11 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               64 Jan  1 00:00 [0;0mstate[m
+ERROR:running-selected-mismatch
+vr_rc=1
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:b
+ota-rollback-resume-history-slot-still-selected
+ota-health-confirm-pending
+ota-health-waiting-startup-ready
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:12:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3333]
+adbd-fd:14:socket:[3334]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3328]
+adbd-fd:4:socket:[3329]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3330]
+adbd-fd:7:socket:[3331]
+adbd-fd:8:socket:[3332]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:S (sleeping):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+== uptime 203.22 androidboot.slot_suffix=_b
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=127
+failure_log=failure-127-1.log
+features_state=degraded
+features_error=running-selected-mismatch
+config_schema=1
+config_error=
+ota_transaction_state=pending
+ota_transaction_pending=1
+features_state=degraded
+features_error=running-selected-mismatch
+schema=3
+slot=b
+transaction_id=txn-ce14a1015d865c7dcb66f842
+manifest_sha256=003bb1e1af6ccb800d8ddc4fa89e868a851b6a05e08a6ad8e149ea280dc9f0f9
+schema=1
+state=boot-validating
+progress=95
+detail=health-checks
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 72
+drwx------    4 0        0             4096 Jan  1 00:03 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              267 Jan  1 00:03 [0;0mboot-health[m
+-rw-r--r--    1 0        0              889 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               65 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2325 Jan  1 00:02 [0;0mota.log[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mpending[m
+-rw-r--r--    1 0        0              156 Jan  1 00:02 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:11 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               64 Jan  1 00:00 [0;0mstate[m
+== uptime 11.25 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=running-selected-mismatch
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=running-selected-mismatch
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 72
+drwx------    5 0        0             4096 Jan  1 00:00 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               65 Jan  1 00:00 [0;0mfeatures-status[m
+drwxr-xr-x    2 0        0             4096 Jan  1 00:00 [1;34mgeneration.lock[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:generation-busy
+vr_rc=1
+pstore-mounted
+pmsg-ready
+service-profile:production
+init-started
+audio-node-worker-started
+input-node-worker-started
+adb-transport-policy-read
+audio-devnodes-created:1
+input-devnodes-created:1
+configfs-mounted
+configfs-adb-composition-created
+functionfs-mounted
+adbd-started:149
+functionfs-ready
+configfs-udc-bound:musb-hdrc.3.auto
+userdata-mounted
+userdata-cleanup-ok
+boot-count:25
+boot-slot:a:a
+vendor-assets-not-applicable
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+== uptime 31.49 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=pending-manifest
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=pending-manifest
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 68
+drwx------    4 0        0             4096 Jan  1 00:00 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:pending-not-regular
+vr_rc=1
+input-node-worker-started
+adb-transport-policy-read
+audio-devnodes-created:1
+input-devnodes-created:1
+configfs-mounted
+configfs-adb-composition-created
+functionfs-mounted
+adbd-started:149
+functionfs-ready
+configfs-udc-bound:musb-hdrc.3.auto
+userdata-mounted
+userdata-cleanup-ok
+boot-count:25
+boot-slot:a:a
+vendor-assets-not-applicable
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:R (running):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+== uptime 51.71 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=pending-manifest
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=pending-manifest
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 68
+drwx------    4 0        0             4096 Jan  1 00:00 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:pending-not-regular
+vr_rc=1
+adbd-started:149
+functionfs-ready
+configfs-udc-bound:musb-hdrc.3.auto
+userdata-mounted
+userdata-cleanup-ok
+boot-count:25
+boot-slot:a:a
+vendor-assets-not-applicable
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:R (running):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+== uptime 71.95 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=pending-manifest
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=pending-manifest
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 68
+drwx------    4 0        0             4096 Jan  1 00:00 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:pending-not-regular
+vr_rc=1
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:R (running):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+== uptime 92.17 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=pending-manifest
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=pending-manifest
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 68
+drwx------    4 0        0             4096 Jan  1 00:01 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:pending-not-regular
+vr_rc=1
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:R (running):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+== uptime 112.38 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=pending-manifest
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=pending-manifest
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 68
+drwx------    4 0        0             4096 Jan  1 00:01 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:pending-not-regular
+vr_rc=1
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:R (running):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+== uptime 132.58 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=pending-manifest
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=pending-manifest
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 68
+drwx------    4 0        0             4096 Jan  1 00:01 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:pending-not-regular
+vr_rc=1
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:R (running):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+== uptime 152.79 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=pending-manifest
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=pending-manifest
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 68
+drwx------    4 0        0             4096 Jan  1 00:02 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:pending-not-regular
+vr_rc=1
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:R (running):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+== uptime 173.02 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=pending-manifest
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=pending-manifest
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 68
+drwx------    4 0        0             4096 Jan  1 00:02 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:pending-not-regular
+vr_rc=1
+hostname-idme-serial-unavailable
+automatic-fastboot-marker-disabled
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:R (running):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+== uptime 193.24 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=pending-manifest
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=pending-manifest
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 68
+drwx------    4 0        0             4096 Jan  1 00:02 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:pending-not-regular
+vr_rc=1
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:R (running):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+local-services-degraded-start-no-startup-ready
+local-services-supervisor-started
+== uptime 213.44 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=pending-manifest
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=pending-manifest
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 68
+drwx------    4 0        0             4096 Jan  1 00:03 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:pending-not-regular
+vr_rc=1
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:R (running):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+local-services-degraded-start-no-startup-ready
+local-services-supervisor-started
+== uptime 233.65 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=pending-manifest
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=pending-manifest
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 68
+drwx------    4 0        0             4096 Jan  1 00:03 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:pending-not-regular
+vr_rc=1
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:R (running):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+local-services-degraded-start-no-startup-ready
+local-services-supervisor-started
+== uptime 253.86 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=pending-manifest
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=pending-manifest
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 68
+drwx------    4 0        0             4096 Jan  1 00:03 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:pending-not-regular
+vr_rc=1
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:R (running):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+local-services-degraded-start-no-startup-ready
+local-services-supervisor-started
+== uptime 274.09 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=pending-manifest
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=pending-manifest
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 68
+drwx------    4 0        0             4096 Jan  1 00:04 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:pending-not-regular
+vr_rc=1
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:R (running):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+local-services-degraded-start-no-startup-ready
+local-services-supervisor-started
+== uptime 294.28 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=pending-manifest
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=pending-manifest
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 68
+drwx------    4 0        0             4096 Jan  1 00:04 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:pending-not-regular
+vr_rc=1
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:R (running):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+local-services-degraded-start-no-startup-ready
+local-services-supervisor-started
+== uptime 314.47 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=pending-manifest
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=pending-manifest
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 68
+drwx------    4 0        0             4096 Jan  1 00:04 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:pending-not-regular
+vr_rc=1
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:R (running):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+local-services-degraded-start-no-startup-ready
+local-services-supervisor-started
+== uptime 334.68 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=pending-manifest
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=pending-manifest
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 68
+drwx------    4 0        0             4096 Jan  1 00:05 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:pending-not-regular
+vr_rc=1
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:R (running):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+local-services-degraded-start-no-startup-ready
+local-services-supervisor-started
+== uptime 354.88 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=pending-manifest
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=pending-manifest
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 68
+drwx------    4 0        0             4096 Jan  1 00:05 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:pending-not-regular
+vr_rc=1
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:R (running):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+local-services-degraded-start-no-startup-ready
+local-services-supervisor-started
+== uptime 375.08 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=pending-manifest
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=pending-manifest
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 68
+drwx------    4 0        0             4096 Jan  1 00:05 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:pending-not-regular
+vr_rc=1
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:R (running):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+local-services-degraded-start-no-startup-ready
+local-services-supervisor-started
+== uptime 395.30 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=pending-manifest
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=pending-manifest
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 68
+drwx------    4 0        0             4096 Jan  1 00:06 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:pending-not-regular
+vr_rc=1
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:R (running):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+local-services-degraded-start-no-startup-ready
+local-services-supervisor-started
+== uptime 415.52 androidboot.slot_suffix=_a
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=rolled-back
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=215
+failure_log=failure-214-1.log
+features_state=degraded
+features_error=pending-manifest
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+features_state=degraded
+features_error=pending-manifest
+cat: can't open '/data/libreecho/update/pending': No such file or directory
+schema=1
+state=rolled-back
+progress=100
+detail=b
+/data/libreecho/generations:
+total 16
+drwxrwxrwx    4 0        0             4096 Jan  1 00:10 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:01 [1;34mtxn-5072bd0666f1a51bbde5988b[m
+dr-x------    3 0        0             4096 Jan  1 00:02 [1;34mtxn-ce14a1015d865c7dcb66f842[m
+
+/data/libreecho/update:
+total 68
+drwx------    4 0        0             4096 Jan  1 00:06 [1;34m.[m
+drwx------    8 0        0             4096 Jan  1 00:01 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              898 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             2417 Jan  1 00:03 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:03 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1 00:03 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1 00:03 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+ERROR:pending-not-regular
+vr_rc=1
+reboot-supervisor-started
+reboot-signal-traps-installed
+wmt-nodes-created
+loopback-configured
+physical-recovery-helper-absent
+wifi-network-skipped-vendor-assets-unavailable
+wifi-worker-failed-recorded:4
+runme-loop-started
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:a
+ota-rollback-resume-rollback-evidence-unproven
+ota-health-confirm-pending
+ota-rollback-complete:b:a
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:R (running):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+ui-services-degraded-by-feature-transaction
+timezone-applied:UTC
+ui-services-platform-only-features-degraded
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:radiod:0
+ui-web-production-lan
+ui-service-start:web:0
+local-services-degraded-start-no-startup-ready
+local-services-supervisor-started

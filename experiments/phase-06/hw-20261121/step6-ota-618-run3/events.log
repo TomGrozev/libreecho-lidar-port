@@ -1,0 +1,7 @@
+14:13:16 already in fastboot
+14:13:36 v1 boot: 6.18.64+ libreecho.lab=p6-v1 androidboot.slot_suffix=_a 
+14:13:50 v1 state captured
+14:14:39 pushed
+14:15:15 install: verify_rc=0 ota_manifest_signature=PASS UPDATE_READY slot=b version=0.2.14 install_rc=0 
+14:15:28 booted: libreecho.lab=p6-v2 androidboot.slot_suffix=_b 
+14:19:36 confirm failed for this boot (boot_id 55db7f83-0c2f-4992-aad1-3308c18be405 -> 4cb2c775-4313-4b80-aad4-4d6e236146d1)

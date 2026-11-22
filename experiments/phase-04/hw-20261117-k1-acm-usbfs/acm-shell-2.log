@@ -1,0 +1,9 @@
+
+$ echo hello; id
+echo hello; id; echo __ACM_END_1__
+
+$ uname -a
+uname -a; echo __ACM_END_2__
+
+$ cat /proc/cmdline
+cat /proc/cmdline; echo __ACM_END_3__

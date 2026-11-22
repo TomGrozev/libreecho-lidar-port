@@ -1,0 +1,55 @@
+    118 0
+     18 1
+    103 0
+{"ts":1795241613,"boot_seconds":186,"level":"INFO","service":"buttond","msg":"buttond: volume down -> 65"}
+{"ts":1795241613,"boot_seconds":186,"level":"INFO","service":"buttond","msg":"buttond: volume down -> 60"}
+{"ts":1795241614,"boot_seconds":186,"level":"INFO","service":"buttond","msg":"buttond: volume down -> 55"}
+{"ts":1795241614,"boot_seconds":187,"level":"INFO","service":"buttond","msg":"buttond: volume down -> 50"}
+{"ts":1795241614,"boot_seconds":187,"level":"INFO","service":"buttond","msg":"buttond: volume down -> 45"}
+{"ts":1795241615,"boot_seconds":188,"level":"INFO","service":"buttond","msg":"buttond: volume down -> 40"}
+{"ts":1795241615,"boot_seconds":188,"level":"INFO","service":"buttond","msg":"buttond: volume down -> 35"}
+{"ts":1795241615,"boot_seconds":188,"level":"INFO","service":"buttond","msg":"buttond: volume down -> 30"}
+{"ts":1795241617,"boot_seconds":189,"level":"INFO","service":"buttond","msg":"buttond: volume down -> 25"}
+{"ts":1795241617,"boot_seconds":190,"level":"INFO","service":"buttond","msg":"buttond: volume down -> 20"}
+{"ts":1795241658,"boot_seconds":231,"level":"INFO","service":"buttond","msg":"buttond: mute indicator on"}
+{"ts":1795241667,"boot_seconds":240,"level":"INFO","service":"buttond","msg":"buttond: mute indicator off"}
+34	BOOL	2	ADC1 PGA Capture Switch                 	0On, On
+73	BOOL	2	ADC2 PGA Capture Switch                 	0On, On
+112	BOOL	2	ADC3 PGA Capture Switch                 	0On, On
+151	BOOL	2	ADC4 PGA Capture Switch                 	0On, On
+ring10:blue
+ring10:green
+ring10:red
+ring11:blue
+ring11:green
+ring11:red
+ring12:blue
+ring12:green
+ring12:red
+ring1:blue
+ring1:green
+ring1:red
+ring2:blue
+ring2:green
+ring2:red
+ring3:blue
+ring3:green
+ring3:red
+ring4:blue
+ring4:green
+ring4:red
+ring5:blue
+ring5:green
+ring5:red
+ring6:blue
+ring6:green
+ring6:red
+ring7:blue
+ring7:green
+ring7:red
+ring8:blue
+ring8:green
+ring8:red
+ring9:blue
+ring9:green
+ring9:red

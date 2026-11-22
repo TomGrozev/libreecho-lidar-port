@@ -1,0 +1,44 @@
+OKAY [  0.002s]
+Finished. Total time: 0.002s
+Fetching misc (offset=0, size=80000)               OKAY [  0.160s]
+Finished. Total time: 0.167s
+Sending 'boot_a' (16384 KB)                        OKAY [  0.458s]
+Writing 'boot_a'                                   OKAY [  0.906s]
+Finished. Total time: 1.378s
+Fetching boot_a (offset=0, size=100000)            OKAY [  0.313s]
+Fetching boot_a (offset=100000, size=100000)       OKAY [  0.313s]
+Fetching boot_a (offset=200000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=300000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=400000, size=100000)       OKAY [  0.313s]
+Fetching boot_a (offset=500000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=600000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=700000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=800000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=900000, size=100000)       OKAY [  0.313s]
+Fetching boot_a (offset=a00000, size=100000)       OKAY [  0.313s]
+Fetching boot_a (offset=b00000, size=100000)       OKAY [  0.312s]
+Fetching boot_a (offset=c00000, size=100000)       OKAY [  0.313s]
+Fetching boot_a (offset=d00000, size=100000)       OKAY [  0.313s]
+Fetching boot_a (offset=e00000, size=100000)       OKAY [  0.313s]
+Fetching boot_a (offset=f00000, size=100000)       OKAY [  0.312s]
+Finished. Total time: 5.008s
+Fetching boot_b (offset=0, size=100000)            OKAY [  0.314s]
+Fetching boot_b (offset=100000, size=100000)       OKAY [  0.313s]
+Fetching boot_b (offset=200000, size=100000)       OKAY [  0.312s]
+Fetching boot_b (offset=300000, size=100000)       OKAY [  0.312s]
+Fetching boot_b (offset=400000, size=100000)       OKAY [  0.313s]
+Fetching boot_b (offset=500000, size=100000)       OKAY [  0.312s]
+Fetching boot_b (offset=600000, size=100000)       OKAY [  0.312s]
+Fetching boot_b (offset=700000, size=100000)       OKAY [  0.313s]
+Fetching boot_b (offset=800000, size=100000)       OKAY [  0.313s]
+Fetching boot_b (offset=900000, size=100000)       OKAY [  0.312s]
+Fetching boot_b (offset=a00000, size=100000)       OKAY [  0.312s]
+Fetching boot_b (offset=b00000, size=100000)       OKAY [  0.313s]
+Fetching boot_b (offset=c00000, size=100000)       OKAY [  0.313s]
+Fetching boot_b (offset=d00000, size=100000)       OKAY [  0.312s]
+Fetching boot_b (offset=e00000, size=100000)       OKAY [  0.313s]
+Fetching boot_b (offset=f00000, size=100000)       OKAY [  0.312s]
+Finished. Total time: 5.011s
+99e6e10bab3b8b4ca4afd2b061907401d77ac06eb733e4489a9e322578b724b9  artifacts/phase-06/images/boot-lidar-dev.img
+99e6e10bab3b8b4ca4afd2b061907401d77ac06eb733e4489a9e322578b724b9  experiments/phase-06/hw-20261121/step3d-boot3/boot_a.bin
+7e73d1b800cfa46aee50abe6cf580f8e5927d8777801c3a2fcb0339d48f8c4b0  experiments/phase-06/hw-20261121/step3d-boot3/boot_b.bin

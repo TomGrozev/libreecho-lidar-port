@@ -1,0 +1,4 @@
+Nov 17 10:13:56 <WORKSTATION_A> kernel: usb 1-1.2: New USB device found, idVendor=0bb4, idProduct=0c01, bcdDevice=7e.aa
+Nov 17 10:13:56 <WORKSTATION_A> kernel: usb 1-1.2: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+Nov 17 10:13:56 <WORKSTATION_A> kernel: usb 1-1.2: Product: USB download gadget
+Nov 17 10:13:56 <WORKSTATION_A> kernel: usb 1-1.2: Manufacturer: LibreEcho

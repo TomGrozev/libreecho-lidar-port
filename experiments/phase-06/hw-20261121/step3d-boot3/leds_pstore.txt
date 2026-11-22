@@ -1,0 +1,40 @@
+ring10:blue
+ring10:green
+ring10:red
+ring11:blue
+ring11:green
+ring11:red
+ring12:blue
+ring12:green
+ring12:red
+ring1:blue
+ring1:green
+ring1:red
+ring2:blue
+ring2:green
+ring2:red
+ring3:blue
+ring3:green
+ring3:red
+ring4:blue
+ring4:green
+ring4:red
+ring5:blue
+ring5:green
+ring5:red
+ring6:blue
+ring6:green
+ring6:red
+ring7:blue
+ring7:green
+ring7:red
+ring8:blue
+ring8:green
+ring8:red
+ring9:blue
+ring9:green
+ring9:red
+---
+total 0
+drwxr-x---    2 0        0                0 Jan  1 00:00 [1;34m.[m
+drwxr-xr-x    5 0        0                0 Jan  1 00:00 [1;34m..[m

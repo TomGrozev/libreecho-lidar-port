@@ -1,0 +1,15 @@
+2026-11-21T02:38:19Z
+product: LIDAR
+Finished. Total time: 0.002s
+kaeru-version: 2.0.0-g66704e6-dirty
+Finished. Total time: 0.002s
+OKAY [  0.002s]
+Finished. Total time: 0.002s
+max-fetch-size: 0x100000
+Finished. Total time: 0.002s
+partition-size:ramoops: 0x60000
+Finished. Total time: 0.003s
+Fetching ramoops (offset=0, size=60000)            OKAY [  0.088s]
+Finished. Total time: 0.096s
+c6ba2b2d06d691f22421a6688e9083f51ea5fef855cf01bb66c8be691bafa859  /workspace/libreecho/experiments/experiments/phase-06/hw-20261121/step4-ramoops/ramoops.bin
+393216 bytes

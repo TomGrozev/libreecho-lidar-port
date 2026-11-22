@@ -1,0 +1,67 @@
+dtb 0x604e2d8c+0x3493 ramdisk 0x605a7000+0xa6af2
+Sending 'artifacts/phase-04/boot-lidar-console-wdt-k1-acm.img' (16384 KB) OKAY [  2.286s]
+Finished. Total time: 2.286s
+>>> unzip 0x60100a00 0x40080000
+FAILED (remote: 'Unsupported command')
+fastboot: error: Command failed
+>>> cp.b 0x604e2d8c 0x4e000000 0x3493
+FAILED (remote: 'Unsupported command')
+fastboot: error: Command failed
+>>> cp.b 0x605a7000 0x44000000 0xa6af2
+FAILED (remote: 'Unsupported command')
+fastboot: error: Command failed
+>>> setenv b1 console=ttyS0,921600n1
+FAILED (remote: 'Unsupported command')
+fastboot: error: Command failed
+>>> setenv b2 earlycon=uart8250,mmio32,0x11005000
+FAILED (remote: 'Unsupported command')
+fastboot: error: Command failed
+>>> setenv b3 clk_ignore_unused lidar.autoreboot=240
+FAILED (remote: 'Unsupported command')
+fastboot: error: Command failed
+>>> setenv bootargs ${b1} ${b2} ${b3}
+FAILED (remote: 'Unsupported command')
+fastboot: error: Command failed
+>>> fdt addr 0x4e000000
+FAILED (remote: 'Unsupported command')
+fastboot: error: Command failed
+>>> fdt get value m / model
+FAILED (remote: 'Unsupported command')
+fastboot: error: Command failed
+>>> printenv m bootargs
+FAILED (remote: 'Unsupported command')
+fastboot: error: Command failed
+>>> console
+(bootloader) Core:  14 devices, 9 uclasses, devicetree: separate
+(bootloader) MMC:   
+(bootloader) Loading Environment from <NULL>...Loading Environment from
+(bootloader)  <NULL>... OK
+(bootloader) In:    serial@11005000
+(bootloader) Out:   serial@11005000
+(bootloader) Err:   serial@11005000
+(bootloader) MTK MUSB OTG (Peripheral)
+(bootloader) Net:   No ethernet found.
+(bootloader) [2KHit any key to stop autoboot: 0
+(bootloader) musb-hdrc: peripheral reset irq lost!
+(bootloader) Starting download of 16777216 bytes
+(bootloader) ...........................................................
+(bootloader) ...............
+(bootloader) ......................................................
+(bootloader) downloading of 16777216 bytes finished
+(bootloader) command oem run not supported.
+(bootloader) command oem run not supported.
+(bootloader) command oem run not supported.
+(bootloader) command oem run not supported.
+(bootloader) command oem run not supported.
+(bootloader) command oem run not supported.
+(bootloader) command oem run not supported.
+(bootloader) command oem run not supported.
+(bootloader) command oem run not supported.
+(bootloader) command oem run not supported.
+OKAY [  0.001s]
+Finished. Total time: 0.001s
+FAILED (remote: 'Empty console')
+fastboot: error: Command failed
+>>> booti 2026-11-17T14:32:36+11:00
+FAILED (remote: 'Unsupported command')
+fastboot: error: Command failed

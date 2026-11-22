@@ -1,0 +1,72 @@
+  HOSTCC  scripts/basic/fixdep
+  HOSTCC  scripts/kconfig/conf.o
+  SHIPPED scripts/kconfig/zconf.tab.c
+  SHIPPED scripts/kconfig/lex.zconf.c
+  SHIPPED scripts/kconfig/zconf.hash.c
+  HOSTCC  scripts/kconfig/zconf.tab.o
+In file included from scripts/kconfig/zconf.tab.c:2501:
+scripts/kconfig/confdata.c: In function ‘conf_write’:
+scripts/kconfig/confdata.c:574:35: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  574 |                 } else if ((slash = strrchr(name, '/'))) {
+      |                                   ^
+  HOSTLD  scripts/kconfig/conf
+#
+# configuration written to .config
+#
+scripts/kconfig/conf --silentoldconfig Kconfig
+arm-none-linux-gnueabihf-gcc -E -include include/generated/autoconf.h arch/arm/linker.lds.S -P -o arch/arm/linker.lds
+  CC      board/amazon/board-lidar.o
+  CC      lib/fastboot/fastboot.o
+  CC      lib/bootargs.o
+  AS      arch/arm/cache-ops.o
+  CC      stage1/main.o
+  AS      arch/arm/memchr.o
+  CC      lib/bootmode.o
+  AS      arch/arm/memcpy.o
+  AS      main/start.o
+  CC      drivers/uart/mtk_uart.o
+  CC      drivers/usbdl/mtk_usbdl.o
+  CC      drivers/wdt/mtk_wdt.o
+  CC      lib/common.o
+  CC      stage1/lkloader.o
+  CC      main/main.o
+  AS      arch/arm/memset.o
+  LD      drivers/uart/built-in.o
+  LD      drivers/wdt/built-in.o
+  LD      drivers/usbdl/built-in.o
+  CC      lib/fastboot/command.o
+  CC      lib/debug.o
+  CC      lib/fastboot/cmd_version.o
+  CC      lib/fastboot/cmd_peek.o
+  CC      lib/fastboot/cmd_mem.o
+  LD      drivers/built-in.o
+  CC      lib/fastboot/cmd_fetch.o
+  LD      arch/built-in.o
+  AR      arch/lib.a
+  CC      lib/libc/string.o
+  AR      board/lib.a
+  CC      lib/recovery.o
+  CC      stage1/memory.o
+  LD      main/built-in.o
+  CC      lib/storage/gpt.o
+  CC      lib/storage/storage.o
+  CC      lib/fastboot/cmd_partitions.o
+  CC      stage1/common.o
+  CC      stage1/string.o
+  CC      lib/thread.o
+  LD      lib/fastboot/built-in.o
+  LD      stage1/built-in.o
+  AR      lib/lib.a
+  LD      kaeru.o
+  LD      stage1.o
+  OBJCOPY stage1
+  OBJCOPY kaeru
+Bootloader base: 0x41E00000
+Bootloader size: 212280 bytes
+Platform init caller: 0x41E19EE2
+Payload size: 11896 bytes
+Loader size: 909 bytes
+Signature size: 260 bytes (image ends at 0x41E33C34)
+Padding payload by 11 byte(s)
+Payload destination: 0x41E33C34
+File offset: 0x19EE2

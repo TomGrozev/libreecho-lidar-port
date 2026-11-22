@@ -1,0 +1,53 @@
+==pinggw
+PING <LAN_GATEWAY_A> (<LAN_GATEWAY_A>): 56 data bytes
+64 bytes from <LAN_GATEWAY_A>: seq=0 ttl=64 time=0.966 ms
+64 bytes from <LAN_GATEWAY_A>: seq=1 ttl=64 time=0.979 ms
+
+--- <LAN_GATEWAY_A> ping statistics ---
+2 packets transmitted, 2 packets received, 0% packet loss
+round-trip min/avg/max = 0.966/0.972/0.979 ms
+gw_rc=0
+==http
+wget: can't connect to remote host (172.66.147.243): Connection refused
+wget_rc=1
+==socks
+srw-rw----    1 0        0                0 Nov 21 03:29 [1;35m/run/libreecho/audio.sock[m
+srw-rw-rw-    1 0        0                0 Jan  1  1970 [1;35m/run/libreecho/log.sock[m
+srwx------    1 0        0                0 Jan  1  1970 [1;35m/run/libreecho/mdns.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:29 [1;35m/run/libreecho/mic.sock[m
+srw-rw----    1 0        0                0 Jan  1  1970 [1;35m/run/libreecho/network.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:29 [1;35m/run/libreecho/wakeword.sock[m
+==ps
+  806 0         0:00 /sbin/wpa_supplicant -B -Dnl80211,wext -i wlan0 -c /data/libreecho/config/wpa_supplicant.conf -P /tmp/wpa_supplicant.wlan0.pid -f /tmp/wpa_supplicant.wlan0.log
+ 2467 0         0:00 /usr/local/sbin/libreecho-networkd --foreground --socket /run/libreecho/network.sock --interface wlan0 --wpa-ctrl /tmp/wpa_ctrl/wlan0 --recovery-marker /run/libreecho/recovery-mode --recovery-psk /data/libreecho/config/recovery-psk --recovery-config /data/libreecho/config/recovery.json --recovery-run-dir /run/libreecho --hostapd /usr/local/sbin/hostapd --recovery-dhcp /usr/local/sbin/dnsmasq --recovery-dns /usr/local/sbin/dnsmasq --recovery-ap-probe /usr/local/sbin/libreecho-recovery-ap-probe --recovery-ready-probe /usr/local/sbin/libreecho-recovery-ap-ready --recovery-net-up /usr/local/sbin/libreecho-recovery-net-up --recovery-net-down /usr/local/sbin/libreecho-recovery-net-down --recovery-address <SETUP_AP_IP_A> --recovery-timeout 120000 --led-socket /run/libreecho/led.sock
+ 3154 0         0:00 /usr/local/sbin/libreecho-audiod --foreground --socket /run/libreecho/audio.sock
+ 3464 0         0:00 /usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap
+ 3779 0         0:00 /run/libreecho/features/wakeword/root/usr/local/sbin/libreecho-waked --foreground --socket /run/libreecho/wakeword.sock --mic-socket /run/libreecho/mic.sock --reference-socket /run/libreecho-audio/aec-reference.sock --model-dir /run/libreecho/features/wakeword/root/usr/local/share/libreecho/openwakeword --wake-threads 1 --vad-floor-rms 16
+==agentlog
+==wakelog
+==init-tail
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3321]
+adbd-fd:4:socket:[3322]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3323]
+adbd-fd:7:socket:[3324]
+adbd-fd:8:socket:[3325]
+adbd-fd:9:/dev/usb-ffs/adb/ep1
+adbd-task:142:adbd:S (sleeping):do_select
+adbd-task:145:adbd:S (sleeping):futex_do_wait
+adbd-task:146:adbd:S (sleeping):inet_csk_accept
+adbd-task:147:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:148:adbd:S (sleeping):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+features-user-modified:boot-image-modified,
+timezone-applied:UTC
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:waked:0

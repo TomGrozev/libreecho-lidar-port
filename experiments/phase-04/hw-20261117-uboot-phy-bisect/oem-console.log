@@ -1,0 +1,15 @@
+(bootloader) Core:  16 devices, 11 uclasses, devicetree: separate
+(bootloader) WDT:   Not starting watchdog@10007000
+(bootloader) MMC:   
+(bootloader) Loading Environment from <NULL>...Loading Environment from
+(bootloader)  <NULL>... OK
+(bootloader) In:    serial@11005000
+(bootloader) Out:   serial@11005000
+(bootloader) Err:   serial@11005000
+(bootloader) MTK MUSB OTG (Peripheral)
+(bootloader) Net:   No ethernet found.
+(bootloader) [2KHit any key to stop autoboot: 0
+(bootloader) PHY_BISECT upstream
+(bootloader) musb-hdrc: peripheral reset irq lost!
+OKAY [  0.001s]
+Finished. Total time: 0.001s

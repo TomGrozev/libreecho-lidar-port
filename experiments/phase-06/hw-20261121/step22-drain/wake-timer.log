@@ -1,0 +1,7 @@
+{"ts":1795245594,"boot_seconds":39,"level":"INFO","service":"timerd","msg":"timerd listening on /run/libreecho/timer.sock"}
+{"ts":1795245597,"boot_seconds":42,"level":"INFO","service":"ttsd","msg":"ttsd: starting (socket=/run/libreecho/tts.sock, model=/run/libreecho/features/tts/root/usr/local/share/libreecho/tts/models/southern-female, voice=southern-female)"}
+{"ts":1795245628,"boot_seconds":73,"level":"INFO","service":"ttsd","msg":"ttsd: TTS engine ready (native rate=16000 Hz)"}
+{"ts":1795245628,"boot_seconds":73,"level":"INFO","service":"ttsd","msg":"ttsd: listening on /run/libreecho/tts.sock"}
+{"ts":1795245630,"boot_seconds":74,"level":"INFO","service":"agentd","msg":"agentd: ready socket=/run/libreecho/agent.sock provider=openai-codex"}
+{"ts":1795245966,"boot_seconds":411,"level":"INFO","service":"agentd","msg":"agentd: voice turn cancelled before transcript follow_up=false"}
+{"ts":1795245969,"boot_seconds":413,"level":"INFO","service":"agentd","msg":"agentd: voice turn stt_failed before transcript follow_up=false"}

@@ -1,0 +1,55 @@
+==init
+wifi-network-worker-started-after-adb
+wifi-request-supervisor-started
+wifi-persistent-profile-selected
+wifi-profile-present
+wifi-profile-recorded
+lidar-bt-ready-before-wlan
+lidar-wlan-bound:mmc1:0001:1
+wlan0-ready-recorded
+wifi-client-rc:0
+wifi-activation-complete:0
+==wifi.log
+libreecho-wifi: dhcp-rc:0
+==wpalog
+Successfully initialized wpa_supplicant
+rfkill: Cannot open RFKILL control device
+wlan0: Trying to associate with <MAC_AP_A> (SSID='<SSID_A>' freq=2462 MHz)
+wlan0: Associated with <MAC_AP_A>
+wlan0: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+wlan0: WPA: Key negotiation completed with <MAC_AP_A> [PTK=CCMP GTK=CCMP]
+wlan0: CTRL-EVENT-CONNECTED - Connection to <MAC_AP_A> completed [id=0 id_str=]
+==dhcp
+udhcpc: started, v1.37.0
+udhcpc: broadcasting discover
+udhcpc: broadcasting select for <DEVICE_IP_A>, server <LAN_GATEWAY_A>
+udhcpc: lease of <DEVICE_IP_A> obtained from <LAN_GATEWAY_A>, lease time 7200
+==net
+3: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP qlen 1000
+    link/ether <MAC_WLAN_A> brd ff:ff:ff:ff:ff:ff
+    inet <DEVICE_IP_A>/26 scope global wlan0
+       valid_lft forever preferred_lft forever
+    inet6 <ULA_ADDRESS_A>/64 scope global dynamic flags 100 
+       valid_lft 1784sec preferred_lft 1784sec
+    inet6 <LINK_LOCAL_IPV6_A>/64 scope link 
+       valid_lft forever preferred_lft forever
+default via <LAN_GATEWAY_A> dev wlan0 
+<LAN_CIDR_A> dev wlan0 scope link  src <DEVICE_IP_A> 
+1
+==sdio
+/sys/bus/sdio/devices/mmc1:0001:1 dev=0x7608 drv=mt7668_sdio
+/sys/bus/sdio/devices/mmc1:0001:2 dev=0x7668 drv=btmtksdio
+[1;36mdevice[m     [1;34mpower[m      [0;0mreset[m      [1;34mrfkill2[m    [1;36msubsystem[m  [0;0muevent[m
+==ping
+PING 1.1.1.1 (1.1.1.1): 56 data bytes
+
+--- 1.1.1.1 ping statistics ---
+3 packets transmitted, 0 packets received, 100% packet loss
+ping_rc=1
+Server:		<LAN_GATEWAY_A>
+Address:	<LAN_GATEWAY_A>:53
+
+Non-authoritative answer:
+Name:	example.com
+Address: 172.66.147.243
+dns_rc=0

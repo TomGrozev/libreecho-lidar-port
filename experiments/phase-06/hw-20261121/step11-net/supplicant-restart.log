@@ -1,0 +1,30 @@
+==restart
+==state
+126.48 310.34
+    inet <DEVICE_IP_A>/26 scope global wlan0
+    inet6 <ULA_ADDRESS_A>/64 scope global dynamic flags 100 
+    inet6 <LINK_LOCAL_IPV6_A>/64 scope link 
+<LAN_CIDR_A> dev wlan0 scope link  src <DEVICE_IP_A> 
+2 packets transmitted, 2 packets received, 0% packet loss
+round-trip min/avg/max = 0.925/1.226/1.527 ms
+Name:	example.com
+Address: 2606:4700:10::ac42:93f3
+
+==ps
+  808 0         0:00 /sbin/wpa_supplicant -B -Dnl80211,wext -i wlan0 -c /data/libreecho/config/wpa_supplicant.conf -P /tmp/wpa_supplicant.wlan0.pid -f /tmp/wpa_supplicant.wlan0.log
+ 8981 0         0:00 /system/bin/sh -c echo ==restart; /etc/init.d/libreecho-networkd.init restart; sleep 25; echo ==state; cat /proc/uptime; ip addr show wlan0 | grep inet; ip route | head -3; ping -c 2 -W 2 <LAN_GATEWAY_A> 2>&1 | tail -2; nslookup example.com 2>&1 | tail -3; echo ==ps; ps w | grep -E "wpa_supplicant|dhcp"; echo ==ready; ls /run/libreecho/startup-ready /run/libreecho/wlan0-ready 2>&1; echo ==features; ls /run/libreecho/features 2>&1; cat /run/libreecho/features/* 2>&1 | head -20; echo ==logs; grep -Ei "reconcile|startup|feature" /var/log/libreecho/system.log | tail -25
+ 9691 0         0:00 /usr/local/sbin/libreecho-networkd --foreground --socket /run/libreecho/network.sock --interface wlan0 --wpa-ctrl /tmp/wpa_ctrl/wlan0 --recovery-marker /run/libreecho/recovery-mode --recovery-psk /data/libreecho/config/recovery-psk --recovery-config /data/libreecho/config/recovery.json --recovery-run-dir /run/libreecho --hostapd /usr/local/sbin/hostapd --recovery-dhcp /usr/local/sbin/dnsmasq --recovery-dns /usr/local/sbin/dnsmasq --recovery-ap-probe /usr/local/sbin/libreecho-recovery-ap-probe --recovery-ready-probe /usr/local/sbin/libreecho-recovery-ap-ready --recovery-net-up /usr/local/sbin/libreecho-recovery-net-up --recovery-net-down /usr/local/sbin/libreecho-recovery-net-down --recovery-address <SETUP_AP_IP_A> --recovery-timeout 120000 --led-socket /run/libreecho/led.sock
+ 9895 0         0:00 grep -E wpa_supplicant|dhcp
+==ready
+[0;0m/run/libreecho/startup-ready[m  [0;0m/run/libreecho/wlan0-ready[m
+==features
+[1;34mairplay2[m   [1;34massistant[m  [1;34mstt[m        [1;34mtts[m        [1;34mwakeword[m
+cat: read error: Is a directory
+cat: read error: Is a directory
+cat: read error: Is a directory
+cat: read error: Is a directory
+cat: read error: Is a directory
+==logs
+{"ts":1795233940,"boot_seconds":39,"level":"INFO","service":"ledd","msg":"green startup animation started"}
+{"ts":1795233944,"boot_seconds":43,"level":"INFO","service":"ttsd","msg":"ttsd: starting (socket=/run/libreecho/tts.sock, model=/run/libreecho/features/tts/root/usr/local/share/libreecho/tts/models/southern-female, voice=southern-female)"}
+{"ts":1795233977,"boot_seconds":76,"level":"INFO","service":"ledd","msg":"green startup animation complete"}

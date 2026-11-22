@@ -1,0 +1,64 @@
+{
+  "device": {
+    "boot_area_bytes": 2097152,
+    "flash_bytes": 7650410496,
+    "hwcode": 33127,
+    "sector_bytes": 512
+  },
+  "items": [
+    {
+      "index": 0,
+      "kind": "user",
+      "length": 214016,
+      "offset": 0,
+      "partition": "expdb",
+      "purpose": "full",
+      "sha256": "07f15dc24e862ec4f27e5ecc72d15c894049f9b3f0afe8edc0bc46863e5eada8",
+      "source_offset": 0
+    },
+    {
+      "index": 1,
+      "kind": "user",
+      "length": 1120256,
+      "offset": 0,
+      "partition": "tee1",
+      "purpose": "full",
+      "sha256": "53704bda5d544612e53e48c476d9ba5dab446557288085f6c7385e4d78661193",
+      "source_offset": 0
+    },
+    {
+      "index": 2,
+      "kind": "boot1",
+      "length": 2096640,
+      "offset": 512,
+      "partition": "boot0",
+      "purpose": "body",
+      "sha256": "5e226e9177894dbab9364445b6e462afa6eaee3d547cd89c1374e3e08415734d",
+      "source_offset": 512
+    },
+    {
+      "index": 3,
+      "kind": "boot2",
+      "length": 2097152,
+      "offset": 0,
+      "partition": "boot0",
+      "purpose": "area2",
+      "sha256": "5647f05ec18958947d32874eeb788fa396a05d0bab7c1b71f112ceb7e9b31eee",
+      "source_offset": 2097152
+    },
+    {
+      "index": 4,
+      "kind": "boot1",
+      "length": 512,
+      "offset": 0,
+      "partition": "boot0",
+      "purpose": "sector_zero",
+      "sha256": "ee1d14c21d10e7a0ce8a4c9455fa9635278ff9f2afa95fb52b7dc5b0ba82286e",
+      "source_offset": 0
+    }
+  ],
+  "manifest_sha256": "a6892ecdb0f9ddbe97bc2d0067d4914d9028f3832b7b127b6fb731e6a2f93839",
+  "plan_sha256": "52552e4b091ecef379b9cc9210f8bff1d5e767b946a53cda84f58dd9a672052f",
+  "schema_version": 1,
+  "skipped": []
+}

@@ -1,0 +1,58 @@
+Linux echo 6.18.64+ #2 SMP 2026-11-22 00:00:00 UTC aarch64 Linux
+thermal_sys: Registered thermal governor 'step_wise'
+lm75 2-0048: supply vs not found, using dummy regulator
+lm75 2-0048: hwmon0: sensor 'tmp112'
+hwmon hwmon1: temp1_input not attached to any thermal zone
+hwmon hwmon2: temp1_input not attached to any thermal zone
+TSL2540: INIT()
+TSL2540: probe()
+tsl2540 0-0039: tsl2540_probe: client->irq = 0
+tsl2540 0-0039: tsl2540_probe: device id:e4 device aux id:01 device rev:61
+tsl2540 0-0039: tsl2540_probe: 'tsl2540 rev. 0x61' detected
+tsl2540 0-0039: tsl2540_set_defaults: Loading pltform data
+tsl2540 0-0039: Probe ok.
+mtk-power-controller 10006000.syscon:power-controller: sync_state() pending due to 14017000.smi
+mtk-power-controller 10006000.syscon:power-controller: sync_state() pending due to 14016000.larb
+mtk-power-controller 10006000.syscon:power-controller: sync_state() pending due to 15001000.larb
+mtk-power-controller 10006000.syscon:power-controller: sync_state() pending due to 16010000.larb
+/sys/bus/i2c/devices/0-0039/als_power_state=1
+/sys/bus/i2c/devices/0-0039/als_lux=2884
+[1;36miio:device0[m  [1;36miio:device1[m
+11003000.adc
+mcp4631-503
+/sys/class/thermal/thermal_zone0 board-thermal 27562
+/sys/class/thermal/thermal_zone0/trip_point_0_temp temp=55000 type=hot
+/sys/class/thermal/thermal_zone0/trip_point_1_temp temp=57000 type=passive
+/sys/class/thermal/thermal_zone0/trip_point_2_temp temp=58000 type=passive
+/sys/class/thermal/thermal_zone0/trip_point_3_temp temp=59000 type=passive
+/sys/class/thermal/thermal_zone0/trip_point_4_temp temp=60000 type=critical
+/sys/class/thermal/cooling_device0 type=cpufreq-cpu0 max_state=4 cur_state=0
+thermal_no_trip_points=absent
+/sys/class/hwmon/hwmon0 tmp112 27562
+/sys/class/hwmon/hwmon1 tmp108 34812
+/sys/class/hwmon/hwmon2 tmp108 38000
+-rw-r--r--    1 0        0               11 Nov 22 00:35 [0;0m/data/libreecho/config/time-epoch[m
+{"ts":1795307095,"boot_seconds":26,"level":"INFO","service":"timed","msg":"wall clock restored from /data/libreecho/config/time-epoch (epoch 1795307095)"}
+{"ts":1795307095,"boot_seconds":26,"level":"INFO","service":"timed","msg":"time daemon started (4 peers, image configuration)"}
+{"ts":1795307738,"boot_seconds":30,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence not available"}
+boot_id=a35d87e8-a061-4421-8e19-94cacd41095d
+== ps micd
+ 5304 0         0:00 /usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap
+ 6515 0         0:04 /usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap
+13773 0         0:00 /system/bin/sh -c export PATH=/usr/local/sbin:$PATH; uname -a dmesg | grep -i -E "tsl2540|taos|mtk-power-controller|scpsys|tmp112|lm75|thermal" | tail -n 40 for f in /sys/bus/i2c/devices/0-0039/als_power_state /sys/bus/i2c/devices/0-0039/als_lux; do echo "$f=$(cat $f)"; done; ls /sys/bus/iio/devices/ 2>/dev/null; cat /sys/bus/iio/devices/*/name 2>/dev/null for z in /sys/class/thermal/thermal_zone*; do echo "$z $(cat $z/type) $(cat $z/temp)"; done for z in /sys/class/thermal/thermal_zone*; do for p in "$z"/trip_point_*_temp; do [ -e "$p" ] || continue; echo "$p temp=$(cat "$p" 2>/dev/null) type=$(cat "${p%_temp}_type" 2>/dev/null)"; done; done for c in /sys/class/thermal/cooling_device*; do [ -e "$c" ] || continue; echo "$c type=$(cat "$c/type" 2>/dev/null) max_state=$(cat "$c/max_state" 2>/dev/null) cur_state=$(cat "$c/cur_state" 2>/dev/null)"; done if dmesg | grep -q "No trip points"; then echo thermal_no_trip_points=PRESENT; else echo thermal_no_trip_points=absent; fi for h in /sys/class/hwmon/hwmon*; do echo "$h $(cat $h/name) $(cat $h/temp1_input 2>/dev/null)"; done ls -l /data/libreecho/config/time-epoch 2>/dev/null grep -a -E "timed" /var/log/libreecho/system.log | tail -n 10 echo boot_id=$(cat /proc/sys/kernel/random/boot_id) echo "== ps micd" ps | grep -E "[m]icd" echo "== micd log since boot" grep -a -E "micd" /var/log/libreecho/system.log | tail -n 60 echo "== micd phantom-stop count" grep -a -c -E "phantom|stream stop" /var/log/libreecho/system.log 2>/dev/null ps | grep -E "libreecho-(web|btd|timed|micd|waked|esphomed|audiod)" | grep -v grep
+== micd log since boot
+{"ts":1795307743,"boot_seconds":35,"level":"INFO","service":"micd","msg":"micd: Lidar OCM capture path configured (PGA 65%)"}
+{"ts":1795307743,"boot_seconds":35,"level":"INFO","service":"micd","msg":"Radar microphone mixer profile configured"}
+{"ts":1795307743,"boot_seconds":35,"level":"INFO","service":"micd","msg":"microphone daemon listening on /run/libreecho/mic.sock (capture idle)"}
+{"ts":1795307744,"boot_seconds":36,"level":"INFO","service":"micd","msg":"micd: Lidar OCM capture path configured (PGA 65%)"}
+{"ts":1795307744,"boot_seconds":36,"level":"INFO","service":"micd","msg":"calibrated mono microphone stream started"}
+== micd phantom-stop count
+0
+ 4539 0         0:00 /usr/local/sbin/libreecho-timed --foreground --status /run/libreecho/time.status
+ 4971 0         0:00 /usr/local/sbin/libreecho-audiod --foreground --socket /run/libreecho/audio.sock
+ 5304 0         0:00 /usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap
+ 5647 0         1:42 /run/libreecho/features/wakeword/root/usr/local/sbin/libreecho-waked --foreground --socket /run/libreecho/wakeword.sock --mic-socket /run/libreecho/mic.sock --reference-socket /run/libreecho-audio/aec-reference.sock --model-dir /run/libreecho/features/wakeword/root/usr/local/share/libreecho/openwakeword --wake-threads 2 --vad-floor-rms 16
+ 6515 0         0:04 /usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap
+ 6671 0         0:00 /usr/local/sbin/libreecho-btd --foreground --socket /run/libreecho/bluetooth.sock
+ 8851 0         0:00 /usr/local/sbin/libreecho-esphomed --config /data/libreecho/config/web-config.json --status-file /run/libreecho/esphome-status.json --port 6053 --bind 0.0.0.0 --wake-socket /run/libreecho/wakeword.sock --audio-socket /run/libreecho/audio.sock --audio-bus /run/libreecho-audio/system.pcm --mdns-socket /run/libreecho/mdns.sock --tls-ca /etc/ssl/certs/ca-certificates.crt --radio-socket /run/libreecho/radio.sock --timer-socket /run/libreecho/timer.sock --led-socket /run/libreecho/led.sock --privacy-state /sys/devices/platform/amz_privacy/privacy_state --idme-root /sys/firmware/devicetree/base/idme
+ 9211 0         0:12 /usr/local/sbin/libreecho-web --backend linux --config /data/libreecho/config/web-config.json --web-root /usr/local/share/libreecho/web --listen 0.0.0.0:8080 --users-file /data/libreecho/config/users

@@ -1,0 +1,47 @@
+{"ts":1795255430,"boot_seconds":39,"level":"INFO","service":"btd","msg":"btd-profiles: sdp=listening avdtp=listening avrcp=listening"}
+{"ts":1795255430,"boot_seconds":39,"level":"INFO","service":"btd","msg":"btd: Bluetooth profile services registered"}
+{"ts":1795255430,"boot_seconds":39,"level":"INFO","service":"btd","msg":"btd: listening on /run/libreecho/bluetooth.sock (manual activation, HCI management enabled)"}
+[1;36mhci0[m
+ready
+{
+ "v": 1,
+ "id": 1,
+ "ok": true,
+ "data": {
+  "state": "up",
+  "available": true,
+  "enabled": true,
+  "activation_attempted": true,
+  "transport": "mainline-btmtksdio-hci",
+  "hci": "hci0",
+  "last_error": "",
+  "last_disconnect_reason": "",
+  "last_connect_failed_status": "",
+  "scanning": false,
+  "pairing": false,
+  "pairing_mode": false,
+  "local_name": "MTK MT7668 #4",
+  "capabilities": {
+   "classic": true,
+   "le": true,
+   "ssp": true,
+   "secure_connection": true,
+   "connectable": true,
+   "discoverable": true,
+   "bondable": false,
+   "profile_state": "ready",
+   "profile_error": "SDP, A2DP sink, and AVRCP profile services registered",
+   "profile_services": {
+    "sdp": true,
+    "a2dp_sink": true,
+    "avrcp": true,
+    "rfcomm": false,
+    "bnep": false,
+    "hidp": false
+   }
+  },
+  "pending_pairing": null,
+  "known_devices": [],
+  "discovered": []
+ }
+}

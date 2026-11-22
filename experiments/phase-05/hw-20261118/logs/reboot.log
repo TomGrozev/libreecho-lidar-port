@@ -1,0 +1,9 @@
+argv=--log-dir logs reboot
+$ fastboot reboot
+[exit 0 in 0.26s]
+[stderr]
+Rebooting                                          OKAY [  0.002s]
+Finished. Total time: 0.152s
+reboot requested
+result=ok log=logs/reboot.log
+log: logs/reboot.log

@@ -1,0 +1,13 @@
+usage: create_tee_image.py [-h] [-d DEVICE] [-p PRELOADER]
+                           donor payload [output]
+
+positional arguments:
+  donor                 The donor TEE to use as a base
+  payload               The payload to embed into the donor TEE
+  output                Where to write the crafted TEE (default: tz.img)
+
+options:
+  -h, --help            show this help message and exit
+  -d, --device DEVICE   Device to craft the image for (default: checkers)
+  -p, --preloader PRELOADER
+                        Preloader image spliced over the overwritten code

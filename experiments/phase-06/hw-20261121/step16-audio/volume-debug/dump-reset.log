@@ -1,0 +1,16 @@
+get: 127, 127 (range 0->175)
+raw before dump:
+p0[0x3f]=0x3c
+p0[0x41]=0x00
+p0[0x42]=0x00
+== full debugfs dump
+003f: 3c
+0041: 00
+0042: 00
+get after dump: 127, 127 (range 0->175)
+raw after dump:
+p0[0x41]=0x00
+p1[0x41]=0x00
+p45[0x41]=0x00
+p0[0x42]=0x00
+get after raw: 127, 127 (range 0->175)

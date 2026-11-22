@@ -1,0 +1,28 @@
+
+$ cat /proc/uptime
+~ # [6ncat /proc/uptime; echo __ACM_END_1__
+30.18 118.70
+__ACM_END_1__
+$ dmesg | grep -E 'probe of (0-00|2-00|mmc1)|aic32x4|adc3xxx|tlv320'
+
+~ # [6ndmesg | grep -E 'probe of (0-00|2-00|mmc1)|aic32x4|adc3xxx|tlv320'; echo __A
+CM_END_2__
+probe of 0-003f returned 0 after 17294 usecs
+calling  adc3xxx_i2c_driver_init+0x0/0x28 @ 1
+probe of 0-0018 returned 0 after 101131 usecs
+probe of 0-0019 returned 0 after 968 usecs
+probe of 0-001a returned 0 after 1007 usecs
+probe of 0-001b returned 0 after 940 usecs
+initcall adc3xxx_i2c_driver_init+0x0/0x28 returned 0 after 106308 usecs
+calling  aic32x4_i2c_driver_init+0x0/0x28 @ 1
+probe of 2-0018 returned 6 after 877 usecs
+initcall aic32x4_i2c_driver_init+0x0/0x28 returned 0 after 1470 usecs
+probe of mmc1:0001 returned 19 after 57 usecs
+probe of mmc1:0001:2 returned 0 after 779 usecs
+__ACM_END_2__
+~ # [6n
+$ for l in /sys/class/leds/*:red; do echo 255 > $l/brightness; done; dd if=/dev/input/event0 bs=24 of=/tmp/ev 2>/dev/null & sleep 45; kill $!; for l in /sys/class/leds/*; do echo 0 > $l/brightness; done; hexdump -v -e '24/1 "%02x " "\n"' /tmp/ev; echo window_done
+for l in /sys/class/leds/*:red; do echo 255 > $l/brightness; done; dd if=/de
+v/input/event0 bs=24 of=/tmp/ev 2>/dev/null & sleep 45; kill $!; for l in /sys/c
+lass/leds/*; do echo 0 > $l/brightness; done; hexdump -v -e '24/1 "%02x " "\n"' 
+/tmp/ev; echo window_done; echo __ACM_END_3__

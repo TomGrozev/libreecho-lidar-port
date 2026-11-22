@@ -1,0 +1,19 @@
+Stock EFR32 firmware, read-only from system_a (mmcblk0p13, PARTNAME=system_a),
+mounted at /run/fireos, 2026-11-21. Local copies in local-firmware/ (not for
+commit or publication).
+
+system/vendor/firmware/silabs/xncp-fw.gbl
+  size 186480 sha256 1d9ed42ff12168f00394f84685c698e671f158874bc0dd2c7956388ebd212406
+  GBL v3 type 0, crc32 ok
+  APPLICATION type=0x00000001 version=0x00000036 capabilities=0x00000000
+  ERASEPROG base=0x0    image=172 bytes
+  ERASEPROG base=0x200  image=186220 bytes
+
+system/vendor/firmware/dsr/zb_mux_rcp.gbl
+  size 145216 sha256 4e138f84cd2b7f5eaba1835999e98df5b6750f07429fb6ab7e4df8b261f61849
+  GBL v3 type 0, crc32 ok
+  APPLICATION type=0x00000010 version=0x01160000 capabilities=0x00000000
+  ERASEPROG base=0x0         image=145124 bytes
+  ERASEPROG base=0x20000000  image=4 bytes
+
+Radio state at read time: Gecko Bootloader v1.0.0 menu, no application running.

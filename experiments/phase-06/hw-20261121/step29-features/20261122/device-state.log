@@ -1,0 +1,262 @@
+==ver==
+sed: /etc/libreecho/version: No such file or directory
+6.18.64+
+b
+==bootctl==
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=1
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+==update==
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=1
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=installed
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=web-status
+attempts=6
+passed=0
+pending_slot=a
+selected_slot=a
+epoch=1795250407
+failure_log=failure-1795250407-1.log
+features_state=ready
+features_error=
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+generation=txn-4f85bab71d5fe826cd0b0a1c
+feature_airplay2_payload_sha256=a2dc394196b85b8c949859db93b8456fedb70435d919bc3786a3da4b20f7f6f9
+feature_airplay2_payload_size=9547776
+feature_airplay2_manifest_sha256=1b523a33c15d2a43bd6448e59344e029aabcafb97be7fa8d41c70a0096bb03ce
+feature_airplay2_running_daemon=libreecho-audio-engine
+feature_airplay2_running_daemon_sha256=151fc04500e5f5249adb5ccc4834157414ef12bbff9cf370151d5a282207ebf3
+feature_airplay2_effective=present
+feature_tts_payload_sha256=197e583a378aa49a1d4a823e048920dac7d3a7be8c0b206deed0411ebac0aa78
+feature_tts_payload_size=160206848
+feature_tts_manifest_sha256=126dbad94d512bc8b3b6e1707ed6f52d8bdfba9da0a322b43437bc9dc446b440
+feature_tts_running_daemon=libreecho-ttsd
+feature_tts_running_daemon_sha256=not-running
+feature_tts_effective=present
+feature_wakeword_payload_sha256=4964fc7b02ec81456fce149b1b82f6cca85f2ce447c48826ee6e34e57423585d
+feature_wakeword_payload_size=8224768
+feature_wakeword_manifest_sha256=13ec6549b8ab7995f6d448cd4a13f23543d3a3ca90f490687cb73a7e989ab0a8
+feature_wakeword_running_daemon=libreecho-waked
+feature_wakeword_running_daemon_sha256=8bcd0bb026d8c255571ebead6faac7840dc932dadede6cf05d93ad55e0872637
+feature_wakeword_effective=present
+feature_stt_payload_sha256=dee3594dd45514d02ce62a60286e702cc2d2f205b344259bdc95e353e4322ede
+feature_stt_payload_size=54263808
+feature_stt_manifest_sha256=95f9a2c8f245ea9234cc0368e149ea9c0ff4bfc99765a98f3eb3cd9163ff03f5
+feature_stt_running_daemon=libreecho-sttd
+feature_stt_running_daemon_sha256=not-running
+feature_stt_effective=present
+feature_assistant_payload_sha256=a4103ec92daf60e9fc53f2899d9f48efec120d03778ebc0279853ac2fc37a0d1
+feature_assistant_payload_size=3063808
+feature_assistant_manifest_sha256=aba5b27bf2fb6cae966cb8a61a3da13c81af1894fb29014dbff6fac2098016d3
+feature_assistant_running_daemon=libreecho-agentd
+feature_assistant_running_daemon_sha256=not-running
+feature_assistant_effective=present
+==current==
+txn-4f85bab71d5fe826cd0b0a1c
+==ps==
+PID   USER     TIME  COMMAND
+    1 0         0:00 {init} /bin/busybox sh /init skip_initramfs
+    2 0         0:00 [kthreadd]
+    3 0         0:00 [pool_workqueue_]
+    4 0         0:00 [kworker/R-rcu_g]
+    5 0         0:00 [kworker/R-sync_]
+    6 0         0:00 [kworker/R-kvfre]
+    7 0         0:00 [kworker/R-slub_]
+    8 0         0:00 [kworker/R-netns]
+    9 0         0:00 [kworker/0:0-eve]
+   10 0         0:00 [kworker/0:0H-ev]
+   11 0         0:00 [kworker/0:1-dev]
+   12 0         0:00 [kworker/u16:0-a]
+   13 0         0:00 [kworker/R-mm_pe]
+   14 0         0:00 [ksoftirqd/0]
+   15 0         0:00 [rcu_sched]
+   16 0         0:00 [rcu_exp_par_gp_]
+   17 0         0:00 [rcu_exp_gp_kthr]
+   18 0         0:00 [migration/0]
+   19 0         0:00 [cpuhp/0]
+   20 0         0:00 [cpuhp/1]
+   21 0         0:00 [migration/1]
+   22 0         0:00 [ksoftirqd/1]
+   23 0         0:00 [kworker/1:0-pm]
+   24 0         0:00 [kworker/1:0H-ev]
+   25 0         0:00 [cpuhp/2]
+   26 0         0:00 [migration/2]
+   27 0         0:00 [ksoftirqd/2]
+   28 0         0:00 [kworker/2:0-eve]
+   29 0         0:00 [kworker/2:0H-ev]
+   30 0         0:00 [cpuhp/3]
+   31 0         0:00 [migration/3]
+   32 0         0:00 [ksoftirqd/3]
+   33 0         0:00 [kworker/3:0-rcu]
+   34 0         0:00 [kworker/3:0H-ev]
+   35 0         0:00 [kdevtmpfs]
+   36 0         0:00 [kworker/R-inet_]
+   37 0         0:00 [kworker/u17:0-h]
+   38 0         0:00 [oom_reaper]
+   39 0         0:00 [kworker/R-write]
+   40 0         0:00 [kcompactd0]
+   41 0         0:00 [kworker/R-kbloc]
+   42 0         0:00 [kworker/u16:1-e]
+   43 0         0:00 [kworker/u16:2-e]
+   44 0         0:02 [kworker/u16:3-e]
+   45 0         0:00 [watchdogd]
+   46 0         0:00 [kworker/1:1-eve]
+   47 0         0:00 [kworker/R-cfg80]
+   48 0         0:00 [kworker/0:1H-kb]
+   49 0         0:00 [kswapd0]
+   50 0         0:00 [kworker/3:1-eve]
+   51 0         0:00 [kworker/2:1-eve]
+   52 0         0:00 [hwrng]
+   53 0         0:00 [irq/33-amz_priv]
+   54 0         0:00 [kworker/0:2-eve]
+   55 0         0:00 [kworker/0:3-pm]
+   56 0         0:00 [kworker/R-mmc_c]
+   57 0         0:00 [kworker/3:2-rcu]
+   58 0         0:00 [kworker/R-mld]
+   59 0         0:00 [kworker/R-ipv6_]
+   60 0         0:00 [kworker/1:1H-kb]
+   61 0         0:00 [kworker/u16:4]
+   62 0         0:00 [kworker/1:2-eve]
+   64 0         0:00 [kworker/1:3]
+   66 0         0:00 [kworker/u17:1-h]
+   68 0         0:00 [kworker/u17:2]
+  113 0         0:00 [kworker/2:1H-kb]
+  165 0         0:00 /sbin/adbd --device_banner=device
+  172 0         0:00 [kworker/3:1H-kb]
+  201 0         0:00 {init} /bin/busybox sh /init skip_initramfs
+  261 0         0:00 [jbd2/mmcblk0p16]
+  262 0         0:00 [kworker/R-ext4-]
+  494 0         0:00 {init} /bin/busybox sh /init skip_initramfs
+  507 0         0:00 {init} /bin/busybox sh /init skip_initramfs
+  510 0         0:00 {init} /bin/busybox sh /init skip_initramfs
+  525 0         0:00 {libreecho-ping} /bin/busybox sh /usr/local/sbin/libreecho
+  527 0         0:00 {libreecho-local} /bin/sh /usr/local/sbin/libreecho-local 
+  528 0         0:00 /bin/busybox sleep 3600
+  539 0         0:00 /bin/busybox sleep 1680
+  783 0         0:00 [main_thread]
+  784 0         0:00 [hif_thread]
+  785 0         0:00 [rx_thread]
+  851 0         0:00 /sbin/wpa_supplicant -B -Dnl80211,wext -i wlan0 -c /data/l
+ 3216 0         0:00 /usr/local/sbin/libreecho-mdnsd
+ 3218 0         0:00 /usr/bin/dbus-daemon --nofork --nopidfile --config-file=/e
+ 3421 0         0:00 avahi-daemon: running [echo.local]
+ 3818 0         0:00 /usr/local/sbin/libreecho-logd --foreground
+ 4107 0         0:00 /usr/local/sbin/libreecho-networkd --foreground --socket /
+ 4394 0         0:00 /usr/local/sbin/libreecho-timed --foreground --status /run
+ 4765 0         0:00 /usr/local/sbin/libreecho-audiod --foreground --socket /ru
+ 5068 0         0:00 /usr/local/sbin/libreecho-micd --foreground --socket /run/
+ 5383 0         0:49 /run/libreecho/features/wakeword/root/usr/local/sbin/libre
+ 5690 0         0:00 /usr/local/sbin/libreecho-ledd --foreground --socket /run/
+ 5991 0         0:00 /usr/local/sbin/libreecho-buttond --foreground
+ 6301 0         0:00 /usr/local/sbin/libreecho-btd --foreground --socket /run/l
+ 6615 0         0:00 /usr/local/sbin/libreecho-timerd --foreground --socket /ru
+ 6922 0         0:00 /usr/local/sbin/libreecho-watchdogd --foreground --interva
+ 7161 0         0:03 /usr/local/sbin/libreecho-micd --foreground --socket /run/
+ 7163 0         0:00 tinycap -- -D 0 -d 1 -c 8 -r 16000 -b 32 -p 640 -n 4
+ 7627 0         0:00 /usr/local/sbin/libreecho-airplayd --foreground --socket /
+ 7631 0         0:00 /usr/local/sbin/libreecho-audio-engine
+ 7705 0         0:00 /usr/local/sbin/nqptp
+ 7780 0         0:00 /usr/local/sbin/libreecho-airplay-audio
+ 7781 0         0:00 /usr/local/sbin/shairport-sync --configfile /etc/libreecho
+ 7970 0         0:00 /usr/local/sbin/libreecho-radiod --socket /run/libreecho/r
+ 8315 0         0:00 /usr/local/sbin/libreecho-esphomed --config /data/libreech
+ 8667 0         0:01 /usr/local/sbin/libreecho-web --backend linux --config /da
+ 9237 0         0:00 /run/libreecho/features/airplay2/root/usr/local/sbin/libre
+11053 0         0:00 /system/bin/sh -c export PATH=/usr/local/sbin:$PATH; echo 
+11187 0         0:00 sleep 5
+11236 0         0:00 /bin/busybox sleep 1
+11237 0         0:00 /bin/busybox sleep 1
+11238 0         0:00 /bin/busybox sleep 1
+11239 0         0:00 /bin/busybox sleep 1
+11261 0         0:00 ps -ef
+==socks==
+total 32
+srw-rw----    1 0        0                0 Nov 21 19:57 [1;35mairplay.sock[m
+srw-rw----    1 0        0                0 Nov 21 19:57 [1;35maudio.sock[m
+-rw-r--r--    1 0        0                6 Nov 21 19:57 [0;0mbluetooth-ready[m
+srw-rw----    1 0        0                0 Nov 21 19:57 [1;35mbluetooth.sock[m
+-rw-r--r--    1 0        0               92 Nov 21 19:58 [0;0mbuttond-status[m
+-rw-------    1 0        0              207 Nov 21 19:57 [0;0mesphome-status.json[m
+drwxr-xr-x    7 0        0                0 Jan  1  1970 [1;34mfeatures[m
+srw-rw----    1 0        0                0 Nov 21 19:57 [1;35mled.sock[m
+-rw-r--r--    1 0        0               34 Nov 21 19:58 [0;0mlocal.status[m
+srw-rw-rw-    1 0        0                0 Jan  1  1970 [1;35mlog.sock[m
+srwx------    1 0        0                0 Jan  1  1970 [1;35mmdns.sock[m
+srw-rw----    1 0        0                0 Nov 21 19:57 [1;35mmic.sock[m
+srw-rw----    1 0        0                0 Jan  1  1970 [1;35mnetwork.sock[m
+-rw-r--r--    1 0        0                0 Jan  1  1970 [0;0mota-health-settled[m
+srw-rw----    1 0        0                0 Nov 21 19:57 [1;35mradio.sock[m
+srw-rw----    1 0        0                0 Nov 21 19:57 [1;35msendspin.sock[m
+-rw-r--r--    1 0        0                9 Nov 21 19:57 [0;0mstartup-ready[m
+-rw-r--r--    1 0        0              250 Nov 21 19:58 [0;0mtime.status[m
+srw-rw----    1 0        0                0 Nov 21 19:57 [1;35mtimer.sock[m
+-rw-------    1 0        0              163 Jan  1  1970 [0;0mvendor-import.status[m
+srw-rw----    1 0        0                0 Nov 21 19:57 [1;35mwakeword.sock[m
+-rw-------    1 0        0               43 Jan  1  1970 [0;0mwifi-client.conf[m
+-rw-r--r--    1 0        0                0 Jan  1  1970 [0;0mwlan0-ready[m
+==cfg==
+total 36
+-rw-rw-rw-    1 0        0                0 Jan  1  1970 [0;0magentd-manual.log[m
+drwx------    2 0        0             4096 Nov 21 19:57 [1;34mconfig[m
+drwxr-xr-x    2 0        0             4096 Jan  1  1970 [1;34mfeatures[m
+drwxrwxrwx    4 0        0             4096 Nov 21 10:39 [1;34mgenerations[m
+drwxrwxrwx    2 0        0             4096 Nov 21 10:39 [1;34mincoming[m
+-rw-rw-rw-    1 0        0             1035 Nov 21 03:53 [0;0minit-persist.log[m
+-rw-rw-rw-    1 0        0                0 Nov 21 03:51 [0;0minit-persist.started[m
+drwxrwxrwx    3 0        0             4096 Jan  1  1970 [1;34mreset-logs[m
+drwx------    2 0        0             4096 Jan  1  1970 [1;34msecrets[m
+drwx------    4 0        0             4096 Jan  1  1970 [1;34mupdate[m
+-rw-rw-rw-    1 0        0              432 Nov 21 03:30 [0;0mwaked-manual.log[m
+total 56
+-rw-r--r--    1 0        0              153 Jan  1  1970 [0;0madb-transport[m
+-rw-r--r--    1 0        0             1296 Jan  1  1970 [0;0mairplay2.conf[m
+-rw-r--r--    1 0        0              491 Jan  1  1970 [0;0maudio-profile[m
+drwxr-xr-x    2 0        0                0 Jan  1  1970 [1;34mavahi-services[m
+-rw-r--r--    1 0        0                9 Jan  1  1970 [0;0mfeature-policy[m
+-rw-r--r--    1 0        0               40 Jan  1  1970 [0;0mfirst-install-confirm[m
+-rw-r--r--    1 0        0                4 Jan  1  1970 [0;0mimage-profile[m
+-rw-r--r--    1 0        0              950 Jan  1  1970 [0;0mmdns-runtime.json[m
+-rw-r--r--    1 0        0              243 Jan  1  1970 [0;0mntp.conf[m
+-rw-r--r--    1 0        0               65 Jan  1  1970 [0;0mota-public-key.hex[m
+-rw-r--r--    1 0        0              123 Jan  1  1970 [0;0mota-source.conf[m
+-rw-r--r--    1 0        0               11 Jan  1  1970 [0;0mservice-profile[m
+-rw-r--r--    1 0        0               54 Jan  1  1970 [0;0mtarget[m
+-rw-r--r--    1 0        0                4 Jan  1  1970 [0;0mupdate-channel[m
+drwxr-xr-x    2 0        0                0 Jan  1  1970 [1;34mvendor-assets[m
+-rw-------    1 0        0              593 Jan  1  1970 [0;0mweb-config.json[m

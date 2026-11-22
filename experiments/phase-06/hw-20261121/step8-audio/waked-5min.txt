@@ -1,0 +1,5 @@
+261.69
+ 3949 0         3:42 /run/libreecho/features/wakeword/root/usr/local/sbin/libreecho-waked --foreground --socket /run/libreecho/wakeword.sock --mic-socket /run/libreecho/mic.sock --reference-socket /run/libreecho-audio/aec-reference.sock --model-dir /run/libreecho/features/wakeword/root/usr/local/share/libreecho/openwakeword --wake-threads 1 --vad-floor-rms 16
+srw-rw----    1 0        0                0 Nov 21 03:33 [1;35m/run/libreecho/mic.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:33 [1;35m/run/libreecho/wakeword.sock[m
+3863

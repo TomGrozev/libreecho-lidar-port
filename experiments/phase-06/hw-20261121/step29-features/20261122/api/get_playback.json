@@ -1,0 +1,30 @@
+{
+ "body": {
+  "data": {
+   "buses": {
+    "alarm": false,
+    "announcement": false,
+    "media": false,
+    "system": false
+   },
+   "metadata": {
+    "album": null,
+    "artist": null,
+    "available": false,
+    "station": null,
+    "title": null
+   },
+   "source": null,
+   "state": "idle",
+   "transport": {
+    "pause": false,
+    "play": false,
+    "reason": "Nothing here can be started: internet radio is the only source LibreEcho controls, and no station has been started in this session.",
+    "stop": false
+   }
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

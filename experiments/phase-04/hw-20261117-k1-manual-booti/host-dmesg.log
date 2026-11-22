@@ -1,0 +1,7 @@
+Nov 17 11:03:48 <WORKSTATION_A> kernel: usb 1-1.2: USB disconnect, device number 20
+Nov 17 11:03:48 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 21 using xhci_hcd
+Nov 17 11:03:48 <WORKSTATION_A> kernel: usb 1-1.2: New USB device found, idVendor=1d6b, idProduct=0104, bcdDevice= 6.01
+Nov 17 11:03:48 <WORKSTATION_A> kernel: usb 1-1.2: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+Nov 17 11:03:48 <WORKSTATION_A> kernel: usb 1-1.2: Product: Lidar bring-up
+Nov 17 11:03:48 <WORKSTATION_A> kernel: usb 1-1.2: Manufacturer: LibreEcho
+Nov 17 11:03:48 <WORKSTATION_A> kernel: usb 1-1.2: SerialNumber: LIDAR0001

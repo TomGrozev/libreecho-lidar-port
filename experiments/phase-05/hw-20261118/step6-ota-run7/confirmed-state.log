@@ -1,0 +1,79 @@
+207.02 642.05
+libreecho.lab=v2
+androidboot.slot_suffix=_b
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=1
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=installed
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=146
+failure_log=failure-146-1.log
+features_state=ready
+features_error=
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+generation=txn-508529626fbd711fdbf6bf1c
+feature_airplay2_payload_sha256=a6583300828ff3b95c898e85d513267613452115ff911f9d79c5e4f16bfe6adb
+feature_airplay2_payload_size=9560064
+feature_airplay2_manifest_sha256=9532aba033a4eddc1b0d23d0125d94a401c6898fc211a7f2e2c8fdde2b433e4f
+feature_airplay2_running_daemon=libreecho-audio-engine
+feature_airplay2_running_daemon_sha256=39b6f34e1af27a132fe76e0128a89bee8907f13ed5b87635e853618f51cb9af0
+feature_airplay2_effective=present
+feature_tts_payload_sha256=197e583a378aa49a1d4a823e048920dac7d3a7be8c0b206deed0411ebac0aa78
+feature_tts_payload_size=160206848
+feature_tts_manifest_sha256=126dbad94d512bc8b3b6e1707ed6f52d8bdfba9da0a322b43437bc9dc446b440
+feature_tts_running_daemon=libreecho-ttsd
+feature_tts_running_daemon_sha256=1ef3bfa968a65e4f6d1e66a2784382fd552c688f1e18f7af4770796a17bcd283
+feature_tts_effective=present
+feature_wakeword_payload_sha256=4964fc7b02ec81456fce149b1b82f6cca85f2ce447c48826ee6e34e57423585d
+feature_wakeword_payload_size=8224768
+feature_wakeword_manifest_sha256=13ec6549b8ab7995f6d448cd4a13f23543d3a3ca90f490687cb73a7e989ab0a8
+feature_wakeword_running_daemon=libreecho-waked
+feature_wakeword_running_daemon_sha256=not-running
+feature_wakeword_effective=present
+feature_stt_payload_sha256=dee3594dd45514d02ce62a60286e702cc2d2f205b344259bdc95e353e4322ede
+feature_stt_payload_size=54263808
+feature_stt_manifest_sha256=95f9a2c8f245ea9234cc0368e149ea9c0ff4bfc99765a98f3eb3cd9163ff03f5
+feature_stt_running_daemon=libreecho-sttd
+feature_stt_running_daemon_sha256=bab519b426665dfc683c5fec548f73b5112fc1c9c13afd2cc107c3fd8a51db7e
+feature_stt_effective=present
+feature_assistant_payload_sha256=a4103ec92daf60e9fc53f2899d9f48efec120d03778ebc0279853ac2fc37a0d1
+feature_assistant_payload_size=3063808
+feature_assistant_manifest_sha256=aba5b27bf2fb6cae966cb8a61a3da13c81af1894fb29014dbff6fac2098016d3
+feature_assistant_running_daemon=libreecho-agentd
+feature_assistant_running_daemon_sha256=not-running
+feature_assistant_effective=present
+current=txn-508529626fbd711fdbf6bf1c
+[1;34mtxn-508529626fbd711fdbf6bf1c[m
+[1;35m/run/libreecho/airplay.sock[m    [1;35m/run/libreecho/mic.sock[m
+[1;35m/run/libreecho/audio.sock[m      [1;35m/run/libreecho/network.sock[m
+[1;35m/run/libreecho/bluetooth.sock[m  [1;35m/run/libreecho/radio.sock[m
+[1;35m/run/libreecho/led.sock[m        [1;35m/run/libreecho/stt.sock[m
+[1;35m/run/libreecho/log.sock[m        [1;35m/run/libreecho/timer.sock[m
+[1;35m/run/libreecho/mdns.sock[m       [1;35m/run/libreecho/tts.sock[m
+[0;0m/run/libreecho/startup-ready[m

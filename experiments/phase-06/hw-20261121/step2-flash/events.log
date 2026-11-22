@@ -1,0 +1,13 @@
+13:09:47 image e702f095df11fb2c4005f45d62d3dccc7879f10be4f05dad5ae296493e9274a1  /workspace/libreecho/artifacts/phase-06/images/boot-lidar-dev.img
+13:09:47 activate a rc=0
+13:09:47 bcb recorded rc=0
+13:09:47 reboot-bootloader request rc=0 (a successful request does not return)
+13:09:55 fastboot getvar rc=0 after 1 tries
+13:09:55 vars: product: LIDAR product: LIDAR kaeru-version: 2.0.0-g66704e6-dirty max-fetch-size: 0x100000 
+13:09:57 flash boot_a rc=0
+13:10:02 fetch boot_a rc=0
+13:10:07 fetch boot_b rc=0
+13:10:07 fetch misc rc=0
+13:10:07 hashes == expected e702f095df11fb2c4005f45d62d3dccc7879f10be4f05dad5ae296493e9274a1  /workspace/libreecho/artifacts/phase-06/images/boot-lidar-dev.img == readbacks e702f095df11fb2c4005f45d62d3dccc7879f10be4f05dad5ae296493e9274a1  /workspace/libreecho/experiments/phase-06/hw-20261121/step2-flash/boot_a.bin 7e73d1b800cfa46aee50abe6cf580f8e5927d8777801c3a2fcb0339d48f8c4b0  /workspace/libreecho/experiments/phase-06/hw-20261121/step2-flash/boot_b.bin 60e3d3358ffb327118ea5da32d423cb98bc288bd2c515be6855b534c0c65507d  /workspace/libreecho/experiments/phase-06/hw-20261121/step2-flash/misc.bin 
+13:10:08 fastboot reboot rc=0
+13:10:08 done

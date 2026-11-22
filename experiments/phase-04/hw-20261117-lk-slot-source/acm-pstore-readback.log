@@ -1,0 +1,22 @@
+
+$ cat /proc/uptime
+~ # [6ncat /proc/uptime; echo __ACM_END_1__
+11.97 46.19
+__ACM_END_1__
+$ ls -l /sys/fs/pstore
+
+~ # ls -l /sys/fs/pstore; echo __ACM_END_2__
+total 0
+-r--r--r--    1 0        0            58874 Jan  1 00:00 [0;0mconsole-ramoops-0[m
+-r--r--r--    1 0        0              580 Jan  1 00:00 [0;0mpmsg-ramoops-0[m
+__ACM_END_2__
+$ grep MARK /sys/fs/pstore/console-ramoops-0
+
+grep MARK /sys/fs/pstore/console-ramoops-0; echo __ACM_END_3__
+~ # grep MARK /sys/fs/pstore/console-ramoops-0; echo __ACM_END_3__
+
+$ tail -n 5 /sys/fs/pstore/console-ramoops-0
+tail -n 5 /sys/fs/pstore/console-ramoops-0; echo __ACM_END_4__
+LIDAR_SOURCE_PSTORE_MARK_1827
+__ACM_END_3__
+~ # tail -n 5 /sys/fs/pstore/console-ramoops-0; echo __ACM_END_4__

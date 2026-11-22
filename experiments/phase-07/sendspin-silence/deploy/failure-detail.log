@@ -1,0 +1,162 @@
+schema=1
+reason=ota-health-confirm-failed
+slot_suffix=a
+uptime_seconds=230.29
+epoch=1795338568
+running_slot=a
+pending_slot=a
+transaction_id=txn-cc95a15ac3b7e1c89d9dc5cb
+--- bcb-readback (bare status: next-boot eligibility, not the running slot)
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=15
+slot_a_tries=0
+slot_a_success=0
+slot_b_priority=14
+slot_b_tries=0
+slot_b_success=1
+boot_layout=lidar
+== ota.log errors
+1970-01-01T00:03:49Z update[7613] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:02:37Z update[9333] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:02:26Z update[9169] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:03:48Z update[7166] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:02:07Z update[10192] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:02:07Z update[10615] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:03:34Z update[10002] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:02:31Z update[9289] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:02:26Z update[9494] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:02:26Z update[9212] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:02:26Z update[9408] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:02:36Z update[9945] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:02:27Z update[9740] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:02:26Z update[9189] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:02:28Z update[9234] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:02:26Z update[9734] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:03:56Z update[12071] install-error reason=feature_target_not_ready state=none
+2026-11-22T09:09:28Z update[11089] install-error reason=feature_target_not_ready state=none
+2026-11-22T09:09:28Z update[11471] install-error reason=feature_target_not_ready state=none
+2026-11-22T09:09:28Z update[11247] install-error reason=feature_target_not_ready state=none
+== staging
+total 16412
+drwx------    2 0        0             4096 Nov 22 09:13 [1;34m.[m
+drwx------    4 0        0             4096 Jan  1  1970 [1;34m..[m
+-rw-rw-rw-    1 0        0               96 Nov 22 09:13 [0;0mboot-write.log[m
+-rw-r--r--    1 0        0         16777216 Jan  1  1970 [0;0mboot.img[m
+-rw-rw-rw-    1 0        0              281 Nov 22 09:13 [0;0mbootctl.activate[m
+-rw-rw-rw-    1 0        0              281 Nov 22 09:13 [0;0mbootctl.status[m
+-rw-r--r--    1 0        0             3847 Jan  1  1970 [0;0mmanifest[m
+-rw-r--r--    1 0        0              129 Jan  1  1970 [0;0mmanifest.sig[m
+== generations
+total 20
+drwxrwxrwx    5 0        0             4096 Nov 22 09:09 [1;34m.[m
+drwx------   10 0        0             4096 Nov 22 06:48 [1;34m..[m
+dr-x------    3 0        0             4096 Nov 21 22:51 [1;34mtxn-b0a9e76b738c1b4d1b64ae8a[m
+dr-x------    3 0        0             4096 Nov 22 00:31 [1;34mtxn-bac8cf84d19b53cb0c24cdc4[m
+dr-x------    3 0        0             4096 Nov 22 09:09 [1;34mtxn-cc95a15ac3b7e1c89d9dc5cb[m
+27:ota-confirm:ERROR:feature_target_not_ready
+96:feature-services-deferred-until-staged
+113:feature-reconcile-service-stopped:agentd
+114:feature-reconcile-service-stopped:sttd
+115:feature-reconcile-service-start-failed:esphomed
+116:feature-service-topology-reconcile-failed
+117:persisted-feature-reconcile:1
+== restart-record
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=a
+selected_slot=a
+epoch=1795338568
+failure_log=failure-1795338568-1.log
+== state
+schema=1
+state=rolled-back
+progress=100
+detail=a
+== rolled-back
+schema=3
+slot=a
+transaction_id=txn-cc95a15ac3b7e1c89d9dc5cb
+manifest_sha256=395eb840eacb08375bf7206891a23e7806e9ed1fd2dc2c2a442adbae502eef8a
+== transaction dir
+total 9456
+dr-x------    2 0        0             4096 Nov 22 09:09 [1;34m.[m
+dr-x------    7 0        0             4096 Nov 22 09:12 [1;34m..[m
+-r--------    1 0        0           141734 Nov 22 08:18 [0;0mmanifest.json[m
+-r--------    1 0        0          9531392 Nov 22 08:18 [0;0mpayload.squashfs[m
+== installed man feat
+feature_airplay2_asset=libreecho-lidar-base-airplay2-cd5e9d60b6482cf09db024b7fb5477dae320b8dcd8dae8a9bd6cb08a7d6c09eb.payload.squashfs
+feature_airplay2_size=9531392
+feature_airplay2_sha256=cd5e9d60b6482cf09db024b7fb5477dae320b8dcd8dae8a9bd6cb08a7d6c09eb
+feature_airplay2_manifest_asset=libreecho-lidar-base-airplay2-464dbe8901f157cc2071567c3f94db06942c7d58c205db90111703dccd82e030.manifest.json
+feature_airplay2_manifest_size=141734
+feature_airplay2_manifest_sha256=464dbe8901f157cc2071567c3f94db06942c7d58c205db90111703dccd82e030
+slot_b_tries=0
+slot_b_success=1
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+--- detail
+ota-confirm:ERROR:feature_target_not_ready
+
+--- init.log
+pstore-mounted
+pmsg-ready
+service-profile:production
+init-started
+audio-node-worker-started
+input-node-worker-started
+adb-transport-policy-read
+input-devnodes-created:1
+configfs-mounted
+configfs-adb-composition-created
+audio-devnodes-created:5
+2:reason=ota-health-confirm-failed
+27:ota-confirm:ERROR:feature_target_not_ready
+34:audio-node-worker-started
+40:audio-devnodes-created:5
+63:ota-background-worker-started
+65:audio-startup-disabled
+67:ota-rollback-resume-history-slot-still-selected
+68:ota-health-confirm-pending
+69:ota-health-waiting-startup-ready
+94:ui-services-wakeword-skipped-no-audio
+96:feature-services-deferred-until-staged
+100:ui-service-start:audiod:0
+107:ui-service-start:airplayd:0
+110:ui-service-start:esphomed:1
+113:feature-reconcile-service-stopped:agentd
+114:feature-reconcile-service-stopped:sttd
+115:feature-reconcile-service-start-failed:esphomed
+116:feature-service-topology-reconcile-failed
+117:persisted-feature-reconcile:1
+118:first-boot-startup-ready-timeout-degraded
+119:startup-ready-marker-missing
+121:ota-health-probe-passed:1
+122:local-services-degraded-start-no-startup-ready
+123:startup-ready-marker-missing
+125:ota-health-probe-passed:2
+126:startup-ready-marker-missing
+128:ota-health-probe-passed:3
+129:ota-health-confirm-failed-rebooting
+-rw-r--r--    1 0        0                0 Nov 22 09:25 /tmp/libreecho-esphomed.init.log
+-rw-r--r--    1 0        0                0 Nov 22 09:25 /var/log/libreecho-audiod.log
+-rw-r--r--    1 0        0                0 Nov 22 09:25 /var/log/libreecho-btd.log
+-rw-r--r--    1 0        0                0 Nov 22 09:25 /var/log/libreecho-buttond.log
+-rw-r--r--    1 0        0                0 Nov 22 09:25 /var/log/libreecho-esphomed.log
+-rw-r--r--    1 0        0                0 Nov 22 09:25 /var/log/libreecho-ledd.log
+-rw-r--r--    1 0        0                0 Nov 22 09:25 /var/log/libreecho-micd.log
+-rw-r--r--    1 0        0                0 Jan  1  1970 /var/log/libreecho-networkd.log
+-rw-r--r--    1 0        0              120 Nov 22 09:25 /var/log/libreecho-radiod.log
+-rw-r--r--    1 0        0                0 Jan  1  1970 /var/log/libreecho-timed.log
+== tail
+== ps
+ 7522 0         0:03 /usr/local/sbin/libreecho-esphomed --config /data/libreecho/config/web-config.json --status-file /run/libreecho/esphome-status.json --port 6053 --bind 0.0.0.0 --wake-socket /run/libreecho/wakeword.sock --audio-socket /run/libreecho/audio.sock --audio-bus /run/libreecho-audio/system.pcm --mdns-socket /run/libreecho/mdns.sock --tls-ca /etc/ssl/certs/ca-certificates.crt --radio-socket /run/libreecho/radio.sock --timer-socket /run/libreecho/timer.sock --led-socket /run/libreecho/led.sock --privacy-state /sys/devices/platform/amz_privacy/privacy_state --idme-root /sys/firmware/devicetree/base/idme

@@ -1,0 +1,10 @@
+{
+  "completed_items": 4,
+  "finished_at": "2026-11-14T07:03:55+00:00",
+  "manifest_sha256": "208397455c5e216ec0de1d87326c93da8bf62d123cedaccb4be24b1ec3eab3e1",
+  "plan_sha256": "a398eb1f74851f004349f63f8dc61f333c6ba09e899ed2c840cec0874d644c13",
+  "schema_version": 1,
+  "started_at": "2026-11-14T07:03:46+00:00",
+  "status": "complete",
+  "total_items": 4
+}

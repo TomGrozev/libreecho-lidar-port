@@ -1,0 +1,49 @@
+{
+ "body": {
+  "data": {
+   "items": [
+    {
+     "enabled": true,
+     "id": "home-assistant",
+     "name": "Home Assistant"
+    },
+    {
+     "enabled": false,
+     "id": "mqtt",
+     "name": "MQTT"
+    },
+    {
+     "enabled": true,
+     "forced": true,
+     "id": "rest",
+     "name": "Local REST API"
+    },
+    {
+     "enabled": true,
+     "id": "bluetooth",
+     "name": "Bluetooth audio"
+    },
+    {
+     "enabled": true,
+     "id": "airplay2",
+     "name": "AirPlay 2"
+    },
+    {
+     "enabled": false,
+     "id": "spotify",
+     "installed": false,
+     "name": "Spotify Connect"
+    },
+    {
+     "enabled": true,
+     "id": "sendspin",
+     "installed": true,
+     "name": "Sendspin (Music Assistant)"
+    }
+   ]
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

@@ -1,0 +1,4 @@
+[1;34m/sys/devices/platform/amz_privacy[m
+-rw-rw-r--    1 0        0             4096 Nov 21 20:09 [0;0m/sys/devices/platform/amz_privacy/mute_lamp[m
+-r--r--r--    1 0        0             4096 Nov 21 20:09 [0;0m/sys/devices/platform/amz_privacy/privacy_state[m
+0

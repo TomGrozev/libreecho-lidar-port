@@ -1,0 +1,6 @@
+cat: can't open '/data/libreecho-debug/run-*.log': No such file or directory
+libreecho-init: configfs-udc-bound:musb-hdrc.3.auto
+libreecho-init: adbd-fd:11:/dev/usb-ffs/adb/ep1
+libreecho-init: adbd-fd:12:/dev/usb-ffs/adb/ep2
+libreecho-init: adbd-fd:5:/dev/usb-ffs/adb/ep0
+libreecho-init: adbd-task:155:adbd:S (sleeping):ffs_epfile_io

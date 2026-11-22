@@ -1,0 +1,27 @@
+ls: /dev/block/by-name: No such file or directory
+major minor  #blocks  name
+
+   7        0       9336 loop0
+   7        1     156452 loop1
+   7        2       8032 loop2
+   7        3      52992 loop3
+   7        4       2992 loop4
+ 179        0    7471104 mmcblk0
+ 179        1       1024 mmcblk0p1
+ 179        2       1024 mmcblk0p2
+ 179        3       1024 mmcblk0p3
+ 179        4       5120 mmcblk0p4
+ 179        5       1024 mmcblk0p5
+ 179        6       5120 mmcblk0p6
+ 179        7      10240 mmcblk0p7
+ 259        0        512 mmcblk0p8
+ 259        1      16384 mmcblk0p9
+ 259        2      16384 mmcblk0p10
+ 259        3      16384 mmcblk0p11
+ 259        4      32768 mmcblk0p12
+ 259        5    1253376 mmcblk0p13
+ 259        6    1253376 mmcblk0p14
+ 259        7      32768 mmcblk0p15
+ 259        8    4823535 mmcblk0p16
+ 179        8       2048 mmcblk0boot0
+ 179       16       2048 mmcblk0boot1

@@ -1,0 +1,7 @@
+$ fastboot oem fetch-enable
+[exit 0 in 0.11s]
+[stderr]
+OKAY [  0.002s]
+Finished. Total time: 0.002s
+$ usb fetch:userdata:0x00000000:0x00100000
+[usb fetch userdata: 1048576 bytes at 0x0]

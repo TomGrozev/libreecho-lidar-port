@@ -1,0 +1,6 @@
+OKAY [  0.002s]
+Finished. Total time: 0.002s
+Fetching ramoops (offset=0, size=60000)            FAILED (Read from device failed in ReadFully() (Value too large for defined data type))
+fastboot: error: Command failed
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  dumps/20261117-lidar-k1-fetch-diag/ramoops-before-lk-slot-source.bin
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  dumps/20261117-lidar-k1-fetch-diag/boot_a-readback-lk-slot-source.bin

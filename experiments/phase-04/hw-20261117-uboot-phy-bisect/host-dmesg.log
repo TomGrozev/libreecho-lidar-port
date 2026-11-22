@@ -1,0 +1,10 @@
+Nov 17 10:50:53 <WORKSTATION_A> kernel: usb 1-1.2: USB disconnect, device number 11
+Nov 17 10:50:54 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 12 using xhci_hcd
+Nov 17 10:50:54 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 10:50:54 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 10:50:54 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 13 using xhci_hcd
+Nov 17 10:50:55 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 14 using xhci_hcd
+Nov 17 10:50:55 <WORKSTATION_A> kernel: usb 1-1.2: New USB device found, idVendor=0bb4, idProduct=0c01, bcdDevice=7e.aa
+Nov 17 10:50:55 <WORKSTATION_A> kernel: usb 1-1.2: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+Nov 17 10:50:55 <WORKSTATION_A> kernel: usb 1-1.2: Product: USB download gadget
+Nov 17 10:50:55 <WORKSTATION_A> kernel: usb 1-1.2: Manufacturer: LibreEcho

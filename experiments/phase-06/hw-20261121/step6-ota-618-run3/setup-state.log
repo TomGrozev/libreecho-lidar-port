@@ -1,0 +1,91 @@
+Linux (none) 6.18.64+ #5 SMP 2026-11-21 00:00:00 UTC aarch64 Linux
+console=tty0 console=ttyMT0,921600n1 earlycon=uart8250,mmio32,0x11005000 vmalloc=496M androidboot.hardware=mt8167 androidboot.secure_cpu=1 androidboot.unlocked_kernel=true androidboot.tu_code=<TU_CODE> androidboot.rpmb_state=1 androidboot.pl_version=0xa539 androidboot.tee_version=0x4464 androidboot.lk_version=0xc6cf androidboot.prod=1 androidboot.pl_build_desc=2b6f82c-20190926_195940 androidboot.lk_build_desc=6f7225e-20230407_030004 androidboot.verifiedbootstate=yellow androidboot.prod=1 bootopt=64S3,32N2,64N2 buildvariant=user veritykeyid=id:f3530e18f64d11fc25eb2dd762979f078de990bf libreecho.lab=p6-v1 androidboot.selinux=enforce androidboot.veritymode=enforcing androidboot.slot_suffix=_a rootwait ro init=/init skip_initramfs root=/dev/dm-0 dm="system none ro,0 1 android-verity PARTUUID=<PARTUUID_13>" printk.disable_uart=1 leds-is31fl3236. bootprof.pl_t=4209 bootprof.lk_t=3399 boot_reason=4 androidboot.serialno=<SERIAL_A> androidboot.bootreason=wdt_by_pass_pwk
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=installed
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=ota-confirm
+attempts=3
+passed=3
+pending_slot=b
+selected_slot=b
+epoch=146
+failure_log=failure-146-1.log
+features_state=ready
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+generation=txn-508529626fbd711fdbf6bf1c
+feature_airplay2_payload_sha256=a6583300828ff3b95c898e85d513267613452115ff911f9d79c5e4f16bfe6adb
+feature_airplay2_payload_size=9560064
+feature_airplay2_manifest_sha256=9532aba033a4eddc1b0d23d0125d94a401c6898fc211a7f2e2c8fdde2b433e4f
+feature_airplay2_running_daemon=libreecho-audio-engine
+feature_airplay2_running_daemon_sha256=not-running
+feature_airplay2_effective=present
+feature_tts_payload_sha256=197e583a378aa49a1d4a823e048920dac7d3a7be8c0b206deed0411ebac0aa78
+feature_tts_payload_size=160206848
+feature_tts_manifest_sha256=126dbad94d512bc8b3b6e1707ed6f52d8bdfba9da0a322b43437bc9dc446b440
+feature_tts_running_daemon=libreecho-ttsd
+feature_tts_running_daemon_sha256=not-running
+feature_tts_effective=present
+feature_wakeword_payload_sha256=4964fc7b02ec81456fce149b1b82f6cca85f2ce447c48826ee6e34e57423585d
+feature_wakeword_payload_size=8224768
+feature_wakeword_manifest_sha256=13ec6549b8ab7995f6d448cd4a13f23543d3a3ca90f490687cb73a7e989ab0a8
+feature_wakeword_running_daemon=libreecho-waked
+feature_wakeword_running_daemon_sha256=not-running
+feature_wakeword_effective=present
+feature_stt_payload_sha256=dee3594dd45514d02ce62a60286e702cc2d2f205b344259bdc95e353e4322ede
+feature_stt_payload_size=54263808
+feature_stt_manifest_sha256=95f9a2c8f245ea9234cc0368e149ea9c0ff4bfc99765a98f3eb3cd9163ff03f5
+feature_stt_running_daemon=libreecho-sttd
+feature_stt_running_daemon_sha256=not-running
+feature_stt_effective=present
+feature_assistant_payload_sha256=a4103ec92daf60e9fc53f2899d9f48efec120d03778ebc0279853ac2fc37a0d1
+feature_assistant_payload_size=3063808
+feature_assistant_manifest_sha256=aba5b27bf2fb6cae966cb8a61a3da13c81af1894fb29014dbff6fac2098016d3
+feature_assistant_running_daemon=libreecho-agentd
+feature_assistant_running_daemon_sha256=not-running
+feature_assistant_effective=present
+txn-508529626fbd711fdbf6bf1c
+schema=1
+selected_slot=a
+inactive_slot=b
+slot_suffix=a
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=0
+slot_b_tries=0
+slot_b_success=0
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+Filesystem                Size      Used Available Use% Mounted on
+/dev/mmcblk0p16           4.5G    241.0M      4.2G   5% /data
+total 12
+drwxrwxrwx    3 0        0             4096 Jan  1 00:02 [1;34m.[m
+drwx------    9 0        0             4096 Jan  1 00:00 [1;34m..[m
+dr-x------    3 0        0             4096 Jan  1 00:13 [1;34mtxn-508529626fbd711fdbf6bf1c[m

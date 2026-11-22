@@ -1,0 +1,12 @@
+6.18.64+
+libreecho.lab=p6-v2
+androidboot.slot_suffix=_b
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+    inet <DEVICE_IP_A>/26 scope global wlan0
+gw=0
+bootstrap_required":true,"user_count":0

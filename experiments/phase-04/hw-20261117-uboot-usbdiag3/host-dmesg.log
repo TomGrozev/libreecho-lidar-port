@@ -1,0 +1,7 @@
+Nov 17 09:50:08 <WORKSTATION_A> kernel: usb 1-1.2: USB disconnect, device number 108
+Nov 17 09:50:10 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 109 using xhci_hcd
+Nov 17 09:50:10 <WORKSTATION_A> kernel: usb 1-1.2: New USB device found, idVendor=0e8d, idProduct=2000, bcdDevice= 1.00
+Nov 17 09:50:10 <WORKSTATION_A> kernel: usb 1-1.2: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+Nov 17 09:50:10 <WORKSTATION_A> kernel: usb 1-1.2: Product: MT65xx Preloader
+Nov 17 09:50:10 <WORKSTATION_A> kernel: usb 1-1.2: Manufacturer: MediaTek
+Nov 17 09:50:12 <WORKSTATION_A> kernel: usb 1-1.2: USB disconnect, device number 109

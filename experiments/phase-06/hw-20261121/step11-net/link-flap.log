@@ -1,0 +1,29 @@
+==start
+69.36 156.68
+ls: /run/libreecho/startup-ready: No such file or directory
+==down
+3: wlan0: <BROADCAST,MULTICAST> mtu 1500 qdisc mq state DOWN qlen 1000
+    link/ether <MAC_WLAN_A> brd ff:ff:ff:ff:ff:ff
+    inet <DEVICE_IP_A>/26 scope global wlan0
+==up
+    inet <DEVICE_IP_A>/26 scope global wlan0
+    inet6 <ULA_ADDRESS_A>/64 scope global dynamic flags 100 
+    inet6 <LINK_LOCAL_IPV6_A>/64 scope link 
+<LAN_CIDR_A> dev wlan0 scope link  src <DEVICE_IP_A> 
+2 packets transmitted, 2 packets received, 0% packet loss
+round-trip min/avg/max = 1.024/2.888/4.752 ms
+Address: 2606:4700:10::ac42:93f3
+Name:	example.com
+Address: 2606:4700:10::6814:179a
+
+==wpa
+wlan0: WPA: Key negotiation completed with <MAC_AP_A> [PTK=CCMP GTK=CCMP]
+wlan0: CTRL-EVENT-CONNECTED - Connection to <MAC_AP_A> completed [id=0 id_str=]
+wlan0: CTRL-EVENT-DISCONNECTED bssid=<MAC_AP_A> reason=0 locally_generated=1
+wlan0: Trying to associate with <MAC_AP_A> (SSID='<SSID_A>' freq=2462 MHz)
+wlan0: Associated with <MAC_AP_A>
+wlan0: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+wlan0: WPA: Key negotiation completed with <MAC_AP_A> [PTK=CCMP GTK=CCMP]
+wlan0: CTRL-EVENT-CONNECTED - Connection to <MAC_AP_A> completed [id=0 id_str=]
+==syslog
+{"ts":29,"boot_seconds":29,"level":"INFO","service":"networkd","msg":"networkd: starting (socket=/run/libreecho/network.sock, interface=wlan0, wpa=/tmp/wpa_ctrl/wlan0)"}

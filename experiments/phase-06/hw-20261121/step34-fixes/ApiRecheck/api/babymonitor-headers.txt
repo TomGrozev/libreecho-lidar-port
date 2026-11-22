@@ -1,0 +1,7 @@
+url: http://127.0.0.1:18090/api/v1/baby-monitor/stream?source=0:1&channel=0
+status: 200
+X-LibreEcho-Audio: pcm_s16_le;rate=16000;channels=1;selected-channel=shared-wake;calibration=applied
+bytes: 98304
+rms: 2.57
+peak: 20
+error: 

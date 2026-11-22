@@ -1,0 +1,23 @@
+==
+/run/libreecho/features:
+total 0
+drwxr-xr-x    3 0        0                0 Jan  1 00:00 [1;34mairplay2[m
+drwxr-xr-x    3 0        0                0 Jan  1 00:00 [1;34massistant[m
+drwxr-xr-x    3 0        0                0 Jan  1 00:00 [1;34mstt[m
+drwxr-xr-x    3 0        0                0 Jan  1 00:00 [1;34mtts[m
+drwxr-xr-x    3 0        0                0 Jan  1 00:00 [1;34mwakeword[m
+
+/run/libreecho/features/assistant/root:
+total 0
+drwxr-xr-x    3 0        0               28 Jan  1 00:00 [1;34musr[m
+total 0
+crw-rw----    1 0        0         116,   0 Jan  1 00:00 [1;35mcontrolC0[m
+crw-rw----    1 0        0         116,  16 Jan  1 00:00 [1;35mpcmC0D0p[m
+crw-rw----    1 0        0         116,  25 Jan  1 00:00 [1;35mpcmC0D1c[m
+crw-rw----    1 0        0         116,  26 Jan  1 00:00 [1;35mpcmC0D2c[m
+10369 0         0:00 {libreecho-agent} /bin/sh /etc/init.d/libreecho-agentd.init start
+feature-reconcile-service-ready:waked
+feature-reconcile-service-ready:sttd
+feature-reconcile-shared-discovery-owner:airplayd
+feature-reconcile-service-ready:airplayd
+feature-reconcile-service-ready:ttsd

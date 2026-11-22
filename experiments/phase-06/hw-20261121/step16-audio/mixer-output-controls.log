@@ -1,0 +1,30 @@
+7	BYTE	90	DAC Biquad Coefficients                 	0
+8	BOOL	1	DAC Mono Mix Switch                     	0
+9	ENUM	1	DAC Left Playback PowerTune Switch      	0
+10	ENUM	1	DAC Right Playback PowerTune Switch     	0
+11	INT	2	HP Driver Gain Volume                   	0
+12	INT	2	LO Driver Gain Volume                   	0
+13	BOOL	2	HP DAC Playback Switch                  	0
+14	BOOL	2	LO DAC Playback Switch                  	0
+15	ENUM	1	LO Playback Common Mode Switch          	0
+189	ENUM	1	Output Route                            	0
+190	BOOL	1	HPL Output Mixer L_DAC Switch           	0
+191	BOOL	1	HPL Output Mixer IN1_L Switch           	0
+192	BOOL	1	LOL Output Mixer L_DAC Switch           	0
+193	BOOL	1	HPR Output Mixer R_DAC Switch           	0
+194	BOOL	1	HPR Output Mixer IN1_R Switch           	0
+195	BOOL	1	LOR Output Mixer R_DAC Switch           	0
+196	ENUM	1	IN1_R to Right Mixer Positive Resistor  	0
+197	ENUM	1	IN2_R to Right Mixer Positive Resistor  	0
+198	ENUM	1	IN3_R to Right Mixer Positive Resistor  	0
+199	ENUM	1	IN2_L to Right Mixer Positive Resistor  	0
+200	ENUM	1	CM_R to Right Mixer Negative Resistor   	0
+201	ENUM	1	IN1_L to Right Mixer Negative Resistor  	0
+202	ENUM	1	IN3_L to Right Mixer Negative Resistor  	0
+203	ENUM	1	IN1_L to Left Mixer Positive Resistor   	0
+204	ENUM	1	IN2_L to Left Mixer Positive Resistor   	0
+205	ENUM	1	IN3_L to Left Mixer Positive Resistor   	0
+206	ENUM	1	IN1_R to Left Mixer Positive Resistor   	0
+207	ENUM	1	CM_L to Left Mixer Negative Resistor    	0
+208	ENUM	1	IN2_R to Left Mixer Negative Resistor   	0
+209	ENUM	1	IN3_R to Left Mixer Negative Resistor   	0

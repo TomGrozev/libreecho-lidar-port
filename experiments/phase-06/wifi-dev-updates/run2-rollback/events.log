@@ -1,0 +1,9 @@
+19:21:37 start: part=rollback bundle=v0.2.20 tx=txn-a952d12f57426d8bf6e7527c slot=b target=a
+19:24:37 pushed: artifacts/phase-06/ota-wifi/rbtest/lidar-lab-v0.2.20.ota.tar: 1 file pushed, 0 skipped. 1.7 MB/s (16793600 bytes in 9.182s)
+19:25:11 install: verify_rc=0 ota_manifest_signature=PASS UPDATE_READY slot=a version=0.2.20 install_rc=0 
+19:25:11 reboot requested (the only host-initiated reboot); pre-reboot boot_id 1db1fd71-770e-4c38-8c73-ac2d87eea82d
+19:26:13 boot 1 seen: slot_suffix=_a libreecho.lab=p6-rbtest slot_a_tries=2 slot_a_success=0 slot_b_tries=0 slot_b_success=1 slot_a_tries=2 slot_a_success=0 slot_b_tries=0 slot_b_success=1 slot_a_tries=2 slot_a_success=0 slot_b_tries=0 slot_b_success=1 
+19:30:51 boot 2 seen: slot_suffix=_a libreecho.lab=p6-rbtest slot_a_tries=1 slot_a_success=0 slot_b_tries=0 slot_b_success=1 slot_a_tries=1 slot_a_success=0 slot_b_tries=0 slot_b_success=1 slot_a_tries=1 slot_a_success=0 slot_b_tries=0 slot_b_success=1 
+19:35:50 boot 3 seen: slot_suffix=_a libreecho.lab=p6-rbtest slot_a_tries=0 slot_a_success=0 slot_b_tries=0 slot_b_success=1 slot_a_tries=0 slot_a_success=0 slot_b_tries=0 slot_b_success=1 slot_a_tries=0 slot_a_success=0 slot_b_tries=0 slot_b_success=1 
+19:40:49 boot 4 seen: slot_suffix=_b libreecho.lab=p6-v2 slot_a_tries=0 slot_a_success=0 slot_b_tries=0 slot_b_success=1 slot_a_tries=0 slot_a_success=0 slot_b_tries=0 slot_b_success=1 slot_a_tries=0 slot_a_success=0 slot_b_tries=0 slot_b_success=1 
+19:42:33 PASS: LK fell back to slot b with no host reboot after the first; wifi adb back

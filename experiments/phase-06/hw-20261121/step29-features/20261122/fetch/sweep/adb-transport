@@ -1,0 +1,5 @@
+schema=1
+transport=usb-functionfs-and-tcp
+tcp_listener=true
+tcp_port=5555
+binary_sha256=3651b39f524bd8f07f1a9b85e00ec284017b5558788a3715d8aa08132866b6e0

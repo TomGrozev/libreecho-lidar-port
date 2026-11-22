@@ -1,0 +1,14 @@
+Capturing sample: 8 ch, 16000 hz, 32 bit
+Captured 1737732 frames
+    103 0
+     35 1
+     80 0
+schema=1
+state=connected
+volume=1
+microphone_mute=1
+action=1
+privacy_state=0
+lamp_control=0
+amz_privacy amz-privacy: registered (read-only privacy-state input, initial state public)
+input: gpio-keys as /devices/platform/gpio-keys/input/input0

@@ -1,0 +1,94 @@
+diff --git a/mtkclient/Library/DA/xflash/xflash_lib.py b/mtkclient/Library/DA/xflash/xflash_lib.py
+index 01248aa..78accd2 100644
+--- a/mtkclient/Library/DA/xflash/xflash_lib.py
++++ b/mtkclient/Library/DA/xflash/xflash_lib.py
+@@ -114,17 +114,43 @@ class DAXFlash(metaclass=LogBase):
+             return self.usbwrite(data)
+         return False
+ 
+-    def xread(self):
+-        try:
++    def read_frame(self):
++        """ Read the next XFlash frame, forwarding DA log output.
++
++        A DA sends log output as DT_MESSAGE frames: the 12 byte header, a 4 byte
++        priority and text of arbitrary length. Reading such a frame as a protocol
++        payload fails whenever the text is not dword aligned, so keep reading
++        until a DT_PROTOCOL_FLOW frame arrives.
++        Returns (datatype, payload), or (-1, b"") on a transport or framing error.
++        """
++        while True:
+             hdr = self.usbread(4 + 4 + 4)
+-            magic, _, length = unpack("<III", hdr)
+-        except Exception as err:
+-            self.error(f"xread error: {str(err)}")
+-            return -1
+-        if magic != 0xFEEEEEEF:
+-            self.error("xread error: Wrong magic")
++            if len(hdr) < 4 + 4 + 4:
++                self.error(f"Frame read error: Expected 12 bytes, got {len(hdr)}")
++                return -1, b""
++            magic, datatype, length = unpack("<III", hdr)
++            self.debug(f"[xflash] frame datatype={datatype} length={length}")
++            if magic != 0xFEEEEEEF:
++                self.error("Frame read error: Wrong magic")
++                return -1, b""
++            data = self.usbread(length)
++            if len(data) < length:
++                self.error(f"Frame read error: Expected {length} bytes, got {len(data)}")
++                return -1, b""
++            if datatype == self.data_type.DT_MESSAGE:
++                if length < 4:
++                    self.error(f"Log message error: Invalid length {length}")
++                    return -1, b""
++                msg = data[4:].rstrip(b"\x00").decode("utf-8", errors="replace")
++                self.config.uartlog.append(msg)
++                self.info(f"DA log: {msg}")
++                continue
++            return datatype, data
++
++    def xread(self):
++        datatype, resp = self.read_frame()
++        if datatype != self.data_type.DT_PROTOCOL_FLOW:
+             return -1
+-        resp = self.usbread(length)
+         return resp
+ 
+     def rdword(self, count=1):
+@@ -136,25 +162,21 @@ class DAXFlash(metaclass=LogBase):
+         return data
+ 
+     def status(self):
+-        hdr = self.usbread(4 + 4 + 4)
+-        magic, _, length = unpack("<III", hdr)
+-        if magic != 0xFEEEEEEF:
+-            self.error("Status error: Wrong magic")
+-            return -1
+-        tmp = self.usbread(length)
+-        if len(tmp) < length:
+-            self.error(f"Status length error: Too few data {hex(len(hdr))}")
++        datatype, tmp = self.read_frame()
++        if datatype != self.data_type.DT_PROTOCOL_FLOW:
+             return -1
+-        if length == 2:
++        if len(tmp) == 2:
+             status = unpack("<H", tmp)[0]
+-            if status == 0x0:
+-                return 0
+-        elif length == 4:
++        elif len(tmp) == 4:
+             status = unpack("<I", tmp)[0]
+-            if status == 0xFEEEEEEF:
+-                return 0
++        elif len(tmp) >= 4:
++            # Some DAs pad or append data; the status itself is the first dword.
++            status = unpack("<I", tmp[:4])[0]
+         else:
+-            status = unpack("<" + str(length // 4) + "I", tmp)[0]
++            self.error(f"Status error: Invalid status length {len(tmp)}")
++            return -1
++        if status == 0xFEEEEEEF:
++            return 0
+         return status
+ 
+     def read_pmt(self) -> tuple:

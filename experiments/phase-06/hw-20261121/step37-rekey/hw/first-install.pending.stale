@@ -1,0 +1,5 @@
+schema=1
+state=pending
+mode=first-install
+slot=b
+boot_sha256=7e73d1b800cfa46aee50abe6cf580f8e5927d8777801c3a2fcb0339d48f8c4b0

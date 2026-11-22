@@ -1,0 +1,168 @@
+{
+ "body": {
+  "data": {
+   "animation_active": false,
+   "animation_profile": "none",
+   "boot_profile": {
+    "b": 255,
+    "brightness": 100,
+    "g": 96,
+    "r": 0
+   },
+   "brightness": 80,
+   "colour": {
+    "b": 255,
+    "g": 0,
+    "r": 0
+   },
+   "idle_asleep": false,
+   "idle_auto_off_minutes": 0,
+   "idle_mode": "always",
+   "music": {
+    "active": false,
+    "effect": "none",
+    "grammar": "none",
+    "session": 0
+   },
+   "night": {
+    "active": false,
+    "enabled": false,
+    "end_minute": 420,
+    "start_minute": 1320
+   },
+   "output": {
+    "effective_brightness": 204,
+    "frame_load": 1968,
+    "limited": false,
+    "max_load": 5967,
+    "slew_limited": false
+   },
+   "pattern": "none",
+   "pattern_active": false,
+   "pixels": [
+    {
+     "b": 164,
+     "g": 0,
+     "r": 0
+    },
+    {
+     "b": 164,
+     "g": 0,
+     "r": 0
+    },
+    {
+     "b": 164,
+     "g": 0,
+     "r": 0
+    },
+    {
+     "b": 164,
+     "g": 0,
+     "r": 0
+    },
+    {
+     "b": 164,
+     "g": 0,
+     "r": 0
+    },
+    {
+     "b": 164,
+     "g": 0,
+     "r": 0
+    },
+    {
+     "b": 164,
+     "g": 0,
+     "r": 0
+    },
+    {
+     "b": 164,
+     "g": 0,
+     "r": 0
+    },
+    {
+     "b": 164,
+     "g": 0,
+     "r": 0
+    },
+    {
+     "b": 164,
+     "g": 0,
+     "r": 0
+    },
+    {
+     "b": 164,
+     "g": 0,
+     "r": 0
+    },
+    {
+     "b": 164,
+     "g": 0,
+     "r": 0
+    }
+   ],
+   "profiles": {
+    "dnd": {
+     "b": 35,
+     "brightness": 100,
+     "g": 35,
+     "r": 190
+    },
+    "error": {
+     "b": 80,
+     "brightness": 100,
+     "g": 80,
+     "r": 239
+    },
+    "listening": {
+     "b": 255,
+     "brightness": 100,
+     "g": 185,
+     "r": 72
+    },
+    "night": {
+     "b": 0,
+     "brightness": 12,
+     "g": 40,
+     "r": 255
+    },
+    "thinking": {
+     "b": 239,
+     "brightness": 100,
+     "g": 115,
+     "r": 168
+    }
+   },
+   "sleep_light": {
+    "active": false,
+    "brightness": 8,
+    "mode": "off",
+    "period_ms": 8000,
+    "remaining_ms": 0,
+    "restore_on_boot": false,
+    "timer_minutes": 0
+   },
+   "visualizer_active": false,
+   "visualizer_enabled": true,
+   "visualizer_levels": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "visualizer_mood": "idle",
+   "visualizer_owner": ""
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

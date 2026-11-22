@@ -1,0 +1,70 @@
+ws_config_export               200 ok
+ws_config_import_same          501 {"code": "not_supported", "message": "Configuration restore is unavailable for this backend"}
+config export                      PASS           GET /config/export 200, schema 1, 49 fields
+config import (same export)        FAIL           POST 501 on linux backend; import_configuration returns LE_NOT_SUPPORTED unless backend is mock (src/api.c:1767). web-config sha 02f92afff2d7 -> 02f92afff2d7
+config export after import         PASS           export identical to the imported object: True
+ws_ui_theme_set                200 ok
+ws_ui_cmode_set                200 ok
+ws_ui_restore                  200 ok
+appearance ui_theme                PASS           classic -> setup -> classic
+appearance color_mode              PASS           '' -> light -> ''
+ws_hostname_set                200 ok
+ws_hostname_restore            200 ok
+hostname get/set-restore           PASS           echo -> echo-api (kernel hostname echo-api) -> echo
+ws_volume_set10                200 ok
+ws_volume_set0                 200 ok
+ws_volume_set10b               200 ok
+volume set/get                     PASS           50 -> 10 -> 0 -> 10 (low, not silent)
+NOTE AUDIBLE: playing the API test tone at volume 10
+ws_audio_test_tone             200 ok
+NOTE AUDIBLE: requesting a spoken announcement at volume 10
+ws_audio_announce              501 {"code": "io_error", "message": "Announcement could not be spoken"}
+ws_audio_announce_stop         501 {"code": "io_error", "message": "Speech could not be stopped"}
+ws_volume_restore              200 ok
+test tone (audible)                PASS           POST /audio/test -> 200; tone at volume 10 needs owner ear
+announcement (audible)             FAIL           POST /audio/announce -> 501 (source: GET /voice-pipeline mode home-assistant); HA mode keeps local ttsd stopped
+volume restore                     PASS           back to 50
+ws_micgain_set                 200 ok
+ws_micmute_set                 200 ok
+ws_micmute_restore             200 ok
+mic gain set/get                   FAIL           65 -> 68 -> restore
+mic mute set/get                   PASS           False -> true -> False
+ws_micgain_restore             200 ok
+mic gain restore                   PASS           back to 65
+ws_led_profile_set             200 ok
+ws_led_profile_restore         200 ok
+ws_led_visualizer_set          200 ok
+ws_led_visualizer_restore      200 ok
+LED profile set/get                PASS           listening {'r': 72, 'g': 185, 'b': 255, 'brightness': 100} -> {'r': 200, 'g': 100, 'b': 50, 'brightness': 90} -> restored
+LED visualizer setting             PASS           True -> False -> True
+ws_buttons_set                 200 ok
+ws_buttons_restore             200 ok
+button mappings set/get            PASS           action_brightness 70 -> 71 -> 70 (other mappings unchanged)
+ws_bt_scan_start               200 ok
+ws_bt_after_scan               200 ok
+ws_bt_scan_stop                501 {"code": "io_error", "message": "Bluetooth discovery could not stop"}
+BT scan list                       PASS           POST 200; scan finished; discovered=0 devices (empty, as in step 15)
+ws_bt_discoverable             501 {"code": "io_error", "message": "Bluetooth setting could not be applied"}
+BT discoverable flag               FAIL           PUT 501; kernel MGMT rejects SET_DISCOVERABLE while connectable is clear; btd's set_discoverable does not set connectable first (src/adapter/btd.c:2355-2372). pairing-mode works instead (btd.c:2022-2024). connectable=False discoverable=False after
+ws_wifi_scan                   200 ok
+Wi-Fi scan (read-only)             PASS           11 networks, strongest <SSID_B> (-42 dBm), no connect attempted
+Traceback (most recent call last):
+  File "/workspace/libreecho/experiments/phase-06/hw-20261121/step33-gap-checks/ApiSweep/sweep.py", line 267, in <module>
+    with urllib.request.urlopen(req, timeout=15) as r:
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 493, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.14/urllib/request.py", line 602, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.14/urllib/request.py", line 531, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request

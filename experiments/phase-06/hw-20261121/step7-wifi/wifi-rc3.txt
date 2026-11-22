@@ -1,0 +1,10 @@
+==wifi.log
+libreecho-wifi: supplicant-missing
+==wpa
+ls: /sbin/wpa_supplicant: No such file or directory
+ls: /sbin/udhcpc: No such file or directory
+ls: /etc/wifi/wpa_supplicant.conf: No such file or directory
+-rwxr-xr-x    1 0        0              760 Jan  1 00:00 [1;32m/etc/udhcpc.script[m
+==init
+-rwxr-xr-x    1 0        0           158408 Jan  1 00:00 [1;32m/init[m
+68

@@ -1,0 +1,135 @@
+total 68
+drwx------    4 0        0             4096 Jan  1 00:00 [1;34m.[m
+drwx------    9 0        0             4096 Jan  1 00:00 [1;34m..[m
+-rw-------    1 0        0               12 Jan  1 00:01 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                3 Jan  1 00:00 [0;0mboot-count[m
+-rw-r--r--    1 0        0              251 Jan  1 00:00 [0;0mboot-health[m
+-rw-r--r--    1 0        0              892 Jan  1 00:00 [0;0mboot-history[m
+-rw-------    1 0        0               30 Jan  1 00:00 [0;0mconfig-status[m
+-rw-------    1 0        0             3181 Jan  1 00:03 [0;0mfailure-229-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-235-1.log[m
+-rw-------    1 0        0             3488 Jan  1 00:03 [0;0mfailure-236-1.log[m
+-rw-------    1 0        0               56 Jan  1 00:00 [0;0mfeatures-status[m
+drwx------    2 0        0             4096 Jan  1 00:00 [1;34mincoming[m
+-rw-------    1 0        0             3225 Jan  1 00:02 [0;0mota.log[m
+-rw-r--r--    1 0        0              156 Jan  1 00:02 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Jan  1  1970 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Jan  1  1970 [1;34mstaging[m
+-rw-r--r--    1 0        0               49 Jan  1 00:00 [0;0mstate[m
+## /data/libreecho/update/failure-1[0-9][0-9]-*.log
+cat: can't open '/data/libreecho/update/failure-1[0-9][0-9]-*.log': No such file or directory
+## ota.log
+1970-01-01T00:01:52Z update[7077] install-state state=verifying progress=5 detail=package
+1970-01-01T00:02:10Z update[7077] install-state state=verified progress=20 detail=0.2.2
+1970-01-01T00:02:11Z update[7077] install-state state=writing progress=30 detail=b
+1970-01-01T00:02:12Z update[7077] install-state state=verifying-write progress=75 detail=b
+1970-01-01T00:02:13Z update[7077] install-state state=activating progress=90 detail=b
+1970-01-01T00:02:13Z update[7077] install-state state=reboot-pending progress=100 detail=b
+1970-01-01T00:03:55Z update[10259] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:03:55Z update[10167] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:03:49Z update[7613] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:11:27Z update[10869] install-state state=verifying progress=5 detail=package
+1970-01-01T00:11:45Z update[10869] install-state state=verified progress=20 detail=0.2.4
+1970-01-01T00:11:46Z update[10869] install-state state=writing progress=30 detail=b
+1970-01-01T00:11:47Z update[10869] install-state state=verifying-write progress=75 detail=b
+1970-01-01T00:11:48Z update[10869] install-state state=activating progress=90 detail=b
+1970-01-01T00:11:48Z update[10869] install-state state=reboot-pending progress=100 detail=b
+1970-01-01T00:02:37Z update[9333] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:02:26Z update[9169] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:03:48Z update[7166] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:03:30Z update[7834] install-state state=verifying progress=5 detail=package
+1970-01-01T00:03:46Z update[7834] install-state state=verified progress=20 detail=0.2.4
+1970-01-01T00:03:47Z update[7834] install-state state=writing progress=30 detail=b
+1970-01-01T00:03:48Z update[7834] install-state state=verifying-write progress=75 detail=b
+1970-01-01T00:03:49Z update[7834] install-state state=activating progress=90 detail=b
+1970-01-01T00:03:49Z update[7834] install-state state=reboot-pending progress=100 detail=b
+1970-01-01T00:02:07Z update[10192] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:02:07Z update[10615] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:03:34Z update[10002] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:23:47Z update[17558] install-state state=verifying progress=5 detail=package
+1970-01-01T00:24:06Z update[17558] install-state state=verified progress=20 detail=0.2.6
+1970-01-01T00:24:07Z update[17558] install-state state=writing progress=30 detail=b
+1970-01-01T00:24:08Z update[17558] install-state state=verifying-write progress=75 detail=b
+1970-01-01T00:24:09Z update[17558] install-state state=activating progress=90 detail=b
+1970-01-01T00:24:09Z update[17558] install-state state=reboot-pending progress=100 detail=b
+1970-01-01T00:02:31Z update[9289] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:02:26Z update[9494] install-error reason=feature_target_not_ready state=none
+1970-01-01T00:02:26Z update[9212] install-error reason=feature_target_not_ready state=none
+## persist
+init-ready-pid1-managed
+wifi-request-supervisor-started
+ui-services-autostart-started
+ota-background-worker-started
+active-device-ping-started
+audio-startup-disabled
+running-slot:b
+ota-rollback-resume-history-slot-still-selected
+ota-health-confirm-pending
+ota-health-waiting-startup-ready
+adbd-diagnostic-begin
+adbd-fd:0:/dev/null
+adbd-fd:1:/tmp/adbd.log
+adbd-fd:10:/dev/usb-ffs/adb/ep1
+adbd-fd:11:/dev/usb-ffs/adb/ep2
+adbd-fd:13:socket:[3334]
+adbd-fd:14:socket:[3335]
+adbd-fd:2:/tmp/adbd.log
+adbd-fd:3:socket:[3329]
+adbd-fd:4:socket:[3330]
+adbd-fd:5:/dev/usb-ffs/adb/ep0
+adbd-fd:6:socket:[3331]
+adbd-fd:7:socket:[3332]
+adbd-fd:8:socket:[3333]
+adbd-fd:9:socket:[2662]
+adbd-task:149:adbd:S (sleeping):do_select
+adbd-task:151:adbd:S (sleeping):futex_wait_queue
+adbd-task:152:adbd:S (sleeping):inet_csk_accept
+adbd-task:153:adbd:S (sleeping):unix_stream_read_generic
+adbd-task:154:adbd:S (sleeping):ffs_epfile_io
+adbd-log-empty
+adbd-diagnostic-end
+timezone-applied:UTC
+shared-discovery-runtime-started
+feature-services-deferred-until-staged
+ui-service-start:logd:0
+ui-service-start:networkd:0
+ui-service-start:timed:0
+ui-service-start:audiod:0
+ui-service-start:micd:0
+ui-service-start:waked:0
+ui-service-start:ledd:0
+ui-service-start:buttond:0
+ui-service-start:btd:0
+ui-service-start:timerd:0
+ui-service-start:watchdogd:0
+ui-service-start:airplayd:0
+ui-service-start:radiod:0
+ui-service-start:ttsd:0
+ui-web-production-lan
+ui-service-start:web:0
+feature-reconcile-service-stopped:esphomed
+feature-reconcile-service-ready:waked
+feature-reconcile-service-ready:sttd
+feature-reconcile-shared-discovery-owner:airplayd
+feature-reconcile-service-ready:airplayd
+feature-reconcile-service-ready:ttsd
+feature-reconcile-service-skipped-no-audio:agentd
+feature-services-reconciled
+persisted-feature-reconcile:0
+ota-health-startup-ready:90
+ota-health-voice-stack-present:stt
+ota-health-voice-stack-present:stt
+ota-health-services-not-ready:voice-sockets
+first-boot-probe-passed-degraded:1
+ota-health-probe-passed:1
+ota-health-voice-stack-present:stt
+ota-health-voice-stack-present:stt
+ota-health-services-not-ready:voice-sockets
+first-boot-probe-passed-degraded:2
+ota-health-probe-passed:2
+ota-health-voice-stack-present:stt
+ota-health-voice-stack-present:stt
+ota-health-services-not-ready:voice-sockets
+first-boot-probe-passed-degraded:3
+ota-health-probe-passed:3
+ota-health-confirm-failed-rebooting

@@ -1,0 +1,9 @@
+/usr/local/lib/libreecho-mdns/root/run/dbus/:
+total 0
+srwxrwxrwx    1 0        0                0 Jan  1  1970 [1;35msystem_bus_socket[m
+/etc/libreecho/avahi-services/:
+[0;0mesphome.service[m
+
+/usr/local/lib/libreecho-mdns/root/etc/avahi/services/:
+[0;0mesphome-1.service[m   [0;0msendspin-1.service[m
+-rwxr-xr-x    1 0        0            18032 Jan  1  1970 [1;32m/usr/local/lib/libreecho-mdns/root/usr/bin/avahi-browse[m

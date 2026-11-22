@@ -1,0 +1,21 @@
+== armhf
+have binutils-arm-linux-gnueabihf_2.42-4ubuntu2.10_amd64.deb
+have binutils-common_2.42-4ubuntu2.10_amd64.deb
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-13-cross/cpp-13-arm-linux-gnueabihf_13.3.0-6ubuntu2~24.04.1cross1_amd64.deb
+Traceback (most recent call last):
+  File "/workspace/libreecho/experiments/phase-06/hw-20261121/step37-rekey/stage_inputs.py", line 153, in <module>
+  File "/workspace/libreecho/experiments/phase-06/hw-20261121/step37-rekey/stage_inputs.py", line 149, in main
+    for step in which:
+        ^^^^^^^^^^^^^^
+  File "/workspace/libreecho/experiments/phase-06/hw-20261121/step37-rekey/stage_inputs.py", line 62, in armhf
+    fetch(rec["url"], ARCH / rec["filename"], rec["sha256"], rec["filename"])
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/libreecho/experiments/phase-06/hw-20261121/step37-rekey/stage_inputs.py", line 51, in fetch
+    actual = sha256(partial)
+  File "/workspace/libreecho/experiments/phase-06/hw-20261121/step37-rekey/stage_inputs.py", line 31, in sha256
+    with path.open("rb") as f:
+         ~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/libreecho/artifacts/phase-05/toolchains/armhf-archives/cpp-13-arm-linux-gnueabihf_13.3.0-6ubuntu2~24.04.1cross1_amd64.deb.part'

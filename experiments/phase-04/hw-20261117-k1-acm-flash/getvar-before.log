@@ -1,0 +1,54 @@
+(bootloader) 	antirback_tee_version: 0x6814
+(bootloader) 	antirback_lk_version: 0x6436
+(bootloader) 	antirback_pl_version: 0x6512
+(bootloader) 	rpmb_state: 1
+(bootloader) 	lk_build_desc: 6f7225e-20230407_030004
+(bootloader) 	pl_build_desc: 2b6f82c-20190926_195940
+(bootloader) 	secure: yes
+(bootloader) 	prod: 1
+(bootloader) 	unlock_status: true
+(bootloader) 	tu_code: <TU_CODE>
+(bootloader) 	unlock_code: <UNLOCK_CODE>
+(bootloader) 	serialno: <SERIAL_A>
+(bootloader) 	max-download-size: 0x8000000
+(bootloader) 	partition-size:userdata: 12667be00
+(bootloader) 	partition-type:userdata: ext4
+(bootloader) 	partition-size:cache: 2000000
+(bootloader) 	partition-type:cache: ext4
+(bootloader) 	partition-size:system_b: 4c800000
+(bootloader) 	partition-type:system_b: ext4
+(bootloader) 	partition-size:system_a: 4c800000
+(bootloader) 	partition-type:system_a: ext4
+(bootloader) 	partition-size:swdl: 2000000
+(bootloader) 	partition-type:swdl: raw data
+(bootloader) 	partition-size:boot_b: 1000000
+(bootloader) 	partition-type:boot_b: raw data
+(bootloader) 	partition-size:boot_a: 1000000
+(bootloader) 	partition-type:boot_a: raw data
+(bootloader) 	partition-size:persist: 1000000
+(bootloader) 	partition-type:persist: ext4
+(bootloader) 	partition-size:misc: 80000
+(bootloader) 	partition-type:misc: raw data
+(bootloader) 	partition-size:expdb: a00000
+(bootloader) 	partition-type:expdb: raw data
+(bootloader) 	partition-size:tee2: 500000
+(bootloader) 	partition-type:tee2: raw data
+(bootloader) 	partition-size:lk_b: 100000
+(bootloader) 	partition-type:lk_b: raw data
+(bootloader) 	partition-size:tee1: 500000
+(bootloader) 	partition-type:tee1: raw data
+(bootloader) 	partition-size:lk_a: 100000
+(bootloader) 	partition-type:lk_a: raw data
+(bootloader) 	partition-size:dkb: 100000
+(bootloader) 	partition-type:dkb: raw data
+(bootloader) 	partition-size:kb: 100000
+(bootloader) 	partition-type:kb: raw data
+(bootloader) 	partition-size:preloader: 40000
+(bootloader) 	partition-type:preloader: raw data
+(bootloader) 	kernel: lk
+(bootloader) 	product: LIDAR
+(bootloader) 	version-preloader: 0.1.00
+(bootloader) 	version: 0.5
+(bootloader) 	kaeru-version: 2.0.0-g66704e6-dirty
+all: Done!!
+Finished. Total time: 0.005s

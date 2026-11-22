@@ -1,0 +1,5 @@
+ 5011 0         0:00 /usr/local/sbin/libreecho-btd --foreground --socket /run/libreecho/bluetooth.sock
+17881 0         0:00 /system/bin/sh -c ps w | grep libreecho-btd; echo ---; cat /var/run/libreecho-btd.pid 2>&1
+17884 0         0:00 grep libreecho-btd
+---
+5011

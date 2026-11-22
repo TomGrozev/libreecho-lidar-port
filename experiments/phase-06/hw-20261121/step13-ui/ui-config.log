@@ -1,0 +1,28 @@
+==default
+ls: /etc/default/: No such file or directory
+
+cat: can't open '/etc/default/libreecho-web': No such file or directory
+==users
+ls: /data/libreecho/config/users: No such file or directory
+==light
+wget: server returned error: HTTP/1.1 401 Error
+
+==logs
+total 24
+drwxr-xr-x    2 0        0                0 Jan  1  1970 [1;34mlibreecho[m
+-rw-r--r--    1 0        0                0 Nov 21 03:52 [0;0mlibreecho-agentd.log[m
+-rw-r--r--    1 0        0              455 Nov 21 03:51 [0;0mlibreecho-airplayd.log[m
+-rw-r--r--    1 0        0                0 Nov 21 03:51 [0;0mlibreecho-audiod.log[m
+-rw-r--r--    1 0        0                0 Nov 21 03:51 [0;0mlibreecho-btd.log[m
+-rw-r--r--    1 0        0                0 Nov 21 03:51 [0;0mlibreecho-buttond.log[m
+-rw-r--r--    1 0        0                0 Nov 21 03:51 [0;0mlibreecho-ledd.log[m
+-rw-r--r--    1 0        0                0 Nov 21 03:51 [0;0mlibreecho-micd.log[m
+-rw-r--r--    1 0        0                0 Jan  1  1970 [0;0mlibreecho-networkd.log[m
+-rw-r--r--    1 0        0              120 Nov 21 03:51 [0;0mlibreecho-radiod.log[m
+-rw-r--r--    1 0        0               82 Nov 21 03:51 [0;0mlibreecho-sttd.log[m
+-rw-r--r--    1 0        0                0 Jan  1  1970 [0;0mlibreecho-timed.log[m
+-rw-r--r--    1 0        0                0 Nov 21 03:51 [0;0mlibreecho-timerd.log[m
+-rw-r--r--    1 0        0                0 Nov 21 03:51 [0;0mlibreecho-ttsd.log[m
+-rw-r--r--    1 0        0              259 Nov 21 03:51 [0;0mlibreecho-waked.log[m
+-rw-r--r--    1 0        0              946 Nov 21 03:52 [0;0mlibreecho-watchdogd.log[m
+-rw-r--r--    1 0        0               59 Nov 21 03:51 [0;0mlibreecho-web.log[m

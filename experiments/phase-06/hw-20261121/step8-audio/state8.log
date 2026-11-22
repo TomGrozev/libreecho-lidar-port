@@ -1,0 +1,35 @@
+srwxr-xr-x    1 0        0                0 Nov 21 03:33 [1;35m/run/libreecho-audio/aec-reference.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:33 [1;35m/run/libreecho/mic.sock[m
+srw-rw----    1 0        0                0 Nov 21 03:33 [1;35m/run/libreecho/wakeword.sock[m
+---
+3863
+51.99
+---
+total 20
+drwxr-xr-x    2 0        0                0 Jan  1  1970 [1;34mlibreecho[m
+-rw-r--r--    1 0        0              455 Nov 21 03:33 [0;0mlibreecho-airplayd.log[m
+-rw-r--r--    1 0        0                0 Nov 21 03:33 [0;0mlibreecho-audiod.log[m
+-rw-r--r--    1 0        0                0 Nov 21 03:33 [0;0mlibreecho-btd.log[m
+-rw-r--r--    1 0        0                0 Nov 21 03:33 [0;0mlibreecho-buttond.log[m
+-rw-r--r--    1 0        0                0 Nov 21 03:33 [0;0mlibreecho-ledd.log[m
+-rw-r--r--    1 0        0                0 Nov 21 03:33 [0;0mlibreecho-micd.log[m
+-rw-r--r--    1 0        0                0 Jan  1  1970 [0;0mlibreecho-networkd.log[m
+-rw-r--r--    1 0        0              120 Nov 21 03:33 [0;0mlibreecho-radiod.log[m
+-rw-r--r--    1 0        0                0 Nov 21 03:33 [0;0mlibreecho-sttd.log[m
+-rw-r--r--    1 0        0                0 Jan  1  1970 [0;0mlibreecho-timed.log[m
+-rw-r--r--    1 0        0                0 Nov 21 03:33 [0;0mlibreecho-timerd.log[m
+-rw-r--r--    1 0        0                0 Nov 21 03:33 [0;0mlibreecho-ttsd.log[m
+-rw-r--r--    1 0        0              259 Nov 21 03:33 [0;0mlibreecho-waked.log[m
+-rw-r--r--    1 0        0              108 Nov 21 03:33 [0;0mlibreecho-watchdogd.log[m
+-rw-r--r--    1 0        0               59 Nov 21 03:33 [0;0mlibreecho-web.log[m
+---
+[0;93m2026-11-21 03:33:45.912258924 [W:onnxruntime:libreecho-wake, cpuid_info.cc:105 LogEarlyWarning] Unknown CPU vendor. cpuinfo_vendor value: 0[m
+waked: running (16 kHz, frame=10 ms, AEC tail=200 ms, preroll=3 s, vad-floor=16 RMS, wake=openwakeword-onnx)
+---micd
+---
+ui-service-start:radiod:0
+ui-service-start:ttsd:0
+ui-web-production-lan
+ui-service-start:web:0
+feature-reconcile-service-stopped:esphomed
+feature-reconcile-service-ready:waked

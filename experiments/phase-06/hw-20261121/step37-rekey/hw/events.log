@@ -1,0 +1,8 @@
+11:09:43 preflight ok: running b confirmed, p10=boot_a 32768; slot_b=3e71c0bceb55f3a8 slot_a_before=bbe29a43e4624009
+11:11:08 pushed image, device hash ok
+11:11:10 slot a written, readback ok a7b266b74af89ae203d35b8460866ebb6d654d64742089ad5a4bbb0b838f82dc
+11:11:13 activated: slot_a_priority=15 slot_a_tries=3 slot_a_success=0 slot_a_image= slot_a_priority=15 slot_a_tries=3 slot_a_success=0 slot_a_image= 
+11:13:23 rebooting from b (boot_id 9161c1e8-25bb-45d1-92b0-32eb7860b92d)
+11:13:54 back on slot a (boot_id 1a3ea80f-04f7-4ea2-a8d3-e98d616cf298)
+11:24:07 after: slot=a slot_a_priority=15 slot_a_tries=2 slot_a_success=0 slot_a_image=  key=42a501c3845e3b5f
+11:29:33 manual confirm a (owner-approved), stale first-install.pending removed (copy: first-install.pending.stale)

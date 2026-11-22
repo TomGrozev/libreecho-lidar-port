@@ -1,0 +1,7 @@
+short packet: b'OKAYLIDAR'
+short packet: b'OKAYLIDAR'
+drained 1045526 bytes
+product: LIDAR
+Finished. Total time: 0.002s
+kaeru-version: 2.0.0-g66704e6-dirty
+Finished. Total time: 0.002s

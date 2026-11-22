@@ -1,0 +1,24 @@
+10:55:49 == waiting for toolchain lock
+10:55:49 == toolchain lock acquired
+10:55:49 == component musl-loader
+10:56:16 == component busybox
+10:56:41 == component libsodium
+10:56:57 == component bootctl
+10:56:58 == component update-verify
+10:56:58 == component adbd
+10:57:00 == component mdns
+# rebuild vs experiments/phase-05/components.md (2026-11-22 step37-rekey)
+MATCH   musl-loader 47ed5c21aca427b893859aa9ee1ca7a0ce9494f4e0e7dd6ee4136d9766f9f060
+MATCH   busybox fed10234e996e9647d753ab5ee196d69f465ece1fe9962e401a0df7ef96cf3de
+MATCH   libsodium fe2407251fcc7c89300a264d73c257cb609750ef5f7a6eec36606b0d259613ff
+MATCH   bootctl 4f19413de86355809051b316e99b6334198a5fc8ce3889b357f90fb8761b6224
+MATCH   update-verify bfc00578d1006f589d257a796f688f7bdd729fe4cf7bbbe2e271dc95ff557aaf
+MATCH   adbd 3651b39f524bd8f07f1a9b85e00ec284017b5558788a3715d8aa08132866b6e0
+MATCH   mdns e700b693905c74b768f4a2db50430a8c7bd6303c98a3e0cd367e5f6a9195ec65
+10:57:01 == ui bundle f43dade
+10:57:51 == ui rc=0
+10:57:51 == images (kernel-step36-thermal, ui f43dade)
+10:58:14 == images rc=0
+10:58:14 == ota v0.2.28
+10:58:15 == ota rc=0
+10:58:15 == DONE_ALL

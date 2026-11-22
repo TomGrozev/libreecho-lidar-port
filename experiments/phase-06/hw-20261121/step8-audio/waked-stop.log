@@ -1,0 +1,6 @@
+---
+[0;93m2026-11-21 03:33:45.912258924 [W:onnxruntime:libreecho-wake, cpuid_info.cc:105 LogEarlyWarning] Unknown CPU vendor. cpuinfo_vendor value: 0[m
+waked: running (16 kHz, frame=10 ms, AEC tail=200 ms, preroll=3 s, vad-floor=16 RMS, wake=openwakeword-onnx)
+waked: frames=22465 aec_frames=0 vad_active_frames=15115 wake_scores=1931 wake_events=0 max_wake_score=0.047701 max_inference_us=253200 wake_dropped_blocks=871 wake_failed=false ref_packets=0 ref_underflows=0 ref_overruns=0 ref_discontinuities=0 aec_resets=0
+---
+ls: /run/libreecho/wakeword.sock: No such file or directory

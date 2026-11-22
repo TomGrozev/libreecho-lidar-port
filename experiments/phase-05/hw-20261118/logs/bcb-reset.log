@@ -1,0 +1,62 @@
+argv=--log-dir logs bcb reset
+$ fastboot getvar product
+[exit 0 in 0.11s]
+[stderr]
+product: 00100000
+Finished. Total time: 0.000s
+product=00100000
+result=failed error=wrong fastboot product: '00100000', expected 'LIDAR'; this is not a Lidar Kaeru
+log: logs/bcb-reset.log
+argv=--log-dir logs bcb reset
+$ fastboot getvar product
+[exit 0 in 0.11s]
+[stderr]
+product: LIDAR
+Finished. Total time: 0.002s
+product=LIDAR
+$ fastboot getvar kaeru-version
+[exit 0 in 0.01s]
+[stderr]
+kaeru-version: 2.0.0-g66704e6-dirty
+Finished. Total time: 0.002s
+kaeru_version=2.0.0-g66704e6-dirty
+$ fastboot oem fetch-enable
+[exit 0 in 0.01s]
+[stderr]
+OKAY [  0.002s]
+Finished. Total time: 0.002s
+$ fastboot getvar max-fetch-size
+[exit 0 in 0.01s]
+[stderr]
+max-fetch-size: 0x100000
+Finished. Total time: 0.002s
+max_fetch_size=1048576
+$ fastboot getvar partition-size:misc
+[exit 0 in 0.01s]
+[stderr]
+partition-size:misc: 80000
+Finished. Total time: 0.003s
+partition misc: 524288 ok
+$ fastboot fetch misc /tmp/lidar-bcb-oju81sbg/misc.bin
+[exit 0 in 0.18s]
+[stderr]
+Fetching misc (offset=0, size=80000)               OKAY [  0.160s]
+Finished. Total time: 0.168s
+[sha256] 9248bd41602b598703147a39a1c235daff374354f5978714315c2f0ce5b3549f  misc readback (524288 bytes)
+[sha256] 9248bd41602b598703147a39a1c235daff374354f5978714315c2f0ce5b3549f  misc backup (524288 bytes)
+[sha256] c187b074c93ad31c9694c19093cdcde87f1908b5088f2bbb3d5ec1f1e0802902  misc patched image (524288 bytes)
+bcb reset: flashing misc
+$ fastboot flash misc /tmp/lidar-bcb-oju81sbg/misc.patched
+[exit 0 in 0.18s]
+[stderr]
+Sending 'misc' (512 KB)                            OKAY [  0.017s]
+Writing 'misc'                                     OKAY [  0.039s]
+Finished. Total time: 0.071s
+$ fastboot fetch misc /tmp/lidar-bcb-oju81sbg/misc.readback
+[exit 0 in 0.17s]
+[stderr]
+Fetching misc (offset=0, size=80000)               OKAY [  0.159s]
+Finished. Total time: 0.166s
+bcb reset: readback identical, 1 bytes changed at 0x360..0x366
+result=ok log=logs/bcb-reset.log
+log: logs/bcb-reset.log

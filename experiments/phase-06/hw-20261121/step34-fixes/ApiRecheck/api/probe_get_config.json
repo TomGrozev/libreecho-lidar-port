@@ -1,0 +1,21 @@
+{
+ "body": {
+  "data": {
+   "api_version": 1,
+   "authentication": "users",
+   "bind_policy": "lan-development",
+   "bootstrap_required": false,
+   "color_mode": "",
+   "csrf_token": "<TOKEN>",
+   "max_request_body": 16384,
+   "os_version": "LibreEcho OS 0.14.5",
+   "setup_completed": true,
+   "setup_url": "/setup.html",
+   "ui_theme": "classic",
+   "user_count": 2
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

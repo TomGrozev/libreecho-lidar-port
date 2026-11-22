@@ -1,0 +1,10 @@
+== armhf
+have binutils-arm-linux-gnueabihf_2.42-4ubuntu2.10_amd64.deb
+have binutils-common_2.42-4ubuntu2.10_amd64.deb
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-13-cross/cpp-13-arm-linux-gnueabihf_13.3.0-6ubuntu2~24.04.1cross1_amd64.deb
+ok   cpp-13-arm-linux-gnueabihf_13.3.0-6ubuntu2~24.04.1cross1_amd64.deb 397ac4b1644ad1a3b4c6ec30bbcf6af81e4282745f483e4b8fee407ccae7ddab
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-defaults/cpp-arm-linux-gnueabihf_13.2.0-7ubuntu1_amd64.deb
+ok   cpp-arm-linux-gnueabihf_13.2.0-7ubuntu1_amd64.deb 64c3b896c8cad177c41e540cd8324ac60313371216b17eb78eba69caf19eedce
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-13-cross/g++-13-arm-linux-gnueabihf_13.3.0-6ubuntu2~24.04.1cross1_amd64.deb
+ok   g++-13-arm-linux-gnueabihf_13.3.0-6ubuntu2~24.04.1cross1_amd64.deb abac553390d300a580534cebe0ad5e50b715130b225235dfcf867724dc16c207
+GET https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-defaults/g++-arm-linux-gnueabihf_13.2.0-7ubuntu1_amd64.deb

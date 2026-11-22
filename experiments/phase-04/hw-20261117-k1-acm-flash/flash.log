@@ -1,0 +1,5 @@
+77bcf0f3204e9053d86cad2a1da6dd07936854701f81e731eb3cdbe6d9ae7fc5  artifacts/phase-04/boot-lidar-console-wdt-k1-acm.img
+2026-11-17T14:35:20+11:00
+Sending 'boot_a' (16384 KB)                        OKAY [  0.458s]
+Writing 'boot_a'                                   OKAY [  1.241s]
+Finished. Total time: 1.714s
