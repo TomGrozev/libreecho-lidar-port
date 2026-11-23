@@ -1,6 +1,0 @@
-console=tty0 console=ttyMT0,921600n1 earlycon=uart8250,mmio32,0x11005000 vmalloc=496M androidboot.hardware=mt8167 androidboot.secure_cpu=1 androidboot.unlocked_kernel=true androidboot.tu_code=<TU_CODE> androidboot.rpmb_state=1 androidboot.pl_version=0xfd90 androidboot.tee_version=0x7ddf androidboot.lk_version=0xe608 androidboot.prod=1 androidboot.pl_build_desc=2b6f82c-20190926_195940 androidboot.lk_build_desc=6f7225e-20230407_030004 androidboot.verifiedbootstate=yellow androidboot.prod=1 bootopt=64S3,32N2,64N2 buildvariant=user veritykeyid=id:f3530e18f64d11fc25eb2dd762979f078de990bf libreecho.lab=v1 androidboot.selinux=enforce androidboot.veritymode=enforcing androidboot.slot_suffix=_a rootwait ro init=/init skip_initramfs root=/dev/dm-0 dm="system none ro,0 1 android-verity PARTUUID=<PARTUUID_13>" printk.disable_uart=1 leds-is31fl3236. bootprof.pl_t=4404 bootprof.lk_t=3224 boot_reason=4 androidboot.serialno=<SERIAL_A> androidboot.bootreason=wdt_by_pass_pwk
----
-/dev/mmcblk0p16 /data ext4 rw,nosuid,nodev,noatime 0 0
----
-/system/bin/sh: libreecho-bootctl: not found
----

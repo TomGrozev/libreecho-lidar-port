@@ -1,0 +1,196 @@
+== 19:04:35
+slot=a
+ipv4=1
+startup_ready=no
+ledd_handover=no
+update_state=boot-validating
+boot_state=pending
+== 19:04:50
+slot=a
+ipv4=1
+startup_ready=no
+ledd_handover=no
+update_state=boot-validating
+boot_state=pending
+== 19:05:05
+slot=a
+ipv4=1
+startup_ready=no
+ledd_handover=no
+update_state=boot-validating
+boot_state=pending
+== 19:05:20
+slot=a
+ipv4=1
+startup_ready=no
+ledd_handover=no
+update_state=boot-validating
+boot_state=pending
+== 19:05:35
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=boot-validating
+boot_state=pending
+== 19:05:50
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=boot-validating
+boot_state=pending
+== 19:06:05
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=boot-validating
+boot_state=pending
+== 19:06:20
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=boot-validating
+boot_state=pending
+== 19:06:36
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=installed
+boot_state=confirmed
+== 19:06:51
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=installed
+boot_state=confirmed
+== 19:07:06
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=installed
+boot_state=confirmed
+== 19:07:21
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=installed
+boot_state=confirmed
+== 19:07:36
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=installed
+boot_state=confirmed
+== 19:07:51
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=installed
+boot_state=confirmed
+== 19:08:06
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=installed
+boot_state=confirmed
+== 19:08:21
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=installed
+boot_state=confirmed
+== 19:08:36
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=installed
+boot_state=confirmed
+== 19:08:51
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=installed
+boot_state=confirmed
+== 19:09:06
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=installed
+boot_state=confirmed
+== 19:09:21
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=installed
+boot_state=confirmed
+== 19:09:36
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=installed
+boot_state=confirmed
+== 19:09:51
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=installed
+boot_state=confirmed
+== 19:10:06
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=installed
+boot_state=confirmed
+== 19:10:21
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=installed
+boot_state=confirmed
+== 19:10:37
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=installed
+boot_state=confirmed
+== 19:10:52
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=installed
+boot_state=confirmed
+== 19:11:07
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=installed
+boot_state=confirmed
+== 19:11:22
+slot=a
+ipv4=1
+startup_ready=yes
+ledd_handover=no
+update_state=installed
+boot_state=confirmed

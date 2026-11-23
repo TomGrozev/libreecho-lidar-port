@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-# adb from the saved android-tools build, relative to the workspace root.
-root=$(cd "$(dirname "$0")/../../../.." && pwd)
-tools=$root/experiments/phase-03/session-state/20261114/tmp/lidar-android-tools/usr
-export LD_LIBRARY_PATH=$tools/lib
-exec "$tools/bin/adb" "$@"

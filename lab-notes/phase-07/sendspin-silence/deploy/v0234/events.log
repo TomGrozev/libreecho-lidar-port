@@ -1,0 +1,11 @@
+18:46:40 preflight OK: ota/lidar-lab-v0.2.34.ota.tar sha256=f9012ba3c2dcdbf5f8341eb2bc86a06ea6243404ceb8f30ac700629e366cc5b8 verify=verify-v0234.log
+18:46:40 unknown running slot: adb: device 'NONEXISTENT-PREFLIGHT' not found
+18:48:09 preflight OK: ota/lidar-lab-v0.2.34.ota.tar sha256=f9012ba3c2dcdbf5f8341eb2bc86a06ea6243404ceb8f30ac700629e366cc5b8 verify=verify-v0234.log
+18:48:09 no adb for NONEXISTENT-PREFLIGHT
+19:00:35 preflight OK: ota/lidar-lab-v0.2.34.ota.tar sha256=f9012ba3c2dcdbf5f8341eb2bc86a06ea6243404ceb8f30ac700629e366cc5b8 verify=verify-v0234.log
+19:00:35 start: artifact=v0234 slot=b target=a ota=lidar-lab-v0.2.34.ota.tar
+19:03:44 pushed generation txn-8bdcc920b9f84b5519f9e54a
+19:04:12 reboot requested; pre-reboot boot_id 389104e9-53cb-4d79-bbab-af72e5c9fa45
+19:04:35 adb back with new boot_id 09dd7a44-5d18-4eb9-b377-201b3840c83e on slot a
+19:19:03 preflight OK: ota/lidar-lab-v0.2.34.ota.tar sha256=f9012ba3c2dcdbf5f8341eb2bc86a06ea6243404ceb8f30ac700629e366cc5b8 verify=verify-v0234.log
+19:19:03 no adb for FAKE0000

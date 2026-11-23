@@ -1,0 +1,6 @@
+18:08:01 start: bundle=v0.2.33 tx=txn-12b6aefc788790ec2009f000 slot=a target=b
+18:08:54 pushed: artifacts/phase-07/v0233/ota/lidar-lab-v0.2.33.ota.tar: 1 file pushed, 0 skipped. 6.4 MB/s (16793600 bytes in 2.498s)
+18:09:24 install: verify_rc=0 install_rc=0 
+signature=PASS
+18:09:24 reboot requested; pre-reboot boot_id 16aa06b0-b6e1-49db-877b-fb6989c6616c
+18:09:29 adb back with new boot_id adb: device '<SERIAL_A>' not found on slot adb: device '<SERIAL_A>' not found

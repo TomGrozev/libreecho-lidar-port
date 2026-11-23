@@ -1,0 +1,8 @@
+21:21:53 start: bundle=v0.2.30 tx=txn-3a14da94f8809657a44538a0 slot=b target=a
+21:25:18 pushed: artifacts/phase-07/ota-715dd4f/lidar-lab-v0.2.30.ota.tar: 1 file pushed, 0 skipped. 1.5 MB/s (16793600 bytes in 10.605s)
+21:25:45 install: verify_rc=0 install_rc=0 
+signature=PASS
+21:25:45 reboot requested; pre-reboot boot_id 35c5880b-304c-41d4-95a3-b07b86547eb1
+21:25:45 adb back on slot b
+21:27:45 capture: experiments/phase-07/sendspin-silence/deploy/v0230/capture-boot.log
+21:47:46 FAIL: not confirmed on slot a within 20 min

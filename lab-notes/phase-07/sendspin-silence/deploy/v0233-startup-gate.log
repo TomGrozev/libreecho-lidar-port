@@ -1,0 +1,38 @@
+networkd pid ok
+timed pid ok
+audiod pid ok
+micd pid ok
+ledd pid ok
+web pid ok
+airplayd pid ok
+btd pid ok
+waked pid ok
+sttd pid MISSING
+agentd pid MISSING
+ttsd pid ok
+esphomed pid ok
+sock network ok
+sock audio ok
+sock mic ok
+sock led ok
+sock airplay ok
+sock bluetooth ok
+sock wakeword ok
+sock stt MISSING
+sock agent MISSING
+sock tts ok
+141:voice_services() {
+142-    # Targets without an audio profile have no local audio device, so they
+143-    # never run a local assistant and the startup gate must not wait on one.
+144-    printf '%s\n' sttd ttsd
+145-    [ -e "$AUDIO_PROFILE" ] || return 0
+146-    printf '%s\n' agentd
+147-}
+--
+149:voice_sockets() {
+150-    printf '%s\n' stt tts
+151-    [ -e "$AUDIO_PROFILE" ] || return 0
+152-    printf '%s\n' agent
+153-}
+154-
+155-startup_services_ready() {

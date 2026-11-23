@@ -1,0 +1,95 @@
+== bootctl
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=1
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+== update
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=1
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+schema=1
+state=installed
+progress=100
+detail=b
+restart_record=1
+schema=1
+reason=ota-health-confirm-failed
+last_check=web-status
+attempts=6
+passed=0
+pending_slot=a
+selected_slot=a
+epoch=1795250407
+failure_log=failure-1795250407-1.log
+features_state=ready
+features_error=
+config_schema=1
+config_error=
+ota_transaction_state=rollback
+ota_transaction_rollback=1
+generation=txn-bac8cf84d19b53cb0c24cdc4
+feature_airplay2_payload_sha256=6361af00bf939438a383f6aa20894c6ff70daf25f52e60c266a459e715989e0d
+feature_airplay2_payload_size=9535488
+feature_airplay2_manifest_sha256=eeffbba8565743c05eea70c05bd7b290bb392aa5e81fb3b262ba3e58b06765ee
+feature_airplay2_running_daemon=libreecho-audio-engine
+feature_airplay2_running_daemon_sha256=84e5ae9bbf6135acd076aeec013c1370f75f6cb9b07e96c9a14b07c5cdeb2c35
+feature_airplay2_effective=present
+feature_tts_payload_sha256=197e583a378aa49a1d4a823e048920dac7d3a7be8c0b206deed0411ebac0aa78
+feature_tts_payload_size=160206848
+feature_tts_manifest_sha256=126dbad94d512bc8b3b6e1707ed6f52d8bdfba9da0a322b43437bc9dc446b440
+feature_tts_running_daemon=libreecho-ttsd
+feature_tts_running_daemon_sha256=not-running
+feature_tts_effective=present
+feature_wakeword_payload_sha256=4964fc7b02ec81456fce149b1b82f6cca85f2ce447c48826ee6e34e57423585d
+feature_wakeword_payload_size=8224768
+feature_wakeword_manifest_sha256=13ec6549b8ab7995f6d448cd4a13f23543d3a3ca90f490687cb73a7e989ab0a8
+feature_wakeword_running_daemon=libreecho-waked
+feature_wakeword_running_daemon_sha256=8bcd0bb026d8c255571ebead6faac7840dc932dadede6cf05d93ad55e0872637
+feature_wakeword_effective=present
+feature_stt_payload_sha256=dee3594dd45514d02ce62a60286e702cc2d2f205b344259bdc95e353e4322ede
+feature_stt_payload_size=54263808
+feature_stt_manifest_sha256=95f9a2c8f245ea9234cc0368e149ea9c0ff4bfc99765a98f3eb3cd9163ff03f5
+feature_stt_running_daemon=libreecho-sttd
+feature_stt_running_daemon_sha256=not-running
+feature_stt_effective=present
+feature_assistant_payload_sha256=a4103ec92daf60e9fc53f2899d9f48efec120d03778ebc0279853ac2fc37a0d1
+feature_assistant_payload_size=3063808
+feature_assistant_manifest_sha256=aba5b27bf2fb6cae966cb8a61a3da13c81af1894fb29014dbff6fac2098016d3
+feature_assistant_running_daemon=libreecho-agentd
+feature_assistant_running_daemon_sha256=not-running
+feature_assistant_effective=present
+== parts
+p10: MAJOR=259 MINOR=2 DEVNAME=mmcblk0p10 DEVTYPE=partition DISKSEQ=9 PARTN=10 PARTNAME=boot_a PARTUUID=<PARTUUID_10> size=32768
+p11: MAJOR=259 MINOR=3 DEVNAME=mmcblk0p11 DEVTYPE=partition DISKSEQ=9 PARTN=11 PARTNAME=boot_b PARTUUID=<PARTUUID_11> size=32768
+== hashes
+a7b266b74af89ae203d35b8460866ebb6d654d64742089ad5a4bbb0b838f82dc  /dev/mmcblk0p10
+a7b266b74af89ae203d35b8460866ebb6d654d64742089ad5a4bbb0b838f82dc  /dev/mmcblk0p11
+== space
+/dev/mmcblk0p16           4.5G    469.4M      4.0G  10% /data
+== data payload
+sha256sum: can't open '/data/libreecho/features/airplay2/payload.squashfs': No such file or directory

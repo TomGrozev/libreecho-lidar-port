@@ -1,0 +1,30 @@
+ 07:13:51 up 4 min,  0 users,  load average: 2.21, 1.23, 0.52
+libreecho.lab=p6-v2
+androidboot.slot_suffix=_b
+389104e9-53cb-4d79-bbab-af72e5c9fa45
+    inet <DEVICE_IP_A>/26 scope global wlan0
+selected_slot=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=1
+schema=1
+state=installed
+progress=100
+detail=b
+state=confirmed
+mode=ota
+attempt=3
+passed=2
+last_check=none
+== ledd
+ 5218 0         0:06 /usr/local/sbin/libreecho-ledd --foreground --socket /run/libreecho/led.sock --startup-animation --startup-ready /run/libreecho/startup-ready
+14432 0         0:00 /system/bin/sh -c export PATH=/usr/local/sbin:$PATH; uptime; tr " " "\n" </proc/cmdline | grep -E "slot_suffix|libreecho.lab"; cat /proc/sys/kernel/random/boot_id; ip -4 addr show wlan0 | grep inet; libreecho-bootctl status | grep -E "selected|slot_[ab]_(tries|success|priority)"; cat /data/libreecho/update/state; cat /data/libreecho/update/boot-health | grep -E "state|mode|attempt|passed|last_check"; echo == ledd; ps w | grep -E "[l]edd"; tail -n 5 /var/log/libreecho/ledd.log 2>/dev/null; grep -iE "ledd|startup-ready|led" /var/log/libreecho/system.log 2>/dev/null | tail -n 8
+{"ts":1795417808,"boot_seconds":35,"level":"INFO","service":"ledd","msg":"using IS31FL3236 LED backend (/sys/bus/i2c/devices/0-003f/frame, current-scaled levels)"}
+{"ts":1795417808,"boot_seconds":35,"level":"INFO","service":"ledd","msg":"LED boot-animation handover complete"}
+{"ts":1795417808,"boot_seconds":35,"level":"INFO","service":"ledd","msg":"green startup animation started"}
+{"ts":1795417808,"boot_seconds":35,"level":"INFO","service":"ledd","msg":"LED daemon listening on /run/libreecho/led.sock"}
+{"ts":1795417809,"boot_seconds":36,"level":"INFO","service":"btd","msg":"btd: listening on /run/libreecho/bluetooth.sock (manual activation, HCI management enabled)"}
+{"ts":1795417813,"boot_seconds":40,"level":"INFO","service":"airplayd","msg":"airplayd: AirPlay 2 enabled (NQPTP, Shairport Sync)"}

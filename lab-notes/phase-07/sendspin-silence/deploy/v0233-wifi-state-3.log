@@ -1,0 +1,46 @@
+42:audio-startup-disabled
+43:ota-rollback-resume-live-record-foreign:pending
+44:ota-health-confirm-pending
+45:ota-health-waiting-startup-ready
+79:ui-service-start:logd:0
+80:ui-service-start:networkd:0
+81:ui-service-start:timed:0
+82:ui-service-start:audiod:0
+83:ui-service-start:micd:0
+84:ui-service-start:ledd:0
+85:ui-service-start:buttond:0
+86:ui-service-start:btd:0
+87:ui-service-start:timerd:0
+88:ui-service-start:watchdogd:0
+89:ui-service-start:airplayd:0
+90:ui-service-start:radiod:0
+91:ui-service-start:ttsd:0
+92:ui-service-start:esphomed:0
+94:ui-service-start:web:0
+95:feature-reconcile-service-stopped:agentd
+96:feature-reconcile-service-stopped:sttd
+97:feature-reconcile-service-ready:esphomed
+98:feature-reconcile-service-ready:waked
+99:feature-reconcile-shared-discovery-owner:airplayd
+100:feature-reconcile-service-ready:airplayd
+101:feature-reconcile-service-ready:ttsd
+102:feature-services-reconciled
+103:persisted-feature-reconcile:0
+104:first-boot-startup-ready-timeout-degraded
+105:startup-ready-marker-missing
+106:first-boot-probe-passed-degraded:1
+107:ota-health-probe-passed:1
+108:local-services-degraded-start-no-startup-ready
+109:startup-ready-marker-missing
+110:first-boot-probe-passed-degraded:2
+111:ota-health-probe-passed:2
+112:startup-ready-marker-missing
+113:first-boot-probe-passed-degraded:3
+114:ota-health-probe-passed:3
+115:ota-slot-confirmed
+== esphomed
+==> /tmp/libreecho-esphomed.init.log <==
+
+==> /tmp/libreecho-esphomed.reconcile.log <==
+
+==> /tmp/libreecho-ttsd.init.log <==

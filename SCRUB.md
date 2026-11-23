@@ -66,7 +66,7 @@ are kept in the private workspace, not in this repository.
 | `<MAC_WLAN_A_COMPACT>` | The WLAN MAC without separators, as AirPlay (RAOP) advertises it |
 | `<MAC_GADGET_HOST_n>`, `<MAC_GADGET_DEV_n>` | USB gadget network MAC pairs |
 | `<MAC_BT_PEER_A>`, `<BT_PEER_NAME_A>` | Owner phone Bluetooth address and name |
-| `<DEVICE_IP_A>`, `<LAN_GATEWAY_A>`, `<LAN_GATEWAY_B>`, `<LAN_NET_B>`, `<LAN_CIDR_A>`, `<LAN_HOST_A_n>`, `<LAN_HOST_B_n>`, `<CLUSTER_IP_n>`, `<SETUP_AP_IP_A>` | IPv4 LAN addresses |
+| `<DEVICE_IP_A>`, `<LAN_GATEWAY_A>`, `<LAN_GATEWAY_B>`, `<LAN_NET_B>`, `<LAN_CIDR_A>`, `<LAN_HOST_A_n>`, `<LAN_HOST_B_n>`, `<CLUSTER_IP_n>`, `<SETUP_AP_IP_A>`, `<SETUP_AP_HOST_A>` | IPv4 LAN addresses |
 | `<ULA_ADDRESS_A>`, `<LINK_LOCAL_IPV6_A>`, `<THREAD_ULA_A>` | IPv6 LAN addresses |
 | `<THREAD_PANID_A>`, `<THREAD_XPANID_A>`, `<THREAD_EXTADDR_A>` | PAN ID, extended PAN ID and node address of the test Thread network |
 

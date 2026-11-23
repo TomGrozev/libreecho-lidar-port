@@ -1,0 +1,21 @@
+20:31:33
+reconnecting <SERIAL_A> [device]
+
+List of devices attached
+
+adb: no devices/emulators found
+rc=1
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 001 Device 002: ID 0bda:5411 Realtek Semiconductor Corp. RTS5411 Hub
+Bus 001 Device 003: ID 046d:c08c Logitech, Inc. G PRO Gaming Mouse
+Bus 001 Device 005: ID 0951:16df Kingston Technology HyperX QuadCast
+Bus 001 Device 006: ID 046d:c33c Logitech, Inc. G512 RGB MECHANICAL GAMING KEYBOARD
+Bus 001 Device 007: ID 1b1c:0c15 Corsair H100i Platinum
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 002 Device 002: ID 0bda:0411 Realtek Semiconductor Corp. Hub
+Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 005 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 006 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Nov 18 20:31:33 <WORKSTATION_A> kernel: usb 1-1.2: reset high-speed USB device number 38 using xhci_hcd
+Nov 18 20:31:33 <WORKSTATION_A> kernel: usb 1-1.2: USB disconnect, device number 38

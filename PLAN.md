@@ -1,6 +1,6 @@
 # Lidar support (Echo Plus 2nd Gen): implementation plan
 
-> Status (2026-11-22): Phases 0-6 complete, Phase 7 in progress, Phase 8 not started.
+> Status (2026-11-23): Phases 0-6 complete, Phase 7 in progress, Phase 8 not started.
 > Current phase state and gate outcomes: see [README.md](README.md), "Status".
 
 LibreEcho keeps Echo hardware that people already own useful, repairable and private. The
@@ -133,7 +133,7 @@ recovery needs a separately reviewed full-chain BROM procedure. Never restore ex
 | Kaeru fork | Lidar config/board port on upstream AGPL source, kept in the owner's GitHub fork; no upstream PR planned |
 | Koboreru fork | Lidar device definition on upstream MIT source, kept in the owner's GitHub fork; no upstream PR planned |
 | u-boot fork | Lidar fastboot stage, kept in the owner's GitHub fork; no upstream PR planned |
-| `libreecho-lidar-port` (public, owner's GitHub account) | This plan, port documentation, experiment notes and scripts; no code that belongs in the repositories above |
+| `libreecho-lidar-port` (public, owner's GitHub account; this workspace root) | This plan, port documentation and the generated `lab-notes/`; no code that belongs in the repositories above |
 
 Repository structure (owner decision, 2026-11-22): the boot-chain forks are referenced by
 commit from the production scripts. Everything else lands as the PR stack in Phase 8.
@@ -711,17 +711,21 @@ with OTA v0.2.24 confirmed on slot a and the owner's wake and Home Assistant tim
 
 ### Phase 7: product integration and production tooling
 
-- [ ] Rebase every repository onto its current upstream main (LibreEcho 0.14.6) and split
+- [x] Rebase every repository onto its current upstream main (LibreEcho 0.14.6) and split
       our commits into the Phase 8 branches: general fixes that help the MT8163 targets on
       their own branch from upstream main, Lidar work stacked on top. Drop debug-only
       commits; turn experiment branches into `archive/...` tags, as upstream does. Record
       each new base and branch head in `experiments/phase-07/`.
-- [ ] Create the `libreecho-lidar-port` docs repository and publish it under the owner's
-      GitHub account. Only
+      Done 2026-11-22: Platform, UI and the kernel rebased in the forks under
+      `private/forks/` (`private/lab/phase-07/{platform,ui,kernel}-rebase.md`); no push.
+- [x] Create the `libreecho-lidar-port` docs repository and publish it under the owner's
+      GitHub account. Done 2026-11-23: the workspace root is that repository. Only
       material that passes the "Safety and evidence rules" goes in: no dumps, microphone
-      captures, keys, donor or vendor images, `reference/` or mtkclient. Scrub serials,
-      MACs, SSIDs and LAN addresses from logs and replace `/home/build/...` paths before the
-      first commit. Creating and pushing the GitHub repository needs separate approval.
+      captures, keys, donor or vendor images, reference material or mtkclient. Serials,
+      MACs, SSIDs and LAN addresses are scrubbed by the export and workstation paths
+      (SCRUB.md lists the placeholder forms, such as `/workspace/libreecho` and
+      `/home/build`) before any commit; a pre-commit
+      hook blocks `private/` paths and scanner hits.
 - [ ] Delete superseded build outputs under `artifacts/` only after the owner confirms the
       list. Keep current build inputs, the installed image and OTA, the lab key and every
       stock backup.
@@ -773,11 +777,12 @@ Gate: the documented one-command path works end to end on the device with
 
       | Repository | Branch → base | Merged first |
       | --- | --- | --- |
-      | LibreEcho-Linux | `feature/lidar-support` → maintainer's `feature/linux-6.18` (his 6.18 port on v6.18.57; owner decision 2026-11-22): DTS, drivers with provenance notes, defconfig, `lidar` target row | maintainer's 6.18 branch |
+      | LibreEcho-Linux | `feature/lidar-support-on-upstream` → maintainer's `feature/linux-6.18` (his 6.18 port on v6.18.57; owner decision 2026-11-22): DTS, drivers with provenance notes, defconfig, `lidar` target row | maintainer's 6.18 branch |
+      | LibreEcho-Linux | `feature/lidar-support-6.1` → maintainer's 6.1 line: the 6.1 ported series | maintainer's 6.1 branch |
       | LibreEcho-UI | `fix/general-fixes-from-lidar-port` → `main` | none |
-      | LibreEcho-UI | `feature/lidar-support` → UI general fixes | UI general fixes |
+      | LibreEcho-UI | `feature/lidar-support-0.14.6` → UI general fixes | UI general fixes |
       | LibreEcho-Platform | `fix/general-fixes-from-lidar-port` → `main` | none |
-      | LibreEcho-Platform | `feature/lidar-support` → Platform general fixes | Platform general fixes, Linux and UI Lidar PRs |
+      | LibreEcho-Platform | `feature/lidar-support-0.14.6` → Platform general fixes | Platform general fixes, Linux and UI Lidar PRs |
       | LibreEcho | `feature/lidar-support` → `main`: `lidar.json`, schema and validator generalization | Platform Lidar PR |
       | LibreEcho-Installer-Web | `feature/lidar-support` → `main` | Product PR and hardware acceptance |
 - [ ] Give each PR evidence that distinguishes host, CI, image, and hardware tests.
