@@ -79,7 +79,7 @@ conflict hunk, so the recorded resolution applies to the same conflict later.
 ## tools/lab-build.py
 
 `python3 tools/lab-build.py build` produces a signed lab OTA from the integration
-worktrees (`tools/lab-build.py:1072`). The steps are:
+worktrees (`tools/lab-build.py:1148`). The steps are:
 
 1. Read `tools/lab-build.json` and pick the version. The default is the highest
    existing lab version plus one patch; `--version X.Y.Z` overrides it.
@@ -87,8 +87,22 @@ worktrees (`tools/lab-build.py:1072`). The steps are:
    `check-lock`.
 3. Read the lock and refuse a dirty or missing integration worktree.
 4. Verify every pinned file and tree in `lab-build.json` against its sha256.
-5. Build the kernel, the UI bundle, the 16 MiB boot images, the audio engine, the
-   feature payloads and the OTA, then run the verification checks.
+5. Build the kernel, the UI bundle, the 16 MiB boot images, the audio engine and
+   the feature payloads.
+6. Write the product's CI candidate catalog and run the product OTA pipeline from
+   the LibreEcho integration worktree: `build/ci/plan-target-manifest.py
+   --target lidar` emits the run directory (`feature-plan.json`,
+   `feature-assets.json`, `target.manifest`, `ota-assets/` and the provenance
+   record), then `build/ci/ota_v3_product.py` signs it with the lab key. The
+   release tag has the product's dev form
+   `radar-puffin-build-<sha7>-<source_id16>-<build_id16>`
+   (`.github/workflows/build-release.yml:258-265`): `sha7` is the LibreEcho
+   integration head, `source_id` hashes the product, Platform, Linux and UI
+   lock heads, and `build_id` hashes `lab:<version>`. The signed tar is
+   `libreecho-<tag>.ota.tar`, and the target's published asset names carry the
+   `libreecho-lidar-` prefix. The lab version and the `dev` channel are kept.
+7. Run the verification checks against the tar, the run directory and the built
+   artifacts.
 
 The kernel cache key is the Linux integration head plus the pinned toolchain tree
 sha256, the defconfig and the DTB target (`:429`). A hit reuses
@@ -112,11 +126,21 @@ source heads, kernel, UI, inputs, OTA and outputs, with the check list) and
 `SHA256SUMS`. A failing check fails the build.
 
 `python3 tools/lab-build.py deploy VERSION --host HOST --yes` installs a finished build
-over Wi-Fi adb (`:1264`). It refuses without `--yes`, rechecks the deliverables against
-`provenance.json`, pushes the generation and bundle, runs `libreecho-generation verify`
-and `libreecho-update install`, reboots into the inactive slot, and polls until the new
-slot reports the expected generation as installed, up to 20 minutes. It then reads the
-boot slot back and compares its hash. `--host` defaults to `$LAB_DEVICE_HOST`.
+over Wi-Fi adb (`:1343`). It refuses without `--yes`, rechecks the deliverables against
+`provenance.json`, pushes the signed tar and every `ota-assets/` file into
+`/data/libreecho/update/asset-cache/<sha256>.part`, and runs
+`libreecho-update-fetch assemble-generation` on the device. The device assembles
+`/data/libreecho/generations/<txn>` from the signed manifest and those cached parts
+without a network fetch, then `libreecho-update install` writes the inactive slot.
+Deploy reboots into that slot and polls until it reports the expected generation as
+installed, up to 20 minutes. It then reads the boot slot back and compares its hash.
+`--host` defaults to `$LAB_DEVICE_HOST`.
+
+The device assembly reads each cached part only when its size and sha256 match the
+signed manifest (`libreecho-generation` `assemble`); a cache miss falls back to an
+allowlisted HTTPS release base, which deploy seeds against so this cannot happen.
+This offline path is reasoned from the Platform script and has not yet run on the
+device.
 
 Deploy writes the device and reboots it, so each run needs its own hardware approval.
 Build never talks to the device.

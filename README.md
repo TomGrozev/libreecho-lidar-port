@@ -115,24 +115,30 @@ flowchart TD
     BUILD --> BOOT["boot images"]
     BUILD --> AUD["audio engine"]
     BUILD --> FEATP["feature payloads"]
-    K --> OTA["signed OTA bundle"]
-    UI --> OTA
-    BOOT --> OTA
-    AUD --> OTA
-    FEATP --> OTA
+    K --> PLAN["product OTA pipeline: plan-target-manifest.py + ota_v3_product.py"]
+    BOOT --> PLAN
+    FEATP --> PLAN
+    PLAN --> OTA["signed OTA bundle and content-addressed assets"]
     OTA --> VER["verification checks, SHA256SUMS, provenance.json"]
     VER --> DEP["owner-approved deploy over Wi-Fi adb"]
+    DEP --> ASM["device assembles the generation from asset-cache (offline)"]
 ```
 
 `python3 tools/lab-build.py build` verifies every pinned input in
 [tools/lab-build.json](tools/lab-build.json) against its sha256, runs the rebuild and
 `check-lock` first, then produces the boot images, the UI bundle, the audio engine and
-the feature payloads, and wraps them into a signed OTA bundle. The output directory
-carries `SHA256SUMS` and a `provenance.json` that records every source head and input.
-A failing check fails the build. Deploy is a separate, owner-approved step:
-`lab-build.py deploy` rechecks the deliverables, installs the OTA on the inactive slot,
-reboots, and polls until the device reports the expected generation. Build never talks
-to the device. [docs/agents/integration-and-builds.md](docs/agents/integration-and-builds.md)
+the feature payloads. It hands them to the product's own OTA pipeline from the LibreEcho
+integration worktree (`build/ci/plan-target-manifest.py --target lidar`, then
+`build/ci/ota_v3_product.py` with the lab key), so the lab build is an ordinary product
+dev build under the tag `radar-puffin-build-<sha7>-<source_id16>-<build_id16>`. The
+output directory carries the signed tar, the pipeline's run directory and
+`ota-assets/`, plus `SHA256SUMS` and a `provenance.json` that records every source head
+and input. A failing check fails the build. Deploy is a separate, owner-approved step:
+`lab-build.py deploy` rechecks the deliverables, seeds the device's content-addressed
+asset cache, has the device assemble the generation from the signed manifest without
+network access, installs the OTA on the inactive slot, reboots, and polls until the
+device reports the expected generation. Build never talks to the device.
+[docs/agents/integration-and-builds.md](docs/agents/integration-and-builds.md)
 holds the layout, the commands and the recipes for all of this.
 
 ## Known issues

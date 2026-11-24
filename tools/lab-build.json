@@ -103,10 +103,6 @@
       "path": "private/artifacts/phase-05/ota/lab-key/ed25519-public.hex",
       "sha256": "3efab6b623594c5ea582e2d40f3bda0ec224702593f91fe4acaee4d457b67e0a"
     },
-    "ota_builder": {
-      "path": "private/lab/phase-05/ota/make_lab_ota.py",
-      "sha256": "a8eefe8f1304adf079fcbad1f7644f950bd0fa30b8fe4390fbe10a8ccf958941"
-    },
     "feature_catalog": {
       "path": "private/artifacts/phase-06/features-airplay2-latency/feature-catalog.json",
       "sha256": "86a519cef44a5e518d2f3a54f42ed4246c60657558850b485e6da68560a755fd"

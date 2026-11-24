@@ -728,96 +728,134 @@ def build_airplay2(builder, sources: dict[str, Source], engine: Path) -> tuple[P
             step_log=stage / 'package.log')
     payload = stage / 'probe.payload.squashfs'
     identity = stage / 'probe.manifest.json'
-    payload_sha = sha256_file(payload)
-    manifest_sha = sha256_file(identity)
-    named_payload = (builder.build_dir
-                     / f'libreecho-lidar-base-airplay2-{payload_sha}.payload.squashfs')
-    named_manifest = (builder.build_dir
-                      / f'libreecho-lidar-base-airplay2-{manifest_sha}.manifest.json')
-    shutil.copy2(payload, named_payload)
-    shutil.copy2(identity, named_manifest)
-    log.line('PASS', f'airplay2 payload {payload_sha[:16]} manifest {manifest_sha[:16]}')
-    return named_payload, named_manifest
+    log.line('PASS', f'airplay2 payload {sha256_file(payload)[:16]} '
+                     f'manifest {sha256_file(identity)[:16]}')
+    return payload, identity
 
 
 def stage_wakeword(builder) -> tuple[Path, Path]:
     inputs = builder.inputs
-    log = builder.log
-    payload_sha = inputs.files['wakeword_payload']['sha256']
-    manifest_sha = inputs.files['wakeword_manifest']['sha256']
-    payload = builder.build_dir / f'libreecho-lidar-base-wakeword-{payload_sha}.payload.squashfs'
-    manifest = builder.build_dir / f'libreecho-lidar-base-wakeword-{manifest_sha}.manifest.json'
-    shutil.copy2(inputs.path('wakeword_payload'), payload)
-    shutil.copy2(inputs.path('wakeword_manifest'), manifest)
-    log.line('PASS', f'wakeword payload {payload_sha[:16]} (pinned prebuilt)')
-    return payload, manifest
+    builder.log.line('PASS', f'wakeword payload '
+                             f'{inputs.files["wakeword_payload"]["sha256"][:16]} '
+                             f'(pinned prebuilt)')
+    return inputs.path('wakeword_payload'), inputs.path('wakeword_manifest')
+
+
+# The product's whole-target contract fixes the five feature ids and their order.
+FEATURE_ORDER = ('airplay2', 'tts', 'wakeword', 'stt', 'assistant')
+
+
+def release_tag(lock: dict, version: str) -> str:
+    """The product dev release tag this lab build publishes under.
+
+    `.github/workflows/build-release.yml:258-265` derives the tag as
+    radar-puffin-build-<sha7>-<source_id>-<build_id>: sha7 is the product
+    commit, source_id is the sha256 over the product, Platform, Linux and UI
+    commit shas, and build_id hashes the CI run.  The lab has no run id, so
+    build_id hashes a lab-unique string; build.sh:512 and the TAG grammar in
+    ota_v3_product.py:30 pin the shape.
+    """
+    heads = {name: entry['head'] for name, entry in lock['repos'].items()}
+    try:
+        product = heads['LibreEcho']
+        material = ''.join(
+            heads[name] + '\n' for name in
+            ('LibreEcho', 'LibreEcho-Platform', 'LibreEcho-Linux', 'LibreEcho-UI'))
+    except KeyError as exc:
+        raise Fail(f'lock has no head for {exc.args[0]}') from exc
+    return (f'radar-puffin-build-{product[:7]}-'
+            f'{sha256_bytes(material.encode())[:16]}-'
+            f'{sha256_bytes(f"lab:{version}\n".encode())[:16]}')
 
 
 def write_catalog(builder, airplay2: tuple[Path, Path],
                   wakeword: tuple[Path, Path]) -> Path:
+    """Write the product's CI candidate-catalog shape (plan-target-manifest.py:22-46).
+
+    The catalog names each payload by the basename its feature manifest records,
+    so the product pipeline can cross-check the pair; the pipeline derives the
+    published content-addressed asset names itself.
+    """
     inputs = builder.inputs
     log = builder.log
-    catalog = read_json(inputs.path('feature_catalog'))
-    features = catalog.get('features')
-    if not isinstance(features, dict) or not features:
-        raise Fail('base feature catalog has no features')
+    base = read_json(inputs.path('feature_catalog'))
+    base_features = base.get('features')
+    if not isinstance(base_features, dict) or set(base_features) != set(FEATURE_ORDER):
+        raise Fail('base feature catalog must name exactly the five product features')
+    sources = {'airplay2': airplay2, 'wakeword': wakeword}
+    for feature in FEATURE_ORDER:
+        if feature in sources:
+            continue
+        entry = base_features[feature]
+        pair = []
+        for key in ('payload', 'manifest'):
+            path = Path(entry[key])
+            if not path.is_absolute():
+                path = inputs.path('feature_catalog').parent / path
+            if not path.is_file():
+                raise Fail(f'catalog {feature} {key} is missing: {entry[key]}')
+            pair.append(path)
+        sources[feature] = tuple(pair)
 
-    def relative(target: Path) -> str:
-        try:
-            return os.path.relpath(target.resolve(), builder.build_dir.resolve())
-        except ValueError:
-            return str(target)
-
-    updates = {'airplay2': airplay2, 'wakeword': wakeword}
-    for feature, entry in features.items():
-        if feature in updates:
-            payload, manifest = updates[feature]
-            entry['payload'] = relative(payload)
-            entry['manifest'] = relative(manifest)
-        else:
-            for key in ('payload', 'manifest'):
-                original = Path(entry[key])
-                if not original.is_absolute():
-                    original = inputs.path('feature_catalog').parent / original
-                if not original.is_file():
-                    raise Fail(f'catalog {feature} {key} is missing: {entry[key]}')
-                entry[key] = relative(original)
-        payload_path = builder.build_dir / entry['payload']
-        manifest_path = builder.build_dir / entry['manifest']
-        entry['payload_sha256'] = sha256_file(payload_path)
-        entry['payload_size'] = payload_path.stat().st_size
-        entry['manifest_sha256'] = sha256_file(manifest_path)
-        entry['manifest_size'] = manifest_path.stat().st_size
-    out = builder.build_dir / 'feature-catalog.json'
+    catalog = {'board': 'lidar', 'features': {}}
+    for feature in FEATURE_ORDER:
+        payload, manifest = sources[feature]
+        identity = read_json(manifest)
+        filename = identity.get('payload', {}).get('filename')
+        if not isinstance(filename, str) or not filename or Path(filename).name != filename:
+            raise Fail(f'{feature} manifest does not name a plain payload file')
+        stage = builder.build_dir / 'ota/catalog' / feature
+        stage.mkdir(parents=True, exist_ok=True)
+        staged_payload = stage / filename
+        staged_manifest = stage / 'manifest.json'
+        shutil.copy2(payload, staged_payload)
+        shutil.copy2(manifest, staged_manifest)
+        catalog['features'][feature] = {
+            'payload': {'path': str(staged_payload),
+                        'sha256': sha256_file(staged_payload),
+                        'size': staged_payload.stat().st_size},
+            'manifest': {'path': str(staged_manifest),
+                         'sha256': sha256_file(staged_manifest),
+                         'size': staged_manifest.stat().st_size},
+        }
+    out = builder.build_dir / 'ota/feature-candidate-catalog.json'
     write_json(out, catalog)
-    log.line('PASS', 'feature catalog written (paths workspace-relative)')
+    log.line('PASS', 'feature candidate catalog written (product v3 shape)')
     return out
 
 
-def create_ota(builder, version: str, catalog: Path) -> tuple[Path, str, Path]:
+def create_ota(builder, version: str, tag: str, catalog: Path,
+               sources: dict[str, Source]) -> tuple[Path, str, Path]:
+    """Run the product's plan and signing scripts over the lab-built payloads."""
     inputs = builder.inputs
     log = builder.log
     out = builder.build_dir / 'ota'
-    out.mkdir(parents=True, exist_ok=True)
-    tarball = out / f'lidar-lab-v{version}.ota.tar'
+    run = out / 'run'
+    run.mkdir(parents=True, exist_ok=False)
+    shutil.copy2(builder.build_dir / 'images/boot-lidar-v2.img', run / 'boot.img')
+    pipeline = sources['libreecho'].path / 'build' / 'ci'
+    log.phase('product v3 target plan')
+    log.run([sys.executable, '-B', pipeline / 'plan-target-manifest.py',
+             '--target', 'lidar', '--candidate-catalog', catalog,
+             '--boot-image', run / 'boot.img', '--release', tag,
+             '--version', version, '--update-channel', 'dev', '--config-schema', '1',
+             '--output', run / 'target.manifest',
+             '--asset-output-dir', run / 'ota-assets'],
+            step_log=run / 'plan.log')
     log.phase('signed OTA')
-    output = log.capture([
-        sys.executable, inputs.path('ota_builder'),
-        '--boot-image', builder.build_dir / 'images/boot-lidar-v2.img',
-        '--feature-catalog', catalog,
-        '--release', f'lidar-lab-v{version}', '--version', version,
-        '--update-channel', 'dev', '--service-profile', 'production',
-        '--signing-key', inputs.path('ota_signing_key'),
-        '--public-key', inputs.path('ota_public_key'),
-        '--output', tarball,
-    ], step_log=out / 'ota-build.log')
-    txn = re.search(r'^transaction_id=(\S+)$', output, re.M)
-    gen = re.search(r'^generation=(\S+)$', output, re.M)
-    if not txn or not gen:
-        raise Fail('make_lab_ota.py did not report a transaction id')
-    generation = Path(gen.group(1))
-    log.line('PASS', f'OTA {sha256_file(tarball)[:16]} tx {txn.group(1)}')
-    return tarball, txn.group(1), generation
+    tarball = out / f'libreecho-{tag}.ota.tar'
+    log.run([sys.executable, '-B', pipeline / 'ota_v3_product.py',
+             '--run', run,
+             '--signing-key', inputs.path('ota_signing_key'),
+             '--public-key', inputs.path('ota_public_key'),
+             '--expected-key-sha256', inputs.files['ota_public_key']['sha256'],
+             '--output', tarball],
+            step_log=run / 'sign.log')
+    transaction = read_json(run / 'feature-plan.json').get('transaction_id')
+    if not isinstance(transaction, str) or not transaction:
+        raise Fail('feature-plan.json has no transaction id')
+    log.line('PASS', f'OTA {sha256_file(tarball)[:16]} tx {transaction}')
+    return tarball, transaction, run
 
 
 # --------------------------------------------------------------------------
@@ -869,9 +907,9 @@ def unsquashfs_sha(builder, archive: Path, member: str) -> str:
     return sha256_bytes(proc.stdout)
 
 
-def verify(builder, version: str, sources: dict[str, Source], kernel: Kernel,
-           bundle: Path, engine: Path, airplay2: tuple[Path, Path],
-           wakeword: tuple[Path, Path], tarball: Path, generation: Path) -> list[dict]:
+def verify(builder, version: str, tag: str, sources: dict[str, Source],
+           kernel: Kernel, bundle: Path, engine: Path, airplay2: tuple[Path, Path],
+           wakeword: tuple[Path, Path], tarball: Path, run: Path) -> list[dict]:
     inputs = builder.inputs
     log = builder.log
     images = builder.build_dir / 'images'
@@ -945,8 +983,30 @@ def verify(builder, version: str, sources: dict[str, Source], kernel: Kernel,
     qemu = inputs.path('qemu_arm')
     verifier = inputs.path('update_verify')
     musl_lib = inputs.dir('musl_toolchain_lib')
-    gen_manifest = generation / 'target.manifest'
-    gen_signature = generation / 'target.manifest.sig'
+    run_manifest = run / 'target.manifest'
+    plan = read_json(run / 'feature-plan.json')
+    check('target plan board is lidar', plan.get('board') == 'lidar',
+          str(plan.get('board')))
+    check('target plan version is the build version', plan.get('version') == version,
+          str(plan.get('version')))
+
+    with tarfile.open(tarball) as archive:
+        names = [member.name for member in archive.getmembers()]
+        check('OTA tar holds manifest, manifest.sig and boot.img',
+              names == ['manifest', 'manifest.sig', 'boot.img'], ','.join(names))
+        tar_manifest = archive.extractfile('manifest').read()
+        tar_signature = archive.extractfile('manifest.sig').read()
+        tar_boot = archive.extractfile('boot.img').read()
+    check('OTA tar manifest is the run target.manifest',
+          tar_manifest == run_manifest.read_bytes())
+    check('OTA tar boot.img matches the built v2 image', tar_boot == boot.read_bytes())
+
+    verify_dir = builder.build_dir / 'verify'
+    verify_dir.mkdir(parents=True, exist_ok=True)
+    gen_manifest = verify_dir / 'manifest'
+    gen_signature = verify_dir / 'manifest.sig'
+    gen_manifest.write_bytes(tar_manifest)
+    gen_signature.write_bytes(tar_signature)
 
     def signature_ok(key_path: Path) -> bool:
         return subprocess.run([str(qemu), '-L', str(musl_lib), str(verifier),
@@ -956,33 +1016,49 @@ def verify(builder, version: str, sources: dict[str, Source], kernel: Kernel,
     check('OTA signature verifies with the lab key',
           signature_ok(inputs.path('ota_public_key')))
     old_key = builder.build_dir / 'verify/old-key.hex'
-    old_key.parent.mkdir(parents=True, exist_ok=True)
     old_key.write_text(inputs.value('old_ota_public_key') + '\n', encoding='ascii')
     check('OTA signature is rejected with the old key', not signature_ok(old_key))
 
-    manifest_lines = gen_manifest.read_text(encoding='ascii')
+    manifest_lines = tar_manifest.decode('ascii')
+    check(f'OTA manifest release={tag}',
+          f'\nrelease={tag}\n' in '\n' + manifest_lines + '\n', tag)
     check(f'OTA manifest version={version}',
           f'\nversion={version}\n' in '\n' + manifest_lines + '\n')
+    check('OTA manifest transaction id is the plan transaction',
+          f'\ntransaction_id={plan.get("transaction_id")}\n'
+          in '\n' + manifest_lines + '\n', str(plan.get('transaction_id')))
     boot_line = re.search(r'^boot_sha256=(\S+)$', manifest_lines, re.M)
     check('OTA manifest boot_sha256 is the v2 image',
           bool(boot_line) and boot_line.group(1) == sha256_file(boot))
-    with tarfile.open(tarball) as archive:
-        names = set(archive.getnames())
-        check('OTA tar holds manifest, manifest.sig and boot.img',
-              names == {'manifest', 'manifest.sig', 'boot.img'}, ','.join(sorted(names)))
-        tar_manifest = archive.extractfile('manifest').read()
-        tar_boot = archive.extractfile('boot.img').read()
-    check('OTA tar manifest matches the generation manifest',
-          tar_manifest == gen_manifest.read_bytes())
-    check('OTA tar boot.img matches the built v2 image',
-          tar_boot == boot.read_bytes())
 
-    gen_airplay2 = generation / 'features/airplay2/payload.squashfs'
+    assets = run / 'ota-assets'
+    records = plan.get('features', [])
+    order = [record.get('feature_id') for record in records]
+    check('target plan names the five product features in order',
+          order == list(FEATURE_ORDER), ','.join(str(item) for item in order))
+    if order != list(FEATURE_ORDER):
+        raise Fail('target plan does not name the five product features in order')
+    by_feature = {record['feature_id']: record for record in records}
+    for feature in FEATURE_ORDER:
+        record = by_feature.get(feature, {})
+        payload = assets / str(record.get('asset'))
+        identity_path = assets / str(record.get('manifest_asset'))
+        check(f'OTA {feature} payload matches the plan',
+              payload.is_file() and sha256_file(payload) == record.get('sha256')
+              and payload.stat().st_size == record.get('size'))
+        check(f'OTA {feature} manifest matches the plan',
+              identity_path.is_file()
+              and sha256_file(identity_path) == record.get('manifest_sha256')
+              and identity_path.stat().st_size == record.get('manifest_size'))
+
+    airplay2_payload = assets / by_feature['airplay2']['asset']
+    airplay2_manifest = assets / by_feature['airplay2']['manifest_asset']
+    wake_payload = assets / by_feature['wakeword']['asset']
+    wake_identity = assets / by_feature['wakeword']['manifest_asset']
     check('OTA airplay2 payload is the built payload',
-          sha256_file(gen_airplay2) == sha256_file(airplay2[0]))
+          sha256_file(airplay2_payload) == sha256_file(airplay2[0]))
     check('OTA airplay2 manifest is the built manifest',
-          sha256_file(generation / 'features/airplay2/manifest.json')
-          == sha256_file(airplay2[1]))
+          sha256_file(airplay2_manifest) == sha256_file(airplay2[1]))
     check('airplay2 payload carries the pinned sendspind',
           unsquashfs_sha(builder, airplay2[0], 'usr/local/sbin/libreecho-sendspind')
           == inputs.files['sendspind']['sha256'])
@@ -1000,8 +1076,6 @@ def verify(builder, version: str, sources: dict[str, Source], kernel: Kernel,
     check('engine source hash recorded for audio_engine.c',
           recorded.get(rel_to_ws(audio_engine_src)) == sha256_file(audio_engine_src))
 
-    wake_payload = generation / 'features/wakeword/payload.squashfs'
-    wake_identity = generation / 'features/wakeword/manifest.json'
     check('OTA wakeword payload is the pinned payload',
           sha256_file(wake_payload) == inputs.files['wakeword_payload']['sha256'])
     check('OTA wakeword manifest is the pinned manifest',
@@ -1058,7 +1132,11 @@ def deliverable_files(build_dir: Path) -> list[Path]:
     patterns = (
         'images/boot-lidar-*.img', 'images/boot-lidar-*.manifest.json',
         'images/boot-lidar-*.ramdisk.cpio.xz', 'images/SHA256SUMS',
-        'ota/*.ota.tar', 'libreecho-lidar-base-*', 'feature-catalog.json',
+        'ota/*.ota.tar', 'ota/feature-candidate-catalog.json',
+        'ota/run/target.manifest', 'ota/run/feature-plan.json',
+        'ota/run/feature-assets.json', 'ota/run/ota-assets/*',
+        'features/airplay2/probe.payload.squashfs',
+        'features/airplay2/probe.manifest.json',
         'engine/libreecho-audio-engine', 'engine/sources.sha256',
         'check-release-components.log', 'verify-lidar-dtb.log',
     )
@@ -1119,10 +1197,11 @@ def cmd_build(args) -> int:
         airplay2 = build_airplay2(builder, sources, engine)
         wakeword = stage_wakeword(builder)
         catalog = write_catalog(builder, airplay2, wakeword)
-        tarball, transaction, generation = create_ota(builder, version, catalog)
+        tag = release_tag(lock, version)
+        tarball, transaction, run = create_ota(builder, version, tag, catalog, sources)
 
-        checks = verify(builder, version, sources, kernel, bundle, engine,
-                        airplay2, wakeword, tarball, generation)
+        checks = verify(builder, version, tag, sources, kernel, bundle, engine,
+                        airplay2, wakeword, tarball, run)
 
         deliverables = deliverable_files(build_dir)
         sums_path = build_dir / 'SHA256SUMS'
@@ -1142,7 +1221,7 @@ def cmd_build(args) -> int:
             'schema_version': 1,
             'generated': now_iso(),
             'version': version,
-            'release': f'lidar-lab-v{version}',
+            'release': tag,
             'build_dir': rel_to_ws(build_dir),
             'tool': {'path': rel_to_ws(Path(__file__)), 'sha256': sha256_file(Path(__file__))},
             'config': {'path': CONFIG_REL, 'sha256': sha256_file(ROOT / CONFIG_REL)},
@@ -1158,8 +1237,10 @@ def cmd_build(args) -> int:
             'ui': {'head': sources['ui'].head, 'bundle_manifest_sha256': bundle_sha},
             'inputs': inputs.input_manifest(),
             'ota': {'transaction_id': transaction,
-                    'bundle_sha256': sha256_file(tarball),
-                    'generation': rel_to_ws(generation)},
+                    'release': tag,
+                    'bundle': tarball.relative_to(build_dir).as_posix(),
+                    'run_dir': run.relative_to(build_dir).as_posix(),
+                    'bundle_sha256': sha256_file(tarball)},
             'outputs': outputs,
             'verification': {'checks': checks, 'failed': len(failures),
                              'dropped_checks': list(DROPPED_CHECKS)},
@@ -1278,7 +1359,9 @@ def cmd_deploy(args) -> int:
         '\n'
         '!!!!! DEPLOY WRITES THE DEVICE AND REBOOTS IT !!!!!\n'
         f'Build v{version} will be installed on {host}:\n'
-        '  - pushes the OTA generation and bundle into /data/libreecho/,\n'
+        '  - pushes the signed OTA bundle and its content-addressed feature assets\n'
+        '    into /data/libreecho/update/asset-cache/ and assembles the generation\n'
+        '    on the device (offline: every asset is already cached),\n'
         '  - runs `libreecho-update install` (writes the INACTIVE boot slot),\n'
         '  - reboots the device and waits for the new slot to confirm.\n'
         f'provenance: {rel_to_ws(build_dir / "provenance.json")}\n'
@@ -1311,27 +1394,48 @@ def cmd_deploy(args) -> int:
             raise Fail('no Wi-Fi adb connection to the device')
         target = 'b' if start == 'a' else 'a'
         txn = provenance['ota']['transaction_id']
-        generation = workspace_path(provenance['ota']['generation'])
-        tarball = build_dir / 'ota' / f'lidar-lab-v{version}.ota.tar'
+        run = build_dir / provenance['ota']['run_dir']
+        tarball = build_dir / provenance['ota']['bundle']
+        inventory = read_json(run / 'feature-assets.json').get('assets', [])
+        if len(inventory) != 2 * len(FEATURE_ORDER):
+            raise Fail(f'{rel_to_ws(run)} lists {len(inventory)} assets, '
+                       f'expected {2 * len(FEATURE_ORDER)}')
+        # The device assembles the generation from the signed manifest and the
+        # content-addressed cache, so it needs the control members as files.
+        incoming = build_dir / 'ota/incoming'
+        incoming.mkdir(parents=True, exist_ok=True)
+        with tarfile.open(tarball) as archive:
+            (incoming / 'manifest').write_bytes(archive.extractfile('manifest').read())
+            (incoming / 'manifest.sig').write_bytes(
+                archive.extractfile('manifest.sig').read())
         log.line('INFO', f'start slot {start}; target slot {target}; tx {txn}')
         adb.shell('uname -a; tr " " "\\n" < /proc/cmdline; '
                   'cat /proc/sys/kernel/random/boot_id; libreecho-bootctl status; '
                   'libreecho-update status; '
                   'echo current=$(cat /data/libreecho/update/current 2>/dev/null)',
                   step_log='state-before.log')
-        adb.shell('mkdir -p /data/libreecho/generations /data/libreecho/incoming')
-        adb.push(generation, '/data/libreecho/generations/')
+        adb.shell('mkdir -p /data/libreecho/update/asset-cache '
+                  '/data/libreecho/incoming/local-manifest')
+        adb.push(incoming / 'manifest',
+                 '/data/libreecho/incoming/local-manifest/manifest')
+        adb.push(incoming / 'manifest.sig',
+                 '/data/libreecho/incoming/local-manifest/manifest.sig')
+        for item in inventory:
+            adb.push(run / 'ota-assets' / item['name'],
+                     f'/data/libreecho/update/asset-cache/{item["sha256"]}.part')
         adb.push(tarball, '/data/libreecho/incoming/local-install.ota.tar')
         install = adb.shell(
-            f'g=/data/libreecho/generations/{txn}\n'
-            'chmod 0400 $g/target.manifest $g/target.manifest.sig $g/COMPLETE '
-            '$g/features/*/manifest.json $g/features/*/payload.squashfs\n'
-            'chmod 0500 $g $g/features $g/features/*\n'
-            'libreecho-generation verify $g; echo verify_rc=$?\n'
+            'libreecho-update-fetch assemble-generation '
+            '/data/libreecho/incoming/local-manifest/manifest '
+            '/data/libreecho/incoming/local-manifest/manifest.sig; '
+            'echo assemble_rc=$?\n'
             'libreecho-update install /data/libreecho/incoming/local-install.ota.tar; '
             'echo install_rc=$?\n'
-            'sync; libreecho-bootctl status', timeout=900, step_log='install.log')
+            'sync; libreecho-bootctl status', timeout=1800, step_log='install.log')
         log.write(install)
+        if 'assemble_rc=0' not in install:
+            raise Fail('libreecho-update-fetch assemble-generation failed; '
+                       'see deploy/install.log')
         if 'install_rc=0' not in install:
             raise Fail('libreecho-update install failed; see deploy/install.log')
         adb.shell('reboot', timeout=20)
