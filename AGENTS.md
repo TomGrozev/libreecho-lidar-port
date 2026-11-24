@@ -50,6 +50,26 @@ gives the layout.
   published must use them.
 - Keep device dumps and device-identifying data out of commits and public artifacts.
 
+## Branches and integration
+
+[integration.json](integration.json) lists, for each fork under `private/forks/`, its
+upstream base and its topic branches in merge order.
+
+- Commit each change to one topic branch based on that repo's `base`. A fix that also helps
+  MT8163 boards goes on `fix/general-fixes-from-lidar-port`. Lidar work goes on
+  `feature/lidar-support`, which is stacked on the general topic where the manifest lists
+  both. Any other feature gets its own `feat/*` branch, which also needs a manifest entry.
+- The `integration` branch in each `private/integration/<repo>` worktree is generated.
+  `python3 tools/integrate.py rebuild` recreates it from the manifest and replays recorded
+  conflict resolutions (`rerere`). `status` shows how far each topic is from its base and
+  which files topics share. When a new conflict stops the rebuild, resolve it once in that
+  worktree and commit, so that `rerere` records the resolution; or fix the topic and rerun.
+- `python3 tools/lab-build.py build` rebuilds the integration branches that go into the
+  OTA, checks the lock (`private/integration/integration.lock.json`) and builds a lab OTA
+  under `private/artifacts/builds/v<version>/`. `deploy` installs it, so it follows rule 6.
+- Every commit stays on a topic branch or under an `archive/<name>` tag. Before a rebase or
+  move takes a commit off its branch, tag the old head `archive/<branch>-<date>`.
+
 ## Reporting
 
 State what was actually run and where its output is stored; mark anything unrun as unverified.

@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "integration_branch": "integration",
+  "repos": [
+    {
+      "name": "LibreEcho-Platform",
+      "path": "private/forks/LibreEcho-Platform",
+      "integration_path": "private/integration/LibreEcho-Platform",
+      "base": "origin/main",
+      "in_ota": true,
+      "topics": [
+        {"branch": "fix/general-fixes-from-lidar-port", "scope": "general"},
+        {"branch": "feat/wake-layernorm-ops", "scope": "general"},
+        {"branch": "feature/lidar-support", "scope": "lidar"}
+      ]
+    },
+    {
+      "name": "LibreEcho-UI",
+      "path": "private/forks/LibreEcho-UI",
+      "integration_path": "private/integration/LibreEcho-UI",
+      "base": "upstream/main",
+      "in_ota": true,
+      "topics": [
+        {"branch": "fix/general-fixes-from-lidar-port", "scope": "general"},
+        {"branch": "feat/wake-word-selection", "scope": "general"},
+        {"branch": "feature/lidar-support", "scope": "lidar"}
+      ]
+    },
+    {
+      "name": "LibreEcho-Linux",
+      "path": "private/forks/LibreEcho-Linux",
+      "integration_path": "private/integration/LibreEcho-Linux",
+      "base": "origin/feature/linux-6.18",
+      "in_ota": true,
+      "topics": [
+        {"branch": "fix/general-fixes-from-lidar-port", "scope": "general"},
+        {"branch": "feature/lidar-support", "scope": "lidar"}
+      ]
+    },
+    {
+      "name": "LibreEcho",
+      "path": "private/forks/LibreEcho",
+      "integration_path": "private/integration/LibreEcho",
+      "base": "origin/main",
+      "in_ota": true,
+      "topics": [
+        {"branch": "feat/wakeword-convert", "scope": "general"},
+        {"branch": "feature/lidar-support", "scope": "lidar"}
+      ]
+    },
+    {
+      "name": "LibreEcho-Installer-Web",
+      "path": "private/forks/LibreEcho-Installer-Web",
+      "integration_path": "private/integration/LibreEcho-Installer-Web",
+      "base": "origin/main",
+      "in_ota": false,
+      "topics": [
+        {"branch": "feature/lidar-support", "scope": "lidar"}
+      ]
+    },
+    {
+      "name": "kaeru",
+      "path": "private/forks/kaeru",
+      "integration_path": "private/integration/kaeru",
+      "base": "origin/main",
+      "in_ota": false,
+      "topics": [
+        {"branch": "feature/lidar-support", "scope": "lidar"}
+      ]
+    },
+    {
+      "name": "amonet-koboreru",
+      "path": "private/forks/amonet-koboreru",
+      "integration_path": "private/integration/amonet-koboreru",
+      "base": "origin/main",
+      "in_ota": false,
+      "topics": [
+        {"branch": "feature/lidar-support", "scope": "lidar"}
+      ]
+    },
+    {
+      "name": "u-boot",
+      "path": "private/forks/u-boot",
+      "integration_path": "private/integration/u-boot",
+      "base": "refs/tags/v2026.10",
+      "in_ota": false,
+      "topics": [
+        {"branch": "lidar-fastboot-stage2", "scope": "lidar"}
+      ]
+    }
+  ]
+}

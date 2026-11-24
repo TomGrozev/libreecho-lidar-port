@@ -121,12 +121,15 @@ after every write, and a separate approval for each hardware write or reboot. Se
   [TomGrozev/kaeru](https://github.com/TomGrozev/kaeru),
   [TomGrozev/amonet-koboreru](https://github.com/TomGrozev/amonet-koboreru) and
   [TomGrozev/u-boot](https://github.com/TomGrozev/u-boot).
-- The Platform and UI feature branches are `feature/lidar-support-0.14.6`; LibreEcho-Linux
-  carries the port on `feature/lidar-support-on-upstream` (6.18 line) and
-  `feature/lidar-support-6.1` (6.1 line); LibreEcho and LibreEcho-Installer-Web are on
-  `feature/lidar-support`; the Linux 6.18 worktree branch is `fix/lidar-port-identity`.
-  The U-Boot second-stage fastboot tool is on branch `lidar-fastboot-stage2`. None of
-  these branches is merged upstream.
+- Each fork carries the port as topic branches on the current upstream base; the
+  workspace's [integration.json](integration.json) lists them in merge order. Lidar work is
+  on `feature/lidar-support` in every repository except U-Boot, whose second-stage
+  fastboot tool is on `lidar-fastboot-stage2`. In Platform, UI and Linux the Lidar branch
+  is stacked on `fix/general-fixes-from-lidar-port`, which holds the fixes that also help
+  MT8163 boards. The wake-word model support is on its own branches: Platform
+  `feat/wake-layernorm-ops`, UI `feat/wake-word-selection` and LibreEcho
+  `feat/wakeword-convert`. The Linux 6.1 series stays on `feature/lidar-support-6.1`.
+  None of these branches is merged upstream.
 
 ## Privacy and redaction
 
