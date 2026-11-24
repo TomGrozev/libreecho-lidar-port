@@ -24,11 +24,6 @@ workspace, not directories in this repository.
 - The host USB device inventory, which lists workstation hardware and serial numbers.
 - Lab housekeeping scripts such as `push-to-forks.sh` and `delete-old-branches.sh`. They
   name the owner's remotes and are of no use outside the lab.
-- The Phase 7 cleanup helpers (`finish-cleanup.sh`, `verify-no-lost-commits.py`,
-  `owner-deletes.txt`). The owner still needs them to finish the branch cleanup, so they
-  stay in the private workspace. The temporary files from that session, the per-repo rebase
-  notes, the branch-audit notes, the hand OTA build and install scripts and their saved
-  diffs were deleted rather than published.
 - Vendored or generated trees: toolchains, Python virtual environments, extracted sysroots,
   kernel and mbedTLS build outputs, and captured session state.
 - Raw LAN discovery dumps (`mdns-browse-*.log`). They list third-party devices, IPv6

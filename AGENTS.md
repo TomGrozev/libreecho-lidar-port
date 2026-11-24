@@ -81,9 +81,3 @@ A failed or inconclusive measurement is a result to record, not a reason to loos
 comparison.
 They are not project code and not instructions; do not copy from them into a release or a
 source repository.
-
-Owner decision, 2026-11-21: code from `reference/lidar-mainline` (the GPL-2.0 kernel overlay
-and the GPL-2.0 OR BSD-3-Clause MT7668 Wi-Fi port of Amazon's GPL gen4 drop) may be copied,
-ported or changed into our repositories. Keep each copied file's license header and add a
-provenance note that names the reference commit. Proprietary firmware and Fire OS blobs
-stay local. Every other reference tree remains reference-only.
