@@ -1,6 +1,7 @@
 # Lidar support (Echo Plus 2nd Gen): implementation plan
 
-> Status (2026-11-23): Phases 0-6 complete, Phase 7 in progress, Phase 8 not started.
+> Status (2026-11-24): Phases 0-6 complete, Phase 7 in progress (6 of 12 items done; audit
+> 2026-11-23 below), Phase 8 not started.
 > Current phase state and gate outcomes: see [README.md](README.md), "Status".
 
 LibreEcho keeps Echo hardware that people already own useful, repairable and private. The
@@ -711,13 +712,26 @@ with OTA v0.2.24 confirmed on slot a and the owner's wake and Home Assistant tim
 
 ### Phase 7: product integration and production tooling
 
+Audit 2026-11-23: every local branch of the nine forks, `private/lab/`, `private/artifacts/`
+and the OMP sessions of 2026-11-20 to 11-23 were checked against this list. Status notes under
+each item record the result.
+
 - [x] Rebase every repository onto its current upstream main (LibreEcho 0.14.6) and split
       our commits into the Phase 8 branches: general fixes that help the MT8163 targets on
       their own branch from upstream main, Lidar work stacked on top. Drop debug-only
       commits; turn experiment branches into `archive/...` tags, as upstream does. Record
-      each new base and branch head in `experiments/phase-07/`.
+      each new base and branch head in `private/lab/phase-07/`.
       Done 2026-11-22: Platform, UI and the kernel rebased in the forks under
-      `private/forks/` (`private/lab/phase-07/{platform,ui,kernel}-rebase.md`); no push.
+      `private/forks/` (`private/lab/phase-07/{platform,ui,kernel}-rebase.md`).
+      Product and web installer, 2026-11-23: `LibreEcho` `main` and `feature/lidar-support`
+      fast-forwarded from `4f54459` (tagged `archive/product-0.14.5`) to upstream `main`
+      `bc167529`, the same base Platform uses; `LibreEcho-Installer-Web` was already at
+      upstream `main` `c7cac7c`. Neither repo had commits of ours, and no general-fix branch
+      was needed (`private/lab/phase-07/{product,installer-web}-rebase.md`).
+      Pushes: Platform `feature/lidar-support` (`326072055`) and its general-fix branch were
+      pushed to the owner's fork on 2026-11-23. The UI (`470eb36` vs local `715dd4f`) and
+      Linux (`89b7f3f` vs local `23f3c33`) remotes are behind local. The rebase records'
+      "not pushed" notes are stale.
 - [x] Create the `libreecho-lidar-port` docs repository and publish it under the owner's
       GitHub account. Done 2026-11-23: the workspace root is that repository. Only
       material that passes the "Safety and evidence rules" goes in: no dumps, microphone
@@ -726,27 +740,176 @@ with OTA v0.2.24 confirmed on slot a and the owner's wake and Home Assistant tim
       (SCRUB.md lists the placeholder forms, such as `/workspace/libreecho` and
       `/home/build`) before any commit; a pre-commit
       hook blocks `private/` paths and scanner hits.
-- [ ] Delete superseded build outputs under `artifacts/` only after the owner confirms the
-      list. Keep current build inputs, the installed image and OTA, the lab key and every
-      stock backup.
-- [ ] Add `release/targets/lidar.json` with `soc` `mt8167`, `arch` `arm64`, and
+- [x] Delete superseded build outputs under `private/artifacts/` only after the owner
+      confirms the list. Keep current build inputs, the installed image and OTA, the lab key
+      and every stock backup.
+      Done 2026-11-22: owner-approved, 1.3 GB (`private/lab/phase-07/artifact-cleanup.md`).
+      The current listing matches the record; the keep-list is intact.
+- [x] Add `release/targets/lidar.json` with `soc` `mt8167`, `arch` `arm64`, and
       `hardware_accepted` `false`.
+      Done 2026-11-23 in `LibreEcho` `feature/lidar-support` `257404952` (local, not
+      pushed): userspace stays `armv7`, `layout_profiles` `kaeru`, defconfig
+      `mt8167_arm64_defconfig`, DTB `libreecho-lidar.dtb`. `validate-targets.py --targets
+      lidar` passes (`private/lab/phase-07/target-generalization.md`).
 - [ ] Generalize the target schema, registries, build, release, and OTA validators instead
       of skipping them.
-- [ ] Extend the existing installer identity, payload pin, geometry, state, and readback
+      Code done 2026-11-24 in `LibreEcho` `feature/lidar-support` (local, not pushed):
+      `eefd5989` generalizes schema, registry, OTA v2/v3, manifest, release and signing
+      tools from the descriptor; stable releases refuse a target without
+      `hardware_accepted`; Radar and Biscuit digests, names and kernel cache key are
+      unchanged. `737cb90` adds a pinned aarch64 cross (33 noble packages,
+      `build/inputs/aarch64-cross-toolchain.lock.json`) and an MT8167 branch for the
+      MT8163-only `build.sh` checks. A local kernel build with the pinned toolchain gave
+      `Image` `1d81b03f…81fd7` and `libreecho-lidar.dtb` `a8e19573…d5bc7`
+      (`private/lab/phase-07/arm64-ci-toolchain.md`).
+      Open until a hosted run: the workflow has not executed and `build.sh` was only
+      syntax-checked end to end. The hosted run cannot use our branches yet:
+      `build-release.yml:208-210` accepts dispatch only from `main` or `release/*`, and the
+      Platform, UI and Linux sources are pinned to upstream (`:239-241`, `:277`, `:380`,
+      `:683-710`). Owner decision (2026-11-24): hosted CI waits until after the branch
+      cleanup.
+      Kernel cache finding (2026-11-24): the key includes the whole target list
+      (`build-release.yml:1210-1214`), so separate runs cannot share a kernel. The defect is
+      that one run builds a single kernel from the first target (`build/build.sh:393-395`)
+      and uses it for every target, while `build/ci/validate-targets.py:12` accepts
+      `radar_puffin,lidar` (arm32 and arm64). Owner decision: refuse a target set whose
+      kernel build inputs (arch, defconfig, compiler) differ, so a mixed release runs once
+      per kernel group; update the mixed example in `docs/porting/README.md:383`. Not
+      implemented yet; it follows the branch cleanup.
+- [x] Extend the existing installer identity, payload pin, geometry, state, and readback
       gates for Lidar.
+      Done 2026-11-24, local, not pushed. CLI: `LibreEcho` `7f0d5c6`; web:
+      `LibreEcho-Installer-Web` `3e189f57`. Both read
+      `private/lab/phase-07/installer-lidar-contract.json`: product `LIDAR`, an
+      "already converted" pin rule (Kaeru fastboot required, no boot-chain or expdb write),
+      userdata 9647071 sectors, `boot_a`/`boot_b` readback, arm64 v3 OTA plan. Tests:
+      `tools.test_release_tools` 115 OK, `build/tests` 375 OK, installer publication 42 OK
+      (after `17ed788`), web `node --test` 392 pass. Mocked device responses only; no
+      hardware run. A web install cannot finish yet: no Lidar recovery route, no
+      `lidar-v*` tag, and no release producer emits the empty Amonet record.
 - [ ] Preserve the installer's current backup behavior and userdata-only format.
+      Partly done 2026-11-24, local commits, not pushed. Both installers keep the
+      userdata-only format and take no backups. Tests show the Lidar path writes only
+      `userdata`, `boot_a` and `boot_b` (`LibreEcho` `b74cfd9`; web `fef736c`). The Lidar
+      backup set is defined as data with a size and sha256 verifier, and has no device I/O
+      (Platform `55941f9d0`, `tools/mt8167-arm64/lidar_backup_set.py`;
+      `private/lab/phase-07/lidar-backup-set.md`). Open: the preparation command that reads
+      these areas from the device does not exist yet.
 - [ ] Never write expdb after Kaeru installation.
+      Partly done 2026-11-24, local commits, not pushed. Both installers read `expdb[0:16]`
+      with Kaeru's `fetch:expdb:0:16` and refuse every flash write unless it starts with
+      the MTK magic `88 16 88 58` (rule: Platform `AGENTS.md:84-88`). Platform
+      `82958b7320` (`install/expdb_guard.py`, `lidar_install.py`, 31 tests OK) and
+      `LibreEcho` `9631fee` + `ca80410` (`tools.test_release_tools` 120 OK, installer
+      publication 42 OK). expdb is still refused by name. Open: no hardware read yet, and
+      the preparation command must call `check_expdb_prefix` before its boot0/LK writes
+      (`private/lab/phase-07/expdb-guard.md`).
 - [ ] Replace the experimental mtkclient and reference steps with reviewed production
       scripts that use licensed components and source-built chain stages.
+      In progress 2026-11-24. Platform `83e9caae7` (local, not pushed) adds
+      `tools/mt8167-arm64/prepare/lidar_prepare.py`, which runs identify, backup, same-byte
+      drill, stock-boot check, chain install and fastboot confirm, all through one
+      mtkclient adapter. The preloader comes from the verified backup's boot0 and must
+      match the reviewed 2019 digest. Kaeru and Koboreru are source-built inputs with pinned
+      digests; the reference ZIP is not used. The `gpt_backup` offset is computed. The
+      command refuses without a verified backup and drill report, never writes BOOT1, and
+      checks expdb before the tee1 and boot0 writes. 31 host tests OK; dry-run transcript
+      in `private/lab/phase-07/prep-command-dryrun.txt`. Not run on hardware. Six steps
+      remain, each needing separate approval: identify, backup, drill, stock boot,
+      install, confirm (`private/lab/phase-07/prep-command.md`).
 - [ ] Lidar Thread service (owner decision, 2026-11-21, moved from Phase 6): upload the RCP
       through the EFR32 bootloader when needed and run a host Thread stack on `ttyS2`. Our
       RCP GBL links Silicon Labs code under the MSLA (`gsdk/License.txt:1-12`), so it stays a
       local-only payload and no image or bundle carrying it is published. Choose Thread or
       Zigbee per unit, because the radio runs one firmware at a time.
+      Host side done 2026-11-24 (local commits, not pushed); on-device run deferred by the
+      owner until a second unit arrives. Platform `ca8c09f18`, `3617d6650`, `02ef8ad6a`:
+      `lidar-efr32` (bootloader, XMODEM upload, Spinel version check) and the
+      `libreecho-threadd` init service (uploads only when the RCP does not answer).
+      Platform `40bf6f0b69` turns the border agent on (owner decision 2026-11-24): static
+      ARMv7 `otbr-agent` with `OTBR_BORDER_AGENT=ON` and Avahi mDNS, plus pinned static
+      D-Bus 1.14.10, Avahi 0.8, expat and libdaemon (`otbr/build_otbr_deps.sh`,
+      `SOURCE.lock`). threadd starts dbus-daemon, avahi-daemon, then otbr-agent; it also
+      fixes the otbr-agent call, which passed the radio URL with `-B` (the backbone
+      interface option). The image builder stages the four binaries and their configs for
+      Lidar only and refuses a GBL; both radio tests pass, and the other 11 failures in
+      that file need busybox or qemu on the host and fail the same way at `7011650f9`.
+      `OTBR_REST` is off, so Home Assistant's Thread integration (needed for Matter over
+      Thread) cannot use it yet; UI `947841ea9` labels the option "Thread (OpenThread border
+      router)". UI `81aaae3`: `radio` setting (`thread|zigbee|none`, default `none`),
+      Lidar-only API and control. Product `73508b6`: release check rejects GBL/EFR32
+      firmware. Linux-618 `47feddd6`: uart2 without `uart-has-rtscts`. On-device steps:
+      `private/lab/phase-07/thread-service.md`.
 - [ ] Generate any proprietary donor-derived artifact locally from the owner's dump; never
       distribute it.
-- [ ] Keep Lidar out of the normal web installer until hardware acceptance.
+      Host side done 2026-11-24 (local commits, not pushed); device run deferred. Platform
+      `f9ac5cd9ab`: `prepare/lidar_donor_artifacts.py` builds the preloader and tee1 stages
+      from a verified backup, writing only to ignored local paths, and `lidar_prepare.py`
+      consumes them; `capture_stock_gbls.py` copies the stock Zigbee GBLs from a host
+      rootfs into `local-firmware/`. Product `f449b3f339` + `8e0d52f43c`: release check
+      refuses generator-manifest digests for every target, and MTK/`EMMC_BOOT` headers for
+      Lidar. Synthetic fixtures only; not run against real Radar/Biscuit release assets
+      (`private/lab/phase-07/donor-generator.md`).
+- [x] Keep Lidar out of the normal web installer until hardware acceptance.
+      Done 2026-11-24 in `LibreEcho-Installer-Web` `5b6477e` (local, not pushed). Each
+      profile carries `hardwareAccepted` (Lidar `false`, missing counts as false). An
+      unaccepted board is not listed or offered for a release, and is refused if forced.
+      `node --test` 397 pass, 2 skipped; browser check shows only Radar and Biscuit
+      (`private/lab/phase-07/web-acceptance-gate.md`). The web flag mirrors `lidar.json`
+      by hand; nothing checks that the two agree.
+
+Open items outside this checklist (2026-11-23):
+
+- Lab OTA v0.2.37 built on the host 2026-11-24, not installed
+  (`private/lab/phase-07/ota-v0.2.37.md`), SHA-256 `746d5364…`. It replaces v0.2.35 and
+  v0.2.36: kernel `47feddd6` (thermal plus uart2 fix), Platform `7011650f9` (loudness fix
+  and wake engine operators), UI `29a7a0a` (announce fix, radio setting, wake-word
+  choice, esphomed link fix) and the new wake-word payload. Two sessions built it into
+  the same folder at once; one coherent build remains, 42 checks pass. It predates the
+  Thread border agent commits. The Echo runs v0.2.36, which lacks the uart2, announce and
+  radio fixes.
+- The v0.2.34 install reported FAIL, but the device confirmed the slot
+  (`deploy/v0234/post-polls.log`, `boot_state=confirmed`). The workspace move removed the
+  adb wrapper partway through the check.
+- Announce bug (pink LED, then no audio): the `dechunk()` defect in the notes is gone on
+  the 0.14.6 UI branch (PR #530). Its replacement rejected chunk extensions, which gives
+  the same symptom; fixed in UI `0cc5507` with a regression test. Device check pending
+  (`private/lab/phase-07/announce-bug/notes.md`).
+- Owner decision (2026-11-24): hardware checks for the Phase 7 scripts wait for a second
+  unit. The remaining unchecked items are host-complete and stay open only for their
+  device runs and the hosted CI run.
+- Branch cleanup done 2026-11-24 (owner decision of the same day: one topic per change,
+  topics on current upstream, a rebuilt integration branch, no `private/lab/...`
+  citations in fork code). Each fork's topics, old-to-new commit table and moves are in
+  `private/lab/phase-07/branch-audit-2026-11-24/<Repo>.md`. Every old head has a
+  `backup/2026-11-24/<branch>` tag; `verify-no-lost-commits.py` shows every old commit
+  on a topic, patch-equivalent upstream, or under an archive tag. The integration branch is
+  rebuilt by `tools/integrate.py` from `integration.json`, and `tools/lab-build.py` builds a
+  lab OTA from it. Open:
+  - Owner runs `private/lab/phase-07/cleanup-2026-11-24/finish-cleanup.sh`, which checks
+    again and then deletes the 22 superseded branches and four stashes (patches kept
+    next to it).
+  - Force-pushes needed: Platform and UI `feature/lidar-support` now differ from the fork
+    copies; Linux has new topics (`fix/general-fixes-from-lidar-port`,
+    `feature/lidar-support`); kaeru `feature/lidar-support` is rebased. LibreEcho still
+    needs the `workflow` token scope (`gh auth refresh -s workflow`).
+  - The Linux 6.18 `feature/lidar-support` kernel has not booted on hardware. It drops the
+    proc NULL-mm commit (upstream 6.18 reverted it) and adds `libreecho,mono-left`
+    compared with `47feddd6` on the device.
+  - `feature/lidar-support-6.1` is kept for a later 6.1 PR; its base is not checked
+    against current upstream 6.1.
+- Pushed to the owner's forks before the cleanup (2026-11-24): Installer-Web
+  `feature/lidar-support` `5b6477e`, Platform and UI `feature/lidar-support-0.14.6`
+  (`7011650f9`, `29a7a0a`), Linux-618 `fix/lidar-port-identity` `47feddd6`.
+- Owner decisions (2026-11-23):
+  - The gate's step 4 means the product installer `tools/libreecho-install.py` (and the web
+    installer) extended for Lidar; Platform's `lidar_install.py` stays as the
+    device-side tool underneath.
+  - "Source-built chain stages" means Kaeru and Koboreru built from source, with the stock
+    signed preloader taken from the owner's own dump. This needs a hardware proof of the
+    source-built Kaeru and Koboreru (install, power-cycle, readback), each step approved.
+  - Rebase the product repo `LibreEcho` and `LibreEcho-Installer-Web` onto 0.14.6 before
+    the schema, validator and installer work.
 
 Desired final user flow (target design, not current behavior):
 
@@ -754,10 +917,12 @@ Desired final user flow (target design, not current behavior):
 2. Hold the action button and apply power to enter BROM.
 3. Run the reviewed Lidar preparation command. It takes the backups, performs the pre-install
    restore drill and stock-boot check, installs the owner-access chain, and confirms fastboot.
-4. Run the normal LibreEcho installer with `--target lidar`.
+4. Run the normal LibreEcho installer (`tools/libreecho-install.py`) with `--target lidar`.
 5. Validate and confirm the installation.
 
-No manual offsets, no eMMC short, and no reference ZIP step appear in this path.
+No manual offsets, no eMMC short, and no reference ZIP step appear in this path. The eMMC
+short was never used. The manual `gpt_backup` offset and the reference-ZIP chain binaries
+are still part of today's install.
 
 Gate: the documented one-command path works end to end on the device with
 `hardware_accepted` still `false`.
@@ -773,16 +938,22 @@ Gate: the documented one-command path works end to end on the device with
 - [ ] Complete real-hardware acceptance for the full checklist below.
 - [ ] After user approval, open the PR stack below (owner decision, 2026-11-22). A
       general-fix PR exists only so those fixes reach MT8163 owners without waiting for
-      Lidar; otherwise each repository gets one PR.
+      Lidar, and wake-word model support gets its own PRs (owner decision, 2026-11-24);
+      otherwise each repository gets one PR. Branch heads and merge order are in
+      [integration.json](integration.json).
 
       | Repository | Branch → base | Merged first |
       | --- | --- | --- |
-      | LibreEcho-Linux | `feature/lidar-support-on-upstream` → maintainer's `feature/linux-6.18` (his 6.18 port on v6.18.57; owner decision 2026-11-22): DTS, drivers with provenance notes, defconfig, `lidar` target row | maintainer's 6.18 branch |
+      | LibreEcho-Linux | `fix/general-fixes-from-lidar-port` → maintainer's `feature/linux-6.18`: TLV320AIC32x4 divide-by-zero and cfg80211 out-of-bounds fixes | maintainer's 6.18 branch |
+      | LibreEcho-Linux | `feature/lidar-support` → Linux general fixes: DTS, drivers with provenance notes, defconfig, `lidar` target row | Linux general fixes |
       | LibreEcho-Linux | `feature/lidar-support-6.1` → maintainer's 6.1 line: the 6.1 ported series | maintainer's 6.1 branch |
       | LibreEcho-UI | `fix/general-fixes-from-lidar-port` → `main` | none |
-      | LibreEcho-UI | `feature/lidar-support-0.14.6` → UI general fixes | UI general fixes |
+      | LibreEcho-UI | `feat/wake-word-selection` → `main` | none |
+      | LibreEcho-UI | `feature/lidar-support` → UI general fixes | UI general fixes |
       | LibreEcho-Platform | `fix/general-fixes-from-lidar-port` → `main` | none |
-      | LibreEcho-Platform | `feature/lidar-support-0.14.6` → Platform general fixes | Platform general fixes, Linux and UI Lidar PRs |
+      | LibreEcho-Platform | `feat/wake-layernorm-ops` → `main` | none |
+      | LibreEcho-Platform | `feature/lidar-support` → Platform general fixes | Platform general fixes, Linux and UI Lidar PRs |
+      | LibreEcho | `feat/wakeword-convert` → `main` | Platform wake-ops PR |
       | LibreEcho | `feature/lidar-support` → `main`: `lidar.json`, schema and validator generalization | Platform Lidar PR |
       | LibreEcho-Installer-Web | `feature/lidar-support` → `main` | Product PR and hardware acceptance |
 - [ ] Give each PR evidence that distinguishes host, CI, image, and hardware tests.
