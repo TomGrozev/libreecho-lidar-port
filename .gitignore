@@ -1,2 +1,6 @@
 # Private lab: forks, raw notes, builds, device dumps, keys. Never published.
 /private/
+
+# Local tool artifacts.
+__pycache__/
+/.codebase-memory/

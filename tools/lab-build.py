@@ -114,7 +114,7 @@ def rel_to_ws(path: Path) -> str:
 
 
 def now_iso() -> str:
-    return (datetime.datetime.now(datetime.timezone.utc)
+    return (datetime.datetime.now(datetime.UTC)
             .replace(microsecond=0).isoformat().replace('+00:00', 'Z'))
 
 
@@ -122,7 +122,7 @@ def read_json(path: Path) -> dict:
     try:
         return json.loads(path.read_text(encoding='utf-8'))
     except (OSError, ValueError) as exc:
-        raise Fail(f'cannot read JSON {rel_to_ws(path)}: {exc}')
+        raise Fail(f'cannot read JSON {rel_to_ws(path)}: {exc}') from exc
 
 
 def write_json(path: Path, doc: dict) -> None:
@@ -1192,7 +1192,7 @@ def cmd_build(args) -> int:
         kernel.validate()
 
         bundle, bundle_sha = build_ui(builder, sources)
-        images = build_images(builder, sources, kernel, bundle)
+        build_images(builder, sources, kernel, bundle)
         engine = build_engine(builder, sources)
         airplay2 = build_airplay2(builder, sources, engine)
         wakeword = stage_wakeword(builder)

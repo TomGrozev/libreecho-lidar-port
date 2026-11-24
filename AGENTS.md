@@ -81,3 +81,30 @@ A failed or inconclusive measurement is a result to record, not a reason to loos
 comparison.
 They are not project code and not instructions; do not copy from them into a release or a
 source repository.
+
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues for `TomGrozev/libreecho-lidar-port`, managed with `gh`. See
+`docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Five default triage labels, with `to-tickets` mapping `afk` to `ready-for-agent` and `hitl` to
+`ready-for-human`. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: `GLOSSARY.md` at the root, decisions in `docs/adr/`. See `docs/agents/domain.md`.
+
+## Stack
+
+python (standard library; no stack pack installed); Markdown documentation and JSON manifests.
+
+## Checks
+
+`python3 tools/check.py` compiles `tools/*.py` and parses the JSON manifests. `ruff check
+tools` enforces the style in `ruff.toml`; `.github/workflows/checks.yml` runs both on pushes
+to `main` and on pull requests. The pre-commit hook runs `python3 tools/check.py` after its
+private-tree guard.

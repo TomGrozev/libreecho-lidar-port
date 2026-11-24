@@ -56,9 +56,9 @@ def load_json(path):
         with open(path, encoding="utf-8") as fh:
             return json.load(fh)
     except FileNotFoundError:
-        raise Fail(f"missing file: {path}")
+        raise Fail(f"missing file: {path}") from None
     except json.JSONDecodeError as exc:
-        raise Fail(f"invalid JSON in {path}: {exc}")
+        raise Fail(f"invalid JSON in {path}: {exc}") from exc
 
 
 def git(repo, *args, check=True):
@@ -66,8 +66,7 @@ def git(repo, *args, check=True):
     proc = subprocess.run(
         ["git", "-C", str(repo), *args],
         text=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
+        capture_output=True,
     )
     if check and proc.returncode != 0:
         detail = proc.stderr.strip() or proc.stdout.strip() or f"exit {proc.returncode}"
@@ -317,7 +316,6 @@ def merge_in_progress(ip):
 
 
 def rebuild_repo(ws, repo, do_fetch):
-    name = repo["name"]
     repo_dir = ws / repo["path"]
     base = repo["base"]
     remote = base_remote(repo_dir, base)
@@ -457,7 +455,7 @@ def write_lock(ws, manifest, rebuilt, manifest_path):
     ordered = {name: entries[name] for name in by_name if name in entries}
     doc = {
         "schema_version": SCHEMA_VERSION,
-        "generated": datetime.datetime.now(datetime.timezone.utc)
+        "generated": datetime.datetime.now(datetime.UTC)
         .replace(microsecond=0)
         .isoformat()
         .replace("+00:00", "Z"),
