@@ -1,0 +1,25 @@
+# <repo> <branch>: local branches the owner deletes with `git branch -D`.
+# Every commit on them is on a topic branch, an archive/* tag or a backup/2026-11-24/* tag;
+# verify-no-lost-commits.py --deletes owner-deletes.txt proves it before deletion.
+LibreEcho-Platform feature/lidar-wake-ops
+LibreEcho-Platform fix/reconcile-topology-nonfatal
+LibreEcho-Platform fix/sendspin-media-status
+LibreEcho-Platform fix/lidar-efr32-nodes
+LibreEcho-Platform trial-integration
+LibreEcho-UI feature/lidar-support-0.14.6
+LibreEcho-UI fix/lidar-port-identity
+LibreEcho-UI trial/integration
+LibreEcho-Linux experiment/lidar-console-wdt
+LibreEcho-Linux experiment/lidar-lk-slot-source
+LibreEcho-Linux experiment/lidar-usb-upstream-glue
+LibreEcho-Linux experiment/lidar-wdt-fetch-diag
+LibreEcho-Linux feature/6.18-lts-line
+LibreEcho-Linux feature/lidar-6.18-audio
+LibreEcho-Linux feature/lidar-6.18-mt7668
+LibreEcho-Linux feature/lidar-6.18
+LibreEcho-Linux feature/lidar-support-on-upstream
+LibreEcho-Linux fix/lidar-6.18-boot
+LibreEcho-Linux fix/lidar-6.18-volume
+LibreEcho-Linux fix/lidar-port-identity
+LibreEcho-Linux linux-6.18
+LibreEcho-Linux retired/lidar-support-pre-rebase

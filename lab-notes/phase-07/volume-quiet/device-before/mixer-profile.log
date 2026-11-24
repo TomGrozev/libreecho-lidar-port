@@ -1,0 +1,306 @@
+== slot
+b
+== tinymix c0 contents
+Number of controls: 274
+ctl	type	num	name                                    	device	value
+0	BOOL	1	O03 I05 Switch                          	0On
+1	BOOL	1	O04 I06 Switch                          	0On
+2	BOOL	1	O05 I05 Switch                          	0On
+3	BOOL	1	O06 I06 Switch                          	0On
+4	BOOL	1	MFP4 GPIO                               	0On
+5	BOOL	1	MFP5 GPIO                               	0Off
+6	INT	2	PCM Playback Volume                     	0127, 127 (range 0->175)
+7	BYTE	90	DAC Biquad Coefficients                 	07f, ff, ff, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 7f, ff, ff, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 7f, ff, ff, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 7f, ff, ff, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 7f, ff, ff, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 7f, ff, ff, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00
+8	BOOL	1	DAC Mono Mix Switch                     	0Off
+9	ENUM	1	DAC Left Playback PowerTune Switch      	0> P3, P2, P1, 
+10	ENUM	1	DAC Right Playback PowerTune Switch     	0> P3, P2, P1, 
+11	INT	2	HP Driver Gain Volume                   	06, 6 (range 0->35)
+12	INT	2	LO Driver Gain Volume                   	00, 0 (range 0->35)
+13	BOOL	2	HP DAC Playback Switch                  	0Off, Off
+14	BOOL	2	LO DAC Playback Switch                  	0Off, Off
+15	ENUM	1	LO Playback Common Mode Switch          	0> Full Chip, 1.65V, 
+16	BOOL	2	Mic PGA Switch                          	0Off, Off
+17	BOOL	1	ADCFGA Left Mute Switch                 	0On
+18	BOOL	1	ADCFGA Right Mute Switch                	0On
+19	INT	2	ADC Level Volume                        	024, 24 (range 0->64)
+20	INT	2	PGA Level Volume                        	00, 0 (range 0->95)
+21	INT	1	Auto-mute Switch                        	00 (range 0->7)
+22	BOOL	1	AGC Left Switch                         	0Off
+23	BOOL	1	AGC Right Switch                        	0Off
+24	INT	2	AGC Target Level                        	00, 0 (range 0->7)
+25	INT	2	AGC Gain Hysteresis                     	00, 0 (range 0->3)
+26	INT	2	AGC Hysteresis                          	00, 0 (range 0->3)
+27	INT	2	AGC Noise Threshold                     	00, 0 (range 0->31)
+28	INT	2	AGC Max PGA                             	0127, 127 (range 0->127)
+29	INT	2	AGC Attack Time                         	00, 0 (range 0->31)
+30	INT	2	AGC Decay Time                          	00, 0 (range 0->31)
+31	INT	2	AGC Noise Debounce                      	00, 0 (range 0->31)
+32	INT	2	AGC Signal Debounce                     	00, 0 (range 0->15)
+33	INT	2	ADC1 PGA Capture Volume                 	052, 52 (range 0->80)
+34	BOOL	2	ADC1 PGA Capture Switch                 	0On, On
+35	BOOL	2	ADC1 AGC Capture Switch                 	0Off, Off
+36	INT	2	ADC1 AGC Target Level Capture Volume    	07, 7 (range 0->7)
+37	INT	2	ADC1 AGC Noise Threshold Capture Volume 	031, 31 (range 0->31)
+38	INT	2	ADC1 AGC Hysteresis Capture Volume      	00, 0 (range 0->3)
+39	BOOL	2	ADC1 AGC Clip Stepping Capture Switch   	0Off, Off
+40	INT	2	ADC1 AGC Maximum Capture Volume         	080, 80 (range 0->80)
+41	INT	2	ADC1 AGC Attack Time                    	00, 0 (range 0->31)
+42	ENUM	1	ADC1 AGC Left Attack Time Multiplier    	0> 1, 2, 4, 8, 16, 32, 64, 128, 
+43	ENUM	1	ADC1 AGC Right Attack Time Multiplier   	0> 1, 2, 4, 8, 16, 32, 64, 128, 
+44	INT	2	ADC1 AGC Decay Time                     	00, 0 (range 0->31)
+45	ENUM	1	ADC1 AGC Left Decay Time Multiplier     	0> 1, 2, 4, 8, 16, 32, 64, 128, 
+46	ENUM	1	ADC1 AGC Right Decay Time Multiplier    	0> 1, 2, 4, 8, 16, 32, 64, 128, 
+47	INT	2	ADC1 AGC Noise Debounce                 	00, 0 (range 0->31)
+48	INT	2	ADC1 AGC Signal Debounce                	00, 0 (range 0->15)
+49	INT	2	ADC1 AGC Applied Capture Volume         	024, 24 (range 0->64)
+50	ENUM	1	ADC1 ADC Soft Stepping                  	0> 1 step, 2 step, off, 
+51	INT	1	ADC1 Left Input IN_1L Capture Volume    	00 (range 0->1)
+52	INT	1	ADC1 Left Input IN_2L Capture Volume    	00 (range 0->1)
+53	INT	1	ADC1 Left Input IN_3L Capture Volume    	00 (range 0->1)
+54	INT	1	ADC1 Left Input IN_1R Capture Volume    	00 (range 0->1)
+55	INT	1	ADC1 Left Input DIF_2L_3L Capture Volume	00 (range 0->1)
+56	INT	1	ADC1 Left Input DIF_1L_1R Capture Volume	00 (range 0->1)
+57	INT	1	ADC1 Left Input DIF_2R_3R Capture Volume	00 (range 0->1)
+58	INT	1	ADC1 Right Input IN_1R Capture Volume   	00 (range 0->1)
+59	INT	1	ADC1 Right Input IN_2R Capture Volume   	00 (range 0->1)
+60	INT	1	ADC1 Right Input IN_3R Capture Volume   	00 (range 0->1)
+61	INT	1	ADC1 Right Input IN_1L Capture Volume   	00 (range 0->1)
+62	INT	1	ADC1 Right Input DIF_2R_3R Capture Volume	00 (range 0->1)
+63	INT	1	ADC1 Right Input DIF_1L_1R Capture Volume	00 (range 0->1)
+64	INT	1	ADC1 Right Input DIF_2L_3L Capture Volume	00 (range 0->1)
+65	INT	2	ADC1 ADC Volume Control Capture Volume  	024, 24 (range 0->64)
+66	INT	2	ADC1 ADC Fine Volume Control Capture Volume	04, 4 (range 0->4)
+67	BOOL	1	ADC1 Left ADC Unselected CM Bias Capture Sw	0Off
+68	BOOL	1	ADC1 Right ADC Unselected CM Bias Capture S	0Off
+69	ENUM	2	ADC1 Dither Control DC Offset           	0> 0mV, 15mV, 30mV, 45mV, 60mV, 75mV, 90mV, 105mV, -15mV, -30mV, -45mV, -60mV, -75mV, -90mV, -105mV, , > 0mV, 15mV, 30mV, 45mV, 60mV, 75mV, 90mV, 105mV, -15mV, -30mV, -45mV, -60mV, -75mV, -90mV, -105mV, 
+70	INT	3	ADC1 Left ADC IIR Coefficients N0 N1 D1 	00, 0, 0 (range 0->65535)
+71	INT	3	ADC1 Right ADC IIR Coefficients N0 N1 D1	00, 0, 0 (range 0->65535)
+72	INT	2	ADC2 PGA Capture Volume                 	052, 52 (range 0->80)
+73	BOOL	2	ADC2 PGA Capture Switch                 	0On, On
+74	BOOL	2	ADC2 AGC Capture Switch                 	0Off, Off
+75	INT	2	ADC2 AGC Target Level Capture Volume    	07, 7 (range 0->7)
+76	INT	2	ADC2 AGC Noise Threshold Capture Volume 	031, 31 (range 0->31)
+77	INT	2	ADC2 AGC Hysteresis Capture Volume      	00, 0 (range 0->3)
+78	BOOL	2	ADC2 AGC Clip Stepping Capture Switch   	0Off, Off
+79	INT	2	ADC2 AGC Maximum Capture Volume         	080, 80 (range 0->80)
+80	INT	2	ADC2 AGC Attack Time                    	00, 0 (range 0->31)
+81	ENUM	1	ADC2 AGC Left Attack Time Multiplier    	0> 1, 2, 4, 8, 16, 32, 64, 128, 
+82	ENUM	1	ADC2 AGC Right Attack Time Multiplier   	0> 1, 2, 4, 8, 16, 32, 64, 128, 
+83	INT	2	ADC2 AGC Decay Time                     	00, 0 (range 0->31)
+84	ENUM	1	ADC2 AGC Left Decay Time Multiplier     	0> 1, 2, 4, 8, 16, 32, 64, 128, 
+85	ENUM	1	ADC2 AGC Right Decay Time Multiplier    	0> 1, 2, 4, 8, 16, 32, 64, 128, 
+86	INT	2	ADC2 AGC Noise Debounce                 	00, 0 (range 0->31)
+87	INT	2	ADC2 AGC Signal Debounce                	00, 0 (range 0->15)
+88	INT	2	ADC2 AGC Applied Capture Volume         	024, 24 (range 0->64)
+89	ENUM	1	ADC2 ADC Soft Stepping                  	0> 1 step, 2 step, off, 
+90	INT	1	ADC2 Left Input IN_1L Capture Volume    	00 (range 0->1)
+91	INT	1	ADC2 Left Input IN_2L Capture Volume    	00 (range 0->1)
+92	INT	1	ADC2 Left Input IN_3L Capture Volume    	00 (range 0->1)
+93	INT	1	ADC2 Left Input IN_1R Capture Volume    	00 (range 0->1)
+94	INT	1	ADC2 Left Input DIF_2L_3L Capture Volume	00 (range 0->1)
+95	INT	1	ADC2 Left Input DIF_1L_1R Capture Volume	00 (range 0->1)
+96	INT	1	ADC2 Left Input DIF_2R_3R Capture Volume	00 (range 0->1)
+97	INT	1	ADC2 Right Input IN_1R Capture Volume   	00 (range 0->1)
+98	INT	1	ADC2 Right Input IN_2R Capture Volume   	00 (range 0->1)
+99	INT	1	ADC2 Right Input IN_3R Capture Volume   	00 (range 0->1)
+100	INT	1	ADC2 Right Input IN_1L Capture Volume   	00 (range 0->1)
+101	INT	1	ADC2 Right Input DIF_2R_3R Capture Volume	00 (range 0->1)
+102	INT	1	ADC2 Right Input DIF_1L_1R Capture Volume	00 (range 0->1)
+103	INT	1	ADC2 Right Input DIF_2L_3L Capture Volume	00 (range 0->1)
+104	INT	2	ADC2 ADC Volume Control Capture Volume  	024, 24 (range 0->64)
+105	INT	2	ADC2 ADC Fine Volume Control Capture Volume	04, 4 (range 0->4)
+106	BOOL	1	ADC2 Left ADC Unselected CM Bias Capture Sw	0Off
+107	BOOL	1	ADC2 Right ADC Unselected CM Bias Capture S	0Off
+108	ENUM	2	ADC2 Dither Control DC Offset           	0> 0mV, 15mV, 30mV, 45mV, 60mV, 75mV, 90mV, 105mV, -15mV, -30mV, -45mV, -60mV, -75mV, -90mV, -105mV, , > 0mV, 15mV, 30mV, 45mV, 60mV, 75mV, 90mV, 105mV, -15mV, -30mV, -45mV, -60mV, -75mV, -90mV, -105mV, 
+109	INT	3	ADC2 Left ADC IIR Coefficients N0 N1 D1 	00, 0, 0 (range 0->65535)
+110	INT	3	ADC2 Right ADC IIR Coefficients N0 N1 D1	00, 0, 0 (range 0->65535)
+111	INT	2	ADC3 PGA Capture Volume                 	052, 52 (range 0->80)
+112	BOOL	2	ADC3 PGA Capture Switch                 	0On, On
+113	BOOL	2	ADC3 AGC Capture Switch                 	0Off, Off
+114	INT	2	ADC3 AGC Target Level Capture Volume    	07, 7 (range 0->7)
+115	INT	2	ADC3 AGC Noise Threshold Capture Volume 	031, 31 (range 0->31)
+116	INT	2	ADC3 AGC Hysteresis Capture Volume      	00, 0 (range 0->3)
+117	BOOL	2	ADC3 AGC Clip Stepping Capture Switch   	0Off, Off
+118	INT	2	ADC3 AGC Maximum Capture Volume         	080, 80 (range 0->80)
+119	INT	2	ADC3 AGC Attack Time                    	00, 0 (range 0->31)
+120	ENUM	1	ADC3 AGC Left Attack Time Multiplier    	0> 1, 2, 4, 8, 16, 32, 64, 128, 
+121	ENUM	1	ADC3 AGC Right Attack Time Multiplier   	0> 1, 2, 4, 8, 16, 32, 64, 128, 
+122	INT	2	ADC3 AGC Decay Time                     	00, 0 (range 0->31)
+123	ENUM	1	ADC3 AGC Left Decay Time Multiplier     	0> 1, 2, 4, 8, 16, 32, 64, 128, 
+124	ENUM	1	ADC3 AGC Right Decay Time Multiplier    	0> 1, 2, 4, 8, 16, 32, 64, 128, 
+125	INT	2	ADC3 AGC Noise Debounce                 	00, 0 (range 0->31)
+126	INT	2	ADC3 AGC Signal Debounce                	00, 0 (range 0->15)
+127	INT	2	ADC3 AGC Applied Capture Volume         	024, 24 (range 0->64)
+128	ENUM	1	ADC3 ADC Soft Stepping                  	0> 1 step, 2 step, off, 
+129	INT	1	ADC3 Left Input IN_1L Capture Volume    	00 (range 0->1)
+130	INT	1	ADC3 Left Input IN_2L Capture Volume    	00 (range 0->1)
+131	INT	1	ADC3 Left Input IN_3L Capture Volume    	00 (range 0->1)
+132	INT	1	ADC3 Left Input IN_1R Capture Volume    	00 (range 0->1)
+133	INT	1	ADC3 Left Input DIF_2L_3L Capture Volume	00 (range 0->1)
+134	INT	1	ADC3 Left Input DIF_1L_1R Capture Volume	00 (range 0->1)
+135	INT	1	ADC3 Left Input DIF_2R_3R Capture Volume	00 (range 0->1)
+136	INT	1	ADC3 Right Input IN_1R Capture Volume   	00 (range 0->1)
+137	INT	1	ADC3 Right Input IN_2R Capture Volume   	00 (range 0->1)
+138	INT	1	ADC3 Right Input IN_3R Capture Volume   	00 (range 0->1)
+139	INT	1	ADC3 Right Input IN_1L Capture Volume   	00 (range 0->1)
+140	INT	1	ADC3 Right Input DIF_2R_3R Capture Volume	00 (range 0->1)
+141	INT	1	ADC3 Right Input DIF_1L_1R Capture Volume	00 (range 0->1)
+142	INT	1	ADC3 Right Input DIF_2L_3L Capture Volume	00 (range 0->1)
+143	INT	2	ADC3 ADC Volume Control Capture Volume  	024, 24 (range 0->64)
+144	INT	2	ADC3 ADC Fine Volume Control Capture Volume	04, 4 (range 0->4)
+145	BOOL	1	ADC3 Left ADC Unselected CM Bias Capture Sw	0Off
+146	BOOL	1	ADC3 Right ADC Unselected CM Bias Capture S	0Off
+147	ENUM	2	ADC3 Dither Control DC Offset           	0> 0mV, 15mV, 30mV, 45mV, 60mV, 75mV, 90mV, 105mV, -15mV, -30mV, -45mV, -60mV, -75mV, -90mV, -105mV, , > 0mV, 15mV, 30mV, 45mV, 60mV, 75mV, 90mV, 105mV, -15mV, -30mV, -45mV, -60mV, -75mV, -90mV, -105mV, 
+148	INT	3	ADC3 Left ADC IIR Coefficients N0 N1 D1 	00, 0, 0 (range 0->65535)
+149	INT	3	ADC3 Right ADC IIR Coefficients N0 N1 D1	00, 0, 0 (range 0->65535)
+150	INT	2	ADC4 PGA Capture Volume                 	052, 52 (range 0->80)
+151	BOOL	2	ADC4 PGA Capture Switch                 	0On, On
+152	BOOL	2	ADC4 AGC Capture Switch                 	0Off, Off
+153	INT	2	ADC4 AGC Target Level Capture Volume    	07, 7 (range 0->7)
+154	INT	2	ADC4 AGC Noise Threshold Capture Volume 	031, 31 (range 0->31)
+155	INT	2	ADC4 AGC Hysteresis Capture Volume      	00, 0 (range 0->3)
+156	BOOL	2	ADC4 AGC Clip Stepping Capture Switch   	0Off, Off
+157	INT	2	ADC4 AGC Maximum Capture Volume         	080, 80 (range 0->80)
+158	INT	2	ADC4 AGC Attack Time                    	00, 0 (range 0->31)
+159	ENUM	1	ADC4 AGC Left Attack Time Multiplier    	0> 1, 2, 4, 8, 16, 32, 64, 128, 
+160	ENUM	1	ADC4 AGC Right Attack Time Multiplier   	0> 1, 2, 4, 8, 16, 32, 64, 128, 
+161	INT	2	ADC4 AGC Decay Time                     	00, 0 (range 0->31)
+162	ENUM	1	ADC4 AGC Left Decay Time Multiplier     	0> 1, 2, 4, 8, 16, 32, 64, 128, 
+163	ENUM	1	ADC4 AGC Right Decay Time Multiplier    	0> 1, 2, 4, 8, 16, 32, 64, 128, 
+164	INT	2	ADC4 AGC Noise Debounce                 	00, 0 (range 0->31)
+165	INT	2	ADC4 AGC Signal Debounce                	00, 0 (range 0->15)
+166	INT	2	ADC4 AGC Applied Capture Volume         	024, 24 (range 0->64)
+167	ENUM	1	ADC4 ADC Soft Stepping                  	0> 1 step, 2 step, off, 
+168	INT	1	ADC4 Left Input IN_1L Capture Volume    	00 (range 0->1)
+169	INT	1	ADC4 Left Input IN_2L Capture Volume    	00 (range 0->1)
+170	INT	1	ADC4 Left Input IN_3L Capture Volume    	00 (range 0->1)
+171	INT	1	ADC4 Left Input IN_1R Capture Volume    	00 (range 0->1)
+172	INT	1	ADC4 Left Input DIF_2L_3L Capture Volume	00 (range 0->1)
+173	INT	1	ADC4 Left Input DIF_1L_1R Capture Volume	00 (range 0->1)
+174	INT	1	ADC4 Left Input DIF_2R_3R Capture Volume	00 (range 0->1)
+175	INT	1	ADC4 Right Input IN_1R Capture Volume   	00 (range 0->1)
+176	INT	1	ADC4 Right Input IN_2R Capture Volume   	00 (range 0->1)
+177	INT	1	ADC4 Right Input IN_3R Capture Volume   	00 (range 0->1)
+178	INT	1	ADC4 Right Input IN_1L Capture Volume   	00 (range 0->1)
+179	INT	1	ADC4 Right Input DIF_2R_3R Capture Volume	00 (range 0->1)
+180	INT	1	ADC4 Right Input DIF_1L_1R Capture Volume	00 (range 0->1)
+181	INT	1	ADC4 Right Input DIF_2L_3L Capture Volume	00 (range 0->1)
+182	INT	2	ADC4 ADC Volume Control Capture Volume  	024, 24 (range 0->64)
+183	INT	2	ADC4 ADC Fine Volume Control Capture Volume	04, 4 (range 0->4)
+184	BOOL	1	ADC4 Left ADC Unselected CM Bias Capture Sw	0Off
+185	BOOL	1	ADC4 Right ADC Unselected CM Bias Capture S	0Off
+186	ENUM	2	ADC4 Dither Control DC Offset           	0> 0mV, 15mV, 30mV, 45mV, 60mV, 75mV, 90mV, 105mV, -15mV, -30mV, -45mV, -60mV, -75mV, -90mV, -105mV, , > 0mV, 15mV, 30mV, 45mV, 60mV, 75mV, 90mV, 105mV, -15mV, -30mV, -45mV, -60mV, -75mV, -90mV, -105mV, 
+187	INT	3	ADC4 Left ADC IIR Coefficients N0 N1 D1 	00, 0, 0 (range 0->65535)
+188	INT	3	ADC4 Right ADC IIR Coefficients N0 N1 D1	00, 0, 0 (range 0->65535)
+189	ENUM	1	Output Route                            	0Speaker, > Line Out, 
+190	BOOL	1	HPL Output Mixer L_DAC Switch           	0Off
+191	BOOL	1	HPL Output Mixer IN1_L Switch           	0Off
+192	BOOL	1	LOL Output Mixer L_DAC Switch           	0On
+193	BOOL	1	HPR Output Mixer R_DAC Switch           	0Off
+194	BOOL	1	HPR Output Mixer IN1_R Switch           	0Off
+195	BOOL	1	LOR Output Mixer R_DAC Switch           	0On
+196	ENUM	1	IN1_R to Right Mixer Positive Resistor  	0> Off, 10 kOhm, 20 kOhm, 40 kOhm, 
+197	ENUM	1	IN2_R to Right Mixer Positive Resistor  	0> Off, 10 kOhm, 20 kOhm, 40 kOhm, 
+198	ENUM	1	IN3_R to Right Mixer Positive Resistor  	0> Off, 10 kOhm, 20 kOhm, 40 kOhm, 
+199	ENUM	1	IN2_L to Right Mixer Positive Resistor  	0> Off, 10 kOhm, 20 kOhm, 40 kOhm, 
+200	ENUM	1	CM_R to Right Mixer Negative Resistor   	0Off, > 10 kOhm, 20 kOhm, 40 kOhm, 
+201	ENUM	1	IN1_L to Right Mixer Negative Resistor  	0> Off, 10 kOhm, 20 kOhm, 40 kOhm, 
+202	ENUM	1	IN3_L to Right Mixer Negative Resistor  	0> Off, 10 kOhm, 20 kOhm, 40 kOhm, 
+203	ENUM	1	IN1_L to Left Mixer Positive Resistor   	0> Off, 10 kOhm, 20 kOhm, 40 kOhm, 
+204	ENUM	1	IN2_L to Left Mixer Positive Resistor   	0> Off, 10 kOhm, 20 kOhm, 40 kOhm, 
+205	ENUM	1	IN3_L to Left Mixer Positive Resistor   	0> Off, 10 kOhm, 20 kOhm, 40 kOhm, 
+206	ENUM	1	IN1_R to Left Mixer Positive Resistor   	0> Off, 10 kOhm, 20 kOhm, 40 kOhm, 
+207	ENUM	1	CM_L to Left Mixer Negative Resistor    	0Off, > 10 kOhm, 20 kOhm, 40 kOhm, 
+208	ENUM	1	IN2_R to Left Mixer Negative Resistor   	0> Off, 10 kOhm, 20 kOhm, 40 kOhm, 
+209	ENUM	1	IN3_R to Left Mixer Negative Resistor   	0> Off, 10 kOhm, 20 kOhm, 40 kOhm, 
+210	BOOL	1	ADC1 Left Input IN_1L Capture Switch    	0Off
+211	BOOL	1	ADC1 Left Input IN_2L Capture Switch    	0Off
+212	BOOL	1	ADC1 Left Input IN_3L Capture Switch    	0Off
+213	BOOL	1	ADC1 Left Input DIF_2L_3L Capture Switch	0On
+214	BOOL	1	ADC1 Left Input DIF_1L_1R Capture Switch	0Off
+215	BOOL	1	ADC1 Left Input DIF_2R_3R Capture Switch	0Off
+216	BOOL	1	ADC1 Left Input IN_1R Capture Switch    	0Off
+217	BOOL	1	ADC1 Right Input IN_1R Capture Switch   	0Off
+218	BOOL	1	ADC1 Right Input IN_2R Capture Switch   	0Off
+219	BOOL	1	ADC1 Right Input IN_3R Capture Switch   	0Off
+220	BOOL	1	ADC1 Right Input DIF_2R_3R Capture Switch	0On
+221	BOOL	1	ADC1 Right Input DIF_1L_1R Capture Switch	0Off
+222	BOOL	1	ADC1 Right Input DIF_2L_3L Capture Switch	0Off
+223	BOOL	1	ADC1 Right Input IN_1L Capture Switch   	0Off
+224	BOOL	1	ADC1 Left DMic Input Left ADC Capture Switc	0Off
+225	BOOL	1	ADC1 Right DMic Input Right ADC Capture Swi	0Off
+226	BOOL	1	ADC2 Left Input IN_1L Capture Switch    	0Off
+227	BOOL	1	ADC2 Left Input IN_2L Capture Switch    	0Off
+228	BOOL	1	ADC2 Left Input IN_3L Capture Switch    	0Off
+229	BOOL	1	ADC2 Left Input DIF_2L_3L Capture Switch	0On
+230	BOOL	1	ADC2 Left Input DIF_1L_1R Capture Switch	0Off
+231	BOOL	1	ADC2 Left Input DIF_2R_3R Capture Switch	0Off
+232	BOOL	1	ADC2 Left Input IN_1R Capture Switch    	0Off
+233	BOOL	1	ADC2 Right Input IN_1R Capture Switch   	0Off
+234	BOOL	1	ADC2 Right Input IN_2R Capture Switch   	0Off
+235	BOOL	1	ADC2 Right Input IN_3R Capture Switch   	0Off
+236	BOOL	1	ADC2 Right Input DIF_2R_3R Capture Switch	0On
+237	BOOL	1	ADC2 Right Input DIF_1L_1R Capture Switch	0Off
+238	BOOL	1	ADC2 Right Input DIF_2L_3L Capture Switch	0Off
+239	BOOL	1	ADC2 Right Input IN_1L Capture Switch   	0Off
+240	BOOL	1	ADC2 Left DMic Input Left ADC Capture Switc	0Off
+241	BOOL	1	ADC2 Right DMic Input Right ADC Capture Swi	0Off
+242	BOOL	1	ADC3 Left Input IN_1L Capture Switch    	0Off
+243	BOOL	1	ADC3 Left Input IN_2L Capture Switch    	0Off
+244	BOOL	1	ADC3 Left Input IN_3L Capture Switch    	0Off
+245	BOOL	1	ADC3 Left Input DIF_2L_3L Capture Switch	0On
+246	BOOL	1	ADC3 Left Input DIF_1L_1R Capture Switch	0Off
+247	BOOL	1	ADC3 Left Input DIF_2R_3R Capture Switch	0Off
+248	BOOL	1	ADC3 Left Input IN_1R Capture Switch    	0Off
+249	BOOL	1	ADC3 Right Input IN_1R Capture Switch   	0Off
+250	BOOL	1	ADC3 Right Input IN_2R Capture Switch   	0Off
+251	BOOL	1	ADC3 Right Input IN_3R Capture Switch   	0Off
+252	BOOL	1	ADC3 Right Input DIF_2R_3R Capture Switch	0On
+253	BOOL	1	ADC3 Right Input DIF_1L_1R Capture Switch	0Off
+254	BOOL	1	ADC3 Right Input DIF_2L_3L Capture Switch	0Off
+255	BOOL	1	ADC3 Right Input IN_1L Capture Switch   	0Off
+256	BOOL	1	ADC3 Left DMic Input Left ADC Capture Switc	0Off
+257	BOOL	1	ADC3 Right DMic Input Right ADC Capture Swi	0Off
+258	BOOL	1	ADC4 Left Input IN_1L Capture Switch    	0Off
+259	BOOL	1	ADC4 Left Input IN_2L Capture Switch    	0Off
+260	BOOL	1	ADC4 Left Input IN_3L Capture Switch    	0Off
+261	BOOL	1	ADC4 Left Input DIF_2L_3L Capture Switch	0On
+262	BOOL	1	ADC4 Left Input DIF_1L_1R Capture Switch	0Off
+263	BOOL	1	ADC4 Left Input DIF_2R_3R Capture Switch	0Off
+264	BOOL	1	ADC4 Left Input IN_1R Capture Switch    	0Off
+265	BOOL	1	ADC4 Right Input IN_1R Capture Switch   	0Off
+266	BOOL	1	ADC4 Right Input IN_2R Capture Switch   	0Off
+267	BOOL	1	ADC4 Right Input IN_3R Capture Switch   	0Off
+268	BOOL	1	ADC4 Right Input DIF_2R_3R Capture Switch	0On
+269	BOOL	1	ADC4 Right Input DIF_1L_1R Capture Switch	0Off
+270	BOOL	1	ADC4 Right Input DIF_2L_3L Capture Switch	0Off
+271	BOOL	1	ADC4 Right Input IN_1L Capture Switch   	0Off
+272	BOOL	1	ADC4 Left DMic Input Left ADC Capture Switc	0Off
+273	BOOL	1	ADC4 Right DMic Input Right ADC Capture Swi	0Off
+== profile
+schema=1
+target_id=lidar
+speaker_chain=lidar
+codec_profile=Flat
+hp_driver_gain=0
+lo_driver_gain=0
+pre_gain_db=0
+bass_makeup_db=0
+playback_card=0
+playback_device=0
+playback_rate=48000
+playback_channels=2
+playback_format=s16_le
+capture_card=0
+capture_device=1
+capture_rate=16000
+capture_channels=8
+capture_format=s32_le
+capture_roles=mic0,mic1,mic2,mic3,mic4,mic5,mic6,line-in
+capture_chain=lidar
+aec_source=separate-pcm
+aec_card=0
+aec_device=2
+aec_rate=48000
+aec_channels=2
+aec_format=s16_le

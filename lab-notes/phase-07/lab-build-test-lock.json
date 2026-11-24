@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "generated": "2026-11-24T00:00:00Z",
+  "manifest_sha256": null,
+  "comment": "Hand-written test lock for tools/lab-build.py: the detached provenance worktrees of v0.2.37 (Platform, UI) and v0.2.35 (Linux). Not written by tools/integrate.py; use with --no-integrate --lock.",
+  "repos": {
+    "LibreEcho-Platform": {
+      "integration_path": "private/artifacts/phase-07/ota-v0.2.37/src/Platform",
+      "base_ref": "origin/main",
+      "base_sha": "37fc39aa6092491bcb5f12b77a8151179ffd122b",
+      "topics": [
+        {"branch": "fix/general-fixes-from-lidar-port", "sha": null},
+        {"branch": "feat/wake-layernorm-ops", "sha": null},
+        {"branch": "feature/lidar-support", "sha": "7011650f9b246e27709a3c2298433f442d281426"}
+      ],
+      "head": "7011650f9b246e27709a3c2298433f442d281426"
+    },
+    "LibreEcho-UI": {
+      "integration_path": "private/artifacts/phase-07/ota-v0.2.37/src/UI",
+      "base_ref": "upstream/main",
+      "base_sha": "b14f9eb4dc8343769eca86240bc258c9130fcc6b",
+      "topics": [
+        {"branch": "fix/general-fixes-from-lidar-port", "sha": null},
+        {"branch": "feat/wake-word-selection", "sha": null},
+        {"branch": "feature/lidar-support", "sha": "29a7a0ae00e955fea4bca09cb2edd640f76e77dc"}
+      ],
+      "head": "29a7a0ae00e955fea4bca09cb2edd640f76e77dc"
+    },
+    "LibreEcho-Linux": {
+      "integration_path": "private/artifacts/phase-07/ota-v0.2.35/src/Linux-618",
+      "base_ref": "origin/feature/linux-6.18",
+      "base_sha": "2926d88bb7fc4608fd942453d929c39e4e5ec006",
+      "topics": [
+        {"branch": "feature/lidar-support", "sha": "47feddd6b58f7d3cbc22a50940ecc6a44c3af833"}
+      ],
+      "head": "47feddd6b58f7d3cbc22a50940ecc6a44c3af833"
+    },
+    "LibreEcho": {
+      "integration_path": "private/forks/LibreEcho",
+      "base_ref": "origin/main",
+      "base_sha": "bc1675298c259dac703986fa4ba01d534ee67953",
+      "topics": [
+        {"branch": "feat/wakeword-convert", "sha": null},
+        {"branch": "feature/lidar-support", "sha": null}
+      ],
+      "head": "8e0d52f43c972e8306e6dd9e47037bac0459ee64"
+    }
+  }
+}

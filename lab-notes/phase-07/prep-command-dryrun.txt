@@ -1,0 +1,98 @@
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py printgpt
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py ro 0x0 0x16000 <file>
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py ro 0x1c7ffbe00 0x4200 <file>
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r boot0 <file> --parttype boot1
+DRY-RUN backup: write /tmp/lidar-prep-dryrun/session4/backup/boot0.bin and record its sha256
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r boot0 <file> --parttype boot1
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r boot1 <file> --parttype boot2
+DRY-RUN backup: write /tmp/lidar-prep-dryrun/session4/backup/boot1.bin and record its sha256
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r boot1 <file> --parttype boot2
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py ro 0x0 0x16000 <file>
+DRY-RUN backup: write /tmp/lidar-prep-dryrun/session4/backup/gpt.bin and record its sha256
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py ro 0x0 0x16000 <file>
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py ro 0x1c7ffbe00 0x4200 <file>
+DRY-RUN backup: write /tmp/lidar-prep-dryrun/session4/backup/gpt_backup.bin and record its sha256
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py ro 0x1c7ffbe00 0x4200 <file>
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r lk_a <file>
+DRY-RUN backup: write /tmp/lidar-prep-dryrun/session4/backup/lk_a.bin and record its sha256
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r lk_a <file>
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r lk_b <file>
+DRY-RUN backup: write /tmp/lidar-prep-dryrun/session4/backup/lk_b.bin and record its sha256
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r lk_b <file>
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r tee1 <file>
+DRY-RUN backup: write /tmp/lidar-prep-dryrun/session4/backup/tee1.bin and record its sha256
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r tee1 <file>
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r tee2 <file>
+DRY-RUN backup: write /tmp/lidar-prep-dryrun/session4/backup/tee2.bin and record its sha256
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r tee2 <file>
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r expdb <file>
+DRY-RUN backup: write /tmp/lidar-prep-dryrun/session4/backup/expdb.bin and record its sha256
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r expdb <file>
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r misc <file>
+DRY-RUN backup: write /tmp/lidar-prep-dryrun/session4/backup/misc.bin and record its sha256
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r misc <file>
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r persist <file>
+DRY-RUN backup: write /tmp/lidar-prep-dryrun/session4/backup/persist.bin and record its sha256
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r persist <file>
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN backup: write manifest /tmp/lidar-prep-dryrun/session4/backup/backup-manifest.json
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py ro 0x0 0x16000 <file>
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py wo 0x0 0x16000 <file>  # 90112 bytes
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py ro 0x0 0x16000 <file>
+DRY-RUN drill: gpt is rewritten with the backup bytes and read back
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py ro 0x1c7ffbe00 0x4200 <file>
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py wo 0x1c7ffbe00 0x4200 <file>  # 16896 bytes
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py ro 0x1c7ffbe00 0x4200 <file>
+DRY-RUN drill: gpt_backup is rewritten with the backup bytes and read back
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r expdb <file>
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py w expdb <file>  # 10485760 bytes
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r expdb <file>
+DRY-RUN drill: expdb is rewritten with the backup bytes and read back
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r tee1 <file>
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py w tee1 <file>  # 5242880 bytes
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r tee1 <file>
+DRY-RUN drill: tee1 is rewritten with the backup bytes and read back
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r boot0 <file> --parttype boot1
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py wo 0x200 0x1ffe00 <file> --parttype boot1  # 2096640 bytes
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r boot0 <file> --parttype boot1
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py wo 0x0 0x200 <file> --parttype boot1  # 512 bytes
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r boot0 <file> --parttype boot1
+DRY-RUN drill: boot0 is rewritten with the backup bytes and read back
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r boot1 <file> --parttype boot2
+DRY-RUN drill: verify boot1 only; never write it
+DRY-RUN drill: write report /tmp/lidar-prep-dryrun/session4/drill-report.json
+Stock-boot check (PLAN.md:227-231, phase-03/notes.md:110-111):
+  1. Power the unit off and remove power.
+  2. Apply power without USB and watch for a normal stock startup.
+  3. Remove power again, then hold the Action button and apply power
+     to re-enter BROM for the install stage.
+DRY-RUN stock-boot: require the operator token 'stock-boot-ok' and write /tmp/lidar-prep-dryrun/session4/stock-boot-report.json
+DRY-RUN install: /tmp/lidar-prep-dryrun/session4/backup/backup-manifest.json is produced by the backup stage
+DRY-RUN install drill gate: report /tmp/lidar-prep-dryrun/session4/drill-report.json is produced by an earlier stage of a real run
+DRY-RUN install stock-boot gate: report /tmp/lidar-prep-dryrun/session4/stock-boot-report.json is produced by an earlier stage of a real run
+DRY-RUN install: take the signed preloader from the verified backup's boot0 and require the reviewed digest
+DRY-RUN install: pre-read expdb[0:16] and refuse an installed v2 chain
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py wo 0xf00000 0x40000 <file>  # 262144 bytes
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py ro 0xf00000 0x40000 <file>
+DRY-RUN install: read expdb[0:16] back and call check_expdb_prefix; refuse before any later write on a bad magic
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py ro 0xf00000 0x10 <file>
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py w tee1 <file>  # 5242880 bytes
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r tee1 <file>
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py wo 0x200 0x1ffe00 <file> --parttype boot1  # 2096640 bytes
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r boot0 <file> --parttype boot1
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py wo 0x0 0x200 <file> --parttype boot1  # 512 bytes
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r boot0 <file> --parttype boot1
+DRY-RUN mtkclient: /workspace/libreecho/private/tools/mtkclient/.venv/bin/python /workspace/libreecho/private/tools/mtkclient/mtk.py r boot1 <file> --parttype boot2
+DRY-RUN install: verify boot1 is unchanged; it is never written
+DRY-RUN fastboot: fastboot getvar product  # require product: LIDAR
+log: /tmp/lidar-prep-dryrun/session4/prepare.jsonl

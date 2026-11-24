@@ -1,0 +1,37 @@
+== LO/HP driver gain
+11	INT	2	HP Driver Gain Volume                   	06, 6 (range 0->35)
+12	INT	2	LO Driver Gain Volume                   	06, 6 (range 0->35)
+== PCM Playback Volume
+6	INT	2	PCM Playback Volume                     	0127, 127 (range 0->175)
+== profile
+schema=1
+target_id=lidar
+speaker_chain=lidar
+codec_profile=Flat
+hp_driver_gain=6
+lo_driver_gain=6
+pre_gain_db=0
+bass_makeup_db=0
+playback_card=0
+playback_device=0
+playback_rate=48000
+playback_channels=2
+playback_format=s16_le
+capture_card=0
+capture_device=1
+capture_rate=16000
+capture_channels=8
+capture_format=s32_le
+capture_roles=mic0,mic1,mic2,mic3,mic4,mic5,mic6,line-in
+capture_chain=lidar
+aec_source=separate-pcm
+aec_card=0
+aec_device=2
+aec_rate=48000
+aec_channels=2
+aec_format=s16_le
+== engine startup line
+audio-engine: speaker chain lidar codec Flat hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+== engine status
+{"state":"idle","active":null,"buses":{"media":false,"system":false,"announcement":false,"alarm":false}}
+

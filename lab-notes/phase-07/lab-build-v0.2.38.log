@@ -1,0 +1,475 @@
+
+== lab OTA v0.2.38
+
+== integration rebuild
+$ /usr/sbin/python3 /workspace/libreecho/tools/integrate.py rebuild --only-in-ota
+note: skipping LibreEcho-Installer-Web (not in_ota)
+note: skipping kaeru (not in_ota)
+note: skipping amonet-koboreru (not in_ota)
+note: skipping u-boot (not in_ota)
+== LibreEcho-Platform
+   fetch origin
+   integration @ 37fc39aa60 (origin/main)
+   merged fix/general-fixes-from-lidar-port
+   merged feat/wake-layernorm-ops
+   merged feature/lidar-support
+   ok: LibreEcho-Platform @ 434743c5b4
+== LibreEcho-UI
+   fetch upstream
+   integration @ b14f9eb4dc (upstream/main)
+   merged fix/general-fixes-from-lidar-port
+   merged feat/wake-word-selection (conflict auto-resolved by rerere)
+   merged feature/lidar-support (conflict auto-resolved by rerere)
+   ok: LibreEcho-UI @ fa476f1f3b
+== LibreEcho-Linux
+   fetch origin
+   integration @ 16989cef41 (origin/feature/linux-6.18)
+   merged fix/general-fixes-from-lidar-port
+   merged feature/lidar-support
+   ok: LibreEcho-Linux @ 4c1b2df2b0
+== LibreEcho
+   fetch origin
+   integration @ bc1675298c (origin/main)
+   merged feat/wakeword-convert
+   merged feature/lidar-support
+   ok: LibreEcho @ 8cde9cce3b
+wrote private/integration/integration.lock.json (8 repo(s))
+$ /usr/sbin/python3 /workspace/libreecho/tools/integrate.py check-lock
+PASS manifest_sha256 1aad49aaa1d7a574bf22e7e2ffbcb6392beedee426cd0e35b205f0292ad39329
+PASS LibreEcho-Platform @ 434743c5b4 clean
+PASS LibreEcho-UI @ fa476f1f3b clean
+PASS LibreEcho-Linux @ 4c1b2df2b0 clean
+PASS LibreEcho @ 8cde9cce3b clean
+PASS LibreEcho-Installer-Web @ e380257e90 clean
+PASS kaeru @ 3ce01f0b12 clean
+PASS amonet-koboreru @ 9067b462bc clean
+PASS u-boot @ e84096dcc8 clean
+
+== lock
+INFO lock private/integration/integration.lock.json generated 2026-11-24T10:21:17Z
+PASS LibreEcho-Platform @ 434743c5b4 (private/integration/LibreEcho-Platform) clean
+PASS LibreEcho-UI @ fa476f1f3b (private/integration/LibreEcho-UI) clean
+PASS LibreEcho-Linux @ 4c1b2df2b0 (private/integration/LibreEcho-Linux) clean
+PASS LibreEcho @ 8cde9cce3b (private/integration/LibreEcho) clean
+PASS 33 pinned files and 1 pinned trees match lab-build.json
+
+== kernel from LibreEcho-Linux @ 4c1b2df2b0
+$ make -s O=/workspace/libreecho/private/artifacts/builds/cache/kernel/kbuild-o8ch0ygc ARCH=arm64 CROSS_COMPILE=/workspace/libreecho/private/artifacts/phase-05/toolchains/aarch64-cross/usr/bin/aarch64-linux-gnu- mt8167_arm64_defconfig
+$ make -s O=/workspace/libreecho/private/artifacts/builds/cache/kernel/kbuild-o8ch0ygc ARCH=arm64 CROSS_COMPILE=/workspace/libreecho/private/artifacts/phase-05/toolchains/aarch64-cross/usr/bin/aarch64-linux-gnu- -j12 Image mediatek/libreecho-lidar.dtb
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:1256:6: warning: no previous prototype for ‘wlanTxCmdDoneCb’ [-Wmissing-prototypes]
+ 1256 | VOID wlanTxCmdDoneCb(IN P_ADAPTER_T prAdapter, IN P_CMD_INFO_T prCmdInfo)
+      |      ^~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:1440:6: warning: no previous prototype for ‘wlanClearTxOidCommand’ [-Wmissing-prototypes]
+ 1440 | VOID wlanClearTxOidCommand(IN P_ADAPTER_T prAdapter)
+      |      ^~~~~~~~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:2417:6: warning: no previous prototype for ‘wlanImageSectionGetFwInfo’ [-Wmissing-prototypes]
+ 2417 | VOID wlanImageSectionGetFwInfo(IN P_ADAPTER_T prAdapter,
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:2534:6: warning: no previous prototype for ‘wlanImageSectionGetPatchInfo’ [-Wmissing-prototypes]
+ 2534 | VOID wlanImageSectionGetPatchInfo(IN P_ADAPTER_T prAdapter,
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:2570:6: warning: no previous prototype for ‘wlanImageSectionGetInfo’ [-Wmissing-prototypes]
+ 2570 | VOID wlanImageSectionGetInfo(IN P_ADAPTER_T prAdapter,
+      |      ^~~~~~~~~~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:2801:13: warning: no previous prototype for ‘wlanPatchRecvSemaResp’ [-Wmissing-prototypes]
+ 2801 | WLAN_STATUS wlanPatchRecvSemaResp(IN P_ADAPTER_T prAdapter, IN UINT_8 ucCmdSeqNum, OUT PUINT_8 pucPatchStatus)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:2860:13: warning: no previous prototype for ‘wlanPatchSendSemaControl’ [-Wmissing-prototypes]
+ 2860 | WLAN_STATUS wlanPatchSendSemaControl(IN P_ADAPTER_T prAdapter, OUT PUINT_8 pucSeqNum)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:2912:9: warning: no previous prototype for ‘wlanPatchIsDownloaded’ [-Wmissing-prototypes]
+ 2912 | BOOLEAN wlanPatchIsDownloaded(IN P_ADAPTER_T prAdapter)
+      |         ^~~~~~~~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:2954:13: warning: no previous prototype for ‘wlanPatchSendComplete’ [-Wmissing-prototypes]
+ 2954 | WLAN_STATUS wlanPatchSendComplete(IN P_ADAPTER_T prAdapter)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:5209:13: warning: no previous prototype for ‘wlanLoadManufactureData_5G’ [-Wmissing-prototypes]
+ 5209 | WLAN_STATUS wlanLoadManufactureData_5G(IN P_ADAPTER_T prAdapter, IN P_REG_INFO_T prRegInfo)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:6254:6: warning: no previous prototype for ‘wlanDumpAllBssStatistics’ [-Wmissing-prototypes]
+ 6254 | VOID wlanDumpAllBssStatistics(IN P_ADAPTER_T prAdapter)
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:6608:6: warning: no previous prototype for ‘wlanSetNicResourceParameters’ [-Wmissing-prototypes]
+ 6608 | VOID wlanSetNicResourceParameters(IN P_ADAPTER_T prAdapter)
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:7551:6: warning: no previous prototype for ‘wlanCfgRecordValue’ [-Wmissing-prototypes]
+ 7551 | VOID wlanCfgRecordValue(IN P_ADAPTER_T prAdapter, const PCHAR pucKey, UINT_32 u4Value)
+      |      ^~~~~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:7775:8: warning: no previous prototype for ‘wlanCfgFindNextToken’ [-Wmissing-prototypes]
+ 7775 | INT_32 wlanCfgFindNextToken(struct WLAN_CFG_PARSE_STATE_S *state)
+      |        ^~~~~~~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:7989:1: warning: no previous prototype for ‘wlanCfgParseAddEntry’ [-Wmissing-prototypes]
+ 7989 | wlanCfgParseAddEntry(IN P_ADAPTER_T prAdapter,
+      | ^~~~~~~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:8042:7: warning: no previous prototype for ‘atoi’ [-Wmissing-prototypes]
+ 8042 | INT_8 atoi(UCHAR ch)
+      |       ^~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:8054:13: warning: no previous prototype for ‘wlanCfgParseToFW’ [-Wmissing-prototypes]
+ 8054 | WLAN_STATUS wlanCfgParseToFW(PCHAR *args, PCHAR args_size, UCHAR nargs, PCHAR buffer, UCHAR times)
+      |             ^~~~~~~~~~~~~~~~
+In file included from /workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/os/linux/include/gl_os.h:213,
+                 from /workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/include/precomp.h:81,
+                 from /workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:69:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c: In function ‘wlanCfgParse’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/os/linux/include/gl_kal.h:686:53: warning: ‘memset’ used with length equal to number of elements without multiplication by element size [-Wmemset-elt-size]
+  686 | #define kalMemSet(pvAddr, ucPattern, u4Size)        memset(pvAddr, ucPattern, u4Size)
+      |                                                     ^~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:8344:33: note: in expansion of macro ‘kalMemSet’
+ 8344 |                                 kalMemSet(apcArgv, 0, WLAN_CFG_ARGV_MAX);
+      |                                 ^~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/os/linux/include/gl_kal.h:686:53: warning: ‘memset’ used with length equal to number of elements without multiplication by element size [-Wmemset-elt-size]
+  686 | #define kalMemSet(pvAddr, ucPattern, u4Size)        memset(pvAddr, ucPattern, u4Size)
+      |                                                     ^~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:8396:33: note: in expansion of macro ‘kalMemSet’
+ 8396 |                                 kalMemSet(apcArgv, 0, WLAN_CFG_ARGV_MAX);
+      |                                 ^~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/os/linux/include/gl_kal.h:686:53: warning: ‘memset’ used with length equal to number of elements without multiplication by element size [-Wmemset-elt-size]
+  686 | #define kalMemSet(pvAddr, ucPattern, u4Size)        memset(pvAddr, ucPattern, u4Size)
+      |                                                     ^~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:8469:25: note: in expansion of macro ‘kalMemSet’
+ 8469 |                         kalMemSet(apcArgv, 0, WLAN_CFG_ARGV_MAX);
+      |                         ^~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c: At top level:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:8901:6: warning: no previous prototype for ‘wlanTxLifetimeUpdateStaStats’ [-Wmissing-prototypes]
+ 8901 | VOID wlanTxLifetimeUpdateStaStats(IN P_ADAPTER_T prAdapter, IN P_MSDU_INFO_T prMsduInfo)
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:8924:9: warning: no previous prototype for ‘wlanTxLifetimeIsProfilingEnabled’ [-Wmissing-prototypes]
+ 8924 | BOOLEAN wlanTxLifetimeIsProfilingEnabled(IN P_ADAPTER_T prAdapter)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:8939:9: warning: no previous prototype for ‘wlanTxLifetimeIsTargetMsdu’ [-Wmissing-prototypes]
+ 8939 | BOOLEAN wlanTxLifetimeIsTargetMsdu(IN P_ADAPTER_T prAdapter, IN P_MSDU_INFO_T prMsduInfo)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:8970:6: warning: no previous prototype for ‘wlanTxLifetimeTagPacket’ [-Wmissing-prototypes]
+ 8970 | VOID wlanTxLifetimeTagPacket(IN P_ADAPTER_T prAdapter, IN P_MSDU_INFO_T prMsduInfo, IN ENUM_TX_PROFILING_TAG_T eTag)
+      |      ^~~~~~~~~~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c: In function ‘wlanGetStaAddrByWlanIdx’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:9241:30: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 9241 |                 ASSERT(FALSE);
+      |                              ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c: In function ‘wlanGetStaIdxByWlanIdx’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:9307:30: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 9307 |                 ASSERT(FALSE);
+      |                              ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c: At top level:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:9816:1: warning: no previous prototype for ‘wlanAntPathFavorSelect’ [-Wmissing-prototypes]
+ 9816 | wlanAntPathFavorSelect(
+      | ^~~~~~~~~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c: In function ‘wlanCfgFindNextToken’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:7876:36: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 7876 |                                 if (x[1] != '\n') {
+      |                                    ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_lib.c:7880:25: note: here
+ 7880 |                         case '\n':
+      |                         ^~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryNetworkTypesSupported’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:191:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+  191 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryNetworkTypeInUse’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:253:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+  253 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryBssid’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:387:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+  387 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQuerySsid’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:1222:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 1222 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryInfrastructureMode’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:1284:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 1284 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryAuthMode’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:1447:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 1447 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidSetRemoveKey’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:2738:99: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 2738 |                                         ASSERT(prBssInfo->ucBMCWlanIndexS[u4KeyIndex] < WTBL_SIZE);
+      |                                                                                                   ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidSetDefaultKey’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:2887:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 2887 |                         ASSERT(FALSE);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:2915:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 2915 |                         ASSERT(FALSE);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryEncryptionStatus’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:3003:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 3003 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryCapability’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:3241:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 3241 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryPmkid’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:3335:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 3335 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQuerySupportedRates’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:3495:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 3495 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryDesiredRates’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:3535:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 3535 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryMaxFrameSize’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:3636:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 3636 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryMaxTotalSize’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:3676:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 3676 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryVendorId’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:3718:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 3718 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryRssi’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:3762:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 3762 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryRssiTrigger’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:3836:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 3836 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryRcvError’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:3974:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 3974 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryRcvNoBuffer’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:4040:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 4040 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryRcvCrcError’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:4105:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 4105 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryStatistics’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:4170:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 4170 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryMediaStreamMode’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:4258:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 4258 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryPermanentAddr’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:4351:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 4351 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryCurrentAddr’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:4388:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 4388 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryLinkSpeed’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:4425:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 4425 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryCoexIso’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:5613:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 5613 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryMcrRead’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:5678:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 5678 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryDrvMcrRead’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:6062:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 6062 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQuerySwCtrlRead’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:6162:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 6162 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryChipConfig’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:6554:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 6554 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryEepromRead’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:6762:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 6762 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryXmitOk’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:6867:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 6867 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryRcvOk’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:6932:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 6932 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryXmitError’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:6997:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 6997 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryXmitOneCollision’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:7062:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 7062 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryXmitMoreCollisions’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:7131:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 7131 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryXmitMaxCollisions’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:7196:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 7196 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryOidInterfaceVersion’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:7260:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 7260 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidSetMulticastList’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:7361:36: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 7361 |                 ASSERT(pvSetBuffer);
+      |                                    ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryAcpiDevicePowerState’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:7558:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 7558 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryFragThreshold’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:7673:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 7673 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryRtsThreshold’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:7747:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 7747 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryFrequency’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:8094:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 8094 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryBeaconInterval’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:8204:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 8204 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryAtimWindow’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:8299:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 8299 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidRftestQueryAutoTest’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:8818:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 8818 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryNvramRead’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:10261:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+10261 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryBT’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:10684:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+10684 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryMemDump’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:11032:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+11032 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: At top level:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:11390:1: warning: no previous prototype for ‘batchSetCmd’ [-Wmissing-prototypes]
+11390 | batchSetCmd(IN P_ADAPTER_T prAdapter, IN PVOID pvSetBuffer, IN UINT_32 u4SetBufferLen, OUT PUINT_32 pu4WritenLen)
+      | ^~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:11585:1: warning: no previous prototype for ‘batchGetCmd’ [-Wmissing-prototypes]
+11585 | batchGetCmd(IN P_ADAPTER_T prAdapter,
+      | ^~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘batchGetCmd’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:11596:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+11596 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidAdvCtrl’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:11929:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+11929 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryWlanInfo’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:12020:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+12020 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidQueryMibInfo’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:12080:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+12080 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidTxMcsInfo’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:12127:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+12127 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidSetFwLog2Host’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:12209:36: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+12209 |                 ASSERT(pvSetBuffer);
+      |                                    ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: At top level:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:12966:1: warning: no previous prototype for ‘wlanSuspendLinkDown’ [-Wmissing-prototypes]
+12966 | wlanSuspendLinkDown(IN P_GLUE_INFO_T prGlueInfo)
+      | ^~~~~~~~~~~~~~~~~~~
+In file included from /workspace/libreecho/private/integration/LibreEcho-Linux/include/linux/kernel.h:31,
+                 from /workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/os/linux/include/gl_os.h:125,
+                 from /workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/include/precomp.h:81,
+                 from /workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:71:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c: In function ‘wlanoidSetAcpiDevicePowerState’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/include/linux/printk.h:512:44: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  512 | #define printk(fmt, ...) printk_index_wrap(_printk, fmt, ##__VA_ARGS__)
+      |                                            ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/include/linux/printk.h:484:17: note: in definition of macro ‘printk_index_wrap’
+  484 |                 _p_func(_fmt, ##__VA_ARGS__);                           \
+      |                 ^~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/os/linux/include/gl_kal.h:806:53: note: in expansion of macro ‘printk’
+  806 | #define kalPrint(_Fmt...)                           printk(WLAN_TAG _Fmt)
+      |                                                     ^~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/include/debug.h:211:33: note: in expansion of macro ‘kalPrint’
+  211 | #define LOG_FUNC                kalPrint
+      |                                 ^~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/include/debug.h:231:17: note: in expansion of macro ‘LOG_FUNC’
+  231 |                 LOG_FUNC("[%u]%s:(" #_Module " " #_Class ") " _Fmt, KAL_GET_CURRENT_THREAD_ID(), \
+      |                 ^~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:7628:17: note: in expansion of macro ‘DBGLOG’
+ 7628 |                 DBGLOG(REQ, INFO, "Set Power State: D1\n");
+      |                 ^~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:7630:9: note: here
+ 7630 |         case ParamDeviceStateD2:
+      |         ^~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/include/linux/printk.h:512:44: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  512 | #define printk(fmt, ...) printk_index_wrap(_printk, fmt, ##__VA_ARGS__)
+      |                                            ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/include/linux/printk.h:484:17: note: in definition of macro ‘printk_index_wrap’
+  484 |                 _p_func(_fmt, ##__VA_ARGS__);                           \
+      |                 ^~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/os/linux/include/gl_kal.h:806:53: note: in expansion of macro ‘printk’
+  806 | #define kalPrint(_Fmt...)                           printk(WLAN_TAG _Fmt)
+      |                                                     ^~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/include/debug.h:211:33: note: in expansion of macro ‘kalPrint’
+  211 | #define LOG_FUNC                kalPrint
+      |                                 ^~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/include/debug.h:231:17: note: in expansion of macro ‘LOG_FUNC’
+  231 |                 LOG_FUNC("[%u]%s:(" #_Module " " #_Class ") " _Fmt, KAL_GET_CURRENT_THREAD_ID(), \
+      |                 ^~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:7631:17: note: in expansion of macro ‘DBGLOG’
+ 7631 |                 DBGLOG(REQ, INFO, "Set Power State: D2\n");
+      |                 ^~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_oid.c:7633:9: note: here
+ 7633 |         case ParamDeviceStateD3:
+      |         ^~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_p2p.c:497:1: warning: no previous prototype for ‘wlanoidSetP2pNetworkAddress’ [-Wmissing-prototypes]
+  497 | wlanoidSetP2pNetworkAddress(IN P_ADAPTER_T prAdapter,
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_p2p.c: In function ‘wlanoidSetP2PMulticastList’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_p2p.c:841:36: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+  841 |                 ASSERT(pvSetBuffer);
+      |                                    ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_p2p.c: In function ‘wlanoidSendP2PSDRequest’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_p2p.c:894:36: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+  894 |                 ASSERT(pvSetBuffer);
+      |                                    ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_p2p.c: In function ‘wlanoidSendP2PSDResponse’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_p2p.c:933:36: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+  933 |                 ASSERT(pvSetBuffer);
+      |                                    ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_p2p.c: In function ‘wlanoidGetP2PSDRequest’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_p2p.c:975:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+  975 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_p2p.c: In function ‘wlanoidGetP2PSDResponse’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_p2p.c:1018:38: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 1018 |                 ASSERT(pvQueryBuffer);
+      |                                      ^
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_p2p.c: In function ‘wlanoidSetSecCheckRequest’:
+/workspace/libreecho/private/integration/LibreEcho-Linux/drivers/net/wireless/mediatek/mt7668/common/wlan_p2p.c:1110:36: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+ 1110 |                 ASSERT(pvSetBuffer);
+      |                                    ^

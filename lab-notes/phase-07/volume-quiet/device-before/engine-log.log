@@ -1,0 +1,11 @@
+== audio-engine log lines (airplayd log)
+audio-engine: speaker chain lidar codec Flat hp-gain 0 lo-gain 0 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/run/libreecho-audio, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,0)
+audio-engine: music AVL available (disable: /run/libreecho-audio/avl.disabled)
+audio-engine: music AVL off
+== logread
+== run status
+{"state":"idle","active":null,"buses":{"media":false,"system":false,"announcement":false,"alarm":false}}
+
+== payload engine
+9334df030810136e9c0c5413d90aa4e54c46d0d0b4d83e767c8f1756ca3d1ea5  /run/libreecho/features/airplay2/root/usr/local/sbin/libreecho-audio-engine

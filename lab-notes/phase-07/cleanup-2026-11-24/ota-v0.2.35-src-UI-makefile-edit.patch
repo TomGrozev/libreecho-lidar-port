@@ -1,0 +1,14 @@
+diff --git a/Makefile b/Makefile
+index f9a9af7..0a5c1e9 100644
+--- a/Makefile
++++ b/Makefile
+@@ -84,7 +84,8 @@ endif
+ ESPHOMED_SOURCES = src/adapter/esphomed.c src/adapter/esphome_proto.c src/adapter/esphome_ble_proxy.c \
+ 	src/adapter/esphome_frame.c src/adapter/esphome_noise.c src/adapter/esphome_playback.c \
+ 	src/adapter/radio_resample.c src/adapter/mdns_client.c src/adapter/mdns_lease.c \
+-	src/adapter/voice_ns.c src/config_store.c src/json.c src/wake_model.c src/wake_model_store.c
++	src/adapter/voice_ns.c src/config_store.c src/json.c src/wake_model.c src/wake_model_store.c \
++	src/service_env.c
+ ESPHOMED_TEST_TLS_PREFIX ?= $(ESPHOMED_TLS_PREFIX)
+ ESPHOMED_CRYPTO_PYTHON ?= python3
+ ESPHOMED_AIO_PYTHON ?= python3

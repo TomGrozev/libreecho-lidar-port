@@ -1,0 +1,10 @@
+OK   LibreEcho: 0 commit(s) only in backups, 0 with no equivalent on a kept ref, 0 merge(s) only in backups, 1 stash(es), 0 untagged
+OK   LibreEcho-Platform: 8 commit(s) only in backups, 0 with no equivalent on a kept ref, 0 merge(s) only in backups, 2 stash(es), 0 untagged
+OK   LibreEcho-UI: 0 commit(s) only in backups, 0 with no equivalent on a kept ref, 0 merge(s) only in backups, 1 stash(es), 0 untagged
+OK   LibreEcho-Linux: 0 commit(s) only in backups, 0 with no equivalent on a kept ref, 0 merge(s) only in backups, 3 stash(es), 0 untagged
+OK   LibreEcho-Installer-Web: 1 commit(s) only in backups, 0 with no equivalent on a kept ref, 1 merge(s) only in backups, 0 stash(es), 0 untagged
+     merge 24674e1 Merge feature/lidar-support into integration
+OK   kaeru: 1 commit(s) only in backups, 0 with no equivalent on a kept ref, 1 merge(s) only in backups, 0 stash(es), 0 untagged
+     merge 4709de1 Merge feature/lidar-support into integration
+OK   amonet-koboreru: 0 commit(s) only in backups, 0 with no equivalent on a kept ref, 0 merge(s) only in backups, 0 stash(es), 0 untagged
+OK   u-boot: 0 commit(s) only in backups, 0 with no equivalent on a kept ref, 0 merge(s) only in backups, 0 stash(es), 0 untagged

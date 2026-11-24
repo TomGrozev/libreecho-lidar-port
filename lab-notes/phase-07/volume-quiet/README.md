@@ -109,3 +109,32 @@ Repo: `LibreEcho-Platform`, branch `feature/lidar-support-0.14.6` (no source edi
   documented read), and whether its HAL/limiter makes up gain in software.
 - Check the extra stock biquads 90-116.
 - Measure whether HA/esphomed/TTS source levels add their own attenuation; not inspected.
+
+## v0.2.36 build and install (loudness fix)
+
+Built 2026-11-24 from the working tree of `private/forks/LibreEcho-Platform`
+(`feature/lidar-support-0.14.6` at `0a4d7a6e0`): `build_v0236.sh` in this directory.
+The version is **0.2.36**, not the 0.2.35 the session brief named: v0.2.35 is
+already installed and confirmed (`../v0235/result.md`, slot b, 2026-11-23 21:34), and
+`PLAN.md`'s Wi-Fi dev-update step requires a bundle above the installed version.
+
+The working tree carried exactly the two loudness edits plus their README/test edits
+(`git diff` sha256 in `artifacts/phase-07/v0236/build-info.json`). One untracked file
+(`tools/mt8167-arm64/install/lidar_backup_set.py`, another agent's work) was present and
+is not imported by the image builder; the guard recorded it and carried on.
+The UI bundle was reused from `components-470eb36` (clean UI 470eb36 build) because the
+UI checkout now carries unrelated uncommitted work; the image only validates the bundle
+manifest.
+
+Host proof (`artifacts/phase-07/v0236/verify-v0236.log`): 26 PASS, 0 FAIL, including
+`image audio profile lo_driver_gain=6`, `hp_driver_gain=6`, and a payload engine hash that
+differs from both the v0.2.34 and v0.2.35 binaries. Bundle
+`a33f2f671cce30f9b5fe9db4a25db72b46ad53c7c689e2c97eaa8d4c348a1711`, txn
+`txn-b6a451468270900fed0774e6`.
+
+Device before-install capture (`device-before/`): slot b, `current=txn-28c49605…`
+(v0.2.35), profile `lo_driver_gain=0` / `hp_driver_gain=0`, mixer
+`LO Driver Gain Volume 00, 0`, `HP Driver Gain Volume 06, 6`, engine log line
+`speaker chain lidar codec Flat hp-gain 0 lo-gain 0`.
+
+Install: `install_ota_v0236.sh` (written, not run).

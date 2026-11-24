@@ -1,0 +1,360 @@
+diff --git a/docs/wake-word-training.md b/docs/wake-word-training.md
+index 9bb9d76..4275690 100644
+--- a/docs/wake-word-training.md
++++ b/docs/wake-word-training.md
+@@ -98,10 +98,16 @@ python3 -m venv .wakeword-venv
+ # Validate a classifier against the device contract.
+ .wakeword-venv/bin/python tools/wakeword/wakeword_model.py check my-classifier.onnx
+ 
++# Rename the graph I/O to the contract names and validate the result. The
++# output is checked and the tool reports the largest output difference
++# against the source on random feature blocks.
++.wakeword-venv/bin/python tools/wakeword/wakeword_model.py convert \
++    my-classifier.onnx --out alexa_v0.1.onnx
++
+ # Install a model folder: <out>/<name>/ holds exactly the three files, plus
+ # <out>/<name>.manifest.json with SHA-256 values.
+ .wakeword-venv/bin/python tools/wakeword/wakeword_model.py package \
+-    --classifier my-classifier.onnx \
++    --classifier alexa_v0.1.onnx \
+     --name my-word \
+     --feature-dir /path/to/openwakeword/feature-models \
+     --out ./wakeword-packages
+@@ -111,6 +117,17 @@ Names may use only letters, digits, `.`, `_` and `-`, and may not start with
+ `.`. The tool exits 1 and prints the reason when a check fails. It writes
+ nothing when the classifier or feature models are refused.
+ 
++`convert` renames only. It refuses a classifier that contains a LayerNorm
++block instead of folding it: the normalisation divides by a standard
++deviation computed from the current feature block, so its scale changes with
++the input and no fixed `Gemm` weights reproduce it. An exact fold would need
++the centred activations to be constant, which makes the classifier output
++constant and therefore not a wake word. The upstream pretrained classifiers
++(`hey_mycroft`, `hey_jarvis`, `hey_rhasspy` and the community models including
++`ok_nabu`) all contain such blocks, so they are refused; a usable model must
++be trained and exported with LayerNorm removed, or the device's operator set
++must grow to include it.
++
+ ## 4. Host-score clips before the device
+ 
+ Record clips as 16 kHz, mono, 16-bit PCM WAV. Convert other formats with your
+@@ -179,8 +196,9 @@ Verified in this repository (host only):
+   mirror `wake_engine_onnx.cpp` and the classifier contract. `alexa_v0.1.onnx`
+   from the build passes the contract check.
+ - The unit tests in `tools/test_wakeword_model.py` cover the name rules,
+-  refused operators and names, package layout and manifest, and host scoring
+-  against the stock model and UI fixtures.
++  refused operators and names, `convert` renaming and LayerNorm refusal,
++  package layout and manifest, and host scoring against the stock model and
++  UI fixtures.
+ 
+ Not verified here:
+ 
+diff --git a/tools/test_wakeword_model.py b/tools/test_wakeword_model.py
+index 47b63f4..09831ec 100644
+--- a/tools/test_wakeword_model.py
++++ b/tools/test_wakeword_model.py
+@@ -28,6 +28,46 @@ HAVE_STOCK = bool(STOCK_DIR) and all(
+     os.path.isfile(os.path.join(STOCK_DIR, f)) for f in wm.MODEL_FILES)
+ 
+ 
++def make_layernorm_classifier(path):
++    """Write a classifier shaped like openWakeWord v0.5.1: Gemm then LayerNorm."""
++    rng = np.random.RandomState(1)
++    arrays = {
++        "W1": rng.randn(128, 16 * 96).astype(np.float32),
++        "B1": np.zeros(128, np.float32),
++        "G": np.ones(128, np.float32),
++        "B2": np.zeros(128, np.float32),
++        "W2": rng.randn(1, 128).astype(np.float32),
++        "B3": np.zeros(1, np.float32),
++        "eps": np.asarray(1e-5, np.float32),
++    }
++    nodes = [
++        helper.make_node("Flatten", ["x.1"], ["flat"], axis=1),
++        helper.make_node("Gemm", ["flat", "W1", "B1"], ["hidden"]),
++        helper.make_node("ReduceMean", ["hidden"], ["mean"], axes=[-1]),
++        helper.make_node("Sub", ["hidden", "mean"], ["centered"]),
++        helper.make_node("Mul", ["centered", "centered"], ["squared"]),
++        helper.make_node("ReduceMean", ["squared"], ["var"], axes=[-1]),
++        helper.make_node("Add", ["var", "eps"], ["var_eps"]),
++        helper.make_node("Sqrt", ["var_eps"], ["std"]),
++        helper.make_node("Div", ["centered", "std"], ["norm"]),
++        helper.make_node("Mul", ["norm", "G"], ["scaled"]),
++        helper.make_node("Add", ["scaled", "B2"], ["normed"]),
++        helper.make_node("Relu", ["normed"], ["act"]),
++        helper.make_node("Gemm", ["act", "W2", "B3"], ["logit"]),
++        helper.make_node("Sigmoid", ["logit"], ["53"]),
++    ]
++    graph = helper.make_graph(
++        nodes, "layernorm-classifier",
++        [helper.make_tensor_value_info("x.1", TensorProto.FLOAT, [1, 16, 96])],
++        [helper.make_tensor_value_info("53", TensorProto.FLOAT, [1, 1])],
++        initializer=[numpy_helper.from_array(value, name) for name, value in arrays.items()])
++    model = helper.make_model(graph, opset_imports=[helper.make_opsetid("", 13)])
++    model.ir_version = 7
++    onnx.checker.check_model(model)
++    onnx.save(model, path)
++    return path
++
++
+ def make_classifier(path, input_name=wm.CLASSIFIER_INPUT, output_name=wm.CLASSIFIER_OUTPUT,
+                     extra_nodes=(), sigmoid=True):
+     """Write a classifier with the stock I/O shape: Flatten, Gemm, Sigmoid."""
+@@ -123,6 +163,61 @@ class ClassifierContractTests(unittest.TestCase):
+             wm.threshold_for(101)
+ 
+ 
++class ConvertTests(unittest.TestCase):
++    def setUp(self):
++        self.tmp = tempfile.mkdtemp(prefix="wakeword-convert-")
++
++    def tearDown(self):
++        shutil.rmtree(self.tmp, ignore_errors=True)
++
++    def path(self, name):
++        return os.path.join(self.tmp, name)
++
++    def test_renames_io_and_preserves_outputs(self):
++        source = make_classifier(self.path("source.onnx"), input_name="x.1", output_name="53")
++        dest = self.path("converted.onnx")
++        info = wm.convert_classifier(source, dest)
++        self.assertEqual(info["renamed"], [["x.1", wm.CLASSIFIER_INPUT],
++                                           ["53", wm.CLASSIFIER_OUTPUT]])
++        self.assertEqual(info["max_abs_diff"], 0.0)
++        self.assertEqual(info["operators"], ["Flatten", "Gemm", "Sigmoid"])
++        wm.check_classifier(dest)
++
++    def test_refuses_layernorm_instead_of_approximating(self):
++        source = make_layernorm_classifier(self.path("ln.onnx"))
++        with self.assertRaisesRegex(wm.CheckError, "LayerNorm block"):
++            wm.convert_classifier(source, self.path("out.onnx"))
++        self.assertFalse(os.path.exists(self.path("out.onnx")))
++
++    def test_refuses_operator_outside_the_contract(self):
++        source = make_classifier(self.path("softmax.onnx"), input_name="x.1",
++                                 output_name="53",
++                                 extra_nodes=[helper.make_node("Softmax", ["logit"], ["unused"])])
++        with self.assertRaisesRegex(wm.CheckError, "outside the device set"):
++            wm.convert_classifier(source, self.path("out.onnx"))
++
++    def test_refuses_wrong_input_shape(self):
++        source = self.path("shape.onnx")
++        make_classifier(source, input_name="x.1")
++        model = onnx.load(source)
++        shape = model.graph.input[0].type.tensor_type.shape
++        del shape.dim[:]
++        shape.dim.add().dim_value = 1
++        shape.dim.add().dim_value = 22
++        shape.dim.add().dim_value = 96
++        onnx.save(model, source)
++        with self.assertRaisesRegex(wm.CheckError, r"\[1, 16, 96\]"):
++            wm.convert_classifier(source, self.path("out.onnx"))
++
++    def test_refuses_existing_output_without_force(self):
++        source = make_classifier(self.path("source.onnx"), input_name="x.1", output_name="53")
++        dest = self.path("converted.onnx")
++        wm.convert_classifier(source, dest)
++        with self.assertRaisesRegex(wm.CheckError, "--force"):
++            wm.convert_classifier(source, dest)
++        wm.convert_classifier(source, dest, force=True)
++
++
+ @unittest.skipUnless(HAVE_STOCK, "set WAKEWORD_STOCK_DIR to the stock model folder")
+ class StockModelTests(unittest.TestCase):
+     def setUp(self):
+diff --git a/tools/wakeword/wakeword_model.py b/tools/wakeword/wakeword_model.py
+index 48ae7b6..61bddd4 100644
+--- a/tools/wakeword/wakeword_model.py
++++ b/tools/wakeword/wakeword_model.py
+@@ -9,6 +9,7 @@ those three regular files, and the owner selects it under
+ 
+ Subcommands:
+   check    validate a trained classifier against the engine contract
++  convert  rename a classifier to the contract's I/O names and verify it
+   package  validate and copy a classifier and feature models into <out>/<name>/
+   score    run the engine's streaming pipeline over 16 kHz mono WAV clips
+ 
+@@ -139,6 +140,159 @@ def check_classifier(path):
+                                               for o in model.opset_import)}
+ 
+ 
++def layernorm_layers(graph):
++    """Return the input tensor of every LayerNorm-style block in the graph.
++
++    LayerNorm exports as Sub(x, ReduceMean(x)) followed by nodes that square
++    the difference and reduce it to a variance. Matching that Sub/ReduceMean
++    pair is enough to prove the block takes per-sample statistics.
++    """
++    producers = {}
++    for node in graph.node:
++        for output in node.output:
++            producers[output] = node
++    layers = []
++    for node in graph.node:
++        if node.op_type != "Sub" or len(node.input) < 2:
++            continue
++        tensor, mean_name = node.input[0], node.input[1]
++        mean = producers.get(mean_name)
++        if (mean is not None and mean.op_type == "ReduceMean"
++                and mean.input[:1] == [tensor] and tensor not in layers):
++            layers.append(tensor)
++    return layers
++
++
++def _rename_tensor(graph, old, new):
++    if old == new:
++        return
++    for value in list(graph.input) + list(graph.output) + list(graph.value_info):
++        if value.name == old:
++            value.name = new
++    for node in graph.node:
++        for index, name in enumerate(node.input):
++            if name == old:
++                node.input[index] = new
++        for index, name in enumerate(node.output):
++            if name == old:
++                node.output[index] = new
++
++
++def convert_classifier(source, dest, force=False):
++    """Rename a classifier to the device I/O names and validate the result.
++
++    LayerNorm blocks are refused rather than approximated. The normalisation
++    divides by sqrt(var + eps) where var is computed from the current 16x96
++    feature block; that scale changes with every block, so no fixed Gemm
++    weight can reproduce it. An exact fold would require the centred input to
++    be constant, which makes the whole classifier constant and is not a wake
++    word. Refusing keeps a silent score shift off the device.
++    """
++    _require(os.path.isfile(source) and not os.path.islink(source),
++             "classifier must be a regular file: %s" % source)
++    _require(not os.path.lexists(dest) or force,
++             "%s already exists; pass --force to replace it" % dest)
++    model = onnx.load(source, load_external_data=False)
++    graph = model.graph
++    _require(len(graph.input) == 1 and len(graph.output) == 1,
++             "classifier must have exactly one input and one output, found %d and %d"
++             % (len(graph.input), len(graph.output)))
++    external = [t.name for t in graph.initializer
++                if t.data_location == onnx.TensorProto.EXTERNAL]
++    _require(not external,
++             "classifier keeps weights in external data; export one self-contained file")
++
++    ops = sorted({node.op_type for node in graph.node})
++    unsupported = [op for op in ops if op not in CLASSIFIER_OPS]
++    layers = layernorm_layers(graph)
++    if layers:
++        raise CheckError(
++            "classifier has %d LayerNorm block(s) (normalising %s); the device "
++            "cannot run them and they are not foldable into the neighbouring "
++            "Gemm weights: the mean and standard deviation are computed from "
++            "each incoming feature block, so the 1/sqrt(var) scale differs per "
++            "block and fixed weights cannot reproduce it. Train and export the "
++            "model without LayerNorm. Operators outside the device set: %s."
++            % (len(layers), ", ".join(layers), unsupported or "none"))
++    _require(not unsupported,
++             "classifier uses operators %s outside the device set %s; export it "
++             "with the stock layer types before converting"
++             % (unsupported, sorted(CLASSIFIER_OPS)))
++
++    value = graph.input[0]
++    _require(value.type.tensor_type.elem_type == onnx.TensorProto.FLOAT,
++             "classifier input must be float32")
++    shape = [dim.dim_value for dim in value.type.tensor_type.shape.dim]
++    _require(shape == [1, FEATURE_FRAMES, FEATURE_BINS],
++             "classifier input must be [1, %d, %d] before renaming, found %s"
++             % (FEATURE_FRAMES, FEATURE_BINS, shape))
++
++    renamed = [[old, new] for old, new in
++               [(graph.input[0].name, CLASSIFIER_INPUT),
++                (graph.output[0].name, CLASSIFIER_OUTPUT)] if old != new]
++    _rename_tensor(graph, graph.input[0].name, CLASSIFIER_INPUT)
++    _rename_tensor(graph, graph.output[0].name, CLASSIFIER_OUTPUT)
++
++    # Only default-domain ops survive the allowlist check above, so unused
++    # imports (for example ai.onnx.ml left by a TF export) can be dropped.
++    kept = [opset for opset in model.opset_import if opset.domain in ("", "ai.onnx")]
++    _require(kept, "classifier imports no default ONNX opset")
++    del model.opset_import[:]
++    model.opset_import.extend(kept)
++    for opset in kept:
++        if opset.version > 13:
++            opset.version = 13
++
++    onnx.checker.check_model(model)
++    directory = os.path.dirname(os.path.abspath(dest))
++    os.makedirs(directory, exist_ok=True)
++    handle, staging = tempfile.mkstemp(dir=directory, prefix=".convert-", suffix=".onnx")
++    os.close(handle)
++    try:
++        onnx.save(model, staging)
++        check_classifier(staging)
++        os.replace(staging, dest)
++    except BaseException:
++        if os.path.exists(staging):
++            os.remove(staging)
++        raise
++
++    return {
++        "output": dest,
++        "renamed": renamed,
++        "operators": ops,
++        "opset": ["%s:%s" % (opset.domain or "ai.onnx", opset.version)
++                  for opset in model.opset_import],
++        "max_abs_diff": max_output_difference(source, dest),
++    }
++
++
++def max_output_difference(reference, candidate, samples=8, seed=0):
++    """Largest absolute output difference between two graphs on random inputs."""
++    original = ort.InferenceSession(reference, providers=PROVIDERS)
++    converted = ort.InferenceSession(candidate, providers=PROVIDERS)
++    _require(len(original.get_inputs()) == 1 and len(converted.get_inputs()) == 1,
++             "both graphs must have exactly one input")
++    ref_shape = list(original.get_inputs()[0].shape)
++    new_shape = list(converted.get_inputs()[0].shape)
++    _require(ref_shape == new_shape,
++             "input shapes differ: %s vs %s" % (ref_shape, new_shape))
++    rng = np.random.default_rng(seed)
++    worst = 0.0
++    for _ in range(samples):
++        x = rng.standard_normal(ref_shape).astype(np.float32)
++        left = original.run(None, {original.get_inputs()[0].name: x})
++        right = converted.run(None, {converted.get_inputs()[0].name: x})
++        _require(len(left) == len(right), "output counts differ")
++        for a, b in zip(left, right):
++            a = np.asarray(a, np.float64)
++            b = np.asarray(b, np.float64)
++            _require(a.shape == b.shape, "output shapes differ: %s vs %s" % (a.shape, b.shape))
++            if a.size:
++                worst = max(worst, float(np.max(np.abs(a - b))))
++    return worst
++
++
+ def check_feature_models(directory):
+     """Raise CheckError unless mel and embedding models match the engine's I/O."""
+     mel_path = os.path.join(directory, MEL_FILE)
+@@ -325,6 +479,12 @@ def build_parser():
+     p_check = sub.add_parser("check", help="validate a classifier against the contract")
+     p_check.add_argument("classifier")
+ 
++    p_convert = sub.add_parser(
++        "convert", help="rename a classifier to the device I/O names and validate it")
++    p_convert.add_argument("source")
++    p_convert.add_argument("--out", required=True, help="destination .onnx file")
++    p_convert.add_argument("--force", action="store_true", help="replace an existing file")
++
+     p_pack = sub.add_parser("package", help="install a validated model folder")
+     p_pack.add_argument("--classifier", required=True, help="trained classifier .onnx")
+     p_pack.add_argument("--name", required=True, help="model name used in /data/.../wakeword-models/")
+@@ -347,6 +507,9 @@ def main(argv=None):
+         if args.command == "check":
+             info = check_classifier(args.classifier)
+             print(json.dumps({"ok": True, **info}, sort_keys=True))
++        elif args.command == "convert":
++            info = convert_classifier(args.source, args.out, force=args.force)
++            print(json.dumps({"ok": True, **info}, indent=2, sort_keys=True))
+         elif args.command == "package":
+             target, manifest = package(args.classifier, args.name, args.feature_dir,
+                                        args.out, force=args.force)

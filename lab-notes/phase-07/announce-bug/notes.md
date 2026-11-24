@@ -188,3 +188,62 @@ Two options settle the failing line:
   Sendspin music is silent on this unit while they flood the log, so they are not proven
   harmless here. That investigation is in `../sendspin-silence/notes.md`; it is independent
   of the announcement failure.
+
+## 2026-11-24: host resolution (no device access)
+
+### What the branch already had
+
+The notes were written against the unit's firmware (UI `f43dade`, on the 0.14.5-based
+`fix/lidar-port-identity` line), whose `dechunk()` kept the parse position in the wire
+buffer and dropped a partly parsed chunk size when a read ended mid-line. The port branch
+`feature/lidar-support-0.14.6` descends from upstream main and already carries upstream
+PR #530 (`e26ed7d`, "stream TTS replies instead of buffering the whole file"), which
+replaced `dechunk()` with the byte-at-a-time `unframe()` state machine. `chunk_left`,
+`chunk_digits` and `chunk_stage` persist in the slot, so a read ending inside a size, the
+CRLF, or the final `0\r\n\r\n` no longer loses parsed state. A host test that cuts the
+recorded HA preface at every byte and at the captured 1448-byte segment boundaries passes,
+so the split defect is not reproducible on this branch.
+
+### Defect found and fixed here
+
+`unframe()` rejected any chunk extension (`3;name=value\r\n`): the size parser accepted
+only hex digits until CR. RFC 9112 requires recipients to ignore unrecognised chunk
+extensions, and a proxy in front of HA is enough to emit them; the reply then failed with
+the same `playback_error` signature (pink ring, no audio). Fixed in
+`src/adapter/esphome_playback.c`: a new `CHUNK_SIZE_EXT` stage skips the extension up to
+CR, bounded to 1024 bytes, after at least one hex digit. The size itself, the CRLF, the
+terminator and trailers are still validated as before.
+
+Regression coverage in `tests/test_esphomed_http.c` (`chunk_framing`): a HA-shaped
+chunked reply with extensions and a trailer, fed whole, byte by byte, and at a
+1/3/1448/2/7/2048-byte read pattern; every single cut point of four size/CRLF/terminator
+shapes; malformed size/terminator/trailer still rejected. `recover_after_failure` pins
+that a framing failure closes the slot (`state==0`, `fd==-1`) and the next reply plays.
+The new extension assertion fails before the fix and passes after.
+
+### Pink LED path
+
+`esp_playback_tick()<0` calls `turn_clear("playback_error",1)` (`esphomed.c:881`), which
+runs `esp_playback_close()` and clears every turn field (`:344`); `profile("error")`
+flashes pink. The next wake/announce sets `profile("listening")` or `"thinking"` and a
+fresh slot starts, so the error path recovers by construction; the test above proves the
+slot half of that.
+
+### Verification (host)
+
+- `tests/test_esphomed_http.c` built against host mbedTLS 3.6.7: all sections pass.
+- `tests/test_esphome_ffmpeg_wav.py`: real nonseekable ffmpeg pipe WAV, 4878 bytes,
+  4800 stereo output frames: PASS.
+- Not run: the rest of `tests/test_esphomed_run.py` (bwrap namespace unavailable in this
+  session).
+
+### On-device check (UNVERIFIED)
+
+1. Build the UI component from `feature/lidar-support-0.14.6` and install on the Lidar
+   unit once a second device is available; no adb/fastboot/serial access was used here.
+2. Send an HA TTS announcement; expect no pink flash, audio to the end, status `success`.
+3. Repeat through a chunk-extension-emitting proxy (or a test server answering the
+   ffmpeg_proxy URL with `Transfer-Encoding: chunked` and `1f;ext=1` sizes): audio should
+   still play; before this change it fails with `playback_error`.
+4. Induce one framing error, then send again: the next announcement must play and the ring
+   must leave pink (recovery).
