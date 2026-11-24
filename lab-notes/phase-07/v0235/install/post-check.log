@@ -1,0 +1,29 @@
+== boot slots
+mmcblk0p10 f5b6fd48e7ce91f5b426e6ae8d647dff391e3f0676b20cf2f9ffd7adc6f9dbd8  -
+mmcblk0p11 28c5fad7b5d328bb4127c96cf5d138b25245abc7d9967f176b19d5792218a6dc  -
+== payload sendspind
+36572977d9221f2389fe6deec9a8f674307da3418aa1886da74d4b02419e41e4  /run/libreecho/features/airplay2/root/usr/local/sbin/libreecho-sendspind
+== payload audio-engine
+9334df030810136e9c0c5413d90aa4e54c46d0d0b4d83e767c8f1756ca3d1ea5  /run/libreecho/features/airplay2/root/usr/local/sbin/libreecho-audio-engine
+== running sendspind exe
+pid=8530 /run/libreecho/features/airplay2/root/usr/local/sbin/libreecho-sendspind 36572977d9221f2389fe6deec9a8f674307da3418aa1886da74d4b02419e41e4
+pid=13969 /bin/busybox fed10234e996e9647d753ab5ee196d69f465ece1fe9962e401a0df7ef96cf3de
+sha256sum: can't open '/proc/13989/exe': No such file or directory
+pid=13989  
+== services
+ 3954 0         0:00 /usr/local/sbin/libreecho-timed --foreground --status /run/libreecho/time.status
+ 4341 0         0:00 /usr/local/sbin/libreecho-audiod --foreground --socket /run/libreecho/audio.sock
+ 4661 0         0:00 /usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap
+ 5619 0         0:00 /usr/local/sbin/libreecho-btd --foreground --socket /run/libreecho/bluetooth.sock
+ 7053 0         0:00 /usr/local/sbin/libreecho-airplayd --foreground --socket /run/libreecho/airplay.sock --root /run/libreecho/features/airplay2/root --enable-on-start --sendspin-on-start
+ 8154 0         0:01 /usr/local/sbin/libreecho-esphomed --config /data/libreecho/config/web-config.json --status-file /run/libreecho/esphome-status.json --port 6053 --bind 0.0.0.0 --wake-socket /run/libreecho/wakeword.sock --audio-socket /run/libreecho/audio.sock --audio-bus /run/libreecho-audio/system.pcm --mdns-socket /run/libreecho/mdns.sock --tls-ca /etc/ssl/certs/ca-certificates.crt --radio-socket /run/libreecho/radio.sock --timer-socket /run/libreecho/timer.sock --led-socket /run/libreecho/led.sock --privacy-state /sys/devices/platform/amz_privacy/privacy_state --idme-root /sys/firmware/devicetree/base/idme
+ 8530 0         0:02 /run/libreecho/features/airplay2/root/usr/local/sbin/libreecho-sendspind --run --quiet --name echo --state-file /data/libreecho/config/sendspin-state
+ 8535 0         0:13 /usr/local/sbin/libreecho-web --backend linux --config /data/libreecho/config/web-config.json --web-root /usr/local/share/libreecho/web --listen 0.0.0.0:8080 --users-file /data/libreecho/config/users
+10893 0         2:27 /run/libreecho/features/wakeword/root/usr/local/sbin/libreecho-waked --foreground --socket /run/libreecho/wakeword.sock --mic-socket /run/libreecho/mic.sock --reference-socket /run/libreecho-audio/aec-reference.sock --model-dir /run/libreecho/features/wakeword/root/usr/local/share/libreecho/openwakeword --wake-threads 2 --vad-floor-rms 16
+10993 0         0:06 /usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap
+== airplayd status
+running
+== uname
+Linux echo 6.18.64+ #2 SMP 2026-11-22 00:00:00 UTC aarch64 Linux
+== pstore
+[0;0mconsole-ramoops-0[m  [0;0mpmsg-ramoops-0[m

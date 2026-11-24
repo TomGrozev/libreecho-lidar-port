@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mixer>
+	<!-- These are the initial mixer settings -->
+	<ctl name="Audio_DacMux_Setting" value="1" />
+	<ctl name="LINEOUT Ext Amp Switch" value="0" />
+	<ctl name="LINEOUT Mux" value="OPEN" />
+	<ctl name="HP Ext Amp Switch" value="0" />
+	<ctl name="HPOUT Mux" value="OPEN" />
+	<ctl name="AIF TX Mux" value="Analog MIC" />
+	<ctl name="Left PGA Mux" value="OPEN" />
+	<ctl name="Right PGA Mux" value="OPEN" />
+	<ctl name="INT ADDA O03_O04 Switch" value="1" />
+	<ctl name="I2S O03_O04 Switch" value="1" />
+	<ctl name="MRG BT O02 Switch" value="1" />
+	<ctl name="PCM0 O02 Switch" value="0" />
+	<ctl name="DAIBT Mux" value="MRG" />
+	<ctl name="O03 I05 Switch" value="0" />
+	<ctl name="O04 I06 Switch" value="0" />
+	<ctl name="O03 I07 Switch" value="0" />
+	<ctl name="O04 I08 Switch" value="0" />
+	<ctl name="O09 I03 Switch" value="1" />
+	<ctl name="O10 I04 Switch" value="1" />
+	<ctl name="O05 I05 Switch" value="1" />
+	<ctl name="O06 I06 Switch" value="1" />
+	<ctl name="O05 I07 Switch" value="0" />
+	<ctl name="O06 I08 Switch" value="0" />
+	<ctl name="O11 I02 Switch" value="0" />
+	<ctl name="ADC_A Left Ip Select ADC_A DIF1_L switch" value="1" />
+	<ctl name="ADC_A Right Ip Select ADC_A DIF1_R switch" value="1" />
+	<ctl name="ADC_B Left Ip Select ADC_B DIF1_L switch" value="1" />
+	<ctl name="ADC_B Right Ip Select ADC_B DIF1_R switch" value="1" />
+	<ctl name="ADC_C Left Ip Select ADC_C DIF1_L switch" value="1" />
+	<ctl name="ADC_C Right Ip Select ADC_C DIF1_R switch" value="1" />
+	<ctl name="ADC_D Left Ip Select ADC_D DIF1_L switch" value="1" />
+	<ctl name="ADC_D Right Ip Select ADC_D DIF1_R switch" value="1" />
+	<ctl name="ADC_A MICPGA Volume Ctrl" value="40" />
+	<ctl name="ADC_B MICPGA Volume Ctrl" value="40" />
+	<ctl name="ADC_C MICPGA Volume Ctrl" value="40" />
+	<ctl name="ADC_D MICPGA Volume Ctrl" value="40" />
+	<ctl name="ADC_A DIF1_L Input Gain" value="0" />
+	<ctl name="ADC_A DIF1_R Input Gain" value="0" />
+	<ctl name="ADC_B DIF1_L Input Gain" value="0" />
+	<ctl name="ADC_B DIF1_R Input Gain" value="0" />
+	<ctl name="ADC_C DIF1_L Input Gain" value="0" />
+	<ctl name="ADC_C DIF1_R Input Gain" value="0" />
+	<ctl name="ADC_D DIF1_L Input Gain" value="0" />
+	<ctl name="ADC_D DIF1_R Input Gain" value="0" />
+	<ctl name="Ext_Speaker_Amp_Switch" value="0" />
+	<ctl name="AIN Mux" value="EXT ADC" />
+	<ctl name="Startup Delay" value="1" />
+
+	<!-- These are actual sound device specific mixer settings -->
+	<path name="normal-playback speaker">
+		<ctl name="O03 I05 Switch" value="1" />
+		<ctl name="O04 I06 Switch" value="1" />
+		<ctl name="biquad coefficients" id="0" value="0" />
+		<ctl name="biquad coefficients" id="1" value="74" />
+		<ctl name="biquad coefficients" id="2" value="50" />
+		<ctl name="biquad coefficients" id="3" value="0" />
+		<ctl name="biquad coefficients" id="4" value="74" />
+		<ctl name="biquad coefficients" id="5" value="50" />
+		<ctl name="biquad coefficients" id="6" value="0" />
+		<ctl name="biquad coefficients" id="7" value="74" />
+		<ctl name="biquad coefficients" id="8" value="50" />
+		<ctl name="biquad coefficients" id="9" value="74" />
+		<ctl name="biquad coefficients" id="10" value="c4" />
+		<ctl name="biquad coefficients" id="11" value="cc" />
+		<ctl name="biquad coefficients" id="12" value="94" />
+		<ctl name="biquad coefficients" id="13" value="a5" />
+		<ctl name="biquad coefficients" id="14" value="24" />
+		<ctl name="biquad coefficients" id="15" value="80" />
+		<ctl name="biquad coefficients" id="16" value="0" />
+		<ctl name="biquad coefficients" id="17" value="0" />
+		<ctl name="biquad coefficients" id="18" value="0" />
+		<ctl name="biquad coefficients" id="19" value="0" />
+		<ctl name="biquad coefficients" id="20" value="0" />
+		<ctl name="biquad coefficients" id="21" value="0" />
+		<ctl name="biquad coefficients" id="22" value="0" />
+		<ctl name="biquad coefficients" id="23" value="0" />
+		<ctl name="biquad coefficients" id="24" value="0" />
+		<ctl name="biquad coefficients" id="25" value="0" />
+		<ctl name="biquad coefficients" id="26" value="0" />
+		<ctl name="biquad coefficients" id="27" value="0" />
+		<ctl name="biquad coefficients" id="28" value="0" />
+		<ctl name="biquad coefficients" id="29" value="0" />
+		<ctl name="biquad coefficients" id="30" value="7f" />
+		<ctl name="biquad coefficients" id="31" value="ff" />
+		<ctl name="biquad coefficients" id="32" value="ff" />
+		<ctl name="biquad coefficients" id="33" value="0" />
+		<ctl name="biquad coefficients" id="34" value="0" />
+		<ctl name="biquad coefficients" id="35" value="0" />
+		<ctl name="biquad coefficients" id="36" value="0" />
+		<ctl name="biquad coefficients" id="37" value="0" />
+		<ctl name="biquad coefficients" id="38" value="0" />
+		<ctl name="biquad coefficients" id="39" value="0" />
+		<ctl name="biquad coefficients" id="40" value="0" />
+		<ctl name="biquad coefficients" id="41" value="0" />
+		<ctl name="biquad coefficients" id="42" value="0" />
+		<ctl name="biquad coefficients" id="43" value="0" />
+		<ctl name="biquad coefficients" id="44" value="0" />
+		<ctl name="biquad coefficients" id="45" value="65" />
+		<ctl name="biquad coefficients" id="46" value="86" />
+		<ctl name="biquad coefficients" id="47" value="3b" />
+		<ctl name="biquad coefficients" id="48" value="9a" />
+		<ctl name="biquad coefficients" id="49" value="79" />
+		<ctl name="biquad coefficients" id="50" value="c5" />
+		<ctl name="biquad coefficients" id="51" value="65" />
+		<ctl name="biquad coefficients" id="52" value="86" />
+		<ctl name="biquad coefficients" id="53" value="3b" />
+		<ctl name="biquad coefficients" id="54" value="62" />
+		<ctl name="biquad coefficients" id="55" value="c1" />
+		<ctl name="biquad coefficients" id="56" value="c9" />
+		<ctl name="biquad coefficients" id="57" value="af" />
+		<ctl name="biquad coefficients" id="58" value="6a" />
+		<ctl name="biquad coefficients" id="59" value="a2" />
+		<ctl name="biquad coefficients" id="60" value="65" />
+		<ctl name="biquad coefficients" id="61" value="86" />
+		<ctl name="biquad coefficients" id="62" value="3b" />
+		<ctl name="biquad coefficients" id="63" value="9a" />
+		<ctl name="biquad coefficients" id="64" value="79" />
+		<ctl name="biquad coefficients" id="65" value="c5" />
+		<ctl name="biquad coefficients" id="66" value="65" />
+		<ctl name="biquad coefficients" id="67" value="86" />
+		<ctl name="biquad coefficients" id="68" value="3b" />
+		<ctl name="biquad coefficients" id="69" value="62" />
+		<ctl name="biquad coefficients" id="70" value="c1" />
+		<ctl name="biquad coefficients" id="71" value="c9" />
+		<ctl name="biquad coefficients" id="72" value="af" />
+		<ctl name="biquad coefficients" id="73" value="6a" />
+		<ctl name="biquad coefficients" id="74" value="a2" />
+		<ctl name="biquad coefficients" id="75" value="7f" />
+		<ctl name="biquad coefficients" id="76" value="ff" />
+		<ctl name="biquad coefficients" id="77" value="ff" />
+		<ctl name="biquad coefficients" id="78" value="0" />
+		<ctl name="biquad coefficients" id="79" value="0" />
+		<ctl name="biquad coefficients" id="80" value="0" />
+		<ctl name="biquad coefficients" id="81" value="0" />
+		<ctl name="biquad coefficients" id="82" value="0" />
+		<ctl name="biquad coefficients" id="83" value="0" />
+		<ctl name="biquad coefficients" id="84" value="0" />
+		<ctl name="biquad coefficients" id="85" value="0" />
+		<ctl name="biquad coefficients" id="86" value="0" />
+		<ctl name="biquad coefficients" id="87" value="0" />
+		<ctl name="biquad coefficients" id="88" value="0" />
+		<ctl name="biquad coefficients" id="89" value="0" />
+		<ctl name="biquad coefficients" id="90" value="7f" />
+		<ctl name="biquad coefficients" id="91" value="ff" />
+		<ctl name="biquad coefficients" id="92" value="ff" />
+		<ctl name="biquad coefficients" id="93" value="0" />
+		<ctl name="biquad coefficients" id="94" value="0" />
+		<ctl name="biquad coefficients" id="95" value="0" />
+		<ctl name="biquad coefficients" id="96" value="0" />
+		<ctl name="biquad coefficients" id="97" value="0" />
+		<ctl name="biquad coefficients" id="98" value="0" />
+		<ctl name="biquad coefficients" id="99" value="0" />
+		<ctl name="biquad coefficients" id="100" value="0" />
+		<ctl name="biquad coefficients" id="101" value="0" />
+		<ctl name="biquad coefficients" id="102" value="7f" />
+		<ctl name="biquad coefficients" id="103" value="ff" />
+		<ctl name="biquad coefficients" id="104" value="ff" />
+		<ctl name="biquad coefficients" id="105" value="0" />
+		<ctl name="biquad coefficients" id="106" value="0" />
+		<ctl name="biquad coefficients" id="107" value="0" />
+		<ctl name="biquad coefficients" id="108" value="0" />
+		<ctl name="biquad coefficients" id="109" value="0" />
+		<ctl name="biquad coefficients" id="110" value="0" />
+		<ctl name="biquad coefficients" id="111" value="0" />
+		<ctl name="biquad coefficients" id="112" value="0" />
+		<ctl name="biquad coefficients" id="113" value="0" />
+		<ctl name="biquad coefficients" id="114" value="7" />
+		<ctl name="biquad coefficients" id="115" value="0" />
+		<ctl name="biquad coefficients" id="116" value="c6" />
+		<ctl name="HPL Output Mixer L_DAC Switch" value="0" />
+		<ctl name="HPR Output Mixer R_DAC Switch" value="0" />
+		<ctl name="HP DAC Playback Switch" value="0" />
+		<ctl name="LOL Output Mixer L_DAC Switch" value="1" />
+		<ctl name="LOR Output Mixer R_DAC Switch" value="1" />
+		<ctl name="LO DAC Playback Switch" value="1" />
+	</path>
+
+	<path name="normal-playback headphone">
+		<ctl name="MFP Gpio Mute" value="On" />
+		<ctl name="MFP4 Gpio Mux" value="Off" />
+		<ctl name="O03 I05 Switch" value="1" />
+		<ctl name="O04 I06 Switch" value="1" />
+		<ctl name="biquad coefficients" id="0" value="80" />
+		<ctl name="biquad coefficients" id="1" value="0" />
+		<ctl name="biquad coefficients" id="2" value="1" />
+		<ctl name="biquad coefficients" id="3" value="0" />
+		<ctl name="biquad coefficients" id="4" value="0" />
+		<ctl name="biquad coefficients" id="5" value="0" />
+		<ctl name="biquad coefficients" id="6" value="0" />
+		<ctl name="biquad coefficients" id="7" value="0" />
+		<ctl name="biquad coefficients" id="8" value="0" />
+		<ctl name="biquad coefficients" id="9" value="0" />
+		<ctl name="biquad coefficients" id="10" value="0" />
+		<ctl name="biquad coefficients" id="11" value="0" />
+		<ctl name="biquad coefficients" id="12" value="0" />
+		<ctl name="biquad coefficients" id="13" value="0" />
+		<ctl name="biquad coefficients" id="14" value="0" />
+		<ctl name="biquad coefficients" id="15" value="80" />
+		<ctl name="biquad coefficients" id="16" value="0" />
+		<ctl name="biquad coefficients" id="17" value="1" />
+		<ctl name="biquad coefficients" id="18" value="0" />
+		<ctl name="biquad coefficients" id="19" value="0" />
+		<ctl name="biquad coefficients" id="20" value="0" />
+		<ctl name="biquad coefficients" id="21" value="0" />
+		<ctl name="biquad coefficients" id="22" value="0" />
+		<ctl name="biquad coefficients" id="23" value="0" />
+		<ctl name="biquad coefficients" id="24" value="0" />
+		<ctl name="biquad coefficients" id="25" value="0" />
+		<ctl name="biquad coefficients" id="26" value="0" />
+		<ctl name="biquad coefficients" id="27" value="0" />
+		<ctl name="biquad coefficients" id="28" value="0" />
+		<ctl name="biquad coefficients" id="29" value="0" />
+		<ctl name="biquad coefficients" id="30" value="80" />
+		<ctl name="biquad coefficients" id="31" value="0" />
+		<ctl name="biquad coefficients" id="32" value="1" />
+		<ctl name="biquad coefficients" id="33" value="0" />
+		<ctl name="biquad coefficients" id="34" value="0" />
+		<ctl name="biquad coefficients" id="35" value="0" />
+		<ctl name="biquad coefficients" id="36" value="0" />
+		<ctl name="biquad coefficients" id="37" value="0" />
+		<ctl name="biquad coefficients" id="38" value="0" />
+		<ctl name="biquad coefficients" id="39" value="0" />
+		<ctl name="biquad coefficients" id="40" value="0" />
+		<ctl name="biquad coefficients" id="41" value="0" />
+		<ctl name="biquad coefficients" id="42" value="0" />
+		<ctl name="biquad coefficients" id="43" value="0" />
+		<ctl name="biquad coefficients" id="44" value="0" />
+		<ctl name="biquad coefficients" id="45" value="80" />
+		<ctl name="biquad coefficients" id="46" value="0" />
+		<ctl name="biquad coefficients" id="47" value="1" />
+		<ctl name="biquad coefficients" id="48" value="0" />
+		<ctl name="biquad coefficients" id="49" value="0" />
+		<ctl name="biquad coefficients" id="50" value="0" />
+		<ctl name="biquad coefficients" id="51" value="0" />
+		<ctl name="biquad coefficients" id="52" value="0" />
+		<ctl name="biquad coefficients" id="53" value="0" />
+		<ctl name="biquad coefficients" id="54" value="0" />
+		<ctl name="biquad coefficients" id="55" value="0" />
+		<ctl name="biquad coefficients" id="56" value="0" />
+		<ctl name="biquad coefficients" id="57" value="0" />
+		<ctl name="biquad coefficients" id="58" value="0" />
+		<ctl name="biquad coefficients" id="59" value="0" />
+		<ctl name="biquad coefficients" id="60" value="80" />
+		<ctl name="biquad coefficients" id="61" value="0" />
+		<ctl name="biquad coefficients" id="62" value="1" />
+		<ctl name="biquad coefficients" id="63" value="0" />
+		<ctl name="biquad coefficients" id="64" value="0" />
+		<ctl name="biquad coefficients" id="65" value="0" />
+		<ctl name="biquad coefficients" id="66" value="0" />
+		<ctl name="biquad coefficients" id="67" value="0" />
+		<ctl name="biquad coefficients" id="68" value="0" />
+		<ctl name="biquad coefficients" id="69" value="0" />
+		<ctl name="biquad coefficients" id="70" value="0" />
+		<ctl name="biquad coefficients" id="71" value="0" />
+		<ctl name="biquad coefficients" id="72" value="0" />
+		<ctl name="biquad coefficients" id="73" value="0" />
+		<ctl name="biquad coefficients" id="74" value="0" />
+		<ctl name="biquad coefficients" id="75" value="80" />
+		<ctl name="biquad coefficients" id="76" value="0" />
+		<ctl name="biquad coefficients" id="77" value="1" />
+		<ctl name="biquad coefficients" id="78" value="0" />
+		<ctl name="biquad coefficients" id="79" value="0" />
+		<ctl name="biquad coefficients" id="80" value="0" />
+		<ctl name="biquad coefficients" id="81" value="0" />
+		<ctl name="biquad coefficients" id="82" value="0" />
+		<ctl name="biquad coefficients" id="83" value="0" />
+		<ctl name="biquad coefficients" id="84" value="0" />
+		<ctl name="biquad coefficients" id="85" value="0" />
+		<ctl name="biquad coefficients" id="86" value="0" />
+		<ctl name="biquad coefficients" id="87" value="0" />
+		<ctl name="biquad coefficients" id="88" value="0" />
+		<ctl name="biquad coefficients" id="89" value="0" />
+		<ctl name="biquad coefficients" id="90" value="7f" />
+		<ctl name="biquad coefficients" id="91" value="f7" />
+		<ctl name="biquad coefficients" id="92" value="0" />
+		<ctl name="biquad coefficients" id="93" value="0" />
+		<ctl name="biquad coefficients" id="94" value="80" />
+		<ctl name="biquad coefficients" id="95" value="9" />
+		<ctl name="biquad coefficients" id="96" value="0" />
+		<ctl name="biquad coefficients" id="97" value="0" />
+		<ctl name="biquad coefficients" id="98" value="7f" />
+		<ctl name="biquad coefficients" id="99" value="ef" />
+		<ctl name="biquad coefficients" id="100" value="0" />
+		<ctl name="biquad coefficients" id="101" value="0" />
+		<ctl name="biquad coefficients" id="102" value="0" />
+		<ctl name="biquad coefficients" id="103" value="11" />
+		<ctl name="biquad coefficients" id="104" value="0" />
+		<ctl name="biquad coefficients" id="105" value="0" />
+		<ctl name="biquad coefficients" id="106" value="0" />
+		<ctl name="biquad coefficients" id="107" value="11" />
+		<ctl name="biquad coefficients" id="108" value="0" />
+		<ctl name="biquad coefficients" id="109" value="0" />
+		<ctl name="biquad coefficients" id="110" value="7f" />
+		<ctl name="biquad coefficients" id="111" value="de" />
+		<ctl name="biquad coefficients" id="112" value="0" />
+		<ctl name="biquad coefficients" id="113" value="0" />
+		<ctl name="biquad coefficients" id="114" value="0f" />
+		<ctl name="biquad coefficients" id="115" value="0" />
+		<ctl name="biquad coefficients" id="116" value="0" />
+		<ctl name="LOL Output Mixer L_DAC Switch" value="0" />
+		<ctl name="LOR Output Mixer R_DAC Switch" value="0" />
+		<ctl name="LO DAC Playback Switch" value="0" />
+		<ctl name="HPL Output Mixer L_DAC Switch" value="1" />
+		<ctl name="HPR Output Mixer R_DAC Switch" value="1" />
+		<ctl name="HP DAC Playback Switch" value="1" />
+		<ctl name="HP Driver Gain Volume" value="11" />
+	</path>
+
+	<path name="normal-playback receiver">
+	</path>
+
+	<path name="normal-capture line-in">
+		<ctl name="MFP4 Gpio Mux" value="On" />
+		<ctl name="Mic PGA Switch" value="1 1" />
+		<ctl name="PGA Level Volume" value="12 12" />
+		<ctl name="Left Input Mixer IN1_L P Switch" value="1" />
+		<ctl name="Right Input Mixer IN1_R P Switch" value="1" />
+		<ctl name="ADCFGA Left Mute Switch" value="0" />
+		<ctl name="ADCFGA Right Mute Switch" value="0" />
+	</path>
+
+	<path name="normal-playback speaker-and-headphone">
+	</path>
+
+	<path name="normal-playback bt-sco">
+		<ctl name="O00 I07 Switch" value="1" />
+		<ctl name="O01 I08 Switch" value="1" />
+	</path>
+
+	<path name="low-latency-playback speaker">
+	</path>
+
+	<path name="low-latency-playback headphone">
+	</path>
+
+	<path name="low-latency-playback receiver">
+	</path>
+
+	<path name="low-latency-playback speaker-and-headphone">
+	</path>
+
+	<path name="normal-capture builtin-mic">
+	</path>
+
+	<path name="normal-capture headset-mic">
+	</path>
+
+	<path name="normal-capture bt-sco">
+		<ctl name="O13 I00 Switch" value="1" />
+		<ctl name="O14 I01 Switch" value="1" />
+		<ctl name="O11 I10 Switch" value="1" />
+	</path>
+
+	<path name="speaker">
+	</path>
+
+	<path name="headphone">
+	</path>
+
+	<path name="receiver">
+	</path>
+
+	<path name="speaker-and-headphone">
+		<path name="speaker" />
+		<path name="headphone" />
+	</path>
+
+	<path name="digital-mic">
+	</path>
+
+	<path name="builtin-mic">
+	</path>
+
+	<path name="back-mic">
+	</path>
+
+	<path name="headset-mic">
+	</path>
+
+	<path name="line-in">
+	</path>
+
+</mixer>

@@ -1,0 +1,25 @@
+{
+  "schema": "libreecho-lidar-installer-contract-v1",
+  "target": "lidar",
+  "fastboot_product": "LIDAR",
+  "hw_profile": "lidar@1",
+  "userdata_sectors": 9647071,
+  "boot_slots": ["boot_a", "boot_b"],
+  "pin_rule": "already-converted",
+  "ota_plan": {
+    "schema": "libreecho-product-target-plan-v3",
+    "format": "libreecho-ota-v3",
+    "manifest_version": 1,
+    "board": "lidar",
+    "soc": "mt8167",
+    "architecture": "armv7",
+    "image_profile": "ota",
+    "transaction_type": "system",
+    "service_profile": "production",
+    "commit_policy": "after-slot-confirm",
+    "minimum_updater_schema": 3,
+    "boot_filename": "boot.img",
+    "boot_size": 16777216,
+    "feature_ids": ["airplay2", "tts", "wakeword", "stt", "assistant"]
+  }
+}

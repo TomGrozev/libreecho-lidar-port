@@ -1,0 +1,19 @@
+/sys/class/thermal/thermal_zone0 board-thermal 25875
+/sys/bus/iio/devices/iio:device0 11003000.adc
+/sys/bus/iio/devices/iio:device1 mcp4631-503
+{"state":"idle","active":null,"buses":{"media":false,"system":false,"announcement":false,"alarm":false}}
+
+TSL2540: probe()
+tsl2540 0-0039: tsl2540_probe: client->irq = 0
+tsl2540 0-0039: tsl2540_probe: device id:e4 device aux id:01 device rev:61
+tsl2540 0-0039: tsl2540_probe: 'tsl2540 rev. 0x61' detected
+tsl2540 0-0039: tsl2540_set_defaults: Loading pltform data
+tsl2540 0-0039: Probe ok.
+== /api/status
+wget: server returned error: HTTP/1.1 401 Error
+== /status
+    <section id="content" aria-live="polite"><div class="panel loading" data-i18n="status.loading">Loading device state…</div></section>
+== /api/v1/status
+wget: server returned error: HTTP/1.1 401 Error
+/sys/devices/platform/soc/11009000.i2c/i2c-0/0-0039/als_lux_table 332610,1000,241,1035,305
+/sys/devices/platform/soc/11009000.i2c/i2c-0/0-0039/als_lux 423

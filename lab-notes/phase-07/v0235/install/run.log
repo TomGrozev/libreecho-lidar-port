@@ -1,0 +1,9 @@
+21:27:54 start: bundle=v0.2.35 tx=txn-28c496057ce3131e3607916d slot=a target=b
+21:31:41 pushed: artifacts/phase-07/v0235/ota/lidar-lab-v0.2.35.ota.tar: 1 file pushed, 0 skipped. 1.4 MB/s (16793600 bytes in 11.723s)
+21:32:07 install: verify_rc=0 install_rc=0 
+21:32:07 reboot requested; pre-reboot boot_id d03fb672-cfe8-44d0-8065-2448a004f786
+21:32:27 adb back on slot 
+21:34:55 CONFIRMED: slot=b state=installed generation=txn-28c496057ce3131e3607916d current=txn-28c496057ce3131e3607916d
+21:34:57 post-check: lab/phase-07/v0235/install/post-check.log
+21:34:57 WARN: a slot readback differs from 28c5fad7b5d328bb4127c96cf5d138b25245abc7d9967f176b19d5792218a6dc
+21:34:57 DONE

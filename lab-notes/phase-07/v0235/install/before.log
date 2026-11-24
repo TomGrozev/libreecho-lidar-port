@@ -1,0 +1,5 @@
+cat: can't open '/sys/class/thermal/thermal_zone*/temp': No such file or directory
+/sys/class/thermal/thermal_zone*/temp
+[1;36miio:device0[m  [1;36miio:device1[m
+{"state":"idle","active":null,"buses":{"media":false,"system":false,"announcement":false,"alarm":false}}
+

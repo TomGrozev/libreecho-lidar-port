@@ -21,4 +21,5 @@ Thread service.
 | `artifact-cleanup-du.txt`, `artifact-cleanup-sha256.txt` | Size and hash evidence for the cleanup |
 | `announce-bug/` | Investigation of the announce bug (pink LED, then no audio); cause narrowed, not fixed |
 | `sendspin-silence/` | Investigation and fix of silent Sendspin music; see also `sendspin-silence/versions.md` for the v0.2.29-v0.2.34 OTA series |
+| `mute-lamp.md` | Why the mute-button lamp stays dark after a software mute, and the owner's decision to keep that behavior |
 | `../phase-07-prep/` | Prep notes from the earlier session (kernel fixes, ALS fix, UI API and daemon fixes, v0.2.26 rebuild) |

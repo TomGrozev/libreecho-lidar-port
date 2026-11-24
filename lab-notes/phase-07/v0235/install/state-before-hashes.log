@@ -1,0 +1,6 @@
+mmcblk0p10 f5b6fd48e7ce91f5b426e6ae8d647dff391e3f0676b20cf2f9ffd7adc6f9dbd8  -
+mmcblk0p11 97948f0f06c373c2d57e02cb7b8db0cc5f6c26ff67e9ffe277f50dacb98f8e1c  -
+== payload sendspind
+36572977d9221f2389fe6deec9a8f674307da3418aa1886da74d4b02419e41e4  /run/libreecho/features/airplay2/root/usr/local/sbin/libreecho-sendspind
+== payload audio-engine
+84e5ae9bbf6135acd076aeec013c1370f75f6cb9b07e96c9a14b07c5cdeb2c35  /run/libreecho/features/airplay2/root/usr/local/sbin/libreecho-audio-engine

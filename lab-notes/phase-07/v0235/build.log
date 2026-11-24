@@ -1,0 +1,63 @@
+guard: Platform 0a4d7a6e024b3662cb864c75c09ed1af3f98a96d, UI 470eb363ca1f64758fe45817351770e51d84e499 on feature/lidar-support-0.14.6, both clean
+=== components: UI bundle from UI 470eb363ca1f64758fe45817351770e51d84e499 ===
+ui-bundle: /workspace/libreecho/private/artifacts/phase-07/components-470eb36/ui-bundle/bundle (9b84265e1c4ec715b7426c42f2d8a93b3b9cf533e74e5b1eed2bbea0efe53adc)
+=== images ===
+boot_image=/workspace/libreecho/private/artifacts/phase-07/v0235/images/boot-lidar-dev.img
+boot_sha256=15bbf52f42d24fdfca3c03d895da6469b35327585e3ca58475d153d273c8b107
+ramdisk=/workspace/libreecho/private/artifacts/phase-07/v0235/images/boot-lidar-dev.ramdisk.cpio.xz
+ramdisk_sha256=c7132b4f5aad030dcc38d1120470e8961aa8e8d2635f57c2289dc9f7c6ca6302
+manifest=/workspace/libreecho/private/artifacts/phase-07/v0235/images/boot-lidar-dev.manifest.json
+gzip_kernel_bytes=5829705
+dtb_collection_bytes=1029097
+ramdisk_bytes=3389956
+margin_to_16mib_bytes=6522880
+status=PREPARED_NOT_FLASHED
+boot_image=/workspace/libreecho/private/artifacts/phase-07/v0235/images/boot-lidar-v1.img
+boot_sha256=8d6d1e992dc24272603aa4a7a713c9069d960ec4f0a858728be91f96ed40e5fb
+ramdisk=/workspace/libreecho/private/artifacts/phase-07/v0235/images/boot-lidar-v1.ramdisk.cpio.xz
+ramdisk_sha256=9f68964a6db228d938552c3adfc23ad6c5ca1e79a0bd48203d1641c2204308b4
+manifest=/workspace/libreecho/private/artifacts/phase-07/v0235/images/boot-lidar-v1.manifest.json
+gzip_kernel_bytes=5829705
+dtb_collection_bytes=1029097
+ramdisk_bytes=5877872
+margin_to_16mib_bytes=4034560
+status=PREPARED_NOT_FLASHED
+boot_image=/workspace/libreecho/private/artifacts/phase-07/v0235/images/boot-lidar-v2.img
+boot_sha256=28c5fad7b5d328bb4127c96cf5d138b25245abc7d9967f176b19d5792218a6dc
+ramdisk=/workspace/libreecho/private/artifacts/phase-07/v0235/images/boot-lidar-v2.ramdisk.cpio.xz
+ramdisk_sha256=9f68964a6db228d938552c3adfc23ad6c5ca1e79a0bd48203d1641c2204308b4
+manifest=/workspace/libreecho/private/artifacts/phase-07/v0235/images/boot-lidar-v2.manifest.json
+gzip_kernel_bytes=5829705
+dtb_collection_bytes=1029097
+ramdisk_bytes=5877872
+margin_to_16mib_bytes=4034560
+status=PREPARED_NOT_FLASHED
+lidar_recovery_image_contract=PASS android_v0=yes mtk_wrapper=yes arm64_kernel=yes lidar_dtb=yes initramfs_arm32=yes image_profile=development service_profile=diagnostic feature_policy=preserve ota=yes gzip_kernel_bytes=5829705 dtb_collection_bytes=1029097 ramdisk_bytes=3389956 margin_to_16mib_bytes=6522880 status=PREPARED_NOT_FLASHED
+lidar_recovery_image_contract=PASS android_v0=yes mtk_wrapper=yes arm64_kernel=yes lidar_dtb=yes initramfs_arm32=yes image_profile=ota service_profile=production feature_policy=preserve ota=yes gzip_kernel_bytes=5829705 dtb_collection_bytes=1029097 ramdisk_bytes=5877872 margin_to_16mib_bytes=4034560 status=PREPARED_NOT_FLASHED
+lidar_recovery_image_contract=PASS android_v0=yes mtk_wrapper=yes arm64_kernel=yes lidar_dtb=yes initramfs_arm32=yes image_profile=ota service_profile=production feature_policy=preserve ota=yes gzip_kernel_bytes=5829705 dtb_collection_bytes=1029097 ramdisk_bytes=5877872 margin_to_16mib_bytes=4034560 status=PREPARED_NOT_FLASHED
+=== audio engine from Platform 0a4d7a6e024b3662cb864c75c09ed1af3f98a96d ===
+=== airplay2 payload (engine from Platform HEAD; sendspind sources unchanged since 715dd4f) ===
+airplay2_payload_sha256=ad80d0d572eabf7cddae4e38b6cb47c858ff43386d6969b6f24f1b0a50a7c1dc
+=== OTA ===
+=== proof (platform 0a4d7a6e024b3662cb864c75c09ed1af3f98a96d, ui 470eb363ca1f64758fe45817351770e51d84e499) ===
+PASS boot.img size 16777216
+PASS boot.img ANDROID! magic
+PASS ramdisk key is the new key
+PASS ramdisk Lidar Wi-Fi bring-up
+PASS ramdisk wifi-radio gate
+PASS ramdisk target-identity gate
+PASS target_id=lidar
+PASS web init startup gate (assistant_services)
+PASS reconciler topology fix
+PASS UI manifest source_commit=470eb363ca1f64758fe45817351770e51d84e499
+PASS ramdisk esphomed matches the UI 470eb363ca1f64758fe45817351770e51d84e499 bundle (0800e32ad791f5814d84c0edb7fc6628427c740376d42504571060a0560be151)
+PASS payload sendspind 36572977d9221f2389fe6deec9a8f674307da3418aa1886da74d4b02419e41e4
+PASS payload audio-engine is the Platform 0a4d7a6e024b3662cb864c75c09ed1af3f98a96d build (9334df030810136e9c0c5413d90aa4e54c46d0d0b4d83e767c8f1756ca3d1ea5)
+PASS image DTB is kernel-step36-thermal
+PASS image kernel is kernel-step36-thermal
+PASS DTB carries the board-thermal zone
+PASS OTA signature new key
+PASS OTA rejected old key
+build-info written
+INFO txn txn-28c496057ce3131e3607916d
+INFO bundle fe5eccb0cf0f2bc2df219df6be7cc4528340eb513d1d1c700e0700321b99ae09
