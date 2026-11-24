@@ -826,19 +826,19 @@ each item record the result.
       owner until a second unit arrives. Platform `ca8c09f18`, `3617d6650`, `02ef8ad6a`:
       `lidar-efr32` (bootloader, XMODEM upload, Spinel version check) and the
       `libreecho-threadd` init service (uploads only when the RCP does not answer).
-      Platform `40bf6f0b69` turns the border agent on (owner decision 2026-11-24): static
+      Platform `2ebe8111a` turns the border agent on (owner decision 2026-11-24): static
       ARMv7 `otbr-agent` with `OTBR_BORDER_AGENT=ON` and Avahi mDNS, plus pinned static
       D-Bus 1.14.10, Avahi 0.8, expat and libdaemon (`otbr/build_otbr_deps.sh`,
       `SOURCE.lock`). threadd starts dbus-daemon, avahi-daemon, then otbr-agent; it also
       fixes the otbr-agent call, which passed the radio URL with `-B` (the backbone
       interface option). The image builder stages the four binaries and their configs for
       Lidar only and refuses a GBL; both radio tests pass, and the other 11 failures in
-      that file need busybox or qemu on the host and fail the same way at `7011650f9`.
+      that file need busybox or qemu on the host and fail the same way at the branch base.
       `OTBR_REST` is off, so Home Assistant's Thread integration (needed for Matter over
-      Thread) cannot use it yet; UI `947841ea9` labels the option "Thread (OpenThread border
-      router)". UI `81aaae3`: `radio` setting (`thread|zigbee|none`, default `none`),
+      Thread) cannot use it yet; UI `96db763` labels the option "Thread (OpenThread border
+      router)". UI `e3d465e`: `radio` setting (`thread|zigbee|none`, default `none`),
       Lidar-only API and control. Product `73508b6`: release check rejects GBL/EFR32
-      firmware. Linux-618 `47feddd6`: uart2 without `uart-has-rtscts`. On-device steps:
+      firmware. Linux-618 `8094768d2b00`: uart2 without `uart-has-rtscts`. On-device steps:
       `private/lab/phase-07/thread-service.md`.
 - [ ] Generate any proprietary donor-derived artifact locally from the owner's dump; never
       distribute it.

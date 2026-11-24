@@ -112,7 +112,7 @@ form gave the agent a URL where it expected an interface and no radio at all.
   OpenThread border router)"; the radio note no longer claims a Matter
   interruption. No UI test covers this panel (`git grep` finds no test that
   asserts the label), so the change was checked by parsing only. Commit
-  `947841ea9` in the UI fork.
+  `96db763` in the UI fork (the branch cleanup rewrote it from `947841ea9`).
 
 ## Not verified / gaps
 
