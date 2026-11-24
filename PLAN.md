@@ -868,6 +868,13 @@ Open items outside this checklist (2026-11-23):
   the same folder at once; one coherent build remains, 42 checks pass. It predates the
   Thread border agent commits. The Echo runs v0.2.36, which lacks the uart2, announce and
   radio fixes.
+- Lab OTA v0.2.38 built on the host 2026-11-24 with `tools/lab-build.py` from the
+  integration branches after the branch cleanup, not installed
+  (`private/lab/phase-07/lab-build-v0.2.38.log`), OTA SHA-256 `1188d92e…`, 36 checks
+  pass. It is the first lab OTA with the Thread border agent. Its kernel (Image
+  `eb8ac271…`, DTB `0e72a705…`) comes from the rebuilt Linux 6.18 `feature/lidar-support`
+  topic, which differs from `47feddd6` by `libreecho,mono-left` and has not booted on
+  hardware.
 - The v0.2.34 install reported FAIL, but the device confirmed the slot
   (`deploy/v0234/post-polls.log`, `boot_state=confirmed`). The workspace move removed the
   adb wrapper partway through the check.
