@@ -57,6 +57,12 @@ the development unit. It does not mean released or supported. The paths point in
 - A Home Assistant announcement can flash the ring pink and play no audio; sending it again
   plays it. The investigation is open
   ([`lab-notes/phase-07/`](lab-notes/phase-07/), "Announce bug").
+- A microphone mute from Home Assistant or the web UI is a software mute. The ring turns
+  red, but the lamp in the mute button stays dark, because only the hardware latch can
+  light that lamp on Lidar. A press of the button then engages the latch. A second press
+  releases the latch and also clears the software mute. Owner decision, 2026-11-24: keep
+  this behavior. Stock GPIO107 could let software engage the latch, but nobody has tested
+  it on this unit.
 - The test network has no internet access, so internet features (online assistant reply,
   radio, news, NTP) were not tested. They are not counted as failures.
 - The board has no real-time clock, so the clock restarts at 1970 after a power cut.
