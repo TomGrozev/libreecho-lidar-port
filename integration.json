@@ -22,6 +22,7 @@
       "in_ota": true,
       "topics": [
         {"branch": "fix/general-fixes-from-lidar-port", "scope": "general"},
+        {"branch": "fix/config-import", "scope": "general"},
         {"branch": "feat/wake-word-selection", "scope": "general"},
         {"branch": "feature/lidar-support", "scope": "lidar"}
       ]
