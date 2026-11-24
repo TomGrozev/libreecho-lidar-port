@@ -77,16 +77,6 @@
       "topics": [
         {"branch": "feature/lidar-support", "scope": "lidar"}
       ]
-    },
-    {
-      "name": "u-boot",
-      "path": "private/forks/u-boot",
-      "integration_path": "private/integration/u-boot",
-      "base": "refs/tags/v2026.10",
-      "in_ota": false,
-      "topics": [
-        {"branch": "lidar-fastboot-stage2", "scope": "lidar"}
-      ]
     }
   ]
 }

@@ -217,13 +217,11 @@ after every write, and a separate approval for each hardware write or reboot. Se
   [TomGrozev/LibreEcho-Platform](https://github.com/TomGrozev/LibreEcho-Platform),
   [TomGrozev/LibreEcho-UI](https://github.com/TomGrozev/LibreEcho-UI),
   [TomGrozev/LibreEcho-Linux](https://github.com/TomGrozev/LibreEcho-Linux),
-  [TomGrozev/kaeru](https://github.com/TomGrozev/kaeru),
-  [TomGrozev/amonet-koboreru](https://github.com/TomGrozev/amonet-koboreru) and
-  [TomGrozev/u-boot](https://github.com/TomGrozev/u-boot).
+  [TomGrozev/kaeru](https://github.com/TomGrozev/kaeru) and
+  [TomGrozev/amonet-koboreru](https://github.com/TomGrozev/amonet-koboreru).
 - Each fork carries the port as topic branches on the current upstream base; the
   workspace's [integration.json](integration.json) lists them in merge order. Lidar work
-  is on `feature/lidar-support` in every repository except U-Boot, whose second-stage
-  fastboot tool is on `lidar-fastboot-stage2`. In Platform, UI and Linux the Lidar branch
+  is on `feature/lidar-support` in every repository. In Platform, UI and Linux the Lidar branch
   is stacked on `fix/general-fixes-from-lidar-port`, which holds the fixes that also help
   MT8163 boards. The wake-word model support is on its own branches: Platform
   `feat/wake-layernorm-ops`, UI `feat/wake-word-selection` and LibreEcho

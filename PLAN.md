@@ -132,7 +132,6 @@ recovery needs a separately reviewed full-chain BROM procedure. Never restore ex
 | LibreEcho-UI (optional) | Only if existing device-independent code cannot handle Lidar hardware |
 | Kaeru fork | Lidar config/board port on upstream AGPL source, kept in the owner's GitHub fork; no upstream PR planned |
 | Koboreru fork | Lidar device definition on upstream MIT source, kept in the owner's GitHub fork; no upstream PR planned |
-| u-boot fork | Lidar fastboot stage, kept in the owner's GitHub fork; no upstream PR planned |
 | `libreecho-lidar-port` (public, owner's GitHub account; this workspace root) | This plan, port documentation and the generated `lab-notes/`; no code that belongs in the repositories above |
 
 Repository structure (owner decision, 2026-11-22): the boot-chain forks are referenced by
