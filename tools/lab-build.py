@@ -1423,19 +1423,23 @@ def cmd_deploy(args) -> int:
         for item in inventory:
             adb.push(run / 'ota-assets' / item['name'],
                      f'/data/libreecho/update/asset-cache/{item["sha256"]}.part')
-        adb.push(tarball, '/data/libreecho/incoming/local-install.ota.tar')
-        install = adb.shell(
+        assemble = adb.shell(
             'libreecho-update-fetch assemble-generation '
             '/data/libreecho/incoming/local-manifest/manifest '
             '/data/libreecho/incoming/local-manifest/manifest.sig; '
-            'echo assemble_rc=$?\n'
+            'echo assemble_rc=$?', timeout=1800, step_log='assemble.log')
+        log.write(assemble)
+        if 'assemble_rc=0' not in assemble:
+            raise Fail('libreecho-update-fetch assemble-generation failed; '
+                       'see deploy/assemble.log')
+        # Assembly reclaims every regular file in incoming/ (libreecho-generation
+        # reclaim-incoming), so the bundle can only be pushed once it has finished.
+        adb.push(tarball, '/data/libreecho/incoming/local-install.ota.tar')
+        install = adb.shell(
             'libreecho-update install /data/libreecho/incoming/local-install.ota.tar; '
             'echo install_rc=$?\n'
             'sync; libreecho-bootctl status', timeout=1800, step_log='install.log')
         log.write(install)
-        if 'assemble_rc=0' not in install:
-            raise Fail('libreecho-update-fetch assemble-generation failed; '
-                       'see deploy/install.log')
         if 'install_rc=0' not in install:
             raise Fail('libreecho-update install failed; see deploy/install.log')
         adb.shell('reboot', timeout=20)
