@@ -647,7 +647,6 @@ def build_images(builder, sources: dict[str, Source], kernel: Kernel,
     mdns = ['--mdns-runtime', inputs.dir('mdns_runtime')]
     specs = (
         ('dev', 'development', 'diagnostic', []),
-        ('v1', 'ota', 'production', mdns),
         ('v2', 'ota', 'production', mdns),
     )
     log.phase('boot images')
@@ -884,7 +883,7 @@ def verify(builder, version: str, sources: dict[str, Source], kernel: Kernel,
 
     log.phase('verification')
     boot = images / 'boot-lidar-v2.img'
-    for name in ('dev', 'v1', 'v2'):
+    for name in ('dev', 'v2'):
         image = images / f'boot-lidar-{name}.img'
         check(f'boot-lidar-{name}.img is 16 MiB',
               image.stat().st_size == BOOT_SIZE, f'{image.stat().st_size} bytes')
@@ -940,8 +939,8 @@ def verify(builder, version: str, sources: dict[str, Source], kernel: Kernel,
 
     image_log = (images / 'verify.log').read_text(encoding='utf-8', errors='replace')
     contract = image_log.count('lidar_recovery_image_contract=PASS')
-    check('lidar_recovery_image_contract=PASS for dev, v1, v2', contract == 3,
-          f'{contract}/3')
+    check('lidar_recovery_image_contract=PASS for dev, v2', contract == 2,
+          f'{contract}/2')
 
     qemu = inputs.path('qemu_arm')
     verifier = inputs.path('update_verify')
