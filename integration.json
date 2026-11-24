@@ -33,6 +33,7 @@
       "base": "origin/feature/linux-6.18",
       "in_ota": true,
       "topics": [
+        {"branch": "fix/stable-6.18.64", "scope": "general"},
         {"branch": "fix/general-fixes-from-lidar-port", "scope": "general"},
         {"branch": "feature/lidar-support", "scope": "lidar"}
       ]
