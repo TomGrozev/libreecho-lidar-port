@@ -6,7 +6,8 @@ Date: 2026-11-22. Image: boot cd979c08…, OTA adaffa40…, generation txn-cc95a
 feature payload cd5e9d60… (sendspind 4198d62a…, audio engine 84e5ae9b…).
 
 ## What ran
-`experiments/phase-07/sendspin-silence/deploy/install_ota_sendspin.sh`, the step-37 OTA path
+The hand install script for this series (now removed; `tools/lab-build.py` replaces it)
+ran the step-37 OTA path
 (check → signed bundle verify → install → activate slot a → reboot). Logs: install.log,
 ota-build.log, install.log tail in deploy-run.log.
 
@@ -41,7 +42,7 @@ Context from the same boot (init.log excerpt in failure-detail.log):
 - **Not UI-only**: eight ramdisk platform files came from a newer Platform worktree:
   `/init`, `/libreecho-init`, `usr/local/sbin/{libreecho-update,-update-fetch,-reconcile-features}`,
   `etc/init.d/libreecho-mdnsd.init`, `sbin/ueventd`, `sbin/watchdogd`
-  (diffs in `diffs/`). Step 37's bytes are only in the v0.2.28 ramdisk (`/tmp/rd-old`).
+  (the saved diffs were session output and have been deleted). Step 37's bytes are only in the v0.2.28 ramdisk (`/tmp/rd-old`).
 
 ### Cause of the failed confirm gate
 `libreecho-reconcile-features` (new) adds `tts` to `persisted_features` and stops calling
@@ -57,9 +58,8 @@ tmpfs and the rollback erased it. ttsd is a correlated new neighbour, not a prov
 
 ### Rebuild attempt (host, this session): blocked
 Staged the eight step-37 bytes from the v0.2.28 ramdisk into a throwaway copy of
-`tools/{mt8163-arm32,mt8167-arm64}` (`/tmp/pf-old2`) and ran
-`deploy/build_images_sendspin.sh` (phase-06 script with `LIDAR_TOOLS` and phase-07 UI bundle):
-builder refused with `LibreEcho recovery /init SHA-256 mismatch`,
+`tools/{mt8163-arm32,mt8167-arm64}` (`/tmp/pf-old2`) and ran a hand image-building
+script (now removed): the builder refused with `LibreEcho recovery /init SHA-256 mismatch`,
 expected `cc61a51b…` (current Platform), actual `0c673386…` (step 37/v0.2.28).
 So the current tooling hard-pins a **newer** init than the deployed image: v0.2.28 is not
 reproducible from the tree, and a UI-only delta cannot be built against the step-37 overlay
@@ -77,7 +77,7 @@ without patching a Platform hash contract. Build log: `images-rebuild.log`. No i
 ### Redeploy commands (proposed, not run)
 ```
 # after rebuilding boot-lidar-v2.img + generation from the chosen tree
-experiments/phase-07/sendspin-silence/deploy/install_ota_sendspin.sh   # same step-37 OTA path
+# the hand install script is gone; use tools/lab-build.py deploy or the step-37 OTA path
 ```
 Device untouched: no writes, no reboot, no service change this session.
 
@@ -93,7 +93,7 @@ UI `feature/lidar-support-0.14.6` at `715dd4f` (worktree `/tmp/wt-lidar2`).
   v1 `927d3cd4…`, dev `0b0187cb…`.
 - OTA `artifacts/phase-07/ota-715dd4f/lidar-lab-v0.2.30.ota.tar`,
   txn `txn-3a14da94f8809657a44538a0`, bundle `359f8df5e5a8a7c01c2e787c18422276d7afd97a2cb0cc3ad82fd49679084825`.
-- Host verification `build_ota_715dd4f.sh`: all PASS (size/magic, ramdisk key, UI commit,
+- Host verification with the hand v0.2.30 build script (now deleted): all PASS (size/magic, ramdisk key, UI commit,
   sendspind and engine hashes, reconciler fix present in ramdisk, new-key signature PASS,
   old-key rejected). Producer: `experiments/phase-05/ota/make_lab_ota.py` (as `run_step37.sh:59-67`).
 - UI 715dd4f changed only service wrappers (`init/libreecho-{agentd,esphomed,lived,mdnsd,waked}.init`,

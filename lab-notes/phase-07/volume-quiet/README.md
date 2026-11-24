@@ -113,7 +113,8 @@ Repo: `LibreEcho-Platform`, branch `feature/lidar-support-0.14.6` (no source edi
 ## v0.2.36 build and install (loudness fix)
 
 Built 2026-11-24 from the working tree of `private/forks/LibreEcho-Platform`
-(`feature/lidar-support-0.14.6` at `0a4d7a6e0`): `build_v0236.sh` in this directory.
+(`feature/lidar-support-0.14.6` at `0a4d7a6e0`) with a hand OTA script, since
+removed in favour of `tools/lab-build.py`.
 The version is **0.2.36**, not the 0.2.35 the session brief named: v0.2.35 is
 already installed and confirmed (`../v0235/result.md`, slot b, 2026-11-23 21:34), and
 `PLAN.md`'s Wi-Fi dev-update step requires a bundle above the installed version.
@@ -137,4 +138,5 @@ Device before-install capture (`device-before/`): slot b, `current=txn-28c49605â
 `LO Driver Gain Volume 00, 0`, `HP Driver Gain Volume 06, 6`, engine log line
 `speaker chain lidar codec Flat hp-gain 0 lo-gain 0`.
 
-Install: `install_ota_v0236.sh` (written, not run).
+Install: done 2026-11-24; `install/events.log` records verify and install rc 0, signature
+PASS, and a confirmed install on slot a (`txn-b6a451468270900fed0774e6`).

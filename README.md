@@ -11,12 +11,11 @@ not part of the repository.
 
 ## Status
 
-As of 2026-11-23, Phases 0 to 6 of [PLAN.md](PLAN.md) are complete and their gates
+As of 2026-11-24, Phases 0 to 6 of [PLAN.md](PLAN.md) are complete and their gates
 passed on the device. Phase 7 (product integration and production tooling) is in
 progress: the Lidar changes are rebased onto current upstream branches, the docs
-repository is published, and lab OTA v0.2.34 with the Sendspin fix is installed (the
-device confirmed the slot; the installer's confirmation gate did not pass) and the owner
-reports it working. Phase 8
+repository is published, and lab OTA v0.2.36 (loudness fix) is installed and confirmed
+on slot a. Phase 8
 (validation and PR preparation) has not started. The port is experimental and not
 released. Hardware results come from one development unit, and the upstream product does
 not yet ship a Lidar target. Nothing here is a support claim.
@@ -51,8 +50,8 @@ the development unit. It does not mean released or supported. The paths point in
 - Sendspin music was silent on Lidar. The cause was the engine reporting no finish
   horizon for the Lidar chain, so the Sendspin companion never confirmed playback and
   only streamed priming silence; the companion now reports the played prefix with a
-  local-clock timestamp when no horizon exists. Lab OTA v0.2.34 carries the fix; the
-  owner reports music plays
+  local-clock timestamp when no horizon exists. Lab OTA v0.2.34 carried the fix and the
+  owner reports music plays; v0.2.36 is the current slot
   ([`lab-notes/phase-07/`](lab-notes/phase-07/), "Sendspin silence").
 - A Home Assistant announcement can flash the ring pink and play no audio; sending it again
   plays it. The investigation is open
@@ -87,6 +86,8 @@ The repository holds:
 - `GLOSSARY.md`, the project terms.
 - `SCRUB.md`, the redaction record, and `NOTICE.md`, the third-party licence notes.
 - `AGENTS.md` and `PRESERVATION.md`, the working contract and its safety boundaries.
+- `docs/agents/integration-and-builds.md`, how the forks, integration branches and lab
+  OTA builds fit together.
 - `LICENSES/`, the full licence texts.
 
 Everything private (device dumps, built images, repository forks, third-party reference

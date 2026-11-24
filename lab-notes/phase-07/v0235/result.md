@@ -6,8 +6,8 @@ playing, so the music-reactive LEDs never start.
 ## Causes
 
 - Temperature and light: v0.2.33 and v0.2.34 booted `artifacts/phase-06/kernel`, whose DTB
-  has no `board-thermal` zone and no TSL2540 `als_name`/`boot-on`. `build_v0234.sh` set
-  `KERNEL` but never exported `KERNEL_DIR`, so `build_images_sendspin.sh` fell back to its
+  has no `board-thermal` zone and no TSL2540 `als_name`/`boot-on`. The v0.2.34 build set
+  `KERNEL` but never exported `KERNEL_DIR`, so the hand image script fell back to its
   default. Details: `../temperature-regression/result.md`.
 - Sendspin playing state: the engine stages Sendspin audio outside the producer FIFOs, and
   the status mask and the music analysis tap read only the FIFOs. Fixed in Platform
@@ -16,8 +16,9 @@ playing, so the music-reactive LEDs never start.
 
 ## Build (host)
 
-`build_v0235.sh` (Platform `0a4d7a6e0`, UI `470eb36`, kernel `kernel-step36-thermal`, engine
-compiled from Platform HEAD). `artifacts/phase-07/v0235/verify-v0235.log`: 17 PASS, 0 FAIL.
+The v0.2.35 hand build script (Platform `0a4d7a6e0`, UI `470eb36`,
+kernel `kernel-step36-thermal`, engine compiled from Platform HEAD) has been removed;
+`tools/lab-build.py` replaces it. `artifacts/phase-07/v0235/verify-v0235.log`: 17 PASS, 0 FAIL.
 Bundle sha256 `fe5eccb0cf0f2bc2df219df6be7cc4528340eb513d1d1c700e0700321b99ae09`.
 
 Workspace-move repairs: a local `/artifacts -> private/artifacts` symlink (excluded in
@@ -26,7 +27,8 @@ lab `qemu-arm-static` on PATH for `verify_recovery_image.py`.
 
 ## Install (hardware, owner-approved 2026-11-23)
 
-`install_ota_v0235.sh`; `install/events.log`: verify_rc=0, install_rc=0, signature PASS,
+The hand install script (now removed in favour of `tools/lab-build.py`);
+`install/events.log`: verify_rc=0, install_rc=0, signature PASS,
 confirmed on slot b with generation `txn-28c496057ce3131e3607916d`. Slot b (mmcblk0p11)
 reads back `28c5fad7...` = the built v2 image; the script's WARN line is a parse artifact
 (its sed expects lines ending after the hash, `sha256sum -` appends `  -`). Payload

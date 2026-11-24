@@ -50,6 +50,12 @@ recorded as a known outcome, not a failure.
 
 Workspace root `/workspace/libreecho`; `D=private/artifacts/phase-07/ota-v0.2.35`.
 
+## Build commands used (record; scripts since deleted)
+
+The hand build and install scripts named below were removed in favour of
+`tools/lab-build.py`. The commands are kept as the record of how v0.2.35 was made;
+they are not runnable from this repository.
+
 ```sh
 # Platform and kernel worktrees at the exact commits (peer work excluded)
 git -C private/forks/LibreEcho-Platform worktree add --detach \
@@ -171,8 +177,8 @@ artifacts. `build-info.json` holds the machine-readable record.
 ## On-device install and check steps (unverified, not run)
 
 1. Install without a GBL: `ota/lidar-lab-v0.2.35.ota.tar` through the lab OTA
-   path (adb push + `libreecho-update-verify` as in
-   `private/lab/phase-07/v0235/install_ota_v0235.sh`); the bundle writes the
+   path (adb push + `libreecho-update-verify` as the hand install script, since
+   removed, did); the bundle writes the
    inactive slot only.
 2. Reboot into the new slot; confirm `boot_state=confirmed`
    (`libreecho-bootctl status`).

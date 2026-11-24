@@ -87,4 +87,4 @@ opening USB.
 - The same-byte drill's risk (a power loss mid-write) is unchanged by this
   tool and still needs the owner's approval.
 
-Dry-run transcript: `prep-command-dryrun.txt` in this directory.
+The dry-run transcript was a session output and is not published.

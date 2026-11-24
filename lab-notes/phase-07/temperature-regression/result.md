@@ -74,7 +74,7 @@ phase-07-prep/kernel-als       board-thermal=True  trips=[]        als props=[al
 
 | dir | Image | DTB | Missing |
 |---|---|---|---|
-| `phase-06/kernel` (= v0.2.33/v0.2.34, `build_v0234.sh:26`) | `8acf87…` | `e8727c…` | no thermal zone, no ALS props (DTB built at `3f2711a`, before all three ALS commits and before thermal); `README.md:11` |
+| `phase-06/kernel` (= v0.2.33/v0.2.34, the v0.2.34 build) | `8acf87…` | `e8727c…` | no thermal zone, no ALS props (DTB built at `3f2711a`, before all three ALS commits and before thermal); `README.md:11` |
 | `phase-07-prep/kernel` | `de09ed1…` | `a28044…` | trip points, `boot-on`; built at `77931cc` + uncommitted KernelFixes |
 | `phase-07-prep/kernel-als` | `53417fd…` | `fe0fc1…` | trip points; built at `b8eaba14` (09:16), before `8cb65710` (10:04) |
 | `phase-06/latency/cpufreq` | `8acf87…` | `e8727c…` | same DTB as `phase-06/kernel`; cpufreq only |

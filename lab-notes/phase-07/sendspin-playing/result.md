@@ -63,7 +63,7 @@ python3 test_audio_engine_sendspin.py    # PASS (exit 0)
 ## v0.2.35 rebuild
 
 Platform only: rebuild the airplay2 payload / `libreecho-audio-engine` from
-`build_v0234.sh`'s Platform step. No `sendspind`, UI or audio-sink change.
+the v0.2.34 build's Platform step. No `sendspind`, UI or audio-sink change.
 
 ## Unverified
 

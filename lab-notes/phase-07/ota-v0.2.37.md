@@ -33,23 +33,16 @@ excluded from the bundle.
 
 ## Provenance of the run
 
-The build was executed by a separate omp session running
-`private/lab/phase-07/ota-v0.2.37-build.sh` against these pinned inputs. This
-note's author did not start that process and did not modify its outputs; the
-performed checks are the `--verify-only` pass over its artifacts. The kernel
-hashes were confirmed independently before and after the build.
+The build was executed by a separate omp session with a hand build script that has
+since been deleted (`tools/lab-build.py` replaces it). This note's author did not
+start that process and did not modify its outputs; the performed checks are the
+`--verify-only` pass over its artifacts. The kernel hashes were confirmed
+independently before and after the build.
 
-## Commands
+## Verification
 
-```sh
-# build (separate session), workspace root
-bash private/lab/phase-07/ota-v0.2.37-build.sh
-
-# verification replay, no rebuild
-bash private/lab/phase-07/ota-v0.2.37-build.sh --verify-only
-# -> VERIFY_EXIT=0, 42 PASS lines, log at
-#    private/artifacts/phase-07/ota-v0.2.37/verify-v0237.log
-```
+The `--verify-only` replay exited 0 with 42 PASS lines. Log:
+`private/artifacts/phase-07/ota-v0.2.37/verify-v0237.log`.
 
 The script's guards refuse unless the kernel Image/DTB match `272090a9…` /
 `0e9cc4ff…`, the Platform worktree is clean at `7011650f9`, the UI worktree is
@@ -116,7 +109,7 @@ Full log: `private/artifacts/phase-07/ota-v0.2.37/verify-v0237.log` (42 PASS,
 
 1. Push the generation and bundle over Wi-Fi adb to the inactive slot, then
    `libreecho-generation verify` and `libreecho-update install` (same sequence
-   as `private/lab/phase-07/volume-quiet/install_ota_v0236.sh`). The bundle
+   as the v0.2.36 install; its script is gone). The bundle
    writes the inactive slot and reboots; approval is required per AGENTS.md.
 2. After reboot: `libreecho-bootctl status` shows `boot_state=confirmed`,
    `/proc/cmdline` names the other slot.
