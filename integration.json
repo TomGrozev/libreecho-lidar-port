@@ -71,6 +71,16 @@
       ]
     },
     {
+      "name": "amonet",
+      "path": "private/forks/amonet",
+      "integration_path": "private/integration/amonet",
+      "base": "origin/mt8163-echo-show",
+      "in_ota": false,
+      "topics": [
+        {"branch": "mt8167-lidar", "scope": "lidar"}
+      ]
+    },
+    {
       "name": "amonet-koboreru",
       "path": "private/forks/amonet-koboreru",
       "integration_path": "private/integration/amonet-koboreru",
