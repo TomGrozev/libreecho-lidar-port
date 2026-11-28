@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "integration_branch": "integration",
+  "repos": [
+    {
+      "name": "LibreEcho-Platform",
+      "fork_url": "https://github.com/TomGrozev/LibreEcho-Platform.git",
+      "upstream_url": "https://github.com/aslater3/LibreEcho-Platform.git",
+      "path": "work/forks/LibreEcho-Platform",
+      "integration_path": "work/integration/LibreEcho-Platform",
+      "base": "upstream/main",
+      "in_ota": true,
+      "topics": [
+        {"branch": "fix/general-fixes-from-lidar-port", "scope": "general"},
+        {"branch": "feat/micro-wake-word", "scope": "general", "base": "fix/general-fixes-from-lidar-port"},
+        {"branch": "feature/lidar-support", "scope": "lidar", "base": "fix/general-fixes-from-lidar-port"}
+      ]
+    },
+    {
+      "name": "LibreEcho-UI",
+      "fork_url": "https://github.com/TomGrozev/LibreEcho-UI.git",
+      "upstream_url": "https://github.com/aslater3/LibreEcho-UI.git",
+      "path": "work/forks/LibreEcho-UI",
+      "integration_path": "work/integration/LibreEcho-UI",
+      "base": "upstream/main",
+      "in_ota": true,
+      "topics": [
+        {"branch": "fix/general-fixes-from-lidar-port", "scope": "general"},
+        {"branch": "fix/config-import", "scope": "general", "base": "fix/general-fixes-from-lidar-port"},
+        {"branch": "feat/wake-word-selection", "scope": "general", "base": "fix/config-import"},
+        {"branch": "feature/lidar-support", "scope": "lidar", "base": "feat/wake-word-selection"}
+      ]
+    },
+    {
+      "name": "LibreEcho-Linux",
+      "fork_url": "https://github.com/TomGrozev/LibreEcho-Linux.git",
+      "upstream_url": "https://github.com/aslater3/LibreEcho-Linux.git",
+      "path": "work/forks/LibreEcho-Linux",
+      "integration_path": "work/integration/LibreEcho-Linux",
+      "base": "base/linux-6.18.64",
+      "in_ota": true,
+      "topics": [
+        {"branch": "fix/general-fixes-from-lidar-port", "scope": "general"},
+        {"branch": "feature/lidar-support", "scope": "lidar", "base": "fix/general-fixes-from-lidar-port"}
+      ]
+    },
+    {
+      "name": "LibreEcho",
+      "fork_url": "https://github.com/TomGrozev/LibreEcho.git",
+      "upstream_url": "https://github.com/aslater3/LibreEcho.git",
+      "path": "work/forks/LibreEcho",
+      "integration_path": "work/integration/LibreEcho",
+      "base": "upstream/main",
+      "in_ota": true,
+      "topics": [
+        {"branch": "fix/general-fixes-from-lidar-port", "scope": "general"},
+        {"branch": "feat/micro-wake-word", "scope": "general"},
+        {"branch": "feat/build-container", "scope": "general"},
+        {"branch": "feature/lidar-support", "scope": "lidar"}
+      ]
+    },
+    {
+      "name": "LibreEcho-Installer-Web",
+      "fork_url": "https://github.com/TomGrozev/LibreEcho-Installer-Web.git",
+      "upstream_url": "https://github.com/aslater3/LibreEcho-Installer-Web.git",
+      "path": "work/forks/LibreEcho-Installer-Web",
+      "integration_path": "work/integration/LibreEcho-Installer-Web",
+      "base": "upstream/main",
+      "in_ota": false,
+      "topics": [
+        {"branch": "feature/lidar-support", "scope": "lidar"}
+      ]
+    },
+    {
+      "name": "kaeru",
+      "fork_url": "https://github.com/TomGrozev/kaeru.git",
+      "upstream_url": "https://github.com/R0rt1z2/kaeru.git",
+      "path": "work/forks/kaeru",
+      "integration_path": "work/integration/kaeru",
+      "base": "upstream/main",
+      "in_ota": false,
+      "topics": [
+        {"branch": "feature/lidar-support", "scope": "lidar"}
+      ]
+    },
+    {
+      "name": "amonet",
+      "fork_url": "https://github.com/TomGrozev/amonet.git",
+      "upstream_url": "https://github.com/R0rt1z2/amonet.git",
+      "path": "work/forks/amonet",
+      "integration_path": "work/integration/amonet",
+      "base": "upstream/mt8163-echo-show",
+      "in_ota": false,
+      "topics": [
+        {"branch": "mt8167-lidar", "scope": "lidar"}
+      ]
+    },
+    {
+      "name": "amonet-koboreru",
+      "fork_url": "https://github.com/TomGrozev/amonet-koboreru.git",
+      "upstream_url": "https://github.com/R0rt1z2/amonet-koboreru.git",
+      "path": "work/forks/amonet-koboreru",
+      "integration_path": "work/integration/amonet-koboreru",
+      "base": "upstream/main",
+      "in_ota": false,
+      "topics": [
+        {"branch": "feature/lidar-support", "scope": "lidar"}
+      ]
+    }
+  ]
+}
