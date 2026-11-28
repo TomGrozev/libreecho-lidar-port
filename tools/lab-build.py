@@ -406,7 +406,7 @@ def product_env(local: dict, version: str, tag: str,
         'LIBREECHO_UPDATE_CHANNEL': 'dev',
         'LIBREECHO_OTA_SIGNING_MODE': 'local',
         'LIBREECHO_OTA_FORMAT': 'v3',
-        'LIBREECHO_SSH_ENABLED': '0',
+        'LIBREECHO_SSH_ENABLED': os.environ.get('LIBREECHO_SSH_ENABLED', '0'),
         # Source offers and the production userdata tree need maintainer-private
         # tooling; the public source tree has no copy of it.
         'LIBREECHO_SOURCE_OFFERS': '0',

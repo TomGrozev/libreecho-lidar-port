@@ -72,6 +72,7 @@ stacks the branches in merge order:
 | `fix/general-fixes-from-lidar-port` | Fixes that also help the MT8163 boards. One per repository where such fixes exist. |
 | `feat/<name>` | A general feature that is not Lidar-specific. It needs its own manifest entry and its own PR. |
 | `feature/lidar-support` | Lidar work. Where the manifest lists both, it is stacked on the general fixes topic, so it merges after it. |
+| `feat/lidar-radio` | Thread/Zigbee radio work, stacked on `feature/lidar-support` and merged after it. It is not part of the first PR stack; the branch is kept so the work is not lost and can merge once the first stack lands. |
 
 The manifest order is the merge order. `rebuild` merges each topic with
 `git merge --no-ff`, so the integration history keeps one merge commit per topic.

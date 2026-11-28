@@ -28,7 +28,8 @@
         {"branch": "fix/general-fixes-from-lidar-port", "scope": "general"},
         {"branch": "fix/config-import", "scope": "general", "base": "fix/general-fixes-from-lidar-port"},
         {"branch": "feat/wake-word-selection", "scope": "general", "base": "fix/config-import"},
-        {"branch": "feature/lidar-support", "scope": "lidar", "base": "feat/wake-word-selection"}
+        {"branch": "feature/lidar-support", "scope": "lidar", "base": "feat/wake-word-selection"},
+        {"branch": "feat/lidar-radio", "scope": "lidar", "base": "feature/lidar-support"}
       ]
     },
     {
@@ -56,7 +57,8 @@
         {"branch": "fix/general-fixes-from-lidar-port", "scope": "general"},
         {"branch": "feat/micro-wake-word", "scope": "general"},
         {"branch": "feat/build-container", "scope": "general"},
-        {"branch": "feature/lidar-support", "scope": "lidar"}
+        {"branch": "feature/lidar-support", "scope": "lidar"},
+        {"branch": "feat/lidar-radio", "scope": "lidar", "base": "feature/lidar-support"}
       ]
     },
     {
