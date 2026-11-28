@@ -43,8 +43,9 @@ Terms are in [GLOSSARY.md](GLOSSARY.md). The rules that apply to every hardware 
 ## Install and build
 
 The device walkthrough is [docs/install-new-lidar.md](docs/install-new-lidar.md). It covers
-BROM entry, backup, the restore drill, the boot-chain install, the product installer and
-validation. Parts of it are not hardware-proven, and the guide marks which.
+BROM entry, the backup and the stock boot image read, the boot-chain image and lab OTA
+builds, the restore drill, the boot-chain install, the product installer and validation.
+Parts of it are not hardware-proven, and the guide marks which.
 
 The build from a fresh clone is [BUILDING.md](BUILDING.md). It uses a pinned container image,
 so a Linux host needs podman and a few standard tools, not a full toolchain.

@@ -39,13 +39,20 @@ From a fresh clone:
    This writes an ed25519 key pair at the paths `private/local.json` names
    (`private/keys/ota-lab/` by default).
 
-3. **Point `private/local.json` at your own stock boot image.** Create
-   `private/local.json` from [tools/local.example.json](tools/local.example.json) and set
-   `stock_boot` to your own `boot_a` backup, the readback that `lidar_prepare.py backup`
-   produces on the device ([docs/install-new-lidar.md](docs/install-new-lidar.md), the
-   `backup` stage). Set `device_host` too if you know the device's Wi-Fi adb address.
+3. **Read the stock boot image from the device.** The build needs your unit's stock
+   `boot_a`. Read it on the device side with steps 1 to 4 of
+   [docs/install-new-lidar.md](docs/install-new-lidar.md): enter BROM, run `identify`, run
+   [`backup`](docs/install-new-lidar.md#3-backup), then
+   [read `boot_a`](docs/install-new-lidar.md#4-read-the-stock-boot-image-boot_a). The
+   `backup` stage does not save `boot_a`; step 4 writes it to `<session-dir>/boot_a.bin`.
+   Read it before the LibreEcho installer overwrites `boot_a`.
 
-4. **Check the workspace.**
+4. **Point `private/local.json` at the stock boot image.** `keygen` created
+   `private/local.json` from [tools/local.example.json](tools/local.example.json). Set
+   `stock_boot` to the path of `<session-dir>/boot_a.bin`; a relative path counts from the
+   repository root. Set `device_host` too if you know the device's Wi-Fi adb address.
+
+5. **Check the workspace.**
 
    ```sh
    python3 tools/workspace.py doctor
@@ -55,7 +62,7 @@ From a fresh clone:
    free disk below 20 GB, clones, branches, inputs, and empty `private/local.json` entries.
    Keep running it until the list is empty.
 
-5. **Build the lab OTA.**
+6. **Build the lab OTA.**
 
    ```sh
    python3 tools/lab-build.py build
@@ -67,7 +74,7 @@ From a fresh clone:
    existing build plus one patch; pass `--version X.Y.Z` for the first build. The step is
    host-only and never touches a device.
 
-6. **Deploy (optional; writes the device).**
+7. **Deploy (optional; writes the device).**
 
    ```sh
    python3 tools/lab-build.py deploy <version> --host <device>:5555 --yes
@@ -127,7 +134,7 @@ Two gitignored directory trees sit beside the repository files:
 | Tier | Holds | Why |
 | --- | --- | --- |
 | `work/` | `work/forks/<repo>`, `work/integration/<repo>` with `integration.lock.json`, `work/inputs/`, `work/product-build/`, `work/builds/` | Regenerable. `workspace.py init` recreates the clones, the integration worktrees, the image and the fetched inputs; a build recreates the rest. |
-| `private/` | `private/local.json` (input paths), the OTA signing keys and the stock boot backup | Private material. It holds per-unit vendor firmware and private keys, so it is never published and never committed. |
+| `private/` | `private/local.json` (input paths), the OTA signing keys and the stock boot image | Private material. It holds Amazon firmware and private keys, so it is never published and never committed. |
 
 `private/local.json` is created from [tools/local.example.json](tools/local.example.json)
 and names `ota_signing_key`, `ota_public_key` and `stock_boot`, plus the optional
@@ -137,12 +144,13 @@ and names `ota_signing_key`, `ota_public_key` and `stock_boot`, plus the optiona
 
 Two build inputs cannot come from the repository:
 
-- **The stock boot image** (`stock_boot`): your own readback of the device's `boot_a`
-  partition, produced by the `backup` stage of `lidar_prepare.py` (see
-  [docs/install-new-lidar.md](docs/install-new-lidar.md)). The MT8167 image builder
-  re-frames this stock image rather than synthesising one, so the bytes must come from the
-  exact device model. These are per-unit vendor firmware; redistributing them is not
-  cleared, so they stay out of git.
+- **The stock boot image** (`stock_boot`): a readback of the device's `boot_a` partition.
+  The `backup` stage of `lidar_prepare.py` leaves `boot_a` out; step 4 of
+  [docs/install-new-lidar.md](docs/install-new-lidar.md#4-read-the-stock-boot-image-boot_a)
+  reads it. The MT8167 image builder re-frames this stock image rather than synthesising
+  one, and it checks the 19 stock DTBs against pinned hashes, so the bytes must come from
+  the Amazon firmware version the port expects. They are Amazon firmware, not data unique
+  to one unit. Redistributing them is not cleared, so they stay out of git.
 - **The OTA signing key pair** (`ota_signing_key`, `ota_public_key`): generated locally by
   `python3 tools/workspace.py keygen`. The signing key is private and must never be
   committed or shared; the public key is installed into the image and travels with the

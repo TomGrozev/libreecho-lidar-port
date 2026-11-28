@@ -1,11 +1,13 @@
 # Installing LibreEcho on a new Echo Plus 2nd Gen (Lidar)
 
 You start with a stock Echo Plus 2nd Gen (codename `lidar`, MediaTek MT8167) and
-finish with a running LibreEcho install: prepare the boot chain with
-`lidar_prepare.py`, run the product installer
-(`tools/libreecho-install.py --target lidar`), then validate the result. The
-plan for this flow is [docs/plan.md](plan.md), Phase 7, "Desired final user
-flow". How the port itself was built is [BUILDING.md](../BUILDING.md).
+finish with a running LibreEcho install. You back up the stock boot chain, read
+the stock boot image, build the boot-chain images and the lab OTA from those
+readbacks, prepare the boot chain with `lidar_prepare.py`, run the product
+installer (`tools/libreecho-install.py --target lidar`), then validate the
+result. The plan for this flow is [docs/plan.md](plan.md), Phase 7, "Desired
+final user flow". How the port itself was built is
+[BUILDING.md](../BUILDING.md).
 
 > [!WARNING]
 > This port is experimental and not released. Nothing here is a support claim.
@@ -13,7 +15,8 @@ flow". How the port itself was built is [BUILDING.md](../BUILDING.md).
 > `userdata` over Kaeru fastboot) is hardware-proven on one development unit in
 > Phases 5 and 6 and by the v0.2.68 install on 2026-11-28 (owner report).
 > Everything before it is not: `lidar_prepare.py` has passed host tests only and
-> has never run on a device, and no second unit has gone through this guide end
+> has never run on a device, the Amonet read of `boot_a` in step 4 has never run
+> on a device, and no second unit has gone through this guide end
 > to end. Treat every unproven step as a first run, record what happened, and
 > stop at any refusal instead of working around it. The preparation command
 > refuses a stage on a failed check (exit code 2 is a refusal); a refusal means
@@ -75,10 +78,28 @@ installer writes them later, over Kaeru fastboot.
 ### Host
 
 You need a Linux host with Python 3, `git`, `curl`, `make`, `dpkg-deb`, `adb`,
-`fastboot`, `e2fsprogs` (`mke2fs`, `dumpe2fs`), and `pyusb` for the Lidar
-fastboot reads (`python3 -m pip install pyusb`; on Debian the package is
-`python3-usb`). The installer refuses to start the Lidar chain check without
-`pyusb`. Check them with `command -v adb fastboot mke2fs dumpe2fs`.
+`fastboot` and `e2fsprogs` (`mke2fs`, `dumpe2fs`). Check them with
+`command -v adb fastboot mke2fs dumpe2fs`.
+
+The Amonet BROM tool talks to the unit through `pyserial` and `pyusb`
+(`python3 -m pip install pyserial pyusb`; on Debian the packages are
+`python3-serial` and `python3-usb`). The installer also uses `pyusb` for the
+Lidar fastboot reads, and it refuses to start the Lidar chain check without it.
+
+The Amonet payload and the boot-chain images build on the host, outside the
+build container. They need these tools:
+
+- `arm-none-eabi-gcc` (Debian `gcc-arm-none-eabi`) for Koboreru and the Amonet
+  BROM payload. The Amonet payload also builds with `clang`, `ld.lld` and
+  `llvm-objcopy` when `arm-none-eabi-gcc` is not on `PATH`.
+- `arm-linux-gnueabihf-gcc` (Debian `gcc-arm-linux-gnueabihf`) and a native
+  `gcc` for Kaeru.
+- The Python packages in Kaeru's `utils/requirements.txt` (`liblk`, `capstone`
+  and `pyasn1`). Koboreru needs `liblk` too.
+
+The lab OTA build in step 6 runs in a pinned container image. It needs
+`podman`, `python3.11`, `rsync` and about 20 GB of free disk; see
+[BUILDING.md, "Host prerequisites"](../BUILDING.md#host-prerequisites).
 
 ### Hardware
 
@@ -92,47 +113,48 @@ fastboot reads (`python3 -m pip install pyusb`; on Debian the package is
 - Unplug the power adapter before you touch the pads. Never probe a powered
   board.
 
-### Build inputs
+### Workspace
 
-The preparation command takes the Amonet checkout and two built images, and the
-installer also needs a lab build bundle. You build them from the forks the
-workspace clones; nothing comes from a reference ZIP, and the command pins the
-image digests and refuses others.
-
-From a fresh clone of this repository:
+Clone this repository, prepare the workspace and build the Amonet BROM payload:
 
 ```sh
 git clone https://github.com/TomGrozev/libreecho-lidar-port && cd libreecho-lidar-port
 python3 tools/workspace.py init
+make -C work/integration/amonet/brom-payload SOC=mt8167
 ```
 
-`init` clones the forks into `work/forks/` (see [BUILDING.md](../BUILDING.md)
-for what it fetches). Then build the two source-built stages:
+`init` clones the forks into `work/forks/` and merges each fork's Lidar
+branches into an integration worktree under `work/integration/` (see
+[BUILDING.md](../BUILDING.md)). The clones in `work/forks/` stay on each
+fork's default branch, which has no Lidar code. Use the integration worktrees:
 
-- **The Kaeru LK stage** (`lidar-kaeru.bin`): build the Kaeru fork with its
-  Lidar config:
-  `./build.sh lidar <stock-lk-image>` in `work/forks/kaeru/`, which writes
-  `lidar-kaeru.bin` (the usage, and the Lidar defconfig
-  `configs/amazon/lidar_defconfig`, are in the fork). The stage is patched
-  from a stock LK donor, so the donor bytes must be your own readback.
-- **The Koboreru image** (`tee-payload-lidar.img`): run
-  `./build.sh lidar` in `work/forks/amonet-koboreru/`, which composes
-  `build/lidar/payload.bin` with the donor TEE into `tee-payload-lidar.img`.
-- **The Amonet checkout**: the `work/forks/amonet` clone with
-  `modules/lidar_brom.py` (the Lidar BROM adapter), on branch
-  `mt8167-lidar`. `workspace.py init` creates it; you only pass its path as
-  `--amonet`.
-- **The lab OTA release directory**: the LibreEcho installer still needs a lab
-  build bundle (`--release-dir`) because no `lidar-v*` release exists. Build
-  one with `python3 tools/lab-build.py build`, which writes the signed OTA and
-  its provenance under `work/builds/v<version>/` (see
-  [BUILDING.md](../BUILDING.md)).
+- `<platform-checkout>` is `work/integration/LibreEcho-Platform`. It holds
+  `lidar_prepare.py`.
+- `<path-to-amonet-checkout>` is `work/integration/amonet`, the Amonet checkout
+  with the Lidar BROM tool `modules/lidar_brom.py`. You pass it as `--amonet`.
+- `work/integration/kaeru` and `work/integration/amonet-koboreru` build the
+  boot-chain images in step 5.
+- `work/integration/LibreEcho` holds the product installer for step 11.
 
-Hash the two images and keep the digests for the commands below:
+The `make` command writes `brom-payload/build/mt8167/payload.bin`. The Amonet
+tool loads this payload in every BROM session, and the fork does not ship a
+built copy. Run every command in this guide from the repository root.
 
-```sh
-sha256sum <path-to>/lidar-kaeru.bin <path-to>/tee-payload-lidar.img
-```
+### Why Lidar reads firmware from your unit
+
+The other LibreEcho targets (Echo 2nd Gen, Echo Dot 2nd Gen) need nothing read
+from the unit. Their Kaeru stage arrives prebuilt in the community Amonet ZIP,
+and their boot image is built from constants. Lidar has no published Kaeru
+payload. The port builds Kaeru from the stock LK and Koboreru from the stock
+TEE. The lab OTA re-frames the stock boot image to keep Amazon's DTBs. So
+steps 3 and 4 read `lk_a`, `tee1` and `boot_a`, and steps 5 and 6 build from
+those files.
+
+These readbacks are Amazon firmware, not data unique to your unit. The builds
+expect one firmware version: the Kaeru addresses are fixed in
+`configs/amazon/lidar_defconfig`, and the OTA builder checks the stock DTBs
+against pinned hashes. Redistribution of this firmware is not cleared, so it
+stays out of git and you read it from your own unit.
 
 ### Session directory
 
@@ -141,35 +163,57 @@ the flow produces in it:
 
 ```text
 <session-dir>/
-  backup/                  # backup output, manifest and drill-report.json
+  backup/                  # backup output (lk_a.bin, tee1.bin, ...), manifest and drill-report.json
+  boot_a.bin               # stock boot image, read in step 4
+  images/                  # lidar-kaeru.bin and tee-payload-lidar.img, built in step 5
   stock-boot-report.json   # written by stock-boot
-  prepare.jsonl            # the run log, when you use run
   donor-artifacts/         # generated by install from the verified backup
+  prepare.jsonl            # the run log, when you use run
 ```
 
+Use an absolute path for `<session-dir>`, because the build commands in step 5
+change directory. Put the directory outside any git checkout, or under
+`private/` in this repository. The `install` stage refuses to write its donor
+artifacts anywhere else inside a checkout.
+
 Keep this directory. It holds the only copy of the stock boot chain and the
-reports later steps require.
+reports later steps require. Its `.bin` and `.img` files are Amazon firmware,
+so never commit them or share them.
 
 ## The steps
 
-Each step has the same structure. Run the stages in order and review each
-stage's output before the next. If you prefer one command, the `run` subcommand
-chains them (step 9); use it only after you have walked the stages once, and
-read its dry run first.
+Each step has the same structure. Run the steps in order and review each
+step's output before the next one. Each step uses only files from the steps
+before it.
 
 | Step | Command | Writes to the unit? | Proven on hardware? |
 | --- | --- | --- | --- |
 | 1. Enter BROM | (buttons and USB) | no | yes |
-| 2. Dry run | `lidar_prepare.py --dry-run run ...` | no | no |
-| 3. Identify | `lidar_prepare.py identify` | no | no |
-| 4. Back up | `lidar_prepare.py backup` | no | no |
-| 5. Drill | `lidar_prepare.py drill --yes` | yes, identical bytes | no |
-| 6. Stock boot check | `lidar_prepare.py stock-boot` | no (reboot only) | no |
-| 7. Install chain | `lidar_prepare.py install --yes` | yes: expdb, tee1, BOOT0 | no |
-| 8. Confirm | `lidar_prepare.py confirm` | no | no |
-| 9. All-in-one (optional) | `lidar_prepare.py run` | as steps 3 to 8 | no |
-| 10. Install LibreEcho | `libreecho-install.py --target lidar` | yes: userdata, boot_a, boot_b | yes, dev unit |
-| 11. Validate | `adb` checks | no | yes, dev unit |
+| 2. Identify | `lidar_prepare.py identify` | no | no |
+| 3. Back up | `lidar_prepare.py backup` | no | no |
+| 4. Read the stock boot image | `lidar_brom.py read` | no | no |
+| 5. Build the boot-chain images | `build.sh`, `sha256sum` | no | host step |
+| 6. Build the lab OTA | `workspace.py keygen`, `lab-build.py build` | no | host step |
+| 7. Drill | `lidar_prepare.py drill --yes` | yes, identical bytes | no |
+| 8. Stock boot check | `lidar_prepare.py stock-boot` | no (reboot only) | no |
+| 9. Install chain | `lidar_prepare.py install --yes` | yes: expdb, tee1, BOOT0 | no |
+| 10. Confirm | `lidar_prepare.py confirm` | no | no |
+| 11. Install LibreEcho | `libreecho-install.py --target lidar` | yes: userdata, boot_a, boot_b | yes, dev unit |
+| 12. Validate | `adb` checks | no | yes, dev unit |
+
+Steps 2, 3, 4, 7 and 9 talk to the unit in BROM. If the unit is not in BROM
+when one of them starts, enter it again (step 1).
+
+The `lidar_prepare.py` flags are the same for every stage. `--amonet` names the
+Amonet checkout (`AMONET` in the environment serves the same purpose, and there
+is no default). `--log` names a JSON-lines log. A missing Amonet checkout, or
+one without `modules/lidar_brom.py`, exits 1 with a message naming `--amonet`
+and `AMONET`.
+
+Any single stage takes `--dry-run` before the stage name. The command then
+prints every Amonet and fastboot command instead of running it, and writes no
+host files. It still checks the local input files: for `install` and `run`,
+both images must exist and match the digests you pass.
 
 ### 1. Enter BROM
 
@@ -189,38 +233,7 @@ download mode, where the Amonet adapter can talk to it.
 **If it fails.** Reseat the cable and retry; if it still does not enumerate,
 swap the two data wires. Do not probe a powered board.
 
-### 2. Dry-run the preparation command
-
-**What this does.** Prints every Amonet and fastboot command the run would
-execute, validates the local input files and their digests, and writes
-nothing. Use it to check the inputs and the paths before any device access.
-
-**Run.**
-
-```sh
-python3 <platform-checkout>/tools/mt8167-arm64/prepare/lidar_prepare.py \
-    --amonet <path-to-amonet-checkout> \
-    --dry-run \
-    run --session-dir <session-dir> \
-    --kaeru <path-to>/lidar-kaeru.bin --kaeru-sha256 <hex> \
-    --koboreru <path-to>/tee-payload-lidar.img --koboreru-sha256 <hex> \
-    --yes --stock-boot-ok
-```
-
-`<platform-checkout>` is `work/forks/LibreEcho-Platform` after `init`, or the
-Platform fork cloned on its own. The flags are the same for every stage:
-`--amonet` names the Amonet checkout (`AMONET` in the environment serves the
-same purpose, and there is no default), `--dry-run` prints instead of running,
-and `--log` names a JSON-lines log (with `run`, the log defaults to
-`<session-dir>/prepare.jsonl`).
-
-**You should see.** Every planned command printed, and exit code 0.
-
-**If it fails.** Fix the named input path or digest and rerun. A missing
-Amonet checkout or one without `modules/lidar_brom.py` exits 1 with a message
-naming `--amonet` and `AMONET`.
-
-### 3. `identify`
+### 2. `identify`
 
 **What this does.** Reads the GPT and the device identity through the Amonet
 adapter and checks the hwcode (0x8167), the user-area size, the boot-area size,
@@ -240,13 +253,14 @@ matches the reviewed table in the output.
 **If it fails.** Stop. A mismatch means this unit is not the layout the
 reviewed procedure expects; do not continue on this unit.
 
-### 4. `backup`
+### 3. `backup`
 
 **What this does.** Reads every backup-set area (BOOT0 area 1, BOOT1, the GPT
 and its backup, `lk_a`, `lk_b`, `tee1`, `tee2`, `expdb`, `misc`, `persist`)
 twice, writes the first read, and requires the second read to hash
 identically. It then writes and verifies a backup manifest. It never
-overwrites an existing backup.
+overwrites an existing backup. The set leaves out `boot_a` and `boot_b`,
+because the installer rewrites those slots; step 4 reads `boot_a`.
 
 **Run.**
 
@@ -257,12 +271,126 @@ python3 <platform-checkout>/tools/mt8167-arm64/prepare/lidar_prepare.py \
 ```
 
 **You should see.** A populated `<session-dir>/backup/` with one file per area
-and a verified `backup-manifest.json`.
+(`boot0.bin`, `lk_a.bin`, `tee1.bin` and the others) and a verified
+`backup-manifest.json`.
 
 **If it fails.** Stop and keep the log. The backup is the only way back to
 stock; do not run any later stage without it.
 
-### 5. `drill` (the first write)
+### 4. Read the stock boot image (`boot_a`)
+
+> [!WARNING]
+> Do this step before step 11. The LibreEcho installer overwrites `boot_a`, and
+> no other step saves the stock image. This read is not hardware-proven: the
+> reference `boot_a` was read with mtkclient
+> ([lab-notes/phase-01/notes.md](../lab-notes/phase-01/notes.md)), not with the
+> Amonet tool.
+
+**What this does.** Reads the 16 MiB `boot_a` partition through the Amonet BROM
+tool and writes it to `<session-dir>/boot_a.bin`. The lab OTA build in step 6
+needs this file. The offset 0x2980000 and the length 0x1000000 are the `boot_a`
+entry of the reviewed GPT
+([lab-notes/phase-01/brom-printgpt.log](../lab-notes/phase-01/brom-printgpt.log)),
+and step 2 checked that your unit has this layout. The read writes nothing to
+the unit.
+
+**Run.**
+
+```sh
+python3 <path-to-amonet-checkout>/modules/lidar_brom.py \
+    read --offset 0x2980000 --length 0x1000000 \
+    --output <session-dir>/boot_a.bin
+sha256sum <session-dir>/boot_a.bin
+```
+
+**You should see.** One line `PASS 0x2980000+0x1000000 <sha256>`, a file of
+16777216 bytes, and a `sha256sum` digest equal to the one on the `PASS` line.
+
+**If it fails.** The tool exits non-zero and prints `refused:` or a transfer
+error. Enter BROM again (step 1) and repeat the read. Step 6 checks the stock
+DTBs in this file, so a bad read stops the build there.
+
+### 5. Build the boot-chain images
+
+**What this does.** Builds the two source-built stages that `install` writes,
+then hashes them. Kaeru's `build.sh` patches the stock LK from `lk_a.bin` and
+writes `lidar-kaeru.bin`. Koboreru's `build.sh` reads its donor TEE from the
+fixed path `tees/tee_lidar.img` in its checkout (no flag or environment
+variable names it) and writes `tee-payload-lidar.img`. Both builds run on the
+host and write nothing to the unit.
+
+**Run.**
+
+```sh
+mkdir -p <session-dir>/images
+(cd work/integration/kaeru && ./build.sh lidar <session-dir>/backup/lk_a.bin)
+cp work/integration/kaeru/lidar-kaeru.bin <session-dir>/images/
+
+mkdir -p work/integration/amonet-koboreru/tees
+cp <session-dir>/backup/tee1.bin work/integration/amonet-koboreru/tees/tee_lidar.img
+(cd work/integration/amonet-koboreru && ./build.sh lidar)
+cp work/integration/amonet-koboreru/tee-payload-lidar.img <session-dir>/images/
+
+sha256sum <session-dir>/images/lidar-kaeru.bin <session-dir>/images/tee-payload-lidar.img
+```
+
+Step 6 rebuilds the integration worktrees and deletes their untracked files, so
+keep the copies in `<session-dir>/images/`. The first digest is
+`<kaeru-sha256>` and the second is `<koboreru-sha256>` in the commands below.
+`lidar_prepare.py` checks each image against the digest you pass. Nothing else
+pins these two digests; the only pinned hash is the reviewed 2019 preloader in
+the backup.
+
+**You should see.** `lidar-kaeru.bin` and `tee-payload-lidar.img` in
+`<session-dir>/images/`, and one digest for each.
+
+**If it fails.** Kaeru's build prints `<path> not found!` when the donor path is
+wrong. Koboreru's build prints
+`error: no donor TEE for 'lidar', expected tees/tee_lidar.img` when the copy is
+missing. A missing compiler or Python module means a missing tool from Host.
+
+### 6. Build the lab OTA
+
+**What this does.** Builds the signed LibreEcho OTA bundle that the installer
+writes in step 11. No `lidar-v*` release exists, so a lab build is the only
+source. The builder uses the header, the MediaTek kernel-section template and
+the 19 DTBs of your stock boot image, and it checks the DTBs against pinned
+hashes. [BUILDING.md](../BUILDING.md) has the detail. This step is host-only.
+
+**Run.**
+
+1. Generate the OTA signing key pair. The command also writes
+   `private/local.json` from `tools/local.example.json`.
+
+   ```sh
+   python3 tools/workspace.py keygen
+   ```
+
+2. Set `stock_boot` in `private/local.json` to the path of
+   `<session-dir>/boot_a.bin`. A relative path counts from the repository root.
+3. Check the workspace:
+
+   ```sh
+   python3 tools/workspace.py doctor
+   ```
+
+4. Build the OTA. Pass `--version X.Y.Z` for the first build.
+
+   ```sh
+   python3 tools/lab-build.py build --version <X.Y.Z>
+   ```
+
+**You should see.** `doctor` reports nothing missing. The build writes
+`work/builds/v<version>/` with the signed OTA bundle (`libreecho-*.ota.tar`),
+`SHA256SUMS` and `provenance.json`.
+
+**If it fails.** `doctor` lists what is still missing. An error such as
+`stock DTB collection hash is <hash>, expected <hash>` or
+`stock boot image is <n> bytes, expected <n>` means the step 4 file is not the
+stock boot image the port expects. Repeat step 4. If the error stays, your unit
+runs other Amazon firmware: stop and report.
+
+### 7. `drill` (the first write)
 
 > [!WARNING]
 > This is the first write to the unit. It needs your approval, and it refuses
@@ -289,7 +417,7 @@ report (default `<session-dir>/backup/drill-report.json`).
 **If it fails.** Stop and keep the log. The unit should still be stock (the
 drill wrote identical bytes), but report the failure instead of retrying.
 
-### 6. Power-cycle and `stock-boot`
+### 8. Power-cycle and `stock-boot`
 
 **What this does.** Proves your unit still boots stock normally after the
 drill, and records your confirmation in a report file that the `install` stage
@@ -315,11 +443,11 @@ non-interactively; otherwise the command asks.
 **If it fails.** If the unit does not boot stock after the drill, stop and
 report; do not run `install`.
 
-### 7. `install`
+### 9. `install`
 
 > [!WARNING]
 > This stage writes the boot chain. It needs your approval, and it refuses
-> without `--yes`.
+> without `--yes`. Run it with `--dry-run` first.
 
 **What this does.** Installs the custom boot chain in the reviewed order: it
 generates the donor-derived artifacts from the verified backup (the signed
@@ -333,6 +461,10 @@ be unchanged.
 
 **Run.**
 
+1. Run the command below with `--dry-run` added before `install`. The dry run
+   checks both images against their digests and prints every planned write.
+2. Run the command as shown:
+
 ```sh
 python3 <platform-checkout>/tools/mt8167-arm64/prepare/lidar_prepare.py \
     --amonet <path-to-amonet-checkout> \
@@ -340,13 +472,14 @@ python3 <platform-checkout>/tools/mt8167-arm64/prepare/lidar_prepare.py \
     --backup-dir <session-dir>/backup \
     --drill-report <session-dir>/backup/drill-report.json \
     --stock-boot-report <session-dir>/stock-boot-report.json \
-    --kaeru <path-to>/lidar-kaeru.bin --kaeru-sha256 <hex> \
-    --koboreru <path-to>/tee-payload-lidar.img --koboreru-sha256 <hex> \
+    --kaeru <session-dir>/images/lidar-kaeru.bin --kaeru-sha256 <kaeru-sha256> \
+    --koboreru <session-dir>/images/tee-payload-lidar.img --koboreru-sha256 <koboreru-sha256> \
     --yes
 ```
 
-**You should see.** The donor artifact digests, the expdb write and readback,
-the tee1 write, the BOOT0 write in sector-0-last order, and a final BOOT1
+**You should see.** The dry run prints the planned commands and exits 0. The
+real run prints the donor artifact digests, the expdb write and readback, the
+tee1 write, the BOOT0 write in sector-0-last order, and a final BOOT1
 unchanged check.
 
 **If it fails.** Stop and keep the log. The stage refuses on a failed check
@@ -354,7 +487,7 @@ unchanged check.
 when expdb already holds the byte-identical expected Kaeru stage, and refuses
 any other installed expdb content. See Recovery.
 
-### 8. `confirm`
+### 10. `confirm`
 
 **What this does.** Requires the new Kaeru fastboot to report the Lidar
 product. It writes nothing.
@@ -376,32 +509,36 @@ answer. Power-cycle into fastboot again (hold the action button at power-on
 once the Kaeru chain is installed) and retry; if it still does not report
 `LIDAR`, stop and report.
 
-### 9. Alternative: one `run` command
+### Aside: the one-command `run`
 
-**What this does.** Chains `identify`, `backup`, `drill`, `install` and
-`confirm` from one session directory. It does not chain the power-cycle: the
-`run` command stops for the stock boot, and either you confirm it
-interactively or `--stock-boot-ok` records a prior confirmation. `drill` and
-`install` still refuse without `--yes`.
+`run` chains `identify`, `backup`, `drill`, `install` and `confirm` from one
+session directory. It does not chain the power-cycle: it stops for the stock
+boot, and either you confirm it interactively or `--stock-boot-ok` records a
+prior confirmation. `drill` and `install` still refuse without `--yes`. `run`
+does not read `boot_a` (step 4).
 
-**Run.** First a dry run (step 2), then:
+`run` needs both images and their digests when it starts. Step 5 builds the
+images from this unit's backup, so on a fresh unit `run` cannot start before
+step 5. `run` also begins with its own `backup`, which refuses to overwrite an
+existing one, so give it a new session directory. Its drill report goes to
+`<new-session-dir>/drill-report.json`.
+
+Run it with `--dry-run` first, then without:
 
 ```sh
 python3 <platform-checkout>/tools/mt8167-arm64/prepare/lidar_prepare.py \
     --amonet <path-to-amonet-checkout> \
-    run --session-dir <session-dir> \
-    --kaeru <path-to>/lidar-kaeru.bin --kaeru-sha256 <hex> \
-    --koboreru <path-to>/tee-payload-lidar.img --koboreru-sha256 <hex> \
+    run --session-dir <new-session-dir> \
+    --kaeru <session-dir>/images/lidar-kaeru.bin --kaeru-sha256 <kaeru-sha256> \
+    --koboreru <session-dir>/images/tee-payload-lidar.img --koboreru-sha256 <koboreru-sha256> \
     --yes --stock-boot-ok
 ```
 
-**You should see.** The stage sequence with one log at
-`<session-dir>/prepare.jsonl`, stopping at the stock-boot gate.
+The stages run with one log at `<new-session-dir>/prepare.jsonl` and stop at the
+stock-boot gate. If a stage fails, the log names the stage and the check.
+Continue with the individual steps from where it stopped.
 
-**If it fails.** The log names the stage and the check. Continue with the
-individual stages from where it stopped.
-
-### 10. Install LibreEcho (`--target lidar`)
+### 11. Install LibreEcho (`--target lidar`)
 
 **What this does.** Runs the product installer, which writes LibreEcho to the
 boot slots over Kaeru fastboot. The Lidar target uses the "already converted"
@@ -425,9 +562,9 @@ python3 tools/libreecho-install.py \
     --release-tag <tag>
 ```
 
-`<tag>` is the release tag recorded in the build's `provenance.json`
-(`release`). No `lidar-v*` release is published, so `--release-dir` with a lab
-build is the only source today.
+`<version>` is the lab build from step 6. `<tag>` is the release tag recorded
+in the build's `provenance.json` (`release`). No `lidar-v*` release is
+published, so `--release-dir` with a lab build is the only source today.
 
 **You should see.** The chain checks, the slot writes with verified readbacks,
 and the first boot. The installer writes a per-run log.
@@ -438,7 +575,7 @@ unfinished install without `continue-one-shot` (same release) or `one-shot
 --reinstall` (erases userdata and rewrites both boot slots, never re-sends a
 brick payload).
 
-### 11. Validate
+### 12. Validate
 
 **What this does.** Confirms the install is healthy before you rely on the
 unit.
@@ -473,9 +610,9 @@ the development unit in every Phase 5 to 7 deploy). Check
 
 | Failure | Action |
 | --- | --- |
-| Preparation failed after `backup` | You can return the unit to stock from the backup directory with the Phase 2/3 restore tooling and the drill report. That tool reaches the unit through mtkclient. [lab-notes/phase-02/restore/README.md](../lab-notes/phase-02/restore/README.md), "mtkclient adapter", gives the setup. Never restore `expdb` alone ([boot-chain-safety.md](boot-chain-safety.md)). |
-| `install` refused after a partial write | Keep the log. A re-run skips the expdb write only when expdb already holds the byte-identical expected Kaeru stage. Any other installed expdb content is refused. Report the state before any further write. |
-| Installer stopped mid-write | Rerun the installer. It archives its state and refuses to restart an unfinished install without `continue-one-shot` or `one-shot --reinstall`. |
+| Preparation failed after `backup` (step 3) | You can return the unit to stock from the backup directory with the Phase 2/3 restore tooling and the drill report. That tool reaches the unit through mtkclient. [lab-notes/phase-02/restore/README.md](../lab-notes/phase-02/restore/README.md), "mtkclient adapter", gives the setup. Never restore `expdb` alone ([boot-chain-safety.md](boot-chain-safety.md)). |
+| `install` (step 9) refused after a partial write | Keep the log. A re-run skips the expdb write only when expdb already holds the byte-identical expected Kaeru stage. Any other installed expdb content is refused. Report the state before any further write. |
+| Installer (step 11) stopped mid-write | Rerun the installer. It archives its state and refuses to restart an unfinished install without `continue-one-shot` or `one-shot --reinstall`. |
 | Slot does not boot | Wait: the LK tries counter rolls back to the other slot after three failed boots. Then check `boot-history`. |
 | After Kaeru: return to fastboot | Hold the action button at power-on. The Kaeru chain boots to fastboot like the other targets. |
 | After Kaeru: return to stock | This guide does not authorise such a procedure. Any later stock recovery needs a separately reviewed full-chain BROM procedure. Never restore `expdb` alone. |
@@ -485,14 +622,16 @@ the development unit in every Phase 5 to 7 deploy). Check
 [acceptance-test.md](acceptance-test.md) maps each acceptance item to these steps and to the
 evidence to return. In short, return a directory with:
 
-1. The preparation session directory: the `identify` output, the backup
-   manifest and its hashes, the drill report, the stock-boot report and the
-   `install` readback output.
-2. The installer log (`tools/libreecho-install.py` writes a per-run log).
+1. The reports from the session directory: the `identify` output (step 2), the
+   backup manifest and its hashes (step 3), the `PASS` line of the `boot_a`
+   read (step 4), the image digests (step 5), the drill report (step 7), the
+   stock-boot report (step 8) and the `install` readback output (step 9).
+2. The installer log from step 11 (`tools/libreecho-install.py` writes a
+   per-run log).
 3. The OTA and boot state files: `/data/libreecho/update/boot-health`,
    `boot-history`, `installed` and `state`, pulled over adb.
 4. The `SHA256SUMS` and `provenance.json` of the build that was installed.
 5. A short note of what worked and what refused, with the exact commands.
 
-Do not include device serials, MAC addresses or Wi-Fi credentials in anything
-you share.
+Do not include the `.bin` or `.img` files, device serials, MAC addresses or
+Wi-Fi credentials in anything you share.

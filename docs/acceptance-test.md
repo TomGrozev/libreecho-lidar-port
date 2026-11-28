@@ -23,9 +23,10 @@ the unit.
 One directory with:
 
 1. The preparation session directory from the install guide: `identify` output, the
-   `backup/` manifest and hashes, `drill-report.json`, `stock-boot-report.json` and
-   `prepare.jsonl`.
-2. The product installer log from step 10.
+   `backup/` manifest and hashes, the `PASS` line of the `boot_a` read (step 4), the image
+   digests (step 5), `drill-report.json`, `stock-boot-report.json` and `prepare.jsonl`.
+   Leave out the `.bin` and `.img` files: they are Amazon firmware.
+2. The product installer log from step 11.
 3. The update state under `/data/libreecho/update/`: `boot-health`, `boot-history`,
    `installed` and `state`.
 4. `SHA256SUMS` and `provenance.json` from the build that was installed.
@@ -38,21 +39,22 @@ Remove serials, MAC addresses and Wi-Fi credentials before you share anything.
 
 | Checklist item | Steps in the install guide | Evidence to send back | Kind |
 | --- | --- | --- | --- |
-| Installation from BROM through the one-command path | 1 to 8, then 9 `run`, or 2 then 9 | `prepare.jsonl`, the `identify` output, and the `confirm` output showing `product: LIDAR` | host and hardware |
-| Boot-chain backups with a passing restore drill | 4 `backup`, 5 `drill`, 6 `stock-boot` | `backup-manifest.json`, `drill-report.json`, `stock-boot-report.json`, and a note that the unit booted stock after the drill | host and hardware |
-| Recovery and reinstall | 7 `install` after a partial run, or 10 with `one-shot --reinstall`; see Recovery | the rerun log and `boot-history` | host and hardware |
-| OTA updates | 10 and 11 | `boot-health` with `state=confirmed`, `boot-history`, `installed` and `state` | image and hardware |
-| Networking | 11 | The `adb` output and a `GET /api/v1/network` capture; note DHCP, DNS and one access point | hardware |
-| UI | 11 | Photos of the setup page and the Device page; note which views loaded | hardware |
-| Audio playback | 11 | A note that you heard the cues and the validation tones, with the volume steps you used | hardware |
-| Microphones | 11 | One voice capture, a note for each of the 7 lanes, and the `tinycap` output if you have it | hardware |
-| Buttons and LEDs, privacy latch | 11 | Photos of the ring at boot and while latched, and the output of each button test | hardware |
+| Installation from BROM through the one-command path | 1 to 10, or 1 to 6 and then the `run` aside after step 10 | `prepare.jsonl`, the `identify` output, and the `confirm` output showing `product: LIDAR` | host and hardware |
+| Boot-chain backups with a passing restore drill | 3 `backup`, 4 `boot_a` read, 7 `drill`, 8 `stock-boot` | `backup-manifest.json`, the step 4 `PASS` line, `drill-report.json`, `stock-boot-report.json`, and a note that the unit booted stock after the drill | host and hardware |
+| Recovery and reinstall | 9 `install` after a partial run, or 11 with `one-shot --reinstall`; see Recovery | the rerun log and `boot-history` | host and hardware |
+| OTA updates | 11 and 12 | `boot-health` with `state=confirmed`, `boot-history`, `installed` and `state` | image and hardware |
+| Networking | 12 | The `adb` output and a `GET /api/v1/network` capture; note DHCP, DNS and one access point | hardware |
+| UI | 12 | Photos of the setup page and the Device page; note which views loaded | hardware |
+| Audio playback | 12 | A note that you heard the cues and the validation tones, with the volume steps you used | hardware |
+| Microphones | 12 | One voice capture, a note for each of the 7 lanes, and the `tinycap` output if you have it | hardware |
+| Buttons and LEDs, privacy latch | 12 | Photos of the ring at boot and while latched, and the output of each button test | hardware |
 | Evidence separated into kinds | all | Your directory with every result labelled host, CI, image or hardware | host, CI, image, hardware |
 | No proprietary data in the return | all | Your confirmation that serials, MACs, keys and credentials are removed | host |
-| Licensed components with complete source | 10 | `provenance.json` and `SHA256SUMS` | image |
+| Licensed components with complete source | 6 and 11 | `provenance.json` and `SHA256SUMS` | image |
 
-The one-command path is step 9. Run it only after a dry run (step 2), and keep the stock
-boot confirmation (step 6) outside it.
+The one-command path is the `run` aside after step 10. It needs the images from step 5, so
+it cannot start before step 5. Run it with `--dry-run` first, and keep the stock boot
+confirmation (step 8) outside it.
 
 ## Before you start
 
