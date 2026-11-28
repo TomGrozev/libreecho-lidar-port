@@ -1,0 +1,36 @@
+#!/bin/sh
+# Versioned pre-commit hook for the published tree: nothing private may be
+# committed, the published snapshot must pass the identifier scan, and it must
+# pass the repo checks. `workspace.py init` sets core.hooksPath to .githooks.
+set -eu
+root=$(git rev-parse --show-toplevel)
+
+staged=$(git diff --cached --name-only --diff-filter=ACMR)
+# (a) reject anything under private/.
+if printf '%s\n' "$staged" | grep -q '^private/'; then
+    echo 'pre-commit: private/ paths are staged; they must never be committed' >&2
+    printf '%s\n' "$staged" | grep '^private/' >&2
+    exit 1
+fi
+
+# (b) the scanner takes a directory, not a file list, so scan the staged tree.
+# The lab workspace has it under private/; a public clone does not, and there
+# the guard above plus tools/check.py are the whole hook.
+scanner="$root/private/scrub/scan-docs-identifiers.py"
+if [ -f "$scanner" ]; then
+    tmp=$(mktemp -d)
+    trap 'rm -rf "$tmp"' EXIT
+    git checkout-index --prefix="$tmp/" -a
+    if ! python3 "$scanner" "$tmp"; then
+        echo 'pre-commit: identifier scan reported hits; commit rejected' >&2
+        exit 1
+    fi
+else
+    echo 'pre-commit: no identifier scanner (private/ absent); skipping scan' >&2
+fi
+
+# (c) repo-owned checks: Python syntax, JSON, Markdown links, docs and tests.
+if ! python3 "$root/tools/check.py"; then
+    echo 'pre-commit: repo checks failed; commit rejected' >&2
+    exit 1
+fi
