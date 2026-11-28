@@ -1,0 +1,6 @@
+{
+  "ota_signing_key": "private/keys/ota-lab/ed25519-seed.hex",
+  "ota_public_key": "private/keys/ota-lab/ed25519-public.hex",
+  "stock_boot": "private/dumps/<your-backup>/boot_a.bin",
+  "device_host": ""
+}
