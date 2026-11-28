@@ -13,7 +13,8 @@
       "topics": [
         {"branch": "fix/general-fixes-from-lidar-port", "scope": "general"},
         {"branch": "feat/micro-wake-word", "scope": "general", "base": "fix/general-fixes-from-lidar-port"},
-        {"branch": "feature/lidar-support", "scope": "lidar", "base": "fix/general-fixes-from-lidar-port"}
+        {"branch": "feature/lidar-support", "scope": "lidar", "base": "fix/general-fixes-from-lidar-port"},
+        {"branch": "feat/lidar-radio", "scope": "lidar", "base": "feature/lidar-support"}
       ]
     },
     {
