@@ -8,10 +8,10 @@ integration branches, the product's public build inputs, and the private
 signing key and stock boot image.
 
 Commands:
-  init [--no-integrate] [--no-inputs]
+  init [--no-integrate] [--no-inputs] [--no-image]
                            install the versioned git hooks, clone missing forks,
                            rebuild integration, fetch the public build inputs into
-                           work/inputs/
+                           work/inputs/, build the Amonet BROM payload
   keygen                   create the ed25519 OTA signing key pair named by
                            private/local.json
   doctor                   report what a build still needs; exits 1 when
@@ -26,6 +26,7 @@ import os
 import shutil
 import subprocess
 import sys
+import tarfile
 from pathlib import Path
 
 from integrate import Fail, is_git_repo, load_json, load_manifest, sha256_file, workspace_from
@@ -66,6 +67,8 @@ KERNEL_UAPI_REL = "work/inputs/kernel-uapi"
 KERNEL_UAPI_OUT_REL = "work/inputs/kernel-uapi-out"
 KERNEL_UAPI_TREES = ("linux", "asm", "asm-generic")
 LINUX_REL = "work/integration/LibreEcho-Linux"
+# `modules/lidar_brom.py` in the Amonet fork loads this payload by default.
+BROM_PAYLOAD_REL = "work/integration/amonet/brom-payload/build/mt8167/payload.bin"
 
 NEURAL_REL = "work/inputs/public-deps/neural"
 NEURAL_MANIFEST = "NEURAL_DEPENDENCY_MANIFEST"
@@ -475,6 +478,37 @@ def fetch_pinned_archive(dependency, archives):
         raise Fail(f"{name}: sha256 mismatch (expected {expected})")
 
 
+def pinned_toolchain_prefix(dependency, root):
+    """Where `stage_pinned_toolchain` unpacks a release: its archive's top directory."""
+    name = dependency["source_url"].rsplit("/", 1)[-1]
+    return root / name.removesuffix(".tar.xz")
+
+
+def stage_pinned_toolchain(dependency, root):
+    """Fetch a pinned toolchain release by URL and sha256 and unpack it under `root`.
+
+    The receipt holds the archive digest, so a changed pin or an interrupted
+    unpack restages instead of reusing a stale tree.
+    """
+    prefix = pinned_toolchain_prefix(dependency, root)
+    receipt = prefix / ".source-sha256"
+    expected = dependency["source_sha256"]
+    if receipt.is_file() and receipt.read_text(encoding="utf-8").strip() == expected:
+        return prefix
+    archives = root / "archives"
+    archives.mkdir(parents=True, exist_ok=True)
+    fetch_pinned_archive(dependency, archives)
+    if prefix.exists():
+        shutil.rmtree(prefix)
+    print(f"inputs: unpacking {prefix.name}")
+    with tarfile.open(archives / dependency["source_url"].rsplit("/", 1)[-1]) as archive:
+        archive.extractall(root, filter="tar")
+    if not (prefix / "bin").is_dir():
+        raise Fail(f"{prefix.name}: the archive has no {prefix.name}/bin")
+    receipt.write_text(expected + "\n", encoding="utf-8")
+    return prefix
+
+
 def stage_otbr_deps(ws, platform):
     deps = ws / OTBR_DEPS_REL
     lock_path = platform / OTBR_LOCK_REL
@@ -701,6 +735,13 @@ def cmd_init(ws, args):
         print("skip: build image (--no-image)")
     else:
         ensure_build_image(ws, args.build_image)
+    if args.no_integrate:
+        print("skip: Amonet BROM payload (--no-integrate)")
+    else:
+        # The payload needs only the integrated Amonet tree, no device data.
+        # Without the image it builds with the host's cross compiler.
+        run([sys.executable, ws / "tools" / "lab-build.py", "brom-payload",
+             "--workspace", ws, *(["--no-container"] if args.no_image else [])])
     if args.no_inputs:
         print("skip: public inputs (--no-inputs)")
     else:
@@ -908,6 +949,10 @@ def collect_problems(ws):
         if not (ws / KERNEL_UAPI_REL / "include" / tree).is_dir():
             problems.append(
                 f"{KERNEL_UAPI_REL}/include/{tree}: missing (Linux UAPI headers)")
+    if not (ws / BROM_PAYLOAD_REL).is_file():
+        problems.append(
+            f"{BROM_PAYLOAD_REL}: missing (Amonet BROM payload; run "
+            "`python3 tools/lab-build.py brom-payload`)")
 
     for tool in HOST_TOOLS:
         if shutil.which(tool) is None:
@@ -975,17 +1020,20 @@ def main(argv=None):
 
     p_init = sub.add_parser(
         "init", parents=[common],
-        help="clone forks, rebuild integration, fetch public inputs",
+        help="clone forks, rebuild integration, fetch public inputs, "
+             "build the Amonet BROM payload",
     )
     p_init.add_argument("--no-integrate", action="store_true",
-                        help="skip the tools/integrate.py rebuild")
+                        help="skip the tools/integrate.py rebuild and the "
+                             "BROM payload build")
     p_init.add_argument("--no-inputs", action="store_true",
                         help="skip fetching the public build inputs")
     p_init.add_argument("--build-image", action="store_true",
                         help="build the build image locally from the Containerfile "
                              "even when the pin names a digest")
     p_init.add_argument("--no-image", action="store_true",
-                        help="skip preparing the build image")
+                        help="skip preparing the build image; build the BROM "
+                             "payload with the host toolchain")
     p_init.add_argument("--sync-forks", action="store_true",
                         help="reset a cached branch whose fork history was rewritten "
                              "(only when no worktree has it checked out)")

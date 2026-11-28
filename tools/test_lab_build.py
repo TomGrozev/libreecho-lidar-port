@@ -9,6 +9,7 @@ import importlib.util
 import io
 import json
 import os
+import shlex
 import shutil
 import subprocess
 import tarfile
@@ -933,6 +934,91 @@ class FetchTest(unittest.TestCase):
             bundle.unlink()
         with self.assertRaisesRegex(self.lab_build.Fail, 'missing from the fetched build'):
             self.lab_build.cmd_fetch(SimpleNamespace(run='42'))
+
+
+class BootChainTest(unittest.TestCase):
+    """boot-chain refuses bad donors and public output paths, and prints usable flags."""
+
+    def setUp(self) -> None:
+        self.lab_build = load_lab_build()
+        self.temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary.cleanup)
+        self.tmp = Path(self.temporary.name).resolve()
+        self.root = self.tmp / 'port'
+        self.root.mkdir()
+        self.lab_build.set_workspace(self.root)
+        self.backup = self.tmp / 'backup'
+        self.backup.mkdir()
+        (self.backup / 'lk_a.bin').write_bytes(b'stock lk')
+        (self.backup / 'tee1.bin').write_bytes(b'stock tee')
+
+    def write_manifest(self, **overrides: str) -> None:
+        files = {area: {'file': f'{area}.bin', 'sha256': sha256(self.backup / f'{area}.bin')}
+                 for area in ('lk_a', 'tee1')}
+        for area, digest in overrides.items():
+            files[area]['sha256'] = digest
+        write_json(self.backup / 'backup-manifest.json', {'files': files})
+
+    def test_missing_donor_is_refused(self) -> None:
+        (self.backup / 'tee1.bin').unlink()
+        with self.assertRaisesRegex(self.lab_build.Fail, 'tee1.bin is missing'):
+            self.lab_build.verify_donors(self.backup)
+
+    def test_donor_digest_must_match_the_backup_manifest(self) -> None:
+        self.write_manifest(lk_a='0' * 64)
+        with self.assertRaisesRegex(self.lab_build.Fail, 'backup-manifest.json records'):
+            self.lab_build.verify_donors(self.backup)
+        self.write_manifest()
+        donors, manifest = self.lab_build.verify_donors(self.backup)
+        self.assertEqual(donors['tee1']['sha256'], sha256(self.backup / 'tee1.bin'))
+        self.assertIsNotNone(manifest)
+
+    def test_out_inside_a_checkout_must_be_under_its_private_tree(self) -> None:
+        run_git(self.tmp, 'init', '-q')
+        with self.assertRaisesRegex(self.lab_build.Fail, 'inside the git checkout'):
+            self.lab_build.check_boot_chain_out(self.tmp / 'out')
+        allowed = self.lab_build.check_boot_chain_out(self.tmp / 'private' / 'boot-chain')
+        self.assertEqual(allowed, self.tmp / 'private' / 'boot-chain')
+
+    def test_printed_flags_match_sha256sums(self) -> None:
+        write_json(self.root / 'work/integration/integration.lock.json',
+                   {'schema_version': 1, 'repos': {}})
+        sources = {name: FakeSource(self.root / name) for name in ('kaeru', 'amonet-koboreru')}
+        for source in sources.values():
+            source.validate = lambda: None
+
+        def build(pinned: bool) -> None:
+            scratch = self.lab_build.BOOT_CHAIN_ROOT
+            for repo, name in (('kaeru', 'lidar-kaeru.bin'),
+                               ('amonet-koboreru', 'tee-payload-lidar.img')):
+                (scratch / repo).mkdir(parents=True, exist_ok=True)
+                (scratch / repo / name).write_bytes(name.encode())
+
+        out = self.tmp / 'out dir'
+        stdout = io.StringIO()
+        with mock.patch.multiple(
+                self.lab_build,
+                host_toolchain_record=mock.Mock(return_value={}),
+                integration_source=lambda lock, name: sources[name],
+                prepare_boot_chain=mock.Mock(),
+                build_boot_chain=build), \
+                mock.patch.dict('os.environ', {}, clear=False), \
+                mock.patch('sys.stdout', stdout):
+            os.environ.pop('LIBREECHO_CONTAINER', None)
+            rc = self.lab_build.cmd_boot_chain(SimpleNamespace(
+                backup_dir=str(self.backup), out=str(out), no_container=True))
+        self.assertEqual(rc, 0)
+        flags = shlex.split(stdout.getvalue().split('lidar_prepare.py flags:', 1)[1])
+        flags = [flag for flag in flags if flag != '\n']
+        pairs = dict(zip(flags[::2], flags[1::2], strict=True))
+        sums = {line.split('  ', 1)[1]: line.split('  ', 1)[0]
+                for line in (out / 'SHA256SUMS').read_text(encoding='utf-8').splitlines()}
+        self.assertEqual(pairs['--kaeru'], str(out / 'lidar-kaeru.bin'))
+        self.assertEqual(pairs['--kaeru-sha256'], sums['lidar-kaeru.bin'])
+        self.assertEqual(pairs['--koboreru'], str(out / 'tee-payload-lidar.img'))
+        self.assertEqual(pairs['--koboreru-sha256'], sums['tee-payload-lidar.img'])
+        provenance = json.loads((out / 'provenance.json').read_text(encoding='utf-8'))
+        self.assertEqual(provenance['donors']['lk_a']['sha256'], sha256(self.backup / 'lk_a.bin'))
 
 
 class WorkflowPinTest(unittest.TestCase):

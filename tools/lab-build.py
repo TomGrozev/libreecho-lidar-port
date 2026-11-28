@@ -38,6 +38,9 @@ usage:
   tools/lab-build.py push [--force] [--version X.Y.Z] [--workspace DIR]
   tools/lab-build.py fetch [RUN-ID|latest] [--workspace DIR]
   tools/lab-build.py deploy VERSION --host HOST --yes [--workspace DIR]
+  tools/lab-build.py brom-payload [--no-container] [--workspace DIR]
+  tools/lab-build.py boot-chain --backup-dir DIR --out DIR [--no-container]
+                                [--workspace DIR]
 
 `--lock PATH` skips `tools/integrate.py` and reads a hand-written lock instead.
 The version defaults to the highest existing build under work/builds plus one
@@ -45,6 +48,14 @@ patch; the first build on an empty cache needs `--version` (the workflow asks
 for it too). A successful attempt whose source id matches the lock is reused
 unless `--rebuild` is passed; failed attempts stay under work/builds for
 inspection and the five newest are kept.
+
+`brom-payload` builds the Amonet BROM payload in work/integration/amonet with
+the pinned arm-none-eabi toolchain; `workspace.py init` runs it. `boot-chain`
+builds Kaeru and Koboreru from the stock LK and TEE in a `lidar_prepare.py
+backup` directory, in a scratch copy under work/boot-chain, and writes the
+images with `SHA256SUMS` and `provenance.json` to a private output directory.
+Both run in the build image with the pinned Arm GNU toolchains unless
+`--no-container` selects the host toolchains.
 """
 
 from __future__ import annotations
@@ -91,6 +102,7 @@ def set_workspace(root: Path) -> None:
     """Point every derived path at `root` (the repo checkout by default)."""
     global ROOT, INPUTS, PUBLIC_DEPS, AARCH64_ROOT, ARMHF_ROOT, MUSL_ROOT
     global BUILD_ROOT, MBEDTLS_VENV, OTA_GATE_PYTHON, BUILD_LOCK
+    global ARM_TOOLCHAIN_ROOT, BOOT_CHAIN_ROOT
     ROOT = root.resolve()
     INPUTS = ROOT / 'work/inputs'
     PUBLIC_DEPS = INPUTS / 'public-deps'
@@ -101,6 +113,8 @@ def set_workspace(root: Path) -> None:
     MBEDTLS_VENV = BUILD_ROOT / 'mbedtls-build-venv'
     OTA_GATE_PYTHON = BUILD_ROOT / 'ota-gate-python'
     BUILD_LOCK = ROOT / 'work/builds/.build.lock'
+    ARM_TOOLCHAIN_ROOT = INPUTS / 'arm-gnu-toolchain'
+    BOOT_CHAIN_ROOT = ROOT / 'work/boot-chain'
 
 
 # Paths `tools/workspace.py init` stages; the product build reads them through
@@ -118,12 +132,50 @@ OTA_GATE_PYTHON = BUILD_ROOT / 'ota-gate-python'
 # The build lock: an fcntl.flock under work/builds, not a pid file, so a stale
 # lock cannot outlive its build.
 BUILD_LOCK = ROOT / 'work/builds/.build.lock'
+ARM_TOOLCHAIN_ROOT = INPUTS / 'arm-gnu-toolchain'
+# Scratch for `boot-chain`: integration sources, donors and the Python venv.
+BOOT_CHAIN_ROOT = ROOT / 'work/boot-chain'
 CONTAINER_ID = 1000
 
 # The product's whole-target contract fixes the five feature ids and their order.
 FEATURE_ORDER = ('airplay2', 'tts', 'wakeword', 'stt', 'assistant')
 
 LOCAL_INPUT_KEYS = ('stock_boot', 'ota_signing_key', 'ota_public_key')
+
+# The build image has no ARM cross compiler; these Arm GNU Toolchain 15.2.Rel1
+# x86_64 releases are fetched into work/inputs/. The digests are Arm's own,
+# from the `.sha256asc` file published beside each archive under ARM_GNU_URL.
+ARM_GNU_URL = 'https://developer.arm.com/-/media/Files/downloads/gnu/15.2.rel1/binrel/'
+ARM_TOOLCHAINS = {
+    'arm-none-eabi': {
+        'source_url': ARM_GNU_URL + 'arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi.tar.xz',
+        'source_sha256': '597893282ac8c6ab1a4073977f2362990184599643b4c5ee34870a8215783a16',
+    },
+    'arm-none-linux-gnueabihf': {
+        'source_url': ARM_GNU_URL
+        + 'arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-linux-gnueabihf.tar.xz',
+        'source_sha256': '3c65d820a6b8f677f8f6fbfc749fe00a4f16dde12341436c9df5b7092a47c0fb',
+    },
+}
+# Kaeru's utils/requirements.txt with every version fixed. liblk has no release
+# tags, so it is pinned to its default-branch head.
+BOOT_CHAIN_REQUIREMENTS = (
+    'capstone==5.0.6',
+    'pyasn1==0.6.5',
+    'liblk @ git+https://github.com/R0rt1z2/liblk.git@75c8f14f16457b6c53d950d18d1ed7d2a665bed6',
+)
+# Kaeru's Makefile defaults to Debian's arm-linux-gnueabihf- prefix.
+KAERU_CROSS_COMPILE = 'arm-none-linux-gnueabihf-'
+BROM_SOC = 'mt8167'
+AMONET_REPO = 'amonet'
+KAERU_REPO = 'kaeru'
+KOBORERU_REPO = 'amonet-koboreru'
+# The two stock areas `lidar_prepare.py backup` writes that the builds patch.
+DONOR_AREAS = ('lk_a', 'tee1')
+BACKUP_MANIFEST = 'backup-manifest.json'
+KAERU_OUTPUT = 'lidar-kaeru.bin'
+KOBORERU_OUTPUT = 'tee-payload-lidar.img'
+BOOT_CHAIN_OUTPUTS = (KAERU_OUTPUT, KOBORERU_OUTPUT, 'SHA256SUMS', 'provenance.json')
 
 
 class Fail(Exception):
@@ -738,8 +790,8 @@ def build_script_args(args) -> list[str]:
     return argv
 
 
-def run_in_container(args) -> int:
-    """Re-exec `build` inside the build image and return its exit code."""
+def run_in_container(script_args: list[str]) -> int:
+    """Re-exec this tool with `script_args` inside the build image; return its exit code."""
     image = container_image()
     runtime = container_runtime()
     if runtime is None:
@@ -759,7 +811,7 @@ def run_in_container(args) -> int:
             'or pass --no-container to build with the host toolchain')
     image_id = inspect.stdout.strip() or None
     argv = container_argv(runtime, ROOT, image, os.getuid(), os.getgid(),
-                          build_script_args(args),
+                          script_args,
                           container_git_identity(), image_id=image_id)
     print(' '.join(shlex.quote(item) for item in argv))
     return subprocess.run(argv).returncode
@@ -871,7 +923,7 @@ def cmd_build(args) -> int:
     lock = open_build_lock()
     try:
         if container_enabled(args):
-            return run_in_container(args)
+            return run_in_container(build_script_args(args))
         return run_build(args)
     finally:
         close_build_lock(lock)
@@ -1022,6 +1074,305 @@ def run_build(args) -> int:
         return 0
     finally:
         log.close()
+
+
+# --------------------------------------------------------------------------
+# boot chain: Amonet BROM payload, Kaeru, Koboreru
+
+
+def workspace_module():
+    """tools/workspace.py, which fetches the public inputs by URL and sha256."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import workspace
+    return workspace
+
+
+def stage_arm_toolchains(triplets) -> None:
+    """Fetch and unpack the pinned Arm GNU toolchains on the host, before the container runs."""
+    workspace = workspace_module()
+    for triplet in triplets:
+        try:
+            workspace.stage_pinned_toolchain(ARM_TOOLCHAINS[triplet], ARM_TOOLCHAIN_ROOT)
+        except workspace.Fail as exc:
+            raise Fail(str(exc)) from exc
+
+
+def pinned_toolchain_env(triplets, venv: Path | None = None) -> dict[str, str]:
+    """The environment with the pinned toolchains, and `venv` if given, first on PATH."""
+    workspace = workspace_module()
+    paths = [str(venv / 'bin')] if venv else []
+    paths += [str(workspace.pinned_toolchain_prefix(ARM_TOOLCHAINS[triplet],
+                                                    ARM_TOOLCHAIN_ROOT) / 'bin')
+              for triplet in triplets]
+    env = dict(os.environ)
+    env['PATH'] = os.pathsep.join([*paths, env.get('PATH', '')])
+    return env
+
+
+def read_lock() -> dict:
+    path = ROOT / LOCK_REL
+    if not path.is_file():
+        raise Fail(f'{LOCK_REL} is missing; run `python3 tools/workspace.py init`')
+    return read_json(path)
+
+
+def integration_source(lock: dict, name: str) -> Source:
+    entry = (lock.get('repos') or {}).get(name)
+    if not isinstance(entry, dict) or 'integration_path' not in entry:
+        raise Fail(f'{LOCK_REL} has no {name} repo; run `python3 tools/integrate.py rebuild`')
+    return Source(name, name, entry)
+
+
+def brom_payload_path(amonet: Path) -> Path:
+    return amonet / 'brom-payload/build' / BROM_SOC / 'payload.bin'
+
+
+def make_brom_payload(amonet: Path, env: dict[str, str] | None) -> None:
+    argv = ['make', '-C', str(amonet / 'brom-payload'), f'SOC={BROM_SOC}']
+    print('$ ' + ' '.join(argv))
+    if subprocess.run(argv, env=env).returncode != 0:
+        raise Fail(f'BROM payload build failed: {" ".join(argv)}')
+
+
+def cmd_brom_payload(args) -> int:
+    """Build the payload Amonet's modules/lidar_brom.py loads by default."""
+    source = integration_source(read_lock(), AMONET_REPO)
+    if os.environ.get('LIBREECHO_CONTAINER') == '1':
+        make_brom_payload(source.path, pinned_toolchain_env(['arm-none-eabi']))
+        return 0
+    source.validate()
+    # integrate.py checks out no submodules, and the payload links idmetool's library.
+    git(source.path, 'submodule', 'update', '--init', 'idmetool')
+    if container_enabled(args):
+        stage_arm_toolchains(['arm-none-eabi'])
+        rc = run_in_container(['brom-payload'])
+        if rc != 0:
+            raise Fail(f'BROM payload build failed in the container (exit {rc})')
+    else:
+        make_brom_payload(source.path, None)
+    payload = brom_payload_path(source.path)
+    if not payload.is_file():
+        raise Fail(f'{rel_to_ws(payload)} was not produced')
+    print(f'PASS BROM payload {rel_to_ws(payload)} sha256 {sha256_file(payload)}')
+    return 0
+
+
+def check_boot_chain_out(out: Path) -> Path:
+    """Refuse an output directory a commit could pick up, or one holding other files.
+
+    The images embed Amazon LK and TEE bytes, so inside a git checkout only that
+    checkout's private/ is allowed.
+    """
+    out = out.expanduser().resolve()
+    probe = out
+    while not probe.is_dir():
+        probe = probe.parent
+    proc = subprocess.run(['git', '-C', str(probe), 'rev-parse', '--show-toplevel'],
+                          capture_output=True, text=True)
+    if proc.returncode == 0:
+        private = Path(proc.stdout.strip()).resolve() / 'private'
+        if out != private and private not in out.parents:
+            raise Fail(f'{out} is inside the git checkout {private.parent}; the images embed '
+                       f'Amazon LK and TEE bytes, so pass a directory under {private}/ '
+                       'or outside any checkout')
+    if out.exists():
+        if not out.is_dir():
+            raise Fail(f'{out} is not a directory')
+        other = sorted(path.name for path in out.iterdir()
+                       if path.name not in BOOT_CHAIN_OUTPUTS)
+        if other:
+            raise Fail(f'{out} holds other files ({", ".join(other[:5])}); '
+                       'pass a new or empty directory')
+    return out
+
+
+def verify_donors(backup_dir: Path) -> tuple[dict, dict | None]:
+    """The stock LK and TEE from a `lidar_prepare.py backup` directory, checked
+    against its manifest when the manifest is there."""
+    backup_dir = backup_dir.expanduser().resolve()
+    manifest_path = backup_dir / BACKUP_MANIFEST
+    files = None
+    manifest = None
+    if manifest_path.is_file():
+        files = read_json(manifest_path).get('files')
+        if not isinstance(files, dict):
+            raise Fail(f'{manifest_path} has no "files" map')
+        manifest = {'path': str(manifest_path), 'sha256': sha256_file(manifest_path)}
+    else:
+        print(f'WARN {manifest_path} is missing; the donors are not checked against it')
+    donors = {}
+    for area in DONOR_AREAS:
+        path = backup_dir / f'{area}.bin'
+        if not path.is_file():
+            raise Fail(f'{path} is missing; --backup-dir must be the directory '
+                       f'`lidar_prepare.py backup` wrote ({", ".join(DONOR_AREAS)} .bin files)')
+        digest = sha256_file(path)
+        if files is not None:
+            record = files.get(area)
+            expected = record.get('sha256') if isinstance(record, dict) else None
+            if expected is None:
+                raise Fail(f'{manifest_path} records no {area}')
+            if digest != expected:
+                raise Fail(f'{path} is {digest}, but {BACKUP_MANIFEST} records {expected}; '
+                           'the backup is damaged or from another set')
+        donors[area] = {'path': str(path), 'sha256': digest}
+    return donors, manifest
+
+
+def host_toolchain_record() -> dict:
+    """Path, digest and version of each host tool a `--no-container` build uses."""
+    record = {}
+    for name in ('arm-none-eabi-gcc', 'arm-linux-gnueabihf-gcc', 'gcc', 'python3'):
+        path = Path(require_tool(name, 'install it, or drop --no-container to use '
+                                       'the pinned toolchains')).resolve()
+        proc = subprocess.run([str(path), '--version'], capture_output=True, text=True)
+        record[name] = {'path': str(path), 'sha256': sha256_file(path),
+                        'version': (proc.stdout.splitlines() or [''])[0]}
+    return record
+
+
+def export_source(source: Source, destination: Path) -> None:
+    """A throwaway clone at the integration head, so the build leaves work/integration
+    untouched; Kaeru's Makefile reads its version from the clone's git HEAD."""
+    if destination.exists():
+        shutil.rmtree(destination)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    proc = subprocess.run(['git', 'clone', '--quiet', '--no-checkout', str(source.path),
+                           str(destination)], capture_output=True, text=True)
+    if proc.returncode != 0:
+        raise Fail(f'cannot clone {rel_to_ws(source.path)}: '
+                   f'{proc.stderr.strip() or "git clone failed"}')
+    git(destination, 'checkout', '--quiet', '--detach', source.head)
+
+
+def prepare_boot_chain(sources: dict[str, Source], donors: dict) -> None:
+    clear_boot_chain_scratch()
+    for name, source in sources.items():
+        export_source(source, BOOT_CHAIN_ROOT / name)
+    (BOOT_CHAIN_ROOT / 'donors').mkdir(parents=True)
+    shutil.copyfile(donors['lk_a']['path'], BOOT_CHAIN_ROOT / 'donors/lk_a.bin')
+    # Koboreru's build.sh reads the donor TEE from this fixed path.
+    tees = BOOT_CHAIN_ROOT / KOBORERU_REPO / 'tees'
+    tees.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(donors['tee1']['path'], tees / 'tee_lidar.img')
+
+
+def clear_boot_chain_scratch() -> None:
+    """Drop the scratch trees, which hold Amazon bytes; the venv is kept."""
+    for name in (KAERU_REPO, KOBORERU_REPO, 'donors', 'build.log'):
+        path = BOOT_CHAIN_ROOT / name
+        if path.is_dir():
+            shutil.rmtree(path)
+        elif path.exists():
+            path.unlink()
+
+
+def ensure_boot_chain_venv(log: BuildLog) -> Path:
+    """The venv with Kaeru's and Koboreru's Python packages, for the image's interpreter."""
+    venv = BOOT_CHAIN_ROOT / 'venv'
+    wanted = '\n'.join(BOOT_CHAIN_REQUIREMENTS) + '\n'
+    receipt = venv / 'requirements.txt'
+    if ((venv / 'bin/python').is_file() and receipt.is_file()
+            and receipt.read_text(encoding='utf-8') == wanted):
+        return venv
+    if venv.exists():
+        shutil.rmtree(venv)
+    log.run([sys.executable, '-m', 'venv', str(venv)])
+    requirements = BOOT_CHAIN_ROOT / 'requirements.txt'
+    requirements.write_text(wanted, encoding='utf-8')
+    # ponytail: versions are pinned but not hash-checked, because pip cannot
+    # hash a git requirement and liblk publishes no wheel; a reviewed wheelhouse
+    # like the product's would allow --require-hashes.
+    log.run([str(venv / 'bin/python'), '-m', 'pip', 'install',
+             '--disable-pip-version-check', '--requirement', str(requirements)])
+    shutil.copyfile(requirements, receipt)
+    return venv
+
+
+def build_boot_chain(pinned: bool) -> None:
+    """Run Kaeru's and Koboreru's build.sh in the scratch clones."""
+    log = BuildLog(BOOT_CHAIN_ROOT / 'build.log')
+    try:
+        env = dict(os.environ)
+        kaeru_env = env
+        if pinned:
+            env = pinned_toolchain_env(ARM_TOOLCHAINS, ensure_boot_chain_venv(log))
+            kaeru_env = dict(env, CROSS_COMPILE=KAERU_CROSS_COMPILE)
+        log.phase('kaeru')
+        log.run(['bash', 'build.sh', 'lidar', str(BOOT_CHAIN_ROOT / 'donors/lk_a.bin')],
+                cwd=BOOT_CHAIN_ROOT / KAERU_REPO, env=kaeru_env)
+        log.phase('koboreru')
+        log.run(['bash', 'build.sh', 'lidar'], cwd=BOOT_CHAIN_ROOT / KOBORERU_REPO, env=env)
+    finally:
+        log.close()
+
+
+def collect_boot_chain(out: Path, provenance: dict) -> dict:
+    out.mkdir(parents=True, exist_ok=True)
+    for name, built in ((KAERU_OUTPUT, BOOT_CHAIN_ROOT / KAERU_REPO / KAERU_OUTPUT),
+                        (KOBORERU_OUTPUT, BOOT_CHAIN_ROOT / KOBORERU_REPO / KOBORERU_OUTPUT)):
+        if not built.is_file():
+            raise Fail(f'{rel_to_ws(built)} was not produced; see '
+                       f'{rel_to_ws(BOOT_CHAIN_ROOT / "build.log")}')
+        shutil.copyfile(built, out / name)
+    return write_build_identity(out, provenance)
+
+
+def cmd_boot_chain(args) -> int:
+    if os.environ.get('LIBREECHO_CONTAINER') == '1':
+        build_boot_chain(pinned=True)
+        return 0
+    out = check_boot_chain_out(Path(args.out))
+    donors, manifest = verify_donors(Path(args.backup_dir))
+    pinned = container_enabled(args)
+    host_tools = None if pinned else host_toolchain_record()
+    handle = open_build_lock()
+    try:
+        lock = read_lock()
+        sources = {name: integration_source(lock, name) for name in (KAERU_REPO, KOBORERU_REPO)}
+        for source in sources.values():
+            source.validate()
+        prepare_boot_chain(sources, donors)
+        if pinned:
+            stage_arm_toolchains(ARM_TOOLCHAINS)
+            rc = run_in_container(['boot-chain', '--backup-dir', str(args.backup_dir),
+                                   '--out', str(args.out)])
+            if rc != 0:
+                raise Fail(f'boot-chain build failed in the container (exit {rc}); see '
+                           f'{rel_to_ws(BOOT_CHAIN_ROOT / "build.log")}')
+            toolchains = {
+                'image': container_image(),
+                'arm_gnu': {triplet: {'url': pin['source_url'], 'sha256': pin['source_sha256']}
+                            for triplet, pin in ARM_TOOLCHAINS.items()},
+                'kaeru_cross_compile': KAERU_CROSS_COMPILE,
+                'python_requirements': list(BOOT_CHAIN_REQUIREMENTS),
+            }
+        else:
+            build_boot_chain(pinned=False)
+            toolchains = {'host': host_tools}
+        provenance = {
+            'schema_version': 1,
+            'generated': now_iso(),
+            'tool': {'path': rel_to_ws(Path(__file__)), 'sha256': sha256_file(Path(__file__))},
+            'lock': {'path': LOCK_REL, 'sha256': sha256_file(ROOT / LOCK_REL),
+                     'generated': lock.get('generated'),
+                     'heads': {name: source.head for name, source in sources.items()}},
+            'sources': {name: source.record() for name, source in sources.items()},
+            'donors': donors,
+            'backup_manifest': manifest,
+            'toolchains': toolchains,
+        }
+        outputs = collect_boot_chain(out, provenance)
+        clear_boot_chain_scratch()
+    finally:
+        close_build_lock(handle)
+    print(f'{len(outputs)} files recorded in {out}/SHA256SUMS and provenance.json')
+    print('lidar_prepare.py flags:')
+    print(f'  --kaeru {shlex.quote(str(out / KAERU_OUTPUT))} '
+          f'--kaeru-sha256 {outputs[KAERU_OUTPUT]} \\')
+    print(f'  --koboreru {shlex.quote(str(out / KOBORERU_OUTPUT))} '
+          f'--koboreru-sha256 {outputs[KOBORERU_OUTPUT]}')
+    return 0
 
 
 # --------------------------------------------------------------------------
@@ -1597,6 +1948,21 @@ def main(argv=None) -> int:
     fetch.add_argument('run', nargs='?', default='latest',
                        help='workflow run id (default: the latest successful run)')
     fetch.add_argument('--workspace', help='workspace root (default: this checkout)')
+    brom = sub.add_parser('brom-payload', help='build the Amonet BROM payload',
+                          allow_abbrev=False)
+    brom.add_argument('--no-container', action='store_true',
+                      help='build with the host toolchain instead of the build image')
+    brom.add_argument('--workspace', help='workspace root (default: this checkout)')
+    chain = sub.add_parser('boot-chain', help='build Kaeru and Koboreru from a stock backup',
+                           allow_abbrev=False)
+    chain.add_argument('--backup-dir', required=True,
+                       help='`lidar_prepare.py backup` directory holding lk_a.bin and tee1.bin')
+    chain.add_argument('--out', required=True,
+                       help='output directory, outside any git checkout or under its private/')
+    chain.add_argument('--no-container', action='store_true',
+                       help='build with the host toolchains and Python packages '
+                            'instead of the build image')
+    chain.add_argument('--workspace', help='workspace root (default: this checkout)')
     args = parser.parse_args(argv)
     try:
         if args.workspace:
@@ -1611,6 +1977,10 @@ def main(argv=None) -> int:
             return cmd_push(args)
         if args.command == 'fetch':
             return cmd_fetch(args)
+        if args.command == 'brom-payload':
+            return cmd_brom_payload(args)
+        if args.command == 'boot-chain':
+            return cmd_boot_chain(args)
         return cmd_deploy(args)
     except Fail as exc:
         print(f'ERROR: {exc}', file=sys.stderr)
