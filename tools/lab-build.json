@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "builds_dir": "work/builds",
+  "build_image": {
+    "name": "ghcr.io/tomgrozev/libreecho-build",
+    "digest": null
+  },
+  "values": {
+    "target": "lidar",
+    "profile": "ota"
+  }
+}
