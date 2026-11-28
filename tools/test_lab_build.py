@@ -445,10 +445,15 @@ class BuildCommandTest(unittest.TestCase):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name)
+        # The host steps read work/inputs, which only a real workspace has;
+        # CI checks out the bare port repo.
         overlay = mock.patch.multiple(
             self.lab_build,
             ROOT=self.root,
             BUILD_ROOT=self.root / 'work/product-build',
+            ensure_mbedtls_venv=mock.Mock(return_value=Path('/venv/bin/python')),
+            ensure_ota_gate_python=mock.Mock(return_value=Path('/gate/bin/python')),
+            check_cross_tools=mock.Mock(),
         )
         overlay.start()
         self.addCleanup(overlay.stop)
