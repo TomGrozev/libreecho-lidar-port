@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="build-pipeline-title build-pipeline-desc" id="build-pipeline-root">
+        <title id="build-pipeline-title">LibreEcho build pipeline</title>
+        <desc id="build-pipeline-desc">Integration lock, fetched public inputs and private inputs feed lab-build.py build, which writes a signed OTA bundle that lab-build.py deploy installs on the device only after approval.</desc>
+        <defs>
+      <style>#build-pipeline-root { --color-paper:   #ECEFF4;
+      --color-ink:     #2E3440;
+      --color-muted:   #434C5E;
+      --color-soft:    #55637D;
+      --color-accent:  #8C2F3C;
+      --font-serif:    'Iowan Old Style', Georgia, serif;
+      --font-sans:     system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --font-mono:     ui-monospace, 'SFMono-Regular', Menlo, monospace; }
+      #build-pipeline-root { font-family: var(--font-sans); color: var(--color-ink); }
+      #build-pipeline-root .diagram-container { width: 100%; overflow-x: auto; }
+      @media print {
+#build-pipeline-root .diagram-container { overflow-x: visible; }
+}</style>
+          <marker id="build-pipeline-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#434C5E"/></marker>
+          <marker id="build-pipeline-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#8C2F3C"/></marker>
+          <marker id="build-pipeline-arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#3F5C88"/></marker>
+        </defs>
+
+        <rect width="100%" height="100%" fill="#ECEFF4"/>
+
+        <!-- Diagram heading (the doc supplies the section heading above the image) -->
+        <text x="48" y="48" fill="#55637D" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" letter-spacing="0.18em">BUILD PIPELINE · HOST-ONLY</text>
+        <text x="48" y="80" fill="#2E3440" font-size="28" font-family="'Iowan Old Style', Georgia, serif">From inputs to a signed OTA</text>
+
+        <!-- Connectors first: they sit behind every box -->
+        <!-- integration lock · left port of build -->
+        <path d="M 280,152 H 344 Q 352,152 352,160 V 210 Q 352,218 360,218 H 368"
+              fill="none" stroke="#434C5E" stroke-width="1" marker-end="url(#build-pipeline-arrow)"/>
+        <!-- public inputs · centre port of build -->
+        <line x1="280" y1="256" x2="368" y2="256" stroke="#434C5E" stroke-width="1" marker-end="url(#build-pipeline-arrow)"/>
+        <!-- private inputs · lower port of build -->
+        <path d="M 280,360 H 344 Q 352,360 352,352 V 302 Q 352,294 360,294 H 368"
+              fill="none" stroke="#434C5E" stroke-width="1" marker-end="url(#build-pipeline-arrow)"/>
+        <!-- build writes the bundle (primary flow) -->
+        <line x1="600" y1="256" x2="656" y2="256" stroke="#8C2F3C" stroke-width="1.4" marker-end="url(#build-pipeline-arrow-accent)"/>
+        <!-- deploy is gated: my approval, then a hardware write -->
+        <line x1="780" y1="312" x2="780" y2="376" stroke="#434C5E" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#build-pipeline-arrow)"/>
+
+        <!-- Arrow label, masked and set beside the vertical segment -->
+        <rect x="788" y="338" width="84" height="12" rx="2" fill="#ECEFF4"/>
+        <text x="830" y="347" fill="#55637D" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.06em">APPROVAL-GATED</text>
+
+        <!-- Node: integration lock -->
+        <rect x="48" y="112" width="232" height="80" rx="6" fill="#ECEFF4"/>
+        <rect x="48" y="112" width="232" height="80" rx="6" fill="#434c5e" stroke="#55637D" stroke-width="1" fill-opacity="0.10"/>
+        <rect x="56" y="118" width="30" height="12" rx="2" fill="none" stroke="#55637d" stroke-width="0.8" stroke-opacity="0.45"/>
+        <text x="71" y="127" fill="#55637D" font-size="7" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em">LOCK</text>
+        <text x="164" y="150" fill="#2E3440" font-size="12" font-weight="600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" text-anchor="middle">Integration lock</text>
+        <text x="164" y="166" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">tools/integrate.py</text>
+        <text x="164" y="180" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">rebuild · check-lock</text>
+
+        <!-- Node: public inputs -->
+        <rect x="48" y="216" width="232" height="80" rx="6" fill="#ECEFF4"/>
+        <rect x="48" y="216" width="232" height="80" rx="6" fill="#434c5e" stroke="#55637D" stroke-width="1" fill-opacity="0.10"/>
+        <rect x="56" y="222" width="34" height="12" rx="2" fill="none" stroke="#55637d" stroke-width="0.8" stroke-opacity="0.45"/>
+        <text x="73" y="231" fill="#55637D" font-size="7" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em">INPUT</text>
+        <text x="164" y="254" fill="#2E3440" font-size="12" font-weight="600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" text-anchor="middle">Public inputs</text>
+        <text x="164" y="270" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">work/inputs/</text>
+        <text x="164" y="284" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">fetched · hash-verified</text>
+
+        <!-- Node: private inputs (private tier) -->
+        <rect x="48" y="320" width="232" height="80" rx="6" fill="#ECEFF4"/>
+        <rect x="48" y="320" width="232" height="80" rx="6" fill="#434c5e" stroke="#55637D" stroke-width="1" fill-opacity="0.10"/>
+        <rect x="56" y="326" width="42" height="12" rx="2" fill="none" stroke="#55637d" stroke-width="0.8" stroke-opacity="0.45"/>
+        <text x="77" y="335" fill="#55637D" font-size="7" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em">PRIVATE</text>
+        <text x="164" y="358" fill="#2E3440" font-size="12" font-weight="600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" text-anchor="middle">Private inputs</text>
+        <text x="164" y="374" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">private/local.json</text>
+        <text x="164" y="388" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">stock_boot · OTA signing keys</text>
+
+        <!-- Node: build (focal) -->
+        <rect x="368" y="180" width="232" height="152" rx="6" fill="#ECEFF4"/>
+        <rect x="368" y="180" width="232" height="152" rx="6" fill="#8c2f3c" stroke="#8C2F3C" stroke-width="1" fill-opacity="0.08"/>
+        <rect x="376" y="186" width="36" height="12" rx="2" fill="none" stroke="#8c2f3c" stroke-width="0.8" stroke-opacity="0.50"/>
+        <text x="394" y="195" fill="#8C2F3C" font-size="7" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em">BUILD</text>
+        <text x="484" y="232" fill="#2E3440" font-size="12" font-weight="600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" text-anchor="middle">lab-build.py build</text>
+        <text x="484" y="252" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">build/build.sh --target lidar</text>
+        <text x="484" y="266" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">--profile ota --no-publish</text>
+        <line x1="392" y1="286" x2="576" y2="286" stroke="#2e3440" stroke-width="0.8" stroke-opacity="0.12"/>
+        <text x="484" y="308" fill="#55637D" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">host-only · no device access</text>
+
+        <!-- Node: signed bundle -->
+        <rect x="656" y="200" width="248" height="112" rx="6" fill="#ECEFF4"/>
+        <rect x="656" y="200" width="248" height="112" rx="6" fill="#E5E9F0" stroke="#2E3440" stroke-width="1"/>
+        <rect x="664" y="206" width="46" height="12" rx="2" fill="none" stroke="#2e3440" stroke-width="0.8" stroke-opacity="0.30"/>
+        <text x="687" y="215" fill="#434C5E" font-size="7" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em">ARTIFACT</text>
+        <text x="780" y="252" fill="#2E3440" font-size="12" font-weight="600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" text-anchor="middle">Signed OTA bundle</text>
+        <text x="780" y="272" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">SHA256SUMS · provenance.json</text>
+        <text x="780" y="286" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">work/builds/v&lt;version&gt;/</text>
+
+        <!-- Node: deploy (device) -->
+        <rect x="656" y="376" width="248" height="112" rx="6" fill="#ECEFF4"/>
+        <rect x="656" y="376" width="248" height="112" rx="6" fill="#2e3440" stroke="#2e3440" stroke-width="1" fill-opacity="0.03" stroke-opacity="0.45"/>
+        <rect x="664" y="382" width="40" height="12" rx="2" fill="none" stroke="#2e3440" stroke-width="0.8" stroke-opacity="0.30"/>
+        <text x="684" y="391" fill="#55637D" font-size="7" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em">DEVICE</text>
+        <text x="780" y="428" fill="#2E3440" font-size="12" font-weight="600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" text-anchor="middle">lab-build.py deploy --yes</text>
+        <text x="780" y="448" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">inactive slot over Wi-Fi adb</text>
+        <text x="780" y="462" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">reboot · poll for generation</text>
+
+        <!-- Legend strip -->
+        <line x1="48" y1="516" x2="912" y2="516" stroke="#2e3440" stroke-width="0.8" stroke-opacity="0.10"/>
+        <text x="48" y="540" fill="#55637D" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" letter-spacing="0.18em">LEGEND</text>
+
+        <rect x="132" y="532" width="14" height="10" rx="2" fill="#434c5e" stroke="#55637D" stroke-width="1" fill-opacity="0.10"/>
+        <text x="152" y="541" fill="#434C5E" font-size="8.5" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">Input</text>
+
+        <rect x="208" y="532" width="14" height="10" rx="2" fill="#8c2f3c" stroke="#8C2F3C" stroke-width="1" fill-opacity="0.08"/>
+        <text x="228" y="541" fill="#434C5E" font-size="8.5" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">Build step</text>
+
+        <rect x="308" y="532" width="14" height="10" rx="2" fill="#E5E9F0" stroke="#2E3440" stroke-width="1"/>
+        <text x="328" y="541" fill="#434C5E" font-size="8.5" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">Artifact</text>
+
+        <rect x="404" y="532" width="14" height="10" rx="2" fill="#2e3440" stroke="#2e3440" stroke-width="1" fill-opacity="0.03" stroke-opacity="0.45"/>
+        <text x="424" y="541" fill="#434C5E" font-size="8.5" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">Device</text>
+
+        <line x1="500" y1="538" x2="528" y2="538" stroke="#8C2F3C" stroke-width="1.4" marker-end="url(#build-pipeline-arrow-accent)"/>
+        <text x="536" y="541" fill="#434C5E" font-size="8.5" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">Primary flow</text>
+
+        <line x1="636" y1="538" x2="664" y2="538" stroke="#434C5E" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#build-pipeline-arrow)"/>
+        <text x="672" y="541" fill="#434C5E" font-size="8.5" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">Approval-gated</text>
+      </svg>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="install-flow-title install-flow-desc" id="install-flow-root">
+        <title id="install-flow-title">LibreEcho install flow with recovery paths</title>
+        <desc id="install-flow-desc">Ten numbered install stages, from building host inputs through entering BROM, backup and the first boot-chain write to the LibreEcho installer; a failed check or a refusal leads to Recovery and a restore back to BROM.</desc>
+        <defs>
+      <style>#install-flow-root { --color-paper:   #ECEFF4;
+      --color-paper-2: #E5E9F0;
+      --color-ink:     #2E3440;
+      --color-muted:   #434C5E;
+      --color-soft:    #55637D;
+      --color-accent:  #8C2F3C;
+      --font-sans:     system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --font-serif:    'Iowan Old Style', Georgia, serif;
+      --font-mono:     ui-monospace, 'SFMono-Regular', Menlo, monospace; }
+      #install-flow-root { color: var(--color-ink); font-family: var(--font-sans); }
+      #install-flow-root .diagram-container { width: 100%; overflow-x: auto; }
+      @media print {
+#install-flow-root .diagram-container { overflow-x: visible; }
+}</style>
+          <marker id="install-flow-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#434C5E"/></marker>
+          <marker id="install-flow-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#8C2F3C"/></marker>
+          <marker id="install-flow-arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#3F5C88"/></marker>
+        </defs>
+
+        <rect width="960" height="600" fill="#ECEFF4"/>
+
+        <!-- Zones -->
+        <rect x="48" y="68" width="792" height="240" rx="8" fill="#2e3440" stroke="#2e3440" stroke-width="0.8" fill-opacity="0.03" stroke-opacity="0.10"/>
+        <rect x="48" y="332" width="392" height="128" rx="8" fill="#2e3440" stroke="#2e3440" stroke-width="0.8" fill-opacity="0.03" stroke-opacity="0.10"/>
+        <rect x="648" y="332" width="192" height="128" rx="8" fill="#2e3440" stroke="#2e3440" stroke-width="0.8" fill-opacity="0.03" stroke-opacity="0.10"/>
+
+        <!-- Connectors precede nodes -->
+        <path d="M224,140 H264" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#install-flow-arrow)"/>
+        <path d="M424,140 H464" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#install-flow-arrow)"/>
+        <path d="M624,140 H664" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#install-flow-arrow)"/>
+        <path d="M744,180 V212" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#install-flow-arrow)"/>
+        <path d="M664,252 H624" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#install-flow-arrow)"/>
+        <path d="M464,252 H424" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#install-flow-arrow)"/>
+        <path d="M264,252 H224" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#install-flow-arrow)"/>
+        <path d="M144,292 V364" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#install-flow-arrow)"/>
+        <path d="M224,404 H264" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#install-flow-arrow)"/>
+
+        <!-- Failure and return paths -->
+        <path d="M744,292 V364" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#install-flow-arrow)"/>
+        <path d="M424,280 H436 Q444,280 444,288 V396 Q444,404 452,404 H664" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#install-flow-arrow)"/>
+        <path d="M144,444 V484 Q144,492 152,492 H776 Q784,492 784,484 V444" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#install-flow-arrow)"/>
+        <path d="M824,420 H864 Q872,420 872,412 V68 Q872,60 864,60 H352 Q344,60 344,68 V100" fill="none" stroke="#434C5E" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#install-flow-arrow)"/>
+
+        <!-- Arrow labels -->
+        <rect x="672" y="316" width="64" height="12" rx="2" fill="#ECEFF4"/>
+        <text x="704" y="325" fill="#55637D" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.06em">FAILED CHECK</text>
+        <rect x="538" y="386" width="40" height="12" rx="2" fill="#ECEFF4"/>
+        <text x="558" y="395" fill="#55637D" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.06em">REFUSAL</text>
+        <rect x="480" y="474" width="40" height="12" rx="2" fill="#ECEFF4"/>
+        <text x="500" y="483" fill="#55637D" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.06em">REFUSAL</text>
+        <rect x="588" y="42" width="40" height="12" rx="2" fill="#ECEFF4"/>
+        <text x="608" y="51" fill="#55637D" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.06em">RESTORE</text>
+
+        <!-- Zone labels -->
+        <rect x="56" y="72" width="132" height="12" rx="2" fill="#ECEFF4"/>
+        <text x="122" y="81" fill="#55637D" font-size="7" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.14em">BOOT-CHAIN PREPARATION</text>
+        <rect x="56" y="336" width="104" height="12" rx="2" fill="#ECEFF4"/>
+        <text x="108" y="345" fill="#55637D" font-size="7" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.14em">LIBREECHO INSTALL</text>
+        <rect x="656" y="336" width="52" height="12" rx="2" fill="#ECEFF4"/>
+        <text x="682" y="345" fill="#55637D" font-size="7" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.14em">RECOVERY</text>
+
+        <!-- Nodes -->
+        <rect x="64" y="100" width="160" height="80" rx="6" fill="#ECEFF4"/>
+        <rect x="64" y="100" width="160" height="80" rx="6" fill="#E5E9F0" stroke="#2E3440" stroke-width="1"/>
+        <rect x="72" y="108" width="20" height="12" rx="2" fill="none" stroke="#2e3440" stroke-width="0.8" stroke-opacity="0.40"/>
+        <text x="82" y="117" fill="#2e3440" font-size="7" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em" fill-opacity="0.80">01</text>
+        <text x="144" y="138" fill="#2E3440" font-size="12" font-weight="600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" text-anchor="middle">Build inputs</text>
+        <text x="144" y="154" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">lidar-kaeru.bin</text>
+        <text x="144" y="166" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">tee · amonet · sha256</text>
+
+        <rect x="264" y="100" width="160" height="80" rx="6" fill="#ECEFF4"/>
+        <rect x="264" y="100" width="160" height="80" rx="6" fill="#E5E9F0" stroke="#2E3440" stroke-width="1"/>
+        <rect x="272" y="108" width="20" height="12" rx="2" fill="none" stroke="#2e3440" stroke-width="0.8" stroke-opacity="0.40"/>
+        <text x="282" y="117" fill="#2e3440" font-size="7" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em" fill-opacity="0.80">02</text>
+        <text x="344" y="138" fill="#2E3440" font-size="12" font-weight="600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" text-anchor="middle">Enter BROM</text>
+        <text x="344" y="154" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">Action + power</text>
+        <text x="344" y="166" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">USB pads</text>
+
+        <rect x="464" y="100" width="160" height="80" rx="6" fill="#ECEFF4"/>
+        <rect x="464" y="100" width="160" height="80" rx="6" fill="#E5E9F0" stroke="#2E3440" stroke-width="1"/>
+        <rect x="472" y="108" width="20" height="12" rx="2" fill="none" stroke="#2e3440" stroke-width="0.8" stroke-opacity="0.40"/>
+        <text x="482" y="117" fill="#2e3440" font-size="7" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em" fill-opacity="0.80">03</text>
+        <text x="544" y="138" fill="#2E3440" font-size="12" font-weight="600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" text-anchor="middle">Identify</text>
+        <text x="544" y="158" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">hwcode · GPT geometry</text>
+
+        <rect x="664" y="100" width="160" height="80" rx="6" fill="#ECEFF4"/>
+        <rect x="664" y="100" width="160" height="80" rx="6" fill="#E5E9F0" stroke="#2E3440" stroke-width="1"/>
+        <rect x="672" y="108" width="20" height="12" rx="2" fill="none" stroke="#2e3440" stroke-width="0.8" stroke-opacity="0.40"/>
+        <text x="682" y="117" fill="#2e3440" font-size="7" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em" fill-opacity="0.80">04</text>
+        <text x="744" y="138" fill="#2E3440" font-size="12" font-weight="600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" text-anchor="middle">Back up</text>
+        <text x="744" y="158" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">each area read twice</text>
+
+        <rect x="664" y="212" width="160" height="80" rx="6" fill="#ECEFF4"/>
+        <rect x="664" y="212" width="160" height="80" rx="6" fill="#E5E9F0" stroke="#2E3440" stroke-width="1"/>
+        <rect x="672" y="220" width="20" height="12" rx="2" fill="none" stroke="#2e3440" stroke-width="0.8" stroke-opacity="0.40"/>
+        <text x="682" y="229" fill="#2e3440" font-size="7" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em" fill-opacity="0.80">05</text>
+        <text x="744" y="250" fill="#2E3440" font-size="12" font-weight="600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" text-anchor="middle">Drill write</text>
+        <text x="744" y="270" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">identical bytes only</text>
+
+        <rect x="464" y="212" width="160" height="80" rx="6" fill="#ECEFF4"/>
+        <rect x="464" y="212" width="160" height="80" rx="6" fill="#E5E9F0" stroke="#2E3440" stroke-width="1"/>
+        <rect x="472" y="220" width="20" height="12" rx="2" fill="none" stroke="#2e3440" stroke-width="0.8" stroke-opacity="0.40"/>
+        <text x="482" y="229" fill="#2e3440" font-size="7" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em" fill-opacity="0.80">06</text>
+        <text x="544" y="250" fill="#2E3440" font-size="12" font-weight="600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" text-anchor="middle">Power-cycle</text>
+        <text x="544" y="270" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">confirm stock boot</text>
+
+        <rect x="264" y="212" width="160" height="80" rx="6" fill="#ECEFF4"/>
+        <rect x="264" y="212" width="160" height="80" rx="6" fill="#E5E9F0" stroke="#2E3440" stroke-width="1"/>
+        <rect x="272" y="220" width="20" height="12" rx="2" fill="none" stroke="#2e3440" stroke-width="0.8" stroke-opacity="0.40"/>
+        <text x="282" y="229" fill="#2e3440" font-size="7" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em" fill-opacity="0.80">07</text>
+        <text x="344" y="250" fill="#2E3440" font-size="12" font-weight="600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" text-anchor="middle">Install chain</text>
+        <text x="344" y="266" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">expdb · tee1</text>
+        <text x="344" y="278" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">BOOT0 area 1</text>
+
+        <rect x="64" y="212" width="160" height="80" rx="6" fill="#ECEFF4"/>
+        <rect x="64" y="212" width="160" height="80" rx="6" fill="#E5E9F0" stroke="#2E3440" stroke-width="1"/>
+        <rect x="72" y="220" width="20" height="12" rx="2" fill="none" stroke="#2e3440" stroke-width="0.8" stroke-opacity="0.40"/>
+        <text x="82" y="229" fill="#2e3440" font-size="7" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em" fill-opacity="0.80">08</text>
+        <text x="144" y="250" fill="#2E3440" font-size="12" font-weight="600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" text-anchor="middle">Confirm</text>
+        <text x="144" y="270" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">getvar product = LIDAR</text>
+
+        <rect x="64" y="364" width="160" height="80" rx="6" fill="#ECEFF4"/>
+        <rect x="64" y="364" width="160" height="80" rx="6" fill="#E5E9F0" stroke="#2E3440" stroke-width="1"/>
+        <rect x="72" y="372" width="20" height="12" rx="2" fill="none" stroke="#2e3440" stroke-width="0.8" stroke-opacity="0.40"/>
+        <text x="82" y="381" fill="#2e3440" font-size="7" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em" fill-opacity="0.80">09</text>
+        <text x="144" y="402" fill="#2E3440" font-size="12" font-weight="600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" text-anchor="middle">LibreEcho installer</text>
+        <text x="144" y="422" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">--target lidar</text>
+
+        <rect x="264" y="364" width="160" height="80" rx="6" fill="#ECEFF4"/>
+        <rect x="264" y="364" width="160" height="80" rx="6" fill="#E5E9F0" stroke="#2E3440" stroke-width="1"/>
+        <rect x="272" y="372" width="20" height="12" rx="2" fill="none" stroke="#2e3440" stroke-width="0.8" stroke-opacity="0.40"/>
+        <text x="282" y="381" fill="#2e3440" font-size="7" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em" fill-opacity="0.80">10</text>
+        <text x="344" y="402" fill="#2E3440" font-size="12" font-weight="600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" text-anchor="middle">Validate</text>
+        <text x="344" y="418" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">target · slot · health</text>
+        <text x="344" y="430" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">features</text>
+
+        <rect x="664" y="364" width="160" height="80" rx="6" fill="#ECEFF4"/>
+        <rect x="664" y="364" width="160" height="80" rx="6" fill="#8c2f3c" stroke="#8C2F3C" stroke-width="1.2" fill-opacity="0.08"/>
+        <rect x="672" y="372" width="20" height="12" rx="2" fill="none" stroke="#8c2f3c" stroke-width="0.8" stroke-opacity="0.40"/>
+        <text x="682" y="381" fill="#8c2f3c" font-size="7" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em" fill-opacity="0.80">R</text>
+        <text x="744" y="402" fill="#2E3440" font-size="12" font-weight="600" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" text-anchor="middle">Recovery</text>
+        <text x="744" y="422" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="middle">backup directory</text>
+
+        <!-- Legend -->
+        <line x1="48" y1="540" x2="912" y2="540" stroke="#2e3440" stroke-width="0.8" stroke-opacity="0.10"/>
+        <text x="48" y="560" fill="#434C5E" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" letter-spacing="0.14em">LEGEND</text>
+        <rect x="140" y="548" width="16" height="12" rx="2" fill="#E5E9F0" stroke="#2E3440" stroke-width="0.8"/>
+        <text x="164" y="560" fill="#434C5E" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" letter-spacing="0.06em">STEP</text>
+        <rect x="250" y="548" width="16" height="12" rx="2" fill="#8c2f3c" stroke="#8C2F3C" stroke-width="0.8" fill-opacity="0.08"/>
+        <text x="274" y="560" fill="#434C5E" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" letter-spacing="0.06em">RECOVERY</text>
+        <line x1="390" y1="554" x2="422" y2="554" stroke="#434C5E" stroke-width="1.2" stroke-dasharray="5,4"/>
+        <text x="430" y="560" fill="#434C5E" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" letter-spacing="0.06em">RETURN</text>
+      </svg>

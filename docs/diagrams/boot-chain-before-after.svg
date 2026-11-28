@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg" data-diagram="architecture-delta" role="img" aria-labelledby="boot-chain-before-after-title boot-chain-before-after-desc" id="boot-chain-before-after-root">
+        <title id="boot-chain-before-after-title">Boot chain before and after lidar_prepare.py install</title>
+        <desc id="boot-chain-before-after-desc">Two snapshots of the Lidar boot chain: the stock chain, and the chain after install where the preloader becomes the signed 2019 image, tee1 becomes Koboreru plus the stock tail, and the stock LK becomes the Kaeru LK stage in expdb; BROM and the stock boot_a / boot_b are unchanged.</desc>
+        <defs>
+      <style>#boot-chain-before-after-root { --color-paper: #ECEFF4;
+      --color-ink: #2E3440;
+      --color-muted: #434C5E;
+      --color-soft: #55637D;
+      --color-rule: rgba(46,52,64,0.12);
+      --color-accent: #8C2F3C;
+      --font-sans: system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --font-serif: 'Iowan Old Style', Georgia, serif;
+      --font-mono: ui-monospace, 'SFMono-Regular', Menlo, monospace; }
+      #boot-chain-before-after-root { font-family: var(--font-sans); color: var(--color-ink); }
+      #boot-chain-before-after-root .subtitle { max-width: 68ch; font-size: 0.9375rem; line-height: 1.6; color: var(--color-muted); margin-bottom: 1.75rem; }
+      #boot-chain-before-after-root .diagram-container { width: 100%; overflow-x: auto; }
+      #boot-chain-before-after-root .diagram-container:focus-visible { outline: 2px solid var(--color-muted); outline-offset: 4px; }
+      #boot-chain-before-after-root .scroll-hint { display: none; margin: 1rem 0 0; font-size: 0.8125rem; color: var(--color-muted); }
+      @media (max-width: 700px) {
+#boot-chain-before-after-root .scroll-hint { display: block; }
+}
+      @media print {
+#boot-chain-before-after-root .diagram-container { overflow-x: visible; }
+}</style>
+          <marker id="boot-chain-before-after-boot-chain-before-after-arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+            <polygon points="0 0, 8 3, 0 6" fill="#434C5E"/>
+          </marker>
+        </defs>
+        <rect width="960" height="600" fill="#ECEFF4"/>
+
+        <text x="40" y="52" fill="#2E3440" font-size="14" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600">Before</text>
+        <text x="40" y="72" fill="#55637D" font-size="10" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">stock chain</text>
+        <text x="352" y="52" fill="#2E3440" font-size="14" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600">Changes</text>
+        <text x="352" y="72" fill="#8C2F3C" font-size="10" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">lidar_prepare.py install</text>
+        <text x="632" y="52" fill="#2E3440" font-size="14" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600">After</text>
+        <text x="632" y="72" fill="#55637D" font-size="10" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">install applied · BOOT1 never written</text>
+
+        <path d="M 340 40 V 528 M 620 40 V 528" fill="none" stroke="#2e3440" stroke-width="1" stroke-opacity="0.12"/>
+
+        <g data-snapshot="before" transform="translate(40 88)" data-grid="288 440 4">
+          <!-- Relationships precede components so the strokes sit behind the boxes. -->
+          <path data-kind="relationship" data-object-id="r1" data-status="unchanged" data-signature="handoff:brom-to-preloader" data-from="brom" data-to="preloader" d="M 144 72 V 92" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#boot-chain-before-after-boot-chain-before-after-arrow)"/>
+          <path data-kind="relationship" data-object-id="r2" data-status="unchanged" data-signature="handoff:preloader-to-tee1" data-from="preloader" data-to="tee1" d="M 144 164 V 184" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#boot-chain-before-after-boot-chain-before-after-arrow)"/>
+          <path data-kind="relationship" data-object-id="r3" data-status="unchanged" data-signature="handoff:tee1-to-bootloader" data-from="tee1" data-to="bootloader" d="M 144 256 V 276" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#boot-chain-before-after-boot-chain-before-after-arrow)"/>
+          <path data-kind="relationship" data-object-id="r4" data-status="unchanged" data-signature="handoff:bootloader-to-boot" data-from="bootloader" data-to="boot" d="M 144 348 V 368" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#boot-chain-before-after-boot-chain-before-after-arrow)"/>
+
+          <g data-kind="component" data-object-id="brom" data-status="unchanged" data-signature="brom:boot-rom">
+            <rect data-role="bounds" x="60" y="0" width="168" height="72" rx="6" fill="#2e3440" stroke="#2e3440" stroke-width="1" fill-opacity="0.03" stroke-opacity="0.30"/>
+            <text x="72" y="18" fill="#55637D" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">= brom · UNCHANGED</text>
+            <text x="72" y="38" fill="#2E3440" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600">BROM</text>
+            <text x="72" y="55" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">boot ROM</text>
+          </g>
+
+          <g data-kind="component" data-object-id="preloader" data-status="changed" data-signature="preloader:slot=boot0-area1;fw=stock-2023">
+            <rect data-role="bounds" x="60" y="92" width="168" height="72" rx="6" fill="#E5E9F0" stroke="#2E3440" stroke-width="1.2"/>
+            <path d="M 61 104 V 152" fill="none" stroke="#2E3440" stroke-width="3"/>
+            <text x="72" y="110" fill="#55637D" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">Δ preloader · CHANGED</text>
+            <text x="72" y="130" fill="#2E3440" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600">preloader</text>
+            <text x="72" y="144" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">BOOT0 area 1</text>
+            <text x="72" y="157" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">2023</text>
+          </g>
+
+          <g data-kind="component" data-object-id="tee1" data-status="changed" data-signature="tee1:stock">
+            <rect data-role="bounds" x="60" y="184" width="168" height="72" rx="6" fill="#E5E9F0" stroke="#2E3440" stroke-width="1.2"/>
+            <path d="M 61 196 V 244" fill="none" stroke="#2E3440" stroke-width="3"/>
+            <text x="72" y="202" fill="#55637D" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">Δ tee1 · CHANGED</text>
+            <text x="72" y="222" fill="#2E3440" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600">tee1</text>
+            <text x="72" y="239" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">stock</text>
+          </g>
+
+          <g data-kind="component" data-object-id="bootloader" data-status="changed" data-signature="bootloader:stock-lk">
+            <rect data-role="bounds" x="60" y="276" width="168" height="72" rx="6" fill="#8c2f3c" stroke="#8C2F3C" stroke-width="1.2" fill-opacity="0.08"/>
+            <path d="M 61 288 V 336" fill="none" stroke="#8C2F3C" stroke-width="3"/>
+            <text x="72" y="294" fill="#55637D" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">Δ bootloader · CHANGED</text>
+            <text x="72" y="314" fill="#2E3440" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600">LK</text>
+            <text x="72" y="331" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">stock</text>
+          </g>
+
+          <g data-kind="component" data-object-id="boot" data-status="unchanged" data-signature="boot:stock-fireos">
+            <rect data-role="bounds" x="60" y="368" width="168" height="72" rx="6" fill="#2e3440" stroke="#C2C8D4" stroke-width="1" fill-opacity="0.05"/>
+            <text x="72" y="386" fill="#55637D" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">= boot · UNCHANGED</text>
+            <text x="72" y="406" fill="#2E3440" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600">boot_a / boot_b</text>
+            <text x="72" y="423" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">stock Fire OS</text>
+          </g>
+        </g>
+
+        <text x="352" y="104" fill="#55637D" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">01</text>
+        <text x="384" y="102" data-change="CHANGED" data-target="preloader" fill="#434C5E" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" letter-spacing="0.06em">CHANGED preloader<tspan x="384" y="124" fill="#2E3440" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" letter-spacing="0">BOOT0 area 1</tspan><tspan x="384" y="140" fill="#2E3440" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" letter-spacing="0">2023 stock → signed 2019</tspan></text>
+        <path d="M 384 156 H 608" fill="none" stroke="#2e3440" stroke-width="0.8" stroke-opacity="0.12"/>
+
+        <text x="352" y="180" fill="#55637D" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">02</text>
+        <text x="384" y="178" data-change="CHANGED" data-target="tee1" fill="#434C5E" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" letter-spacing="0.06em">CHANGED tee1<tspan x="384" y="200" fill="#2E3440" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" letter-spacing="0">stock → Koboreru</tspan><tspan x="384" y="216" fill="#2E3440" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" letter-spacing="0">+ stock tail</tspan></text>
+        <path d="M 384 232 H 608" fill="none" stroke="#2e3440" stroke-width="0.8" stroke-opacity="0.12"/>
+
+        <text x="352" y="256" fill="#55637D" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">03</text>
+        <text x="384" y="254" data-change="CHANGED" data-target="bootloader" fill="#434C5E" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" letter-spacing="0.06em">CHANGED bootloader<tspan x="384" y="276" fill="#2E3440" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" letter-spacing="0">LK → Kaeru LK stage,</tspan><tspan x="384" y="292" fill="#2E3440" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" letter-spacing="0">written to expdb</tspan></text>
+        <path d="M 384 308 H 608" fill="none" stroke="#2e3440" stroke-width="0.8" stroke-opacity="0.12"/>
+
+        <text x="352" y="360" fill="#55637D" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" letter-spacing="0.14em">PRESERVED</text>
+        <text x="352" y="382" fill="#434C5E" font-size="11" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">BROM · boot_a / boot_b</text>
+        <text x="352" y="398" fill="#434C5E" font-size="11" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">all four boot links</text>
+
+        <g data-snapshot="after" transform="translate(632 88)" data-grid="288 440 4">
+          <!-- Relationships precede components so the strokes sit behind the boxes. -->
+          <path data-kind="relationship" data-object-id="r1" data-status="unchanged" data-signature="handoff:brom-to-preloader" data-from="brom" data-to="preloader" d="M 144 72 V 92" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#boot-chain-before-after-boot-chain-before-after-arrow)"/>
+          <path data-kind="relationship" data-object-id="r2" data-status="unchanged" data-signature="handoff:preloader-to-tee1" data-from="preloader" data-to="tee1" d="M 144 164 V 184" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#boot-chain-before-after-boot-chain-before-after-arrow)"/>
+          <path data-kind="relationship" data-object-id="r3" data-status="unchanged" data-signature="handoff:tee1-to-bootloader" data-from="tee1" data-to="bootloader" d="M 144 256 V 276" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#boot-chain-before-after-boot-chain-before-after-arrow)"/>
+          <path data-kind="relationship" data-object-id="r4" data-status="unchanged" data-signature="handoff:bootloader-to-boot" data-from="bootloader" data-to="boot" d="M 144 348 V 368" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#boot-chain-before-after-boot-chain-before-after-arrow)"/>
+
+          <g data-kind="component" data-object-id="brom" data-status="unchanged" data-signature="brom:boot-rom">
+            <rect data-role="bounds" x="60" y="0" width="168" height="72" rx="6" fill="#2e3440" stroke="#2e3440" stroke-width="1" fill-opacity="0.03" stroke-opacity="0.30"/>
+            <text x="72" y="18" fill="#55637D" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">= brom · UNCHANGED</text>
+            <text x="72" y="38" fill="#2E3440" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600">BROM</text>
+            <text x="72" y="55" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">boot ROM</text>
+          </g>
+
+          <g data-kind="component" data-object-id="preloader" data-status="changed" data-signature="preloader:slot=boot0-area1;fw=signed-2019">
+            <rect data-role="bounds" x="60" y="92" width="168" height="72" rx="6" fill="#E5E9F0" stroke="#2E3440" stroke-width="1.2"/>
+            <path d="M 61 104 V 152" fill="none" stroke="#2E3440" stroke-width="3"/>
+            <text x="72" y="110" fill="#55637D" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">Δ preloader · CHANGED</text>
+            <text x="72" y="130" fill="#2E3440" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600">preloader</text>
+            <text x="72" y="144" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">BOOT0 area 1</text>
+            <text x="72" y="157" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">signed 2019</text>
+          </g>
+
+          <g data-kind="component" data-object-id="tee1" data-status="changed" data-signature="tee1:koboreru+stock-tail">
+            <rect data-role="bounds" x="60" y="184" width="168" height="72" rx="6" fill="#E5E9F0" stroke="#2E3440" stroke-width="1.2"/>
+            <path d="M 61 196 V 244" fill="none" stroke="#2E3440" stroke-width="3"/>
+            <text x="72" y="202" fill="#55637D" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">Δ tee1 · CHANGED</text>
+            <text x="72" y="222" fill="#2E3440" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600">tee1</text>
+            <text x="72" y="239" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">Koboreru + stock tail</text>
+          </g>
+
+          <g data-kind="component" data-object-id="bootloader" data-status="changed" data-signature="bootloader:kaeru;partition=expdb">
+            <rect data-role="bounds" x="60" y="276" width="168" height="72" rx="6" fill="#8c2f3c" stroke="#8C2F3C" stroke-width="1.2" fill-opacity="0.08"/>
+            <path d="M 61 288 V 336" fill="none" stroke="#8C2F3C" stroke-width="3"/>
+            <text x="72" y="294" fill="#55637D" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">Δ bootloader · CHANGED</text>
+            <text x="72" y="314" fill="#2E3440" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600">Kaeru LK stage</text>
+            <text x="72" y="331" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">in expdb</text>
+          </g>
+
+          <g data-kind="component" data-object-id="boot" data-status="unchanged" data-signature="boot:stock-fireos">
+            <rect data-role="bounds" x="60" y="368" width="168" height="72" rx="6" fill="#2e3440" stroke="#C2C8D4" stroke-width="1" fill-opacity="0.05"/>
+            <text x="72" y="386" fill="#55637D" font-size="8" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">= boot · UNCHANGED</text>
+            <text x="72" y="406" fill="#2E3440" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600">boot_a / boot_b</text>
+            <text x="72" y="423" fill="#434C5E" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace">still stock</text>
+          </g>
+        </g>
+
+        <path d="M 40 548 H 920" fill="none" stroke="#2e3440" stroke-width="1" stroke-opacity="0.12"/>
+        <rect x="40" y="552" width="20" height="16" rx="3" fill="#E5E9F0" stroke="#C2C8D4" stroke-width="1"/>
+        <text x="72" y="565" fill="#434C5E" font-size="11" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">= Unchanged</text>
+        <rect x="216" y="552" width="20" height="16" rx="3" fill="#E5E9F0" stroke="#2E3440" stroke-width="1.2"/>
+        <path d="M 217 556 V 564" fill="none" stroke="#2E3440" stroke-width="2"/>
+        <text x="248" y="565" fill="#434C5E" font-size="11" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">Δ Changed</text>
+        <path d="M 400 560 H 424" fill="none" stroke="#434C5E" stroke-width="1.2" marker-end="url(#boot-chain-before-after-boot-chain-before-after-arrow)"/>
+        <text x="436" y="565" fill="#434C5E" font-size="11" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">Boot link</text>
+        <text x="40" y="586" fill="#55637D" font-size="9" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">BOOT1 is never written; boot_a / boot_b stay stock until the LibreEcho installer writes them over Kaeru fastboot.</text>
+        <text x="920" y="586" fill="#55637D" font-size="9" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" text-anchor="end">5 stages · 4 links · 3 replaced</text>
+      </svg>
