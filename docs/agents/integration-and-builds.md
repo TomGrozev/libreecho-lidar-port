@@ -190,6 +190,20 @@ The build directory under `work/builds/` holds `build.log`, `provenance.json` (t
 config, image, manifest, lock with heads, sources, private input digests, product run,
 OTA and outputs, with the check list) and `SHA256SUMS`. A failing check fails the build.
 
+`push` is the maintainer's entry point for the CI build (`cmd_push`): it fast-forwards
+each fork's topic branches and the port's `main`, then dispatches
+`.github/workflows/lab-build.yml`. The workflow runs `ci-setup` to point `work` at the
+persistent `/lab-cache` volume, `init --no-image --sync-forks`, `check-lock`, then
+`build --no-container` with `/lab-private` stock boot and signing key paths. It uploads the
+whole build directory as the public `libreecho-lidar-ota` artifact (7 days). A guard fails
+the run if the raw stock boot or signing seed bytes appear in that directory. The artifact
+is the deploy closure: `deploy` verifies every file `provenance.json` lists.
+
+`fetch [RUN]` (`cmd_fetch`) downloads the artifact, verifies every `SHA256SUMS` entry and
+installs it as `work/builds/v<version>/`, ready for `deploy`. `RUN` defaults to the latest
+successful run. The self-hosted runner, its two mounts and the approval rule for fork
+pull-request workflows are set up outside this repository.
+
 `python3 tools/lab-build.py deploy VERSION --host HOST --yes` installs a finished build
 over Wi-Fi adb (`cmd_deploy`). It refuses without `--yes`, rechecks the deliverables against
 `provenance.json`, pushes the signed tar and every `ota-assets/` file into

@@ -215,6 +215,73 @@ def ensure_remotes(ws, entry):
             print(f"{entry['path']}: added remote {name}")
 
 
+def checked_out_branches(path):
+    """Branches some worktree of `path` has checked out."""
+    out = git_out(path, "worktree", "list", "--porcelain")
+    return {
+        line.split(" ", 1)[1]
+        for line in out.splitlines()
+        if line.startswith("branch refs/heads/")
+    }
+
+
+def is_ancestor(path, older, newer):
+    proc = subprocess.run(
+        ["git", "-C", str(path), "merge-base", "--is-ancestor", older, newer],
+        capture_output=True,
+    )
+    return proc.returncode == 0
+
+
+def sync_fork_branches(path, entry, force):
+    """Bring the cached clone's manifest branches up to the fork remote.
+
+    A reused `work/forks` clone keeps the topic branches it was cloned with,
+    so without this a cluster build would rebuild stale sources. Local commits
+    the fork does not have are never discarded; `force` only resets an
+    unchecked branch whose fork history was rewritten.
+    """
+    run(["git", "-C", path, "fetch", "--prune", "--no-tags", FORK_REMOTE])
+    branches = [topic["branch"] for topic in entry["topics"]]
+    if base_is_fork_branch(entry) and entry["base"] not in branches:
+        branches.insert(0, entry["base"])
+    checked = checked_out_branches(path)
+    head_branch = git_out(path, "rev-parse", "--abbrev-ref", "HEAD")
+    for branch in branches:
+        remote = rev(path, f"refs/remotes/{FORK_REMOTE}/{branch}")
+        if remote is None:
+            raise Fail(f"{entry['name']}: fork has no branch {branch!r}")
+        local = rev(path, f"refs/heads/{branch}")
+        if local is None:
+            run(["git", "-C", path, "branch", "--track", branch,
+                 f"{FORK_REMOTE}/{branch}"])
+            print(f"   {branch}: created from {FORK_REMOTE}/{branch}")
+        elif local == remote:
+            continue
+        elif is_ancestor(path, local, remote):
+            if branch == head_branch and branch in checked:
+                if git_out(path, "status", "--porcelain"):
+                    raise Fail(f"{branch} is checked out and dirty in {entry['path']}")
+                run(["git", "-C", path, "merge", "--ff-only", remote])
+            elif branch in checked:
+                print(f"   warning: {branch} is checked out in a linked worktree; "
+                      f"left at {local[:10]}", file=sys.stderr)
+                continue
+            else:
+                run(["git", "-C", path, "update-ref", f"refs/heads/{branch}",
+                     remote, local])
+            print(f"   {branch}: fast-forwarded to {remote[:10]}")
+        elif is_ancestor(path, remote, local):
+            print(f"   {branch}: local commits not on the fork; left as is")
+        elif force and branch not in checked:
+            run(["git", "-C", path, "branch", "-f", branch,
+                 f"{FORK_REMOTE}/{branch}"])
+            print(f"   {branch}: reset to the fork")
+        else:
+            print(f"   warning: {branch} diverged from the fork; left as is "
+                  f"(init --sync-forks resets an unchecked branch)", file=sys.stderr)
+
+
 def sums_ok(root):
     sums = root / "SHA256SUMS"
     if not sums.is_file():
@@ -622,6 +689,7 @@ def cmd_init(ws, args):
             if not is_git_repo(path):
                 raise Fail(f"{entry['path']} exists but is not a git repository")
             ensure_remotes(ws, entry)
+            sync_fork_branches(path, entry, args.sync_forks)
         else:
             clone_fork(ws, entry)
     if args.no_integrate:
@@ -753,6 +821,10 @@ def collect_problems(ws):
                 problems.append(f"local.json: {key} is empty")
             elif not resolve_local_path(ws, local, key, None).exists():
                 problems.append(f"local.json: {key} points at a missing path: {value}")
+        # gh is only needed once the owner starts using the cluster artifacts,
+        # so a desktop-only build must not fail on it.
+        if shutil.which("gh") is None:
+            print("note: gh missing (needed for cluster artifact push/fetch)")
 
     manifest = None
     try:
@@ -914,6 +986,9 @@ def main(argv=None):
                              "even when the pin names a digest")
     p_init.add_argument("--no-image", action="store_true",
                         help="skip preparing the build image")
+    p_init.add_argument("--sync-forks", action="store_true",
+                        help="reset a cached branch whose fork history was rewritten "
+                             "(only when no worktree has it checked out)")
 
     sub.add_parser("keygen", parents=[common],
                    help="create the ed25519 OTA signing key pair")

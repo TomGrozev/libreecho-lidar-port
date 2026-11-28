@@ -20,20 +20,31 @@ boot slot and reboots the device; it therefore needs --yes and an explicit host
 `build` runs the product build inside the pinned `libreecho-build` container
 image by default, so the host toolchain does not matter. `--no-container`
 builds with the host toolchain instead; `LIBREECHO_BUILD_IMAGE` selects another
-image.
+image. The cluster workflow runs `build --no-container` inside that image and
+`ci-setup` first points `work` at the persistent `/lab-cache`.
+
+`push` is the one command the maintainer runs from Coder: it pushes the topic
+branches to each fork and the port's `main`, then dispatches the cluster
+workflow. `fetch` downloads that run's public artifact, verifies `SHA256SUMS`
+and installs it as `work/builds/v<version>/`. The artifact carries only the OTA
+bundle and the records; the product run directory stays on the runner.
 
 usage:
+  tools/lab-build.py ci-setup --work-root /lab-cache [--workspace DIR]
   tools/lab-build.py build [--version X.Y.Z] [--no-integrate] [--lock PATH]
                            [--no-container] [--workspace DIR] [--rebuild]
                            [--stock-boot PATH] [--ota-signing-key PATH]
                            [--ota-public-key PATH]
+  tools/lab-build.py push [--force] [--version X.Y.Z] [--workspace DIR]
+  tools/lab-build.py fetch [RUN-ID|latest] [--workspace DIR]
   tools/lab-build.py deploy VERSION --host HOST --yes [--workspace DIR]
 
 `--lock PATH` skips `tools/integrate.py` and reads a hand-written lock instead.
 The version defaults to the highest existing build under work/builds plus one
-patch. A successful attempt whose source id matches the lock is reused unless
-`--rebuild` is passed; failed attempts stay under work/builds for inspection
-and the five newest are kept.
+patch; the first build on an empty cache needs `--version` (the workflow asks
+for it too). A successful attempt whose source id matches the lock is reused
+unless `--rebuild` is passed; failed attempts stay under work/builds for
+inspection and the five newest are kept.
 """
 
 from __future__ import annotations
@@ -50,6 +61,7 @@ import shutil
 import subprocess
 import sys
 import tarfile
+import tempfile
 import time
 from pathlib import Path
 
@@ -59,6 +71,13 @@ MANIFEST_REL = 'integration.json'
 LOCK_REL = 'work/integration/integration.lock.json'
 INTEGRATE_REL = 'tools/integrate.py'
 LOCAL_REL = 'private/local.json'
+WORK_REL = 'work'
+
+# The cluster workflow and its artifact. `push` dispatches it; `fetch` reads it.
+CI_WORKFLOW = 'lab-build.yml'
+CI_ARTIFACT = 'libreecho-lidar-ota'
+CI_SUMS_FILE = 'SHA256SUMS'
+CI_PROVENANCE_FILE = 'provenance.json'
 
 VERSION_FULL_RE = re.compile(r'(\d+)\.(\d+)\.(\d+)')
 SOURCE_REPOS = ('LibreEcho', 'LibreEcho-Platform', 'LibreEcho-Linux', 'LibreEcho-UI')
@@ -1006,6 +1025,268 @@ def run_build(args) -> int:
 
 
 # --------------------------------------------------------------------------
+# cluster workflow: setup, push, fetch
+
+
+def cmd_ci_setup(args) -> int:
+    """Point `work` at the persistent cache the runner mounts."""
+    work_root = Path(args.work_root).expanduser().resolve()
+    work_root.mkdir(parents=True, exist_ok=True)
+    link = ROOT / WORK_REL
+    if link.is_symlink():
+        target = Path(os.readlink(link))
+        if not target.is_absolute():
+            target = link.parent / target
+        if target.resolve() != work_root:
+            raise Fail(f'{WORK_REL} already points at {target}; expected {work_root}')
+    elif link.exists():
+        if not link.is_dir():
+            raise Fail(f'{WORK_REL} exists and is not a directory')
+        if any(link.iterdir()):
+            raise Fail(f'{WORK_REL} is a real directory with content; the cluster build '
+                       f'needs it to be a symlink to {work_root}')
+        link.rmdir()
+        link.symlink_to(work_root)
+    else:
+        link.symlink_to(work_root)
+    print(f'{WORK_REL} -> {work_root}')
+    return 0
+
+
+def require_tool(name: str, hint: str) -> str:
+    path = shutil.which(name)
+    if path is None:
+        raise Fail(f'{name} is not installed; {hint}')
+    return path
+
+
+def git_rev(path: Path, revish: str) -> str | None:
+    proc = subprocess.run(['git', '-C', str(path), 'rev-parse', '--verify', '--quiet',
+                           revish], capture_output=True, text=True)
+    return proc.stdout.strip() if proc.returncode == 0 else None
+
+
+def git_tracked_changes(path: Path) -> list[str]:
+    text = git(path, 'status', '--porcelain', '--untracked-files=no')
+    return [line for line in text.splitlines() if line.strip()]
+
+
+def is_ancestor(path: Path, older: str, newer: str) -> bool:
+    proc = subprocess.run(['git', '-C', str(path), 'merge-base', '--is-ancestor',
+                           older, newer], capture_output=True, text=True)
+    return proc.returncode == 0
+
+
+def fetch_remote_branch(repo: Path, remote: str, branch: str) -> str | None:
+    """Fetch `remote/branch` into its tracking ref; None when it does not exist."""
+    proc = subprocess.run(
+        ['git', '-C', str(repo), 'fetch', '--no-tags', remote,
+         f'+refs/heads/{branch}:refs/remotes/{remote}/{branch}'],
+        capture_output=True, text=True)
+    if proc.returncode != 0:
+        if "couldn't find remote ref" in proc.stderr or 'no such remote ref' in proc.stderr:
+            return None
+        raise Fail(f'git fetch {remote} {branch}: {proc.stderr.strip() or "failed"}')
+    return git_rev(repo, f'refs/remotes/{remote}/{branch}')
+
+
+def push_argv(repo: Path, remote: str, branch: str, lease: str | None = None) -> list[str]:
+    argv = ['git', '-C', str(repo), 'push', remote]
+    if lease:
+        # Lease against the remote head we just fetched, so a concurrent push
+        # is not overwritten even when the owner asked for --force.
+        argv.append(f'--force-with-lease=refs/heads/{branch}:{lease}')
+    argv.append(f'refs/heads/{branch}:refs/heads/{branch}')
+    return argv
+
+
+def push_one(repo: Path, remote: str, branch: str, force: bool) -> bool:
+    """Push one branch; fast-forward only unless `force` leases the fetched head."""
+    local = git_rev(repo, f'refs/heads/{branch}')
+    if local is None:
+        raise Fail(f'{rel_to_ws(repo)} has no branch {branch}')
+    remote_sha = fetch_remote_branch(repo, remote, branch)
+    if remote_sha == local:
+        print(f'up to date: {branch} -> {remote}')
+        return False
+    lease = None
+    if remote_sha is not None:
+        if is_ancestor(repo, local, remote_sha):
+            raise Fail(f'{branch} is behind {remote}/{branch}; fetch and merge it first')
+        if not is_ancestor(repo, remote_sha, local):
+            if not force:
+                raise Fail(f'{branch} has diverged from {remote}/{branch} '
+                           f'({remote_sha[:10]}); rerun with --force to lease that head')
+            lease = remote_sha
+        elif force:
+            lease = remote_sha
+    argv = push_argv(repo, remote, branch, lease)
+    print('$ ' + ' '.join(argv))
+    proc = subprocess.run(argv, capture_output=True, text=True)
+    if proc.returncode != 0:
+        raise Fail(f'git push {remote} {branch}: {proc.stderr.strip() or "failed"}')
+    return True
+
+
+def gh_json(gh: str, *args: str):
+    proc = subprocess.run([gh, *args], capture_output=True, text=True)
+    if proc.returncode != 0:
+        raise Fail(f'gh {" ".join(args)}: {proc.stderr.strip() or "failed"}')
+    try:
+        return json.loads(proc.stdout or '[]')
+    except ValueError as exc:
+        raise Fail(f'gh {" ".join(args)} printed no JSON: {exc}') from exc
+
+
+def latest_run(gh: str) -> tuple[object, str | None]:
+    runs = gh_json(gh, 'run', 'list', '--workflow', CI_WORKFLOW, '--branch', 'main',
+                   '--limit', '5', '--json', 'databaseId,url')
+    if not isinstance(runs, list) or not runs:
+        return None, None
+    return runs[0].get('databaseId'), runs[0].get('url')
+
+
+def dispatch_workflow(version: str | None) -> None:
+    gh = require_tool('gh', 'install the GitHub CLI and run `gh auth login`')
+    before, _ = latest_run(gh)
+    argv = [gh, 'workflow', 'run', CI_WORKFLOW, '--ref', 'main']
+    if version:
+        argv += ['-f', f'version={version}']
+    print('$ ' + ' '.join(argv))
+    proc = subprocess.run(argv, capture_output=True, text=True)
+    if proc.returncode != 0:
+        raise Fail(f'gh workflow run: {proc.stderr.strip() or "failed"}')
+    deadline = time.time() + 30
+    while time.time() < deadline:
+        time.sleep(1)
+        run_id, url = latest_run(gh)
+        if run_id is not None and run_id != before:
+            print(f'run: {url or run_id}')
+            return
+    print(f'dispatched {CI_WORKFLOW}; see the repository Actions page')
+
+
+def cmd_push(args) -> int:
+    if args.version and not re.fullmatch(r'\d+\.\d+\.\d+', args.version):
+        raise Fail(f'version {args.version!r} is not MAJOR.MINOR.PATCH')
+    manifest = read_json(ROOT / MANIFEST_REL)
+    dirty = git_tracked_changes(ROOT)
+    if dirty:
+        raise Fail('the port repository has uncommitted changes; commit or stash them '
+                   'first:\n  ' + '\n  '.join(dirty[:10]))
+    branch = git(ROOT, 'rev-parse', '--abbrev-ref', 'HEAD')
+    if branch != 'main':
+        raise Fail(f'the port repository is on {branch!r}; run push from main')
+    for entry in manifest.get('repos', []):
+        repo = workspace_path(entry['path'])
+        if not repo.is_dir():
+            raise Fail(f'{entry["path"]} is missing; run `python3 tools/workspace.py init`')
+        dirty = git_tracked_changes(repo)
+        if dirty:
+            raise Fail(f'{entry["path"]} has uncommitted changes; commit or stash them '
+                       f'first:\n  ' + '\n  '.join(dirty[:10]))
+        remotes = git(repo, 'remote').split()
+        remote = 'fork' if 'fork' in remotes else 'origin'
+        if remote not in remotes:
+            raise Fail(f'{entry["path"]} has neither a fork nor an origin remote')
+        for topic in entry.get('topics', []):
+            push_one(repo, remote, topic['branch'], args.force)
+    remotes = git(ROOT, 'remote').split()
+    if 'origin' not in remotes:
+        raise Fail('the port repository has no origin remote')
+    push_one(ROOT, 'origin', 'main', args.force)
+    print(f'pushed; dispatching {CI_WORKFLOW}')
+    dispatch_workflow(args.version)
+    return 0
+
+
+# --------------------------------------------------------------------------
+# fetch a CI build into work/builds
+
+
+def find_artifact_file(root: Path, pattern: str) -> Path:
+    matches = [path for path in sorted(root.rglob(pattern)) if path.is_file()]
+    if len(matches) != 1:
+        raise Fail(f'artifact {CI_ARTIFACT}: expected one {pattern}, found {len(matches)}')
+    return matches[0]
+
+
+def verify_sha256sums(root: Path) -> int:
+    sums = root / CI_SUMS_FILE
+    if not sums.is_file():
+        raise Fail(f'{rel_to_ws(root)} has no {CI_SUMS_FILE}')
+    count = 0
+    for number, line in enumerate(sums.read_text(encoding='utf-8').splitlines(), 1):
+        digest, separator, name = line.partition('  ')
+        if not separator or not name:
+            raise Fail(f'{CI_SUMS_FILE}:{number}: malformed line')
+        path = root / name
+        if not path.is_file():
+            raise Fail(f'{name} is missing from the fetched build')
+        actual = sha256_file(path)
+        if actual != digest:
+            raise Fail(f'{name}: sha256 {actual} does not match {CI_SUMS_FILE}')
+        count += 1
+    if not count:
+        raise Fail(f'{CI_SUMS_FILE} is empty')
+    return count
+
+
+def download_artifact(run: str, destination: Path) -> str:
+    gh = require_tool('gh', 'install the GitHub CLI and run `gh auth login`')
+    spec = run
+    if run == 'latest':
+        runs = gh_json(gh, 'run', 'list', '--workflow', CI_WORKFLOW,
+                       '--status', 'success', '--limit', '1',
+                       '--json', 'databaseId')
+        if not runs:
+            raise Fail(f'no successful {CI_WORKFLOW} run found')
+        spec = str(runs[0]['databaseId'])
+    argv = [gh, 'run', 'download', spec, '-n', CI_ARTIFACT, '-D', str(destination)]
+    print('$ ' + ' '.join(argv))
+    proc = subprocess.run(argv, capture_output=True, text=True)
+    if proc.returncode != 0:
+        raise Fail(f'gh run download {spec}: {proc.stderr.strip() or "failed"}')
+    return spec
+
+
+def cmd_fetch(args) -> int:
+    config = read_json(ROOT / CONFIG_REL)
+    builds_dir = workspace_path(config['builds_dir'])
+    temporary = Path(tempfile.mkdtemp(prefix='lab-fetch-'))
+    try:
+        download = temporary / 'download'
+        spec = download_artifact(args.run, download)
+        provenance = read_json(find_artifact_file(download, CI_PROVENANCE_FILE))
+        version = str(provenance.get('version') or '')
+        if not re.fullmatch(r'\d+\.\d+\.\d+', version):
+            raise Fail(f'{CI_PROVENANCE_FILE}: version {version!r} is not MAJOR.MINOR.PATCH')
+        destination = builds_dir / f'v{version}'
+        if destination.exists() and any(destination.iterdir()):
+            raise Fail(f'{rel_to_ws(destination)} already exists and is not empty')
+        # Everything the artifact holds sits below its provenance file.
+        root = find_artifact_file(download, CI_PROVENANCE_FILE).parent
+        staging = builds_dir / f'.fetch-{os.getpid()}'
+        if staging.exists():
+            shutil.rmtree(staging)
+        try:
+            shutil.copytree(root, staging, dirs_exist_ok=True)
+            count = verify_sha256sums(staging)
+            if destination.exists():
+                destination.rmdir()
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            staging.rename(destination)
+        finally:
+            if staging.exists():
+                shutil.rmtree(staging, ignore_errors=True)
+        print(f'fetched run {spec}: build v{version} at {rel_to_ws(destination)} '
+              f'({count} files verified)')
+        return 0
+    finally:
+        shutil.rmtree(temporary, ignore_errors=True)
+
+
+# --------------------------------------------------------------------------
 # deploy
 
 
@@ -1298,6 +1579,24 @@ def main(argv=None) -> int:
     deploy.add_argument('--yes', action='store_true',
                         help='confirm writing the inactive boot slot and rebooting')
     deploy.add_argument('--workspace', help='workspace root (default: this checkout)')
+    ci_setup = sub.add_parser('ci-setup',
+                              help='point work/ at the cluster runner cache',
+                              allow_abbrev=False)
+    ci_setup.add_argument('--work-root', required=True,
+                          help='persistent work tree, e.g. /lab-cache')
+    ci_setup.add_argument('--workspace', help='workspace root (default: this checkout)')
+    push = sub.add_parser('push', help='push the forks and dispatch the cluster build',
+                          allow_abbrev=False)
+    push.add_argument('--force', action='store_true',
+                      help='allow a rewritten branch with --force-with-lease')
+    push.add_argument('--version', help='version for the workflow input '
+                                        '(default: the next patch on the cache)')
+    push.add_argument('--workspace', help='workspace root (default: this checkout)')
+    fetch = sub.add_parser('fetch', help='download and verify a cluster build',
+                           allow_abbrev=False)
+    fetch.add_argument('run', nargs='?', default='latest',
+                       help='workflow run id (default: the latest successful run)')
+    fetch.add_argument('--workspace', help='workspace root (default: this checkout)')
     args = parser.parse_args(argv)
     try:
         if args.workspace:
@@ -1306,6 +1605,12 @@ def main(argv=None) -> int:
             if args.lock:
                 args.no_integrate = True
             return cmd_build(args)
+        if args.command == 'ci-setup':
+            return cmd_ci_setup(args)
+        if args.command == 'push':
+            return cmd_push(args)
+        if args.command == 'fetch':
+            return cmd_fetch(args)
         return cmd_deploy(args)
     except Fail as exc:
         print(f'ERROR: {exc}', file=sys.stderr)

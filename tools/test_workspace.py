@@ -7,6 +7,7 @@ from __future__ import annotations
 import contextlib
 import io
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -17,10 +18,23 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import workspace  # noqa: E402
 
+# The sandbox git shim asks a grant server for every commit; tests run real git
+# with signing pinned off, so drop the shim from PATH for child processes.
+GIT_ENV = dict(
+    os.environ,
+    PATH=":".join(part for part in os.environ.get("PATH", "").split(":")
+                  if "git-bot-identity" not in part),
+    GIT_CONFIG_COUNT="3",
+    GIT_CONFIG_KEY_0="commit.gpgsign", GIT_CONFIG_VALUE_0="false",
+    GIT_CONFIG_KEY_1="user.name", GIT_CONFIG_VALUE_1="Test",
+    GIT_CONFIG_KEY_2="user.email", GIT_CONFIG_VALUE_2="test@example.invalid",
+)
+
 
 def git(path: Path, *args: str) -> subprocess.CompletedProcess:
     return subprocess.run(
-        ["git", "-C", str(path), *args], check=True, capture_output=True, text=True
+        ["git", "-C", str(path), *args], check=True, capture_output=True, text=True,
+        env=GIT_ENV,
     )
 
 
@@ -47,7 +61,8 @@ def source_repo(root: Path, name: str, branches: list[str]) -> Path:
     git(work, "switch", "-q", "main")
     bare = root / f"{name}.git"
     subprocess.run(
-        ["git", "clone", "-q", "--bare", str(work), str(bare)], check=True
+        ["git", "clone", "-q", "--bare", str(work), str(bare)], check=True,
+        env=GIT_ENV,
     )
     return bare
 
@@ -147,19 +162,58 @@ class InitTest(unittest.TestCase):
         path.parent.mkdir(parents=True)
         # A pre-existing clone with the fork as `origin` must keep that URL: init
         # adds the missing names, it does not rewrite or re-point remotes.
-        subprocess.run(["git", "clone", "-q", str(self.fork), str(path)], check=True)
+        subprocess.run(["git", "clone", "-q", str(self.fork), str(path)], check=True,
+                       env=GIT_ENV)
         write_manifest(self.ws, [
             entry("alpha", self.fork, self.upstream, "upstream/main", ["feature/one"]),
         ])
         self.assertEqual(self.init(), 0)
         self.assertEqual(git_out(path, "remote", "get-url", "origin"), str(self.fork))
         self.assertIn("fork", git_out(path, "remote").split())
-        local_branch = subprocess.run(
-            ["git", "-C", str(path), "rev-parse", "--verify", "--quiet",
-             "refs/heads/feature/one"],
-            capture_output=True,
-        )
-        self.assertNotEqual(local_branch.returncode, 0)
+        # A branch the clone lacks is created from the fork remote.
+        self.assertEqual(git_out(path, "rev-parse", "feature/one"),
+                         git_out(str(self.fork), "rev-parse", "feature/one"))
+
+    def test_rerun_fast_forwards_a_topic_branch(self) -> None:
+        write_manifest(self.ws, [
+            entry("alpha", self.fork, self.upstream, "upstream/main", ["feature/one"]),
+        ])
+        self.assertEqual(self.init(), 0)
+        seed = Path(self.tmp.name) / "src/alpha"
+        git(seed, "switch", "-q", "feature/one")
+        (seed / "more.txt").write_text("more\n", encoding="utf-8")
+        git(seed, "add", ".")
+        git(seed, "commit", "-q", "-m", "more")
+        git(seed, "push", "-q", str(self.fork), "feature/one")
+        advanced = git_out(seed, "rev-parse", "HEAD")
+        self.assertEqual(self.init(), 0)
+        self.assertEqual(git_out(self.ws / "work/forks/alpha", "rev-parse", "feature/one"),
+                         advanced)
+
+    def test_sync_forks_resets_a_rewritten_unchecked_branch(self) -> None:
+        write_manifest(self.ws, [
+            entry("alpha", self.fork, self.upstream, "upstream/main", ["feature/one"]),
+        ])
+        self.assertEqual(self.init(), 0)
+        alpha = self.ws / "work/forks/alpha"
+        base = git_out(alpha, "rev-parse", "feature/one")
+        tree = git_out(alpha, "rev-parse", "feature/one^{tree}")
+        local = git_out(alpha, "commit-tree", tree, "-p", base, "-m", "local only")
+        git(alpha, "update-ref", "refs/heads/feature/one", local)
+        seed = Path(self.tmp.name) / "src/alpha"
+        git(seed, "switch", "-q", "-C", "feature/one", "main")
+        (seed / "rewritten.txt").write_text("rewritten\n", encoding="utf-8")
+        git(seed, "add", ".")
+        git(seed, "commit", "-q", "-m", "rewritten")
+        git(seed, "push", "-q", "--force", str(self.fork), "feature/one")
+        rewritten = git_out(seed, "rev-parse", "HEAD")
+        # Without --sync-forks a diverged branch is kept, not discarded.
+        self.assertEqual(self.init(), 0)
+        self.assertEqual(git_out(alpha, "rev-parse", "feature/one"), local)
+        self.assertEqual(workspace.main(
+            ["init", "--workspace", str(self.ws), "--no-integrate", "--no-inputs",
+             "--no-image", "--sync-forks"]), 0)
+        self.assertEqual(git_out(alpha, "rev-parse", "feature/one"), rewritten)
 
 
 class HookInstallTest(unittest.TestCase):

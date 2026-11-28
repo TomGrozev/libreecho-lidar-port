@@ -6,9 +6,12 @@ from __future__ import annotations
 
 import hashlib
 import importlib.util
+import io
 import json
 import os
+import shutil
 import subprocess
+import tarfile
 import tempfile
 import unittest
 from pathlib import Path
@@ -24,6 +27,18 @@ HEADS = {
     'LibreEcho-UI': 'd' * 40,
     'LibreEcho-Installer-Web': 'e' * 40,
 }
+
+# The sandbox git shim asks a grant server for every commit; tests run real git
+# with signing pinned off, so drop the shim from PATH for child processes.
+GIT_ENV = dict(
+    os.environ,
+    PATH=':'.join(part for part in os.environ.get('PATH', '').split(':')
+                  if 'git-bot-identity' not in part),
+    GIT_CONFIG_COUNT='3',
+    GIT_CONFIG_KEY_0='commit.gpgsign', GIT_CONFIG_VALUE_0='false',
+    GIT_CONFIG_KEY_1='user.name', GIT_CONFIG_VALUE_1='Test',
+    GIT_CONFIG_KEY_2='user.email', GIT_CONFIG_VALUE_2='test@example.invalid',
+)
 
 
 def load_lab_build():
@@ -594,6 +609,344 @@ class DeployChecksTest(unittest.TestCase):
         artifact.write_bytes(b'tampered')
         with self.assertRaisesRegex(self.lab_build.Fail, 'run/boot.img'):
             self.lab_build.verify_deliverables(self.build_dir, provenance)
+
+
+class CiSetupTest(unittest.TestCase):
+    """`work` is a symlink to the runner cache, so every derived path follows it."""
+
+    def setUp(self) -> None:
+        self.lab_build = load_lab_build()
+        self.temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary.cleanup)
+        self.root = Path(self.temporary.name)
+        self.cache = self.root / 'lab-cache'
+
+    def test_work_symlink_redirects_build_paths(self) -> None:
+        self.assertEqual(self.lab_build.main(
+            ['ci-setup', '--work-root', str(self.cache),
+             '--workspace', str(self.root)]), 0)
+        self.assertTrue((self.root / 'work').is_symlink())
+        (self.root / 'work/builds').mkdir(parents=True)
+        self.assertTrue((self.cache / 'builds').is_dir())
+
+    def test_existing_symlink_is_accepted(self) -> None:
+        (self.root / 'work').symlink_to(self.cache)
+        self.assertEqual(self.lab_build.main(
+            ['ci-setup', '--work-root', str(self.cache),
+             '--workspace', str(self.root)]), 0)
+
+    def test_real_work_directory_with_content_is_refused(self) -> None:
+        (self.root / 'work/builds').mkdir(parents=True)
+        self.assertEqual(self.lab_build.main(
+            ['ci-setup', '--work-root', str(self.cache),
+             '--workspace', str(self.root)]), 1)
+        self.assertFalse((self.root / 'work').is_symlink())
+
+
+def run_git(path: Path, *args: str) -> str:
+    proc = subprocess.run(['git', '-C', str(path), *args], check=True,
+                          capture_output=True, text=True, env=GIT_ENV)
+    return proc.stdout.strip()
+
+
+def configure_repo(path: Path) -> None:
+    run_git(path, 'config', 'user.name', 'Test')
+    run_git(path, 'config', 'user.email', 'test@example.invalid')
+    run_git(path, 'config', 'commit.gpgsign', 'false')
+
+
+def init_repo(path: Path) -> None:
+    path.mkdir(parents=True)
+    run_git(path, 'init', '-q', '-b', 'main')
+    configure_repo(path)
+    (path / 'README').write_text('base\n', encoding='utf-8')
+    run_git(path, 'add', 'README')
+    run_git(path, 'commit', '-q', '-m', 'base')
+
+
+def commit_file(path: Path, name: str, text: str, message: str) -> str:
+    (path / name).write_text(text, encoding='utf-8')
+    run_git(path, 'add', name)
+    run_git(path, 'commit', '-q', '-m', message)
+    return run_git(path, 'rev-parse', 'HEAD')
+
+
+FAKE_GH = '''#!/usr/bin/env python3
+import json
+import os
+import shutil
+import sys
+
+args = sys.argv[1:]
+log = os.environ.get("GH_LOG")
+if log:
+    with open(log, "a", encoding="utf-8") as handle:
+        handle.write(" ".join(args) + "\\n")
+if args[:2] == ["workflow", "run"]:
+    state = os.environ.get("GH_STATE")
+    if state:
+        open(state, "w", encoding="utf-8").write("1")
+elif args[:2] == ["run", "list"]:
+    state = os.environ.get("GH_STATE")
+    if state and os.path.exists(state):
+        print(json.dumps([{"databaseId": 2, "url": "https://example.invalid/run/2"}]))
+    elif "--status" in args:
+        print(json.dumps([{"databaseId": 42}]))
+    else:
+        print(json.dumps([{"databaseId": 1, "url": "https://example.invalid/run/1"}]))
+elif args[:2] == ["run", "download"]:
+    destination = args[args.index("-D") + 1]
+    shutil.copytree(os.environ["GH_ARTIFACT_SRC"], destination, dirs_exist_ok=True)
+'''
+
+
+def fake_gh(bin_dir: Path) -> Path:
+    bin_dir.mkdir(parents=True, exist_ok=True)
+    path = bin_dir / 'gh'
+    path.write_text(FAKE_GH, encoding='utf-8')
+    path.chmod(0o755)
+    return path
+
+
+class PushTest(unittest.TestCase):
+    """push is fast-forward only unless --force leases the fetched head."""
+
+    def setUp(self) -> None:
+        self.lab_build = load_lab_build()
+        self.temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary.cleanup)
+        self.root = Path(self.temporary.name)
+        self.ws = self.root / 'ws'
+        init_repo(self.ws)
+        self.port_bare = self.root / 'remotes/port.git'
+        subprocess.run(['git', 'clone', '-q', '--bare', str(self.ws),
+                        str(self.port_bare)], check=True, env=GIT_ENV)
+        run_git(self.ws, 'remote', 'add', 'origin', str(self.port_bare))
+
+        self.fork_bare = self.root / 'remotes/alpha.git'
+        self.fork_bare.parent.mkdir(parents=True, exist_ok=True)
+        run_git(self.ws, 'init', '-q', '--bare', str(self.fork_bare))
+        seed = self.root / 'alpha-seed'
+        init_repo(seed)
+        run_git(seed, 'switch', '-q', '-c', 'feature/one')
+        commit_file(seed, 'one.txt', 'one\n', 'feature one')
+        run_git(seed, 'push', '-q', str(self.fork_bare), 'main', 'feature/one')
+        self.fork = self.ws / 'work/forks/alpha'
+        subprocess.run(['git', 'clone', '-q', str(self.fork_bare), str(self.fork)],
+                       check=True, env=GIT_ENV)
+        configure_repo(self.fork)
+        run_git(self.fork, 'switch', '-q', 'feature/one')
+        write_json(self.ws / 'integration.json', {
+            'schema_version': 1, 'repos': [{
+                'name': 'alpha', 'fork_url': str(self.fork_bare), 'path': 'work/forks/alpha',
+                'integration_path': 'work/integration/alpha', 'base': 'main',
+                'topics': [{'branch': 'feature/one'}],
+            }]})
+        self.bin = self.root / 'bin'
+        fake_gh(self.bin)
+        self.log = self.root / 'gh.log'
+        self.env = mock.patch.dict('os.environ', {
+            'PATH': f'{self.bin}:{os.environ["PATH"]}',
+            'GH_LOG': str(self.log),
+            'GH_STATE': str(self.root / 'gh.state'),
+        })
+        self.env.start()
+        self.addCleanup(self.env.stop)
+        self.patch = mock.patch.object(self.lab_build, 'ROOT', self.ws)
+        self.patch.start()
+        self.addCleanup(self.patch.stop)
+
+    def push(self, force: bool = False) -> int:
+        return self.lab_build.cmd_push(
+            SimpleNamespace(force=force, version=None, workspace=str(self.ws)))
+
+    def fork_sha(self, branch: str) -> str:
+        return run_git(self.fork_bare, 'rev-parse', f'refs/heads/{branch}')
+
+    def test_fast_forward_updates_the_fork_and_dispatches(self) -> None:
+        local = commit_file(self.fork, 'local.txt', 'local\n', 'local change')
+        self.assertEqual(self.push(), 0)
+        self.assertEqual(self.fork_sha('feature/one'), local)
+        self.assertEqual(run_git(self.port_bare, 'rev-parse', 'refs/heads/main'),
+                         run_git(self.ws, 'rev-parse', 'main'))
+        dispatched = self.log.read_text(encoding='utf-8')
+        self.assertIn('workflow run lab-build.yml --ref main', dispatched)
+
+    def test_diverged_branch_is_refused_without_force(self) -> None:
+        local = commit_file(self.fork, 'local.txt', 'local\n', 'local change')
+        other = self.root / 'other'
+        subprocess.run(['git', 'clone', '-q', str(self.fork_bare), str(other)],
+                       check=True, env=GIT_ENV)
+        configure_repo(other)
+        run_git(other, 'switch', '-q', 'feature/one')
+        remote = commit_file(other, 'remote.txt', 'remote\n', 'remote change')
+        run_git(other, 'push', '-q', 'origin', 'feature/one')
+        self.assertNotEqual(local, remote)
+        with self.assertRaisesRegex(self.lab_build.Fail, 'diverged.*--force'):
+            self.push()
+        self.assertEqual(self.fork_sha('feature/one'), remote)
+        self.assertFalse(self.log.exists())
+
+    def test_force_leases_the_fetched_head(self) -> None:
+        local = commit_file(self.fork, 'local.txt', 'local\n', 'local change')
+        other = self.root / 'other'
+        subprocess.run(['git', 'clone', '-q', str(self.fork_bare), str(other)],
+                       check=True, env=GIT_ENV)
+        configure_repo(other)
+        run_git(other, 'switch', '-q', 'feature/one')
+        remote = commit_file(other, 'remote.txt', 'remote\n', 'remote change')
+        run_git(other, 'push', '-q', 'origin', 'feature/one')
+        calls: list[list[str]] = []
+        real_run = subprocess.run
+
+        def spy(*args, **kwargs):
+            calls.append([str(part) for part in args[0]])
+            return real_run(*args, **kwargs)
+
+        with mock.patch.object(self.lab_build.subprocess, 'run', side_effect=spy):
+            self.assertEqual(self.push(force=True), 0)
+        self.assertEqual(self.fork_sha('feature/one'), local)
+        self.assertNotEqual(local, remote)
+        pushes = [call for call in calls if 'push' in call]
+        self.assertTrue(any(f'--force-with-lease=refs/heads/feature/one:{remote}' in call
+                            for call in pushes), pushes)
+
+    def test_dirty_port_tree_is_refused(self) -> None:
+        (self.ws / 'README').write_text('changed\n', encoding='utf-8')
+        with self.assertRaisesRegex(self.lab_build.Fail, 'uncommitted changes'):
+            self.push()
+
+    def test_push_argv_only_leases_when_asked(self) -> None:
+        plain = self.lab_build.push_argv(Path('/repo'), 'fork', 'feat/x')
+        self.assertNotIn('--force', ' '.join(plain))
+        leased = self.lab_build.push_argv(Path('/repo'), 'fork', 'feat/x', 'a' * 40)
+        self.assertIn(f'--force-with-lease=refs/heads/feat/x:{"a" * 40}', leased)
+
+
+class FetchTest(unittest.TestCase):
+    """fetch downloads the public artifact, verifies SHA256SUMS and installs it."""
+
+    def setUp(self) -> None:
+        self.lab_build = load_lab_build()
+        self.temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary.cleanup)
+        self.root = Path(self.temporary.name)
+        write_json(self.root / 'tools/lab-build.json', {
+            'schema_version': 1, 'builds_dir': 'work/builds',
+        })
+        self.artifact = self.root / 'artifact'
+        self.artifact.mkdir()
+        build = self.root / 'build-tree'
+        run = build / 'run'
+        (run / 'ota-assets').mkdir(parents=True)
+        (run / 'boot.img').write_bytes(b'boot')
+        names = [f'asset-{index}.bin'
+                 for index in range(2 * len(self.lab_build.FEATURE_ORDER))]
+        for name in names:
+            (run / 'ota-assets' / name).write_bytes(name.encode())
+        write_json(run / 'feature-assets.json', {'assets': [
+            {'name': name, 'sha256': hashlib.sha256(name.encode()).hexdigest(),
+             'size': len(name)}
+            for name in names]})
+        write_json(run / 'manifest.json', {'schema': 1})
+        bundle = run / 'libreecho-test.ota.tar'
+        with tarfile.open(bundle, 'w') as archive:
+            for member, payload in (('manifest', b'{}'), ('manifest.sig', b'sig')):
+                info = tarfile.TarInfo(member)
+                info.size = len(payload)
+                archive.addfile(info, io.BytesIO(payload))
+        (build / 'build.sh.log').write_text('run=\n', encoding='utf-8')
+        provenance = {
+            'version': '1.2.3',
+            'ota': {'run_dir': 'run', 'bundle': 'run/libreecho-test.ota.tar',
+                    'bundle_sha256': hashlib.sha256(bundle.read_bytes()).hexdigest()},
+        }
+        self.lab_build.write_build_identity(build, provenance)
+        self.build = build
+        self.bin = self.root / 'bin'
+        fake_gh(self.bin)
+        self.env = mock.patch.dict('os.environ', {
+            'PATH': f'{self.bin}:{os.environ["PATH"]}',
+            'GH_ARTIFACT_SRC': str(self.artifact),
+        })
+        self.env.start()
+        self.addCleanup(self.env.stop)
+        for key in ('GH_LOG', 'GH_STATE'):
+            os.environ.pop(key, None)
+        self.patch = mock.patch.object(self.lab_build, 'ROOT', self.root)
+        self.patch.start()
+        self.addCleanup(self.patch.stop)
+
+    def publish(self, sums: str | None = None) -> None:
+        # CI uploads the whole build directory: the deploy closure plus records.
+        sums_text = sums if sums is not None else (self.build / 'SHA256SUMS').read_text(
+            encoding='utf-8')
+        (self.build / 'SHA256SUMS').write_text(sums_text, encoding='utf-8')
+        # Rewrite provenance outputs for a tampered SHA256SUMS so deploy sees the
+        # digest the artifact claims rather than the real one.
+        if sums is not None:
+            provenance = json.loads((self.build / 'provenance.json').read_text(
+                encoding='utf-8'))
+            provenance['outputs'] = dict(
+                line.split('  ', 1)[::-1] for line in sums_text.splitlines() if line)
+            write_json(self.build / 'provenance.json', provenance)
+        shutil.copytree(self.build, self.artifact, dirs_exist_ok=True)
+
+    def test_verify_and_install(self) -> None:
+        self.publish()
+        self.assertEqual(self.lab_build.cmd_fetch(SimpleNamespace(run='42')), 0)
+        destination = self.root / 'work/builds/v1.2.3'
+        self.assertEqual((destination / 'run/boot.img').read_bytes(), b'boot')
+        self.assertTrue((destination / 'SHA256SUMS').is_file())
+        self.assertTrue((destination / 'provenance.json').is_file())
+
+    def test_fetched_build_passes_deploy_preflight(self) -> None:
+        self.publish()
+        self.assertEqual(self.lab_build.cmd_fetch(SimpleNamespace(run='42')), 0)
+        destination = self.root / 'work/builds/v1.2.3'
+        provenance = json.loads((destination / 'provenance.json').read_text(
+            encoding='utf-8'))
+        self.lab_build.verify_deliverables(destination, provenance)
+        run = destination / provenance['ota']['run_dir']
+        assets = json.loads((run / 'feature-assets.json').read_text(
+            encoding='utf-8'))['assets']
+        self.assertEqual(len(assets), 2 * len(self.lab_build.FEATURE_ORDER))
+        for item in assets:
+            self.assertTrue((run / 'ota-assets' / item['name']).is_file())
+        with tarfile.open(destination / provenance['ota']['bundle']) as archive:
+            self.assertIsNotNone(archive.extractfile('manifest'))
+
+    def test_latest_resolves_the_newest_successful_run(self) -> None:
+        self.publish()
+        self.assertEqual(self.lab_build.cmd_fetch(SimpleNamespace(run='latest')), 0)
+        self.assertTrue((self.root / 'work/builds/v1.2.3').is_dir())
+
+    def test_checksum_mismatch_is_refused(self) -> None:
+        self.publish(sums='0' * 64 + '  run/boot.img\n')
+        with self.assertRaisesRegex(self.lab_build.Fail, 'does not match'):
+            self.lab_build.cmd_fetch(SimpleNamespace(run='42'))
+        self.assertFalse((self.root / 'work/builds/v1.2.3').exists())
+
+    def test_artifact_without_a_bundle_is_refused(self) -> None:
+        self.publish()
+        for bundle in (self.artifact / 'run').glob('*.ota.tar'):
+            bundle.unlink()
+        with self.assertRaisesRegex(self.lab_build.Fail, 'missing from the fetched build'):
+            self.lab_build.cmd_fetch(SimpleNamespace(run='42'))
+
+
+class WorkflowPinTest(unittest.TestCase):
+    """The workflow's container image and the tool's pin cannot drift apart."""
+
+    def test_workflow_runs_the_pinned_build_image(self) -> None:
+        config = json.loads((ROOT / 'tools/lab-build.json').read_text(encoding='utf-8'))
+        image = config['build_image']
+        pinned = f'{image["name"]}@{image["digest"]}'
+        workflow = (ROOT / '.github/workflows/lab-build.yml').read_text(encoding='utf-8')
+        self.assertIn(f'image: {pinned}', workflow)
+        self.assertIn('runs-on: arc-libreecho', workflow)
+        self.assertIn('workflow_dispatch:', workflow)
+        self.assertNotIn('pull_request:', workflow)
 
 
 if __name__ == '__main__':

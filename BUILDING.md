@@ -77,6 +77,31 @@ From a fresh clone:
    polls until the device reports the expected generation. Each deploy is a hardware write
    and reboot, so each one needs your approval; the command refuses without `--yes`.
 
+## Build in CI
+
+`.github/workflows/lab-build.yml` runs the same build on a self-hosted runner, so you do
+not need a local podman. Two commands start a build and collect its result:
+
+```sh
+python3 tools/lab-build.py push
+python3 tools/lab-build.py fetch          # latest successful run
+```
+
+`push` fast-forwards each fork and the port's `main`, then dispatches the workflow. The job
+runs inside the pinned build image and keeps `work/` on a persistent cache volume. It builds
+with a stock boot and a signing key that the runner mounts read-only, and uploads the whole
+build directory as the `libreecho-lidar-ota` artifact. `fetch` downloads that artifact,
+verifies every entry in `SHA256SUMS` and installs it as `work/builds/v<version>/`, so
+`deploy` works unchanged.
+
+CI artifacts are **public** and are kept for 7 days. They contain the stock-boot-derived
+OTA and the product run directory (`run/`), including Amazon stock DTBs and the boot
+header copied from `stock_boot`. The raw inputs themselves (`boot_a.bin` and the OTA
+signing seed) never leave the runner. A workflow guard fails the upload if a file whose
+sha256 matches either one appears in the build directory.
+
+The workflow runs only on `workflow_dispatch`, never on a pull request.
+
 ## The pipeline
 
 ![Build pipeline: three inputs produce a signed OTA; deploy is approval-gated.](docs/diagrams/build-pipeline.svg)
@@ -123,8 +148,10 @@ Two build inputs cannot come from the repository:
   committed or shared; the public key is installed into the image and travels with the
   bundle.
 
-A build refuses to start without both. No public release carries them, which is also why the
-Lidar target stays a local build.
+A build refuses to start without both. The private inputs never leave the machine that
+holds them: in CI the runner mounts them read-only and a guard refuses to upload their
+exact bytes. The OTA they produce is public, so a CI artifact carries Amazon stock DTBs and
+the boot header copied from the stock boot.
 
 ## What `lab-build.py build` runs
 

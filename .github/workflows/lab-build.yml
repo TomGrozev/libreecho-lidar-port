@@ -1,0 +1,125 @@
+name: lab-build
+
+# Builds the Lidar lab OTA on the ARC runners. CI artifacts are public: the
+# uploaded build directory contains the OTA bundle (Amazon stock boot bytes and
+# the stock boot header), so treat each artifact as published. The private
+# inputs themselves (signing seed and vendor stock boot image) stay in the
+# cluster and are never uploaded; a guard fails the run if their exact bytes
+# appear anywhere in the build directory. The artifact is the whole build
+# directory because `deploy` verifies every file provenance.json lists.
+#
+# Keep the image digest in step with tools/lab-build.json; test_lab_build.py
+# fails when they differ. The runner pod template provides the /lab-cache PV
+# and the read-only /lab-private key and stock-boot mounts.
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Build version MAJOR.MINOR.PATCH (required on an empty cache)'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lab-build
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: arc-libreecho
+    timeout-minutes: 180
+    container:
+      image: ghcr.io/tomgrozev/libreecho-build@sha256:43f348925c13a934a15f5905742540c2769338ac2da8b7d19ef117b0168ca8b2
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Use the persistent work tree
+        run: python3 tools/lab-build.py ci-setup --work-root /lab-cache
+
+      - name: Check the runner mounts
+        run: |
+          for path in /lab-private/boot/boot_a.bin \
+                      /lab-private/keys/ed25519-seed.hex \
+                      /lab-private/keys/ed25519-public.hex; do
+            test -r "$path" || { echo "::error::missing $path (runner pod template)"; exit 1; }
+          done
+          test -w /lab-cache || { echo "::error::/lab-cache is not writable"; exit 1; }
+
+      - name: Check the version input
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          if [ -z "$VERSION" ] && ! ls -d work/builds/v[0-9]* >/dev/null 2>&1; then
+            echo "::error::the cache has no build; rerun with a version input"
+            exit 1
+          fi
+
+      - name: Git identity for integration merges
+        run: |
+          git config --global user.name 'LibreEcho CI'
+          git config --global user.email 'ci@libreecho.invalid'
+
+      - name: Prepare the workspace
+        run: python3 tools/workspace.py init --no-image --sync-forks
+
+      - name: Check the integration lock
+        run: python3 tools/integrate.py check-lock
+
+      - name: Build
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          args=(build --no-container --no-integrate
+            --stock-boot /lab-private/boot/boot_a.bin
+            --ota-signing-key /lab-private/keys/ed25519-seed.hex
+            --ota-public-key /lab-private/keys/ed25519-public.hex)
+          if [ -n "$VERSION" ]; then
+            args+=(--version "$VERSION")
+          fi
+          python3 tools/lab-build.py "${args[@]}"
+
+      - name: Locate the build
+        id: build
+        run: |
+          dir=$(ls -d work/builds/v[0-9]* | sort -V | tail -1)
+          version=$(basename "$dir"); version=${version#v}
+          recorded=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["version"])' \
+            "$dir/provenance.json")
+          if [ "$version" != "$recorded" ]; then
+            echo "::error::$dir holds provenance for $recorded"
+            exit 1
+          fi
+          echo "dir=$dir" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Refuse to publish a private input
+        run: |
+          dir='${{ steps.build.outputs.dir }}'
+          boot=$(sha256sum /lab-private/boot/boot_a.bin | cut -d' ' -f1)
+          seed=$(sha256sum /lab-private/keys/ed25519-seed.hex | cut -d' ' -f1)
+          leaked=0
+          while IFS= read -r -d '' file; do
+            sum=$(sha256sum "$file" | cut -d' ' -f1)
+            if [ "$sum" = "$boot" ] || [ "$sum" = "$seed" ]; then
+              echo "::error::refusing to upload private input as $file"
+              leaked=1
+            fi
+          done < <(find "$dir" -type f -print0)
+          exit "$leaked"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: libreecho-lidar-ota
+          # deploy verifies every file in provenance.json outputs, so the
+          # artifact is the whole build directory (run dir + logs).
+          path: ${{ steps.build.outputs.dir }}
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 0
