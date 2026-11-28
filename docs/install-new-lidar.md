@@ -4,7 +4,7 @@ You start with a stock Echo Plus 2nd Gen (codename `lidar`, MediaTek MT8167) and
 finish with a running LibreEcho install. You back up the stock boot chain, read
 the stock boot image, build the boot-chain images and the lab OTA from those
 readbacks, prepare the boot chain with `lidar_prepare.py`, run the product
-installer (`tools/libreecho-install.py --target lidar`), then validate the
+installer (`tools/libreecho-install.py one-shot --target lidar`), then validate the
 result. The plan for this flow is [docs/plan.md](plan.md), Phase 7, "Desired
 final user flow". How the port itself was built is
 [BUILDING.md](../BUILDING.md).
@@ -197,7 +197,7 @@ before it.
 | 8. Stock boot check | `lidar_prepare.py stock-boot` | no (reboot only) | no |
 | 9. Install chain | `lidar_prepare.py install --yes` | yes: expdb, tee1, BOOT0 | no |
 | 10. Confirm | `lidar_prepare.py confirm` | no | no |
-| 11. Install LibreEcho | `libreecho-install.py --target lidar` | yes: userdata, boot_a, boot_b | yes, dev unit |
+| 11. Install LibreEcho | `libreecho-install.py one-shot --target lidar` | yes: userdata, boot_a, boot_b | yes, dev unit |
 | 12. Validate | `adb` checks | no | yes, dev unit |
 
 Steps 2, 3, 4, 7 and 9 talk to the unit in BROM. If the unit is not in BROM
@@ -559,19 +559,25 @@ starts with the MTK magic `88 16 88 58`. It formats userdata, writes
 `userdata`, `boot_a` and `boot_b` only, and verifies the readback of both boot
 slots.
 
-**Run.** The integration worktree `work/integration/LibreEcho` carries the
-product fork's branch that the lab build came from:
+**Run.** Put the unit in Kaeru fastboot: hold the action button at power-on.
+The integration worktree `work/integration/LibreEcho` carries the product
+fork's branch that the lab build came from:
 
 ```sh
-python3 work/integration/LibreEcho/tools/libreecho-install.py \
+python3 work/integration/LibreEcho/tools/libreecho-install.py one-shot \
+    --execute-hardware \
     --target lidar \
     --release-dir work/builds/v<version> \
     --release-tag <tag>
 ```
 
-`<version>` is the lab build from step 6. `<tag>` is the release tag recorded
-in the build's `provenance.json` (`release`). No `lidar-v*` release is
-published, so `--release-dir` with a lab build is the only source today.
+`one-shot` is the action that writes the unit, and it refuses without
+`--execute-hardware`. The `install` action only caches the bundle and writes
+nothing. `<version>` is the lab build from step 6. `<tag>` is the release tag
+recorded in the build's `provenance.json` (`release`). No `lidar-v*` release
+is published, so `--release-dir` with a lab build is the only source today.
+The installer asks whether to answer first-boot setup in the terminal or on
+the web setup page.
 
 **You should see.** The chain checks, the slot writes with verified readbacks,
 and the first boot. The installer appends its log to `libreecho-installer.log`
