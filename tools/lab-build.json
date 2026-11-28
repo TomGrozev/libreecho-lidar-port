@@ -3,7 +3,7 @@
   "builds_dir": "work/builds",
   "build_image": {
     "name": "ghcr.io/tomgrozev/libreecho-build",
-    "digest": null
+    "digest": "sha256:43f348925c13a934a15f5905742540c2769338ac2da8b7d19ef117b0168ca8b2"
   },
   "values": {
     "target": "lidar",
