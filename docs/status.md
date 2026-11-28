@@ -49,18 +49,12 @@ statements below.
 - The expdb guard's refuse path has not fired on hardware. The accept path ran on
   2026-11-26 and read `kaeru-v2`
   ([expdb-guard](../lab-notes/phase-07/expdb-guard.md)).
-- A build from a clean clone has host evidence only. The pinned image exists and v0.2.68 was
-  built with it; the clean-clone `init` and `build` run is missing. See
-  [BUILDING.md](../BUILDING.md).
 - Hosted CI runs on the forks. The Linux `checks.yml` lane passes for the Lidar branch and
   `parity.yml` fails by design (byte-identical comparison with `aslater3`). The LibreEcho
   `release-gate` workflow passes; `build-release` builds only `aslater3` sources from
   `main`/`release/*`. The UI and Platform workflows filter out the topic branches, and
   Actions is disabled on `kaeru`, `LibreEcho-Installer-Web` and `amonet-koboreru`
   ([hosted-ci](../lab-notes/phase-07/hosted-ci.md)).
-- The announce bug (pink LED, then no audio) is fixed in v0.2.68 (installed 2026-11-28), but
-  no announcement has been sent on that image, so the on-device check is pending
-  ([announce-bug](../lab-notes/phase-07/announce-bug/notes.md)).
 - A software microphone mute turns the ring red but leaves the mute-button lamp dark; only
   the hardware latch lights it. I decided to keep this behavior
   ([mute-lamp](../lab-notes/phase-07/mute-lamp.md)).

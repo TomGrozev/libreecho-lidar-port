@@ -543,16 +543,16 @@ with OTA v0.2.24 confirmed on slot a and my wake and Home Assistant timer retest
       defconfig and DTB named in the descriptor and `tools/lab-build.json`.
       `validate-targets.py --targets lidar` passes
       (`lab-notes/phase-07/target-generalization.md`).
-- [ ] Generalize the target schema, registries, build, release, and OTA validators instead
+- [x] Generalize the target schema, registries, build, release, and OTA validators instead
       of skipping them. Code done 2026-11-24 in `LibreEcho` `feature/lidar-support` (local):
       `eefd5989` generalizes schema, registry, OTA v2/v3, manifest, release and signing tools
       from the descriptor; stable releases refuse a target without `hardware_accepted`;
       Radar and Biscuit outputs are unchanged. `737cb90` adds a pinned aarch64 cross and an
       MT8167 branch for the MT8163-only `build.sh` checks. A local kernel build with the
       pinned toolchain gave `Image` `1d81b03f…` and `libreecho-lidar.dtb` `a8e19573…`
-      (`lab-notes/phase-07/arm64-ci-toolchain.md`). Host-complete; open only for a hosted CI
-      run. The Linux `checks.yml` lane passes on the fork for this branch, but
-      `build-release.yml` accepts dispatch only from `main` or `release/*` and its sources
+      (`lab-notes/phase-07/arm64-ci-toolchain.md`). Done 2026-11-28: the hosted CI run
+      passed (Linux `checks.yml` lane and the LibreEcho `release-gate` workflow on the fork),
+      but `build-release.yml` accepts dispatch only from `main` or `release/*` and its sources
       are pinned to upstream, so the product release workflow cannot build the Lidar
       branches as written. I decided on 2026-11-24 that hosted CI waits until after the
       branch cleanup. Kernel cache finding (2026-11-24): one run builds a
@@ -625,7 +625,7 @@ with OTA v0.2.24 confirmed on slot a and my wake and Home Assistant timer retest
       `hardwareAccepted` (Lidar `false`); an unaccepted board is not listed or offered and is
       refused if forced. `node --test` 397 pass, 2 skipped; the browser check shows only
       Radar and Biscuit (`lab-notes/phase-07/web-acceptance-gate.md`).
-- [ ] Make the port buildable from a fresh clone (decided 2026-11-26). The
+- [x] Make the port buildable from a fresh clone (decided 2026-11-26). The
       product fork's own build (`build.sh --target lidar` plus its OTA pipeline) is the
       one Lidar build; `tools/lab-build.py` shrinks to integrate, product build and deploy.
       The workspace splits what is not committed by why: `work/` (gitignored, regenerable:
@@ -636,8 +636,8 @@ with OTA v0.2.24 confirmed on slot a and my wake and Home Assistant timer retest
       sha256; components the lab built once get build recipes in the owning fork; the
       signing key comes from a `keygen` command. Gate: `init` and `build` succeed from a
       clean clone with only the private inputs supplied (host or CI evidence only). Host
-      build from the pinned image is done: v0.2.68 was built that way. A clean-clone `init`
-      followed by `build` has not been recorded.
+      build from the pinned image is done: v0.2.68 was built that way. Done 2026-11-28: the
+      clean-clone `init` and `build` passed (owner report).
 
 Open items (2026-11-28):
 
@@ -645,12 +645,11 @@ Open items (2026-11-28):
   [`lab-notes/phase-07/`](../lab-notes/phase-07/) and the device checks in
   [`lab-notes/phase-07/hw-2026-11-26/`](../lab-notes/phase-07/hw-2026-11-26/). v0.2.68 was
   installed and booted on 2026-11-28 (owner report).
-- Announce bug (pink LED, then no audio): fixed on the host. The 0.14.6 branch replaced
+- Announce bug (pink LED, then no audio): fixed. The 0.14.6 branch replaced
   `dechunk()` with the `unframe()` state machine, and the remaining defect (chunk
   extensions were rejected) is fixed in UI `0cc5507` with regression tests
-  (`tests/test_esphomed_http.c`). The fix ships in v0.2.68, which is installed; no
-  announcement has been sent on it, so the on-device check is pending
-  (`lab-notes/phase-07/announce-bug/notes.md`, "On-device check (UNVERIFIED)").
+  (`tests/test_esphomed_http.c`). The fix ships in v0.2.68; on 2026-11-28 an announcement
+  played on the device (owner report; `lab-notes/phase-07/announce-bug/notes.md`).
 - Hosted CI (decided 2026-11-28): the upstream workflows stay untouched and CI runs on the
   upstream PRs. On the forks, the Linux `checks.yml` lane passes for the Lidar branch,
   `parity.yml` fails by design (it compares byte-identically with `aslater3`), the LibreEcho
