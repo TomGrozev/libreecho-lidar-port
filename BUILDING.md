@@ -21,14 +21,16 @@ From a fresh clone:
 
    This clones the forks named by [integration.json](integration.json), rebuilds the
    integration branches and their lock, prepares the build image, and fetches the public
-   build inputs into `work/inputs/`.
+   build inputs into `work/inputs/`. It then builds the Amonet BROM payload
+   (`work/integration/amonet/brom-payload/build/mt8167/payload.bin`), which the device
+   steps load in every BROM session. The payload needs no data from the device.
 
    The build image comes from `build_image` in [tools/lab-build.json](tools/lab-build.json).
    With a digest it is pulled as `name@digest`. With a null digest, `init` builds the local
    tag `libreecho-build:local` from the product's
    `build/container/Containerfile`. `--build-image` forces the local build;
-   `--no-image` skips this step. The image carries the Ubuntu 24.04 CI runner baseline,
-   the host packages, and CPython 3.11.
+   `--no-image` skips this step and builds the Amonet payload with host tools. The image
+   carries the Ubuntu 24.04 CI runner baseline, the host packages, and CPython 3.11.
 
 2. **Generate the OTA signing key pair.**
 
@@ -74,7 +76,17 @@ From a fresh clone:
    existing build plus one patch; pass `--version X.Y.Z` for the first build. The step is
    host-only and never touches a device.
 
-7. **Deploy (optional; writes the device).**
+7. **Build the boot-chain images (optional; needs a device backup).**
+
+   ```sh
+   python3 tools/lab-build.py boot-chain --backup-dir <session-dir>/backup --out <session-dir>/images
+   ```
+
+   This builds Kaeru and Koboreru from the `lk_a.bin` and `tee1.bin` of the `backup` stage,
+   for [step 5 of the install guide](docs/install-new-lidar.md#5-build-the-boot-chain-images).
+   See [What `lab-build.py boot-chain` runs](#what-lab-buildpy-boot-chain-runs).
+
+8. **Deploy (optional; writes the device).**
 
    ```sh
    python3 tools/lab-build.py deploy <version> --host <device>:5555 --yes
@@ -193,6 +205,33 @@ from here.
 the generation from the signed manifest without network access, installs the OTA on the
 inactive slot, reboots and polls until the device reports the expected generation. Each
 deploy is a hardware write and reboot; the command refuses without `--yes`.
+
+## What `lab-build.py boot-chain` runs
+
+`python3 tools/lab-build.py boot-chain --backup-dir DIR --out OUT` builds the two
+boot-chain stages that the `install` stage of `lidar_prepare.py` writes:
+
+- Kaeru (`lidar-kaeru.bin`) from the stock LK in `DIR/lk_a.bin`.
+- Koboreru (`tee-payload-lidar.img`) from the stock TEE in `DIR/tee1.bin`.
+
+The command refuses when either donor file is missing. When the backup manifest is present,
+it also refuses a donor file whose digest does not match the manifest.
+
+The build copies the Kaeru and Koboreru integration worktrees to a scratch directory under
+`work/` and builds there, so it leaves no files in `work/integration/`. By default it runs
+in the pinned build image. The Arm GNU Toolchain releases for `arm-none-eabi` and
+`arm-none-linux-gnueabihf` are fetched into `work/inputs/` by URL and sha256, like the other
+public inputs. The Python packages, with `liblk` pinned to a commit, go into a venv under
+`work/`. `--no-container` uses the host toolchains and Python packages instead; the
+[install guide](docs/install-new-lidar.md#host) lists them.
+
+The output directory receives `lidar-kaeru.bin`, `tee-payload-lidar.img`, `SHA256SUMS` and
+`provenance.json`. The provenance records the source heads from the integration lock, the
+donor digests and the toolchain digests. The images embed Amazon LK and TEE bytes, so the
+command refuses an output directory inside a git checkout unless it is under that
+checkout's `private/`. It ends by printing the `--kaeru`, `--kaeru-sha256`, `--koboreru` and
+`--koboreru-sha256` flags for `lidar_prepare.py`, with the real paths and digests. No image
+from this command has run on a device yet.
 
 ## Building is the host side
 

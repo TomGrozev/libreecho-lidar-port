@@ -40,14 +40,17 @@ The manifest names these forks, each cloned under its `work/forks/` path:
 
 `python3 tools/workspace.py init` reads `integration.json`, clones the forks, rebuilds the
 integration branches and their lock, prepares the build image, and fetches the public build
-inputs. It also sets `core.hooksPath` to `.githooks`, so the versioned pre-commit hook
+inputs. It then builds the Amonet BROM payload
+(`work/integration/amonet/brom-payload/build/mt8167/payload.bin`), which needs no device
+data; `amonet`'s `.gitignore` keeps `build/`, so later rebuilds do not delete it. It also
+sets `core.hooksPath` to `.githooks`, so the versioned pre-commit hook
 (private-tree guard, identifier scan when `private/` is present, then `tools/check.py`)
 applies.
 
 The flags:
 
 - `--no-integrate` skips the integration rebuild.
-- `--no-image` skips the build image.
+- `--no-image` skips the build image and builds the Amonet payload with host tools.
 - `--build-image` builds `libreecho-build:local` from the product's
   `build/container/Containerfile`, even when `tools/lab-build.json` pins a digest.
 - `--no-inputs` skips the input fetch.
@@ -58,8 +61,8 @@ staged separately under `work/inputs/`. With a digest, `init` pulls `name@digest
 null digest, it builds the local tag.
 
 `python3 tools/workspace.py doctor` reports what a build still needs in one list: host
-tools, podman and the image, free disk below 20 GB, clones, branches, inputs, and empty
-`private/local.json` entries. It exits 1 while anything is missing.
+tools, podman and the image, free disk below 20 GB, clones, branches, inputs, the Amonet
+payload, and empty `private/local.json` entries. It exits 1 while anything is missing.
 
 ## Branch model
 
@@ -223,6 +226,20 @@ device.
 
 Deploy writes the device and reboots it, so each run needs its own hardware approval.
 Build never talks to the device.
+
+`python3 tools/lab-build.py boot-chain --backup-dir DIR --out OUT` builds the Lidar
+boot-chain images from a `lidar_prepare.py backup` directory. Kaeru patches `DIR/lk_a.bin`
+into `lidar-kaeru.bin` and Koboreru uses `DIR/tee1.bin` as its donor for
+`tee-payload-lidar.img`. It refuses a missing donor, or one that does not match the backup
+manifest when the manifest is present. It builds in a scratch copy under `work/`, never in
+`work/integration/`, because `integrate.py` runs `git clean -fd` on those worktrees. By
+default it runs in the build image with the pinned Arm GNU toolchains from `work/inputs/`
+and a venv of pinned Python packages under `work/`; `--no-container` uses host tools. OUT
+receives both images, `SHA256SUMS` and `provenance.json` (source heads from the lock, donor
+and toolchain digests). OUT must sit outside any git checkout or under its `private/`,
+because the images embed Amazon LK and TEE bytes. The command ends by printing the
+`--kaeru`, `--kaeru-sha256`, `--koboreru` and `--koboreru-sha256` flags for
+`lidar_prepare.py`.
 
 ## Recipes
 
