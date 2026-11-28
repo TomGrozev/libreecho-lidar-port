@@ -46,12 +46,12 @@ From a fresh clone:
    [docs/install-new-lidar.md](docs/install-new-lidar.md): enter BROM, run `identify`, run
    [`backup`](docs/install-new-lidar.md#3-backup), then
    [read `boot_a`](docs/install-new-lidar.md#4-read-the-stock-boot-image-boot_a). The
-   `backup` stage does not save `boot_a`; step 4 writes it to `<session-dir>/boot_a.bin`.
+   `backup` stage does not save `boot_a`; step 4 writes it to `private/session/boot_a.bin`.
    Read it before the LibreEcho installer overwrites `boot_a`.
 
 4. **Point `private/local.json` at the stock boot image.** `keygen` created
    `private/local.json` from [tools/local.example.json](tools/local.example.json). Set
-   `stock_boot` to the path of `<session-dir>/boot_a.bin`; a relative path counts from the
+   `stock_boot` to `private/session/boot_a.bin`; a relative path counts from the
    repository root. Set `device_host` too if you know the device's Wi-Fi adb address.
 
 5. **Check the workspace.**
@@ -79,7 +79,7 @@ From a fresh clone:
 7. **Build the boot-chain images (optional; needs a device backup).**
 
    ```sh
-   python3 tools/lab-build.py boot-chain --backup-dir <session-dir>/backup --out <session-dir>/images
+   python3 tools/lab-build.py boot-chain --backup-dir private/session/backup --out private/session/images
    ```
 
    This builds Kaeru and Koboreru from the `lk_a.bin` and `tee1.bin` of the `backup` stage,
