@@ -1,0 +1,8 @@
+08:15:28 start: bundle=v0.2.25 tx=txn-92d3a65dbbc8ff12b9a722f5 slot=a target=b
+08:18:44 pushed: artifacts/phase-06/ota-step33-latency/lidar-lab-v0.2.25.ota.tar: 1 file pushed, 0 skipped. 1.6 MB/s (16793600 bytes in 10.273s)
+08:19:19 install: verify_rc=0 ready=b install_rc=0 
+signature=PASS
+08:19:19 reboot requested; pre-reboot boot_id 94e710e7-621f-48b9-adb2-08919b21b437
+08:19:30 adb back on slot adb: device offline
+08:21:42 CONFIRMED: slot=b state=installed generation=txn-92d3a65dbbc8ff12b9a722f5 current=txn-92d3a65dbbc8ff12b9a722f5
+08:22:01 after-checks: experiments/phase-06/hw-20261121/step33-latency-fix/after-checks.log

@@ -1,0 +1,25 @@
+18:33:05
+
+< waiting for any device >
+148.96 373.88
+androidboot.slot_suffix=_a
+boot_reason=0
+androidboot.bootreason=power_key
+18:36:42
+watch: 
+< waiting for any device >
+< waiting for any device >
+24.42 70.76
+androidboot.bootreason=power_key
+18:39:43
+watch: <SERIAL_A>	 fastboot
+kaeru-version: 2.0.0-g66704e6-dirty
+Finished. Total time: 0.002s
+current-slot: 
+Finished. Total time: 0.002s
+66.49 149.71
+androidboot.slot_suffix=_a
+state=installed
+selected_slot=a
+slot_a_success=1
+slot_b_success=1

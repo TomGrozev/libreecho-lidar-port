@@ -1,0 +1,85 @@
+== /etc/libreecho version-ish
+target_id=lidar
+release_slug=lidar
+hw_profile=lidar@1
+ota
+production
+dev
+schema=1
+mode=first-install
+board=lidar
+== /data/libreecho/update
+total 132
+drwx------    6 0        0             4096 Nov 24 08:42 [1;34m.[m
+drwx------   11 0        0             4096 Nov 23 12:18 [1;34m..[m
+drwxrwxrwx    2 0        0             4096 Nov 24 08:42 [1;34masset-cache[m
+-rw-------    1 0        0             5304 Nov 23 12:18 [0;0mauthority-provenance-cache[m
+-rw-------    1 0        0               12 Jan  1  1970 [0;0mautomatic-updates[m
+-rw-r--r--    1 0        0                4 Jan  1  1970 [0;0mboot-count[m
+-rw-r--r--    1 0        0              264 Nov 23 12:13 [0;0mboot-health[m
+-rw-r--r--    1 0        0              876 Jan  1  1970 [0;0mboot-history[m
+-rw-r--r--    1 0        0              281 Nov 23 12:13 [0;0mbootctl.confirm[m
+-rw-------    1 0        0               30 Jan  1  1970 [0;0mconfig-status[m
+-rw-------    1 0        0               29 Nov 23 12:13 [0;0mcurrent[m
+-rw-------    1 0        0             3764 Nov 21 08:40 [0;0mfailure-1795250407-1.log[m
+-rw-------    1 0        0             3416 Nov 22 09:09 [0;0mfailure-1795338568-1.log[m
+-rw-------    1 0        0             1064 Nov 23 12:13 [0;0mfeature-hash-cache[m
+-rw-------    1 0        0               37 Jan  1  1970 [0;0mfeatures-status[m
+drwxrwxrwx    2 0        0             4096 Nov 24 08:42 [1;34mgeneration.lock[m
+drwx------    2 0        0             4096 Jan  1  1970 [1;34mincoming[m
+-rw-------    1 0        0              175 Nov 23 12:13 [0;0minstalled[m
+-rw-------    1 0        0            21023 Nov 23 12:13 [0;0mota.log[m
+-rw-r--r--    1 0        0              132 Nov 23 12:20 [0;0mping-next-payload[m
+-rw-r--r--    1 0        0              187 Nov 23 12:20 [0;0mping-status[m
+-rw-------    1 0        0               29 Nov 23 12:13 [0;0mprevious[m
+-rw-r--r--    1 0        0              170 Nov 22 09:09 [0;0mrestart-record[m
+-rw-------    1 0        0              141 Nov 23 12:17 [0;0mrolled-back[m
+drwx------    2 0        0             4096 Nov 23 13:32 [1;34mstaging[m
+-rw-r--r--    1 0        0               47 Nov 23 12:13 [0;0mstate[m
+schema=1
+state=installed
+progress=100
+detail=a
+== /data/libreecho/generations
+total 24
+drwxrwxrwx    5 0        0             4096 Nov 24 08:42 [1;34m.[m
+drwx------   11 0        0             4096 Nov 23 12:18 [1;34m..[m
+dr-x------    3 0        0             4096 Nov 23 13:32 [1;34mtxn-161730cea4dc3b3183f4aa2e[m
+drwxrwxrwx    3 0        0             4096 Nov 24 08:42 [1;34mtxn-405cf70bda6f6a363bd1f9cd.partial[m
+-rw-------    1 0        0               29 Nov 24 08:42 [0;0mtxn-405cf70bda6f6a363bd1f9cd.pin[m
+dr-x------    3 0        0             4096 Nov 23 12:34 [1;34mtxn-6f0ab9c71209e7dd9c51e9d2[m
+== bin ls
+libreecho-airplayd
+libreecho-audiod
+libreecho-bootctl
+libreecho-btd
+libreecho-buttond
+libreecho-config-migrate
+libreecho-data-cleanup
+libreecho-esphomed
+libreecho-feature-transaction
+libreecho-generation
+libreecho-generation-transaction
+libreecho-ledd
+libreecho-local
+libreecho-logd
+libreecho-mdnsd
+libreecho-micd
+libreecho-networkd
+libreecho-ping
+libreecho-radiod
+libreecho-reconcile-features
+libreecho-recovery-ap-probe
+libreecho-recovery-ap-ready
+libreecho-recovery-net-down
+libreecho-recovery-net-up
+libreecho-sttd-wyoming
+libreecho-target-manifest
+libreecho-timed
+libreecho-timerd
+libreecho-ttsd-wyoming
+libreecho-update
+libreecho-update-fetch
+libreecho-vendor-import
+libreecho-watchdogd
+libreecho-web

@@ -1,0 +1,55 @@
+{
+  "ok": false,
+  "partitions": [
+    {
+      "actual_sha256": "7668e74b33f37cc06e73c99c9226d8b7f8f6259f2a7e4678378bf7e40196b682",
+      "bytes_read": 90112,
+      "expected_sha256": "7668e74b33f37cc06e73c99c9226d8b7f8f6259f2a7e4678378bf7e40196b682",
+      "kind": "user",
+      "name": "gpt",
+      "ok": true
+    },
+    {
+      "actual_sha256": "07fda82bd175d93cacfd32e0c2f15ce141688856deffa9e67131cba721f0945c",
+      "bytes_read": 16896,
+      "expected_sha256": "07fda82bd175d93cacfd32e0c2f15ce141688856deffa9e67131cba721f0945c",
+      "kind": "user",
+      "name": "gpt_backup",
+      "ok": true
+    },
+    {
+      "actual_sha256": "e5b844cc57f57094ea4585e235f36c78c1cd222262bb89d53c94dcb4d6b3e55d",
+      "bytes_read": 10485760,
+      "expected_sha256": "e5b844cc57f57094ea4585e235f36c78c1cd222262bb89d53c94dcb4d6b3e55d",
+      "kind": "user",
+      "name": "expdb",
+      "ok": true
+    },
+    {
+      "actual_sha256": "aa2b92914cf3dc8dcfebc958b99d752cb98bb20a79bf48570639587c838ad75e",
+      "bytes_read": 5242880,
+      "expected_sha256": "aa2b92914cf3dc8dcfebc958b99d752cb98bb20a79bf48570639587c838ad75e",
+      "kind": "user",
+      "name": "tee1",
+      "ok": true
+    },
+    {
+      "actual_sha256": "16254a0c7b6d25845a09a681aceabfd492e62cf36741216c0b4f6e10cf9c5be6",
+      "bytes_read": 2097152,
+      "error": "readback does not match the manifest source hash",
+      "expected_sha256": "4c8e02060ab820652000e4ffae90c5554d88230625edc704d269bee3efeb80f3",
+      "kind": "boot2",
+      "name": "boot1",
+      "ok": false
+    },
+    {
+      "actual_sha256": "d5fc0bbbc89b7dfaa7ca39fc1d0bc8da0df4a66e2324f3a9742ba70c04f5e327",
+      "bytes_read": 2097152,
+      "expected_sha256": "d5fc0bbbc89b7dfaa7ca39fc1d0bc8da0df4a66e2324f3a9742ba70c04f5e327",
+      "kind": "boot1",
+      "name": "boot0",
+      "ok": true
+    }
+  ],
+  "schema_version": 1
+}

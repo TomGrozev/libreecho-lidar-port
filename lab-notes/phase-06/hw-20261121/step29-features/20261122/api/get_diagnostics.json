@@ -1,0 +1,55 @@
+{
+ "body": {
+  "data": {
+   "checks": [
+    {
+     "name": "configuration",
+     "status": "ok"
+    },
+    {
+     "name": "backend",
+     "status": "ok"
+    },
+    {
+     "name": "central logging",
+     "status": "ok"
+    },
+    {
+     "name": "network adapter",
+     "status": "ok"
+    },
+    {
+     "name": "time synchronization",
+     "status": "ok"
+    },
+    {
+     "name": "audio adapter",
+     "status": "ok"
+    },
+    {
+     "name": "microphone adapter",
+     "status": "ok"
+    },
+    {
+     "name": "LED adapter",
+     "status": "ok"
+    },
+    {
+     "name": "Bluetooth adapter",
+     "status": "ok"
+    },
+    {
+     "name": "wlan0",
+     "status": "ok"
+    },
+    {
+     "name": "wake word",
+     "status": "ok"
+    }
+   ]
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

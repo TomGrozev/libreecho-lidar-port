@@ -1,0 +1,944 @@
+{
+ "loose_cutoff": 0.5,
+ "models": {
+  "okay_nabu": {
+   "cutoff": 0.97
+  },
+  "alexa": {
+   "cutoff": 0.9
+  },
+  "hey_jarvis": {
+   "cutoff": 0.97
+  },
+  "hey_mycroft": {
+   "cutoff": 0.95
+  },
+  "okay_nabu_pkg": {
+   "cutoff": 0.85
+  }
+ },
+ "degraded": {
+  "ok_nabu": {
+   "gain +0 dB": {
+    "okay_nabu": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "alexa": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.004
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.67,
+     "detect_loose": 1.0,
+     "median_peak": 0.981
+    }
+   },
+   "gain -6 dB": {
+    "okay_nabu": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "alexa": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.004
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.67,
+     "detect_loose": 1.0,
+     "median_peak": 0.981
+    }
+   },
+   "gain -12 dB": {
+    "okay_nabu": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "alexa": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.004
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.67,
+     "detect_loose": 1.0,
+     "median_peak": 0.981
+    }
+   },
+   "gain -18 dB": {
+    "okay_nabu": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "alexa": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.004
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.67,
+     "detect_loose": 1.0,
+     "median_peak": 0.981
+    }
+   },
+   "gain -24 dB": {
+    "okay_nabu": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "alexa": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.004
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.67,
+     "detect_loose": 1.0,
+     "median_peak": 0.952
+    }
+   },
+   "gain -30 dB": {
+    "okay_nabu": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "alexa": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.004
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.67,
+     "detect_loose": 1.0,
+     "median_peak": 0.917
+    }
+   },
+   "gain -36 dB": {
+    "okay_nabu": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "alexa": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.004
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.33,
+     "detect_loose": 1.0,
+     "median_peak": 0.814
+    }
+   },
+   "reverb RT60 0.3s DRR 1m": {
+    "okay_nabu": {
+     "detect": 0.67,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "alexa": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.004
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.67,
+     "detect_loose": 1.0,
+     "median_peak": 0.927
+    }
+   },
+   "reverb RT60 0.3s DRR 3m": {
+    "okay_nabu": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "alexa": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.004
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.33,
+     "detect_loose": 1.0,
+     "median_peak": 0.778
+    }
+   },
+   "reverb RT60 0.5s DRR 1m": {
+    "okay_nabu": {
+     "detect": 0.67,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "alexa": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.004
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.67,
+     "detect_loose": 1.0,
+     "median_peak": 0.862
+    }
+   },
+   "reverb RT60 0.5s DRR 3m": {
+    "okay_nabu": {
+     "detect": 0.67,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "alexa": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.004
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.33,
+     "detect_loose": 0.67,
+     "median_peak": 0.615
+    }
+   },
+   "reverb RT60 0.8s DRR 1m": {
+    "okay_nabu": {
+     "detect": 0.67,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "alexa": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.004
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.33,
+     "detect_loose": 0.67,
+     "median_peak": 0.618
+    }
+   },
+   "reverb RT60 0.8s DRR 3m": {
+    "okay_nabu": {
+     "detect": 0.67,
+     "detect_loose": 1.0,
+     "median_peak": 0.988
+    },
+    "alexa": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.011
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.0,
+     "detect_loose": 0.33,
+     "median_peak": 0.306
+    }
+   },
+   "noise SNR 20 dB": {
+    "okay_nabu": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "alexa": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.004
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.67,
+     "detect_loose": 1.0,
+     "median_peak": 0.911
+    }
+   },
+   "noise SNR 10 dB": {
+    "okay_nabu": {
+     "detect": 0.67,
+     "detect_loose": 1.0,
+     "median_peak": 0.987
+    },
+    "alexa": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.004
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.33,
+     "detect_loose": 0.67,
+     "median_peak": 0.528
+    }
+   },
+   "noise SNR 5 dB": {
+    "okay_nabu": {
+     "detect": 0.33,
+     "detect_loose": 1.0,
+     "median_peak": 0.948
+    },
+    "alexa": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.004
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.0,
+     "detect_loose": 0.33,
+     "median_peak": 0.334
+    }
+   },
+   "far-field RT60 0.5 3m + SNR 10": {
+    "okay_nabu": {
+     "detect": 0.67,
+     "detect_loose": 1.0,
+     "median_peak": 0.98
+    },
+    "alexa": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.004
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.0,
+     "detect_loose": 0.33,
+     "median_peak": 0.22
+    }
+   }
+  },
+  "alexa": {
+   "gain +0 dB": {
+    "okay_nabu": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.02
+    },
+    "alexa": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.312
+    }
+   },
+   "gain -6 dB": {
+    "okay_nabu": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.02
+    },
+    "alexa": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.293
+    }
+   },
+   "gain -12 dB": {
+    "okay_nabu": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.02
+    },
+    "alexa": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.03
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.27
+    }
+   },
+   "gain -18 dB": {
+    "okay_nabu": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.02
+    },
+    "alexa": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.026
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.238
+    }
+   },
+   "gain -24 dB": {
+    "okay_nabu": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.02
+    },
+    "alexa": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.034
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.212
+    }
+   },
+   "gain -30 dB": {
+    "okay_nabu": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.02
+    },
+    "alexa": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.037
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.186
+    }
+   },
+   "gain -36 dB": {
+    "okay_nabu": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.02
+    },
+    "alexa": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.052
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.128
+    }
+   },
+   "reverb RT60 0.3s DRR 1m": {
+    "okay_nabu": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.02
+    },
+    "alexa": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.175
+    }
+   },
+   "reverb RT60 0.3s DRR 3m": {
+    "okay_nabu": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.02
+    },
+    "alexa": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.091
+    }
+   },
+   "reverb RT60 0.5s DRR 1m": {
+    "okay_nabu": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.02
+    },
+    "alexa": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.087
+    }
+   },
+   "reverb RT60 0.5s DRR 3m": {
+    "okay_nabu": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.02
+    },
+    "alexa": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.024
+    }
+   },
+   "reverb RT60 0.8s DRR 1m": {
+    "okay_nabu": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.02
+    },
+    "alexa": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.061
+    }
+   },
+   "reverb RT60 0.8s DRR 3m": {
+    "okay_nabu": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.02
+    },
+    "alexa": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.0
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.013
+    }
+   },
+   "noise SNR 20 dB": {
+    "okay_nabu": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.02
+    },
+    "alexa": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.996
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.001
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.143
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.1
+    }
+   },
+   "noise SNR 10 dB": {
+    "okay_nabu": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.02
+    },
+    "alexa": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.994
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.003
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.069
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.014
+    }
+   },
+   "noise SNR 5 dB": {
+    "okay_nabu": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.02
+    },
+    "alexa": {
+     "detect": 0.5,
+     "detect_loose": 1.0,
+     "median_peak": 0.798
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.004
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.002
+    }
+   },
+   "far-field RT60 0.5 3m + SNR 10": {
+    "okay_nabu": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.02
+    },
+    "alexa": {
+     "detect": 1.0,
+     "detect_loose": 1.0,
+     "median_peak": 0.987
+    },
+    "hey_jarvis": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.004
+    },
+    "hey_mycroft": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.023
+    },
+    "okay_nabu_pkg": {
+     "detect": 0.0,
+     "detect_loose": 0.0,
+     "median_peak": 0.003
+    }
+   }
+  }
+ }
+}

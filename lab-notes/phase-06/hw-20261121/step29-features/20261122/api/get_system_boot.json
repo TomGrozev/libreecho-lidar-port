@@ -1,0 +1,43 @@
+{
+ "body": {
+  "data": {
+   "attempt": 0,
+   "available": true,
+   "boot_count": 84,
+   "confirmed": true,
+   "history": [
+    "epoch=4boot=77mode=otarunning=aselected=apending=aa=15/2/0b=14/0/1prev=pending:noneprev_slot=b",
+    "epoch=4boot=78mode=otarunning=aselected=apending=aa=15/1/0b=14/0/1prev=restarting:web-statusprev_slot=a",
+    "epoch=4boot=79mode=otarunning=aselected=bpending=aa=15/0/0b=14/0/1prev=restarting:web-statusprev_slot=a",
+    "epoch=4boot=80mode=otarunning=bselected=bpending=aa=0/0/0b=14/0/1prev=restarting:web-statusprev_slot=a",
+    "epoch=4boot=81mode=otarunning=aselected=apending=aa=15/2/0b=14/0/1prev=pending:noneprev_slot=b",
+    "epoch=4boot=82mode=first-bootrunning=aselected=apending=-a=15/0/1b=14/0/1prev=confirmed:noneprev_slot=a",
+    "epoch=4boot=83mode=otarunning=bselected=bpending=ba=14/0/1b=15/2/0prev=confirmed:noneprev_slot=a",
+    "epoch=4boot=84mode=first-bootrunning=bselected=bpending=-a=14/0/1b=15/0/1prev=confirmed:noneprev_slot=b"
+   ],
+   "last_check": "none",
+   "mode": "first-boot",
+   "passed": 0,
+   "pending_slot": "-",
+   "running_slot": "b",
+   "running_slot_success": 1,
+   "running_slot_tries": 0,
+   "selected_slot": "b",
+   "slot_a": {
+    "priority": 14,
+    "success": 1,
+    "tries": 0
+   },
+   "slot_b": {
+    "priority": 15,
+    "success": 1,
+    "tries": 0
+   },
+   "state": "confirmed",
+   "strict_graph": false
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

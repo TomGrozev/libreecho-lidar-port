@@ -1,0 +1,15 @@
+==before
+0 0 0 0 0 0 0 0 0 0 0 0 
+==red
+255 255 255 255 255 255 255 255 255 255 255 255 
+==green
+255 255 255 255 255 255 255 255 255 255 255 255 
+==blue
+255 255 255 255 255 255 255 255 255 255 255 255 
+==white
+white-set
+==off
+off-set
+==kernel
+Kernel command line: console=tty0 console=ttyMT0,921600n1 earlycon=uart8250,mmio32,0x11005000 vmalloc=496M androidboot.hardware=mt8167 androidboot.secure_cpu=1 androidboot.unlocked_kernel=true androidboot.tu_code=<TU_CODE> androidboot.rpmb_state=1 androidboot.pl_version=0x0000 androidboot.tee_version=0x0000 androidboot.lk_version=0x0000 androidboot.prod=1 androidboot.pl_build_desc=2b6f82c-20190926_195940 androidboot.lk_build_desc=6f7225e-20230407_030004 androidboot.verifiedbootstate=yellow androidboot.prod=1 bootopt=64S3,32N2,64N2 buildvariant=user veritykeyid=id:f3530e18f64d11fc25eb2dd762979f078de990bf libreecho.lab=p6-v2 androidboot.selinux=enforce androidboot.veritymode=enforcing androidboot.slot_suffix=_b rootwait ro init=/init skip_initramfs root=/dev/dm-0 dm="system none ro,0 1 android-verity PARTUUID=<PARTUUID_14>" printk.disable_uart=1 leds-is31fl3236. bootprof.pl_t=4192 bootprof.lk_t=3422 boot_reason=4 androidboot.serialno=<SERIAL_A> 
+is31fl32xx 0-003f: LibreEcho 36-channel atomic frame interface ready

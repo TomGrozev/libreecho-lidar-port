@@ -1,0 +1,17 @@
+{
+ "body": {
+  "data": {
+   "message": "No USB disk is attached. The OTG port must be in host mode.",
+   "mounted": false,
+   "playable_formats": [
+    "mp3",
+    "opus",
+    "ogg"
+   ],
+   "present": false
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

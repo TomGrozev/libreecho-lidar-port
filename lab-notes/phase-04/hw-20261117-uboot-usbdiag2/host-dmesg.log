@@ -1,0 +1,119 @@
+Nov 17 09:43:35 <WORKSTATION_A> kernel: usb 1-1.2: USB disconnect, device number 77
+Nov 17 09:43:37 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 78 using xhci_hcd
+Nov 17 09:43:37 <WORKSTATION_A> kernel: usb 1-1.2: New USB device found, idVendor=0e8d, idProduct=2000, bcdDevice= 1.00
+Nov 17 09:43:37 <WORKSTATION_A> kernel: usb 1-1.2: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+Nov 17 09:43:37 <WORKSTATION_A> kernel: usb 1-1.2: Product: MT65xx Preloader
+Nov 17 09:43:37 <WORKSTATION_A> kernel: usb 1-1.2: Manufacturer: MediaTek
+Nov 17 09:43:39 <WORKSTATION_A> kernel: usb 1-1.2: USB disconnect, device number 78
+Nov 17 09:43:45 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 79 using xhci_hcd
+Nov 17 09:43:45 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:43:45 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:43:45 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 80 using xhci_hcd
+Nov 17 09:43:45 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:43:45 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:43:45 <WORKSTATION_A> kernel: usb 1-1-port2: attempt power cycle
+Nov 17 09:43:46 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 81 using xhci_hcd
+Nov 17 09:43:46 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:43:46 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:43:46 <WORKSTATION_A> kernel: usb 1-1.2: device not accepting address 81, error -71
+Nov 17 09:43:46 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 82 using xhci_hcd
+Nov 17 09:43:46 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:43:47 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:43:47 <WORKSTATION_A> kernel: usb 1-1.2: device not accepting address 82, error -71
+Nov 17 09:43:47 <WORKSTATION_A> kernel: usb 1-1-port2: unable to enumerate USB device
+Nov 17 09:44:00 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 83 using xhci_hcd
+Nov 17 09:44:00 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:01 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:01 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 84 using xhci_hcd
+Nov 17 09:44:01 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:01 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:01 <WORKSTATION_A> kernel: usb 1-1-port2: attempt power cycle
+Nov 17 09:44:02 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 85 using xhci_hcd
+Nov 17 09:44:02 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:02 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:02 <WORKSTATION_A> kernel: usb 1-1.2: device not accepting address 85, error -71
+Nov 17 09:44:02 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 86 using xhci_hcd
+Nov 17 09:44:02 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:02 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:03 <WORKSTATION_A> kernel: usb 1-1.2: device not accepting address 86, error -71
+Nov 17 09:44:03 <WORKSTATION_A> kernel: usb 1-1-port2: unable to enumerate USB device
+Nov 17 09:44:04 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 87 using xhci_hcd
+Nov 17 09:44:04 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:04 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:04 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 88 using xhci_hcd
+Nov 17 09:44:04 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:05 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:05 <WORKSTATION_A> kernel: usb 1-1-port2: attempt power cycle
+Nov 17 09:44:05 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 89 using xhci_hcd
+Nov 17 09:44:05 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:05 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:06 <WORKSTATION_A> kernel: usb 1-1.2: device not accepting address 89, error -71
+Nov 17 09:44:06 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 90 using xhci_hcd
+Nov 17 09:44:06 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:06 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:06 <WORKSTATION_A> kernel: usb 1-1.2: device not accepting address 90, error -71
+Nov 17 09:44:06 <WORKSTATION_A> kernel: usb 1-1-port2: unable to enumerate USB device
+Nov 17 09:44:07 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 91 using xhci_hcd
+Nov 17 09:44:08 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:08 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:08 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 92 using xhci_hcd
+Nov 17 09:44:08 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:08 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:08 <WORKSTATION_A> kernel: usb 1-1-port2: attempt power cycle
+Nov 17 09:44:09 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 93 using xhci_hcd
+Nov 17 09:44:09 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:09 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:09 <WORKSTATION_A> kernel: usb 1-1.2: device not accepting address 93, error -71
+Nov 17 09:44:09 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 94 using xhci_hcd
+Nov 17 09:44:09 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:09 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:10 <WORKSTATION_A> kernel: usb 1-1.2: device not accepting address 94, error -71
+Nov 17 09:44:10 <WORKSTATION_A> kernel: usb 1-1-port2: unable to enumerate USB device
+Nov 17 09:44:10 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 95 using xhci_hcd
+Nov 17 09:44:10 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:11 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:11 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 96 using xhci_hcd
+Nov 17 09:44:11 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:11 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:11 <WORKSTATION_A> kernel: usb 1-1-port2: attempt power cycle
+Nov 17 09:44:12 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 97 using xhci_hcd
+Nov 17 09:44:12 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:12 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:12 <WORKSTATION_A> kernel: usb 1-1.2: device not accepting address 97, error -71
+Nov 17 09:44:12 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 98 using xhci_hcd
+Nov 17 09:44:12 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:12 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:13 <WORKSTATION_A> kernel: usb 1-1.2: device not accepting address 98, error -71
+Nov 17 09:44:13 <WORKSTATION_A> kernel: usb 1-1-port2: unable to enumerate USB device
+Nov 17 09:44:14 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 99 using xhci_hcd
+Nov 17 09:44:14 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:14 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:14 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 100 using xhci_hcd
+Nov 17 09:44:14 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:15 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:15 <WORKSTATION_A> kernel: usb 1-1-port2: attempt power cycle
+Nov 17 09:44:15 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 101 using xhci_hcd
+Nov 17 09:44:15 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:15 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:16 <WORKSTATION_A> kernel: usb 1-1.2: device not accepting address 101, error -71
+Nov 17 09:44:16 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 102 using xhci_hcd
+Nov 17 09:44:16 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:16 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:16 <WORKSTATION_A> kernel: usb 1-1.2: device not accepting address 102, error -71
+Nov 17 09:44:16 <WORKSTATION_A> kernel: usb 1-1-port2: unable to enumerate USB device
+Nov 17 09:44:17 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 103 using xhci_hcd
+Nov 17 09:44:17 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:18 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:18 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 104 using xhci_hcd
+Nov 17 09:44:18 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:18 <WORKSTATION_A> kernel: usb 1-1.2: device descriptor read/64, error -71
+Nov 17 09:44:18 <WORKSTATION_A> kernel: usb 1-1-port2: attempt power cycle
+Nov 17 09:44:19 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 105 using xhci_hcd
+Nov 17 09:44:19 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:19 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:19 <WORKSTATION_A> kernel: usb 1-1.2: device not accepting address 105, error -71
+Nov 17 09:44:19 <WORKSTATION_A> kernel: usb 1-1.2: new high-speed USB device number 106 using xhci_hcd
+Nov 17 09:44:19 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:19 <WORKSTATION_A> kernel: usb 1-1.2: Device not responding to setup address.
+Nov 17 09:44:20 <WORKSTATION_A> kernel: usb 1-1.2: device not accepting address 106, error -71
+Nov 17 09:44:20 <WORKSTATION_A> kernel: usb 1-1-port2: unable to enumerate USB device

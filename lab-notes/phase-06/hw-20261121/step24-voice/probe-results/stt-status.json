@@ -1,0 +1,1 @@
+{"v":1,"id":7,"ok":true,"data":{"ready":true,"streaming":true,"engine":"sherpa-onnx-zipformer","sample_rate":16000,"format":"pcm_s16_le"}}

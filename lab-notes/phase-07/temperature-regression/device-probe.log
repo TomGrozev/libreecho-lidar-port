@@ -1,0 +1,34 @@
+$ date
+2026-11-23T20:54:34+11:00
+$ adb devices
+adb: not found (workspace move removed the wrapper)
+$ adb connect <DEVICE_IP_A>:5555
+skipped: no adb binary
+$ ping -c1 -W2 <DEVICE_IP_A>
+PING <DEVICE_IP_A> (<DEVICE_IP_A>) 56(84) bytes of data.
+
+--- <DEVICE_IP_A> ping statistics ---
+1 packets transmitted, 0 received, 100% packet loss, time 0ms
+
+$ tcp 80/8080/8000/5000/8888
+closed 80
+closed 8080
+closed 8000
+closed 5000
+closed 8888
+$ curl http://<DEVICE_IP_A>/status
+curl: (7) Failed to connect to <DEVICE_IP_A>:80 after 1 ms: Could not connect to server
+
+$ curl http://<DEVICE_IP_A>:8080/status
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LibreEcho Control Centre</title>
+<meta name="theme-color" content="#081622" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple

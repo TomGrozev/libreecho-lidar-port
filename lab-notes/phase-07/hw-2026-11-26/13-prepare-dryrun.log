@@ -1,0 +1,54 @@
+== identify --dry-run
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py identity
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --offset 0x0 --length 0x16000 --output <file>
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --offset 0x1c7ffbe00 --length 0x4200 --output <file>
+log: private/lab/phase-07/hw-2026-11-26/prepare-identify-dryrun.jsonl
+rc=0
+== backup --dry-run
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --area boot0 --output <file>
+DRY-RUN backup: write private/lab/phase-07/hw-2026-11-26/backup-dryrun/boot0.bin and record its sha256
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --area boot0 --output <file>
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --area boot1 --output <file>
+DRY-RUN backup: write private/lab/phase-07/hw-2026-11-26/backup-dryrun/boot1.bin and record its sha256
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --area boot1 --output <file>
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --offset 0x0 --length 0x16000 --output <file>
+DRY-RUN backup: write private/lab/phase-07/hw-2026-11-26/backup-dryrun/gpt.bin and record its sha256
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --offset 0x0 --length 0x16000 --output <file>
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --offset 0x1c7ffbe00 --length 0x4200 --output <file>
+DRY-RUN backup: write private/lab/phase-07/hw-2026-11-26/backup-dryrun/gpt_backup.bin and record its sha256
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --offset 0x1c7ffbe00 --length 0x4200 --output <file>
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --area lk_a --output <file>
+DRY-RUN backup: write private/lab/phase-07/hw-2026-11-26/backup-dryrun/lk_a.bin and record its sha256
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --area lk_a --output <file>
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --area lk_b --output <file>
+DRY-RUN backup: write private/lab/phase-07/hw-2026-11-26/backup-dryrun/lk_b.bin and record its sha256
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --area lk_b --output <file>
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --area tee1 --output <file>
+DRY-RUN backup: write private/lab/phase-07/hw-2026-11-26/backup-dryrun/tee1.bin and record its sha256
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --area tee1 --output <file>
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --area tee2 --output <file>
+DRY-RUN backup: write private/lab/phase-07/hw-2026-11-26/backup-dryrun/tee2.bin and record its sha256
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --area tee2 --output <file>
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --area expdb --output <file>
+DRY-RUN backup: write private/lab/phase-07/hw-2026-11-26/backup-dryrun/expdb.bin and record its sha256
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --area expdb --output <file>
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --area misc --output <file>
+DRY-RUN backup: write private/lab/phase-07/hw-2026-11-26/backup-dryrun/misc.bin and record its sha256
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --area misc --output <file>
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --area persist --output <file>
+DRY-RUN backup: write private/lab/phase-07/hw-2026-11-26/backup-dryrun/persist.bin and record its sha256
+DRY-RUN amonet: /usr/sbin/python3 /workspace/libreecho/private/forks/amonet/modules/lidar_brom.py read --area persist --output <file>
+DRY-RUN backup: require the second read to hash to the first
+DRY-RUN backup: write manifest private/lab/phase-07/hw-2026-11-26/backup-dryrun/backup-manifest.json
+log: private/lab/phase-07/hw-2026-11-26/prepare-backup-dryrun.jsonl
+rc=0

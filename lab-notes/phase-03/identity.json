@@ -1,0 +1,24 @@
+{
+  "hwcode": "0x8167",
+  "flash_bytes": 7650410496,
+  "boot_area_bytes": 2097152,
+  "sector_bytes": 512,
+  "partitions": [
+    "kb",
+    "dkb",
+    "lk_a",
+    "tee1",
+    "lk_b",
+    "tee2",
+    "expdb",
+    "misc",
+    "persist",
+    "boot_a",
+    "boot_b",
+    "swdl",
+    "system_a",
+    "system_b",
+    "cache",
+    "userdata"
+  ]
+}

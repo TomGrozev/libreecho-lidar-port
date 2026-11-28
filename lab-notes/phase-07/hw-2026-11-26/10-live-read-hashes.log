@@ -1,0 +1,23 @@
+== gpt dev=/dev/mmcblk0 bs=512 skip=0 count=176
+bytes=90112 host_sha256=7668e74b33f37cc06e73c99c9226d8b7f8f6259f2a7e4678378bf7e40196b682 device_sha256=7668e74b33f37cc06e73c99c9226d8b7f8f6259f2a7e4678378bf7e40196b682 match=yes
+== gpt_backup dev=/dev/mmcblk0 bs=512 skip=14942175 count=33
+bytes=16896 host_sha256=07fda82bd175d93cacfd32e0c2f15ce141688856deffa9e67131cba721f0945c device_sha256=07fda82bd175d93cacfd32e0c2f15ce141688856deffa9e67131cba721f0945c match=yes
+== lk_a dev=/dev/mmcblk0p3 bs=512 skip=0 count=2048
+bytes=1048576 host_sha256=e1f541d1a793ca98d2d995f875d227998bd5ac6368e44d814f63a6515fff9d5c device_sha256=e1f541d1a793ca98d2d995f875d227998bd5ac6368e44d814f63a6515fff9d5c match=yes
+== lk_b dev=/dev/mmcblk0p5 bs=512 skip=0 count=2048
+bytes=1048576 host_sha256=e1f541d1a793ca98d2d995f875d227998bd5ac6368e44d814f63a6515fff9d5c device_sha256=e1f541d1a793ca98d2d995f875d227998bd5ac6368e44d814f63a6515fff9d5c match=yes
+== tee1 dev=/dev/mmcblk0p4 bs=512 skip=0 count=10240
+bytes=5242880 host_sha256=ed2b085c3acb2d96b1ebb7125c05fcb0b503dcf83baaa181b85aa82a24aecbd1 device_sha256=ed2b085c3acb2d96b1ebb7125c05fcb0b503dcf83baaa181b85aa82a24aecbd1 match=yes
+== tee2 dev=/dev/mmcblk0p6 bs=512 skip=0 count=10240
+adb: device offline
+bytes=4232428 host_sha256=37d641906c29fef0b93510bb7a23fafc6785eef5a4c48f2fe5a1acd2714d755d device_sha256= match=NO
+== expdb dev=/dev/mmcblk0p7 bs=512 skip=0 count=20480
+adb: device offline
+adb: device offline
+bytes=0 host_sha256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 device_sha256= match=NO
+== misc dev=/dev/mmcblk0p8 bs=512 skip=0 count=1024
+adb: device offline
+adb: device offline
+bytes=0 host_sha256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 device_sha256= match=NO
+== persist on-device hash (contents not pulled)
+adb: device offline

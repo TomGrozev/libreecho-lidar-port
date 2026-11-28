@@ -1,0 +1,18 @@
+Phase 6 hardware session, 2026-11-21, first boot of the 6.18 kernel
+Step 3 partial observations (transcript capture; adb shell hung on the first
+full state capture, so no log file was written)
+
+adb wait-for-device: up
+/proc/uptime: 3.58 11.61
+uname -r: 6.18.64+
+/proc/cmdline (head): ... libreecho.lab=dev androidboot.selinux=enforce
+  androidboot.veritymode=enforcing androidboot.slot_suffix=_a rootwait ro
+  init=/init skip_initra...
+libreecho-bootctl status a:
+  ERROR: /dev/mmcblk0p8 is not a block device
+  ERROR: cannot validate/read Biscuit boot control
+
+Then: `adb shell` with a multi-command script produced no output and hung for
+300 s; afterwards `adb shell` returned "error: closed", then after an adb
+server restart the device disappeared from adb while still enumerated on USB
+as 18d1:d001. No further device access was possible in this run.

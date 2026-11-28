@@ -1,0 +1,217 @@
+diff --git a/docs/API.md b/docs/API.md
+index 9a38031..0f203f9 100644
+--- a/docs/API.md
++++ b/docs/API.md
+@@ -2215,6 +2215,14 @@ Entering pairing mode automatically makes the controller connectable,
+ discoverable, and bondable. It also starts a yellow breathing LED pattern;
+ leaving it restores the controller settings that were active beforehand.
+ 
++The restore follows the kernel's rule that `discoverable` requires
++`connectable` (`net/bluetooth/mgmt.c` rejects the visibility request while
++page scan is off): connectable is restored before discoverable, and
++discoverable is cleared before page scan is turned off. Pairing mode itself is
++always left, and its LED stopped, even if the controller refuses one of the
++restored settings; that failure is reported as an error by the `POST` and
++remains visible in `last_error` of `GET /api/v1/bluetooth`.
++
+ #### POST /api/v1/bluetooth/scan and POST /api/v1/bluetooth/scan/stop
+ 
+ Start or stop a combined Classic + LE discovery scan. Results are returned by
+diff --git a/src/adapter/btd.c b/src/adapter/btd.c
+index b4470e0..93974b5 100644
+--- a/src/adapter/btd.c
++++ b/src/adapter/btd.c
+@@ -1974,12 +1974,53 @@ static int set_pairing_identity(struct bt_context *context)
+     return 0;
+ }
+ 
++/*
++ * Restore the settings cached when pairing mode was entered, in an order the
++ * kernel accepts: it rejects MGMT_OP_SET_DISCOVERABLE with MGMT_STATUS_REJECTED
++ * while HCI_CONNECTABLE is clear (net/bluetooth/mgmt.c).  Connectable therefore
++ * comes before discoverable when both are being enabled, and discoverable is
++ * cleared before page scan is turned off.  Bondable is independent of that rule
++ * and is always attempted.
++ */
++static int restore_pairing_settings(struct bt_context *context)
++{
++    int result = 0;
++
++    if (context->pairing_saved_connectable) {
++        result = set_controller_setting(context, MGMT_OP_SET_CONNECTABLE, 1);
++        if (!result)
++            result = set_controller_setting(context, MGMT_OP_SET_DISCOVERABLE,
++                                            context->pairing_saved_discoverable);
++    } else {
++        /*
++         * A refused visibility clear is not reported here: the connectable
++         * restore below turns page scan off, and the kernel treats a not
++         * connectable adapter as not discoverable either way.
++         */
++        (void)set_controller_setting(context, MGMT_OP_SET_DISCOVERABLE, 0);
++        result = set_controller_setting(context, MGMT_OP_SET_CONNECTABLE, 0);
++    }
++    if (set_controller_setting(context, MGMT_OP_SET_BONDABLE,
++                               context->pairing_saved_bondable) != 0 && !result)
++        result = -1;
++    return result;
++}
++
+ static int set_pairing_mode(struct bt_context *context, int enabled)
+ {
+     int result;
+ 
+-    if (!context->enabled)
+-        return -1;
++    if (!context->enabled) {
++        if (enabled)
++            return -1;
++        /*
++         * Power is already off, so controller settings are moot; the userspace
++         * mode and its LED are all that is left to clear.
++         */
++        context->pairing_mode = 0;
++        led_pattern("stop", 0, 0, 0, 0, 0);
++        return 0;
++    }
+     if (enabled == context->pairing_mode)
+         return 0;
+     if (!context->capability_ready) {
+@@ -2023,12 +2064,7 @@ static int set_pairing_mode(struct bt_context *context, int enabled)
+         if (!result)
+             result = set_controller_setting(context, MGMT_OP_SET_DISCOVERABLE, 1);
+         if (result) {
+-            (void)set_controller_setting(context, MGMT_OP_SET_BONDABLE,
+-                                          context->pairing_saved_bondable);
+-            (void)set_controller_setting(context, MGMT_OP_SET_CONNECTABLE,
+-                                          context->pairing_saved_connectable);
+-            (void)set_controller_setting(context, MGMT_OP_SET_DISCOVERABLE,
+-                                          context->pairing_saved_discoverable);
++            (void)restore_pairing_settings(context);
+             return result;
+         }
+         context->pairing_mode = 1;
+@@ -2036,20 +2072,22 @@ static int set_pairing_mode(struct bt_context *context, int enabled)
+         le_log_info("btd: pairing mode enabled (connectable, discoverable, bondable)");
+         return 0;
+     }
+-    result = set_controller_setting(context, MGMT_OP_SET_DISCOVERABLE,
+-                                    context->pairing_saved_discoverable);
+-    if (!result)
+-        result = set_controller_setting(context, MGMT_OP_SET_CONNECTABLE,
+-                                        context->pairing_saved_connectable);
+-    if (!result)
+-        result = set_controller_setting(context, MGMT_OP_SET_BONDABLE,
+-                                        context->pairing_saved_bondable);
+-    if (!result) {
+-        context->pairing_mode = 0;
+-        led_pattern("stop", 0, 0, 0, 0, 0);
+-        le_log_info("btd: pairing mode disabled");
++    result = restore_pairing_settings(context);
++    /*
++     * Leaving pairing mode is a userspace transition; it happens even when the
++     * controller refuses a visibility restore, because the state this mode was
++     * entered from may already have drifted.  Staying latched on with the LED
++     * pulsing is the unrecoverable state, so clear both and report the restore
++     * failure to the caller.
++     */
++    context->pairing_mode = 0;
++    led_pattern("stop", 0, 0, 0, 0, 0);
++    if (result) {
++        le_log_warn("btd: pairing mode disabled, controller settings not fully restored");
++        return result;
+     }
+-    return result;
++    le_log_info("btd: pairing mode disabled");
++    return 0;
+ }
+ 
+ static int handle_request(struct bt_context *context, char *message,
+@@ -2090,6 +2128,10 @@ static int handle_request(struct bt_context *context, char *message,
+         }
+         if (!enabled) {
+             if (context->pairing_mode)
++                /*
++                 * Power-off drops the controller settings anyway, and the
++                 * pairing disable clears the mode even when a restore fails.
++                 */
+                 (void)set_pairing_mode(context, 0);
+             if (context->enabled && set_powered(context, 0) != 0)
+                 return le_adapter_respond_err(response, response_size, id,
+diff --git a/tests/run_tests.sh b/tests/run_tests.sh
+index 8bc2fe6..57135e2 100755
+--- a/tests/run_tests.sh
++++ b/tests/run_tests.sh
+@@ -84,6 +84,7 @@ sh tests/test_bluetooth_profile_service_contract.sh
+ sh tests/test_bluetooth_device_metadata_contract.sh
+ sh tests/test_bluetooth_cache_bust_contract.sh
+ sh tests/test_bluetooth_mgmt_observability_contract.sh
++sh tests/test_bluetooth_pairing_off_contract.sh
+ # Compiles btd.c into the test so the real status writer and discovery
+ # bookkeeping run. No -Werror here: the daemon source carries two
+ # platform-dependent warnings this test must not silence for the main build.
+diff --git a/tests/test_bluetooth_pairing_off_contract.sh b/tests/test_bluetooth_pairing_off_contract.sh
+new file mode 100755
+index 0000000..a2c501f
+--- /dev/null
++++ b/tests/test_bluetooth_pairing_off_contract.sh
+@@ -0,0 +1,59 @@
++#!/bin/sh
++set -eu
++
++# Regression contract: leaving pairing mode has to work after the controller
++# state drifted, and the cached settings have to be restored in an order the
++# kernel accepts. The kernel rejects MGMT_OP_SET_DISCOVERABLE with
++# MGMT_STATUS_REJECTED while HCI_CONNECTABLE is clear (net/bluetooth/mgmt.c)
++# for either value of the request, so a restore that enables both sets
++# connectable first, and one that disables both clears discoverable first.
++# This source-level check is host-verifiable; the physical pairing remains
++# separate.
++python3 - <<'PY'
++from pathlib import Path
++
++source = Path('src/adapter/btd.c').read_text()
++
++helper = source[source.index('static int restore_pairing_settings('):
++                source.index('static int set_pairing_mode(')]
++assert helper, 'pairing restore helper is missing'
++
++connectable_on = helper.index('MGMT_OP_SET_CONNECTABLE, 1)')
++discoverable_restore = helper.index('MGMT_OP_SET_DISCOVERABLE,', connectable_on)
++assert connectable_on < discoverable_restore, (
++    'the kernel rejects SET_DISCOVERABLE while the adapter is not connectable, '
++    'so the restore must set connectable first'
++)
++discoverable_off = helper.index('MGMT_OP_SET_DISCOVERABLE, 0)',
++                                discoverable_restore)
++connectable_off = helper.index('MGMT_OP_SET_CONNECTABLE, 0)', discoverable_off)
++assert discoverable_off < connectable_off, (
++    'discoverable must be cleared before page scan is turned off'
++)
++
++pairing = source[source.index('static int set_pairing_mode('):
++                 source.index('static int handle_request(')]
++
++# Power already off is not a failure to leave the mode: the userspace mode and
++# its LED are cleared without touching the controller.
++powered = pairing[:pairing.index('if (enabled == context->pairing_mode)')]
++assert 'if (enabled)' in powered
++assert 'context->pairing_mode = 0;' in powered
++assert 'led_pattern("stop"' in powered
++
++# The disable tail must clear the mode and the LED unconditionally, not only
++# when every restore command succeeded. That gate is what left pairing mode on
++# with no way out once the kernel refused the out-of-order restore.
++tail = pairing[pairing.index('result = restore_pairing_settings(context);'):]
++clear = tail.index('context->pairing_mode = 0;')
++assert 'led_pattern("stop", 0, 0, 0, 0, 0);' in tail
++assert 'if (!result) {' not in tail[:clear], (
++    'pairing mode must clear even when a controller restore fails'
++)
++assert clear < tail.index('if (result) {')
++assert pairing.count('restore_pairing_settings(context)') >= 2, (
++    'both the failed-enable rollback and the disable path restore through the '
++    'helper'
++)
++PY
++printf '%s\n' 'bluetooth pairing-off contract: ok'

@@ -1,0 +1,20 @@
+== status-baseline
+{"connectable":false,"discoverable":false,"bondable":false,"last_error":"","state":"up","enabled":true}
+== set_discoverable_true-without-connectable
+{"v":1,"id":1,"ok":false,"error":"Bluetooth controller setting failed"}
+== status-after-failed-enable
+{"connectable":false,"discoverable":false,"bondable":false,"last_error":"MGMT opcode 0x0006 status 0x0b (rejected)","state":"up","enabled":true}
+== set_discoverable_false-without-connectable
+{"v":1,"id":1,"ok":false,"error":"Bluetooth controller setting failed"}
+== set_connectable_true
+{"v":1,"id":1,"ok":true,"data":{"changed":true}}
+== set_discoverable_true-after-connectable
+{"v":1,"id":1,"ok":true,"data":{"changed":true}}
+== status-after-success
+{"connectable":true,"discoverable":true,"bondable":false,"last_error":"","state":"up","enabled":true}
+== restore-discoverable-false
+{"v":1,"id":1,"ok":true,"data":{"changed":true}}
+== restore-connectable-false
+{"v":1,"id":1,"ok":true,"data":{"changed":true}}
+== status-restored
+{"connectable":false,"discoverable":false,"bondable":false,"last_error":"","state":"up","enabled":true}

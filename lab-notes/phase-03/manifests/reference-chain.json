@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "description": "reviewed v0.2.1 reference chain fallback; full 4 MiB BOOT0 intentionally covers both 2 MiB boot areas",
+  "device": {
+    "hwcode": "0x8167",
+    "flash_bytes": 7650410496,
+    "boot_area_bytes": 2097152,
+    "sector_bytes": 512
+  },
+  "chain_installed": false,
+  "partitions": [
+    {
+      "name": "expdb",
+      "kind": "user",
+      "partition_bytes": 10485760,
+      "source": "/workspace/libreecho/experiments/phase-03/sources/reference_expdb_kaeru_prefix.bin",
+      "source_bytes": 214016,
+      "sha256": "07f15dc24e862ec4f27e5ecc72d15c894049f9b3f0afe8edc0bc46863e5eada8",
+      "policies": [
+        "readback_verify"
+      ]
+    },
+    {
+      "name": "tee1",
+      "kind": "user",
+      "partition_bytes": 5242880,
+      "source": "/workspace/libreecho/experiments/phase-03/sources/reference_tee1_koboreru_prefix.bin",
+      "source_bytes": 1120256,
+      "sha256": "53704bda5d544612e53e48c476d9ba5dab446557288085f6c7385e4d78661193",
+      "policies": [
+        "readback_verify"
+      ]
+    },
+    {
+      "name": "boot0",
+      "kind": "boot1",
+      "partition_bytes": 4194304,
+      "source": "/workspace/libreecho/experiments/phase-03/sources/reference_boot0_full_4mib.bin",
+      "source_bytes": 4194304,
+      "sha256": "ab0869c0820131920bbbc9a4a74d754ac222e7ca232e76cc21a81b3fe4a70cd1",
+      "policies": [
+        "sector0_last",
+        "readback_verify",
+        "full_boot0"
+      ]
+    }
+  ]
+}

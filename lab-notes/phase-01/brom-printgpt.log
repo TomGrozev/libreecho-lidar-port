@@ -1,0 +1,143 @@
+Preloader - Status: Waiting for PreLoader VCOM, please reconnect mobile/iot device to brom mode
+
+Port - Hint:
+
+Power off the phone before connecting.
+For brom mode, press and hold vol up, vol dwn, or all hw buttons and connect usb.
+For preloader mode, don't press any hw button and connect usb.
+If it is already connected and on, hold power for 10 seconds to reset.
+
+
+...........
+
+Port - Hint:
+
+Power off the phone before connecting.
+For brom mode, press and hold vol up, vol dwn, or all hw buttons and connect usb.
+For preloader mode, don't press any hw button and connect usb.
+If it is already connected and on, hold power for 10 seconds to reset.
+
+
+...........
+
+Port - Hint:
+
+Power off the phone before connecting.
+For brom mode, press and hold vol up, vol dwn, or all hw buttons and connect usb.
+For preloader mode, don't press any hw button and connect usb.
+If it is already connected and on, hold power for 10 seconds to reset.
+
+
+...........
+
+Port - Hint:
+
+Power off the phone before connecting.
+For brom mode, press and hold vol up, vol dwn, or all hw buttons and connect usb.
+For preloader mode, don't press any hw button and connect usb.
+If it is already connected and on, hold power for 10 seconds to reset.
+
+
+......Port - Device detected :)
+Preloader - Detected regular mode !
+Preloader - 	CPU:			MT8167/MT8516/MT8362()
+Preloader - 	HW version:		0x0
+Preloader - 	WDT:			0x10007000
+Preloader - 	Uart:			0x11005000
+Preloader - 	Brom payload addr:	0x100a00
+Preloader - 	DA payload addr:	0x201000
+Preloader - 	CQ_DMA addr:		0x10212c00
+Preloader - 	Var1:			0xcc
+Preloader - Disabling Watchdog...
+Preloader - HW code:			0x8167
+Preloader - Target config:		0xe5
+Preloader - 	SBC enabled:		True
+Preloader - 	SLA enabled:		False
+Preloader - 	DAA enabled:		True
+Preloader - 	SWJTAG enabled:		True
+Preloader - 	EPP_PARAM at 0x600 after EMMC_BOOT/SDMMC_BOOT:	False
+Preloader - 	Root cert required:	False
+Preloader - 	Mem read auth:		True
+Preloader - 	Mem write auth:		True
+Preloader - 	Cmd 0xC8 blocked:	True
+Preloader - Get Target info
+Preloader - BROM mode detected.
+Preloader - 	HW subcode:		0x8a00
+Preloader - 	HW Ver:			0xcb00
+Preloader - 	SW Ver:			0x1
+Preloader - 	ME_ID:			<ME_ID_A>
+Preloader - SOC_ID:			0000000000000000000000000000000000000000000000000000000000000000
+Preloader
+Preloader - [LIB]: [33mAuth file is required. Use --auth option.[0m
+DaHandler - Device is protected.
+DaHandler - Device is in BROM-Mode. Bypassing security.
+PLTools - Loading payload from mt8167_payload.bin, 0x264 bytes
+Exploitation - Kamakiri Run
+Exploitation - Done sending payload...
+PLTools - Successfully sent payload: /workspace/libreecho/mtkclient/mtkclient/payloads/mt8167_payload.bin
+Port - Device detected :)
+DaHandler
+DaHandler - [LIB]: [33mDevice is in BROM mode. No preloader given, trying to dump preloader from ram.[0m
+DAXFlash - Uploading xflash stage 1 from MTK_DA_V5.bin
+XFlashExt - Patching da1 ...
+Mtk - Patched "Patched loader msg" in preloader
+Mtk - Patched "hash_check" in preloader
+Mtk - Patched "Patched loader msg" in preloader
+Mtk - Patched "get_vfy_policy" in preloader
+XFlashExt - Patching da2 ...
+XFlashExt - Security check patched
+XFlashExt - SBC patched to be disabled
+XFlashExt - Register read/write not allowed patched
+DAXFlash - Successfully uploaded stage 1, jumping ..
+Preloader - Jumping to 0x200000
+Preloader - Jumping to 0x200000: ok.
+DAXFlash - Successfully received DA sync
+DAXFlash - Sending emi data ...
+DAXFlash - DRAM setup passed.
+DAXFlash - Sending emi data succeeded.
+DAXFlash - Uploading stage 2...
+DAXFlash - Upload data was accepted. Jumping to stage 2...
+DAXFlash - Boot to succeeded.
+DAXFlash - Successfully uploaded stage 2
+DAXFlash - DA SLA is disabled
+DAXFlash - EMMC FWVer:      0x0
+DAXFlash - EMMC ID:         Q2J95E
+DAXFlash - EMMC CID:        <EMMC_CID_A>
+DAXFlash - EMMC Boot1 Size: 0x200000
+DAXFlash - EMMC Boot2 Size: 0x200000
+DAXFlash - EMMC GP1 Size:   0x0
+DAXFlash - EMMC GP2 Size:   0x0
+DAXFlash - EMMC GP3 Size:   0x0
+DAXFlash - EMMC GP4 Size:   0x0
+DAXFlash - EMMC RPMB Size:  0x400000
+DAXFlash - EMMC USER Size:  0x1c8000000
+DAXFlash - Reconnecting to stage2 with higher speed
+DeviceClass - [Errno 2] Entity not found
+DAXFlash - Connected to stage2 with higher speed
+DAXFlash - Starting DA extensions ...
+DAXFlash - Extensions were accepted. Jumping to extensions...
+DAXFlash - Boot to succeeded.
+DAXFlash - DA Extensions successfully added at 0x4fff0000
+Main - Handling da commands ...
+
+GPT Table:
+-------------
+kb:                  Offset 0x0000000000100000, Length 0x0000000000100000, Flags 0x0000000000000000, UUID <PARTUUID_1>, Type EFI_LINUX_DAYA
+dkb:                 Offset 0x0000000000200000, Length 0x0000000000100000, Flags 0x0000000000000000, UUID <PARTUUID_2>, Type EFI_LINUX_DAYA
+lk_a:                Offset 0x0000000000300000, Length 0x0000000000100000, Flags 0x0000000000000000, UUID <PARTUUID_3>, Type EFI_LINUX_DAYA
+tee1:                Offset 0x0000000000400000, Length 0x0000000000500000, Flags 0x0000000000000000, UUID <PARTUUID_4>, Type EFI_LINUX_DAYA
+lk_b:                Offset 0x0000000000900000, Length 0x0000000000100000, Flags 0x0000000000000000, UUID <PARTUUID_5>, Type EFI_LINUX_DAYA
+tee2:                Offset 0x0000000000a00000, Length 0x0000000000500000, Flags 0x0000000000000000, UUID <PARTUUID_6>, Type EFI_LINUX_DAYA
+expdb:               Offset 0x0000000000f00000, Length 0x0000000000a00000, Flags 0x0000000000000000, UUID <PARTUUID_7>, Type EFI_LINUX_DAYA
+misc:                Offset 0x0000000001900000, Length 0x0000000000080000, Flags 0x0000000000000000, UUID <PARTUUID_8>, Type EFI_LINUX_DAYA
+persist:             Offset 0x0000000001980000, Length 0x0000000001000000, Flags 0x0000000000000000, UUID <PARTUUID_9>, Type EFI_LINUX_DAYA
+boot_a:              Offset 0x0000000002980000, Length 0x0000000001000000, Flags 0x0000000000000000, UUID <PARTUUID_10>, Type EFI_LINUX_DAYA
+boot_b:              Offset 0x0000000003980000, Length 0x0000000001000000, Flags 0x0000000000000000, UUID <PARTUUID_11>, Type EFI_LINUX_DAYA
+swdl:                Offset 0x0000000004980000, Length 0x0000000002000000, Flags 0x0000000000000000, UUID <PARTUUID_12>, Type EFI_LINUX_DAYA
+system_a:            Offset 0x0000000006980000, Length 0x000000004c800000, Flags 0x0000000000000000, UUID <PARTUUID_13>, Type EFI_LINUX_DAYA
+system_b:            Offset 0x0000000053180000, Length 0x000000004c800000, Flags 0x0000000000000000, UUID <PARTUUID_14>, Type EFI_LINUX_DAYA
+cache:               Offset 0x000000009f980000, Length 0x0000000002000000, Flags 0x0000000000000000, UUID <PARTUUID_15>, Type EFI_LINUX_DAYA
+userdata:            Offset 0x00000000a1980000, Length 0x000000012667be00, Flags 0x0000000000000000, UUID <PARTUUID_16>, Type EFI_LINUX_DAYA
+
+Total disk size:0x00000001c8000000, sectors:0x0000000000e40000
+

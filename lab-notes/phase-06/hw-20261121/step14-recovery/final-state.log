@@ -1,0 +1,33 @@
+==final
+29.18 86.04
+6.18.64+
+libreecho.lab=p6-v2
+androidboot.slot_suffix=_b
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=1
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+epoch=4
+==ready
+ls: /run/libreecho/startup-ready: No such file or directory
+[0;0m/run/libreecho/wlan0-ready[m
+==net
+    inet <DEVICE_IP_A>/26 scope global wlan0
+    inet6 <ULA_ADDRESS_A>/64 scope global dynamic flags 100 
+    inet6 <LINK_LOCAL_IPV6_A>/64 scope link 
+1 packets transmitted, 1 packets received, 0% packet loss
+round-trip min/avg/max = 0.954/0.954/0.954 ms
+Address: 104.20.23.154
+

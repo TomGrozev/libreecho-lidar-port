@@ -1,0 +1,1266 @@
+{
+ "loose_cutoff": 0.5,
+ "models": {
+  "okay_nabu": {
+   "cutoff": 0.97
+  },
+  "hey_jarvis": {
+   "cutoff": 0.97
+  },
+  "hey_mycroft": {
+   "cutoff": 0.95
+  },
+  "okay_nabu_pkg": {
+   "cutoff": 0.85
+  }
+ },
+ "negatives": [
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.028
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.027
+   },
+   "hey_mycroft": {
+    "peak": 0.0797,
+    "peak_t": 13.86,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.025
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.0227,
+    "peak_t": 9.18,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.021
+   },
+   "clip": "music-+00.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.021
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.021
+   },
+   "hey_mycroft": {
+    "peak": 0.1242,
+    "peak_t": 13.77,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.02
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.0258,
+    "peak_t": 9.18,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.022
+   },
+   "clip": "music-+03.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.02
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.02
+   },
+   "hey_mycroft": {
+    "peak": 0.1273,
+    "peak_t": 13.5,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.02
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.0219,
+    "peak_t": 9.18,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.02
+   },
+   "clip": "music-+06.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.023
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.026
+   },
+   "hey_mycroft": {
+    "peak": 0.1039,
+    "peak_t": 12.15,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.031
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.0289,
+    "peak_t": 9.18,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.022
+   },
+   "clip": "music-+12.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.02
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.021
+   },
+   "hey_mycroft": {
+    "peak": 0.1562,
+    "peak_t": 12.15,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.02
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.0836,
+    "peak_t": 16.83,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.023
+   },
+   "clip": "music-+20.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.022
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.02
+   },
+   "hey_mycroft": {
+    "peak": 0.0703,
+    "peak_t": 13.86,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.021
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.0148,
+    "peak_t": 9.18,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.025
+   },
+   "clip": "music--03.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.02
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.019
+   },
+   "hey_mycroft": {
+    "peak": 0.0352,
+    "peak_t": 13.86,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.02
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.0141,
+    "peak_t": 9.18,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.023
+   },
+   "clip": "music--06.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.021
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.02
+   },
+   "hey_mycroft": {
+    "peak": 0.0484,
+    "peak_t": 16.47,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.02
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.0141,
+    "peak_t": 9.18,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.022
+   },
+   "clip": "music--12.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.02
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.02
+   },
+   "hey_mycroft": {
+    "peak": 0.0227,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.021
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.0141,
+    "peak_t": 9.18,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.022
+   },
+   "clip": "music--18.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.021
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.02
+   },
+   "hey_mycroft": {
+    "peak": 0.0227,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.021
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.0117,
+    "peak_t": 9.18,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.022
+   },
+   "clip": "music--24.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.021
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.021
+   },
+   "hey_mycroft": {
+    "peak": 0.0227,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.021
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.018,
+    "peak_t": 9.18,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.021
+   },
+   "clip": "music-bedonly.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.02
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.02
+   },
+   "hey_mycroft": {
+    "peak": 0.0273,
+    "peak_t": 11.97,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.019
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.2094,
+    "peak_t": 16.83,
+    "width_020": 1,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.63,
+    "cpu_s": 0.021
+   },
+   "clip": "music-clean.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 5.71,
+    "cpu_s": 0.018
+   },
+   "hey_jarvis": {
+    "peak": 0.0055,
+    "peak_t": 7.74,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 5.71,
+    "cpu_s": 0.017
+   },
+   "hey_mycroft": {
+    "peak": 0.0227,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 5.71,
+    "cpu_s": 0.018
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.007,
+    "peak_t": 6.75,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 5.71,
+    "cpu_s": 0.018
+   },
+   "clip": "no-wake-word.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 4.37,
+    "cpu_s": 0.013
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 4.37,
+    "cpu_s": 0.013
+   },
+   "hey_mycroft": {
+    "peak": 0.0227,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 4.37,
+    "cpu_s": 0.013
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.0367,
+    "peak_t": 9.18,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 4.37,
+    "cpu_s": 0.014
+   },
+   "clip": "pause-0000.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 4.62,
+    "cpu_s": 0.014
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 4.62,
+    "cpu_s": 0.014
+   },
+   "hey_mycroft": {
+    "peak": 0.0227,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 4.62,
+    "cpu_s": 0.014
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.2125,
+    "peak_t": 9.81,
+    "width_020": 1,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 4.62,
+    "cpu_s": 0.015
+   },
+   "clip": "pause-0250.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 4.87,
+    "cpu_s": 0.014
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 4.87,
+    "cpu_s": 0.014
+   },
+   "hey_mycroft": {
+    "peak": 0.0227,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 4.87,
+    "cpu_s": 0.014
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.3305,
+    "peak_t": 10.53,
+    "width_020": 8,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 4.87,
+    "cpu_s": 0.017
+   },
+   "clip": "pause-0500.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 5.37,
+    "cpu_s": 0.016
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 5.37,
+    "cpu_s": 0.015
+   },
+   "hey_mycroft": {
+    "peak": 0.0227,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 5.37,
+    "cpu_s": 0.016
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.3164,
+    "peak_t": 12.06,
+    "width_020": 7,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 5.37,
+    "cpu_s": 0.016
+   },
+   "clip": "pause-1000.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 5.87,
+    "cpu_s": 0.018
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 5.87,
+    "cpu_s": 0.018
+   },
+   "hey_mycroft": {
+    "peak": 0.0227,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 5.87,
+    "cpu_s": 0.017
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.2703,
+    "peak_t": 13.5,
+    "width_020": 6,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 5.87,
+    "cpu_s": 0.019
+   },
+   "clip": "pause-1500.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.37,
+    "cpu_s": 0.018
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.37,
+    "cpu_s": 0.018
+   },
+   "hey_mycroft": {
+    "peak": 0.0227,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.37,
+    "cpu_s": 0.018
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.4391,
+    "peak_t": 14.94,
+    "width_020": 11,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 6.37,
+    "cpu_s": 0.02
+   },
+   "clip": "pause-2000.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 7.37,
+    "cpu_s": 0.022
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 7.37,
+    "cpu_s": 0.021
+   },
+   "hey_mycroft": {
+    "peak": 0.0227,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 7.37,
+    "cpu_s": 0.022
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.2977,
+    "peak_t": 17.91,
+    "width_020": 8,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 7.37,
+    "cpu_s": 0.022
+   },
+   "clip": "pause-3000.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 7.87,
+    "cpu_s": 0.023
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 7.87,
+    "cpu_s": 0.022
+   },
+   "hey_mycroft": {
+    "peak": 0.0227,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 7.87,
+    "cpu_s": 0.024
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.4672,
+    "peak_t": 19.44,
+    "width_020": 11,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 7.87,
+    "cpu_s": 0.025
+   },
+   "clip": "pause-3500.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 8.17,
+    "cpu_s": 0.024
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 8.17,
+    "cpu_s": 0.022
+   },
+   "hey_mycroft": {
+    "peak": 0.0227,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 8.17,
+    "cpu_s": 0.023
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.4766,
+    "peak_t": 20.34,
+    "width_020": 12,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 8.17,
+    "cpu_s": 0.025
+   },
+   "clip": "pause-3800.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 8.37,
+    "cpu_s": 0.025
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 8.37,
+    "cpu_s": 0.023
+   },
+   "hey_mycroft": {
+    "peak": 0.0227,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 8.37,
+    "cpu_s": 0.024
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.3422,
+    "peak_t": 21.06,
+    "width_020": 9,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 8.37,
+    "cpu_s": 0.025
+   },
+   "clip": "pause-4000.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 8.87,
+    "cpu_s": 0.027
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 8.87,
+    "cpu_s": 0.025
+   },
+   "hey_mycroft": {
+    "peak": 0.0227,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 8.87,
+    "cpu_s": 0.025
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.3055,
+    "peak_t": 22.41,
+    "width_020": 8,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 8.87,
+    "cpu_s": 0.028
+   },
+   "clip": "pause-4500.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.9961,
+    "peak_t": 6.03,
+    "width_020": 18,
+    "width_thr": 12,
+    "detected": true,
+    "detected_loose": true,
+    "audio_s": 2.28,
+    "cpu_s": 0.007
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 2.28,
+    "cpu_s": 0.007
+   },
+   "hey_mycroft": {
+    "peak": 0.0258,
+    "peak_t": 5.85,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 2.28,
+    "cpu_s": 0.007
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.9414,
+    "peak_t": 6.21,
+    "width_020": 20,
+    "width_thr": 12,
+    "detected": true,
+    "detected_loose": true,
+    "audio_s": 2.28,
+    "cpu_s": 0.007
+   },
+   "clip": "false_okay_natalie.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0422,
+    "peak_t": 5.85,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 2.25,
+    "cpu_s": 0.007
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 2.25,
+    "cpu_s": 0.007
+   },
+   "hey_mycroft": {
+    "peak": 0.0227,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 2.25,
+    "cpu_s": 0.007
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.1594,
+    "peak_t": 5.94,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 2.25,
+    "cpu_s": 0.007
+   },
+   "clip": "false_okay_neighbor.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 2.11,
+    "cpu_s": 0.006
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 2.11,
+    "cpu_s": 0.006
+   },
+   "hey_mycroft": {
+    "peak": 0.0227,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 2.11,
+    "cpu_s": 0.007
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.0039,
+    "peak_t": 4.05,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 2.11,
+    "cpu_s": 0.007
+   },
+   "clip": "vpe_turn_on_the_lights.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 2.45,
+    "cpu_s": 0.008
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 2.45,
+    "cpu_s": 0.007
+   },
+   "hey_mycroft": {
+    "peak": 0.0227,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 2.45,
+    "cpu_s": 0.007
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.0,
+    "peak_t": 0.03,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 2.45,
+    "cpu_s": 0.008
+   },
+   "clip": "vpe_turn_all_the_lights.wav"
+  },
+  {
+   "okay_nabu": {
+    "peak": 0.0203,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 2.93,
+    "cpu_s": 0.008
+   },
+   "hey_jarvis": {
+    "peak": 0.0273,
+    "peak_t": 5.04,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 2.93,
+    "cpu_s": 0.008
+   },
+   "hey_mycroft": {
+    "peak": 0.0227,
+    "peak_t": 0.45,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 2.93,
+    "cpu_s": 0.009
+   },
+   "okay_nabu_pkg": {
+    "peak": 0.0211,
+    "peak_t": 4.41,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "detected_loose": false,
+    "audio_s": 2.93,
+    "cpu_s": 0.009
+   },
+   "clip": "hey_jane.wav"
+  }
+ ]
+}

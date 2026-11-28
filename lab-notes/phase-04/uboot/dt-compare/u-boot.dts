@@ -1,0 +1,177 @@
+/dts-v1/;
+
+/ {
+	compatible = "amzn,lidar-pvt", "amzn,lidar", "mediatek,mt8516";
+	interrupt-parent = <0x01>;
+	#address-cells = <0x01>;
+	#size-cells = <0x01>;
+	model = "Amazon Echo Plus (2nd generation)";
+
+	cpus {
+		#address-cells = <0x01>;
+		#size-cells = <0x00>;
+		enable-method = "mediatek,mt8516-smp";
+
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a35";
+			reg = <0x00>;
+			clock-frequency = "M|m";
+		};
+
+		cpu@1 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a35";
+			reg = <0x01>;
+			clock-frequency = "M|m";
+		};
+
+		cpu@2 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a35";
+			reg = <0x02>;
+			clock-frequency = "M|m";
+		};
+
+		cpu@3 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a35";
+			reg = <0x03>;
+			clock-frequency = "M|m";
+		};
+	};
+
+	clock-controller@10000000 {
+		compatible = "mediatek,mt8516-topckgen";
+		reg = <0x10000000 0x1000>;
+		#clock-cells = <0x01>;
+		phandle = <0x04>;
+	};
+
+	clock-controller-cg@10000000 {
+		compatible = "mediatek,mt8516-topckgen-cg";
+		reg = <0x10000000 0x1000>;
+		#clock-cells = <0x01>;
+		phandle = <0x03>;
+	};
+
+	clock-controller@10001000 {
+		compatible = "mediatek,mt8516-infracfg";
+		reg = <0x10001000 0x1000>;
+		#clock-cells = <0x01>;
+	};
+
+	clock-controller@10018000 {
+		compatible = "mediatek,mt8516-apmixedsys";
+		reg = <0x10018000 0x710>;
+		#clock-cells = <0x01>;
+	};
+
+	interrupt-controller@10310000 {
+		compatible = "arm,gic-400";
+		interrupt-controller;
+		#interrupt-cells = <0x03>;
+		interrupt-parent = <0x02>;
+		reg = <0x10310000 0x1000 0x10320000 0x1000 0x10340000 0x2000 0x10360000 0x2000>;
+		interrupts = <0x01 0x09 0xf04>;
+		phandle = <0x02>;
+	};
+
+	interrupt-controller@10200620 {
+		compatible = "mediatek,sysirq";
+		interrupt-controller;
+		#interrupt-cells = <0x03>;
+		interrupt-parent = <0x02>;
+		reg = <0x10200620 0x20>;
+		phandle = <0x01>;
+	};
+
+	watchdog@10007000 {
+		compatible = "mediatek,wdt";
+		reg = <0x10007000 0x1000>;
+		interrupts = <0x00 0xc6 0x02>;
+		#reset-cells = <0x01>;
+		status = "okay";
+		phandle = <0x06>;
+	};
+
+	pinctrl@10005000 {
+		compatible = "mediatek,mt8516-pinctrl";
+		reg = <0x10005000 0x1000>;
+
+		gpio-controller {
+			gpio-controller;
+			#gpio-cells = <0x02>;
+		};
+
+		uart0 {
+			phandle = <0x05>;
+
+			mux {
+				function = "uart";
+				groups = "uart0_0_rxd_txd";
+			};
+		};
+	};
+
+	mmc@11120000 {
+		compatible = "mediatek,mt8516-mmc";
+		reg = <0x11120000 0x1000>;
+		interrupts = <0x00 0x4e 0x08>;
+		clocks = <0x03 0x13 0x04 0x31 0x03 0x38>;
+		clock-names = "source", "hclk", "source_cg";
+		status = "disabled";
+	};
+
+	usb@11100000 {
+		compatible = "mediatek,mt8516-musb", "mediatek,mt8518-musb";
+		reg = <0x11100000 0x1000>;
+		interrupts = <0x00 0x48 0x08>;
+		interrupt-names = "mc";
+		clocks = <0x04 0x20 0x03 0x35 0x03 0x0f 0x03 0x2e>;
+		clock-names = "usbpll", "usbmcu", "usb", "icusb";
+		status = "okay";
+		dr_mode = "peripheral";
+	};
+
+	serial@11005000 {
+		compatible = "mediatek,hsuart";
+		reg = <0x11005000 0x1000>;
+		reg-shift = <0x02>;
+		interrupts = <0x00 0x54 0x08>;
+		clocks = <0x04 0x2e 0x03 0x0c>;
+		clock-names = "baud", "bus";
+		status = "okay";
+		clock-frequency = <0x18cba80>;
+		pinctrl-names = "default";
+		pinctrl-0 = <0x05>;
+	};
+
+	chosen {
+		stdout-path = "/serial@11005000";
+	};
+
+	memory@40000000 {
+		device_type = "memory";
+		reg = <0x40000000 0x3f9c0000>;
+	};
+
+	reserved-memory {
+		#address-cells = <0x02>;
+		#size-cells = <0x02>;
+
+		secmon@43000000 {
+			no-map;
+			reg = <0x00 0x43000000 0x00 0x30000>;
+		};
+
+		crumbs@43810000 {
+			reg = <0x00 0x43810000 0x00 0x60000>;
+		};
+	};
+
+	wdt-reboot {
+		compatible = "wdt-reboot";
+		wdt = <0x06>;
+	};
+};

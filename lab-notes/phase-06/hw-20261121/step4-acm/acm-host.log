@@ -1,0 +1,12 @@
+acm_shell: /dev/bus/usb/001/098 -> experiments/phase-06/hw-20261121/step4-acm/acm-shell.log
+Traceback (most recent call last):
+  File "/workspace/libreecho/experiments/phase-04/acm_shell.py", line 301, in <module>
+    sys.exit(main(sys.argv[1:]))
+             ~~~~^^^^^^^^^^^^^^
+  File "/workspace/libreecho/experiments/phase-04/acm_shell.py", line 292, in main
+    out = session.run(command, args.timeout)
+  File "/workspace/libreecho/experiments/phase-04/acm_shell.py", line 246, in run
+    chunk = self.link.read(0.2)
+  File "/workspace/libreecho/experiments/phase-04/acm_shell.py", line 158, in read
+    n = fcntl.ioctl(self.fd, USBDEVFS_BULK, xfer)
+OSError: [Errno 71] Protocol error

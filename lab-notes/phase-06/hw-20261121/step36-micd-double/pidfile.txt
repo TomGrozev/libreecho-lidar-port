@@ -1,0 +1,18 @@
+pidfile:
+5498
+
+-rw-r--r--    1 0        0                5 Nov 21 22:56 [0;0m/var/run/libreecho-micd.pid[m
+== init script revision
+-rwxr-xr-x    1 0        0             6449 Jan  1  1970 [1;32m/etc/init.d/libreecho-micd.init[m
+== boot time
+450.34 1058.31
+== ps full ages
+ps: unrecognized option: p
+BusyBox v1.37.0 (1970-01-01 00:00:00 UTC) multi-call binary.
+
+Usage: ps [-o COL1,COL2=HEADER] [-T]
+
+Show list of processes
+
+	-o COL1,COL2=HEADER	Select columns for display
+	-T			Show threads

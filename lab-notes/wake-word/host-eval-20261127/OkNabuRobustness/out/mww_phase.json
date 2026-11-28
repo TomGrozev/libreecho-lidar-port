@@ -1,0 +1,236 @@
+{
+ "loose_cutoff": 0.5,
+ "models": {
+  "okay_nabu": {
+   "cutoff": 0.97
+  },
+  "alexa": {
+   "cutoff": 0.9
+  },
+  "hey_jarvis": {
+   "cutoff": 0.97
+  },
+  "hey_mycroft": {
+   "cutoff": 0.95
+  },
+  "okay_nabu_pkg": {
+   "cutoff": 0.85
+  }
+ },
+ "phase": {
+  "ok_nabu": {
+   "okay_nabu_turn_on_the_lights.wav": {
+    "okay_nabu": {
+     "min": 0.996,
+     "median": 0.996,
+     "max": 0.996,
+     "hit_phases": 16,
+     "hit_phases_loose": 16,
+     "phases": 16
+    },
+    "alexa": {
+     "min": 0.004,
+     "median": 0.004,
+     "max": 0.004,
+     "hit_phases": 0,
+     "hit_phases_loose": 0,
+     "phases": 16
+    },
+    "hey_jarvis": {
+     "min": 0.003,
+     "median": 0.003,
+     "max": 0.003,
+     "hit_phases": 0,
+     "hit_phases_loose": 0,
+     "phases": 16
+    },
+    "hey_mycroft": {
+     "min": 0.023,
+     "median": 0.023,
+     "max": 0.023,
+     "hit_phases": 0,
+     "hit_phases_loose": 0,
+     "phases": 16
+    },
+    "okay_nabu_pkg": {
+     "min": 0.996,
+     "median": 0.996,
+     "max": 0.996,
+     "hit_phases": 16,
+     "hit_phases_loose": 16,
+     "phases": 16
+    }
+   },
+   "genuine_brightness_fifty.wav": {
+    "okay_nabu": {
+     "min": 0.996,
+     "median": 0.996,
+     "max": 0.996,
+     "hit_phases": 16,
+     "hit_phases_loose": 16,
+     "phases": 16
+    },
+    "alexa": {
+     "min": 0.004,
+     "median": 0.004,
+     "max": 0.004,
+     "hit_phases": 0,
+     "hit_phases_loose": 0,
+     "phases": 16
+    },
+    "hey_jarvis": {
+     "min": 0.0,
+     "median": 0.0,
+     "max": 0.0,
+     "hit_phases": 0,
+     "hit_phases_loose": 0,
+     "phases": 16
+    },
+    "hey_mycroft": {
+     "min": 0.023,
+     "median": 0.023,
+     "max": 0.023,
+     "hit_phases": 0,
+     "hit_phases_loose": 0,
+     "phases": 16
+    },
+    "okay_nabu_pkg": {
+     "min": 0.981,
+     "median": 0.981,
+     "max": 0.981,
+     "hit_phases": 16,
+     "hit_phases_loose": 16,
+     "phases": 16
+    }
+   },
+   "genuine_turn_on_the_lights_nab.wav": {
+    "okay_nabu": {
+     "min": 0.984,
+     "median": 0.984,
+     "max": 0.984,
+     "hit_phases": 16,
+     "hit_phases_loose": 16,
+     "phases": 16
+    },
+    "alexa": {
+     "min": 0.004,
+     "median": 0.004,
+     "max": 0.004,
+     "hit_phases": 0,
+     "hit_phases_loose": 0,
+     "phases": 16
+    },
+    "hey_jarvis": {
+     "min": 0.0,
+     "median": 0.0,
+     "max": 0.0,
+     "hit_phases": 0,
+     "hit_phases_loose": 0,
+     "phases": 16
+    },
+    "hey_mycroft": {
+     "min": 0.023,
+     "median": 0.023,
+     "max": 0.023,
+     "hit_phases": 0,
+     "hit_phases_loose": 0,
+     "phases": 16
+    },
+    "okay_nabu_pkg": {
+     "min": 0.762,
+     "median": 0.762,
+     "max": 0.762,
+     "hit_phases": 0,
+     "hit_phases_loose": 16,
+     "phases": 16
+    }
+   }
+  },
+  "alexa": {
+   "alexa-twice.wav": {
+    "okay_nabu": {
+     "min": 0.02,
+     "median": 0.02,
+     "max": 0.02,
+     "hit_phases": 0,
+     "hit_phases_loose": 0,
+     "phases": 16
+    },
+    "alexa": {
+     "min": 0.996,
+     "median": 0.996,
+     "max": 0.996,
+     "hit_phases": 16,
+     "hit_phases_loose": 16,
+     "phases": 16
+    },
+    "hey_jarvis": {
+     "min": 0.0,
+     "median": 0.0,
+     "max": 0.0,
+     "hit_phases": 0,
+     "hit_phases_loose": 0,
+     "phases": 16
+    },
+    "hey_mycroft": {
+     "min": 0.023,
+     "median": 0.023,
+     "max": 0.023,
+     "hit_phases": 0,
+     "hit_phases_loose": 0,
+     "phases": 16
+    },
+    "okay_nabu_pkg": {
+     "min": 0.312,
+     "median": 0.312,
+     "max": 0.312,
+     "hit_phases": 0,
+     "hit_phases_loose": 0,
+     "phases": 16
+    }
+   },
+   "alexa-what-time.wav": {
+    "okay_nabu": {
+     "min": 0.02,
+     "median": 0.02,
+     "max": 0.02,
+     "hit_phases": 0,
+     "hit_phases_loose": 0,
+     "phases": 16
+    },
+    "alexa": {
+     "min": 0.996,
+     "median": 0.996,
+     "max": 0.996,
+     "hit_phases": 16,
+     "hit_phases_loose": 16,
+     "phases": 16
+    },
+    "hey_jarvis": {
+     "min": 0.0,
+     "median": 0.0,
+     "max": 0.0,
+     "hit_phases": 0,
+     "hit_phases_loose": 0,
+     "phases": 16
+    },
+    "hey_mycroft": {
+     "min": 0.023,
+     "median": 0.023,
+     "max": 0.023,
+     "hit_phases": 0,
+     "hit_phases_loose": 0,
+     "phases": 16
+    },
+    "okay_nabu_pkg": {
+     "min": 0.312,
+     "median": 0.312,
+     "max": 0.312,
+     "hit_phases": 0,
+     "hit_phases_loose": 0,
+     "phases": 16
+    }
+   }
+  }
+ }
+}

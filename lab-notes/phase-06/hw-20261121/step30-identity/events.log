@@ -1,0 +1,8 @@
+21:32:56 start: bundle=v0.2.23 tx=txn-4f85bab71d5fe826cd0b0a1c slot=a target=b
+21:36:47 pushed: artifacts/phase-06/ota-step30-identity/lidar-lab-v0.2.23.ota.tar: 1 file pushed, 0 skipped. 1.2 MB/s (16793600 bytes in 13.362s)
+21:37:21 install: verify_rc=0 ready=b install_rc=0 
+signature=PASS
+21:37:21 reboot requested; pre-reboot boot_id f3ff39fa-1cbc-4037-b175-51dcc86eeb14
+21:37:54 adb back on slot b
+21:39:37 CONFIRMED: slot=b state=installed generation=txn-4f85bab71d5fe826cd0b0a1c current=txn-4f85bab71d5fe826cd0b0a1c
+21:39:37 after-checks: experiments/phase-06/hw-20261121/step30-identity/after-checks.log privacy: experiments/phase-06/hw-20261121/step30-identity/privacy-checks.log esphomed: experiments/phase-06/hw-20261121/step30-identity/esphomed-checks.log

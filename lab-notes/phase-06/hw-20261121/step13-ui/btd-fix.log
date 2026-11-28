@@ -1,0 +1,8 @@
+19388 0         0:00 /system/bin/sh -c /etc/init.d/libreecho-btd.init stop; sleep 1; ps w | grep libreecho-btd; /etc/init.d/libreecho-btd.init start; sleep 1; ps w | grep libreecho-btd; tail -3 /var/log/libreecho/system.log
+19753 0         0:00 grep libreecho-btd
+19388 0         0:00 /system/bin/sh -c /etc/init.d/libreecho-btd.init stop; sleep 1; ps w | grep libreecho-btd; /etc/init.d/libreecho-btd.init start; sleep 1; ps w | grep libreecho-btd; tail -3 /var/log/libreecho/system.log
+20086 0         0:00 /usr/local/sbin/libreecho-btd --foreground --socket /run/libreecho/bluetooth.sock
+20102 0         0:00 grep libreecho-btd
+{"ts":1795233873,"boot_seconds":827,"level":"INFO","service":"btd","msg":"btd-profiles: sdp=listening avdtp=listening avrcp=listening"}
+{"ts":1795233873,"boot_seconds":827,"level":"INFO","service":"btd","msg":"btd: Bluetooth profile services registered"}
+{"ts":1795233873,"boot_seconds":827,"level":"INFO","service":"btd","msg":"btd: listening on /run/libreecho/bluetooth.sock (manual activation, HCI management enabled)"}

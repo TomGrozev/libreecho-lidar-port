@@ -1,0 +1,25 @@
+== config-bootstrap 200
+{"bootstrap_required":true,"user_count":0}
+== bootstrap 200
+{"ok":true,"data":{"token":"<TOKEN>","username":"phase6-verify","expires_in":43200},"error":null}
+== config-auth 200
+{"ok":true,"data":{"api_version":1,"os_version":"LibreEcho OS 0.14.5","csrf_token":"<TOKEN>","authentication":"users","bootstrap_required":false,"user_count":1,"bind_policy":"loopback-default","max_request_body":16384,"setup_completed":false,"setup_url":"/setup.html","ui_theme":"classic","color_mode":""},"error":null}
+== bt-get 200 {"state":"up","enabled":true,"transport":"mainline-btmtksdio-hci","hci":"hci0","address":"","last_error":"","profile_state":"ready","profile_error":"SDP, A2DP sink, and AVRCP profile services registered","profile_services":{"sdp":true,"a2dp_sink":true,"avrcp":true,"rfcomm":false,"bnep":false,"hidp":false},"scanning":false,"capabilities":{"classic":true,"le":true,"ssp":true,"secure_connection":true,"connectable":false,"discoverable":false,"bondable":false},"discovered":[]}
+== bt-enable 200
+{"ok":true,"data":{"state":"up","available":true,"enabled":true,"activation_attempted":true,"transport":"mainline-btmtksdio-hci","hci":"hci0","address":"","address_factory":"","address_configured":"","local_name":"MTK MT7668 #4","last_error":"","last_disconnect_reason":"","last_connect_failed_status":"","profile_state":"ready","profile_error":"SDP, A2DP sink, and AVRCP profile services registered","profile_services":{"sdp":true,"a2dp_sink":true,"avrcp":true,"rfcomm":false,"bnep":false,"hidp":false},"scanning":false,"pairing":false,"pairing_mode":false,"capabilities":{"classic":true,"le":true,"ssp":true,"secure_connection":true,"connectable":false,"discoverable":false,"bondable":false},"pending_pairing":null,"discovered":[],"known_devices":[]},"error":null}
+== bt-enable-latency seconds=1.0
+== bt-enabled 200 {"state":"up","enabled":true,"transport":"mainline-btmtksdio-hci","hci":"hci0","address":"","last_error":"","profile_state":"ready","profile_error":"SDP, A2DP sink, and AVRCP profile services registered","profile_services":{"sdp":true,"a2dp_sink":true,"avrcp":true,"rfcomm":false,"bnep":false,"hidp":false},"scanning":false,"capabilities":{"classic":true,"le":true,"ssp":true,"secure_connection":true,"connectable":false,"discoverable":false,"bondable":false},"discovered":[]}
+== bt-discoverable 501
+{"ok":false,"data":null,"error":{"code":"io_error","message":"Bluetooth setting could not be applied"}}
+== bt-discoverable-check {"discoverable":null,"capabilities.discoverable":false,"profile_services":{"sdp":true,"a2dp_sink":true,"avrcp":true,"rfcomm":false,"bnep":false,"hidp":false},"profile_state":"ready"}
+== bt-scan 200
+{"ok":true,"data":{"state":"up","available":true,"enabled":true,"activation_attempted":true,"transport":"mainline-btmtksdio-hci","hci":"hci0","address":"","address_factory":"","address_configured":"","local_name":"MTK MT7668 #4","last_error":"","last_disconnect_reason":"","last_connect_failed_status":"","profile_state":"ready","profile_error":"SDP, A2DP sink, and AVRCP profile services registered","profile_services":{"sdp":true,"a2dp_sink":true,"avrcp":true,"rfcomm":false,"bnep":false,"hidp":false},"scanning":true,"pairing":false,"pairing_mode":false,"capabilities":{"classic":true,"le":true,"ssp":true,"secure_connection":true,"connectable":false,"discoverable":false,"bondable":false},"pending_pairing":null,"discovered":[],"known_devices":[]},"error":null}
+== bt-scan-now seconds=0.0 scanning=True discovered=[]
+== bt-scan-12s seconds=12.0 scanning=False discovered=[]
+== bt-after-scan 200
+{"ok":true,"data":{"state":"up","available":true,"enabled":true,"activation_attempted":true,"transport":"mainline-btmtksdio-hci","hci":"hci0","address":"","address_factory":"","address_configured":"","local_name":"MTK MT7668 #4","last_error":"","last_disconnect_reason":"","last_connect_failed_status":"","profile_state":"ready","profile_error":"SDP, A2DP sink, and AVRCP profile services registered","profile_services":{"sdp":true,"a2dp_sink":true,"avrcp":true,"rfcomm":false,"bnep":false,"hidp":false},"scanning":false,"pairing":false,"pairing_mode":false,"capabilities":{"classic":true,"le":true,"ssp":true,"secure_connection":true,"connectable":false,"discoverable":false,"bondable":false},"pending_pairing":null,"discovered":[],"known_devices":[]},"error":null}
+== bt-scan-stop 501
+{"ok":false,"data":null,"error":{"code":"io_error","message":"Bluetooth discovery could not stop"}}
+== token-saved
+== bt-discoverable-off 501
+{"ok":false,"data":null,"error":{"code":"io_error","message":"Bluetooth setting could not be applied"}}

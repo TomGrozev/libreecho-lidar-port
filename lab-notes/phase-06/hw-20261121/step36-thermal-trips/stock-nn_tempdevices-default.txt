@@ -1,0 +1,6 @@
+5
+tmp112_i2c2_48_s
+therm3_s
+tmp108_i2c0_48_s
+tmp108_i2c2_4a_s
+therm1_s

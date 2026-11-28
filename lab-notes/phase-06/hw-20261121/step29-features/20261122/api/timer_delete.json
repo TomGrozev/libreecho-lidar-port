@@ -1,0 +1,10 @@
+{
+ "body": {
+  "data": {
+   "cancelled": true
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

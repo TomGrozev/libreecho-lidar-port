@@ -1,0 +1,2 @@
+0:1 ok bytes 65536 audio pcm_s16_le;rate=16000;channels=1;selected-channel=shared-wake;calibration=applied rms 8.2 peak 116
+0:24 error:HTTP Error 400: Bad Request bytes 0 audio  rms 0.0 peak 0

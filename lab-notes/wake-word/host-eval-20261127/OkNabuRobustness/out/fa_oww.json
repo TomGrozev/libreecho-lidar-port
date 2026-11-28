@@ -1,0 +1,78 @@
+{
+ "mode": "oww",
+ "loose": 0.5,
+ "fixtures": {
+  "ok_nabu": {
+   "neg_clips": 98,
+   "fa": 1,
+   "fa_loose": 1,
+   "max_peak": 0.8287,
+   "fa_clips": [
+    "false_okay_natalie.wav"
+   ]
+  },
+  "alexa": {
+   "neg_clips": 114,
+   "fa": 19,
+   "fa_loose": 19,
+   "max_peak": 1.0,
+   "fa_clips": [
+    "music-+00.wav",
+    "music-+03.wav",
+    "music-+06.wav",
+    "music-+12.wav",
+    "music-+20.wav",
+    "music--03.wav",
+    "music--06.wav",
+    "music-clean.wav",
+    "pause-0000.wav",
+    "pause-0250.wav",
+    "pause-0500.wav",
+    "pause-1000.wav",
+    "pause-1500.wav",
+    "pause-2000.wav",
+    "pause-3000.wav",
+    "pause-3500.wav",
+    "pause-3800.wav",
+    "pause-4000.wav",
+    "pause-4500.wav"
+   ]
+  },
+  "hey_jarvis": {
+   "neg_clips": 149,
+   "fa": 0,
+   "fa_loose": 0,
+   "max_peak": 0.4548,
+   "fa_clips": []
+  },
+  "hey_mycroft": {
+   "neg_clips": 148,
+   "fa": 0,
+   "fa_loose": 0,
+   "max_peak": 0.0001,
+   "fa_clips": []
+  }
+ },
+ "librispeech": {
+  "files": 280,
+  "hours": 0.628,
+  "summary": {
+   "ok_nabu": {
+    "fa": 0,
+    "per_hour": 0.0
+   },
+   "alexa": {
+    "fa": 0,
+    "per_hour": 0.0
+   },
+   "hey_jarvis": {
+    "fa": 0,
+    "per_hour": 0.0
+   },
+   "hey_mycroft": {
+    "fa": 0,
+    "per_hour": 0.0
+   }
+  }
+ }
+}

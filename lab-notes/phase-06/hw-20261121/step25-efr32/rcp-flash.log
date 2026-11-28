@@ -1,0 +1,19 @@
+/tmp/efr32/out/lidar-ot-rcp.gbl: 1 file pushed, 0 skipped. 936.8 MB/s (113764 bytes in 0.000s)
+5327b1d121d3e930c0c0f84621903074094d1a305de663366ddbdc74d9e33212  /run/lidar-ot-rcp.gbl
+ls: /run/efr32-gpio: No such file or directory
+ls: /run/lidar-xmodem: No such file or directory
+ls: /run/devtmpfs/ttyS1: No such file or directory
+5327b1d121d3e930c0c0f84621903074094d1a305de663366ddbdc74d9e33212  /tmp/efr32/out/lidar-ot-rcp.gbl
+experiments/phase-06/hw-20261121/step25-efr32/efr32-gpio: 1 file pushed, 0 skipped. 146.2 MB/s (884232 bytes in 0.006s)
+experiments/phase-06/hw-20261121/step25-efr32/lidar-xmodem: 1 file pushed, 0 skipped. 538.8 MB/s (883632 bytes in 0.002s)
+experiments/phase-06/hw-20261121/step25-efr32/efr32-flash.sh: 1 file pushed, 0 skipped. 141.2 MB/s (2037 bytes in 0.000s)
+3 files pushed, 0 skipped. 1.1 MB/s (1769901 bytes in 1.525s)
+crw-------    1 0        0           4,  65 Jan  1  1970 [1;35m/run/devtmpfs/ttyS1[m
+ 09:58:11 up 1 min,  0 users,  load average: 2.00, 0.54, 0.18
+libreecho.lab=p6-v2
+androidboot.slot_suffix=_a
+20:58:15
+Terminated
+rc=0
+efr32-flash: uploading lidar-ot-rcp.gbl
+efr32-flash: lidar-ot-rcp.gbl uploaded and started

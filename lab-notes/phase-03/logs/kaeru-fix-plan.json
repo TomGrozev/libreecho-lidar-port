@@ -1,0 +1,24 @@
+{
+  "device": {
+    "boot_area_bytes": 2097152,
+    "flash_bytes": 7650410496,
+    "hwcode": 33127,
+    "sector_bytes": 512
+  },
+  "items": [
+    {
+      "index": 0,
+      "kind": "user",
+      "length": 262144,
+      "offset": 0,
+      "partition": "expdb",
+      "purpose": "full",
+      "sha256": "a1eda7b56d05b184892f681c27f1374ef962a04a1aa4d0d0a463e388c98db152",
+      "source_offset": 0
+    }
+  ],
+  "manifest_sha256": "3a729d084b7940a3b99cb6c366458448f66a25d7b96b2de4bee222fadc650652",
+  "plan_sha256": "232bfefaae3a30da0c10df8b8ce95f695029cfa680cc74cd3693dd5dacce2606",
+  "schema_version": 1,
+  "skipped": []
+}

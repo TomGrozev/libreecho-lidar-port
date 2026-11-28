@@ -1,0 +1,71 @@
+{
+ "schema": "libreecho-public-inputs-v1",
+ "status": "partially-cleared",
+ "description": "Public dependency inventory for the hosted LibreEcho image-and-features build. Blocked entries are deliberate fail-closed gates, not local fallbacks.",
+ "inputs": [
+  {
+   "name": "tflite-micro-source",
+   "url": "https://github.com/tensorflow/tflite-micro.git",
+   "commit": "5d5a2e9afce50bf2dc75f5e8b10776aef13157b6",
+   "sha256": "",
+   "kind": "source-git",
+   "license": "Apache-2.0",
+   "redistribution": "source-git-pinned"
+  },
+  {
+   "name": "flatbuffers-source",
+   "url": "https://github.com/google/flatbuffers/archive/refs/tags/v25.9.23.tar.gz",
+   "sha256": "9102253214dea6ae10c2ac966ea1ed2155d22202390b532d1dea64935c518ada",
+   "kind": "source-archive-tree",
+   "license": "Apache-2.0",
+   "redistribution": "cleared"
+  },
+  {
+   "name": "kissfft-source",
+   "url": "https://github.com/mborgerding/kissfft/archive/refs/tags/v130.tar.gz",
+   "sha256": "1782cd90f036765523c72b521ecb1df321883d3cfca65097ba139ff60e696051",
+   "kind": "source-archive-tree",
+   "license": "BSD-3-Clause",
+   "redistribution": "cleared"
+  },
+  {
+   "name": "eyalroz-printf-source",
+   "url": "https://github.com/eyalroz/printf/archive/f8ed5a9bd9fa8384430973465e94aa14c925872d.tar.gz",
+   "sha256": "2886f161744f740d4d857962d18839fae65c53e8411abe41934def0f9bf4a670",
+   "kind": "source-archive-tree",
+   "license": "MIT",
+   "redistribution": "cleared"
+  },
+  {
+   "name": "micro-wake-word-models-source",
+   "url": "https://github.com/esphome/micro-wake-word-models.git",
+   "commit": "40ff33f57f8fc6ad71a75ef085abbf742495b225",
+   "sha256": "",
+   "kind": "source-git",
+   "license": "Apache-2.0",
+   "redistribution": "source-git-pinned",
+   "models": [
+    {
+     "path": "models/v2/alexa.tflite",
+     "sha256": "9011a8155b04de858c48038529235cbc0e42e9fca05a55bf588cb80a653a723b"
+    },
+    {
+     "path": "models/v2/okay_nabu.tflite",
+     "sha256": "0689abe1912a95a3318a0d8cb2e67bad0cbcfe3e24dd6e050c75debddfb6f891"
+    },
+    {
+     "path": "models/v2/hey_jarvis.tflite",
+     "sha256": "21a7976add39ee24ec96c63d96b7aaa18e24d1d9824b963e451da8feb4b78b77"
+    },
+    {
+     "path": "models/v2/hey_mycroft.tflite",
+     "sha256": "c2a9b6ed51182db72e014781d5a4ece1929dc232a40b5b4be384f0295f0e1571"
+    },
+    {
+     "path": "models/v2/vad.tflite",
+     "sha256": "7aa4db6d5fb7c5358609f6931e7847d303c16a43d178638bc14104f50d7eff5f"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,82 @@
+{
+ "body": {
+  "data": {
+   "age_ms": 70,
+   "beams": [
+    {
+     "deg": 0,
+     "power_db": -80.1,
+     "snr_db": 0.5
+    },
+    {
+     "deg": 30,
+     "power_db": -79.0,
+     "snr_db": 0.3
+    },
+    {
+     "deg": 60,
+     "power_db": -79.3,
+     "snr_db": 0.2
+    },
+    {
+     "deg": 90,
+     "power_db": -79.8,
+     "snr_db": 0.2
+    },
+    {
+     "deg": 120,
+     "power_db": -79.2,
+     "snr_db": 0.5
+    },
+    {
+     "deg": 150,
+     "power_db": -79.0,
+     "snr_db": 0.5
+    },
+    {
+     "deg": 180,
+     "power_db": -80.8,
+     "snr_db": 0.1
+    },
+    {
+     "deg": 210,
+     "power_db": -79.5,
+     "snr_db": 0.2
+    },
+    {
+     "deg": 240,
+     "power_db": -79.4,
+     "snr_db": 0.5
+    },
+    {
+     "deg": 270,
+     "power_db": -79.2,
+     "snr_db": 1.0
+    },
+    {
+     "deg": 300,
+     "power_db": -78.7,
+     "snr_db": 1.1
+    },
+    {
+     "deg": 330,
+     "power_db": -78.9,
+     "snr_db": 0.8
+    }
+   ],
+   "contrast_db": 0.8,
+   "doa_deg": 306.3,
+   "hop_ms": 8,
+   "hops": 362660,
+   "locked": false,
+   "peak_db": -78.7,
+   "reference": "0 deg front (volume down), clockwise viewed from above",
+   "running": true,
+   "selected_deg": 180,
+   "switches": 1351
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

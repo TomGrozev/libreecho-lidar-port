@@ -1,0 +1,55 @@
+{
+ "body": {
+  "data": {
+   "activation_attempted": true,
+   "address": "",
+   "address_configured": "",
+   "address_factory": "",
+   "available": true,
+   "capabilities": {
+    "bondable": false,
+    "classic": true,
+    "connectable": false,
+    "discoverable": false,
+    "le": true,
+    "secure_connection": true,
+    "ssp": true
+   },
+   "discovered": [],
+   "enabled": true,
+   "hci": "hci0",
+   "known_devices": [
+    {
+     "address": "<MAC_BT_PEER_A>",
+     "connected": false,
+     "name": "<BT_PEER_NAME_A>",
+     "rssi": 0,
+     "rssi_valid": true,
+     "type": 0
+    }
+   ],
+   "last_connect_failed_status": "",
+   "last_disconnect_reason": "",
+   "last_error": "",
+   "local_name": "MTK MT7668 #4",
+   "pairing": false,
+   "pairing_mode": false,
+   "pending_pairing": null,
+   "profile_error": "SDP, A2DP sink, and AVRCP profile services registered",
+   "profile_services": {
+    "a2dp_sink": true,
+    "avrcp": true,
+    "bnep": false,
+    "hidp": false,
+    "rfcomm": false,
+    "sdp": true
+   },
+   "profile_state": "ready",
+   "scanning": false,
+   "state": "up",
+   "transport": "mainline-btmtksdio-hci"
+  },
+  "ok": true
+ },
+ "status": 200
+}

@@ -1,0 +1,12 @@
+adb back after try 1 at 21:03:34
+ 10:04:34 up 1 min,  0 users,  load average: 2.53, 0.76, 0.26
+androidboot.slot_suffix=_a
+total 0
+drwxr-x---    2 0        0                0 Jan  1  1970 [1;34m.[m
+drwxrwxrwx    4 0        0                0 Nov 21 10:04 [1;34m..[m
+srwxrwx---    1 0        0                0 Jan  1  1970 [1;35mwlan0[m
+/system/bin/sh: wpa_cli: not found
+state=installed
+generation=txn-219f754fee5dc47b9e27a977
+3837 10248 8377 7269
+{"ts":28,"boot_seconds":28,"level":"INFO","service":"networkd","msg":"networkd: starting (socket=/run/libreecho/network.sock, interface=wlan0, wpa=/tmp/wpa_ctrl/wlan0)"}

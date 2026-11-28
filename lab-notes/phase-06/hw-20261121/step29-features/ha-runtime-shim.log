@@ -1,0 +1,5 @@
+[0;0m/sys/devices/platform/amz-privacy/privacy_state[m
+# Runtime-only Lidar shim (step29): idme has no MAC on this unit; lost on reboot.
+IDME_ROOT=/run/libreecho/idme-lidar
+PRIVACY_STATE=/sys/devices/platform/amz-privacy/privacy_state
+18 /run/libreecho/idme-lidar/mac_addr/value

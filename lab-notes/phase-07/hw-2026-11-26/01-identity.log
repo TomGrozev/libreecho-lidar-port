@@ -1,0 +1,20 @@
+== date: 2026-11-26T17:30:02+11:00
+== adb devices
+List of devices attached
+<DEVICE_IP_A>:5555      device transport_id:1
+
+== getprop
+ro.build.version.release=/system/bin/sh: getprop: not found
+ro.build.version.incremental=/system/bin/sh: getprop: not found
+ro.build.fingerprint=/system/bin/sh: getprop: not found
+ro.product.device=/system/bin/sh: getprop: not found
+ro.product.model=/system/bin/sh: getprop: not found
+ro.boot.slot_suffix=/system/bin/sh: getprop: not found
+ro.boot.verifiedbootstate=/system/bin/sh: getprop: not found
+ro.boot.bootreason=/system/bin/sh: getprop: not found
+ro.boot.lk_build_desc=/system/bin/sh: getprop: not found
+ro.boot.pl_build_desc=/system/bin/sh: getprop: not found
+== uname
+Linux echo 6.18.64+ #1 SMP 2026-11-25 00:00:00 UTC aarch64 Linux
+== /proc/version
+Linux version 6.18.64+ (libreecho@lab) (aarch64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0, GNU ld (GNU Binutils for Ubuntu) 2.42) #1 SMP 2026-11-25 00:00:00 UTC

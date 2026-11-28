@@ -1,0 +1,33 @@
+111.24 325.32
+libreecho.lab=v2
+androidboot.slot_suffix=_b
+/dev/mmcblk0p16 on /data type ext4 (rw,nosuid,nodev,noatime)
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=1
+boot_layout=lidar
+boot_store_mode=slotted
+slot_a_image=/dev/mmcblk0p10
+slot_b_image=/dev/mmcblk0p11
+wrapper_a=-
+wrapper_b=-
+state=installed
+features_state=ready
+features_error=
+ota_transaction_state=rollback
+generation=txn-508529626fbd711fdbf6bf1c
+current=txn-508529626fbd711fdbf6bf1c
+[1;35mairplay.sock[m          [1;35mlog.sock[m              [1;35mstt.sock[m
+[1;35maudio.sock[m            [1;35mmdns.sock[m             [0;0mtime.status[m
+[1;35mbluetooth.sock[m        [1;35mmic.sock[m              [1;35mtimer.sock[m
+[0;0mbuttond-status[m        [1;35mnetwork.sock[m          [1;35mtts.sock[m
+[1;34mfeatures[m              [0;0mota-health-settled[m    [0;0mvendor-import.status[m
+[1;35mled.sock[m              [1;35mradio.sock[m            [0;0mwifi-worker-failed[m
+[0;0mlocal.status[m          [0;0mstartup-ready[m

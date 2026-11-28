@@ -1,0 +1,20 @@
+PASS boot.img size 16777216
+PASS boot.img ANDROID! magic
+INFO boot-lidar-v2.img sha256 a7b266b74af89ae203d35b8460866ebb6d654d64742089ad5a4bbb0b838f82dc
+PASS ramdisk ota-public-key.hex == new key
+PASS boot.img kernel Image f444f4d0cc63da2a204720dfde560020c9addf3a36910ceb71d29fecf28e3c75 want f444f4d0cc63da2a204720dfde560020c9addf3a36910ceb71d29fecf28e3c75
+PASS appended DTBs 19, with board-thermal 1
+PASS DTB has board-thermal node
+INFO 		board-thermal {
+INFO 			polling-delay = <0x3e8>;
+INFO 			polling-delay-passive = <0x3e8>;
+INFO 			thermal-sensors = <0x2c>;
+INFO 
+INFO 			trips {
+INFO 
+PASS OTA manifest signature verifies with new key
+PASS OTA manifest signature rejected with old key
+INFO txn id txn-bac8cf84d19b53cb0c24cdc4
+PASS ui-manifest present (d7f76b12de845d2d1dcce0e2f4c7f7cb55fa57af074433d1deb5a7b5c8de95f0)
+INFO file=etc/init.d/libreecho-micd.init sha256=d279eb9265627b891aca70645543253113e5d15852d78bc00fe01b97e286d1ab
+INFO file=sbin/libreecho-micd sha256=53b0c71073d352c0c1baaeb43291c381da8c2700866b4962be3b348ee56d4a60

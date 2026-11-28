@@ -1,0 +1,14 @@
+product=LIDAR
+kaeru_version=2.0.0-g66704e6-dirty
+max_fetch_size=1048576
+partition misc: 524288 ok
+schema=1
+bcb_valid=yes
+selected_slot=b
+slot_a_priority=14
+slot_a_tries=0
+slot_a_success=1
+slot_b_priority=15
+slot_b_tries=0
+slot_b_success=1
+log: logs/bcb-show.log

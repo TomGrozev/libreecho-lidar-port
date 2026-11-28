@@ -1,0 +1,92 @@
+== armhfhave adduser_3.137ubuntu1_all.deb
+have avahi-daemon_0.8-13ubuntu6.2_armhf.deb
+have avahi-utils_0.8-13ubuntu6.2_armhf.deb
+have dbus-bin_1.14.10-4ubuntu4.1_armhf.deb
+have dbus-daemon_1.14.10-4ubuntu4.1_armhf.deb
+have dbus-session-bus-common_1.14.10-4ubuntu4.1_all.deb
+have dbus-system-bus-common_1.14.10-4ubuntu4.1_all.deb
+have dbus_1.14.10-4ubuntu4.1_armhf.deb
+have debconf_1.5.86ubuntu1_all.deb
+have gcc-14-base_14.2.0-4ubuntu2~24.04.1_armhf.deb
+have libapparmor1_4.0.1really4.0.1-0ubuntu0.24.04.7_armhf.deb
+GET https://launchpad.net/ubuntu/+archive/primary/+files/libaudit-common_3.1.2-2.1build1.1_all.deb
+ok   libaudit-common_1%3a3.1.2-2.1build1.1_all.deb c8ab5bed96f9781daab7c36fcbe4b12c3f3247a37256c0e341dc827db1e9a010
+GET https://launchpad.net/ubuntu/+archive/primary/+files/libaudit1_3.1.2-2.1build1.1_armhf.deb
+ok   libaudit1_1%3a3.1.2-2.1build1.1_armhf.deb eb078c16765fff0acca0196a2bc4effef22c6c486e33eae1700411d275f48d14
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/a/avahi/libavahi-client3_0.8-13ubuntu6.2_armhf.deb
+ok   libavahi-client3_0.8-13ubuntu6.2_armhf.deb c8cf7c61ad99e5a894eabbb21267982c848eca1e226b61f74285f2a76d29e37c
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/a/avahi/libavahi-common-data_0.8-13ubuntu6.2_armhf.deb
+ok   libavahi-common-data_0.8-13ubuntu6.2_armhf.deb 354dcc1a9ae6318ef770dd0f3ae66576c1cc440fedb763157c17c0b66a4a82f1
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/a/avahi/libavahi-common3_0.8-13ubuntu6.2_armhf.deb
+ok   libavahi-common3_0.8-13ubuntu6.2_armhf.deb c269d017e392402ef245fa330258c685c2e74b1ec584b1725a19732ccb3583bf
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/a/avahi/libavahi-core7_0.8-13ubuntu6.2_armhf.deb
+ok   libavahi-core7_0.8-13ubuntu6.2_armhf.deb 93a9cfe222ad95e78a3a615a8c023e95925787c3ab16cb5d7d5ef4292f9d06ac
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/b/bzip2/libbz2-1.0_1.0.8-5.1ubuntu0.1_armhf.deb
+ok   libbz2-1.0_1.0.8-5.1ubuntu0.1_armhf.deb 058331379bcb5a735e5506b75c098c62e2de203836618972806335ebb9624354
+GET https://launchpad.net/ubuntu/+archive/primary/+files/libc6_2.39-0ubuntu8.9_armhf.deb
+ok   libc6_2.39-0ubuntu8.9_armhf.deb 45747d81f8fe7947308248933f0a2551270264e4a127bcb7632cfe826dcdc7f1
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/libc/libcap-ng/libcap-ng0_0.8.4-2build2_armhf.deb
+ok   libcap-ng0_0.8.4-2build2_armhf.deb 7d9083cf59cec932e031d657ee7c763249e1b84a268bcaf5368e74c984ab5a4a
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/libc/libcap2/libcap2_2.66-5ubuntu2.4_armhf.deb
+ok   libcap2_1%3a2.66-5ubuntu2.4_armhf.deb 7586d6fe31a1fc9f5726aee1fdaee8d2be93853869b2efc4aa36ee0607b25f9b
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/libx/libxcrypt/libcrypt1_4.4.36-4build1_armhf.deb
+ok   libcrypt1_1%3a4.4.36-4build1_armhf.deb 198990e999add09e21b0ab3522c94333a0e135656c7f00960f534cec15477a74
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/libd/libdaemon/libdaemon0_0.14-7.1ubuntu4_armhf.deb
+ok   libdaemon0_0.14-7.1ubuntu4_armhf.deb 166ab859be0336c1dbd4f67245841ee60d22ff4c491692c03c90825e1c55c673
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/d/db5.3/libdb5.3t64_5.3.28+dfsg2-7_armhf.deb
+ok   libdb5.3t64_5.3.28+dfsg2-7_armhf.deb 12ac2200cb3d8451b92d626d1733f5e72d832ceabb1d9b20cd5b04ab74079012
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/d/dbus/libdbus-1-3_1.14.10-4ubuntu4.1_armhf.deb
+ok   libdbus-1-3_1.14.10-4ubuntu4.1_armhf.deb 7aa06a7f4a3ec6f954bbd604c79da4f1f5d5ecefe5a0d4c5d5914e778ee6151d
+GET https://launchpad.net/ubuntu/+archive/primary/+files/libexpat1_2.6.1-2ubuntu0.4_armhf.deb
+ok   libexpat1_2.6.1-2ubuntu0.4_armhf.deb a494a8b7274981e9f57811fa39b146503a635aa6204039ee45b0a4db79d28931
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/g/gcc-14/libgcc-s1_14.2.0-4ubuntu2~24.04.1_armhf.deb
+ok   libgcc-s1_14.2.0-4ubuntu2~24.04.1_armhf.deb 0d1e93162ffa3d369e2b2452b5d4a98b298a9f64311de237d0080e46e6b72dac
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/libg/libgcrypt20/libgcrypt20_1.10.3-2ubuntu0.2_armhf.deb
+ok   libgcrypt20_1.10.3-2ubuntu0.2_armhf.deb 8d52e2073c943b3f380fc2238f1d0fa061a9dff09895b13356716a7711bde11d
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/g/gdbm/libgdbm6t64_1.23-5.1build1_armhf.deb
+ok   libgdbm6t64_1.23-5.1build1_armhf.deb e514badac62847de9977b645fae73ca582545637cc25026e29f38ab22668e8c8
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/libg/libgpg-error/libgpg-error0_1.47-3build2.1_armhf.deb
+ok   libgpg-error0_1.47-3build2.1_armhf.deb 124818c2b56d9eb9f216fb8bd848dc4403a718f24a89ddb9460cec4a04ebf84e
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/l/lz4/liblz4-1_1.9.4-1build1.1_armhf.deb
+ok   liblz4-1_1.9.4-1build1.1_armhf.deb 1dcf3be4ce0b0a020833c95e0b00d9809141fc593dba91150735bb3bde875cf8
+GET https://launchpad.net/ubuntu/+archive/primary/+files/liblzma5_5.6.1+really5.4.5-1ubuntu0.3_armhf.deb
+ok   liblzma5_5.6.1+really5.4.5-1ubuntu0.3_armhf.deb 55652dbd67da7e5d6311c56876eaaba639f8518f12cc3a767a2669a13d6149b6
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/p/pam/libpam-modules-bin_1.5.3-5ubuntu5.7_armhf.deb
+ok   libpam-modules-bin_1.5.3-5ubuntu5.7_armhf.deb 6651ed897f6bc38a9afa591690fbfdb555d331d7da6ab7991a818f297a8c8fe8
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/p/pam/libpam-modules_1.5.3-5ubuntu5.7_armhf.deb
+ok   libpam-modules_1.5.3-5ubuntu5.7_armhf.deb 55bdca2b35aef650320d747ea0df2607faeb1ac3fd887a96fa604fe87e8078d8
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/p/pam/libpam0g_1.5.3-5ubuntu5.7_armhf.deb
+ok   libpam0g_1.5.3-5ubuntu5.7_armhf.deb 21082b1aff2d657d9d959c6761b62c222a0953998128ba633436374af89ff606
+GET https://launchpad.net/ubuntu/+archive/primary/+files/libpcre2-8-0_10.42-4ubuntu2.1_armhf.deb
+ok   libpcre2-8-0_10.42-4ubuntu2.1_armhf.deb 313aab96dbfc9187dc9018be4be5aa5de5e658628d863d06eaf35247f8b5a27f
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/libs/libselinux/libselinux1_3.5-2ubuntu2.1_armhf.deb
+ok   libselinux1_3.5-2ubuntu2.1_armhf.deb 5381edff734f30d51e7fb3cab32330d56a90e331a1149b8ab28015dd704fabbc
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/libs/libsemanage/libsemanage-common_3.5-1build5_all.deb
+ok   libsemanage-common_3.5-1build5_all.deb e10cd93f0b6941566de04b860b723df57ca3fe4a9255a73b2be0d1dc7df2850e
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/libs/libsemanage/libsemanage2_3.5-1build5_armhf.deb
+ok   libsemanage2_3.5-1build5_armhf.deb ba9d4d495b702acf818feb4ade6e0967d8a02d6cd383c3d831b76a8c01043356
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/libs/libsepol/libsepol2_3.5-2build1_armhf.deb
+ok   libsepol2_3.5-2build1_armhf.deb 3f5d9d5d373b1837a2d7ec7b701ea40609df41fa43bb97c4f6580bd54984c8ae
+GET https://launchpad.net/ubuntu/+archive/primary/+files/libsystemd0_255.4-1ubuntu8.17_armhf.deb
+ok   libsystemd0_255.4-1ubuntu8.17_armhf.deb 94e62120b89122a538587b2275ae10d8cc8c5ab16729a90f9616b7596fd273fb
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/libz/libzstd/libzstd1_1.5.5+dfsg2-2build1.1_armhf.deb
+ok   libzstd1_1.5.5+dfsg2-2build1.1_armhf.deb 6caad7de164d7e64dc5b620110addc147484a62886b1c0f8ae834b1fd0a578eb
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/s/shadow/passwd_4.13+dfsg1-4ubuntu3.2_armhf.deb
+ok   passwd_1%3a4.13+dfsg1-4ubuntu3.2_armhf.deb 050e7889d0053406a5bd7d90305cdd7844c9e31ee1ea90b0415772ffa43ccd66
+3998128ba633436374af89ff606
+GET https://launchpad.net/ubuntu/+archive/primary/+files/libpcre2-8-0_10.42-4ubuntu2.1_armhf.deb
+ok   libpcre2-8-0_10.42-4ubuntu2.1_armhf.deb 313aab96dbfc9187dc9018be4be5aa5de5e658628d863d06eaf35247f8b5a27f
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/libs/libselinux/libselinux1_3.5-2ubuntu2.1_armhf.deb
+ok   libselinux1_3.5-2ubuntu2.1_armhf.deb 5381edff734f30d51e7fb3cab32330d56a90e331a1149b8ab28015dd704fabbc
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/libs/libsemanage/libsemanage-common_3.5-1build5_all.deb
+ok   libsemanage-common_3.5-1build5_all.deb e10cd93f0b6941566de04b860b723df57ca3fe4a9255a73b2be0d1dc7df2850e
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/libs/libsemanage/libsemanage2_3.5-1build5_armhf.deb
+ok   libsemanage2_3.5-1build5_armhf.deb ba9d4d495b702acf818feb4ade6e0967d8a02d6cd383c3d831b76a8c01043356
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/libs/libsepol/libsepol2_3.5-2build1_armhf.deb
+ok   libsepol2_3.5-2build1_armhf.deb 3f5d9d5d373b1837a2d7ec7b701ea40609df41fa43bb97c4f6580bd54984c8ae
+GET https://launchpad.net/ubuntu/+archive/primary/+files/libsystemd0_255.4-1ubuntu8.17_armhf.deb
+ok   libsystemd0_255.4-1ubuntu8.17_armhf.deb 94e62120b89122a538587b2275ae10d8cc8c5ab16729a90f9616b7596fd273fb
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/libz/libzstd/libzstd1_1.5.5+dfsg2-2build1.1_armhf.deb
+ok   libzstd1_1.5.5+dfsg2-2build1.1_armhf.deb 6caad7de164d7e64dc5b620110addc147484a62886b1c0f8ae834b1fd0a578eb
+GET https://ports.ubuntu.com/ubuntu-ports/pool/main/s/shadow/passwd_4.13+dfsg1-4ubuntu3.2_armhf.deb
+ok   passwd_1%3a4.13+dfsg1-4ubuntu3.2_armhf.deb 050e7889d0053406a5bd7d90305cdd7844c9e31ee1ea90b0415772ffa43ccd66

@@ -1,0 +1,7 @@
+== voice-before {"status":200,"mode":"local","ha":{"protocol":"esphome","port":6053,"ready":false,"connected":false}}
+== integrations-before {"status":200,"ids":[]}
+== enable-ha {"status":202,"restart":{"state":"pending","error":""},"error":null}
+== voice-timeout {"last":{"ok":true,"data":{"mode":"local","home_assistant":{"protocol":"esphome","port":6053,"ready":false,"connected":false},"stt":{"engine":"sherpa","wyoming_uri":"","model":"whisper-small","configured":false,"reachable":false},"tts":{"engine":"sherpa","wyoming_uri":"","voice":"en_GB-alan-medium","configured":false,"reachable":false},"wake_word":{"engine":"openwakeword","processing":"on-device"},"listening":{"max_utterance_ms":6000,"end_silence_ms":1000,"vad_floor_rms":16},"restart":{"state":"pending","error":""}},"error":null}}
+== ha-details {"status":200,"url":"https://<HA_HOST_A>","key_present":false,"key_len":0}
+== tcp6053-lan {"connect_ex":111}
+== tcp6053-forward {"connect_ex":0}

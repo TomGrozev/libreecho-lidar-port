@@ -1,0 +1,33 @@
+0
+{"ts":1795241464,"boot_seconds":37,"level":"INFO","service":"audiod","msg":"audiod: starting (socket=/run/libreecho/audio.sock, card=0)"}
+{"ts":1795241464,"boot_seconds":37,"level":"WARN","service":"audiod","msg":"audiod: Lidar Output Route=Speaker refused"}
+{"ts":1795241464,"boot_seconds":37,"level":"INFO","service":"audiod","msg":"audiod: restored microphone gain 65"}
+{"ts":1795241464,"boot_seconds":37,"level":"INFO","service":"audiod","msg":"audiod: selected persisted volume 50"}
+{"ts":1795241464,"boot_seconds":37,"level":"INFO","service":"micd","msg":"micd: Lidar OCM capture path configured (PGA 82)"}
+{"ts":1795241464,"boot_seconds":37,"level":"INFO","service":"micd","msg":"Radar microphone mixer profile configured"}
+{"ts":1795241464,"boot_seconds":37,"level":"INFO","service":"micd","msg":"microphone daemon listening on /run/libreecho/mic.sock (capture idle)"}
+{"ts":1795241464,"boot_seconds":37,"level":"INFO","service":"micd","msg":"raw microphone stream stopped"}
+{"ts":1795241465,"boot_seconds":38,"level":"INFO","service":"ledd","msg":"using IS31FL3236 LED backend (/sys/bus/i2c/devices/0-003f/frame, current-scaled levels)"}
+{"ts":1795241465,"boot_seconds":38,"level":"INFO","service":"ledd","msg":"LED boot-animation handover complete"}
+{"ts":1795241465,"boot_seconds":38,"level":"INFO","service":"ledd","msg":"green startup animation started"}
+{"ts":1795241465,"boot_seconds":38,"level":"INFO","service":"ledd","msg":"LED daemon listening on /run/libreecho/led.sock"}
+{"ts":1795241465,"boot_seconds":38,"level":"INFO","service":"buttond","msg":"buttond: watching /dev/input/event0 [gpio-keys]"}
+{"ts":1795241465,"boot_seconds":38,"level":"INFO","service":"buttond","msg":"buttond: 1 input device(s) with volume or mute keys"}
+{"ts":1795241467,"boot_seconds":40,"level":"INFO","service":"micd","msg":"micd: Lidar OCM capture path configured (PGA 82)"}
+{"ts":1795241467,"boot_seconds":40,"level":"INFO","service":"micd","msg":"calibrated mono microphone stream started"}
+{"ts":1795241470,"boot_seconds":43,"level":"INFO","service":"audiod","msg":"audiod: set_volume 50 -> 50"}
+{"ts":1795241470,"boot_seconds":43,"level":"INFO","service":"audiod","msg":"audiod: set_gain 65 -> 65"}
+{"ts":1795241470,"boot_seconds":43,"level":"INFO","service":"buttond","msg":"buttond: mute indicator off"}
+6	INT	2	PCM Playback Volume                     	0127, 127 (range 0->175)
+14	BOOL	2	LO DAC Playback Switch                  	0Off, Off
+33	INT	2	ADC1 PGA Capture Volume                 	052, 52 (range 0->80)
+34	BOOL	2	ADC1 PGA Capture Switch                 	0On, On
+72	INT	2	ADC2 PGA Capture Volume                 	052, 52 (range 0->80)
+73	BOOL	2	ADC2 PGA Capture Switch                 	0On, On
+111	INT	2	ADC3 PGA Capture Volume                 	052, 52 (range 0->80)
+112	BOOL	2	ADC3 PGA Capture Switch                 	0On, On
+150	INT	2	ADC4 PGA Capture Volume                 	052, 52 (range 0->80)
+151	BOOL	2	ADC4 PGA Capture Switch                 	0On, On
+192	BOOL	1	LOL Output Mixer L_DAC Switch           	0On
+195	BOOL	1	LOR Output Mixer R_DAC Switch           	0On
+0

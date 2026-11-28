@@ -1,0 +1,18 @@
+==pcm
+total 0
+crw-rw----    1 0        0         116,   0 Jan  1  1970 [1;35mcontrolC0[m
+crw-rw----    1 0        0         116,  16 Jan  1  1970 [1;35mpcmC0D0p[m
+crw-rw----    1 0        0         116,  25 Jan  1  1970 [1;35mpcmC0D1c[m
+crw-rw----    1 0        0         116,  26 Jan  1  1970 [1;35mpcmC0D2c[m
+==tinycap
+ls: /sbin/tinycap: No such file or directory
+==miclog
+==dmesg-audio
+mt8516-afe-pcm 11140000.audio-controller: mtk_afe_combine_sub_dai(), num of dai 6
+  #0: amazon-lidar
+libreecho-init: audio-node-worker-started
+libreecho-init: audio-devnodes-created:5
+libreecho-init: lidar-bt-ready-before-wlan
+libreecho-init: audio-startup-disabled
+libreecho-init: lidar-wlan-bound:mmc1:0001:1
+libreecho-init: ui-service-start:audiod:0

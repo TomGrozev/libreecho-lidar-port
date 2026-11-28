@@ -1,0 +1,42 @@
+== cmdline
+console=tty0 console=ttyMT0,921600n1 earlycon=uart8250,mmio32,0x11005000 vmalloc=496M androidboot.hardware=mt8167 androidboot.secure_cpu=1 androidboot.unlocked_kernel=true androidboot.tu_code=<TU_CODE> androidboot.rpmb_state=1 androidboot.pl_version=0xfdff androidboot.tee_version=0xffff androidboot.lk_version=0x9480 androidboot.prod=1 androidboot.pl_build_desc=2b6f82c-20190926_195940 androidboot.lk_build_desc=6f7225e-20230407_030004 androidboot.verifiedbootstate=yellow androidboot.prod=1 bootopt=64S3,32N2,64N2 buildvariant=user veritykeyid=id:f3530e18f64d11fc25eb2dd762979f078de990bf libreecho.lab=p6-v2 androidboot.selinux=enforce androidboot.veritymode=enforcing androidboot.slot_suffix=_a rootwait ro init=/init skip_initramfs root=/dev/dm-0 dm="system none ro,0 1 android-verity PARTUUID=<PARTUUID_13>" printk.disable_uart=1 leds-is31fl3236. bootprof.pl_t=1680 bootprof.lk_t=3400 boot_reason=4 androidboot.serialno=<SERIAL_A> androidboot.bootreason=wdt_by_pass_pwk
+== /data/libreecho
+total 56
+drwx------   11 0        0             4096 Nov 23 12:18 [1;34m.[m
+drwxr-xr-x    5 0        0             4096 Jan  1  1970 [1;34m..[m
+-rw-rw-rw-    1 0        0                0 Jan  1  1970 [0;0magentd-manual.log[m
+drwx------    2 0        0             4096 Nov 23 12:43 [1;34mconfig[m
+drwxr-xr-x    2 0        0             4096 Jan  1  1970 [1;34mfeatures[m
+drwxrwxrwx    5 0        0             4096 Nov 24 08:42 [1;34mgenerations[m
+drwxrwxrwx    3 0        0             4096 Nov 23 12:13 [1;34mincoming[m
+-rw-rw-rw-    1 0        0             1035 Nov 21 03:53 [0;0minit-persist.log[m
+-rw-rw-rw-    1 0        0                0 Nov 21 03:51 [0;0minit-persist.started[m
+-rw-------    1 0        0               18 Nov 23 20:04 [0;0mnetwork-recovery-reboot.guard[m
+drwxrwxrwx    3 0        0             4096 Jan  1  1970 [1;34mreset-logs[m
+drwx------    2 0        0             4096 Jan  1  1970 [1;34msecrets[m
+drwxrwxrwx    2 0        0             4096 Nov 22 07:28 [1;34mtrace-cycle[m
+drwx------    6 0        0             4096 Nov 24 08:42 [1;34mupdate[m
+-rw-rw-rw-    1 0        0              432 Nov 21 03:30 [0;0mwaked-manual.log[m
+drwx------    4 0        0             4096 Nov 23 12:21 [1;34mwakeword-models[m
+== /etc/libreecho
+total 56
+drwxr-xr-x    4 0        0                0 Jan  1  1970 [1;34m.[m
+drwxr-xr-x    5 0        0                0 Jan  1  1970 [1;34m..[m
+-rw-r--r--    1 0        0              153 Jan  1  1970 [0;0madb-transport[m
+-rw-r--r--    1 0        0             1296 Jan  1  1970 [0;0mairplay2.conf[m
+-rw-r--r--    1 0        0              491 Jan  1  1970 [0;0maudio-profile[m
+drwxr-xr-x    2 0        0                0 Jan  1  1970 [1;34mavahi-services[m
+-rw-r--r--    1 0        0                9 Jan  1  1970 [0;0mfeature-policy[m
+-rw-r--r--    1 0        0               40 Jan  1  1970 [0;0mfirst-install-confirm[m
+-rw-r--r--    1 0        0                4 Jan  1  1970 [0;0mimage-profile[m
+-rw-r--r--    1 0        0              950 Jan  1  1970 [0;0mmdns-runtime.json[m
+-rw-r--r--    1 0        0              243 Jan  1  1970 [0;0mntp.conf[m
+-rw-r--r--    1 0        0               65 Jan  1  1970 [0;0mota-public-key.hex[m
+-rw-r--r--    1 0        0              123 Jan  1  1970 [0;0mota-source.conf[m
+-rw-r--r--    1 0        0               11 Jan  1  1970 [0;0mservice-profile[m
+-rw-r--r--    1 0        0               54 Jan  1  1970 [0;0mtarget[m
+-rw-r--r--    1 0        0                4 Jan  1  1970 [0;0mupdate-channel[m
+drwxr-xr-x    2 0        0                0 Jan  1  1970 [1;34mvendor-assets[m
+-rw-------    1 0        0              593 Jan  1  1970 [0;0mweb-config.json[m
+== version files
+== os-release

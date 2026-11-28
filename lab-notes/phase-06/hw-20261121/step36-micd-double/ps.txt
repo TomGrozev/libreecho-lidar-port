@@ -1,0 +1,79 @@
++ ps -o pid,ppid,pgid,sid,stat,etime,args
++ grep -E 'micd|waked|PID'
++ grep -v grep
+PID   PPID  PGID  SID   STAT ELAPSED COMMAND
+ 5498     1  5498  5498 S     5:53   /usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap
+ 5832     1  5832  5832 S     5:52   /run/libreecho/features/wakeword/root/usr/local/sbin/libreecho-waked --foreground --socket /run/libreecho/wakeword.sock --mic-socket /run/libreecho/mic.sock --reference-socket /run/libreecho-audio/aec-reference.sock --model-dir /run/libreecho/features/wakeword/root/usr/local/share/libreecho/openwakeword --wake-threads 2 --vad-floor-rms 16
+ 6870  5498  5498  5498 S     5:51   /usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap
++ echo ---
+---
++ pgrep -f libreecho-micd
++ echo '== pid 5498'
+== pid 5498
++ + catgrep /proc/5498/status -E
+ '^(Name|State|PPid|Pid|NSpid|Threads)'
+Name:	libreecho-micd
+State:	S (sleeping)
+Pid:	5498
+PPid:	1
+NSpid:	5498
+Threads:	1
++ tr '\0' ' '
+/usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap + echo
+
++ cut '-d ' -f1-6 /proc/5498/stat
+5498 (libreecho-micd) S 1 5498 5498
++ ls -l /proc/5498/cwd /proc/5498/exe
+lrwxrwxrwx    1 0        0                0 Nov 21 23:02 [1;36m/proc/5498/cwd[m -> [1;34m/[m
+lrwxrwxrwx    1 0        0                0 Nov 21 22:56 [1;36m/proc/5498/exe[m -> [1;32m/usr/local/sbin/libreecho-micd[m
++ echo children:
+children:
++ cat /proc/5498/task/5498/children
++ echo
+
++ echo '== pid 6870'
+== pid 6870
++ cat /proc/6870/status
++ grep -E '^(Name|State|PPid|Pid|NSpid|Threads)'
+Name:	libreecho-micd
+State:	S (sleeping)
+Pid:	6870
+PPid:	5498
+NSpid:	6870
+Threads:	1
++ tr '\0' ' '
+/usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap + echo
+
++ cut '-d ' -f1-6 /proc/6870/stat
+6870 (libreecho-micd) S 5498 5498 5498
++ ls -l /proc/6870/cwd /proc/6870/exe
+lrwxrwxrwx    1 0        0                0 Nov 21 23:02 [1;36m/proc/6870/cwd[m -> [1;34m/[m
+lrwxrwxrwx    1 0        0                0 Nov 21 22:56 [1;36m/proc/6870/exe[m -> [1;32m/usr/local/sbin/libreecho-micd[m
++ echo children:
+children:
++ cat /proc/6870/task/6870/children
++ echo
+
++ echo '== pid 16553'
+== pid 16553
++ cat /proc/16553/status
++ grep -E '^(Name|State|PPid|Pid|NSpid|Threads)'
+Name:	sh
+State:	S (sleeping)
+Pid:	16553
+PPid:	169
+NSpid:	16553
+Threads:	1
++ tr '\0' ' '
+/system/bin/sh -c set -x; ps -o pid,ppid,pgid,sid,stat,etime,args | grep -E "micd|waked|PID" | grep -v grep; echo ---; for p in $(pgrep -f libreecho-micd); do echo "== pid $p"; cat /proc/$p/status | grep -E "^(Name|State|PPid|Pid|NSpid|Threads)"; tr "\0" " " < /proc/$p/cmdline; echo; cut -d" " -f1-6 /proc/$p/stat; ls -l /proc/$p/cwd /proc/$p/exe; echo "children:"; cat /proc/$p/task/$p/children 2>/dev/null; echo; done + echo
+
++ cut '-d ' -f1-6 /proc/16553/stat
+16553 (sh) S 169 16553 16553
++ ls -l /proc/16553/cwd /proc/16553/exe
+lrwxrwxrwx    1 0        0                0 Nov 21 23:02 [1;36m/proc/16553/cwd[m -> [1;34m/[m
+lrwxrwxrwx    1 0        0                0 Nov 21 23:02 [1;36m/proc/16553/exe[m -> [1;32m/bin/busybox[m
++ echo children:
+children:
++ cat /proc/16553/task/16553/children
++ echo
+

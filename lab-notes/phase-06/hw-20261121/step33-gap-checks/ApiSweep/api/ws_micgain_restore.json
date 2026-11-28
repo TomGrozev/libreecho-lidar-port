@@ -1,0 +1,38 @@
+{
+ "body": {
+  "data": {
+   "amplifier_on": false,
+   "microphone_gain": 65,
+   "microphone_muted": false,
+   "noise": {
+    "active": false,
+    "bed": "none",
+    "colour": "white",
+    "fade_seconds": 0,
+    "level": 0,
+    "remaining_seconds": -1,
+    "source": "white",
+    "tempo": 60
+   },
+   "notification_volume": 50,
+   "output_available": true,
+   "startup_sound": false,
+   "tts_voice": "southern-female",
+   "tts_voices": [
+    {
+     "id": "southern-female",
+     "name": "Southern English \u2014 female"
+    },
+    {
+     "id": "northern-male",
+     "name": "Northern English \u2014 male"
+    }
+   ],
+   "volume": 50,
+   "volume_leveling": false
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

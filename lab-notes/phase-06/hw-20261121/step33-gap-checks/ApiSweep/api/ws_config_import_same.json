@@ -1,0 +1,11 @@
+{
+ "body": {
+  "data": null,
+  "error": {
+   "code": "not_supported",
+   "message": "Configuration restore is unavailable for this backend"
+  },
+  "ok": false
+ },
+ "status": 501
+}

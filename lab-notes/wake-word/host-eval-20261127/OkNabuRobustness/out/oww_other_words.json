@@ -1,0 +1,123 @@
+{
+ "hey_mycroft": {
+  "clips": [
+   "hey_mycroft_test.wav",
+   "hey_mycroft_espeak.wav"
+  ],
+  "conds": {
+   "reverb RT60 0.3s DRR 1m": {
+    "detect": 0.5,
+    "median_peak": 0.5
+   },
+   "reverb RT60 0.3s DRR 3m": {
+    "detect": 0.5,
+    "median_peak": 0.5
+   },
+   "reverb RT60 0.5s DRR 1m": {
+    "detect": 0.5,
+    "median_peak": 0.501
+   },
+   "reverb RT60 0.5s DRR 3m": {
+    "detect": 0.5,
+    "median_peak": 0.5
+   },
+   "reverb RT60 0.8s DRR 1m": {
+    "detect": 0.5,
+    "median_peak": 0.971
+   },
+   "reverb RT60 0.8s DRR 3m": {
+    "detect": 0.5,
+    "median_peak": 0.5
+   },
+   "noise SNR 20 dB": {
+    "detect": 0.5,
+    "median_peak": 0.5
+   },
+   "noise SNR 10 dB": {
+    "detect": 0.5,
+    "median_peak": 0.5
+   },
+   "noise SNR 5 dB": {
+    "detect": 0.5,
+    "median_peak": 0.5
+   },
+   "far-field RT60 0.5 3m + SNR 10": {
+    "detect": 0.5,
+    "median_peak": 0.5
+   },
+   "clean": {
+    "detect": 0.5,
+    "median_peak": 0.5
+   }
+  },
+  "negatives": {
+   "clips": [
+    "hey_jane.wav",
+    "alexa_test.wav",
+    "no-wake-word.wav"
+   ],
+   "false_accepts": 0,
+   "max_peak": 0.0
+  }
+ },
+ "hey_jarvis": {
+  "clips": [
+   "hey_jarvis_espeak.wav"
+  ],
+  "conds": {
+   "reverb RT60 0.3s DRR 1m": {
+    "detect": 1.0,
+    "median_peak": 0.994
+   },
+   "reverb RT60 0.3s DRR 3m": {
+    "detect": 1.0,
+    "median_peak": 0.996
+   },
+   "reverb RT60 0.5s DRR 1m": {
+    "detect": 1.0,
+    "median_peak": 0.994
+   },
+   "reverb RT60 0.5s DRR 3m": {
+    "detect": 1.0,
+    "median_peak": 0.993
+   },
+   "reverb RT60 0.8s DRR 1m": {
+    "detect": 1.0,
+    "median_peak": 0.78
+   },
+   "reverb RT60 0.8s DRR 3m": {
+    "detect": 0.0,
+    "median_peak": 0.464
+   },
+   "noise SNR 20 dB": {
+    "detect": 1.0,
+    "median_peak": 0.99
+   },
+   "noise SNR 10 dB": {
+    "detect": 1.0,
+    "median_peak": 0.837
+   },
+   "noise SNR 5 dB": {
+    "detect": 1.0,
+    "median_peak": 0.524
+   },
+   "far-field RT60 0.5 3m + SNR 10": {
+    "detect": 0.0,
+    "median_peak": 0.39
+   },
+   "clean": {
+    "detect": 1.0,
+    "median_peak": 0.995
+   }
+  },
+  "negatives": {
+   "clips": [
+    "hey_jane.wav",
+    "alexa_test.wav",
+    "no-wake-word.wav"
+   ],
+   "false_accepts": 0,
+   "max_peak": 0.018
+  }
+ }
+}

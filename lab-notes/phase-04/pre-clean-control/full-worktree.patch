@@ -1,0 +1,2337 @@
+diff --git a/.github/workflows/checks.yml b/.github/workflows/checks.yml
+index a6f8d4949dbf..278461885643 100644
+--- a/.github/workflows/checks.yml
++++ b/.github/workflows/checks.yml
+@@ -70,7 +70,8 @@ jobs:
+     if: needs.docs_gate.outputs.run_build == 'true'
+     runs-on: ubuntu-24.04
+     outputs:
+-      build_matrix: ${{ steps.targets.outputs.build_matrix }}
++      build_arm32_matrix: ${{ steps.targets.outputs.build_arm32_matrix }}
++      build_arm64_matrix: ${{ steps.targets.outputs.build_arm64_matrix }}
+       publish_matrix: ${{ steps.targets.outputs.publish_matrix }}
+     steps:
+       - name: Check out Linux source
+@@ -89,7 +90,7 @@ jobs:
+     if: needs.docs_gate.outputs.run_build == 'true'
+     strategy:
+       fail-fast: false
+-      matrix: ${{ fromJSON(needs.target_table.outputs.build_matrix) }}
++      matrix: ${{ fromJSON(needs.target_table.outputs.build_arm32_matrix) }}
+     runs-on: ubuntu-24.04
+     timeout-minutes: 90
+     env:
+@@ -124,9 +125,9 @@ jobs:
+           make O="$out" ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- \
+             LD=arm-linux-gnueabihf-ld.bfd olddefconfig
+           make -j2 O="$out" ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- \
+-            LD=arm-linux-gnueabihf-ld.bfd zImage dtbs
+-          test -s "$out/arch/arm/boot/zImage"
+-          test -s "$out/arch/arm/boot/dts/$KERNEL_DTB"
++            LD=arm-linux-gnueabihf-ld.bfd "${{ matrix.image }}" dtbs
++          test -s "$out/arch/${{ matrix.arch }}/boot/${{ matrix.image }}"
++          test -s "$out/arch/${{ matrix.arch }}/boot/dts/$KERNEL_DTB"
+           test -s "$out/System.map"
+           grep -qx 'CONFIG_CFG80211_WEXT=y' "$out/.config"
+           # The MUSB role is a Kconfig choice, so it can be re-resolved by
+@@ -146,19 +147,79 @@ jobs:
+           include-hidden-files: true
+           retention-days: 14
+           path: |
+-            ${{ runner.temp }}/kernel-out/arch/arm/boot/zImage
+-            ${{ runner.temp }}/kernel-out/arch/arm/boot/dts/${{ matrix.dtb }}
++            ${{ runner.temp }}/kernel-out/arch/${{ matrix.arch }}/boot/${{ matrix.image }}
++            ${{ runner.temp }}/kernel-out/arch/${{ matrix.arch }}/boot/dts/${{ matrix.dtb }}
++            ${{ runner.temp }}/kernel-out/System.map
++            ${{ runner.temp }}/kernel-out/.config
++
++  arm64_kernel:
++    name: ARM64 kernel build and regression checks (${{ matrix.target }})
++    needs: [docs_gate, target_table]
++    if: needs.docs_gate.outputs.run_build == 'true'
++    strategy:
++      fail-fast: false
++      matrix: ${{ fromJSON(needs.target_table.outputs.build_arm64_matrix) }}
++    runs-on: ubuntu-24.04
++    timeout-minutes: 90
++    env:
++      KERNEL_DEFCONFIG: ${{ matrix.defconfig }}
++      KERNEL_DTB: ${{ matrix.dtb }}
++    steps:
++      - name: Check out Linux source
++        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
++        with:
++          persist-credentials: false
++
++      - name: Install ARM64 build dependencies
++        shell: bash
++        run: |
++          set -euo pipefail
++          sudo apt-get update
++          sudo apt-get install --yes --no-install-recommends \
++            bc binutils-aarch64-linux-gnu bison build-essential flex \
++            gcc-aarch64-linux-gnu libelf-dev libncurses-dev libssl-dev \
++            python3 rsync
++
++      - name: Configure and build kernel
++        shell: bash
++        run: |
++          set -euo pipefail
++          out="$RUNNER_TEMP/kernel-out"
++          make O="$out" ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
++            LD=aarch64-linux-gnu-ld.bfd "$KERNEL_DEFCONFIG"
++          make O="$out" ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
++            LD=aarch64-linux-gnu-ld.bfd olddefconfig
++          make -j2 O="$out" ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
++            LD=aarch64-linux-gnu-ld.bfd "${{ matrix.image }}" dtbs
++          test -s "$out/arch/${{ matrix.arch }}/boot/${{ matrix.image }}"
++          test -s "$out/arch/${{ matrix.arch }}/boot/dts/$KERNEL_DTB"
++          test -s "$out/System.map"
++          grep -qx 'CONFIG_COMPAT=y' "$out/.config"
++          git diff --check
++
++      - name: Upload kernel build outputs
++        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
++        with:
++          name: libreecho-linux-arm64-${{ github.sha }}-${{ matrix.target }}
++          if-no-files-found: error
++          include-hidden-files: true
++          retention-days: 14
++          path: |
++            ${{ runner.temp }}/kernel-out/arch/${{ matrix.arch }}/boot/${{ matrix.image }}
++            ${{ runner.temp }}/kernel-out/arch/${{ matrix.arch }}/boot/dts/${{ matrix.dtb }}
+             ${{ runner.temp }}/kernel-out/System.map
+             ${{ runner.temp }}/kernel-out/.config
+ 
+   target_artifacts:
+     name: Publish kernel artifacts (${{ matrix.target }})
+-    needs: [target_table, arm32_kernel]
++    needs: [target_table, arm32_kernel, arm64_kernel]
+     strategy:
+       fail-fast: false
+       matrix: ${{ fromJSON(needs.target_table.outputs.publish_matrix) }}
+     runs-on: ubuntu-24.04
+     env:
++      KERNEL_ARCH: ${{ matrix.arch }}
++      KERNEL_IMAGE: ${{ matrix.image }}
+       KERNEL_DTB: ${{ matrix.dtb }}
+     steps:
+       # Identical tuples download the same immutable build artifact. Publication
+@@ -166,7 +227,7 @@ jobs:
+       - name: Download this target's canonical build
+         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+         with:
+-          name: libreecho-linux-arm32-${{ github.sha }}-${{ matrix.build_target }}
++          name: libreecho-linux-${{ matrix.arch == 'arm' && 'arm32' || 'arm64' }}-${{ github.sha }}-${{ matrix.build_target }}
+           path: ${{ runner.temp }}/kernel-artifacts
+ 
+       - name: Require complete build outputs
+@@ -174,18 +235,18 @@ jobs:
+         run: |
+           set -euo pipefail
+           out="$RUNNER_TEMP/kernel-artifacts"
+-          test -s "$out/arch/arm/boot/zImage"
+-          test -s "$out/arch/arm/boot/dts/$KERNEL_DTB"
++          test -s "$out/arch/$KERNEL_ARCH/boot/$KERNEL_IMAGE"
++          test -s "$out/arch/$KERNEL_ARCH/boot/dts/$KERNEL_DTB"
+           test -s "$out/System.map"
+           test -s "$out/.config"
+ 
+       - name: Upload target kernel image
+         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+         with:
+-          name: libreecho-kernel-${{ matrix.target }}-zImage
++          name: libreecho-kernel-${{ matrix.target }}-${{ matrix.image }}
+           if-no-files-found: error
+           retention-days: 14
+-          path: ${{ runner.temp }}/kernel-artifacts/arch/arm/boot/zImage
++          path: ${{ runner.temp }}/kernel-artifacts/arch/${{ matrix.arch }}/boot/${{ matrix.image }}
+ 
+       - name: Upload target DTB
+         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+@@ -193,7 +254,7 @@ jobs:
+           name: libreecho-kernel-${{ matrix.target }}-dtb
+           if-no-files-found: error
+           retention-days: 14
+-          path: ${{ runner.temp }}/kernel-artifacts/arch/arm/boot/dts/${{ matrix.dtb }}
++          path: ${{ runner.temp }}/kernel-artifacts/arch/${{ matrix.arch }}/boot/dts/${{ matrix.dtb }}
+ 
+       - name: Upload target symbol map
+         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+diff --git a/Documentation/devicetree/bindings/arm/mediatek.yaml b/Documentation/devicetree/bindings/arm/mediatek.yaml
+index d76ce4c3819d..b69e80bad666 100644
+--- a/Documentation/devicetree/bindings/arm/mediatek.yaml
++++ b/Documentation/devicetree/bindings/arm/mediatek.yaml
+@@ -101,6 +101,11 @@ properties:
+           - enum:
+               - mediatek,mt8167-pumpkin
+           - const: mediatek,mt8167
++      - description: Amazon Lidar PVT
++        items:
++          - const: amzn,lidar-pvt
++          - const: amzn,lidar
++          - const: mediatek,mt8167
+       - description: Google Elm (Acer Chromebook R13)
+         items:
+           - const: google,elm-rev8
+diff --git a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+index d8e1e2e9adf2..1d1bb0b5e884 100644
+--- a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
++++ b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+@@ -24,6 +24,7 @@ properties:
+           - mediatek,mt7620-mmc
+           - mediatek,mt7622-mmc
+           - mediatek,mt8135-mmc
++          - mediatek,mt8167-mmc
+           - mediatek,mt8173-mmc
+           - mediatek,mt8183-mmc
+           - mediatek,mt8516-mmc
+diff --git a/Documentation/devicetree/bindings/soc/mediatek/pwrap.txt b/Documentation/devicetree/bindings/soc/mediatek/pwrap.txt
+index d24e2bc444be..525ecb96d85e 100644
+--- a/Documentation/devicetree/bindings/soc/mediatek/pwrap.txt
++++ b/Documentation/devicetree/bindings/soc/mediatek/pwrap.txt
+@@ -25,6 +25,7 @@ Required properties in pwrap device node.
+ 	"mediatek,mt6873-pwrap" for MT6873/8192 SoCs
+ 	"mediatek,mt7622-pwrap" for MT7622 SoCs
+ 	"mediatek,mt8135-pwrap" for MT8135 SoCs
++	"mediatek,mt8167-pwrap" for MT8167 SoCs
+ 	"mediatek,mt8173-pwrap" for MT8173 SoCs
+ 	"mediatek,mt8183-pwrap" for MT8183 SoCs
+ 	"mediatek,mt8186-pwrap" for MT8186 SoCs
+diff --git a/Documentation/devicetree/bindings/usb/mediatek,musb.yaml b/Documentation/devicetree/bindings/usb/mediatek,musb.yaml
+index f16ab30a95d2..969f9e8ebb69 100644
+--- a/Documentation/devicetree/bindings/usb/mediatek,musb.yaml
++++ b/Documentation/devicetree/bindings/usb/mediatek,musb.yaml
+@@ -18,6 +18,7 @@ properties:
+     items:
+       - enum:
+           - mediatek,mt8516-musb
++          - mediatek,mt8167-usb20
+           - mediatek,mt2701-musb
+           - mediatek,mt7623-musb
+       - const: mediatek,mtk-musb
+diff --git a/README.md b/README.md
+index b8e924853b2f..270659e9d12e 100644
+--- a/README.md
++++ b/README.md
+@@ -1,7 +1,7 @@
+-# LibreEcho Linux for MT8163
++# LibreEcho Linux kernel targets
+ 
+-This repository is the Linux kernel source for LibreEcho MT8163 targets, kept
+-on real upstream stable history. It is intentionally separate from
++This repository is the Linux kernel source for LibreEcho targets, kept on real
++upstream stable history. It is intentionally separate from
+ `LibreEcho-Platform`, which
+ owns ARM32 product tooling, initramfs, feature packaging, OTA verification, and
+ the historical 3.18 compatibility tree.
+@@ -133,17 +133,38 @@ make O=/path/to/kernel-output ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- \
+   LD=arm-linux-gnueabihf-ld.bfd zImage dtbs -j8
+ ```
+ 
++For the ARM64 Lidar target:
++
++```sh
++make O=/path/to/kernel-output ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
++  LD=aarch64-linux-gnu-ld.bfd mt8167_arm64_defconfig
++make O=/path/to/kernel-output ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
++  LD=aarch64-linux-gnu-ld.bfd olddefconfig
++make O=/path/to/kernel-output ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
++  LD=aarch64-linux-gnu-ld.bfd Image dtbs -j8
++```
++
++The ARM32 build writes `arch/arm/boot/zImage`. The ARM64 build writes
++`arch/arm64/boot/Image`. Both write the target DTB under
++`arch/<arch>/boot/dts/`.
++
+ The final LibreEcho pipeline remains the authority for the stock-v184 Android
+ boot envelope, initramfs, feature payloads, signing, and image verification.
+ This repository must not be used to flash a device directly.
+ 
+ ## Kernel target scaffolding
+ 
+-`libreecho/targets.json` maps `radar_puffin` and `biscuit` to their kernel
+-`defconfig` and `dtb`. Both currently use `mt8163_arm32_defconfig` and
+-`libreecho-radar-puffin.dtb`: this is deliberate build parity, **not Biscuit
+-hardware acceptance**. Biscuit will get its own reviewed DTS and hardware
+-validation in a later change; no new DTS or audio/config fragments are added here.
++`libreecho/targets.json` maps each target ID to its `arch`, `defconfig`, `dtb`
++and `image`. `radar_puffin` and `biscuit` use `arm`,
++`mt8163_arm32_defconfig`, `libreecho-radar-puffin.dtb` and `zImage`. That shared
++tuple is deliberate build parity, **not Biscuit hardware acceptance**. Biscuit
++will get its own reviewed DTS and hardware validation in a later change; no new
++DTS or audio/config fragments are added here.
++
++`lidar` uses `arm64`, `mt8167_arm64_defconfig`, `mediatek/libreecho-lidar.dtb`
++and `Image`. Validation resolves sources at
++`arch/<arch>/configs/<defconfig>` and `arch/<arch>/boot/dts/<dtb>.dts`. It does
++not claim Lidar hardware support.
+ 
+ Validate the table and exercise its CI planner without hardware:
+ 
+@@ -152,14 +173,20 @@ python3 -B libreecho/validate_targets.py
+ python3 -B libreecho/test_targets.py
+ ```
+ 
+-CI reads this table, builds each distinct `(defconfig, dtb)` tuple once, then
+-uses a publication matrix over both targets to upload
+-`libreecho-kernel-<target>-zImage`, `-dtb`, `-System.map` and `-config` artifacts.
+-At parity these are copies of the same build outputs. The legacy Radar bundle
+-`libreecho-linux-arm32-<sha>` is also retained. Changing Biscuit's tuple to valid
+-in-tree sources adds a build lane automatically; unknown IDs or missing sources
+-fail validation. The build still uses `olddefconfig`, `zImage dtbs`, the existing
+-ARMHF GCC/linker flags and no config fragments, preserving Radar's CI recipe.
++CI reads this table and builds each distinct `(arch, defconfig, dtb, image)`
++tuple once in the matching ARM32 or ARM64 lane. The ARM64 lane runs
++`olddefconfig`, builds `Image dtbs` with the AArch64 GCC/linker flags, and
++asserts `CONFIG_COMPAT=y`. The ARM32 lane keeps the ARMHF GCC/linker flags and
++its resolved-configuration checks.
++
++A publication matrix covers all targets and uploads
++`libreecho-kernel-<target>-<image>`, `-dtb`, `-System.map` and `-config`. Existing
++ARM32 targets still publish `libreecho-kernel-<target>-zImage`, and Lidar
++publishes `libreecho-kernel-lidar-Image`. At parity the ARM32 images are copies
++of the same build outputs. The legacy Radar bundle
++`libreecho-linux-arm32-<sha>` is also retained. Changing a target tuple to valid
++in-tree sources adds a build lane automatically; unknown IDs, malformed fields
++or missing sources fail validation.
+ 
+ ## Contract tests
+ 
+diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
+index 0ec90cb3ef28..54883df69353 100644
+--- a/arch/arm64/boot/dts/mediatek/Makefile
++++ b/arch/arm64/boot/dts/mediatek/Makefile
+@@ -10,6 +10,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt7622-bananapi-bpi-r64.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-rfb.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986b-rfb.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8167-pumpkin.dtb
++dtb-$(CONFIG_ARCH_MEDIATEK) += libreecho-lidar.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8173-elm.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8173-elm-hana.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8173-elm-hana-rev7.dtb
+diff --git a/arch/arm64/boot/dts/mediatek/libreecho-lidar.dts b/arch/arm64/boot/dts/mediatek/libreecho-lidar.dts
+new file mode 100644
+index 000000000000..504231ef2a69
+--- /dev/null
++++ b/arch/arm64/boot/dts/mediatek/libreecho-lidar.dts
+@@ -0,0 +1,236 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * LibreEcho Lidar - Amazon Echo Plus (2nd generation), MediaTek MT8167
++ *
++ * Board facts below come from the production stock device tree (boot_a.bin
++ * appended FDT index 4, "amzn,lidar-pvt", sha256
++ * b5302d9e4a672e7c2d06624d712746fe61fa30ed59183d85f253cec2775a730f) and the
++ * stock kernel boot log.  Values that are inferred from upstream MT8167/
++ * MT8516 support rather than observed in the stock tree are marked.
++ *
++ * Bring-up scope: eMMC, USB, clocks, regulators, 8250 console, ramoops.
++ * Wi-Fi, audio, LEDs and buttons are intentionally absent.
++ */
++
++/dts-v1/;
++
++#include <dt-bindings/pinctrl/mt65xx.h>
++#include "mt8167.dtsi"
++
++/ {
++	model = "LibreEcho Lidar";
++	/*
++	 * The first two entries are the stock PVT identity: LK scores appended
++	 * DTBs against the idme board_id table, so a replacement DTB must keep
++	 * them to be selected on stock firmware.
++	 */
++	compatible = "amzn,lidar-pvt", "amzn,lidar", "mediatek,mt8167";
++
++	aliases {
++		serial0 = &uart0;
++	};
++
++	chosen {
++		/* Console rate matches the stock LK cmdline. */
++		stdout-path = "serial0:921600n8";
++	};
++
++	/*
++	 * The stock tree's memory node says 0x20000000 (512 MiB), but the stock
++	 * boot log reports 259984 pages and a memblock layout running to
++	 * 0x7f9c0000, i.e. 1 GiB of DRAM at 0x40000000.  The firmware fills in
++	 * the real size; 1 GiB is what this board has.
++	 */
++	memory@40000000 {
++		device_type = "memory";
++		reg = <0 0x40000000 0 0x40000000>;
++	};
++
++	reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		/* ATF remains resident and handles PSCI after Linux starts. */
++		atf@43000000 {
++			reg = <0 0x43000000 0 0x30000>;
++			no-map;
++		};
++
++		/*
++		 * LK maps its download window at 0x44fff000..0x4dffffff.
++		 * 0x44400000 is an unmapped hole there, and a probe of the low
++		 * end of the window at 0x45000000 read download-window data
++		 * instead of the marker.  Use the top of the window, where a
++		 * normal download is less likely to overwrite these regions;
++		 * the sizes and the stock ramoops record layout are unchanged.
++		 */
++		ram-console@4df00000 {
++			reg = <0 0x4df00000 0 0x10000>;
++		};
++
++		/*
++		 * Ends exactly at the stock ramdisk load address 0x44000000
++		 * and lies inside LK's boot-image mapping
++		 * (0x40080000..0x4407ffff), unlike the 0x444f0000 hole, so
++		 * LK's fastboot can fetch this page to read the entry
++		 * marker.  no-map keeps the kernel from allocating it.
++		 */
++		entry-probe@43ff0000 {
++			reg = <0 0x43ff0000 0 0x10000>;
++			no-map;
++		};
++
++		minirdump@444f0000 {
++			reg = <0 0x444f0000 0 0x10000>;
++		};
++
++		/*
++		 * Ramoops sits in LK's mapped boot-image window
++		 * (0x40080000..0x4407ffff), clear of the ATF reservation at
++		 * 0x43000000 and the ramdisk load address at 0x44000000.  The
++		 * regions are: records 0x40000, console 0x10000, pmsg
++		 * 0x10000, ending at 0x43870000.  The vendor tree exposed this
++		 * as mediatek,pstore; upstream ramoops needs the standard
++		 * binding.
++		 */
++		ramoops@43810000 {
++			compatible = "ramoops";
++			reg = <0 0x43810000 0 0x60000>;
++			record-size = <0x40000>;
++			console-size = <0x10000>;
++			pmsg-size = <0x10000>;
++			ecc = <0>;
++		};
++	};
++
++	/*
++	 * Stock Lidar has no PMIC-wrapper child device: the pwrap node is
++	 * disabled and eMMC power comes from always-on fixed rails
++	 * (mmc_power 3.3 V, mmc_io 1.8 V in the stock tree).
++	 */
++	reg_3v3: regulator-3v3 {
++		compatible = "regulator-fixed";
++		regulator-name = "mmc_power";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-always-on;
++	};
++
++	reg_1v8: regulator-1v8 {
++		compatible = "regulator-fixed";
++		regulator-name = "mmc_io";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		regulator-always-on;
++	};
++};
++
++&uart0 {
++	/* Console UART at 0x11005000, as the stock earlycon/cmdline uses. */
++	status = "okay";
++};
++
++&mmc0 {
++	compatible = "mediatek,mt8167-mmc";
++	status = "okay";
++	bus-width = <8>;
++	max-frequency = <200000000>;
++	non-removable;
++	cap-mmc-highspeed;
++	mmc-hs200-1_8v;
++	cap-mmc-hw-reset;
++	vmmc-supply = <&reg_3v3>;
++	vqmmc-supply = <&reg_1v8>;
++	pinctrl-names = "default", "state_uhs";
++	pinctrl-0 = <&mmc0_pins_default>;
++	pinctrl-1 = <&mmc0_pins_uhs>;
++};
++
++/*
++ * MMC0 pad states transcribed from the production PVT device tree:
++ * mmc0default (default) had DAT/CMD pull-up, CLK pull-down and RSTB pull-up
++ * with no drive strength set; the UHS state added 6 mA on DAT/CMD with
++ * R1R0 pull-up 01, 8 mA on CLK with R1R0 pull-down 10, and left RSTB at a
++ * plain pull-up.  Pin numbers and mux 1 match mt8167-pinfunc.h.
++ */
++&pio {
++	mmc0_pins_default: mmc0-pins-default-0 {
++		pins_cmd_dat {
++			pinmux = <MT8167_PIN_120_MSDC0_DAT0__FUNC_MSDC0_DAT0>,
++				 <MT8167_PIN_119_MSDC0_DAT1__FUNC_MSDC0_DAT1>,
++				 <MT8167_PIN_118_MSDC0_DAT2__FUNC_MSDC0_DAT2>,
++				 <MT8167_PIN_117_MSDC0_DAT3__FUNC_MSDC0_DAT3>,
++				 <MT8167_PIN_113_MSDC0_DAT4__FUNC_MSDC0_DAT4>,
++				 <MT8167_PIN_112_MSDC0_DAT5__FUNC_MSDC0_DAT5>,
++				 <MT8167_PIN_111_MSDC0_DAT6__FUNC_MSDC0_DAT6>,
++				 <MT8167_PIN_110_MSDC0_DAT7__FUNC_MSDC0_DAT7>,
++				 <MT8167_PIN_115_MSDC0_CMD__FUNC_MSDC0_CMD>;
++			input-enable;
++			bias-pull-up;
++		};
++
++		pins_clk {
++			pinmux = <MT8167_PIN_116_MSDC0_CLK__FUNC_MSDC0_CLK>;
++			bias-pull-down;
++		};
++
++		pins_rst {
++			pinmux = <MT8167_PIN_114_MSDC0_RSTB__FUNC_MSDC0_RSTB>;
++			bias-pull-up;
++		};
++	};
++
++	mmc0_pins_uhs: mmc0-pins-uhs-1 {
++		pins_cmd_dat {
++			pinmux = <MT8167_PIN_120_MSDC0_DAT0__FUNC_MSDC0_DAT0>,
++				 <MT8167_PIN_119_MSDC0_DAT1__FUNC_MSDC0_DAT1>,
++				 <MT8167_PIN_118_MSDC0_DAT2__FUNC_MSDC0_DAT2>,
++				 <MT8167_PIN_117_MSDC0_DAT3__FUNC_MSDC0_DAT3>,
++				 <MT8167_PIN_113_MSDC0_DAT4__FUNC_MSDC0_DAT4>,
++				 <MT8167_PIN_112_MSDC0_DAT5__FUNC_MSDC0_DAT5>,
++				 <MT8167_PIN_111_MSDC0_DAT6__FUNC_MSDC0_DAT6>,
++				 <MT8167_PIN_110_MSDC0_DAT7__FUNC_MSDC0_DAT7>,
++				 <MT8167_PIN_115_MSDC0_CMD__FUNC_MSDC0_CMD>;
++			input-enable;
++			drive-strength = <MTK_DRIVE_6mA>;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++		};
++
++		pins_clk {
++			pinmux = <MT8167_PIN_116_MSDC0_CLK__FUNC_MSDC0_CLK>;
++			drive-strength = <MTK_DRIVE_8mA>;
++			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
++		};
++
++		pins_rst {
++			pinmux = <MT8167_PIN_114_MSDC0_RSTB__FUNC_MSDC0_RSTB>;
++			bias-pull-up;
++		};
++	};
++};
++
++/*
++ * USB device port on the in-SoC MUSB controller.  Stock uses
++ * "mediatek,mt8167-usb20" with 8-bit FIFOs and OTG; this bring-up keeps the
++ * upstream mtk-musb path and a peripheral role.
++ */
++&usb0 {
++	compatible = "mediatek,mt8167-usb20", "mediatek,mtk-musb";
++	status = "okay";
++	dr_mode = "peripheral";
++};
++
++&usb_phy {
++	status = "okay";
++};
++
++/*
++ * PMIC wrapper support exists for mt8167-pwrap, but the stock tree leaves
++ * pwrap disabled and no MT6357 child was ever described.  Keep it disabled
++ * until a PMIC child is known; regulators above cover this boot chain.
++ */
++&pwrap {
++	compatible = "mediatek,mt8167-pwrap";
++	status = "disabled";
++};
+diff --git a/arch/arm64/configs/mt8167_arm64_defconfig b/arch/arm64/configs/mt8167_arm64_defconfig
+new file mode 100644
+index 000000000000..947d413f2aa1
+--- /dev/null
++++ b/arch/arm64/configs/mt8167_arm64_defconfig
+@@ -0,0 +1,62 @@
++# Architecture core, derived from the in-tree arm64 defconfig baseline.
++# CONFIG_LOCALVERSION_AUTO is not set
++CONFIG_NO_HZ_IDLE=y
++CONFIG_HIGH_RES_TIMERS=y
++CONFIG_IKCONFIG=y
++CONFIG_IKCONFIG_PROC=y
++CONFIG_BLK_DEV_INITRD=y
++CONFIG_CC_OPTIMIZE_FOR_SIZE=y
++CONFIG_EMBEDDED=y
++CONFIG_ARCH_MEDIATEK=y
++# 32-bit userspace on the 64-bit kernel.
++CONFIG_COMPAT=y
++# Stock firmware and kernel boot with a 39-bit VA; the board has 1 GiB DRAM.
++CONFIG_ARM64_VA_BITS_39=y
++CONFIG_SMP=y
++CONFIG_NET=y
++CONFIG_UNIX=y
++CONFIG_DEVTMPFS=y
++CONFIG_DEVTMPFS_MOUNT=y
++
++# Console: 8250 on the MT6577-compatible MMIO UART.
++CONFIG_SERIAL_8250=y
++CONFIG_SERIAL_8250_CONSOLE=y
++CONFIG_SERIAL_8250_MT6577=y
++
++# Clocks, pinctrl, and their shared syscon register maps.
++CONFIG_MFD_SYSCON=y
++CONFIG_COMMON_CLK_MT8167=y
++CONFIG_PINCTRL=y
++CONFIG_PINCTRL_MT8167=y
++
++# eMMC (MSDC0) with HS200.
++CONFIG_MMC=y
++CONFIG_MMC_BLOCK=y
++CONFIG_MMC_MTK=y
++
++# USB device port (MUSB MediaTek glue + in-SoC PHY).
++CONFIG_USB=y
++CONFIG_USB_MUSB_HDRC=y
++CONFIG_USB_MUSB_DUAL_ROLE=y
++CONFIG_USB_MUSB_MEDIATEK=y
++CONFIG_MUSB_PIO_ONLY=y
++CONFIG_NOP_USB_XCEIV=y
++CONFIG_USB_GADGET=y
++CONFIG_USB_CONFIGFS=y
++CONFIG_USB_CONFIGFS_RNDIS=y
++CONFIG_USB_CONFIGFS_F_FS=y
++CONFIG_PHY_MTK_TPHY=y
++
++# Regulators and the (disabled) PMIC wrapper.
++CONFIG_REGULATOR=y
++CONFIG_REGULATOR_FIXED_VOLTAGE=y
++CONFIG_MTK_PMIC_WRAP=y
++
++# Persistent storage for logs across reboots.
++CONFIG_PSTORE=y
++CONFIG_PSTORE_CONSOLE=y
++CONFIG_PSTORE_PMSG=y
++CONFIG_PSTORE_RAM=y
++CONFIG_PSTORE_BLK=y
++
++CONFIG_EXT4_FS=y
+diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+index cdbbc95eb49d..51871d81dfb4 100644
+--- a/arch/arm64/kernel/head.S
++++ b/arch/arm64/kernel/head.S
+@@ -86,6 +86,87 @@
+ 	 *  x28        create_idmap()                           callee preserved temp register
+ 	 */
+ SYM_CODE_START(primary_entry)
++#ifdef CONFIG_LIBREECHO_LATEINIT_FASTBOOT
++	/*
++	 * [LIBREECHO-PROBE] Earliest marker: MMU is still off (only
++	 * __primary_switch enables it) and only x0..x3 carry boot state, so
++	 * x9..x11 are free.  With the MMU off, data accesses are
++	 * Device-nGnRnE, so the store reaches the PoC without cache
++	 * maintenance.  Writes 16 bytes "PROBE-ENTRY!" plus four NULs to
++	 * two reserved regions: 0x43860700 in ramoops' pmsg zone and
++	 * 0x43ff0800 in the entry-probe reservation.
++	 *
++	 * The second address answers a question the first cannot, and it
++	 * must be readable by LK's fastboot.  The entry-probe page
++	 * 0x43ff0000..0x43ffffff ends at the stock ramdisk load address
++	 * and sits inside LK's boot-image mapping (0x40080000..0x4407ffff),
++	 * so a fastboot fetch of it is a mapped read rather than a fault.
++	 * The ramoops window is owned by this kernel, which can clear or
++	 * rewrite it during pstore init, while the no-map reserved page
++	 * stays untouched.  A surviving 0x43ff0800 marker with a missing
++	 * 0x43860700 marker means the handover reached primary_entry and
++	 * the ramoops window was lost afterwards; both missing means the
++	 * handover itself never ran (or the wrong slot booted).
++	 * Remove with the rest of LIBREECHO-PROBE.
++	 */
++	movz	w9, #0x0700
++	movk	w9, #0x4386, lsl #16
++	movz	x10, #0x5250			// "PROBE-EN"
++	movk	x10, #0x424f, lsl #16
++	movk	x10, #0x2d45, lsl #32
++	movk	x10, #0x4e45, lsl #48
++	movz	x11, #0x5254			// "TRY!" + 4 NUL
++	movk	x11, #0x2159, lsl #16
++	stp	x10, x11, [x9]
++	movz	w9, #0x0800
++	movk	w9, #0x43ff, lsl #16
++	stp	x10, x11, [x9]
++#ifdef CONFIG_LIBREECHO_ENTRY_WDT_RESET
++	/*
++	 * [LIBREECHO-PROBE] One-shot delayed-watchdog reset, immediately
++	 * after both marker stores.  The MMU is still off and x12..x15 are
++	 * free here.  Wait five seconds on the generic counter so LK's
++	 * fastboot can fetch the marker pages, then reset through TOPRGU
++	 * with the bootchain's proven sequence.
++	 *
++	 * This is the matched control for the late-init probe: a warm reset
++	 * never powers DRAM, so a marker lost by a late_initcall reset is
++	 * indistinguishable from a handover that never ran.  Resetting here,
++	 * before preserve_boot_args and before any kernel code executes,
++	 * leaves no kernel execution between the stores and the reset that
++	 * could lose the marker, so absence of a marker is evidence about
++	 * primary_entry itself rather than about warm-reset RAM retention.
++	 *
++	 * The watchdog is deliberately not disabled or reprogrammed first.
++	 * Remove with the rest of LIBREECHO-PROBE.
++	 */
++	mrs	x12, cntfrq_el0
++	movz	x13, #5
++	mul	x12, x12, x13
++	mrs	x14, cntpct_el0
++	add	x12, x12, x14
++1:
++	mrs	x14, cntpct_el0
++	cmp	x14, x12
++	b.lo	1b
++
++	movz	w12, #0x7000
++	movk	w12, #0x1000, lsl #16		// TOPRGU base 0x10007000
++	movz	w13, #0x1971
++	str	w13, [x12, #0x08]		// WDT kick key
++	ldr	w13, [x12, #0x24]		// WDT_NONRST
++	orr	w13, w13, #4
++	str	w13, [x12, #0x24]
++	movz	w13, #0x0014
++	movk	w13, #0x2200, lsl #16
++	str	w13, [x12, #0x00]		// mode: reset to fastboot
++	dsb	sy
++	movz	w13, #0x1209
++	str	w13, [x12, #0x14]		// SWRST
++2:
++	b	2b
++#endif
++#endif
+ 	bl	preserve_boot_args
+ 	bl	init_kernel_el			// w0=cpu_boot_mode
+ 	mov	x20, x0
+diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
+index 44c4d79bd914..ad6a587d445d 100644
+--- a/arch/arm64/kernel/setup.c
++++ b/arch/arm64/kernel/setup.c
+@@ -333,8 +333,37 @@ void __init __no_sanitize_address setup_arch(char **cmdline_p)
+ 
+ 	arm64_memblock_init();
+ 
++#ifdef CONFIG_LIBREECHO_LATEINIT_FASTBOOT
++	/*
++	 * [LIBREECHO-PROBE] Reserve the pmsg marker page before paging_init()
++	 * maps RAM and before mm_init() can free it to the page allocator, so
++	 * the markers at 0x43860000 survive until the late readback.  Removal
++	 * and the full probe layout are documented in init/main.c.
++	 */
++	memblock_reserve(0x43860000UL, 0x1000UL);
++#endif
++
+ 	paging_init();
+ 
++#ifdef CONFIG_LIBREECHO_LATEINIT_FASTBOOT
++	/*
++	 * [LIBREECHO-PROBE] Earliest point where phys_to_virt is valid: only
++	 * arm64_memblock_init() fixes memstart_addr/PHYS_OFFSET and only
++	 * paging_init() installs the final linear map covering 0x43860000.
++	 * Slot 0x500, tag 18 bytes plus NUL, clear of the 0x000/0x100 driver
++	 * slots and the 0x200/0x300/0x400 init/main.c slots.
++	 */
++	{
++		void *probe = phys_to_virt(0x43860000UL + 0x500);
++
++		memcpy(probe, "PROBE-PAGING-INIT!",
++		       sizeof("PROBE-PAGING-INIT!"));
++		dcache_clean_poc((unsigned long)probe,
++				 (unsigned long)probe +
++				 sizeof("PROBE-PAGING-INIT!"));
++	}
++#endif
++
+ 	acpi_table_upgrade();
+ 
+ 	/* Parse the ACPI tables for possible boot-time configuration */
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 72fb70f2bfb2..870caed88506 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -865,6 +865,26 @@ void __init paging_init(void)
+ 	pgd_clear_fixmap();
+ 
+ 	cpu_replace_ttbr1(lm_alias(swapper_pg_dir), init_idmap_pg_dir);
++
++#ifdef CONFIG_LIBREECHO_LATEINIT_FASTBOOT
++	/*
++	 * [LIBREECHO-PROBE] First point where the new linear map is live.
++	 * map_mem() only fills swapper_pg_dir through the pgd fixmap; TTBR1
++	 * still walks init_pg_dir until cpu_replace_ttbr1() above returns, so
++	 * a phys_to_virt write right after map_mem() would fault or land in
++	 * the early mapping.  Slot 0x600, 14 bytes plus NUL, clear of the
++	 * driver slots 0x000/0x100 and the 0x200/0x300/0x400/0x500 slots.
++	 */
++	{
++		void *probe = phys_to_virt(0x43860000UL + 0x600);
++
++		memcpy(probe, "PROBE-MAP-MEM!", sizeof("PROBE-MAP-MEM!"));
++		dcache_clean_poc((unsigned long)probe,
++				 (unsigned long)probe +
++				 sizeof("PROBE-MAP-MEM!"));
++	}
++#endif
++
+ 	init_mm.pgd = swapper_pg_dir;
+ 
+ 	memblock_phys_free(__pa_symbol(init_pg_dir),
+diff --git a/drivers/misc/Kconfig b/drivers/misc/Kconfig
+index fb62e4ecbeee..8824803471b8 100644
+--- a/drivers/misc/Kconfig
++++ b/drivers/misc/Kconfig
+@@ -508,6 +508,193 @@ config AMZ_PRIVACY
+ 	  lights the mute button's lamp from a software mute without
+ 	  entering the privacy latch.
+ 
++config LIBREECHO_PSTORE_PANIC_PROBE
++	bool "Force a panic at late_initcall_sync for pstore diagnostics"
++	depends on PSTORE
++	default n
++	help
++	  Diagnostic-only driver for LibreEcho. At late_initcall_sync, after
++	  the ordinary late_initcall pstore and pstore_blk registration, it
++	  emits one tagged emergency log line and panics with a unique
++	  message so the pstore backend can capture the full kernel log.
++
++	  This deliberately crashes the kernel on every boot. Say N unless
++	  you are building a one-shot pstore capture image.
++
++config LIBREECHO_LATEINIT_FASTBOOT
++	bool "Return the MT8167 to fastboot from late_initcall_sync"
++	depends on ARM64 && ARCH_MEDIATEK && HAS_IOMEM
++	default n
++	help
++	  Diagnostic-only driver for LibreEcho. At late_initcall_sync it writes
++	  the marker LIBREECHOLATEINIT! to physical 0x4df00000 at the top of
++	  LK's mapped download window, then arms the MT8167 TOPRGU watchdog to
++	  reset the CPU into Kaeru fastboot: kick key 0x1971 at +0x08, set bit
++	  2 of WDT_NONRST at +0x24, write 0x22000014 to the mode register at
++	  +0x00, dsb, then SWRST key 0x1209 at +0x14. It never returns.
++
++	  The fastboot device appearing after the reboot is the intended
++	  observation; the RAM marker is only a secondary check. This resets
++	  the device on every boot. Say N unless you are building a one-shot
++	  late-init reachability image.
++
++config LIBREECHO_ENTRY_WDT_RESET
++	bool "Reset from primary_entry after a five-second delayed watchdog kick"
++	depends on LIBREECHO_LATEINIT_FASTBOOT
++	default n
++	help
++	  One-shot diagnostic for LibreEcho. Inside the primary_entry entry
++	  marker block, after both RAM markers are stored and while the MMU is
++	  still off, this waits five seconds on the generic counter
++	  (CNTFRQ_EL0/CNTPCT_EL0) and then resets the MT8167 through TOPRGU
++	  with the bootchain's proven sequence: kick key 0x1971 at +0x08, set
++	  bit 2 of WDT_NONRST at +0x24, write 0x22000014 to the mode register
++	  at +0x00, dsb, then SWRST key 0x1209 at +0x14. It never returns, so
++	  preserve_boot_args and the rest of the kernel do not run.
++
++	  The five-second delay is the observation window: LK's fastboot can
++	  fetch the two marker pages before the reset. Because the reset
++	  happens before any kernel code runs, a missing marker cannot be
++	  explained by warm-reset DRAM loss or by a kernel stall; it can only
++	  mean the handover never reached primary_entry. The watchdog is not
++	  disabled or reprogrammed first.
++
++	  This reboots the device five seconds after every boot. Say N unless
++	  you are building a one-shot entry-reachability image.
++
++config LIBREECHO_REST_INIT_WDT_RESET
++	bool "Reset from rest_init after a five-second delayed watchdog kick"
++	depends on LIBREECHO_LATEINIT_FASTBOOT
++	default n
++	help
++	  One-shot diagnostic for LibreEcho. At the very top of rest_init,
++	  before rcu_scheduler_starting() and user_mode_thread(), this waits
++	  five seconds and then resets the MT8167 through TOPRGU with the
++	  bootchain's proven sequence: kick key 0x1971 at +0x08, set bit 2 of
++	  WDT_NONRST at +0x24, write 0x22000014 to the mode register at +0x00,
++	  dsb, then SWRST key 0x1209 at +0x14. It never returns, so the normal
++	  rest_init body and all later init do not run.
++
++	  The fastboot return after the delay is the reachability signal. It
++	  does not depend on RAM surviving the reset, so it reports whether this
++	  stage ran even when marker pages were overwritten on the failure
++	  path. The watchdog is not disabled or reprogrammed first.
++
++	  This reboots the device five seconds after every boot. Say N unless
++	  you are building a one-shot rest_init reachability image.
++
++config LIBREECHO_INITCALL_WDT_RESET
++	int "Reset from do_initcalls at a selected initcall level"
++	depends on LIBREECHO_LATEINIT_FASTBOOT
++	range -2 7
++	default -1
++	help
++	  One-shot diagnostic for LibreEcho. This waits five seconds and then
++	  resets the MT8167 through TOPRGU with the bootchain's proven
++	  sequence inside do_initcalls(), the same mechanism as the
++	  LIBREECHO_REST_INIT_WDT_RESET probe. Because the reset is a
++	  reachability signal that does not depend on RAM surviving, the
++	  fastboot return after the delay reports how far init got.
++
++	  The value selects where in do_initcalls() the reset fires:
++	    -1  disabled (default)
++	    -2  before the first level, after rest_init but before level 0
++	     0  pure
++	     1  core
++	     2  postcore
++	     3  arch
++	     4  subsys
++	     5  fs
++	     6  device
++	     7  late
++	  Levels 0..7 fire immediately after that level's initcalls finish.
++	  When set to 7, the libreecho_lateinit_fastboot_init
++	  late_initcall_sync registration is suppressed so its own reset
++	  cannot mask the after-late-level probe; the reset helper stays
++	  built. The delay keeps LK's fastboot alive long enough for a fetch.
++
++	  This reboots the device five seconds after every boot when set to
++	  -2 or 0..7. Leave it at -1 unless you are building a one-shot
++	  initcall-reachability image.
++
++config LIBREECHO_INITCALL_ITEM_WDT_RESET
++	int "Reset before a selected late-level initcall item"
++	depends on LIBREECHO_LATEINIT_FASTBOOT
++	range -1 1023
++	default -1
++	help
++	  One-shot diagnostic for LibreEcho. Inside do_initcall_level(), this
++	  waits five seconds and then resets the MT8167 through TOPRGU with
++	  the bootchain's proven sequence before running the selected
++	  zero-based item of the late initcall level (level 7).
++
++	  Reaching the reset proves that every earlier late initcall returned.
++	  The value is the zero-based index in the ordered late-level list:
++	    -1    disabled (default)
++	     0    before the first late initcall
++	     N    before the N-th late initcall (0-based)
++	  The delay keeps LK's fastboot alive long enough for a fetch.
++
++	  While this is 0..1023, the libreecho_lateinit_fastboot_init
++	  late_initcall_sync registration is suppressed so its own reset
++	  cannot mask the per-item probe; the reset helper stays built.
++
++	  This reboots the device five seconds after every boot when enabled.
++	  Leave it at -1 unless you are building a one-shot late-item probe.
++
++config LIBREECHO_USERSPACE_WDT_RESET
++	bool "Reset just before userspace init after a five-second delayed watchdog kick"
++	depends on LIBREECHO_LATEINIT_FASTBOOT
++	default n
++	help
++	  One-shot diagnostic for LibreEcho. In kernel_init, after
++	  kernel_init_freeable(), async_synchronize_full(), free_initmem(),
++	  mark_readonly(), pti_finalize() and do_sysctl_args(), and immediately
++	  before the ramdisk_execute_command/run_init_process path, this waits
++	  five seconds and then resets the MT8167 through TOPRGU with the
++	  bootchain's proven sequence: kick key 0x1971 at +0x08, set bit 2 of
++	  WDT_NONRST at +0x24, write 0x22000014 to the mode register at +0x00,
++	  dsb, then SWRST key 0x1209 at +0x14. It never returns, so userspace
++	  init is not executed.
++
++	  The fastboot return after the delay is the reachability signal: it
++	  proves the kernel completed every kernel_init_freeable() step, the
++	  async synchronisation, free_initmem(), the final kernel setup and
++	  do_sysctl_args(), and reached the userspace exec point. While this
++	  option is set, the final libreecho_lateinit_fastboot_init
++	  late_initcall_sync registration is suppressed so its own earlier
++	  reset cannot mask this probe; the reset helper stays built.
++
++	  This reboots the device five seconds after every boot. Say N unless
++	  you are building a one-shot pre-userspace reachability image.
++
++config LIBREECHO_EXEC_SUCCESS_WDT_RESET
++	bool "Reset after a successful ramdisk init exec with a five-second delayed watchdog kick"
++	depends on LIBREECHO_LATEINIT_FASTBOOT
++	default n
++	help
++	  One-shot diagnostic for LibreEcho. In kernel_init, inside the
++	  ramdisk_execute_command branch, this runs only when
++	  run_init_process(ramdisk_execute_command) has returned zero. It waits
++	  five seconds and then resets the MT8167 through TOPRGU with the
++	  bootchain's proven sequence: kick key 0x1971 at +0x08, set bit 2 of
++	  WDT_NONRST at +0x24, write 0x22000014 to the mode register at +0x00,
++	  dsb, then SWRST key 0x1209 at +0x14. It never returns, so userspace
++	  init does not start.
++
++	  kernel_execve returns zero only after the kernel has successfully
++	  loaded the executed file, so the fastboot return after the delay
++	  proves that the stock ramdisk /init was accepted by the kernel exec
++	  path. A failed exec returns an error, skips this probe, and continues
++	  with the ordinary fallback paths. While this option is set, the final
++	  libreecho_lateinit_fastboot_init late_initcall_sync registration is
++	  suppressed so its own earlier reset cannot mask this probe; the reset
++	  helper stays built.
++
++	  This reboots the device five seconds after every boot that successfully
++	  execs the ramdisk init. Say N unless you are building a one-shot init
++	  exec-success image.
++
+ source "drivers/misc/c2port/Kconfig"
+ source "drivers/misc/eeprom/Kconfig"
+ source "drivers/misc/cb710/Kconfig"
+diff --git a/drivers/misc/Makefile b/drivers/misc/Makefile
+index a1ff852f471d..6b8c726c2973 100644
+--- a/drivers/misc/Makefile
++++ b/drivers/misc/Makefile
+@@ -63,4 +63,6 @@ obj-$(CONFIG_OPEN_DICE)		+= open-dice.o
+ obj-$(CONFIG_GP_PCI1XXXX)	+= mchp_pci1xxxx/
+ obj-$(CONFIG_VCPU_STALL_DETECTOR)	+= vcpu_stall_detector.o
+ obj-$(CONFIG_AMZ_PRIVACY)		+= amz_privacy.o
++obj-$(CONFIG_LIBREECHO_PSTORE_PANIC_PROBE)	+= libreecho_pstore_panic_probe.o
++obj-$(CONFIG_LIBREECHO_LATEINIT_FASTBOOT)	+= libreecho_lateinit_fastboot.o
+ obj-$(CONFIG_MTK_MT8163_CONSYS)	+= mediatek/
+diff --git a/drivers/misc/libreecho_lateinit_fastboot.c b/drivers/misc/libreecho_lateinit_fastboot.c
+new file mode 100644
+index 000000000000..90cea851cb0f
+--- /dev/null
++++ b/drivers/misc/libreecho_lateinit_fastboot.c
+@@ -0,0 +1,118 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Late-init milestone probe that returns the MT8167 to Kaeru fastboot.
++ *
++ * The diagnostic is deliberately destructive: a finite marker is written to
++ * RAM, then the SoC watchdog is armed to reset the CPU without a full power
++ * cycle.  Kaeru re-enumerates over USB, so a fastboot device after the reboot
++ * proves that this late_initcall_sync ran.
++ */
++#include <linux/bits.h>
++#include <linux/delay.h>
++#include <linux/init.h>
++#include <linux/io.h>
++#include <linux/kernel.h>
++#include <linux/processor.h>
++#include <linux/string.h>
++#include <asm/barrier.h>
++#include <asm/cacheflush.h>
++
++#define LIBREECHO_LATEINIT_TAG	"[LIBREECHO-LATEINIT-FASTBOOT]"
++
++#define MT8167_TOPRGU_BASE	0x10007000
++#define TOPRGU_WDT_MODE		0x00
++#define TOPRGU_WDT_RESTART	0x08
++#define TOPRGU_WDT_SWRST	0x14
++#define TOPRGU_WDT_NONRST	0x24
++
++#define WDT_MODE_FASTBOOT_RESET	0x22000014
++#define WDT_RESTART_KEY		0x1971
++#define WDT_SWRST_KEY		0x1209
++#define WDT_NONRST_RST_MODE	BIT(2)
++
++/*
++ * Keep progress markers in the fetched pmsg zone. Standalone words elsewhere
++ * in the boot-image window are overwritten across the watchdog return.
++ */
++#define LIBREECHO_PROGRESS_PHYS	0x43860000
++#define LIBREECHO_LATE_OFFSET	0x100
++
++static const char libreecho_early_marker[] = "EARLY-LIBREECHO!";
++static const char libreecho_lateinit_marker[] = "LIBREECHOLATEINIT!";
++
++/*
++ * Reset the MT8167 through TOPRGU with the bootchain's proven sequence.
++ * delay_ms is the observation window for a probe: LK's fastboot can fetch its
++ * pages while the CPU busy-waits. Zero resets immediately. Never returns.
++ */
++void __noreturn libreecho_wdt_reset(unsigned int delay_ms)
++{
++	void __iomem *toprgu;
++	u32 nonrst;
++
++	if (delay_ms)
++		mdelay(delay_ms);
++
++	toprgu = ioremap(MT8167_TOPRGU_BASE, 0x100);
++	if (!toprgu) {
++		pr_err(LIBREECHO_LATEINIT_TAG " ioremap of TOPRGU failed\n");
++		for (;;)
++			cpu_relax();
++	}
++
++	writel(WDT_RESTART_KEY, toprgu + TOPRGU_WDT_RESTART);
++	nonrst = readl(toprgu + TOPRGU_WDT_NONRST);
++	writel(nonrst | WDT_NONRST_RST_MODE, toprgu + TOPRGU_WDT_NONRST);
++	writel(WDT_MODE_FASTBOOT_RESET, toprgu + TOPRGU_WDT_MODE);
++	dsb(sy);
++	writel(WDT_SWRST_KEY, toprgu + TOPRGU_WDT_SWRST);
++
++	for (;;)
++		cpu_relax();
++}
++
++static int __init libreecho_early_marker_init(void)
++{
++	void *dst = phys_to_virt(LIBREECHO_PROGRESS_PHYS);
++
++	memcpy(dst, libreecho_early_marker, sizeof(libreecho_early_marker));
++	dcache_clean_poc((unsigned long)dst,
++			 (unsigned long)dst + sizeof(libreecho_early_marker));
++	return 0;
++}
++early_initcall(libreecho_early_marker_init);
++
++/*
++ * [LIBREECHO-PROBE] Keep the one-shot late_initcall_sync reset out of the
++ * late level whenever a diagnostic resolves whether that level finished:
++ * an item probe (ITEM >= 0), the after-level reset (INITCALL == 7), or the
++ * userspace exec probe, whose reset must not be masked by an earlier final
++ * late registration. The final registration would otherwise reset inside
++ * the level or before userspace. Remove with the rest of LIBREECHO-PROBE.
++ */
++#if (!defined(CONFIG_LIBREECHO_INITCALL_ITEM_WDT_RESET) || \
++     CONFIG_LIBREECHO_INITCALL_ITEM_WDT_RESET < 0) && \
++    (!defined(CONFIG_LIBREECHO_INITCALL_WDT_RESET) || \
++     CONFIG_LIBREECHO_INITCALL_WDT_RESET != 7) && \
++    !defined(CONFIG_LIBREECHO_USERSPACE_WDT_RESET) && \
++    !defined(CONFIG_LIBREECHO_EXEC_SUCCESS_WDT_RESET)
++static int __init libreecho_lateinit_fastboot_init(void)
++{
++	void *marker;
++
++	pr_info(LIBREECHO_LATEINIT_TAG
++		" late_initcall_sync reached; writing RAM marker and resetting to fastboot\n");
++
++	marker = phys_to_virt(LIBREECHO_PROGRESS_PHYS + LIBREECHO_LATE_OFFSET);
++	memcpy(marker, libreecho_lateinit_marker,
++	       sizeof(libreecho_lateinit_marker));
++	dcache_clean_poc((unsigned long)marker,
++			 (unsigned long)marker +
++			 sizeof(libreecho_lateinit_marker));
++
++	libreecho_wdt_reset(0);
++
++	return 0;
++}
++late_initcall_sync(libreecho_lateinit_fastboot_init);
++#endif
+diff --git a/drivers/misc/libreecho_pstore_panic_probe.c b/drivers/misc/libreecho_pstore_panic_probe.c
+new file mode 100644
+index 000000000000..4466b47b98c8
+--- /dev/null
++++ b/drivers/misc/libreecho_pstore_panic_probe.c
+@@ -0,0 +1,21 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Forced-panic probe for verifying pstore capture of a late boot crash.
++ *
++ * late_initcall_sync runs after the ordinary late_initcall pstore and
++ * pstore_blk registration, so the panic below exercises the backend exactly
++ * once with the whole boot log already in the ring buffer.
++ */
++#include <linux/init.h>
++#include <linux/kernel.h>
++
++#define LIBREECHO_PSTORE_PROBE_TAG "[LIBREECHO-PSTORE-PROBE]"
++
++static int __init libreecho_pstore_panic_probe_init(void)
++{
++	pr_emerg(LIBREECHO_PSTORE_PROBE_TAG
++		 " late_initcall_sync reached; forcing panic after pstore_blk init\n");
++	panic("LIBREECHO-PSTORE-PROBE forced panic");
++	return 0;
++}
++late_initcall_sync(libreecho_pstore_panic_probe_init);
+diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
+index 32c34900a4b7..94b81d20aee9 100644
+--- a/drivers/mmc/host/mtk-sd.c
++++ b/drivers/mmc/host/mtk-sd.c
+@@ -629,6 +629,7 @@ static const struct of_device_id msdc_of_ids[] = {
+ 	{ .compatible = "mediatek,mt7622-mmc", .data = &mt7622_compat},
+ 	{ .compatible = "mediatek,mt8135-mmc", .data = &mt8135_compat},
+ 	{ .compatible = "mediatek,mt8163-mmc", .data = &mt8163_compat},
++	{ .compatible = "mediatek,mt8167-mmc", .data = &mt8516_compat},
+ 	{ .compatible = "mediatek,mt8173-mmc", .data = &mt8173_compat},
+ 	{ .compatible = "mediatek,mt8183-mmc", .data = &mt8183_compat},
+ 	{ .compatible = "mediatek,mt8516-mmc", .data = &mt8516_compat},
+diff --git a/drivers/phy/mediatek/phy-mtk-tphy.c b/drivers/phy/mediatek/phy-mtk-tphy.c
+index e906a82791bd..25925640903b 100644
+--- a/drivers/phy/mediatek/phy-mtk-tphy.c
++++ b/drivers/phy/mediatek/phy-mtk-tphy.c
+@@ -73,6 +73,7 @@
+ #define PA6_RG_U2_SQTH		GENMASK(3, 0)
+ 
+ #define U3P_U2PHYACR4		0x020
++#define P2C_RG_USB20_DP100K		BIT(18)
+ #define P2C_RG_USB20_GPIO_CTL		BIT(9)
+ #define P2C_USB20_GPIO_MODE		BIT(8)
+ #define P2C_U2_GPIO_CTR_MSK	(P2C_RG_USB20_GPIO_CTL | P2C_USB20_GPIO_MODE)
+@@ -110,9 +111,14 @@
+ 
+ #define U3P_U2PHYDTM1		0x06C
+ #define P2C_RG_UART_EN			BIT(16)
++#define P2C_FORCE_VBUSVALID		BIT(13)
++#define P2C_FORCE_SESSEND		BIT(12)
++#define P2C_FORCE_BVALID		BIT(11)
++#define P2C_FORCE_AVALID		BIT(10)
+ #define P2C_FORCE_IDDIG		BIT(9)
+ #define P2C_RG_VBUSVALID		BIT(5)
+ #define P2C_RG_SESSEND			BIT(4)
++#define P2C_RG_BVALID			BIT(3)
+ #define P2C_RG_AVALID			BIT(2)
+ #define P2C_RG_IDDIG			BIT(1)
+ 
+@@ -284,6 +290,12 @@ struct mtk_phy_pdata {
+ 	 * support sw way, also support it for v2/v3 optionally.
+ 	 */
+ 	bool sw_efuse_supported;
++	/*
++	 * MT8516 must apply the vendor's DTM1 force sequence when entering
++	 * device mode; forcing IDDIG alone leaves the controller responding
++	 * to SOF without ever being enumerated by the host.
++	 */
++	bool vendor_device_mode_force;
+ 	enum mtk_phy_version version;
+ };
+ 
+@@ -500,6 +512,26 @@ static void u2_phy_instance_init(struct mtk_tphy *tphy,
+ 	/* Workaround only for mt8195, HW fix it for others (V3) */
+ 	u2_phy_pll_26m_set(tphy, instance);
+ 
++	if (tphy->pdata->vendor_device_mode_force) {
++		/*
++		 * MT8516 vendor analog PHY setup. Its USB20_PHY_ACR6 SQTH is
++		 * 6 instead of the generic 2, ACR1 drives both VRT_SEL and
++		 * TERM_SEL to 7, and ACR4 selects the DP 100K mode with the
++		 * 17:16 mode field cleared. Without these the D+ pullup is
++		 * requested by the controller but the host sees no
++		 * electrical connect.
++		 */
++		mtk_phy_update_field(com + U3P_USBPHYACR6, PA6_RG_U2_SQTH, 6);
++
++		mtk_phy_update_bits(com + U3P_USBPHYACR1,
++				    PA1_RG_VRT_SEL | PA1_RG_TERM_SEL,
++				    FIELD_PREP(PA1_RG_VRT_SEL, 7) |
++				    FIELD_PREP(PA1_RG_TERM_SEL, 7));
++
++		mtk_phy_set_bits(com + U3P_U2PHYACR4, P2C_RG_USB20_DP100K);
++		mtk_phy_clear_bits(com + U3P_U2PHYACR4, GENMASK(17, 16));
++	}
++
+ 	dev_dbg(tphy->dev, "%s(%d)\n", __func__, index);
+ }
+ 
+@@ -572,6 +604,27 @@ static void u2_phy_instance_set_mode(struct mtk_tphy *tphy,
+ 	tmp = readl(u2_banks->com + U3P_U2PHYDTM1);
+ 	switch (mode) {
+ 	case PHY_MODE_USB_DEVICE:
++		if (tphy->pdata->vendor_device_mode_force) {
++			u32 force = P2C_FORCE_IDDIG | P2C_FORCE_AVALID |
++				    P2C_FORCE_BVALID | P2C_FORCE_SESSEND |
++				    P2C_FORCE_VBUSVALID;
++			u32 status = P2C_RG_IDDIG | P2C_RG_AVALID |
++				     P2C_RG_BVALID | P2C_RG_VBUSVALID |
++				     P2C_RG_SESSEND;
++
++			/*
++			 * Vendor sequence: the PHY must see the device-mode
++			 * session state (IDDIG/AVALID/BVALID/VBUSVALID high,
++			 * SESSEND low) with every force bit asserted after the
++			 * vendor's 800us settle delay, otherwise a host that
++			 * drives SOF is never followed by enumeration.
++			 */
++			udelay(800);
++			tmp &= ~(force | status);
++			tmp |= force | P2C_RG_IDDIG | P2C_RG_AVALID |
++			       P2C_RG_BVALID | P2C_RG_VBUSVALID;
++			break;
++		}
+ 		tmp |= P2C_FORCE_IDDIG | P2C_RG_IDDIG;
+ 		break;
+ 	case PHY_MODE_USB_HOST:
+@@ -1180,11 +1233,17 @@ static const struct mtk_phy_pdata mt8195_pdata = {
+ 	.version = MTK_PHY_V3,
+ };
+ 
++static const struct mtk_phy_pdata mt8516_pdata = {
++	.vendor_device_mode_force = true,
++	.version = MTK_PHY_V1,
++};
++
+ static const struct of_device_id mtk_tphy_id_table[] = {
+ 	{ .compatible = "mediatek,mt2701-u3phy", .data = &tphy_v1_pdata },
+ 	{ .compatible = "mediatek,mt2712-u3phy", .data = &tphy_v2_pdata },
+ 	{ .compatible = "mediatek,mt8173-u3phy", .data = &mt8173_pdata },
+ 	{ .compatible = "mediatek,mt8195-tphy", .data = &mt8195_pdata },
++	{ .compatible = "mediatek,mt8516-tphy", .data = &mt8516_pdata },
+ 	{ .compatible = "mediatek,generic-tphy-v1", .data = &tphy_v1_pdata },
+ 	{ .compatible = "mediatek,generic-tphy-v2", .data = &tphy_v2_pdata },
+ 	{ .compatible = "mediatek,generic-tphy-v3", .data = &tphy_v3_pdata },
+diff --git a/drivers/soc/mediatek/mtk-pmic-wrap.c b/drivers/soc/mediatek/mtk-pmic-wrap.c
+index 79556a7fd35a..5d674b9daa33 100644
+--- a/drivers/soc/mediatek/mtk-pmic-wrap.c
++++ b/drivers/soc/mediatek/mtk-pmic-wrap.c
+@@ -2210,6 +2210,7 @@ static const struct of_device_id of_pwrap_match_tbl[] = {
+ 	{ .compatible = "mediatek,mt7622-pwrap", .data = &pwrap_mt7622 },
+ 	{ .compatible = "mediatek,mt8135-pwrap", .data = &pwrap_mt8135 },
+ 	{ .compatible = "mediatek,mt8163-pwrap", .data = &pwrap_mt8163 },
++	{ .compatible = "mediatek,mt8167-pwrap", .data = &pwrap_mt8516 },
+ 	{ .compatible = "mediatek,mt8173-pwrap", .data = &pwrap_mt8173 },
+ 	{ .compatible = "mediatek,mt8183-pwrap", .data = &pwrap_mt8183 },
+ 	{ .compatible = "mediatek,mt8186-pwrap", .data = &pwrap_mt8186 },
+diff --git a/drivers/usb/gadget/function/f_fs.c b/drivers/usb/gadget/function/f_fs.c
+index 6f58df0571e7..dcc2ed5ea1d5 100644
+--- a/drivers/usb/gadget/function/f_fs.c
++++ b/drivers/usb/gadget/function/f_fs.c
+@@ -1088,7 +1088,7 @@ static ssize_t ffs_epfile_io(struct file *file, struct ffs_io_data *io_data)
+ 				     ep->ep->name, io_data->read, data_len);
+ 		ret = usb_ep_queue(ep->ep, req, GFP_ATOMIC);
+ 		if (ret < 0) {
+-			pr_warn_ratelimited("MT8163 FFS queue failed: ep=%s ret=%d\n",
++			pr_warn_ratelimited("MT8163 FFS queue failed: ep=%s ret=%zd\n",
+ 					    ep->ep->name, ret);
+ 			goto error_lock;
+ 		}
+@@ -1144,7 +1144,7 @@ static ssize_t ffs_epfile_io(struct file *file, struct ffs_io_data *io_data)
+ 
+ 		ret = usb_ep_queue(ep->ep, req, GFP_ATOMIC);
+ 		if (ret) {
+-			pr_warn_ratelimited("MT8163 FFS async queue failed: ep=%s ret=%d\n",
++			pr_warn_ratelimited("MT8163 FFS async queue failed: ep=%s ret=%zd\n",
+ 					    ep->ep->name, ret);
+ 			io_data->req = NULL;
+ 			usb_ep_free_request(ep->ep, req);
+diff --git a/drivers/usb/musb/Kconfig b/drivers/usb/musb/Kconfig
+index 6c8f7763e75e..e1f6c14cb652 100644
+--- a/drivers/usb/musb/Kconfig
++++ b/drivers/usb/musb/Kconfig
+@@ -123,6 +123,115 @@ config USB_MUSB_MEDIATEK
+ 	select GENERIC_PHY
+ 	select USB_ROLE_SWITCH
+ 
++config LIBREECHO_MUSB_PROBE_STATUS
++	bool "Record MediaTek MUSB probe status for a boot diagnostic"
++	depends on USB_MUSB_MEDIATEK=y
++	default n
++	help
++	  Temporary LibreEcho diagnostic. The MediaTek MUSB glue records how
++	  far its probe got in libreecho_musb_probe_status: 0 when the probe
++	  was never entered, 1 when it was entered but did not return
++	  success, and 2 when it returned success. A deferred probe or an
++	  error return leaves the value at 1.
++
++	  The pre-userspace LIBREECHO_USERSPACE_WDT_RESET probe selects its
++	  watchdog delay from that value so a fastboot return time identifies
++	  the MUSB probe outcome. The option is off by default and changes no
++	  behavior when disabled.
++
++config LIBREECHO_MUSB_CORE_STATUS
++	bool "Record MUSB controller init status for a boot diagnostic"
++	depends on USB_MUSB_HDRC=y
++	default n
++	help
++	  Temporary LibreEcho diagnostic. The MUSB core records how far
++	  musb_init_controller() got in libreecho_musb_core_status: 0 when it
++	  was never entered, 1 when it was entered but did not return success,
++	  and 2 when it reached the final return 0 after musb_gadget_setup()
++	  and is_initialized. A deferred probe or an error return leaves the
++	  value at 1.
++
++	  When enabled, the pre-userspace LIBREECHO_USERSPACE_WDT_RESET probe
++	  selects its watchdog delay from this core status instead of the
++	  MediaTek glue status, so a fastboot return time identifies whether
++	  the MUSB controller itself initialized. The option is off by default
++	  and changes no behavior when disabled.
++
++config LIBREECHO_MUSB_GADGET_STATUS
++	bool "Record MUSB gadget start and pullup status for a boot diagnostic"
++	depends on USB_MUSB_HDRC=y
++	default n
++	help
++	  Temporary LibreEcho diagnostic. The MUSB gadget records how far
++	  gadget setup got in libreecho_musb_gadget_status: 0 when no gadget
++	  code ran, 1 when musb_gadget_start() was entered but did not
++	  succeed, 2 when musb_gadget_start() returned success, and 3 when
++	  musb_gadget_pullup() was called with is_on set, which is the gadget
++	  driver's request to drive D+.
++
++	  When enabled, the pre-userspace LIBREECHO_USERSPACE_WDT_RESET probe
++	  selects its watchdog delay from this gadget status instead of the
++	  MUSB core or MediaTek glue status. The option is off by default and
++	  changes no behavior when disabled.
++
++config LIBREECHO_MUSB_PULLUP_RESET
++	bool "Reset after the MUSB D+ pullup write for a boot diagnostic"
++	depends on USB_MUSB_HDRC=y && LIBREECHO_LATEINIT_FASTBOOT
++	default n
++	help
++	  Temporary LibreEcho diagnostic. When musb_pullup() is called with
++	  is_on set, after writing MUSB_POWER this reads the register back and
++	  immediately resets the MT8167 through TOPRGU: 5000 ms when the
++	  readback has MUSB_POWER_SOFTCONN set, 10000 ms otherwise. A fastboot
++	  return about 9 s after the reboot therefore proves the actual
++	  hardware pullup write and readback, while about 14 s proves the
++	  write happened but the readback did not retain SOFTCONN.
++
++	  When enabled, the pre-userspace LIBREECHO_USERSPACE_WDT_RESET probe
++	  uses a fixed 15000 ms fallback instead of the gadget, core or glue
++	  status delay. That fallback is reached only when no actual
++	  musb_pullup(is_on) ran, and returns about 19 s after the reboot. The
++	  option is off by default and changes no behavior when disabled.
++
++config LIBREECHO_MUSB_BDEVICE_STATUS
++	bool "Reset after the MUSB D+ pullup write using MUSB_DEVCTL BDEVICE for a boot diagnostic"
++	depends on USB_MUSB_HDRC=y && LIBREECHO_LATEINIT_FASTBOOT
++	default n
++	help
++	  Temporary LibreEcho diagnostic. When musb_pullup() is called with
++	  is_on set, after writing MUSB_POWER this reads MUSB_DEVCTL and
++	  immediately resets the MT8167 through TOPRGU: 5000 ms when the
++	  MUSB_DEVCTL_BDEVICE bit is set (the controller has detected the
++	  host's VBUS as a B-device), otherwise 10000 ms. A fastboot return
++	  about 9 s after the reboot therefore reports BDEVICE set at the
++	  actual pullup write and about 14 s BDEVICE clear.
++
++	  When enabled, the pre-userspace LIBREECHO_USERSPACE_WDT_RESET probe
++	  uses a fixed 15000 ms fallback instead of the status delay. That
++	  fallback is reached only when no actual musb_pullup(is_on) ran and
++	  returns about 19 s after the reboot. The option is off by default
++	  and changes no behavior when disabled.
++
++config LIBREECHO_MUSB_DEVCTL_STATUS
++	bool "Reset after the MUSB D+ pullup write using MUSB_DEVCTL VBUS for a boot diagnostic"
++	depends on USB_MUSB_HDRC=y && LIBREECHO_LATEINIT_FASTBOOT
++	default n
++	help
++	  Temporary LibreEcho diagnostic. When musb_pullup() is called with
++	  is_on set, after writing MUSB_POWER this reads MUSB_DEVCTL and
++	  immediately resets the MT8167 through TOPRGU: 5000 ms when the
++	  MUSB_DEVCTL_VBUS field is full (both bits set), 10000 ms when the
++	  field is nonzero but not full, and 15000 ms when the field is zero.
++	  A fastboot return about 9 s after the reboot therefore reports a
++	  full VBUS indication at the actual pullup write, about 14 s a
++	  partial indication and about 19 s none.
++
++	  When enabled, the pre-userspace LIBREECHO_USERSPACE_WDT_RESET probe
++	  uses a fixed 20000 ms fallback instead of any status delay. That
++	  fallback is reached only when no actual musb_pullup(is_on) ran and
++	  returns about 24 s after the reboot. The option is off by default
++	  and changes no behavior when disabled.
++
+ config USB_MUSB_POLARFIRE_SOC
+ 	tristate "Microchip PolarFire SoC platforms"
+ 	depends on SOC_MICROCHIP_POLARFIRE || COMPILE_TEST
+diff --git a/drivers/usb/musb/mediatek.c b/drivers/usb/musb/mediatek.c
+index dd3008281a83..5a20ed5112bc 100644
+--- a/drivers/usb/musb/mediatek.c
++++ b/drivers/usb/musb/mediatek.c
+@@ -1091,6 +1091,16 @@ static const struct platform_device_info mtk_dev_info = {
+ 	.dma_mask = DMA_BIT_MASK(32),
+ };
+ 
++#ifdef CONFIG_LIBREECHO_MUSB_PROBE_STATUS
++/*
++ * [LIBREECHO-MUSB-STATUS] Probe outcome read by the delayed pre-userspace
++ * WDT diagnostic: 0 = probe never entered, 1 = entered without success
++ * (including -EPROBE_DEFER), 2 = probe returned success. Remove with the
++ * rest of LIBREECHO-MUSB-STATUS.
++ */
++int libreecho_musb_probe_status;
++#endif
++
+ static int mtk_musb_probe(struct platform_device *pdev)
+ {
+ 	struct musb_hdrc_platform_data *pdata;
+@@ -1100,6 +1110,10 @@ static int mtk_musb_probe(struct platform_device *pdev)
+ 	struct device_node *np = dev->of_node;
+ 	int ret;
+ 
++#ifdef CONFIG_LIBREECHO_MUSB_PROBE_STATUS
++	WRITE_ONCE(libreecho_musb_probe_status, 1);
++#endif
++
+ 	glue = devm_kzalloc(dev, sizeof(*glue), GFP_KERNEL);
+ 	if (!glue)
+ 		return -ENOMEM;
+@@ -1236,6 +1250,9 @@ static int mtk_musb_probe(struct platform_device *pdev)
+ 		goto err_device_register;
+ 	}
+ 
++#ifdef CONFIG_LIBREECHO_MUSB_PROBE_STATUS
++	WRITE_ONCE(libreecho_musb_probe_status, 2);
++#endif
+ 	return 0;
+ 
+ err_device_register:
+@@ -1263,6 +1280,7 @@ static int mtk_musb_remove(struct platform_device *pdev)
+ #ifdef CONFIG_OF
+ static const struct of_device_id mtk_musb_match[] = {
+ 	{ .compatible = "mediatek,mt8163-usb20", .data = &mt8163_musb_data },
++	{ .compatible = "mediatek,mt8167-usb20", .data = &mtk_musb_data },
+ 	{ .compatible = "mediatek,mtk-musb", .data = &mtk_musb_data },
+ 	{},
+ };
+diff --git a/drivers/usb/musb/musb_core.c b/drivers/usb/musb/musb_core.c
+index a0fe2516870b..fe0473b490e6 100644
+--- a/drivers/usb/musb/musb_core.c
++++ b/drivers/usb/musb/musb_core.c
+@@ -2310,6 +2310,17 @@ static void musb_deassert_reset(struct work_struct *work)
+  * @ctrl: virtual address of controller registers,
+  *	not yet corrected for platform-specific offsets
+  */
++#ifdef CONFIG_LIBREECHO_MUSB_CORE_STATUS
++/*
++ * [LIBREECHO-MUSB-CORE-STATUS] Controller init outcome read by the delayed
++ * pre-userspace WDT diagnostic: 0 = musb_init_controller never entered,
++ * 1 = entered without a successful final return (including -EPROBE_DEFER),
++ * 2 = reached the final return 0 after musb_gadget_setup() and
++ * is_initialized. Remove with the rest of LIBREECHO-MUSB-CORE-STATUS.
++ */
++int libreecho_musb_core_status;
++#endif
++
+ static int
+ musb_init_controller(struct device *dev, int nIrq, void __iomem *ctrl)
+ {
+@@ -2317,6 +2328,10 @@ musb_init_controller(struct device *dev, int nIrq, void __iomem *ctrl)
+ 	struct musb		*musb;
+ 	struct musb_hdrc_platform_data *plat = dev_get_platdata(dev);
+ 
++#ifdef CONFIG_LIBREECHO_MUSB_CORE_STATUS
++	WRITE_ONCE(libreecho_musb_core_status, 1);
++#endif
++
+ 	/* The driver might handle more features than the board; OK.
+ 	 * Fail when the board needs a feature that's not enabled.
+ 	 */
+@@ -2569,6 +2584,9 @@ musb_init_controller(struct device *dev, int nIrq, void __iomem *ctrl)
+ 	musb_init_debugfs(musb);
+ 
+ 	musb->is_initialized = 1;
++#ifdef CONFIG_LIBREECHO_MUSB_CORE_STATUS
++	WRITE_ONCE(libreecho_musb_core_status, 2);
++#endif
+ 	pm_runtime_mark_last_busy(musb->controller);
+ 	pm_runtime_put_autosuspend(musb->controller);
+ 
+diff --git a/drivers/usb/musb/musb_gadget.c b/drivers/usb/musb/musb_gadget.c
+index be847df6f502..e09ffa33cefd 100644
+--- a/drivers/usb/musb/musb_gadget.c
++++ b/drivers/usb/musb/musb_gadget.c
+@@ -21,6 +21,13 @@
+ #include "musb_core.h"
+ #include "musb_trace.h"
+ 
++#if defined(CONFIG_LIBREECHO_MUSB_PULLUP_RESET) || \
++	defined(CONFIG_LIBREECHO_MUSB_DEVCTL_STATUS) || \
++	defined(CONFIG_LIBREECHO_MUSB_BDEVICE_STATUS)
++/* Implemented in drivers/misc/libreecho_lateinit_fastboot.c; never returns. */
++void __noreturn libreecho_wdt_reset(unsigned int delay_ms);
++#endif
++
+ 
+ /* ----------------------------------------------------------------------- */
+ 
+@@ -1625,6 +1632,67 @@ static void musb_pullup(struct musb *musb, int is_on)
+ 	musb_dbg(musb, "gadget D+ pullup %s",
+ 		is_on ? "on" : "off");
+ 	musb_writeb(musb->mregs, MUSB_POWER, power);
++
++#ifdef CONFIG_LIBREECHO_MUSB_BDEVICE_STATUS
++	/*
++	 * [LIBREECHO-MUSB-BDEVICE-STATUS] Report the B-device state at the
++	 * actual D+ pullup write. BDEVICE set resets in 5 s and clear in
++	 * 10 s; the pre-userspace probe supplies the no-pullup 15 s fallback.
++	 * The reset never returns. Remove with the rest of
++	 * LIBREECHO-MUSB-BDEVICE-STATUS.
++	 */
++	if (is_on) {
++		u8 devctl = musb_readb(musb->mregs, MUSB_DEVCTL);
++		bool bdevice = devctl & MUSB_DEVCTL_BDEVICE;
++
++		pr_info("[LIBREECHO-BDEVICE-WDT] MUSB_DEVCTL 0x%02x, BDEVICE %s; resetting in %ds\n",
++			devctl, bdevice ? "set" : "clear",
++			bdevice ? 5 : 10);
++		libreecho_wdt_reset(bdevice ? 5000 : 10000);
++	}
++#elif defined(CONFIG_LIBREECHO_MUSB_DEVCTL_STATUS)
++	/*
++	 * [LIBREECHO-MUSB-DEVCTL-STATUS] Report the VBUS field seen at the
++	 * actual D+ pullup write. A full VBUS field resets in 5 s, a partial
++	 * one in 10 s and none in 15 s; the pre-userspace probe supplies the
++	 * no-pullup 20 s fallback. The reset never returns. Remove with the
++	 * rest of LIBREECHO-MUSB-DEVCTL-STATUS.
++	 */
++	if (is_on) {
++		u8 devctl = musb_readb(musb->mregs, MUSB_DEVCTL);
++		u8 vbus = devctl & MUSB_DEVCTL_VBUS;
++		unsigned int delay_ms;
++
++		if (vbus == MUSB_DEVCTL_VBUS)
++			delay_ms = 5000;
++		else if (vbus)
++			delay_ms = 10000;
++		else
++			delay_ms = 15000;
++
++		pr_info("[LIBREECHO-DEVCTL-WDT] MUSB_DEVCTL 0x%02x, VBUS field 0x%02x; resetting in %ums\n",
++			devctl, vbus, delay_ms);
++		libreecho_wdt_reset(delay_ms);
++	}
++#elif defined(CONFIG_LIBREECHO_MUSB_PULLUP_RESET)
++	/*
++	 * [LIBREECHO-MUSB-PULLUP-RESET] Prove the actual D+ pullup write.
++	 * Reading MUSB_POWER back after the write distinguishes a retained
++	 * SOFTCONN bit from a write that did not stick. The reset never
++	 * returns, so it is only armed for is_on and the pre-userspace probe
++	 * supplies the no-pullup fallback. Remove with the rest of
++	 * LIBREECHO-MUSB-PULLUP-RESET.
++	 */
++	if (is_on) {
++		u8 readback = musb_readb(musb->mregs, MUSB_POWER);
++
++		pr_info("[LIBREECHO-PULLUP-WDT] MUSB_POWER wrote 0x%02x, read back 0x%02x; resetting in %ds\n",
++			power, readback,
++			(readback & MUSB_POWER_SOFTCONN) ? 5 : 10);
++		libreecho_wdt_reset((readback & MUSB_POWER_SOFTCONN) ?
++				    5000 : 10000);
++	}
++#endif
+ }
+ 
+ #if 0
+@@ -1662,6 +1730,17 @@ static void musb_gadget_work(struct work_struct *work)
+ 	pm_runtime_put_autosuspend(musb->controller);
+ }
+ 
++#ifdef CONFIG_LIBREECHO_MUSB_GADGET_STATUS
++/*
++ * [LIBREECHO-MUSB-GADGET-STATUS] Gadget setup outcome read by the delayed
++ * pre-userspace WDT diagnostic: 0 = no gadget code ran, 1 = gadget_start
++ * entered without success, 2 = gadget_start returned success, 3 = pullup
++ * called with is_on (the gadget driver's request to drive D+). Remove with
++ * the rest of LIBREECHO-MUSB-GADGET-STATUS.
++ */
++int libreecho_musb_gadget_status;
++#endif
++
+ static int musb_gadget_pullup(struct usb_gadget *gadget, int is_on)
+ {
+ 	struct musb	*musb = gadget_to_musb(gadget);
+@@ -1669,6 +1748,11 @@ static int musb_gadget_pullup(struct usb_gadget *gadget, int is_on)
+ 
+ 	is_on = !!is_on;
+ 
++#ifdef CONFIG_LIBREECHO_MUSB_GADGET_STATUS
++	if (is_on)
++		WRITE_ONCE(libreecho_musb_gadget_status, 3);
++#endif
++
+ 	/* NOTE: this assumes we are sensing vbus; we'd rather
+ 	 * not pullup unless the B-session is active.
+ 	 */
+@@ -1853,6 +1937,10 @@ static int musb_gadget_start(struct usb_gadget *g,
+ 	unsigned long		flags;
+ 	int			retval = 0;
+ 
++#ifdef CONFIG_LIBREECHO_MUSB_GADGET_STATUS
++	WRITE_ONCE(libreecho_musb_gadget_status, 1);
++#endif
++
+ 	if (driver->max_speed < USB_SPEED_HIGH) {
+ 		retval = -EINVAL;
+ 		goto err;
+@@ -1882,6 +1970,9 @@ static int musb_gadget_start(struct usb_gadget *g,
+ 	pm_runtime_mark_last_busy(musb->controller);
+ 	pm_runtime_put_autosuspend(musb->controller);
+ 
++#ifdef CONFIG_LIBREECHO_MUSB_GADGET_STATUS
++	WRITE_ONCE(libreecho_musb_gadget_status, 2);
++#endif
+ 	return 0;
+ 
+ err:
+diff --git a/init/main.c b/init/main.c
+index a677b6a2cef5..1591be418d81 100644
+--- a/init/main.c
++++ b/init/main.c
+@@ -696,11 +696,119 @@ static void __init setup_command_line(char *command_line)
+ 
+ static __initdata DECLARE_COMPLETION(kthreadd_done);
+ 
++#if defined(CONFIG_LIBREECHO_REST_INIT_WDT_RESET) || \
++	(defined(CONFIG_LIBREECHO_INITCALL_WDT_RESET) && \
++	 CONFIG_LIBREECHO_INITCALL_WDT_RESET != -1) || \
++	(defined(CONFIG_LIBREECHO_INITCALL_ITEM_WDT_RESET) && \
++	 CONFIG_LIBREECHO_INITCALL_ITEM_WDT_RESET >= 0) || \
++	defined(CONFIG_LIBREECHO_USERSPACE_WDT_RESET) || \
++	defined(CONFIG_LIBREECHO_EXEC_SUCCESS_WDT_RESET)
++/*
++ * [LIBREECHO-PROBE] Delayed TOPRGU reset implemented in
++ * drivers/misc/libreecho_lateinit_fastboot.c. Declared locally so the probes
++ * need no shared header; it never returns. Remove with the rest of
++ * LIBREECHO-PROBE.
++ */
++void __noreturn libreecho_wdt_reset(unsigned int delay_ms);
++#endif
++
++#ifdef CONFIG_LIBREECHO_MUSB_PROBE_STATUS
++/*
++ * [LIBREECHO-MUSB-STATUS] Probe outcome recorded by
++ * drivers/usb/musb/mediatek.c: 0 = never entered, 1 = entered without
++ * success, 2 = success. Declared locally so the diagnostic needs no shared
++ * header. Remove with the rest of LIBREECHO-MUSB-STATUS.
++ */
++extern int libreecho_musb_probe_status;
++#endif
++
++#ifdef CONFIG_LIBREECHO_MUSB_CORE_STATUS
++/*
++ * [LIBREECHO-MUSB-CORE-STATUS] Controller init outcome recorded by
++ * drivers/usb/musb/musb_core.c: 0 = never entered, 1 = entered without
++ * success, 2 = final return 0 after is_initialized. Declared locally so the
++ * diagnostic needs no shared header. Remove with the rest of
++ * LIBREECHO-MUSB-CORE-STATUS.
++ */
++extern int libreecho_musb_core_status;
++#endif
++
++#ifdef CONFIG_LIBREECHO_MUSB_GADGET_STATUS
++/*
++ * [LIBREECHO-MUSB-GADGET-STATUS] Gadget setup outcome recorded by
++ * drivers/usb/musb/musb_gadget.c: 0 = no gadget code ran, 1 = gadget_start
++ * entered without success, 2 = gadget_start returned success, 3 = pullup
++ * with is_on (D+ request). Declared locally so the diagnostic needs no
++ * shared header. Remove with the rest of LIBREECHO-MUSB-GADGET-STATUS.
++ */
++extern int libreecho_musb_gadget_status;
++#endif
++
++#if defined(CONFIG_LIBREECHO_MUSB_GADGET_STATUS) && \
++	defined(CONFIG_LIBREECHO_USERSPACE_WDT_RESET)
++static unsigned int libreecho_musb_gadget_wdt_delay_ms(void)
++{
++	switch (READ_ONCE(libreecho_musb_gadget_status)) {
++	case 3:
++		return 5000;
++	case 2:
++		return 10000;
++	case 1:
++		return 15000;
++	default:
++		return 20000;
++	}
++}
++#endif
++
++#if defined(CONFIG_LIBREECHO_MUSB_CORE_STATUS) && \
++	defined(CONFIG_LIBREECHO_USERSPACE_WDT_RESET)
++static unsigned int libreecho_musb_core_wdt_delay_ms(void)
++{
++	switch (READ_ONCE(libreecho_musb_core_status)) {
++	case 2:
++		return 5000;
++	case 1:
++		return 10000;
++	default:
++		return 15000;
++	}
++}
++#endif
++
++#if defined(CONFIG_LIBREECHO_MUSB_PROBE_STATUS) && \
++	defined(CONFIG_LIBREECHO_USERSPACE_WDT_RESET)
++static unsigned int libreecho_musb_probe_wdt_delay_ms(void)
++{
++	switch (READ_ONCE(libreecho_musb_probe_status)) {
++	case 2:
++		return 5000;
++	case 1:
++		return 10000;
++	default:
++		return 15000;
++	}
++}
++#endif
++
+ noinline void __ref rest_init(void)
+ {
+ 	struct task_struct *tsk;
+ 	int pid;
+ 
++#ifdef CONFIG_LIBREECHO_REST_INIT_WDT_RESET
++	/*
++	 * [LIBREECHO-PROBE] RAM-independent stage-reachability signal. A
++	 * delayed TOPRGU reset here returns to fastboot even if every RAM
++	 * marker was overwritten on the failure path, so the fastboot return
++	 * proves rest_init was reached. It runs before rcu_scheduler_starting
++	 * and user_mode_thread, so reaching this probe but not late init
++	 * localises the stall to the normal rest_init body and later init.
++	 * Remove with the rest of LIBREECHO-PROBE.
++	 */
++	libreecho_wdt_reset(5000);
++#endif
++
+ 	rcu_scheduler_starting();
+ 	/*
+ 	 * We need to spawn init first so that it obtains pid 1, however
+@@ -947,6 +1055,46 @@ static void __init print_unknown_bootoptions(void)
+ 	memblock_free(unknown_options, len);
+ }
+ 
++#ifdef CONFIG_LIBREECHO_LATEINIT_FASTBOOT
++/*
++ * [LIBREECHO-PROBE] Temporary boot-progress markers for the MT8167 syscon
++ * stall bisect.  Written to the pmsg fetch zone at physical 0x43860000, the
++ * same region the libreecho_lateinit_fastboot driver later uses (+0 = early
++ * initcall, +0x100 = late initcall); grep for LIBREECHO-PROBE to remove.
++ * Offset layout: 0x200 after setup_arch, 0x300 before time_init,
++ * 0x400 after time_init.  Each tag is 17 bytes + NUL, so the slots cannot
++ * overlap.  phys_to_virt is valid at these points: MMU-on entry code plus
++ * paging_init() from setup_arch() have installed the linear map and fixed
++ * memstart_addr/PHYS_OFFSET, and 0x43860000 is in the board's normal RAM
++ * bank outside the ATF and ram-console no-map/reserved regions.
++ */
++#define LIBREECHO_PROBE_PHYS	0x43860000UL
++#define LIBREECHO_PROBE_SIZE	0x1000UL
++/*
++ * The zone is ordinary free RAM, so mm_init() would hand it to the page
++ * allocator and overwrite the early markers long before late_initcall_sync
++ * reads them back.  Reserve the single 4 KiB page first; memblock is still
++ * the live allocator at this point, so the reservation takes effect.
++ */
++#define LIBREECHO_PROBE_RESERVE() \
++	memblock_reserve(LIBREECHO_PROBE_PHYS, LIBREECHO_PROBE_SIZE)
++#define LIBREECHO_PROBE(off, tag) \
++	libreecho_probe_mark(LIBREECHO_PROBE_PHYS + (off), (tag), sizeof(tag))
++
++static void __init __no_sanitize_address
++libreecho_probe_mark(phys_addr_t phys, const char *tag, size_t len)
++{
++	void *dst = phys_to_virt(phys);
++
++	memcpy(dst, tag, len);
++	/* Make the marker visible to the raw physical readback. */
++	dcache_clean_poc((unsigned long)dst, (unsigned long)dst + len);
++}
++#else
++#define LIBREECHO_PROBE_RESERVE()	do { } while (0)
++#define LIBREECHO_PROBE(off, tag)	do { } while (0)
++#endif
++
+ asmlinkage __visible void __init __no_sanitize_address start_kernel(void)
+ {
+ 	char *command_line;
+@@ -971,6 +1119,8 @@ asmlinkage __visible void __init __no_sanitize_address start_kernel(void)
+ 	pr_notice("%s", linux_banner);
+ 	early_security_init();
+ 	setup_arch(&command_line);
++	LIBREECHO_PROBE_RESERVE();
++	LIBREECHO_PROBE(0x200, "PROBE-SETUP-ARCH!");
+ 	setup_boot_config();
+ 	setup_command_line(command_line);
+ 	setup_nr_cpu_ids();
+@@ -1060,7 +1210,9 @@ asmlinkage __visible void __init __no_sanitize_address start_kernel(void)
+ 	hrtimers_init();
+ 	softirq_init();
+ 	timekeeping_init();
++	LIBREECHO_PROBE(0x300, "PROBE-BEFORE-TIME");
+ 	time_init();
++	LIBREECHO_PROBE(0x400, "PROBE-AFTER-TIME!");
+ 
+ 	/* This must be after timekeeping is initialized */
+ 	random_init();
+@@ -1378,8 +1530,25 @@ static void __init do_initcall_level(int level, char *command_line)
+ 		   NULL, ignore_unknown_bootoption);
+ 
+ 	trace_initcall_level(initcall_level_names[level]);
+-	for (fn = initcall_levels[level]; fn < initcall_levels[level+1]; fn++)
++#if defined(CONFIG_LIBREECHO_INITCALL_ITEM_WDT_RESET) && \
++	CONFIG_LIBREECHO_INITCALL_ITEM_WDT_RESET >= 0
++	int item = 0;
++#endif
++	for (fn = initcall_levels[level]; fn < initcall_levels[level+1]; fn++) {
++#if defined(CONFIG_LIBREECHO_INITCALL_ITEM_WDT_RESET) && \
++	CONFIG_LIBREECHO_INITCALL_ITEM_WDT_RESET >= 0
++		/*
++		 * [LIBREECHO-PROBE] Reset before the selected zero-based
++		 * item of the late level. Reaching it proves every earlier
++		 * late initcall returned; index 0 fires before the first.
++		 * Remove with the rest of LIBREECHO-PROBE.
++		 */
++		if (level == 7 && item == CONFIG_LIBREECHO_INITCALL_ITEM_WDT_RESET)
++			libreecho_wdt_reset(5000);
++		item++;
++#endif
+ 		do_one_initcall(initcall_from_entry(fn));
++	}
+ }
+ 
+ static void __init do_initcalls(void)
+@@ -1388,6 +1557,18 @@ static void __init do_initcalls(void)
+ 	size_t len = strlen(saved_command_line) + 1;
+ 	char *command_line;
+ 
++#if defined(CONFIG_LIBREECHO_INITCALL_WDT_RESET) && \
++	CONFIG_LIBREECHO_INITCALL_WDT_RESET == -2
++	/*
++	 * [LIBREECHO-PROBE] RAM-independent reachability signal for the point
++	 * between rest_init and the first initcall level. A delayed TOPRGU
++	 * reset returns to fastboot even when the marker pages were
++	 * overwritten on the failure path, so this separates pre-SMP setup
++	 * from the initcall levels. Remove with the rest of LIBREECHO-PROBE.
++	 */
++	libreecho_wdt_reset(5000);
++#endif
++
+ 	command_line = kzalloc(len, GFP_KERNEL);
+ 	if (!command_line)
+ 		panic("%s: Failed to allocate %zu bytes\n", __func__, len);
+@@ -1396,6 +1577,17 @@ static void __init do_initcalls(void)
+ 		/* Parser modifies command_line, restore it each time */
+ 		strcpy(command_line, saved_command_line);
+ 		do_initcall_level(level, command_line);
++#if defined(CONFIG_LIBREECHO_INITCALL_WDT_RESET) && \
++	CONFIG_LIBREECHO_INITCALL_WDT_RESET >= 0 && \
++	CONFIG_LIBREECHO_INITCALL_WDT_RESET <= 7
++		/*
++		 * [LIBREECHO-PROBE] Same RAM-independent signal after the
++		 * selected level finishes, to bisect which initcall level
++		 * stalls. Remove with the rest of LIBREECHO-PROBE.
++		 */
++		if (level == CONFIG_LIBREECHO_INITCALL_WDT_RESET)
++			libreecho_wdt_reset(5000);
++#endif
+ 	}
+ 
+ 	kfree(command_line);
+@@ -1547,10 +1739,107 @@ static int __ref kernel_init(void *unused)
+ 
+ 	do_sysctl_args();
+ 
++#ifdef CONFIG_LIBREECHO_USERSPACE_WDT_RESET
++	/*
++	 * [LIBREECHO-PROBE] RAM-independent pre-userspace reachability signal.
++	 * This runs after kernel_init_freeable(), async_synchronize_full(),
++	 * free_initmem(), mark_readonly(), pti_finalize() and do_sysctl_args(),
++	 * and immediately before the ramdisk_execute_command exec path. A
++	 * delayed TOPRGU reset here returns to fastboot, so that return proves
++	 * the kernel reached userspace exec even though no userspace ran. The
++	 * final libreecho_lateinit_fastboot_init registration is suppressed
++	 * while this probe is enabled so its earlier reset cannot mask it.
++	 * Remove with the rest of LIBREECHO-PROBE.
++	 */
++#if defined(CONFIG_LIBREECHO_MUSB_BDEVICE_STATUS) && \
++	defined(CONFIG_LIBREECHO_USERSPACE_WDT_RESET)
++	/*
++	 * [LIBREECHO-MUSB-BDEVICE-STATUS] The actual pullup write site
++	 * supplies the 5 s / 10 s signal. Reaching this point means no
++	 * musb_pullup(is_on) ran, so use a fixed distinct 15 s fallback.
++	 */
++	pr_info("[LIBREECHO-USERSPACE-WDT] kernel_init at userspace exec point; "
++		"no BDEVICE reset observed; resetting in 15s\n");
++	libreecho_wdt_reset(15000);
++#elif defined(CONFIG_LIBREECHO_MUSB_DEVCTL_STATUS) && \
++	defined(CONFIG_LIBREECHO_USERSPACE_WDT_RESET)
++	/*
++	 * [LIBREECHO-MUSB-DEVCTL-STATUS] The actual pullup write site supplies
++	 * the 5 s / 10 s / 15 s signal. Reaching this point means no
++	 * musb_pullup(is_on) ran, so use a fixed distinct 20 s fallback.
++	 */
++	pr_info("[LIBREECHO-USERSPACE-WDT] kernel_init at userspace exec point; "
++		"no DEVCTL reset observed; resetting in 20s\n");
++	libreecho_wdt_reset(20000);
++#elif defined(CONFIG_LIBREECHO_MUSB_PULLUP_RESET) && \
++	defined(CONFIG_LIBREECHO_USERSPACE_WDT_RESET)
++	/*
++	 * [LIBREECHO-MUSB-PULLUP-RESET] The actual pullup write site supplies
++	 * the 5 s / 10 s signal. Reaching this point means no
++	 * musb_pullup(is_on) ran, so use a fixed distinct 15 s fallback and
++	 * keep the status-based helpers out of this build.
++	 */
++	pr_info("[LIBREECHO-USERSPACE-WDT] kernel_init at userspace exec point; "
++		"no pullup reset observed; resetting in 15s\n");
++	libreecho_wdt_reset(15000);
++#elif defined(CONFIG_LIBREECHO_MUSB_GADGET_STATUS) && \
++	defined(CONFIG_LIBREECHO_USERSPACE_WDT_RESET)
++	{
++		unsigned int delay_ms = libreecho_musb_gadget_wdt_delay_ms();
++
++		pr_info("[LIBREECHO-USERSPACE-WDT] kernel_init at userspace exec point; "
++			"MUSB gadget status %d; resetting in %ums\n",
++			READ_ONCE(libreecho_musb_gadget_status), delay_ms);
++		libreecho_wdt_reset(delay_ms);
++	}
++#elif defined(CONFIG_LIBREECHO_MUSB_CORE_STATUS) && \
++	defined(CONFIG_LIBREECHO_USERSPACE_WDT_RESET)
++	{
++		unsigned int delay_ms = libreecho_musb_core_wdt_delay_ms();
++
++		pr_info("[LIBREECHO-USERSPACE-WDT] kernel_init at userspace exec point; "
++			"MUSB core probe status %d; resetting in %ums\n",
++			READ_ONCE(libreecho_musb_core_status), delay_ms);
++		libreecho_wdt_reset(delay_ms);
++	}
++#elif defined(CONFIG_LIBREECHO_MUSB_PROBE_STATUS) && \
++	defined(CONFIG_LIBREECHO_USERSPACE_WDT_RESET)
++	{
++		unsigned int delay_ms = libreecho_musb_probe_wdt_delay_ms();
++
++		pr_info("[LIBREECHO-USERSPACE-WDT] kernel_init at userspace exec point; "
++			"MUSB probe status %d; resetting in %ums\n",
++			READ_ONCE(libreecho_musb_probe_status), delay_ms);
++		libreecho_wdt_reset(delay_ms);
++	}
++#else
++	pr_info("[LIBREECHO-USERSPACE-WDT] kernel_init at userspace exec point; "
++		"resetting in 5s\n");
++	libreecho_wdt_reset(5000);
++#endif
++#endif
++
+ 	if (ramdisk_execute_command) {
+ 		ret = run_init_process(ramdisk_execute_command);
+-		if (!ret)
++		if (!ret) {
++#ifdef CONFIG_LIBREECHO_EXEC_SUCCESS_WDT_RESET
++			/*
++			 * [LIBREECHO-PROBE] RAM-independent init exec-success
++			 * signal. kernel_execve returns zero only after the
++			 * ramdisk init was accepted, so a delayed TOPRGU reset
++			 * here and the subsequent fastboot return prove the
++			 * stock userspace /init exec succeeded. Failure returns
++			 * a negative error, skips this probe and keeps the
++			 * ordinary fallback paths. The final late reset is
++			 * suppressed while this probe is enabled. Remove with
++			 * the rest of LIBREECHO-PROBE.
++			 */
++			pr_info("[LIBREECHO-EXEC-SUCCESS-WDT] ramdisk init exec "
++				"succeeded; resetting in 5s\n");
++			libreecho_wdt_reset(5000);
++#endif
+ 			return 0;
++		}
+ 		pr_err("Failed to execute %s (error %d)\n",
+ 		       ramdisk_execute_command, ret);
+ 	}
+diff --git a/libreecho/targets.json b/libreecho/targets.json
+index 12ef286ce417..0eec4a00d132 100644
+--- a/libreecho/targets.json
++++ b/libreecho/targets.json
+@@ -1,10 +1,20 @@
+ {
+   "radar_puffin": {
++    "arch": "arm",
+     "defconfig": "mt8163_arm32_defconfig",
+-    "dtb": "libreecho-radar-puffin.dtb"
++    "dtb": "libreecho-radar-puffin.dtb",
++    "image": "zImage"
+   },
+   "biscuit": {
++    "arch": "arm",
+     "defconfig": "mt8163_arm32_defconfig",
+-    "dtb": "libreecho-radar-puffin.dtb"
++    "dtb": "libreecho-radar-puffin.dtb",
++    "image": "zImage"
++  },
++  "lidar": {
++    "arch": "arm64",
++    "defconfig": "mt8167_arm64_defconfig",
++    "dtb": "mediatek/libreecho-lidar.dtb",
++    "image": "Image"
+   }
+ }
+diff --git a/libreecho/test_targets.py b/libreecho/test_targets.py
+old mode 100644
+new mode 100755
+index dcaf33897107..d6b8073209d2
+--- a/libreecho/test_targets.py
++++ b/libreecho/test_targets.py
+@@ -11,16 +11,23 @@ import unittest
+ 
+ HERE = Path(__file__).resolve().parent
+ SCRIPT = HERE / "validate_targets.py"
++ARM32 = {
++    "arch": "arm",
++    "defconfig": "mt8163_arm32_defconfig",
++    "dtb": "libreecho-radar-puffin.dtb",
++    "image": "zImage",
++}
++LIDAR = {
++    "arch": "arm64",
++    "defconfig": "mt8167_arm64_defconfig",
++    "dtb": "mediatek/libreecho-lidar.dtb",
++    "image": "Image",
++}
+ PARITY: dict[str, dict[str, object]] = {
+-    "radar_puffin": {
+-        "defconfig": "mt8163_arm32_defconfig",
+-        "dtb": "libreecho-radar-puffin.dtb",
+-    },
+-    "biscuit": {
+-        "defconfig": "mt8163_arm32_defconfig",
+-        "dtb": "libreecho-radar-puffin.dtb",
+-    },
++    "radar_puffin": dict(ARM32),
++    "biscuit": dict(ARM32),
+ }
++TABLE = {**PARITY, "lidar": dict(LIDAR)}
+ 
+ 
+ class TargetTests(unittest.TestCase):
+@@ -31,7 +38,9 @@ class TargetTests(unittest.TestCase):
+         self.table = self.root / "targets.json"
+         self.config = self.root / "arch/arm/configs/mt8163_arm32_defconfig"
+         self.dts = self.root / "arch/arm/boot/dts/libreecho-radar-puffin.dts"
+-        for path in (self.config, self.dts):
++        self.arm64_config = self.root / "arch/arm64/configs/mt8167_arm64_defconfig"
++        self.arm64_dts = self.root / "arch/arm64/boot/dts/mediatek/libreecho-lidar.dts"
++        for path in (self.config, self.dts, self.arm64_config, self.arm64_dts):
+             path.parent.mkdir(parents=True, exist_ok=True)
+             path.write_text("fixture\n")
+ 
+@@ -49,17 +58,19 @@ class TargetTests(unittest.TestCase):
+     def test_committed_table_validates_and_retains_radar_recipe(self):
+         self.assertTrue((HERE / "targets.json").is_file(), "target table is missing")
+         table = json.loads((HERE / "targets.json").read_text())
+-        self.assertEqual(set(table), {"radar_puffin", "biscuit"})
++        self.assertEqual(set(table), {"radar_puffin", "biscuit", "lidar"})
+         self.assertEqual(table["radar_puffin"], PARITY["radar_puffin"])
++        self.assertEqual(table["lidar"], LIDAR)
+         # Do not pin Biscuit to parity forever: divergence must be a data change.
+         result = subprocess.run([sys.executable, "-B", str(SCRIPT)],
+                                 capture_output=True, text=True, check=False)
+         self.assertEqual(result.returncode, 0, result.stderr)
+ 
+     def test_github_output_matches_cli_matrices(self):
+-        result = self.run_table(PARITY)
++        result = self.run_table(TABLE)
+         self.assertEqual(result.returncode, 0, result.stderr)
+         expected = json.loads(result.stdout)
++        self.assertEqual(set(expected), {"build_arm32", "build_arm64", "publish"})
+         output = self.root / "github-output"
+         output.write_text("existing=value\n")
+         result = subprocess.run(
+@@ -74,54 +85,93 @@ class TargetTests(unittest.TestCase):
+             self.assertEqual(json.loads(value), expected[name.removesuffix("_matrix")])
+ 
+     def test_json_key_order_does_not_change_build_owner(self):
+-        result = self.run_table(dict(reversed(list(PARITY.items()))))
++        result = self.run_table(dict(reversed(list(TABLE.items()))))
+         self.assertEqual(result.returncode, 0, result.stderr)
+         matrices = json.loads(result.stdout)
+-        self.assertEqual(matrices["build"]["include"][0]["target"], "radar_puffin")
++        self.assertEqual(matrices["build_arm32"]["include"][0]["target"], "radar_puffin")
++        self.assertEqual(matrices["build_arm64"]["include"], [
++            {"target": "lidar", **LIDAR}])
+         self.assertTrue(all(lane["build_target"] == "radar_puffin"
+-                            for lane in matrices["publish"]["include"]))
++                            for lane in matrices["publish"]["include"]
++                            if lane["arch"] == "arm"))
+ 
+     def test_parity_builds_once_and_publishes_each_target(self):
+-        result = self.run_table(PARITY)
++        result = self.run_table(TABLE)
+         self.assertEqual(result.returncode, 0, result.stderr)
+         matrices = json.loads(result.stdout)
+-        self.assertEqual(matrices["build"]["include"], [
++        self.assertEqual(matrices["build_arm32"]["include"], [
+             {"target": "radar_puffin", **PARITY["radar_puffin"]}])
++        self.assertEqual(matrices["build_arm64"]["include"], [
++            {"target": "lidar", **LIDAR}])
+         self.assertEqual(matrices["publish"]["include"], [
+-            {"target": target, "build_target": "radar_puffin", **settings}
+-            for target, settings in PARITY.items()])
++            {"target": target,
++             "build_target": "lidar" if target == "lidar" else "radar_puffin",
++             **settings}
++            for target, settings in TABLE.items()])
+ 
+-    def test_divergent_tuple_adds_a_build_without_code_changes(self):
+-        table = copy.deepcopy(PARITY)
+-        table["biscuit"] = {"defconfig": "biscuit_defconfig", "dtb": "biscuit.dtb"}
++    def test_lidar_plans_one_arm64_build_and_publishes_its_image(self):
++        table = {**PARITY, "lidar": dict(LIDAR)}
++        result = self.run_table(table)
++        self.assertEqual(result.returncode, 0, result.stderr)
++        matrices = json.loads(result.stdout)
++        self.assertEqual(matrices["build_arm32"]["include"], [
++            {"target": "radar_puffin", **PARITY["radar_puffin"]}])
++        self.assertEqual(matrices["build_arm64"]["include"], [
++            {"target": "lidar", **LIDAR}])
++        lidar_lane = matrices["publish"]["include"][2]
++        self.assertEqual(lidar_lane["target"], "lidar")
++        self.assertEqual(lidar_lane["build_target"], "lidar")
++        self.assertEqual(lidar_lane["image"], "Image")
++
++    def test_divergent_arm32_tuple_adds_a_build_without_code_changes(self):
++        table = copy.deepcopy(TABLE)
++        table["biscuit"] = {
++            "arch": "arm",
++            "defconfig": "biscuit_defconfig",
++            "dtb": "biscuit.dtb",
++            "image": "zImage",
++        }
+         (self.config.parent / "biscuit_defconfig").write_text("fixture\n")
+         (self.dts.parent / "biscuit.dts").write_text("fixture\n")
+         result = self.run_table(table)
+         self.assertEqual(result.returncode, 0, result.stderr)
+         matrices = json.loads(result.stdout)
+-        self.assertEqual(len(matrices["build"]["include"]), 2)
++        self.assertEqual(len(matrices["build_arm32"]["include"]), 2)
+         self.assertEqual(matrices["publish"]["include"][1]["build_target"], "biscuit")
+ 
+-    def test_missing_defconfig_fails(self):
++    def test_missing_arm32_defconfig_fails(self):
+         self.config.unlink()
+-        self.assertNotEqual(self.run_table(PARITY).returncode, 0)
++        self.assertNotEqual(self.run_table(TABLE).returncode, 0)
+ 
+-    def test_missing_dts_fails(self):
++    def test_missing_arm32_dts_fails(self):
+         self.dts.unlink()
+-        self.assertNotEqual(self.run_table(PARITY).returncode, 0)
++        self.assertNotEqual(self.run_table(TABLE).returncode, 0)
++
++    def test_missing_arm64_dts_fails(self):
++        self.arm64_dts.unlink()
++        self.assertNotEqual(self.run_table({**PARITY, "lidar": LIDAR}).returncode, 0)
+ 
+     def test_invalid_tables_fail_closed(self):
+         cases = [{}, [], {"unknown": PARITY["radar_puffin"]}]
+-        for field, value in (("defconfig", "../escape_defconfig"),
++        for field, value in (("arch", "mips"),
++                             ("arch", None),
++                             ("arch", []),
++                             ("defconfig", "../escape_defconfig"),
+                              ("dtb", "../../escape.dtb"),
+                              ("dtb", "board.dts"),
+-                             ("defconfig", None)):
++                             ("dtb", None),
++                             ("defconfig", None),
++                             ("image", None),
++                             ("image", []),
++                             ("image", "Image")):
+             table = copy.deepcopy(PARITY)
+             table["biscuit"][field] = value
+             cases.append(table)
+         extra = copy.deepcopy(PARITY)
+         extra["biscuit"]["fragments"] = []
+         cases.append(extra)
++        wrong_image = {**PARITY, "lidar": {**LIDAR, "image": "zImage"}}
++        cases.append(wrong_image)
+         for table in cases:
+             with self.subTest(table=table):
+                 self.assertNotEqual(self.run_table(table).returncode, 0)
+diff --git a/libreecho/validate_targets.py b/libreecho/validate_targets.py
+old mode 100644
+new mode 100755
+index 814c4a89ce6c..dfdbb8a02f9b
+--- a/libreecho/validate_targets.py
++++ b/libreecho/validate_targets.py
+@@ -1,12 +1,16 @@
+ #!/usr/bin/env python3
+-"""Validate kernel targets and plan one CI build per distinct config/DTB tuple."""
++"""Validate kernel targets and plan one CI build per distinct target tuple."""
+ import argparse
+ import json
+ from pathlib import Path, PurePosixPath
+ import re
+ import sys
+ 
+-TARGETS = ("radar_puffin", "biscuit")
++TARGETS = ("radar_puffin", "biscuit", "lidar")
++ARCHES = ("arm", "arm64")
++# The image is both the make target and the boot image file name.
++IMAGES = {"arm": {"zImage"}, "arm64": {"Image"}}
++FIELDS = {"arch", "defconfig", "dtb", "image"}
+ 
+ 
+ def unique_keys(pairs):
+@@ -18,15 +22,27 @@ def unique_keys(pairs):
+     return result
+ 
+ 
++def target_sources(root, arch, defconfig, dtb):
++    config = root / "arch" / arch / "configs" / defconfig
++    dts = root / "arch" / arch / "boot" / "dts" / PurePosixPath(dtb).with_suffix(".dts")
++    return config, dts
++
++
+ def load_targets(root, table):
+     targets = json.loads(table.read_text(), object_pairs_hook=unique_keys)
+     if not isinstance(targets, dict) or set(targets) != set(TARGETS):
+         raise ValueError(f"target IDs must be exactly {', '.join(TARGETS)}")
+-    for target, settings in targets.items():
+-        if not isinstance(settings, dict) or set(settings) != {"defconfig", "dtb"}:
+-            raise ValueError(f"{target}: expected only defconfig and dtb")
++    root = root.resolve()
++    for target in TARGETS:
++        settings = targets[target]
++        if not isinstance(settings, dict) or set(settings) != FIELDS:
++            raise ValueError(f"{target}: expected only arch, defconfig, dtb and image")
++        arch = settings["arch"]
+         config = settings["defconfig"]
+         dtb = settings["dtb"]
++        image = settings["image"]
++        if arch not in ARCHES:
++            raise ValueError(f"{target}: invalid arch")
+         if not isinstance(config, str) or not re.fullmatch(r"[A-Za-z0-9_]+_defconfig", config):
+             raise ValueError(f"{target}: invalid defconfig name")
+         if (not isinstance(dtb, str)
+@@ -34,9 +50,10 @@ def load_targets(root, table):
+                 or any(part in {"", ".", ".."} for part in dtb.split("/"))
+                 or PurePosixPath(dtb).is_absolute()):
+             raise ValueError(f"{target}: invalid dtb path")
+-        for source in (root / "arch/arm/configs" / config,
+-                       root / "arch/arm/boot/dts" / PurePosixPath(dtb).with_suffix(".dts")):
+-            if not source.is_file() or not source.resolve().is_relative_to(root.resolve()):
++        if not isinstance(image, str) or image not in IMAGES[arch]:
++            raise ValueError(f"{target}: invalid {arch} image")
++        for source in target_sources(root, arch, config, dtb):
++            if not source.is_file() or not source.resolve().is_relative_to(root):
+                 raise ValueError(f"{target}: missing or out-of-tree source: {source}")
+     return targets
+ 
+@@ -45,16 +62,23 @@ def plan_matrices(targets):
+     builds = []
+     publish = []
+     owners = {}
+-    # Radar remains the canonical build/legacy artifact owner at parity,
+-    # independent of JSON key order. A distinct Biscuit tuple gets its own lane.
++    # Fixed target order keeps the build owner independent of JSON key order.
+     for target in TARGETS:
+         settings = targets[target]
+-        key = (settings["defconfig"], settings["dtb"])
++        key = (settings["arch"], settings["defconfig"], settings["dtb"], settings["image"])
+         if key not in owners:
+             owners[key] = target
+             builds.append({"target": target, **settings})
+         publish.append({"target": target, "build_target": owners[key], **settings})
+-    return {"build": {"include": builds}, "publish": {"include": publish}}
++
++    def lane(arch):
++        return {"include": [build for build in builds if build["arch"] == arch]}
++
++    return {
++        "build_arm32": lane("arm"),
++        "build_arm64": lane("arm64"),
++        "publish": {"include": publish},
++    }
+ 
+ 
+ def main():
+@@ -77,7 +101,9 @@ def main():
+     if args.matrix:
+         print(json.dumps(matrices, separators=(",", ":")))
+     else:
+-        print(f"Validated {len(targets)} targets; {len(matrices['build']['include'])} unique build(s)")
++        builds = sum(len(matrix["include"]) for name, matrix in matrices.items()
++                     if name.startswith("build_"))
++        print(f"Validated {len(targets)} targets; {builds} unique build(s)")
+     return 0
+ 
+ 

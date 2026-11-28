@@ -1,0 +1,51 @@
+== kver
+6.18.64+
+== cpufreq_dir
+lrwxrwxrwx    1 0        0                0 Nov 21 21:21 [1;36m/sys/devices/system/cpu/cpu0/cpufreq[m -> [1;34m../cpufreq/policy0[m
+scaling_driver=mtk-cpufreq
+scaling_governor=schedutil
+scaling_available_governors=performance schedutil 
+scaling_available_frequencies=598000 747500 1040000 1196000 1300000 
+scaling_min_freq=598000
+scaling_max_freq=1300000
+scaling_cur_freq=1300000
+== load
+scaling_cur_freq_under_load_1=1300000
+scaling_cur_freq_under_load_2=1300000
+scaling_cur_freq_after_load=1300000
+== dmesg_cpufreq
+cpufreq: cpufreq_policy_online: CPU0: Running at unlisted initial frequency: 1001000 kHz, changing to: 1040000 kHz
+libreecho-feature-reconcile: feature-reconcile-service-stopped:agentd
+libreecho-feature-reconcile: feature-reconcile-service-stopped:sttd
+libreecho-feature-reconcile: feature-reconcile-service-stopped:ttsd
+== services
+ 5191 0         0:00 /usr/local/sbin/libreecho-audiod --foreground --socket /run/libreecho/audio.sock
+ 5499 0         0:00 /usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap
+ 5829 0         2:12 /run/libreecho/features/wakeword/root/usr/local/sbin/libreecho-waked --foreground --socket /run/libreecho/wakeword.sock --mic-socket /run/libreecho/mic.sock --reference-socket /run/libreecho-audio/aec-reference.sock --model-dir /run/libreecho/features/wakeword/root/usr/local/share/libreecho/openwakeword --wake-threads 2 --vad-floor-rms 16
+ 6826 0         0:06 /usr/local/sbin/libreecho-micd --foreground --socket /run/libreecho/mic.sock --capture-bin /sbin/tinycap
+ 8161 0         0:00 /usr/local/sbin/libreecho-audio-engine
+ 8863 0         0:01 /usr/local/sbin/libreecho-esphomed --config /data/libreecho/config/web-config.json --status-file /run/libreecho/esphome-status.json --port 6053 --bind 0.0.0.0 --wake-socket /run/libreecho/wakeword.sock --audio-socket /run/libreecho/audio.sock --audio-bus /run/libreecho-audio/system.pcm --mdns-socket /run/libreecho/mdns.sock --tls-ca /etc/ssl/certs/ca-certificates.crt --radio-socket /run/libreecho/radio.sock --timer-socket /run/libreecho/timer.sock --led-socket /run/libreecho/led.sock --privacy-state /sys/devices/platform/amz_privacy/privacy_state --idme-root /sys/firmware/devicetree/base/idme
+== esphome_status
+{"pid":8863,"start_time":"3977","boot_id":"5f75e903-e738-4bd2-89b3-79c91d57522e","listener_inode":"14394","port":6053,"ready":true,"connected":true,"in_progress":false,"last_result":"","last_result_time":0}
+== waked
+waked_pid=5829
+/run/libreecho/features/wakeword/root/usr/local/sbin/libreecho-waked --foreground --socket /run/libreecho/wakeword.sock --mic-socket /run/libreecho/mic.sock --reference-socket /run/libreecho-audio/aec-reference.sock --model-dir /run/libreecho/features/wakeword/root/usr/local/share/libreecho/openwakeword --wake-threads 2 --vad-floor-rms 16 
+tid=5829 delta_ticks_10s=4 cpu_pct=0.4
+tid=6781 delta_ticks_10s=638 cpu_pct=63.8
+tid=9281 delta_ticks_10s=45 cpu_pct=4.5
+tid=9299 delta_ticks_10s=481 cpu_pct=48.1
+tid=9357 delta_ticks_10s=4 cpu_pct=0.4
+== hashes
+a70f839df4098209c365c24c84f07f4c452e8b0f1a0ebfe636f18a83c42e3cdd  /usr/local/sbin/libreecho-esphomed
+sha256sum: can't open '/usr/local/sbin/libreecho-audio-engine': No such file or directory
+engine_pid=8161 exe=/run/libreecho/features/airplay2/root/usr/local/sbin/libreecho-audio-engine
+84e5ae9bbf6135acd076aeec013c1370f75f6cb9b07e96c9a14b07c5cdeb2c35  /run/libreecho/features/airplay2/root/usr/local/sbin/libreecho-audio-engine
+/usr/local/sbin/libreecho-audio-engine 
+== alsa_idle
+pcm0p_status=closed
+[0;0mhw_params[m     [0;0mprealloc[m      [0;0mstatus[m
+[0;0minfo[m          [0;0mprealloc_max[m  [0;0msw_params[m
+pcm0c_status=head: /proc/asound/card0/pcm0c/sub0/status: No such file or directory
+== open_fds
+5
+0

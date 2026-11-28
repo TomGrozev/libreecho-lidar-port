@@ -1,0 +1,39 @@
+-rwxr-xr-x    1 0        0           923224 Jan  1  1970 [1;32m/usr/local/sbin/libreecho-esphomed[m
+75adde15d6f9cb07afdf436ad257dfee7cce412f051de81cc0c6039cc87ff74f  /usr/local/sbin/libreecho-esphomed
+{"pid":8388,"start_time":"4188","boot_id":"b8483503-e8f3-4968-8133-a942208bb5a7","listener_inode":"11186","port":6053,"ready":true,"connected":true,"in_progress":false,"server_wake":false,"server_wake_streaming":false,"last_result":"success","last_result_time":1795509586}
+
+total 8900
+-rwxr-xr-x    1 0        0           455952 Jan  1  1970 libreecho-airplayd
+-rwxr-xr-x    1 0        0           480536 Jan  1  1970 libreecho-audiod
+-rwxr-xr-x    1 0        0             9512 Jan  1  1970 libreecho-bootctl
+-rwxr-xr-x    1 0        0           455952 Jan  1  1970 libreecho-btd
+-rwxr-xr-x    1 0        0           423152 Jan  1  1970 libreecho-buttond
+-rwxr-xr-x    1 0        0             4867 Jan  1  1970 libreecho-config-migrate
+-rwxr-xr-x    1 0        0            14779 Jan  1  1970 libreecho-data-cleanup
+-rwxr-xr-x    1 0        0           923224 Jan  1  1970 libreecho-esphomed
+-rwxr-xr-x    1 0        0             1027 Jan  1  1970 libreecho-feature-transaction
+-rwxr-xr-x    1 0        0            19464 Jan  1  1970 libreecho-generation
+-rwxr-xr-x    1 0        0            27427 Jan  1  1970 libreecho-generation-transaction
+-rwxr-xr-x    1 0        0           451864 Jan  1  1970 libreecho-ledd
+-rwxr-xr-x    1 0        0            10343 Jan  1  1970 libreecho-local
+-rwxr-xr-x    1 0        0           407824 Jan  1  1970 libreecho-logd
+-rwxr-xr-x    1 0        0           349392 Jan  1  1970 libreecho-mdnsd
+-rwxr-xr-x    1 0        0           447768 Jan  1  1970 libreecho-micd
+-rwxr-xr-x    1 0        0           468240 Jan  1  1970 libreecho-networkd
+-rwxr-xr-x    1 0        0             9903 Jan  1  1970 libreecho-ping
+-rwxr-xr-x    1 0        0          1206308 Jan  1  1970 libreecho-radiod
+-rwxr-xr-x    1 0        0            16861 Jan  1  1970 libreecho-reconcile-features
+-rwxr-xr-x    1 0        0             8049 Jan  1  1970 libreecho-recovery-ap-probe
+-rwxr-xr-x    1 0        0              379 Jan  1  1970 libreecho-recovery-ap-ready
+-rwxr-xr-x    1 0        0             7079 Jan  1  1970 libreecho-recovery-net-down
+-rwxr-xr-x    1 0        0            15656 Jan  1  1970 libreecho-recovery-net-up
+-rwxr-xr-x    1 0        0            21932 Jan  1  1970 libreecho-sttd-wyoming
+-rwxr-xr-x    1 0        0             8734 Jan  1  1970 libreecho-target-manifest
+-rwxr-xr-x    1 0        0           415048 Jan  1  1970 libreecho-timed
+-rwxr-xr-x    1 0        0           431352 Jan  1  1970 libreecho-timerd
+-rwxr-xr-x    1 0        0            38420 Jan  1  1970 libreecho-ttsd-wyoming
+-rwxr-xr-x    1 0        0            27894 Jan  1  1970 libreecho-update
+-rwxr-xr-x    1 0        0            57309 Jan  1  1970 libreecho-update-fetch
+-rwxr-xr-x    1 0        0            29255 Jan  1  1970 libreecho-vendor-import
+-rwxr-xr-x    1 0        0           423184 Jan  1  1970 libreecho-watchdogd
+-rwxr-xr-x    1 0        0          1364204 Jan  1  1970 libreecho-web

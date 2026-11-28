@@ -1,0 +1,9 @@
+57, 57 (range 0->175)
+playing '/tmp/lidar-left.wav': 2 ch, 48000 hz, 16-bit signed PCM
+Played 768000 bytes. Remains 0 bytes.
+37, 37 (range 0->175)
+playing '/tmp/lidar-right.wav': 2 ch, 48000 hz, 16-bit signed PCM
+Played 768000 bytes. Remains 0 bytes.
+7, 7 (range 0->175)
+playing '/tmp/lidar-both.wav': 2 ch, 48000 hz, 16-bit signed PCM
+Played 768000 bytes. Remains 0 bytes.

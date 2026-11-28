@@ -1,0 +1,11 @@
+69.23 153.95
+{"ok":true,"data":{"api_version":1,"os_version":"LibreEcho OS 0.14.5","csrf_token":"<TOKEN>","authentication":"bootstrap-required","bootstrap_required":true,"user_count":0,"bind_policy":"loopback-default","max_request_body":16384,"setup_completed":false,"setup_url":"/setup.html","ui_theme":"classic","color_mode":""},"error":null}
+ls: /run/libreecho/startup-ready: No such file or directory
+ls: /run/libreecho/agent.sock: No such file or directory
+ 7685 0         0:00 {libreecho-web.i} /bin/sh /etc/init.d/libreecho-web.init start
+schema=1
+selected_slot=b
+inactive_slot=a
+slot_suffix=b
+slot_a_priority=14
+slot_a_tries=0

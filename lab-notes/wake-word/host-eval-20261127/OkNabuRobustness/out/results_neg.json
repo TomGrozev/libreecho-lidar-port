@@ -1,0 +1,1099 @@
+{
+ "threshold": 0.48919999999999997,
+ "clean": {},
+ "degraded": {},
+ "negatives": [
+  {
+   "ok_nabu": {
+    "peak": 0.0015,
+    "peak_t": 3.52,
+    "peak_dt_end": -3.04,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 1.0,
+    "peak_t": 4.16,
+    "peak_dt_end": -2.4,
+    "width_020": 8,
+    "width_thr": 7,
+    "detected": true,
+    "events": 1
+   },
+   "hey_jarvis": {
+    "peak": 0.0015,
+    "peak_t": 3.2,
+    "peak_dt_end": -3.36,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 4.4,
+    "peak_dt_end": -2.16,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "music-+00.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.0015,
+    "peak_t": 3.52,
+    "peak_dt_end": -3.04,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 1.0,
+    "peak_t": 4.16,
+    "peak_dt_end": -2.4,
+    "width_020": 12,
+    "width_thr": 9,
+    "detected": true,
+    "events": 1
+   },
+   "hey_jarvis": {
+    "peak": 0.0014,
+    "peak_t": 3.2,
+    "peak_dt_end": -3.36,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 4.4,
+    "peak_dt_end": -2.16,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "music-+03.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.0015,
+    "peak_t": 3.52,
+    "peak_dt_end": -3.04,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 1.0,
+    "peak_t": 4.32,
+    "peak_dt_end": -2.24,
+    "width_020": 13,
+    "width_thr": 12,
+    "detected": true,
+    "events": 1
+   },
+   "hey_jarvis": {
+    "peak": 0.0014,
+    "peak_t": 3.2,
+    "peak_dt_end": -3.36,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 2.16,
+    "peak_dt_end": -4.4,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "music-+06.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.0014,
+    "peak_t": 3.52,
+    "peak_dt_end": -3.02,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 1.0,
+    "peak_t": 4.32,
+    "peak_dt_end": -2.22,
+    "width_020": 12,
+    "width_thr": 11,
+    "detected": true,
+    "events": 1
+   },
+   "hey_jarvis": {
+    "peak": 0.0011,
+    "peak_t": 3.2,
+    "peak_dt_end": -3.34,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 2.16,
+    "peak_dt_end": -4.38,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "music-+12.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.0013,
+    "peak_t": 2.96,
+    "peak_dt_end": -3.54,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 1.0,
+    "peak_t": 4.48,
+    "peak_dt_end": -2.02,
+    "width_020": 12,
+    "width_thr": 11,
+    "detected": true,
+    "events": 1
+   },
+   "hey_jarvis": {
+    "peak": 0.001,
+    "peak_t": 3.2,
+    "peak_dt_end": -3.3,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 2.24,
+    "peak_dt_end": -4.26,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "music-+20.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.0016,
+    "peak_t": 3.52,
+    "peak_dt_end": -3.04,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 0.9994,
+    "peak_t": 4.16,
+    "peak_dt_end": -2.4,
+    "width_020": 7,
+    "width_thr": 6,
+    "detected": true,
+    "events": 1
+   },
+   "hey_jarvis": {
+    "peak": 0.0015,
+    "peak_t": 3.2,
+    "peak_dt_end": -3.36,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0001,
+    "peak_t": 4.4,
+    "peak_dt_end": -2.16,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "music--03.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.0016,
+    "peak_t": 3.52,
+    "peak_dt_end": -3.04,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 0.7596,
+    "peak_t": 4.16,
+    "peak_dt_end": -2.4,
+    "width_020": 3,
+    "width_thr": 1,
+    "detected": true,
+    "events": 1
+   },
+   "hey_jarvis": {
+    "peak": 0.0015,
+    "peak_t": 3.2,
+    "peak_dt_end": -3.36,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 4.32,
+    "peak_dt_end": -2.24,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "music--06.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.0028,
+    "peak_t": 6.08,
+    "peak_dt_end": -0.48,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 0.0093,
+    "peak_t": 1.92,
+    "peak_dt_end": -4.64,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_jarvis": {
+    "peak": 0.0015,
+    "peak_t": 3.2,
+    "peak_dt_end": -3.36,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 2.24,
+    "peak_dt_end": -4.32,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "music--12.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.0058,
+    "peak_t": 6.08,
+    "peak_dt_end": -0.48,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 0.0093,
+    "peak_t": 1.92,
+    "peak_dt_end": -4.64,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_jarvis": {
+    "peak": 0.0015,
+    "peak_t": 3.2,
+    "peak_dt_end": -3.36,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 2.16,
+    "peak_dt_end": -4.4,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "music--18.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.0061,
+    "peak_t": 6.08,
+    "peak_dt_end": -0.48,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 0.0093,
+    "peak_t": 1.92,
+    "peak_dt_end": -4.64,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_jarvis": {
+    "peak": 0.0015,
+    "peak_t": 3.2,
+    "peak_dt_end": -3.36,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 2.16,
+    "peak_dt_end": -4.4,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "music--24.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.0053,
+    "peak_t": 5.28,
+    "peak_dt_end": -1.28,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 0.0081,
+    "peak_t": 1.92,
+    "peak_dt_end": -4.64,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_jarvis": {
+    "peak": 0.0015,
+    "peak_t": 3.2,
+    "peak_dt_end": -3.36,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 2.24,
+    "peak_dt_end": -4.32,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "music-bedonly.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.001,
+    "peak_t": 4.32,
+    "peak_dt_end": -1.02,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 1.0,
+    "peak_t": 4.32,
+    "peak_dt_end": -1.02,
+    "width_020": 10,
+    "width_thr": 8,
+    "detected": true,
+    "events": 1
+   },
+   "hey_jarvis": {
+    "peak": 0.0028,
+    "peak_t": 3.52,
+    "peak_dt_end": -1.82,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 0.08,
+    "peak_dt_end": -5.26,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "music-clean.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.0009,
+    "peak_t": 4.48,
+    "peak_dt_end": 0.02,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 0.0026,
+    "peak_t": 3.28,
+    "peak_dt_end": -1.18,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_jarvis": {
+    "peak": 0.0023,
+    "peak_t": 1.52,
+    "peak_dt_end": -2.94,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 0.08,
+    "peak_dt_end": -4.38,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "no-wake-word.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.001,
+    "peak_t": 2.08,
+    "peak_dt_end": -0.58,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 1.0,
+    "peak_t": 2.08,
+    "peak_dt_end": -0.58,
+    "width_020": 15,
+    "width_thr": 15,
+    "detected": true,
+    "events": 1
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.96,
+    "peak_dt_end": -1.7,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 0.08,
+    "peak_dt_end": -2.58,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "pause-0000.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.001,
+    "peak_t": 2.08,
+    "peak_dt_end": -0.92,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 1.0,
+    "peak_t": 2.08,
+    "peak_dt_end": -0.92,
+    "width_020": 12,
+    "width_thr": 9,
+    "detected": true,
+    "events": 1
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.96,
+    "peak_dt_end": -2.04,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 0.08,
+    "peak_dt_end": -2.92,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "pause-0250.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.001,
+    "peak_t": 2.08,
+    "peak_dt_end": -1.08,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 1.0,
+    "peak_t": 2.08,
+    "peak_dt_end": -1.08,
+    "width_020": 11,
+    "width_thr": 9,
+    "detected": true,
+    "events": 1
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.96,
+    "peak_dt_end": -2.2,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 0.08,
+    "peak_dt_end": -3.08,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "pause-0500.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.001,
+    "peak_t": 2.08,
+    "peak_dt_end": -1.58,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 1.0,
+    "peak_t": 2.08,
+    "peak_dt_end": -1.58,
+    "width_020": 14,
+    "width_thr": 14,
+    "detected": true,
+    "events": 1
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.96,
+    "peak_dt_end": -2.7,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 0.08,
+    "peak_dt_end": -3.58,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "pause-1000.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.001,
+    "peak_t": 2.08,
+    "peak_dt_end": -2.08,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 1.0,
+    "peak_t": 2.08,
+    "peak_dt_end": -2.08,
+    "width_020": 14,
+    "width_thr": 14,
+    "detected": true,
+    "events": 1
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.96,
+    "peak_dt_end": -3.2,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 0.08,
+    "peak_dt_end": -4.08,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "pause-1500.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.001,
+    "peak_t": 2.08,
+    "peak_dt_end": -2.58,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 1.0,
+    "peak_t": 2.08,
+    "peak_dt_end": -2.58,
+    "width_020": 14,
+    "width_thr": 14,
+    "detected": true,
+    "events": 1
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.96,
+    "peak_dt_end": -3.7,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 0.08,
+    "peak_dt_end": -4.58,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "pause-2000.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.001,
+    "peak_t": 2.08,
+    "peak_dt_end": -3.58,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 1.0,
+    "peak_t": 2.08,
+    "peak_dt_end": -3.58,
+    "width_020": 14,
+    "width_thr": 14,
+    "detected": true,
+    "events": 1
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.96,
+    "peak_dt_end": -4.7,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 0.08,
+    "peak_dt_end": -5.58,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "pause-3000.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.001,
+    "peak_t": 2.08,
+    "peak_dt_end": -4.08,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 1.0,
+    "peak_t": 2.08,
+    "peak_dt_end": -4.08,
+    "width_020": 14,
+    "width_thr": 14,
+    "detected": true,
+    "events": 1
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.96,
+    "peak_dt_end": -5.2,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 0.08,
+    "peak_dt_end": -6.08,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "pause-3500.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.001,
+    "peak_t": 2.08,
+    "peak_dt_end": -4.38,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 1.0,
+    "peak_t": 2.08,
+    "peak_dt_end": -4.38,
+    "width_020": 14,
+    "width_thr": 14,
+    "detected": true,
+    "events": 1
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.96,
+    "peak_dt_end": -5.5,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 0.08,
+    "peak_dt_end": -6.38,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "pause-3800.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.001,
+    "peak_t": 2.08,
+    "peak_dt_end": -4.58,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 1.0,
+    "peak_t": 2.08,
+    "peak_dt_end": -4.58,
+    "width_020": 14,
+    "width_thr": 14,
+    "detected": true,
+    "events": 1
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.96,
+    "peak_dt_end": -5.7,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 0.08,
+    "peak_dt_end": -6.58,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "pause-4000.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.001,
+    "peak_t": 2.08,
+    "peak_dt_end": -5.08,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 1.0,
+    "peak_t": 2.08,
+    "peak_dt_end": -5.08,
+    "width_020": 14,
+    "width_thr": 14,
+    "detected": true,
+    "events": 1
+   },
+   "hey_jarvis": {
+    "peak": 0.0,
+    "peak_t": 0.96,
+    "peak_dt_end": -6.2,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 0.08,
+    "peak_dt_end": -7.08,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "pause-4500.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.8287,
+    "peak_t": 2.16,
+    "peak_dt_end": 0.0,
+    "width_020": 3,
+    "width_thr": 3,
+    "detected": true,
+    "events": 1
+   },
+   "alexa": {
+    "peak": 0.0004,
+    "peak_t": 0.96,
+    "peak_dt_end": -1.2,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_jarvis": {
+    "peak": 0.0005,
+    "peak_t": 2.0,
+    "peak_dt_end": -0.16,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 0.08,
+    "peak_dt_end": -2.08,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "false_okay_natalie.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.0184,
+    "peak_t": 2.08,
+    "peak_dt_end": -0.1,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 0.0,
+    "peak_t": 1.68,
+    "peak_dt_end": -0.5,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_jarvis": {
+    "peak": 0.0068,
+    "peak_t": 2.24,
+    "peak_dt_end": 0.06,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 2.24,
+    "peak_dt_end": 0.06,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "false_okay_neighbor.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.0011,
+    "peak_t": 1.52,
+    "peak_dt_end": -0.5,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 0.0003,
+    "peak_t": 1.76,
+    "peak_dt_end": -0.26,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_jarvis": {
+    "peak": 0.0003,
+    "peak_t": 1.6,
+    "peak_dt_end": -0.42,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 0.08,
+    "peak_dt_end": -1.94,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "vpe_turn_on_the_lights.wav"
+  },
+  {
+   "ok_nabu": {
+    "peak": 0.0009,
+    "peak_t": 2.0,
+    "peak_dt_end": 0.22,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "alexa": {
+    "peak": 0.0006,
+    "peak_t": 2.24,
+    "peak_dt_end": 0.46,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_jarvis": {
+    "peak": 0.0025,
+    "peak_t": 1.84,
+    "peak_dt_end": 0.06,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "hey_mycroft": {
+    "peak": 0.0,
+    "peak_t": 0.08,
+    "peak_dt_end": -1.7,
+    "width_020": 0,
+    "width_thr": 0,
+    "detected": false,
+    "events": 0
+   },
+   "clip": "vpe_turn_all_the_lights.wav"
+  }
+ ]
+}

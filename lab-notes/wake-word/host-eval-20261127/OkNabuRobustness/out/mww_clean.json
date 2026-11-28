@@ -1,0 +1,291 @@
+{
+ "loose_cutoff": 0.5,
+ "models": {
+  "okay_nabu": {
+   "cutoff": 0.97
+  },
+  "alexa": {
+   "cutoff": 0.9
+  },
+  "hey_jarvis": {
+   "cutoff": 0.97
+  },
+  "hey_mycroft": {
+   "cutoff": 0.95
+  },
+  "okay_nabu_pkg": {
+   "cutoff": 0.85
+  }
+ },
+ "clean": {
+  "ok_nabu": [
+   {
+    "okay_nabu": {
+     "peak": 0.9961,
+     "peak_t": 5.94,
+     "width_020": 24,
+     "width_thr": 13,
+     "detected": true,
+     "detected_loose": true,
+     "audio_s": 3.56,
+     "cpu_s": 0.012
+    },
+    "alexa": {
+     "peak": 0.0039,
+     "peak_t": 0.45,
+     "width_020": 0,
+     "width_thr": 0,
+     "detected": false,
+     "detected_loose": false,
+     "audio_s": 3.56,
+     "cpu_s": 0.011
+    },
+    "hey_jarvis": {
+     "peak": 0.0031,
+     "peak_t": 8.91,
+     "width_020": 0,
+     "width_thr": 0,
+     "detected": false,
+     "detected_loose": false,
+     "audio_s": 3.56,
+     "cpu_s": 0.01
+    },
+    "hey_mycroft": {
+     "peak": 0.0227,
+     "peak_t": 0.45,
+     "width_020": 0,
+     "width_thr": 0,
+     "detected": false,
+     "detected_loose": false,
+     "audio_s": 3.56,
+     "cpu_s": 0.01
+    },
+    "okay_nabu_pkg": {
+     "peak": 0.9961,
+     "peak_t": 5.94,
+     "width_020": 30,
+     "width_thr": 21,
+     "detected": true,
+     "detected_loose": true,
+     "audio_s": 3.56,
+     "cpu_s": 0.011
+    },
+    "clip": "okay_nabu_turn_on_the_lights.wav"
+   },
+   {
+    "okay_nabu": {
+     "peak": 0.9961,
+     "peak_t": 6.39,
+     "width_020": 21,
+     "width_thr": 10,
+     "detected": true,
+     "detected_loose": true,
+     "audio_s": 4.41,
+     "cpu_s": 0.015
+    },
+    "alexa": {
+     "peak": 0.0039,
+     "peak_t": 0.45,
+     "width_020": 0,
+     "width_thr": 0,
+     "detected": false,
+     "detected_loose": false,
+     "audio_s": 4.41,
+     "cpu_s": 0.013
+    },
+    "hey_jarvis": {
+     "peak": 0.0,
+     "peak_t": 0.03,
+     "width_020": 0,
+     "width_thr": 0,
+     "detected": false,
+     "detected_loose": false,
+     "audio_s": 4.41,
+     "cpu_s": 0.013
+    },
+    "hey_mycroft": {
+     "peak": 0.0227,
+     "peak_t": 0.45,
+     "width_020": 0,
+     "width_thr": 0,
+     "detected": false,
+     "detected_loose": false,
+     "audio_s": 4.41,
+     "cpu_s": 0.013
+    },
+    "okay_nabu_pkg": {
+     "peak": 0.9805,
+     "peak_t": 7.2,
+     "width_020": 29,
+     "width_thr": 20,
+     "detected": true,
+     "detected_loose": true,
+     "audio_s": 4.41,
+     "cpu_s": 0.013
+    },
+    "clip": "genuine_brightness_fifty.wav"
+   },
+   {
+    "okay_nabu": {
+     "peak": 0.9844,
+     "peak_t": 6.21,
+     "width_020": 16,
+     "width_thr": 4,
+     "detected": true,
+     "detected_loose": true,
+     "audio_s": 3.36,
+     "cpu_s": 0.01
+    },
+    "alexa": {
+     "peak": 0.0039,
+     "peak_t": 0.45,
+     "width_020": 0,
+     "width_thr": 0,
+     "detected": false,
+     "detected_loose": false,
+     "audio_s": 3.36,
+     "cpu_s": 0.01
+    },
+    "hey_jarvis": {
+     "peak": 0.0,
+     "peak_t": 0.03,
+     "width_020": 0,
+     "width_thr": 0,
+     "detected": false,
+     "detected_loose": false,
+     "audio_s": 3.36,
+     "cpu_s": 0.01
+    },
+    "hey_mycroft": {
+     "peak": 0.0227,
+     "peak_t": 0.45,
+     "width_020": 0,
+     "width_thr": 0,
+     "detected": false,
+     "detected_loose": false,
+     "audio_s": 3.36,
+     "cpu_s": 0.01
+    },
+    "okay_nabu_pkg": {
+     "peak": 0.7625,
+     "peak_t": 6.12,
+     "width_020": 18,
+     "width_thr": 0,
+     "detected": false,
+     "detected_loose": true,
+     "audio_s": 3.36,
+     "cpu_s": 0.011
+    },
+    "clip": "genuine_turn_on_the_lights_nab.wav"
+   }
+  ],
+  "alexa": [
+   {
+    "okay_nabu": {
+     "peak": 0.0203,
+     "peak_t": 0.45,
+     "width_020": 0,
+     "width_thr": 0,
+     "detected": false,
+     "detected_loose": false,
+     "audio_s": 11.69,
+     "cpu_s": 0.036
+    },
+    "alexa": {
+     "peak": 0.9961,
+     "peak_t": 6.75,
+     "width_020": 52,
+     "width_thr": 35,
+     "detected": true,
+     "detected_loose": true,
+     "audio_s": 11.69,
+     "cpu_s": 0.037
+    },
+    "hey_jarvis": {
+     "peak": 0.0,
+     "peak_t": 0.03,
+     "width_020": 0,
+     "width_thr": 0,
+     "detected": false,
+     "detected_loose": false,
+     "audio_s": 11.69,
+     "cpu_s": 0.033
+    },
+    "hey_mycroft": {
+     "peak": 0.0227,
+     "peak_t": 0.45,
+     "width_020": 0,
+     "width_thr": 0,
+     "detected": false,
+     "detected_loose": false,
+     "audio_s": 11.69,
+     "cpu_s": 0.034
+    },
+    "okay_nabu_pkg": {
+     "peak": 0.3125,
+     "peak_t": 10.8,
+     "width_020": 10,
+     "width_thr": 0,
+     "detected": false,
+     "detected_loose": false,
+     "audio_s": 11.69,
+     "cpu_s": 0.036
+    },
+    "clip": "alexa-twice.wav"
+   },
+   {
+    "okay_nabu": {
+     "peak": 0.0203,
+     "peak_t": 0.45,
+     "width_020": 0,
+     "width_thr": 0,
+     "detected": false,
+     "detected_loose": false,
+     "audio_s": 4.63,
+     "cpu_s": 0.014
+    },
+    "alexa": {
+     "peak": 0.9961,
+     "peak_t": 6.75,
+     "width_020": 26,
+     "width_thr": 17,
+     "detected": true,
+     "detected_loose": true,
+     "audio_s": 4.63,
+     "cpu_s": 0.013
+    },
+    "hey_jarvis": {
+     "peak": 0.0,
+     "peak_t": 0.03,
+     "width_020": 0,
+     "width_thr": 0,
+     "detected": false,
+     "detected_loose": false,
+     "audio_s": 4.63,
+     "cpu_s": 0.013
+    },
+    "hey_mycroft": {
+     "peak": 0.0227,
+     "peak_t": 0.45,
+     "width_020": 0,
+     "width_thr": 0,
+     "detected": false,
+     "detected_loose": false,
+     "audio_s": 4.63,
+     "cpu_s": 0.013
+    },
+    "okay_nabu_pkg": {
+     "peak": 0.3125,
+     "peak_t": 10.8,
+     "width_020": 7,
+     "width_thr": 0,
+     "detected": false,
+     "detected_loose": false,
+     "audio_s": 4.63,
+     "cpu_s": 0.014
+    },
+    "clip": "alexa-what-time.wav"
+   }
+  ]
+ }
+}

@@ -1,0 +1,17 @@
+List of devices attached
+<DEVICE_IP_A>:5555      device transport_id:1
+
+== tee2 dev=/dev/mmcblk0p6
+bytes=5242880 host_sha256=aa2b92914cf3dc8dcfebc958b99d752cb98bb20a79bf48570639587c838ad75e
+== expdb dev=/dev/mmcblk0p7
+bytes=10485760 host_sha256=33473825f09bf14beffd3c61e69670caec4345d17fe017cb391d04ecafd0ece9
+== misc dev=/dev/mmcblk0p8
+bytes=524288 host_sha256=776aa664ea5dcf6d7d0b27035de719e8268d28edeb70bd60e0c9ca380fd3ef0b
+== persist on-device hash (contents not pulled)
+8582bc1afd7cb903fbc4612bc3f1acb3ae2cf226f008c33d36376aa8c2819def  -
+9248bd41602b598703147a39a1c235daff374354f5978714315c2f0ce5b3549f  private/dumps/stock/misc.bin
+e5b844cc57f57094ea4585e235f36c78c1cd222262bb89d53c94dcb4d6b3e55d  private/dumps/stock/expdb.bin
+aa2b92914cf3dc8dcfebc958b99d752cb98bb20a79bf48570639587c838ad75e  private/dumps/stock/tee1.bin
+aa2b92914cf3dc8dcfebc958b99d752cb98bb20a79bf48570639587c838ad75e  private/dumps/stock/tee2.bin
+e1f541d1a793ca98d2d995f875d227998bd5ac6368e44d814f63a6515fff9d5c  private/dumps/stock/lk_a.bin
+sha256sum: private/dumps/stock/lk_b.bin: No such file or directory (os error 2)

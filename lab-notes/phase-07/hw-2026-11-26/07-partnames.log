@@ -1,0 +1,58 @@
+== /dev ls
+console
+full
+gpiochip0
+gpiochip1
+gpiochip2
+gpiochip3
+gpiochip4
+input
+kmsg
+loop0
+loop1
+loop2
+loop3
+loop4
+mmcblk0
+mmcblk0p1
+mmcblk0p10
+mmcblk0p11
+mmcblk0p12
+mmcblk0p13
+mmcblk0p14
+mmcblk0p15
+mmcblk0p16
+mmcblk0p2
+mmcblk0p3
+mmcblk0p4
+mmcblk0p5
+mmcblk0p6
+mmcblk0p7
+mmcblk0p8
+mmcblk0p9
+null
+pmsg0
+ptmx
+pts
+random
+shm
+snd
+socket
+stpbt
+== partnames
+p1 DEVNAME=mmcblk0p1 PARTNAME=kb 
+p2 DEVNAME=mmcblk0p2 PARTNAME=dkb 
+p3 DEVNAME=mmcblk0p3 PARTNAME=lk_a 
+p4 DEVNAME=mmcblk0p4 PARTNAME=tee1 
+p5 DEVNAME=mmcblk0p5 PARTNAME=lk_b 
+p6 DEVNAME=mmcblk0p6 PARTNAME=tee2 
+p7 DEVNAME=mmcblk0p7 PARTNAME=expdb 
+p8 DEVNAME=mmcblk0p8 PARTNAME=misc 
+p9 DEVNAME=mmcblk0p9 PARTNAME=persist 
+p10 DEVNAME=mmcblk0p10 PARTNAME=boot_a 
+p11 DEVNAME=mmcblk0p11 PARTNAME=boot_b 
+p12 DEVNAME=mmcblk0p12 PARTNAME=swdl 
+p13 DEVNAME=mmcblk0p13 PARTNAME=system_a 
+p14 DEVNAME=mmcblk0p14 PARTNAME=system_b 
+p15 DEVNAME=mmcblk0p15 PARTNAME=cache 
+p16 DEVNAME=mmcblk0p16 PARTNAME=userdata 

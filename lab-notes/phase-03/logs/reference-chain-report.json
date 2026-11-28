@@ -1,0 +1,30 @@
+{
+  "ok": true,
+  "partitions": [
+    {
+      "actual_sha256": "07f15dc24e862ec4f27e5ecc72d15c894049f9b3f0afe8edc0bc46863e5eada8",
+      "bytes_read": 214016,
+      "expected_sha256": "07f15dc24e862ec4f27e5ecc72d15c894049f9b3f0afe8edc0bc46863e5eada8",
+      "kind": "user",
+      "name": "expdb",
+      "ok": true
+    },
+    {
+      "actual_sha256": "53704bda5d544612e53e48c476d9ba5dab446557288085f6c7385e4d78661193",
+      "bytes_read": 1120256,
+      "expected_sha256": "53704bda5d544612e53e48c476d9ba5dab446557288085f6c7385e4d78661193",
+      "kind": "user",
+      "name": "tee1",
+      "ok": true
+    },
+    {
+      "actual_sha256": "ab0869c0820131920bbbc9a4a74d754ac222e7ca232e76cc21a81b3fe4a70cd1",
+      "bytes_read": 4194304,
+      "expected_sha256": "ab0869c0820131920bbbc9a4a74d754ac222e7ca232e76cc21a81b3fe4a70cd1",
+      "kind": "boot1+boot2",
+      "name": "boot0",
+      "ok": true
+    }
+  ],
+  "schema_version": 1
+}

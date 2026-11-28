@@ -1,0 +1,2 @@
+{"action": "start", "argv": ["--amonet", "private/forks/amonet", "--dry-run", "--log", "private/lab/phase-07/hw-2026-11-26/prepare-backup-dryrun.jsonl", "backup", "--backup-dir", "private/lab/phase-07/hw-2026-11-26/backup-dryrun"], "command": "backup", "dry_run": true, "stage": "cli", "ts": "2026-11-26T06:32:51+00:00"}
+{"action": "ok", "command": "backup", "dry_run": true, "stage": "cli", "ts": "2026-11-26T06:32:51+00:00"}

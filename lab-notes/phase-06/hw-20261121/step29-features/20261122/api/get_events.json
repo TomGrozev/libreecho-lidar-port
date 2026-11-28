@@ -1,0 +1,6 @@
+{
+ "body": {
+  "raw": "id: 1\nevent: log\ndata: {\"timestamp\":1795291270,\"boot_seconds\":252,\"level\":\"info\",\"message\":\"LibreEcho web daemon started\"}\n\nid: 2\nevent: log\ndata: {\"timestamp\":1795291275,\"boot_seconds\":257,\"level\":\"info\",\"message\":\"Authenticated user session created\"}\n\nevent: status\ndata: {\"refresh\":true}\n\n"
+ },
+ "status": 200
+}

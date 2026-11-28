@@ -1,0 +1,176 @@
+{
+  "readback": [
+    {
+      "file": "boot0.bin",
+      "size_bytes": 2097152,
+      "sha256": "d5fc0bbbc89b7dfaa7ca39fc1d0bc8da0df4a66e2324f3a9742ba70c04f5e327",
+      "source": "mtkclient 'r boot0 --parttype boot1': eMMC boot area 1, full 2 MiB area"
+    },
+    {
+      "file": "boot1.bin",
+      "size_bytes": 2097152,
+      "sha256": "4c8e02060ab820652000e4ffae90c5554d88230625edc704d269bee3efeb80f3",
+      "source": "mtkclient 'r boot1 --parttype boot2': eMMC boot area 2, full 2 MiB area"
+    },
+    {
+      "file": "boot_a.bin",
+      "size_bytes": 16777216,
+      "sha256": "eec8da659fd81352c62e22eb9e2fac174efd180ab03e5ab6c88e1f0135df090c",
+      "source": "GPT partition boot_a @ 0x2980000, length 0x1000000"
+    },
+    {
+      "file": "boot_b.bin",
+      "size_bytes": 16777216,
+      "sha256": "e83621a9df5126a5e57e36fecfc21339ed0054a2e6776397a3ac0149b02e983a",
+      "source": "GPT partition boot_b @ 0x3980000, length 0x1000000"
+    },
+    {
+      "file": "expdb.bin",
+      "size_bytes": 10485760,
+      "sha256": "e5b844cc57f57094ea4585e235f36c78c1cd222262bb89d53c94dcb4d6b3e55d",
+      "source": "GPT partition expdb @ 0xf00000, length 0xa00000"
+    },
+    {
+      "file": "gpt.bin",
+      "size_bytes": 90112,
+      "sha256": "7668e74b33f37cc06e73c99c9226d8b7f8f6259f2a7e4678378bf7e40196b682",
+      "source": "mtkclient 'r gpt': primary GPT read from LBA0, length 0x16000 (90112 B); header at off 512, entries LBA 2, 128x128 B"
+    },
+    {
+      "file": "gpt_backup.bin",
+      "size_bytes": 16896,
+      "sha256": "07fda82bd175d93cacfd32e0c2f15ce141688856deffa9e67131cba721f0945c",
+      "source": "mtkclient 'ro 0x1C7FFBE00 0x4200': backup entry array at LBA 0xE3FFDF through the backup header at LBA 0xE3FFFF; header reads my_lba 0xE3FFFF, alternate_lba 1, first_usable 0x22, last_usable 0xE3FFDE; its entry array is byte-identical to the primary array"
+    },
+    {
+      "file": "lk_a.bin",
+      "size_bytes": 1048576,
+      "sha256": "e1f541d1a793ca98d2d995f875d227998bd5ac6368e44d814f63a6515fff9d5c",
+      "source": "GPT partition lk_a @ 0x300000, length 0x100000"
+    },
+    {
+      "file": "lk_b.bin",
+      "size_bytes": 1048576,
+      "sha256": "135c057f50c93c8a2ff52f6a6a5f5a211f5ac7f6fed7e7f13da8ea8a5ce06649",
+      "source": "GPT partition lk_b @ 0x900000, length 0x100000"
+    },
+    {
+      "file": "misc.bin",
+      "size_bytes": 524288,
+      "sha256": "9248bd41602b598703147a39a1c235daff374354f5978714315c2f0ce5b3549f",
+      "source": "GPT partition misc @ 0x1900000, length 0x80000"
+    },
+    {
+      "file": "tee1.bin",
+      "size_bytes": 5242880,
+      "sha256": "aa2b92914cf3dc8dcfebc958b99d752cb98bb20a79bf48570639587c838ad75e",
+      "source": "GPT partition tee1 @ 0x400000, length 0x500000"
+    }
+  ],
+  "backup": [
+    {
+      "file": "SHA256SUMS",
+      "size_bytes": 382,
+      "sha256": "59c83860fac79b9764050cf18a570f2ed69aeef666e47af8228a63fa3fbaa86d",
+      "source": "checksum list written during the readback session; covers boot0/gpt/gpt_backup/expdb/tee1 in this directory"
+    },
+    {
+      "file": "boot0.bin",
+      "size_bytes": 2097152,
+      "sha256": "d5fc0bbbc89b7dfaa7ca39fc1d0bc8da0df4a66e2324f3a9742ba70c04f5e327",
+      "source": "mtkclient 'r boot0 --parttype boot1': eMMC boot area 1, full 2 MiB area"
+    },
+    {
+      "file": "expdb.bin",
+      "size_bytes": 10485760,
+      "sha256": "e5b844cc57f57094ea4585e235f36c78c1cd222262bb89d53c94dcb4d6b3e55d",
+      "source": "GPT partition expdb @ 0xf00000, length 0xa00000"
+    },
+    {
+      "file": "gpt.bin",
+      "size_bytes": 90112,
+      "sha256": "7668e74b33f37cc06e73c99c9226d8b7f8f6259f2a7e4678378bf7e40196b682",
+      "source": "mtkclient 'r gpt': primary GPT read from LBA0, length 0x16000 (90112 B); header at off 512, entries LBA 2, 128x128 B"
+    },
+    {
+      "file": "gpt_backup.bin",
+      "size_bytes": 16896,
+      "sha256": "07fda82bd175d93cacfd32e0c2f15ce141688856deffa9e67131cba721f0945c",
+      "source": "backup GPT table at LBA 0xE3FFDF-0xE3FFFF, same read as readback/gpt_backup.bin"
+    },
+    {
+      "file": "tee1.bin",
+      "size_bytes": 5242880,
+      "sha256": "aa2b92914cf3dc8dcfebc958b99d752cb98bb20a79bf48570639587c838ad75e",
+      "source": "GPT partition tee1 @ 0x400000, length 0x500000"
+    }
+  ],
+  "stock_comparison": [
+    {
+      "file": "boot0.bin",
+      "stock_sha256": null,
+      "read_sha256": "d5fc0bbbc89b7dfaa7ca39fc1d0bc8da0df4a66e2324f3a9742ba70c04f5e327",
+      "status": "no stock counterpart"
+    },
+    {
+      "file": "boot1.bin",
+      "stock_sha256": null,
+      "read_sha256": "4c8e02060ab820652000e4ffae90c5554d88230625edc704d269bee3efeb80f3",
+      "status": "no stock counterpart"
+    },
+    {
+      "file": "boot_a.bin",
+      "stock_sha256": "eec8da659fd81352c62e22eb9e2fac174efd180ab03e5ab6c88e1f0135df090c",
+      "read_sha256": "eec8da659fd81352c62e22eb9e2fac174efd180ab03e5ab6c88e1f0135df090c",
+      "status": "match"
+    },
+    {
+      "file": "boot_b.bin",
+      "stock_sha256": null,
+      "read_sha256": "e83621a9df5126a5e57e36fecfc21339ed0054a2e6776397a3ac0149b02e983a",
+      "status": "no stock counterpart"
+    },
+    {
+      "file": "expdb.bin",
+      "stock_sha256": "e5b844cc57f57094ea4585e235f36c78c1cd222262bb89d53c94dcb4d6b3e55d",
+      "read_sha256": "e5b844cc57f57094ea4585e235f36c78c1cd222262bb89d53c94dcb4d6b3e55d",
+      "status": "match"
+    },
+    {
+      "file": "gpt.bin",
+      "stock_sha256": "83053b79a0705dec2cb47fefad554b16816af46c7c4406a632dcff3f86db5941",
+      "read_sha256": "7668e74b33f37cc06e73c99c9226d8b7f8f6259f2a7e4678378bf7e40196b682",
+      "status": "differ"
+    },
+    {
+      "file": "lk_a.bin",
+      "stock_sha256": "e1f541d1a793ca98d2d995f875d227998bd5ac6368e44d814f63a6515fff9d5c",
+      "read_sha256": "e1f541d1a793ca98d2d995f875d227998bd5ac6368e44d814f63a6515fff9d5c",
+      "status": "match"
+    },
+    {
+      "file": "lk_b.bin",
+      "stock_sha256": null,
+      "read_sha256": "135c057f50c93c8a2ff52f6a6a5f5a211f5ac7f6fed7e7f13da8ea8a5ce06649",
+      "status": "no stock counterpart"
+    },
+    {
+      "file": "misc.bin",
+      "stock_sha256": "9248bd41602b598703147a39a1c235daff374354f5978714315c2f0ce5b3549f",
+      "read_sha256": "9248bd41602b598703147a39a1c235daff374354f5978714315c2f0ce5b3549f",
+      "status": "match"
+    },
+    {
+      "file": "tee1.bin",
+      "stock_sha256": "aa2b92914cf3dc8dcfebc958b99d752cb98bb20a79bf48570639587c838ad75e",
+      "read_sha256": "aa2b92914cf3dc8dcfebc958b99d752cb98bb20a79bf48570639587c838ad75e",
+      "status": "match"
+    }
+  ],
+  "session_notes": [
+    "The BROM session on 2026-11-10 (experiments/phase-01/brom-printgpt.log) reported BROM mode, HW code 0x8167, and target config 0xe5: SBC enabled True, SLA False, DAA True, mem read/write auth True. eMMC geometry from the same session: boot areas 0x200000 each, RPMB 0x400000, USER 0x1c8000000.",
+    "dumps/stock/gpt_backup.bin (83053b79a0705dec2cb47fefad554b16816af46c7c4406a632dcff3f86db5941) is byte-identical to dumps/stock/gpt.bin, so it is a duplicate read of LBA0 through LBA0x21 and not the backup table. The backup table is readback/gpt_backup.bin (07fda82b...), whose entry array matches the primary array byte for byte.",
+    "Full efuse indices 0x00-0x4f are in experiments/phase-01/efuse.log."
+  ],
+  "generated_utc": "2026-11-10T07:13:16Z"
+}

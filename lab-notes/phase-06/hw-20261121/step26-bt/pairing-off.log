@@ -1,0 +1,5 @@
+before {"pairing_mode": true, "last_error": "MGMT opcode 0x0006 status 0x0b (rejected)", "connectable": false, "discoverable": false, "bondable": true}
+set_connectable {"v":1,"id":1,"ok":true,"data":{"changed":true}}
+pairing_mode_off {"v":1,"id":1,"ok":true,"data":{"pairing_mode":false}}
+set_discoverable_off {"v":1,"id":1,"ok":true,"data":{"changed":true}}
+after {"pairing_mode": false, "last_error": "", "connectable": true, "discoverable": false, "bondable": false}

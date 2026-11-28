@@ -1,0 +1,20 @@
+== unix sockets
+00000000d84e4e9d: 00000002 00000000 00010000 0001 01  8901 /run/libreecho/mic.sock
+0000000005e1ede9: 00000003 00000000 00000000 0001 03  1974 /run/libreecho/mic.sock
+== fds 5498
+total 0
+lr-x------    1 0        0               64 Nov 21 23:02 [1;36m0[m -> [1;35m/dev/null[m
+l-wx------    1 0        0               64 Nov 21 23:02 [1;36m1[m -> [0;0m/var/log/libreecho-micd.log[m
+l-wx------    1 0        0               64 Nov 21 23:02 [1;36m2[m -> [0;0m/var/log/libreecho-micd.log[m
+lrwx------    1 0        0               64 Nov 21 23:02 [1;36m3[m -> [1;35msocket:[11075][m
+lrwx------    1 0        0               64 Nov 21 23:02 [1;36m4[m -> [1;35msocket:[8901][m
+== fds 6870
+total 0
+lr-x------    1 0        0               64 Nov 21 23:02 [1;36m0[m -> [1;35m/dev/null[m
+l-wx------    1 0        0               64 Nov 21 23:02 [1;36m1[m -> [0;0m/var/log/libreecho-micd.log[m
+l-wx------    1 0        0               64 Nov 21 23:02 [1;36m2[m -> [0;0m/var/log/libreecho-micd.log[m
+lrwx------    1 0        0               64 Nov 21 23:02 [1;36m3[m -> [1;35msocket:[11075][m
+lr-x------    1 0        0               64 Nov 21 23:02 [1;36m4[m -> [0;35mpipe:[1979][m
+lrwx------    1 0        0               64 Nov 21 23:02 [1;36m5[m -> [1;35msocket:[1974][m
+== listeners
+unix  2      [ ACC ]     STREAM     LISTENING       8901 /run/libreecho/mic.sock

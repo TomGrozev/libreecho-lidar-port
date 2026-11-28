@@ -1,0 +1,38 @@
+{"ts":27,"boot_seconds":27,"level":"INFO","service":"networkd","msg":"networkd: starting (socket=/run/libreecho/network.sock, interface=wlan0, wpa=/tmp/wpa_ctrl/wlan0)"}
+{"ts":1795301561,"boot_seconds":28,"level":"INFO","service":"timed","msg":"wall clock restored from /data/libreecho/config/time-epoch (epoch 1795301561)"}
+{"ts":1795301561,"boot_seconds":28,"level":"INFO","service":"timed","msg":"time daemon started (4 peers, image configuration)"}
+{"ts":1795301761,"boot_seconds":29,"level":"INFO","service":"timed","msg":"NTP synchronized; RTC persistence not available"}
+{"ts":1795301768,"boot_seconds":36,"level":"INFO","service":"audiod","msg":"audiod: starting (socket=/run/libreecho/audio.sock, card=0)"}
+{"ts":1795301768,"boot_seconds":36,"level":"INFO","service":"audiod","msg":"audiod: restored microphone gain 65"}
+{"ts":1795301768,"boot_seconds":36,"level":"INFO","service":"audiod","msg":"audiod: selected persisted volume 50"}
+{"ts":1795301768,"boot_seconds":36,"level":"INFO","service":"micd","msg":"micd: Lidar OCM capture path configured (PGA 65%)"}
+{"ts":1795301768,"boot_seconds":36,"level":"INFO","service":"micd","msg":"Radar microphone mixer profile configured"}
+{"ts":1795301768,"boot_seconds":36,"level":"INFO","service":"micd","msg":"microphone daemon listening on /run/libreecho/mic.sock (capture idle)"}
+{"ts":1795301768,"boot_seconds":36,"level":"INFO","service":"micd","msg":"raw microphone stream stopped"}
+{"ts":1795301769,"boot_seconds":37,"level":"INFO","service":"ledd","msg":"using IS31FL3236 LED backend (/sys/bus/i2c/devices/0-003f/frame, current-scaled levels)"}
+{"ts":1795301769,"boot_seconds":37,"level":"INFO","service":"ledd","msg":"LED boot-animation handover complete"}
+{"ts":1795301769,"boot_seconds":37,"level":"INFO","service":"ledd","msg":"green startup animation started"}
+{"ts":1795301769,"boot_seconds":37,"level":"INFO","service":"ledd","msg":"LED daemon listening on /run/libreecho/led.sock"}
+{"ts":1795301769,"boot_seconds":38,"level":"INFO","service":"buttond","msg":"buttond: watching /dev/input/event0 [gpio-keys]"}
+{"ts":1795301769,"boot_seconds":38,"level":"INFO","service":"buttond","msg":"buttond: 1 input device(s) with volume or mute keys"}
+{"ts":1795301770,"boot_seconds":38,"level":"INFO","service":"btd","msg":"btd-profiles: sdp=listening avdtp=listening avrcp=listening"}
+{"ts":1795301770,"boot_seconds":38,"level":"INFO","service":"btd","msg":"btd: Bluetooth profile services registered"}
+{"ts":1795301770,"boot_seconds":38,"level":"INFO","service":"btd","msg":"btd: listening on /run/libreecho/bluetooth.sock (manual activation, HCI management enabled)"}
+{"ts":1795301770,"boot_seconds":38,"level":"INFO","service":"micd","msg":"micd: Lidar OCM capture path configured (PGA 65%)"}
+{"ts":1795301770,"boot_seconds":38,"level":"INFO","service":"micd","msg":"calibrated mono microphone stream started"}
+{"ts":1795301770,"boot_seconds":38,"level":"INFO","service":"timerd","msg":"timerd listening on /run/libreecho/timer.sock"}
+{"ts":1795301772,"boot_seconds":40,"level":"INFO","service":"airplayd","msg":"airplayd: shared audio engine ready"}
+{"ts":1795301772,"boot_seconds":40,"level":"INFO","service":"airplayd","msg":"airplayd: starting (socket=/run/libreecho/airplay.sock, enable_on_start=yes, mdns=ready)"}
+{"ts":1795301773,"boot_seconds":41,"level":"INFO","service":"libreecho-web","msg":"LibreEcho web daemon started"}
+{"ts":1795301773,"boot_seconds":41,"level":"INFO","service":"audiod","msg":"audiod: set_volume 50 -> 50"}
+{"ts":1795301773,"boot_seconds":41,"level":"INFO","service":"audiod","msg":"audiod: set_gain 65 -> 65"}
+{"ts":1795301773,"boot_seconds":41,"level":"INFO","service":"ledd","msg":"green startup animation complete"}
+{"ts":1795301774,"boot_seconds":42,"level":"INFO","service":"airplayd","msg":"airplayd: AirPlay 2 enabled (NQPTP, Shairport Sync)"}
+{"ts":1795301774,"boot_seconds":42,"level":"INFO","service":"airplayd","msg":"airplayd: Sendspin player started"}
+{"ts":1795301774,"boot_seconds":42,"level":"INFO","service":"airplayd","msg":"airplayd: shared mDNS supervisor ready after hostname change"}
+{"ts":1795301774,"boot_seconds":43,"level":"WARN","service":"buttond","msg":"buttond: mute lamp write refused: Operation not supported"}
+{"ts":1795301774,"boot_seconds":43,"level":"INFO","service":"buttond","msg":"buttond: mute indicator off"}
+== logd
+00:00:27.311 logd [INFO] logd: listening on /run/libreecho/log.sock, writing to /var/log/libreecho/system.log
+== waked log
+[0;0m/var/log/libreecho-waked.log[m

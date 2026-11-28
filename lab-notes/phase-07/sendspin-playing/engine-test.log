@@ -1,0 +1,223 @@
+engine-sendspin: real engine + fake PCM behaviour PASS
+engine-loop: real run_engine + fake PCM/mixer + real socket PASS
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/prime, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/prime/avl.disabled)
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/finish, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/finish/avl.disabled)
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/legacy, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/legacy/avl.disabled)
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/epipe, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/epipe/avl.disabled)
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: playback start failed: fake-pcm
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/estripe, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/estripe/avl.disabled)
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: playback start failed: fake-pcm
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/restart, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/restart/avl.disabled)
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/restart, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/restart/avl.disabled)
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/mixfail, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/mixfail/avl.disabled)
+audio-engine: mixer 0 unavailable
+audio-engine: output arm failed
+audio-engine: mixer 0 unavailable
+audio-engine: output arm failed
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/prepfail, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/prepfail/avl.disabled)
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: playback start failed: fake-pcm
+audio-engine: playback start failed: fake-pcm
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/stop, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/stop/avl.disabled)
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/media, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/media/avl.disabled)
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/sendspinmedia, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/sendspinmedia/avl.disabled)
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/pcmfail, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/pcmfail/avl.disabled)
+audio-engine: PCM 0,23 unavailable: open failed
+audio-engine: PCM 0,23 unavailable: open failed
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/notiming, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/notiming/avl.disabled)
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: timing model unavailable
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/notiminglegacy, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/notiminglegacy/avl.disabled)
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: timing model unavailable
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/queryfail, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/queryfail/avl.disabled)
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: PCM write failed: fake-pcm
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/widefinish, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/widefinish/avl.disabled)
+audio-engine: output S32_LE (24-bit)
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/wideepipe, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/wideepipe/avl.disabled)
+audio-engine: output S32_LE (24-bit)
+audio-engine: playback start failed: fake-pcm
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/throughput, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/throughput/avl.disabled)
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+throughput: stop-and-wait credit rate 47105 frames/s
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/idlewake, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/idlewake/avl.disabled)
+idlewake: idle round trip mean 0.06 ms worst 0.10 ms
+audio-engine: speaker chain radar-puffin codec Radar hp-gain 6 lo-gain 6 pre 1.00 bass +0.0 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/rtstart, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/radar_puffin/rtstart/avl.disabled)
+audio-engine: output S32_LE (24-bit)
+test_audio_engine_sendspin: engine loop PASS for radar_puffin
+engine-loop: real run_engine + fake PCM/mixer + real socket PASS
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/prime, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/prime/avl.disabled)
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/finish, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/finish/avl.disabled)
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/legacy, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/legacy/avl.disabled)
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/epipe, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/epipe/avl.disabled)
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: playback start failed: fake-pcm
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/estripe, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/estripe/avl.disabled)
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: playback start failed: fake-pcm
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/restart, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/restart/avl.disabled)
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/restart, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/restart/avl.disabled)
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/mixfail, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/mixfail/avl.disabled)
+audio-engine: mixer 0 unavailable
+audio-engine: output arm failed
+audio-engine: mixer 0 unavailable
+audio-engine: output arm failed
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/prepfail, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/prepfail/avl.disabled)
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: playback start failed: fake-pcm
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: playback start failed: fake-pcm
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/stop, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/stop/avl.disabled)
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/media, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/media/avl.disabled)
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/sendspinmedia, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/sendspinmedia/avl.disabled)
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/pcmfail, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/pcmfail/avl.disabled)
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: PCM 0,23 unavailable: open failed
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: PCM 0,23 unavailable: open failed
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/notiming, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/notiming/avl.disabled)
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: timing model unavailable
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: timing model unavailable
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/notiminglegacy, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/notiminglegacy/avl.disabled)
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: timing model unavailable
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/queryfail, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/queryfail/avl.disabled)
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+audio-engine: PCM write failed: fake-pcm
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/widefinish, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/widefinish/avl.disabled)
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: output S32_LE (24-bit)
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/wideepipe, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/wideepipe/avl.disabled)
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: output S32_LE (24-bit)
+audio-engine: playback start failed: fake-pcm
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/throughput, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/throughput/avl.disabled)
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: output S16_LE (kernel has no 24-bit playback)
+throughput: stop-and-wait credit rate 47092 frames/s
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/idlewake, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/idlewake/avl.disabled)
+idlewake: idle round trip mean 0.09 ms worst 0.13 ms
+audio-engine: speaker chain biscuit codec Flat hp-gain 6 lo-gain 6 pre 2.00 bass +2.5 dB
+audio-engine: ready (root=/home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/rtstart, input=S16_LE/48000/stereo, output=S16_LE/48000/duplicated-stereo, PCM 0,23)
+audio-engine: music AVL available (disable: /home/build/.cache/libreecho-tests/run-6rn00gnl/loop/biscuit/rtstart/avl.disabled)
+audio-engine: Speaker Codec Profile Flat unavailable
+audio-engine: output S32_LE (24-bit)
+test_audio_engine_sendspin: engine loop PASS for biscuit
+test_audio_engine_sendspin: real engine/fake PCM integration PASS

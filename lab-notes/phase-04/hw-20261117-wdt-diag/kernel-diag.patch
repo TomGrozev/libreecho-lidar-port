@@ -1,0 +1,45 @@
+diff --git a/arch/arm64/boot/dts/mediatek/libreecho-lidar.dts b/arch/arm64/boot/dts/mediatek/libreecho-lidar.dts
+index 0dbd6e712fcd..3922029ad260 100644
+--- a/arch/arm64/boot/dts/mediatek/libreecho-lidar.dts
++++ b/arch/arm64/boot/dts/mediatek/libreecho-lidar.dts
+@@ -59,19 +59,17 @@ atf@43000000 {
+ 		};
+ 
+ 		/*
+-		 * Outside every region this boot chain loads into: the kernel at
+-		 * 0x40080000, the ramdisk at 0x44000000, LK's download window
+-		 * (0x44fff000..0x4dffffff) and the DTB copy at 0x4e000000.  The
+-		 * earlier 0x43810000 placement inside LK's boot-image window
+-		 * never returned a record.  Console 0x80000, pmsg 0x20000, and
+-		 * three 0x20000 dump records in the remaining 0x60000.
++		 * Diagnostic placement: Kaeru's `fetch ramoops` reads exactly
++		 * 0x43810000..0x4386ffff, and LK maps nothing at 0x60000000, so
++		 * this is the only window readable without a working Linux USB.
++		 * The product placement is 0x60000000 (PLAN.md Phase 4 item d).
+ 		 */
+-		ramoops@60000000 {
++		ramoops@43810000 {
+ 			compatible = "ramoops";
+-			reg = <0 0x60000000 0 0x100000>;
+-			record-size = <0x20000>;
+-			console-size = <0x80000>;
+-			pmsg-size = <0x20000>;
++			reg = <0 0x43810000 0 0x60000>;
++			record-size = <0x10000>;
++			console-size = <0x40000>;
++			pmsg-size = <0x10000>;
+ 			ecc = <0>;
+ 		};
+ 	};
+diff --git a/arch/arm64/configs/mt8167_arm64_defconfig b/arch/arm64/configs/mt8167_arm64_defconfig
+index 024cbbc10017..ab404a054733 100644
+--- a/arch/arm64/configs/mt8167_arm64_defconfig
++++ b/arch/arm64/configs/mt8167_arm64_defconfig
+@@ -63,5 +63,7 @@ CONFIG_PSTORE_CONSOLE=y
+ CONFIG_PSTORE_PMSG=y
+ CONFIG_PSTORE_RAM=y
+ CONFIG_PANIC_TIMEOUT=10
++CONFIG_WATCHDOG=y
++CONFIG_MEDIATEK_WATCHDOG=y
+ 
+ CONFIG_EXT4_FS=y

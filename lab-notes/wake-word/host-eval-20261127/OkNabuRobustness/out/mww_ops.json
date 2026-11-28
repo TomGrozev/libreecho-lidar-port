@@ -1,0 +1,62 @@
+{
+ "loose_cutoff": 0.5,
+ "models": {
+  "okay_nabu": {
+   "cutoff": 0.97
+  },
+  "hey_jarvis": {
+   "cutoff": 0.97
+  },
+  "hey_mycroft": {
+   "cutoff": 0.95
+  },
+  "okay_nabu_pkg": {
+   "cutoff": 0.85
+  }
+ },
+ "ops": {
+  "okay_nabu": [
+   "ASSIGN_VARIABLE",
+   "CALL_ONCE",
+   "CONCATENATION",
+   "CONV_2D",
+   "DEPTHWISE_CONV_2D",
+   "FULLY_CONNECTED",
+   "LOGISTIC",
+   "QUANTIZE",
+   "READ_VARIABLE",
+   "RESHAPE",
+   "SPLIT_V",
+   "STRIDED_SLICE",
+   "VAR_HANDLE"
+  ],
+  "hey_jarvis": [
+   "ASSIGN_VARIABLE",
+   "CALL_ONCE",
+   "CONCATENATION",
+   "CONV_2D",
+   "DEPTHWISE_CONV_2D",
+   "FULLY_CONNECTED",
+   "LOGISTIC",
+   "QUANTIZE",
+   "READ_VARIABLE",
+   "RESHAPE",
+   "STRIDED_SLICE",
+   "VAR_HANDLE"
+  ],
+  "hey_mycroft": [
+   "ASSIGN_VARIABLE",
+   "CALL_ONCE",
+   "CONCATENATION",
+   "CONV_2D",
+   "DEPTHWISE_CONV_2D",
+   "FULLY_CONNECTED",
+   "LOGISTIC",
+   "QUANTIZE",
+   "READ_VARIABLE",
+   "RESHAPE",
+   "STRIDED_SLICE",
+   "VAR_HANDLE"
+  ]
+ }
+}

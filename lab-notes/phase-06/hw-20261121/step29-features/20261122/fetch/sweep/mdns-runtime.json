@@ -1,0 +1,25 @@
+{
+  "abi": {
+    "class": "ELF32",
+    "float": "hard-float",
+    "interpreter": "/lib/ld-linux-armhf.so.3",
+    "machine": "ARM"
+  },
+  "component": "libreecho-mdns",
+  "contract": "libreecho-mdns-runtime-contract/v1",
+  "files": 73,
+  "init": "/etc/init.d/libreecho-mdnsd.init",
+  "manifest_sha256": "e700b693905c74b768f4a2db50430a8c7bd6303c98a3e0cd367e5f6a9195ec65",
+  "packages_sha256": "d2623a9a655ff9ea85b8f59aa03b415cbf34b4b727bbe1884b9754b2d0c2e104",
+  "readiness": "presence-is-not-readiness",
+  "runtime_dirs": {
+    "bus": "/usr/local/lib/libreecho-mdns/root/run/dbus",
+    "control_socket": "/run/libreecho/mdns.sock",
+    "pidfile": "/var/run/libreecho-mdnsd.pid",
+    "services": "/usr/local/lib/libreecho-mdns/root/etc/avahi/services",
+    "state_root": "/usr/local/lib/libreecho-mdns/root"
+  },
+  "runtime_root": "/usr/local/lib/libreecho-mdns/root",
+  "schema": "libreecho-mdns-runtime-marker/v1",
+  "source_offer_verified": false
+}

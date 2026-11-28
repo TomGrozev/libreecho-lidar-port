@@ -1,0 +1,11 @@
+{
+ "body": {
+  "data": null,
+  "error": {
+   "code": "io_error",
+   "message": "Bluetooth setting could not be applied"
+  },
+  "ok": false
+ },
+ "status": 501
+}

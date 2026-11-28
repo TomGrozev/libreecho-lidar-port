@@ -1,0 +1,21 @@
+{
+ "body": {
+  "data": {
+   "available": true,
+   "missed": 0,
+   "ringing": 0,
+   "timers": [
+    {
+     "id": 3,
+     "kind": "countdown",
+     "label": "apSweep22",
+     "seconds_remaining": 3599,
+     "state": "pending"
+    }
+   ]
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}

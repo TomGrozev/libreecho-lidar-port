@@ -1,0 +1,13 @@
+{
+ "body": {
+  "data": {
+   "available": true,
+   "missed": 0,
+   "ringing": 0,
+   "timers": []
+  },
+  "error": null,
+  "ok": true
+ },
+ "status": 200
+}
