@@ -432,8 +432,10 @@ def audit_repo(ws, repo):
                "refs/remotes/fork", check=False)
     if proc.returncode == 0:
         # The base branch and the fork's default branch are not topic leftovers.
+        # A base is either remote/branch or a branch the fork itself carries
+        # (base/linux-6.18.64), so list both readings.
         listed = set(branches)
-        listed.add(base.rsplit("/", 1)[-1])
+        listed.update({base, base.split("/", 1)[-1]})
         default = git(repo_dir, "symbolic-ref", "--quiet", "--short",
                       "refs/remotes/fork/HEAD", check=False)
         if default.returncode == 0 and default.stdout.strip():
