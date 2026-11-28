@@ -26,32 +26,41 @@ statements below.
 | Area | Status | Evidence |
 | --- | --- | --- |
 | Custom boot chain | I installed the chain from the reference kit's hardware-proven Kaeru and Koboreru stages, after a stock backup, restore drill and readback checks; I never wrote BOOT1. The same chain built from source is not yet hardware-proven. | [phase-03](../lab-notes/phase-03/) |
-| Kernel | Source-built ARM64 kernel (6.18 LTS base, `fix/stable-6.18.64` fixes) boots from a boot slot. | [step 3-9](../lab-notes/phase-06/hw-20261121/) |
-| Wi-Fi | MT7668 SDIO driver ported to 6.18; DHCP, DNS, link flap and supplicant restart pass. | [step11-net](../lab-notes/phase-06/hw-20261121/step11-net/) |
+| Kernel | Source-built ARM64 kernel (6.18 LTS on the `base/linux-6.18.64` base plus the Lidar branch) boots from a boot slot. | [step 3-9](../lab-notes/phase-06/hw-20261121/) |
+| Wi-Fi | MT7668 SDIO driver ported to 6.18; DHCP, DNS, link flap and supplicant restart pass. Association is pinned to the first BSS, and DHCP is one-shot. | [step11-net](../lab-notes/phase-06/hw-20261121/step11-net/) |
 | Bluetooth | Mainline `btmtksdio`; my phone paired, A2DP and AVRCP worked. | [step26-bt](../lab-notes/phase-06/hw-20261121/step26-bt/) |
 | Audio playback | Two-way speaker through the TLV320 AIC32x4 with Amazon's crossover biquads; volume cues and music heard on the product path. | [step16-audio](../lab-notes/phase-06/hw-20261121/step16-audio/), [step21-cue](../lab-notes/phase-06/hw-20261121/step21-cue/), [step22-drain](../lab-notes/phase-06/hw-20261121/step22-drain/) |
 | Microphones | All 7 microphones capture; each lane verified by a per-mic rub test. | [step17-mics](../lab-notes/phase-06/hw-20261121/step17-mics/) |
 | Buttons and LEDs | Volume, mute and Action keys; 36-channel LED ring, volume meter, mute ring, boot animation. | [step18-buttons](../lab-notes/phase-06/hw-20261121/step18-buttons/), [step19-flash](../lab-notes/phase-06/hw-20261121/step19-flash/) |
 | Privacy latch | While latched, capture is exactly zero on every lane and the ring shows steady red; capture returns on release. | [step17-mics](../lab-notes/phase-06/hw-20261121/step17-mics/), [step19-flash](../lab-notes/phase-06/hw-20261121/step19-flash/) |
-| UI and control API | Web setup page, bootstrap and authenticated API pass; the LibreEcho feature sweep passed with classified gaps. | [step13-ui](../lab-notes/phase-06/hw-20261121/step13-ui/), [step29-features](../lab-notes/phase-06/hw-20261121/step29-features/) |
-| OTA, A/B updates | True A/B with LK tries fallback; install, health confirm and forced rollback pass, including over Wi-Fi without USB. | [phase-05](../lab-notes/phase-05/), [wifi-dev-updates](../lab-notes/phase-06/wifi-dev-updates/) |
-| Voice | Wake word and Home Assistant satellite voice commands work; speech-to-text runs on the device. The online assistant reply needs internet and was not tested. | [step24-voice](../lab-notes/phase-06/hw-20261121/step24-voice/), [step29-features](../lab-notes/phase-06/hw-20261121/step29-features/) |
-| EFR32 radio (Zigbee/Thread) | Gecko bootloader answered; OpenThread RCP and stock Zigbee NCP each ran. The permanent Thread service is open. | [step25-efr32](../lab-notes/phase-06/hw-20261121/step25-efr32/) |
+| UI and control API | Web setup page, bootstrap and authenticated API pass; the LibreEcho feature sweep passed with classified gaps. The sweep predates microWakeWord, and Spotify Connect stays absent. | [step13-ui](../lab-notes/phase-06/hw-20261121/step13-ui/), [step29-features](../lab-notes/phase-06/hw-20261121/step29-features/) |
+| OTA, A/B updates | True A/B with LK tries fallback; install, health confirm and forced rollback pass, including over Wi-Fi without USB. v0.2.68 was installed and booted on 2026-11-28 (owner report). | [phase-05](../lab-notes/phase-05/), [wifi-dev-updates](../lab-notes/phase-06/wifi-dev-updates/) |
+| Voice | Wake word and Home Assistant satellite voice commands work; speech-to-text runs on the device. The hardware check used the retired ONNX engine, and microWakeWord is unverified on the device. The online assistant reply needs internet and was not tested. | [step24-voice](../lab-notes/phase-06/hw-20261121/step24-voice/), [step29-features](../lab-notes/phase-06/hw-20261121/step29-features/) |
+| EFR32 radio (Zigbee/Thread) | Experimental. The Gecko bootloader answered, and the OpenThread RCP and stock Zigbee NCP each ran. The Thread service is packaged in v0.2.68 (image evidence only) and has never run on the device; the work moved to the separate `feat/lidar-radio` topic. | [step25-efr32](../lab-notes/phase-06/hw-20261121/step25-efr32/) |
 
 ## What does not work, or is unproven
 
-- A fresh unit has not gone through the install guide end to end. The preparation command
+- A second unit has not gone through the install guide end to end. An external tester runs
+  [acceptance-test.md](acceptance-test.md) on it. The preparation command
   `lidar_prepare.py` has passed host tests and dry runs only
   ([prep-command](../lab-notes/phase-07/prep-command.md)).
 - The boot chain built from source is not hardware-proven. The earlier normal-boot failure was
   inconclusive ([phase-03 notes](../lab-notes/phase-03/notes.md), "Limitation").
-- The expdb guard's refuse path has not fired on hardware
+- The expdb guard's refuse path has not fired on hardware. The accept path ran on
+  2026-11-26 and read `kaeru-v2`
   ([expdb-guard](../lab-notes/phase-07/expdb-guard.md)).
-- A build from a clean clone has host evidence only; see [BUILDING.md](../BUILDING.md).
-- Hosted CI has not run on any fork: Actions is not enabled on my forks
+- A build from a clean clone has host evidence only. The pinned image exists and v0.2.68 was
+  built with it; the clean-clone `init` and `build` run is missing. See
+  [BUILDING.md](../BUILDING.md).
+- Hosted CI runs on the forks. The Linux `checks.yml` lane passes for the Lidar branch and
+  `parity.yml` fails by design (byte-identical comparison with `aslater3`). The LibreEcho
+  `release-gate` workflow passes; `build-release` builds only `aslater3` sources from
+  `main`/`release/*`. The UI and Platform workflows filter out the topic branches, and
+  Actions is disabled on `kaeru`, `LibreEcho-Installer-Web` and `amonet-koboreru`
   ([hosted-ci](../lab-notes/phase-07/hosted-ci.md)).
-- The announce bug (pink LED, then no audio) is fixed on the host; the on-device check is
-  pending ([announce-bug](../lab-notes/phase-07/announce-bug/notes.md)).
+- The announce bug (pink LED, then no audio) is fixed in v0.2.68 (installed 2026-11-28), but
+  no announcement has been sent on that image, so the on-device check is pending
+  ([announce-bug](../lab-notes/phase-07/announce-bug/notes.md)).
 - A software microphone mute turns the ring red but leaves the mute-button lamp dark; only
   the hardware latch lights it. I decided to keep this behavior
   ([mute-lamp](../lab-notes/phase-07/mute-lamp.md)).
@@ -59,12 +68,15 @@ statements below.
   test network had no WAN ([feature sweep](../lab-notes/phase-06/hw-20261121/step29-features/result.md)).
 - Spotify Connect is not in the image: no Spotify daemon was packaged
   ([feature sweep](../lab-notes/phase-06/hw-20261121/step29-features/result.md)).
-- The board has no working RTC, so the clock falls back to retrying NTP
-  ([feature sweep](../lab-notes/phase-06/hw-20261121/step29-features/result.md)).
+- The board has no RTC. The last valid epoch is persisted across reboots, and NTP is still
+  unverified ([feature sweep](../lab-notes/phase-06/hw-20261121/step29-features/result.md)).
 - The unit does not roam between access points; a weak BSS made everything 10 to 18 times
   slower ([Wi-Fi slowdown](../lab-notes/phase-08/wifi-slowdown-20261126/notes.md)).
-- No upstream PR is open; the PR bodies are drafted and nothing is pushed
-  ([phase-07](../lab-notes/phase-07/README.md)).
+- The image matches upstream for SSH: the dropbear bundle is opt-in and off by default. No
+  SSH-enabled build has run on hardware
+  ([boot-shape decision](../lab-notes/phase-05/boot-shape-decision.md)).
+- All topic branches and this workspace are pushed to my forks; the PR bodies are drafted
+  and no upstream PR is open ([phase-07](../lab-notes/phase-07/README.md)).
 
 ## Evidence kinds
 

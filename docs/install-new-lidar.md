@@ -11,13 +11,15 @@ flow". How the port itself was built is [BUILDING.md](../BUILDING.md).
 > This port is experimental and not released. Nothing here is a support claim.
 > The installer path (the product installer writing `boot_a`, `boot_b` and
 > `userdata` over Kaeru fastboot) is hardware-proven on one development unit in
-> Phases 5 and 6. Everything before it is not: `lidar_prepare.py` has passed
-> host tests only and has never run on a device, and no fresh unit has gone
-> through this guide end to end. Treat every unproven step as a first run,
-> record what happened, and stop at any refusal instead of working around it.
-> The preparation command refuses a stage on a failed check (exit code 2 is a
-> refusal); a refusal means the unit state or the inputs are not what the
-> reviewed procedure expects.
+> Phases 5 and 6 and by the v0.2.68 install on 2026-11-28 (owner report).
+> Everything before it is not: `lidar_prepare.py` has passed host tests only and
+> has never run on a device, and no second unit has gone through this guide end
+> to end. Treat every unproven step as a first run, record what happened, and
+> stop at any refusal instead of working around it. The preparation command
+> refuses a stage on a failed check (exit code 2 is a refusal); a refusal means
+> the unit state or the inputs are not what the reviewed procedure expects.
+> [acceptance-test.md](acceptance-test.md) lists the evidence to return from
+> such a run.
 
 Safety rules that apply throughout (see [boot-chain-safety.md](boot-chain-safety.md)):
 
@@ -480,7 +482,8 @@ the development unit in every Phase 5 to 7 deploy). Check
 
 ## What to send back
 
-Return a directory with:
+[acceptance-test.md](acceptance-test.md) maps each acceptance item to these steps and to the
+evidence to return. In short, return a directory with:
 
 1. The preparation session directory: the `identify` output, the backup
    manifest and its hashes, the drill report, the stock-boot report and the

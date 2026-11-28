@@ -39,9 +39,12 @@ remaining `test_recovery_image_tools.py` conflict is recorded in rerere, so
   daemon). Old head at `archive/feature-lidar-support-2026-11-27`.
 - `check-lock` passes for all eight repos after `integrate.py rebuild`.
 
-Not done: pushing the rewritten UI `feature/lidar-support`, and the lab OTA
-build (declined for now by the owner) and the device write. Rewritten commits
-are unsigned because this environment holds no GPG secret key.
+Not done: the on-device wake-word comparison in ticket 06. The rest is complete: the
+rewritten UI `feature/lidar-support` is pushed and equals the fork head, and the lab OTA
+is built and pushed to the unit. v0.2.68 contains the microWakeWord stack
+(`run/wake-tflm-build.log`, `run/wakeword-daemon-build.log`) and was installed on the
+development unit on 2026-11-28 (owner report). Rewritten commits are unsigned because this
+environment holds no GPG secret key.
 
 ## Commands
 

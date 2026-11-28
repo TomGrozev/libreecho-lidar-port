@@ -4,6 +4,14 @@ State: host work only. No device access. The RCP was already proven on hardware 
 `private/lab/phase-06/hw-20261121/step25-efr32/` (`rcp-flash.log`,
 `spinel-final.log`, `thread-form.log`).
 
+Update, 2026-11-28: v0.2.68 packages the service. Its manifest has
+`thread.enabled = true` with `libreecho-threadd.init`, `lidar-efr32` and a static
+`otbr-agent`, `start_order = [lidar-efr32, otbr-agent]`, and status
+`PREPARED_NOT_FLASHED`. This is image evidence only; none of the binaries has run on the
+device. The work moved to the `feat/lidar-radio` topic. `ot-ctl` is built but not
+staged, and `OTBR_REST` and border routing remain off, so Home Assistant cannot join a
+network yet.
+
 ## What is in the trees
 
 - Platform `tools/mt8163-arm32/efr32/lidar-efr32.c`: GPIO chardev control

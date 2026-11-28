@@ -17,7 +17,7 @@ yet, read the project [README](../README.md) and [the status page](../docs/statu
 | 4 | Kernel and DTB bring-up | I built, packed and brought up the ARM64 kernel and Lidar DTB, and isolated the missing eMMC, USB and entry faults. | [notes.md](phase-04/notes.md) |
 | 5 | Platform, install, recovery and OTA | I got LibreEcho-Platform running on Lidar; install, reinstall from the recovery floor and A/B OTA passed on hardware. | [README.md](phase-05/README.md) |
 | 6 | Hardware and core feature bring-up | I brought up Wi-Fi, Bluetooth, audio, microphones, buttons, LEDs, UI, voice and the EFR32 radio on 6.18, through the feature sweep and lab OTAs. | [README.md](phase-06/hw-20261121/README.md) |
-| 7 | Product integration and production tooling | I rebased the forks onto current upstreams, added production tooling and gates, and ran read-only device checks. In progress. | [README.md](phase-07/README.md) |
+| 7 | Product integration and production tooling | I rebased the forks onto current upstreams, added production tooling and gates, and built and installed lab OTAs through v0.2.68 alongside read-only device checks. In progress. | [README.md](phase-07/README.md) |
 | 8 | Validation and PR preparation | Validation and the drafted PR stack; the Wi-Fi slowdown was traced to the access point the unit joined. In progress. | [notes.md](phase-08/wifi-slowdown-20261126/notes.md) |
 
 Phase state, gates and close dates stay in [the status page](../docs/status.md);

@@ -11,7 +11,8 @@ the lab evidence. I worked against one development unit.
 > chain, and a bad write can brick the unit with no UART recovery.
 
 Quick links: [Status](docs/status.md) | [Install on a new unit](docs/install-new-lidar.md)
-| [Build from source](BUILDING.md) | [Plan](docs/plan.md) | [Lab notes](lab-notes/README.md)
+| [Acceptance test](docs/acceptance-test.md) | [Build from source](BUILDING.md) |
+[Plan](docs/plan.md) | [Lab notes](lab-notes/README.md)
 | [Boot-chain safety](docs/boot-chain-safety.md) | [Glossary](GLOSSARY.md)
 
 ## Status
@@ -21,9 +22,9 @@ and restore drill. A source-built 6.18 kernel boots from a slot with Wi-Fi, Blue
 all 7 microphones, buttons and the LED ring, the privacy latch, the web UI and control API,
 A/B OTA with automatic fallback, wake word and Home Assistant voice. It is not a supported
 product. Phase 7 and Phase 8 of the plan are open: a fresh unit has not run the install guide
-end to end, the source-built chain stages are not hardware-proven, and no upstream PR is
-pushed. [docs/status.md](docs/status.md) lists what works, what does not, and the evidence for
-each entry.
+end to end, the source-built chain stages are not hardware-proven, and the topic branches
+are pushed to my forks with no upstream PR open yet. [docs/status.md](docs/status.md) lists
+what works, what does not, and the evidence for each entry.
 
 ## How it fits together
 
@@ -53,7 +54,7 @@ so a Linux host needs podman and a few standard tools, not a full toolchain.
 | Path | What it holds |
 | --- | --- |
 | [docs/status.md](docs/status.md) | What works, what does not, and the evidence. |
-| [docs/plan.md](docs/plan.md) | The port plan: scope, phases, gates, decisions. A frozen record. |
+| [docs/plan.md](docs/plan.md) | The port plan: scope, phases, gates, decisions. |
 | [docs/boot-chain-safety.md](docs/boot-chain-safety.md) | The rules for every boot-chain write. |
 | `lab-notes/` | The phase records: notes, logs and results. Generated; do not edit by hand. |
 | [BUILDING.md](BUILDING.md), [docs/agents/](docs/agents/) | The build guide and the contributor documentation. |

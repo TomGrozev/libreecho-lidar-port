@@ -1,15 +1,42 @@
-# Hosted CI readiness for the Lidar branches
+# Hosted CI state for the Lidar branches
 
-Evidence gathered 2026-11-26. Host evidence only; no hosted run has executed.
+Evidence gathered 2026-11-26, updated 2026-11-28 after the first hosted runs. The
+2026-11-26 sections below are history: the enablement blocker no longer holds.
 
-## Prerequisite: branch cleanup
+## State 2026-11-28
+
+Actions is enabled on five of the eight forks. It is disabled on `kaeru`,
+`LibreEcho-Installer-Web` and `amonet-koboreru`.
+
+| Repository | Runs on the 2026-11-28 pushes | Result |
+| --- | --- | --- |
+| LibreEcho-Linux | `checks.yml`, `parity.yml` | checks success (run 46106657755, job `Kernel build and regression checks (lidar)`); parity failure 46106657499, by design |
+| LibreEcho | `release-gate.yml`, `build-release.yml` | release-gate success (46106682119, target-contracts included); build-release failure 46106682113 in the product suites and the input inventory; publish jobs skipped |
+| libreecho-lidar-port | `checks.yml`, 15 runs | latest 46110507849 failed in `python3 tools/check.py` after the ruff step; the `test_lab_build` failure is fixed in 3599e85, and no run after it is recorded |
+| LibreEcho-UI | 3 workflows, 0 runs | the filters accept `release/0.14.0` to `0.14.6` only |
+| LibreEcho-Platform | 2 workflows, 0 runs | `ota-release.yml` accepts a pull request on any branch, but no PR was opened |
+| LibreEcho-Installer-Web, kaeru, amonet-koboreru | 0 | Actions is disabled; amonet has no workflows on its branches |
+
+`parity.yml` fails on any intended Lidar change because it requires byte-identical output
+from `aslater3/LibreEcho-Linux-6.1`. `build-release.yml` refuses a ref outside `main` or
+`release/*` and pins every component to `aslater3`, so it cannot build the Lidar branches.
+
+## Settings still open
+
+- Enable Actions on `TomGrozev/kaeru`, `TomGrozev/LibreEcho-Installer-Web` and
+  `TomGrozev/amonet-koboreru`.
+- Optional: register `flash-container.yml` (LibreEcho) and `next-lts-canary.yml` (Linux)
+  on the forks by touching each file in a commit on `main`; dispatch cannot create it.
+- For upstream PRs, approve the first-time fork workflow runs when GitHub asks.
+
+## Prerequisite: branch cleanup (2026-11-26)
 
 Done locally, not on the forks. Every branch that `delete-old-branches.sh` names
 (`fix/lidar-efr32-nodes`, `fix/lidar-port-identity`, `fix/lidar-6.18*`,
 `experiment/lidar-*`, `feature/lidar-support-6.1`) is gone from the local clones
 and still reachable through the `archive/*` tags. The fork remotes were not
-touched (`delete-old-branches.sh:3`, "Nothing is pushed"); for example
-`TomGrozev/LibreEcho-Linux` still has `fix/lidar-port-identity` at `47feddd6`.
+touched: for example `TomGrozev/LibreEcho-Linux` still has
+`fix/lidar-port-identity` at `47feddd6`.
 Old remote branches do not affect CI, which builds only the ref that is
 dispatched.
 
@@ -131,7 +158,7 @@ One local limiter: this session's shell policy gates network writes
 that a subagent cannot obtain. The dispatch and push commands below are ready
 to run but were not executed here.
 
-## Smallest plan to a hosted run
+## Plan to a first hosted run (2026-11-26, done)
 
 1. I enable workflows on `TomGrozev/LibreEcho-Linux` and
    `TomGrozev/LibreEcho` (Actions tab → "I understand my workflows, go ahead
@@ -192,7 +219,7 @@ Because the rewrite produces new SHAs, the push must use `--force-with-lease`
 pinned to the current remote SHA (`7bdab28` for `LibreEcho
 feature/lidar-support`), not a plain push.
 
-## Actions only I can take
+## Settings as of 2026-11-26 (history)
 
 - Enable workflows on `TomGrozev/LibreEcho-Linux` and `TomGrozev/LibreEcho`
   (Actions tab → "I understand my workflows, go ahead and enable them").

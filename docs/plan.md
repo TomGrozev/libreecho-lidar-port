@@ -1,17 +1,16 @@
 # Lidar support (Echo Plus 2nd Gen): implementation plan
 
-> This is a frozen record of the port plan as it was written and executed. It is not a live
-> work queue. The current phase state and gate outcomes are in
-> [docs/status.md](status.md); the boot-chain rules are in
-> [boot-chain-safety.md](boot-chain-safety.md).
+The phase state and gate outcomes are in [docs/status.md](status.md); the boot-chain rules
+are in [boot-chain-safety.md](boot-chain-safety.md), and the external acceptance test is in
+[acceptance-test.md](acceptance-test.md).
 
 LibreEcho keeps Echo hardware that people already own useful, repairable and private. As of
 2026-11-24, the release supported two MT8163 ARM32 models, `radar_puffin` and `biscuit`; the
 product's own target list is authoritative. This plan
 covers the third, the Echo Plus 2nd Gen (`Lidar`, MediaTek MT8167), and records the
 implementation scope I agreed on for issue #101. No Lidar support was claimed at that date.
-Every build, flash, and release step below is a future task, gated on explicit approval and
-evidence.
+Each hardware write, push and release needs explicit approval and evidence. The phase
+records under [lab-notes/](../lab-notes/) hold what ran.
 
 ## Accepted scope and decisions
 
@@ -19,16 +18,16 @@ The goal is a Lidar build with the same result you get on the shipping models: a
 private assistant on hardware you already own. The issue-#101 scope below is how that gets
 built.
 
-- The deliverable of the current session is this plan, not code. A later fresh session
-  executes it phase by phase.
+- I wrote this plan before any code and executed it phase by phase. The phase records hold
+  the commands and outcomes.
 - Use the workspace layout and session instructions in `README.md`. Run commands from the
   workspace root unless a phase names another directory.
 - Initial experiments use my existing mtkclient setup and temporary local scripts. They are
   personal experimental tools. Production scripts replace them only after boot-chain
   installation and LibreEcho installation work is proven on the device.
-- I work iteratively in local experimental branches across the required forks, and prepare
-  PRs only after I'm satisfied with working results. No push, PR, merge, release, or hardware
-  action is authorized by this plan.
+- I worked iteratively in topic branches across the forks and prepared PRs only after
+  working results. The topic branches are pushed to my forks; no upstream PR is open. Each
+  PR, merge, release and hardware action needs separate approval.
 - Support stays experimental and fails closed until exact live-device evidence exists.
 - Start with read-only BROM/fastboot inspection. I approve each hardware write or reboot
   phase separately before it runs.
@@ -551,10 +550,12 @@ with OTA v0.2.24 confirmed on slot a and my wake and Home Assistant timer retest
       Radar and Biscuit outputs are unchanged. `737cb90` adds a pinned aarch64 cross and an
       MT8167 branch for the MT8163-only `build.sh` checks. A local kernel build with the
       pinned toolchain gave `Image` `1d81b03f…` and `libreecho-lidar.dtb` `a8e19573…`
-      (`lab-notes/phase-07/arm64-ci-toolchain.md`). Open until a hosted run: the workflow
-      has not executed, `build-release.yml` accepts dispatch only from `main` or `release/*`,
-      and the sources are pinned to upstream. I decided on 2026-11-24 that hosted CI waits
-      until after the branch cleanup. Kernel cache finding (2026-11-24): one run builds a
+      (`lab-notes/phase-07/arm64-ci-toolchain.md`). Host-complete; open only for a hosted CI
+      run. The Linux `checks.yml` lane passes on the fork for this branch, but
+      `build-release.yml` accepts dispatch only from `main` or `release/*` and its sources
+      are pinned to upstream, so the product release workflow cannot build the Lidar
+      branches as written. I decided on 2026-11-24 that hosted CI waits until after the
+      branch cleanup. Kernel cache finding (2026-11-24): one run builds a
       single kernel and uses it for every target. Fixed 2026-11-26 in `LibreEcho`
       `be15ef05` (local): `validate-targets.py` refuses a target set whose arch, defconfig or
       DTB differ and names the differing fields; `docs/porting/README.md` shows a valid set.
@@ -575,7 +576,8 @@ with OTA v0.2.24 confirmed on slot a and my wake and Home Assistant timer retest
       `lab-notes/phase-07/lidar-backup-set.md`). The preparation command that reads these
       areas from the device now exists: `lidar_prepare.py` `backup` reads every backup-set
       area twice and verifies the second read (Platform `83e9caae7`;
-      `lab-notes/phase-07/prep-command.md`). Not run on hardware yet.
+      `lab-notes/phase-07/prep-command.md`). Host-proven; the `backup` stage has not run on
+      hardware.
 - [ ] Never write expdb after Kaeru installation. Partly done 2026-11-24 (local). Both
       installers read `expdb[0:16]` with Kaeru's `fetch:expdb:0:16` and refuse every flash
       write unless it starts with the MTK magic `88 16 88 58` (rule: Platform
@@ -586,10 +588,11 @@ with OTA v0.2.24 confirmed on slot a and my wake and Home Assistant timer retest
       (`lab-notes/phase-07/hw-2026-11-26/08-expdb-magic.log`,
       `09-expdb-guard-verdict.log`), and `lidar_prepare.py` `install` calls
       `check_expdb_prefix` before its boot0/LK writes (Platform `83e9caae7`). Open: the
-      guard's refuse path has not fired on hardware (`lab-notes/phase-07/expdb-guard.md`).
+      guard's refuse path has not fired on hardware; the accept path read `kaeru-v2` on
+      2026-11-26 (`lab-notes/phase-07/expdb-guard.md`).
 - [ ] Replace the experimental mtkclient and reference steps with reviewed production
-      scripts that use licensed components and source-built chain stages. In progress.
-      Platform `83e9caae7` added `tools/mt8167-arm64/prepare/lidar_prepare.py`; Platform
+      scripts that use licensed components and source-built chain stages. Code done;
+      hardware run unchecked. Platform `83e9caae7` added `tools/mt8167-arm64/prepare/lidar_prepare.py`; Platform
       `c10b2b455` then removed the mtkclient device path, so the command reaches a unit only
       through Amonet (`--amonet <checkout>` names the checkout). The preloader comes from the
       verified backup's boot0 and must match the reviewed 2019 digest; Kaeru and Koboreru are
@@ -599,19 +602,24 @@ with OTA v0.2.24 confirmed on slot a and my wake and Home Assistant timer retest
       (`lab-notes/phase-07/hw-2026-11-26/notes.md`, "Check 3"); BROM identify, backup and
       drill still need a hardware run, and each stage needs separate approval
       (`lab-notes/phase-07/prep-command.md`).
-- [ ] Lidar Thread service (decided 2026-11-21, moved from Phase 6): upload the RCP
-      through the EFR32 bootloader when needed and run a host Thread stack on `ttyS2`. The
-      RCP GBL links Silicon Labs code under the MSLA (`gsdk/License.txt:1-12`), so it stays a
-      local-only payload. Choose Thread or Zigbee per unit. Host side done 2026-11-24
-      (Platform `ca8c09f18`, `3617d6650`, `02ef8ad6a`, `40bf6f0b69`; UI `81aaae3`,
-      `947841ea9`; Product `73508b6`; Linux `47feddd6`); on-device run deferred by me
-      until a second unit arrives (`lab-notes/phase-07/thread-service.md`).
-- [ ] Generate any proprietary donor-derived artifact locally from my dump; never
-      distribute it. Host side done 2026-11-24: Platform `f9ac5cd9ab` builds the preloader
+- [ ] Lidar radio service (Thread and Zigbee; decided 2026-11-21, moved from Phase 6).
+      Moved on 2026-11-28 to the `feat/lidar-radio` topic stacked on
+      `feature/lidar-support` in Platform, UI and LibreEcho, and out of the first PR stack.
+      The RCP uploads through the EFR32 bootloader when needed and the host Thread stack
+      runs on `ttyS2`; the RCP GBL links Silicon Labs code under the MSLA, so it stays a
+      local-only payload, and the choice between Thread and Zigbee is per unit. Host side
+      done 2026-11-24 (`lab-notes/phase-07/thread-service.md`) and packaged in v0.2.68
+      (image evidence only; `work/builds/v0.2.68/run/manifest.json`). Still open: OTBR REST
+      and border routing, a dataset path (`ot-ctl` is built but not shipped), the Zigbee
+      service and its TCP-UART relay, and a Home Assistant join test. Nothing has run on
+      the device.
+- [x] Generate any proprietary donor-derived artifact locally from my dump; never
+      distribute it. Done 2026-11-24: Platform `f9ac5cd9ab` builds the preloader
       and tee1 stages from a verified backup into ignored local paths, and
       `capture_stock_gbls.py` copies stock Zigbee GBLs into `local-firmware/`. Product
       `f449b3f339` + `8e0d52f43c` refuse generator-manifest digests and MTK/`EMMC_BOOT`
-      headers. Synthetic fixtures only (`lab-notes/phase-07/donor-generator.md`).
+      headers. Generation from the real dump ran in Phases 2 and 3; the reviewed generator
+      has only run on the host (`lab-notes/phase-07/donor-generator.md`).
 - [x] Keep Lidar out of the normal web installer until hardware acceptance. Done 2026-11-24
       in `LibreEcho-Installer-Web` `5b6477e` (local). Each profile carries
       `hardwareAccepted` (Lidar `false`); an unaccepted board is not listed or offered and is
@@ -627,25 +635,32 @@ with OTA v0.2.24 confirmed on slot a and my wake and Home Assistant timer retest
       forks from URLs in `integration.json` and fetches every public build input by URL and
       sha256; components the lab built once get build recipes in the owning fork; the
       signing key comes from a `keygen` command. Gate: `init` and `build` succeed from a
-      clean clone with only the private inputs supplied (host or CI evidence only).
+      clean clone with only the private inputs supplied (host or CI evidence only). Host
+      build from the pinned image is done: v0.2.68 was built that way. A clean-clone `init`
+      followed by `build` has not been recorded.
 
-Open items (2026-11-26):
+Open items (2026-11-28):
 
-- Lab OTA build and deploy history from v0.2.38 onward: see the phase record in
+- Lab OTA build and deploy history from v0.2.38 through v0.2.68: see the phase record in
   [`lab-notes/phase-07/`](../lab-notes/phase-07/) and the device checks in
-  [`lab-notes/phase-07/hw-2026-11-26/`](../lab-notes/phase-07/hw-2026-11-26/).
+  [`lab-notes/phase-07/hw-2026-11-26/`](../lab-notes/phase-07/hw-2026-11-26/). v0.2.68 was
+  installed and booted on 2026-11-28 (owner report).
 - Announce bug (pink LED, then no audio): fixed on the host. The 0.14.6 branch replaced
   `dechunk()` with the `unframe()` state machine, and the remaining defect (chunk
   extensions were rejected) is fixed in UI `0cc5507` with regression tests
-  (`tests/test_esphomed_http.c`). Device check pending
+  (`tests/test_esphomed_http.c`). The fix ships in v0.2.68, which is installed; no
+  announcement has been sent on it, so the on-device check is pending
   (`lab-notes/phase-07/announce-bug/notes.md`, "On-device check (UNVERIFIED)").
-- Hosted CI is blocked on me: Actions is not enabled on my forks
-  (`gh api repos/TomGrozev/LibreEcho/actions/workflows` returns `total_count: 0`), and the
-  `gh` identity has no write access to them. The dispatch plan and the reauth detail are in
-  `lab-notes/phase-07/hosted-ci.md`.
-- I decided on 2026-11-24 that hardware checks for the Phase 7 scripts wait for a second
-  unit. The remaining unchecked items are host-complete and stay open only for their device
-  runs and the hosted CI run.
+- Hosted CI (decided 2026-11-28): the upstream workflows stay untouched and CI runs on the
+  upstream PRs. On the forks, the Linux `checks.yml` lane passes for the Lidar branch,
+  `parity.yml` fails by design (it compares byte-identically with `aslater3`), the LibreEcho
+  `release-gate` workflow passes, `build-release` builds only `aslater3` sources from
+  `main`/`release/*`, and the UI and Platform workflows filter out the topic branches.
+  Actions is disabled on `kaeru`, `LibreEcho-Installer-Web` and `amonet-koboreru`.
+  `lab-notes/phase-07/hosted-ci.md` holds the per-repo detail.
+- Hardware acceptance moved to an external tester on a second unit (decided 2026-11-28; see
+  [acceptance-test.md](acceptance-test.md)). The remaining unchecked items are
+  host-complete and stay open only for their device runs.
 - On 2026-11-24 I decided: one topic per change, topics on current upstream, a rebuilt
   integration branch, and no `private/lab/...` citations in fork code.
 
@@ -677,14 +692,19 @@ Gate: the documented one-command path works end to end on the device with
 
 ### Phase 8: validation and PR preparation
 
-- [ ] Run each owning repository's focused and required checks. Product CI includes
-      `python -m unittest tools.test_release_tools` and the release-gate workflow's
-      documented steps. Target descriptors validate with
-      `python3 build/ci/validate-targets.py --targets lidar`.
+- [ ] Run each owning repository's focused and required checks. Host: `python -m unittest
+      tools.test_release_tools` passes (127 tests) and `python3 build/ci/validate-targets.py
+      --targets lidar` passes. CI: the Linux `checks.yml` lane and the LibreEcho
+      `release-gate` workflow pass on the forks. Known gaps: the Platform
+      arm32/image/install tests need host `busybox`, `fakeroot` and `dtc`, which are absent
+      here and fail the same way on `main`; the UI watchdog contract test hangs locally;
+      `parity.yml` fails by design (`lab-notes/phase-07/hosted-ci.md`).
 - [x] Run the prose gate on docs.
 - [x] Record the exact tested commit for each repository; each PR body records the tested
       tree, which the re-author pass preserves.
-- [ ] Complete real-hardware acceptance for the full checklist below.
+- [ ] Complete real-hardware acceptance. An external tester runs
+      [acceptance-test.md](acceptance-test.md) on a second unit. The development unit has
+      covered every area except the install path from BROM, which stays open.
 - [ ] After my approval, open the PR stack below (decided 2026-11-22). A
       general-fix PR exists only so those fixes reach MT8163 units without waiting for
       Lidar, and wake-word model support gets its own PRs (decided 2026-11-24);
@@ -693,63 +713,92 @@ Gate: the documented one-command path works end to end on the device with
 
       | Repository | Branch → base | Merged first |
       | --- | --- | --- |
-      | LibreEcho-Linux | `fix/general-fixes-from-lidar-port` → maintainer's `feature/linux-6.18`: the 6.18 general fixes (serial, musb, ASoC, cfg80211, ambient light) | maintainer's 6.18 branch |
+      | LibreEcho-Linux | `base/linux-6.18.64` → maintainer's `feature/linux-6.18`: the 6.18.64 LTS base the Lidar work sits on | n/a; base for both Linux branches |
+      | LibreEcho-Linux | `fix/general-fixes-from-lidar-port` → `base/linux-6.18.64`: the 6.18 general fixes (serial, musb, ASoC, cfg80211, ambient light) | the base branch |
       | LibreEcho-Linux | `feature/lidar-support` → Linux general fixes: DTS, drivers with provenance notes, defconfig, `lidar` target row | Linux general fixes |
       | LibreEcho-UI | `fix/general-fixes-from-lidar-port` → `main` | none |
-      | LibreEcho-UI | `fix/config-import` → `main`: keep the integrations running after a configuration restore | none |
-      | LibreEcho-UI | `feat/wake-word-selection` → `main` | none |
-      | LibreEcho-UI | `feature/lidar-support` → UI general fixes | UI general fixes |
+      | LibreEcho-UI | `fix/config-import` → UI general fixes: keep the integrations running after a configuration restore | UI general fixes |
+      | LibreEcho-UI | `feat/wake-word-selection` → `fix/config-import`: microWakeWord replaces openWakeWord | `fix/config-import` |
+      | LibreEcho-UI | `feature/lidar-support` → `feat/wake-word-selection` | UI wake-word PR |
       | LibreEcho-Platform | `fix/general-fixes-from-lidar-port` → `main` | none |
-      | LibreEcho-Platform | `feat/wake-layernorm-ops` → `main` | none |
+      | LibreEcho-Platform | `feat/micro-wake-word` → Platform general fixes: package the microWakeWord models | Platform general fixes |
       | LibreEcho-Platform | `feature/lidar-support` → Platform general fixes | Platform general fixes, Linux and UI Lidar PRs |
-      | LibreEcho | `feat/wakeword-convert` → `main` | Platform wake-ops PR |
-      | LibreEcho | `feature/lidar-support` → `main`: `lidar.json`, schema and validator generalization | Platform Lidar PR |
+      | LibreEcho | `fix/general-fixes-from-lidar-port` → `main` | none |
+      | LibreEcho | `feat/micro-wake-word` → `main`: build microWakeWord and package its TFLite models | none |
+      | LibreEcho | `feat/build-container` → `main`: publish the build container image | none |
+      | LibreEcho | `feature/lidar-support` → `main`: `lidar.json`, schema and validator generalization | none |
       | LibreEcho-Installer-Web | `feature/lidar-support` → `main` | Product PR and hardware acceptance |
-- [ ] Give each PR evidence that distinguishes host, CI, image, and hardware tests.
+      | Platform, UI, LibreEcho | `feat/lidar-radio` → each Lidar branch: Thread and Zigbee radio | later, not in first stack |
+- [x] Give each PR evidence that distinguishes host, CI, image, and hardware tests. Done for
+      the drafted PR bodies: each has an Evidence table with the tested tree and host, CI,
+      image and hardware rows. The CI rows wait for the upstream runs, and the hardware rows
+      stay open (`lab-notes/phase-08/pr-bodies/`).
 
-**Status (2026-11-25).** The 12 product branches in the rewrite manifest have PR bodies
-drafted; the fork re-author and push tooling now lives in the maintainer's private
-workspace (`private/tools/reauth.py`, `private/tools/push.py`), not this repository. The last
-dry run passed for all branches. I must still re-author with my signing key, push, and open
-the PRs; nothing is pushed. The Linux branches now include two further `usb: musb` fixes, and
+**Status (2026-11-28).** The PR bodies are drafted for every topic branch in
+`integration.json`. All topic branches are pushed to my forks, the fork commits carry my
+signature, and the workspace root is public; no upstream PR is open. The Linux
+`checks.yml` lane and the LibreEcho `release-gate` workflow pass on the forks, and
+`parity.yml` fails by design. The Linux branches include two further `usb: musb` fixes, and
 the rebased `feature/lidar-support` builds an ARM64 `Image` and DTB. The Platform AirPlay
 end-contract regression is fixed and re-run PASS; the remaining Platform arm32/image/install
 failures are missing host tools (`busybox`, `fakeroot`, `dtc`) and also occur on `main`.
-The UI targeted tests pass; the unchanged watchdog contract test still hangs locally. CI has
-not run on any PR and hardware acceptance is open, so the gate stays open.
+The UI targeted tests pass; the unchanged watchdog contract test still hangs locally.
+v0.2.68 was installed and booted on the development unit on 2026-11-28 (owner report).
+Hardware acceptance on a second unit and the upstream PRs stay open.
 
-Gate: I have approved the working result and authorized each PR. Every published PR has
-green CI on its exact head. Nothing is pushed, merged, released, or run on hardware without
-separate approval.
+Gate: I approve each PR before I open it, and every opened PR must have green CI on its
+exact head. Nothing is merged, released, or run on hardware without separate approval.
 
 ## Final acceptance checklist
 
-- [ ] Installation from BROM through the documented one-command path.
-- [ ] Boot-chain backups of BOOT0, tee1, expdb, and GPT with a passing pre-install restore drill.
-- [ ] Recovery and reinstall.
-- [ ] OTA updates.
-- [ ] Networking.
-- [ ] UI.
-- [ ] Audio playback.
-- [ ] Microphones.
-- [ ] Buttons and LEDs, including the privacy latch.
-- [ ] All evidence separated into host, CI, image, and hardware categories.
-- [ ] No proprietary donor images, serials, keys, or personal data in any commit or asset.
-- [ ] Production scripts use licensed components with complete source.
+- [ ] Installation from BROM through the documented one-command path
+      ([acceptance-test.md](acceptance-test.md)).
+- [x] Boot-chain backups of BOOT0, tee1, expdb, and GPT with a passing pre-install restore
+      drill. Done 2026-11-14; BOOT1 is never written
+      ([phase-03 notes](../lab-notes/phase-03/notes.md)).
+- [x] Recovery and reinstall
+      ([step 23](../lab-notes/phase-06/hw-20261121/step23-recovery/result.md)).
+- [x] OTA updates ([phase-05 README](../lab-notes/phase-05/README.md), run 7; v0.2.68
+      installed 2026-11-28).
+- [x] Networking ([step11-net](../lab-notes/phase-06/hw-20261121/step11-net/)).
+- [x] UI ([step13-ui](../lab-notes/phase-06/hw-20261121/step13-ui/),
+      [step29-features](../lab-notes/phase-06/hw-20261121/step29-features/)).
+- [x] Audio playback ([step16-audio](../lab-notes/phase-06/hw-20261121/step16-audio/)).
+- [x] Microphones ([step17-mics](../lab-notes/phase-06/hw-20261121/step17-mics/)).
+- [x] Buttons and LEDs, including the privacy latch
+      ([step18-buttons](../lab-notes/phase-06/hw-20261121/step18-buttons/),
+      [step19-flash](../lab-notes/phase-06/hw-20261121/step19-flash/)).
+- [x] All evidence separated into host, CI, image, and hardware categories
+      ([status.md](status.md)).
+- [x] No proprietary donor images, serials, keys, or personal data in any commit or asset.
+      The per-branch identifier scan is clean (0 hits) and no donor asset is published;
+      there is no workspace-wide audit record.
+- [ ] Production scripts use licensed components with complete source. They do, except the
+      per-unit preloader, which comes from my own dump and is never redistributed; the
+      source-built chain is not hardware-proven.
 
-## Open questions (evidence-gated)
+## Open questions
 
-These are tasks for the phases that own them, not questions to ask me now.
+One question stays open. The rest are answered, and the evidence is named.
 
-- BOOT0 version and whether the stock build can host the chain (Phase 1/2).
-- Preloader compatibility and RPMB state (Phase 1/2).
-- Kaeru and Koboreru offsets for this board (Phase 2).
-- Userdata geometry after install (Phase 5).
-- BCB and boot-control behavior on this chain (Phase 5).
-- Audio hardware path and codec identity (Phase 6).
-- Kernel base for Phase 6: I decided on 2026-11-21 to use the 6.18 LTS.
-- Whether an ARM32 SSH daemon is available for the USB NCM development link (Phase 5).
-  LibreEcho-Platform ships a pinned ARM32 dropbear bundle (`tools/mt8163-arm32/ssh/`); it is
-  not yet tested under `CONFIG_COMPAT` on this unit.
+- Preloader compatibility and RPMB state (Phase 1/2). Compatibility is answered by the
+  preloader replacement; RPMB block 0 has never been read. Open.
+- BOOT0 version and whether the stock build can host the chain: answered. The unit's stock
+  BOOT0 is the 2023 build, and the chain replaces it with the 2019 preloader
+  (`lab-notes/phase-01/boot-chain-analysis.md`, `lab-notes/phase-02/notes.md`).
+- Kaeru and Koboreru offsets for this board: answered in Phase 2
+  (`lab-notes/phase-02/kaeru/addresses.md`, `koboreru/addresses.md`).
+- Userdata geometry after install: answered in Phase 5
+  (`lab-notes/phase-05/README.md`).
+- BCB and boot-control behavior on this chain: answered in Phase 5; the BCB at `misc` 0x360
+  drives a true A/B fallback (`lab-notes/phase-05/README.md`, "Boot control").
+- Audio hardware path and codec identity: answered in Phase 6. Speaker playback goes
+  through a TLV320 AIC32x4; the microphones use TDM ADC3101s ([status.md](status.md)).
+- Kernel base for Phase 6: decided on 2026-11-21 to use the 6.18 LTS, now the
+  `base/linux-6.18.64` base.
+- ARM32 SSH daemon under `CONFIG_COMPAT`: decided on 2026-11-28. Upstream ships an opt-in
+  dropbear bundle, and the Lidar packaging and verifier now stage it the same way, with
+  SSH off by default. `CONFIG_COMPAT` stays because the whole ARM32 userspace needs it. No
+  SSH-enabled build has run on hardware.
 - Copying reference driver code: allowed by my decision of 2026-11-21 (Phase 6, "My
-  decisions").
+  decisions"). Each copied file keeps its licence header and a provenance note.
