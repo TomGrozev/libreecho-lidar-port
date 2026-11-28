@@ -1,0 +1,13 @@
+# Private lab: raw notes, device dumps, keys, scrub map. Never published.
+/private/
+
+# Regenerable build tree: fork clones, integration worktrees, fetched inputs,
+# caches, build output. Never published.
+/work/
+
+# Local tool artifacts.
+__pycache__/
+/.codebase-memory/
+
+# Stray root-level logs from lab runs.
+/*.log
